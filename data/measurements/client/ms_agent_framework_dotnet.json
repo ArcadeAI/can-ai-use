@@ -1,0 +1,107 @@
+{
+  "schema": "mcp-mirror/client-probe@1",
+  "captured_at": "2026-10-09T19:19:44Z",
+  "fixture": "fixtures/client_features_server.py",
+  "fixture_python": "<checkout>/.mcp-mirror/fixture-2025-11-25/bin/python",
+  "spec_version": "2025-11-25",
+  "frameworks": {
+    "ms_agent_framework_dotnet": {
+      "ok": true,
+      "versions": {
+        "framework": "1.24.0",
+        "adapter": "ModelContextProtocol 2.2.0, Microsoft.Extensions.AI 10.10.0, dotnet 10.0.401"
+      },
+      "negotiated_mcp_spec_version": "2025-11-25",
+      "client_probe": {
+        "sampling": {
+          "tool": "ask_sampling",
+          "hook": "McpClientOptions.Handlers.SamplingHandler",
+          "route": "adapter",
+          "expect": "SENTINEL_SAMPLED",
+          "text": "SENTINEL_CLIENT_ANSWERED ask_sampling: {\"content\": {\"text\": \"SENTINEL_SAMPLED\", \"type\": \"text\"}, \"model\": \"mcp-mirror-stub\", \"role\": \"assistant\", \"stopReason\": \"endTurn\"}\n{\"answered\": \"ask_sampling\", \"response\": {\"content\": {\"text\": \"SENTINEL_SAMPLED\", \"type\": \"text\"}, \"model\": \"mcp-mirror-stub\", \"role\": \"assistant\", \"stopReason\": \"endTurn\"}}",
+          "is_error": null,
+          "handler_saw": [
+            {
+              "tools": false,
+              "replied": "endTurn",
+              "hook": "McpClientHandlers.SamplingHandler"
+            }
+          ]
+        },
+        "sampling.tools": {
+          "tool": "ask_sampling_tools",
+          "hook": "McpClientOptions.Handlers.SamplingHandler with Capabilities.Sampling.Tools",
+          "route": "adapter",
+          "expect": "SENTINEL_SAMPLED_AFTER_TOOL",
+          "text": "SENTINEL_CLIENT_ANSWERED ask_sampling_tools: {\"rounds\": [{\"content\": {\"id\": \"SENTINEL_TOOL_USE_ID\", \"input\": {\"word\": \"mirror\"}, \"name\": \"sentinel_lookup\", \"type\": \"tool_use\"}, \"model\": \"mcp-mirror-stub\", \"role\": \"assistant\", \"stopReason\": \"toolUse\"}, {\"content\": {\"text\": \"SENTINEL_SAMPLED_AFTER_TOOL\", \"type\": \"text\"}, \"model\": \"mcp-mirror-stub\", \"role\": \"assistant\", \"stopReason\": \"endTurn\"}]}\n{\"answered\": \"ask_sampling_tools\", \"response\": {\"rounds\": [{\"content\": {\"id\": \"SENTINEL_TOOL_USE_ID\", \"input\": {\"word\": \"mirror\"}, \"name\": \"sentinel_lookup\", \"type\": \"tool_use\"}, \"model\": \"mcp-mirror-stub\", \"role\": \"assistant\", \"stopReason\": \"toolUse\"}, {\"content\": {\"text\": \"SENTINEL_SAMPLED_AFTER_TOOL\", \"type\": \"text\"}, \"model\": \"mcp-mirror-stub\", \"role\": \"assistant\", \"stopReason\": \"endTurn\"}]}}",
+          "is_error": null,
+          "handler_saw": [
+            {
+              "tools": true,
+              "replied": "toolUse",
+              "hook": "McpClientHandlers.SamplingHandler"
+            },
+            {
+              "tools": true,
+              "replied": "endTurn",
+              "hook": "McpClientHandlers.SamplingHandler"
+            }
+          ]
+        },
+        "elicitation.form": {
+          "tool": "ask_elicitation_form",
+          "hook": "McpClientOptions.Handlers.ElicitationHandler",
+          "route": "adapter",
+          "expect": "SENTINEL_ELICITED",
+          "text": "SENTINEL_CLIENT_ANSWERED ask_elicitation_form: {\"action\": \"accept\", \"content\": {\"name\": \"SENTINEL_ELICITED\"}}\n{\"answered\": \"ask_elicitation_form\", \"response\": {\"action\": \"accept\", \"content\": {\"name\": \"SENTINEL_ELICITED\"}}}",
+          "is_error": null,
+          "handler_saw": [
+            {
+              "mode": "form",
+              "hook": "McpClientHandlers.ElicitationHandler"
+            }
+          ]
+        },
+        "elicitation.url": {
+          "tool": "ask_elicitation_url",
+          "hook": "McpClientOptions.Handlers.ElicitationHandler with Capabilities.Elicitation.Url",
+          "route": "adapter",
+          "expect": "\"action\": \"accept\"",
+          "text": "SENTINEL_CLIENT_ANSWERED ask_elicitation_url: {\"action\": \"accept\"}\n{\"answered\": \"ask_elicitation_url\", \"response\": {\"action\": \"accept\"}}",
+          "is_error": null,
+          "handler_saw": [
+            {
+              "mode": "url",
+              "hook": "McpClientHandlers.ElicitationHandler"
+            }
+          ]
+        },
+        "roots.list": {
+          "tool": "list_client_roots",
+          "hook": "McpClientOptions.Handlers.RootsHandler",
+          "route": "adapter",
+          "expect": "file:///tmp/mcp-mirror-root",
+          "text": "SENTINEL_CLIENT_ANSWERED list_client_roots: {\"roots\": [{\"name\": \"mcp-mirror\", \"uri\": \"file:///tmp/mcp-mirror-root\"}]}\n{\"answered\": \"list_client_roots\", \"response\": {\"roots\": [{\"name\": \"mcp-mirror\", \"uri\": \"file:///tmp/mcp-mirror-root\"}]}}",
+          "is_error": null,
+          "handler_saw": [
+            {
+              "hook": "McpClientHandlers.RootsHandler"
+            }
+          ]
+        },
+        "roots.list_changed": {
+          "tool": "roots_changes_seen",
+          "hook": "McpClientOptions.Handlers.RootsHandler with Capabilities.Roots.ListChanged, then McpClient.SendNotificationAsync(notifications/roots/list_changed)",
+          "route": "adapter",
+          "expect": "SENTINEL_ROOTS_CHANGES_SEEN",
+          "text": "SENTINEL_ROOTS_CHANGES_SEEN 1\n{\"seen\": 1}",
+          "is_error": null,
+          "handler_saw": []
+        },
+        "capabilities": {
+          "text": "SENTINEL_CLIENT_CAPABILITIES {\"elicitation\": {\"form\": {}, \"url\": {}}, \"roots\": {\"listChanged\": true}, \"sampling\": {\"tools\": {}}}\n{\"elicitation\": {\"form\": {}, \"url\": {}}, \"roots\": {\"listChanged\": true}, \"sampling\": {\"tools\": {}}}"
+        }
+      }
+    }
+  }
+}

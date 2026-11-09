@@ -1,0 +1,33 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "prompts-list",
+  "title": "`prompts/list`",
+  "description": "Lists the prompt templates a server exposes, with their names, titles, descriptions and argument definitions.",
+  "question": "Can the agent discover the server's prompts?",
+  "spec": "https://modelcontextprotocol.io/specification/2026-07-28",
+  "status": "stable",
+  "categories": [
+    "Prompts"
+  ],
+  "keywords": "prompts/list,prompts,templates,slash commands,user-controlled",
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/server/prompts#listing-prompts",
+      "title": "MCP Docs"
+    }
+  ],
+  "known_issues": [],
+  "why": "Prompts are the user-controlled primitive: the slash commands and menu entries a server contributes to the host. A framework that ignores them silently discards a third of what the server publishes, and the omission is invisible because nothing errors.",
+  "shown": true,
+  "docs_url": "https://modelcontextprotocol.io/specification/2026-07-28/server/prompts#listing-prompts",
+  "docs_label": "MCP Docs",
+  "notes": {
+    "openai_agents_js": "OpenAI Agents SDK (JS) 0.20.0: the `MCPServer` interface (agents-core `src/mcp.ts`) has tools and resources methods but no prompts method.",
+    "agno": "Agno 3.1.2: `MCPTools` lists and calls tools only; it has no resource or prompt API, so `prompts/list` is unreachable.",
+    "dspy": "DSPy 3.4.0: DSPy's MCP support is `dspy.Tool.from_mcp_tool`, which converts one tool. It has no resource or prompt API, so resources and prompts stay on the caller's MCP session.",
+    "langchain_js": "LangChain.js (@langchain/mcp-adapters 2.0.1): `MCPAdapter` has no prompts API (no list, get or loader for prompts), so there is no route to `prompts/list`.",
+    "langchain4j": "LangChain4j 1.22.0-beta32: `McpPrompt` holds `name`, `description` and `arguments`; `prompts/list` loses each prompt's `title`.",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): `mcptoolset.Toolset` exposes only `Tools()`, and the `*mcp.ClientSession` it opens stays inside its unexported `connectionRefresher`, so the caller has no session to call `ListPrompts` on."
+  }
+}

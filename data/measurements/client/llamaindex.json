@@ -1,0 +1,82 @@
+{
+  "schema": "mcp-mirror/client-probe@1",
+  "captured_at": "2026-09-30T22:20:14Z",
+  "fixture": "fixtures/client_features_server.py",
+  "fixture_python": "<checkout>/.mcp-mirror/fixture-2025-11-25/bin/python",
+  "spec_version": "2025-11-25",
+  "frameworks": {
+    "llamaindex": {
+      "ok": true,
+      "versions": {
+        "framework": "0.14.25",
+        "adapter": "0.6.0"
+      },
+      "negotiated_mcp_spec_version": "2025-11-25",
+      "client_probe": {
+        "sampling": {
+          "tool": "ask_sampling",
+          "hook": "BasicMCPClient(sampling_callback=...)",
+          "route": "adapter",
+          "expect": "SENTINEL_SAMPLED",
+          "text": "meta=None content=[TextContent(type='text', text='SENTINEL_CLIENT_ANSWERED ask_sampling: {\"content\": {\"text\": \"SENTINEL_SAMPLED\", \"type\": \"text\"}, \"model\": \"mcp-mirror-stub\", \"role\": \"assistant\", \"stopReason\": \"endTurn\"}', annotations=None, meta=None)] structured_content={'answered': 'ask_sampling', 'response': {'role': 'assistant', 'content': {'type': 'text', 'text': 'SENTINEL_SAMPLED'}, 'model': 'mcp-mirror-stub', 'stopReason': 'endTurn'}} is_error=False result_type='complete'",
+          "is_error": false,
+          "handler_saw": [
+            {
+              "hook": "sampling_callback",
+              "tools": false,
+              "replied": "endTurn"
+            }
+          ]
+        },
+        "sampling.tools": {
+          "tool": "ask_sampling_tools",
+          "hook": "BasicMCPClient(sampling_callback=...)",
+          "route": "adapter",
+          "expect": "SENTINEL_SAMPLED_AFTER_TOOL",
+          "text": "meta=None content=[TextContent(type='text', text='SENTINEL_CLIENT_FEATURE_UNAVAILABLE ask_sampling_tools: McpError: Client does not support sampling tools capability', annotations=None, meta=None)] structured_content=None is_error=True result_type='complete'",
+          "is_error": false,
+          "handler_saw": []
+        },
+        "elicitation.form": {
+          "tool": "ask_elicitation_form",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_ELICITED",
+          "text": "meta=None content=[TextContent(type='text', text='SENTINEL_CLIENT_FEATURE_UNAVAILABLE ask_elicitation_form: McpError: Elicitation not supported', annotations=None, meta=None)] structured_content=None is_error=True result_type='complete'",
+          "is_error": false,
+          "handler_saw": []
+        },
+        "elicitation.url": {
+          "tool": "ask_elicitation_url",
+          "hook": null,
+          "route": null,
+          "expect": "\"action\": \"accept\"",
+          "text": "meta=None content=[TextContent(type='text', text='SENTINEL_CLIENT_FEATURE_UNAVAILABLE ask_elicitation_url: McpError: Elicitation not supported', annotations=None, meta=None)] structured_content=None is_error=True result_type='complete'",
+          "is_error": false,
+          "handler_saw": []
+        },
+        "roots.list": {
+          "tool": "list_client_roots",
+          "hook": null,
+          "route": null,
+          "expect": "file:///tmp/mcp-mirror-root",
+          "text": "meta=None content=[TextContent(type='text', text='SENTINEL_CLIENT_FEATURE_UNAVAILABLE list_client_roots: McpError: List roots not supported', annotations=None, meta=None)] structured_content=None is_error=True result_type='complete'",
+          "is_error": false,
+          "handler_saw": []
+        },
+        "roots.list_changed": {
+          "tool": "roots_changes_seen",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_ROOTS_CHANGES_SEEN",
+          "text": "meta=None content=[TextContent(type='text', text='SENTINEL_ROOTS_CHANGES_SEEN 0', annotations=None, meta=None)] structured_content={'seen': 0} is_error=False result_type='complete'",
+          "is_error": false,
+          "handler_saw": []
+        },
+        "capabilities": {
+          "text": "meta=None content=[TextContent(type='text', text='SENTINEL_CLIENT_CAPABILITIES {\"sampling\": {}}', annotations=None, meta=None)] structured_content={'sampling': {}} is_error=False result_type='complete'"
+        }
+      }
+    }
+  }
+}

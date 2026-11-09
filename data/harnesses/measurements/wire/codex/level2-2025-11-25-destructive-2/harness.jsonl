@@ -1,0 +1,6 @@
+{"format": "mcp-mirror.harness-output/1"}
+{"event": "tool_use", "tool": "mcp__def__delete_account", "input": {"account_id": "a", "confirm": true}}
+{"event": "permission_denied", "tool": "mcp__def__delete_account", "input": {"account_id": "a", "confirm": true}}
+{"event": "tool_result", "is_error": true, "text": "MCP tool call requires approval, but approval policy is never"}
+{"event": "text", "text": "done"}
+{"event": "result", "subtype": "turn.completed", "is_error": false, "num_turns": null, "text": ""}

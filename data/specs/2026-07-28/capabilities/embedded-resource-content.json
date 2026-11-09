@@ -1,0 +1,42 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "embedded-resource-content",
+  "title": "Embedded resources",
+  "description": "A tool result block that inlines a resource's contents together with its URI and MIME type.",
+  "question": "Does an embedded resource keep its identity, or arrive as anonymous text?",
+  "spec": "https://modelcontextprotocol.io/specification/2026-07-28",
+  "status": "stable",
+  "categories": [
+    "Tool results",
+    "Resources"
+  ],
+  "keywords": "embedded resource,resource content block,inline resource,uri,mimeType",
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/server/tools#embedded-resources",
+      "title": "MCP Docs"
+    }
+  ],
+  "known_issues": [],
+  "why": "The URI and MIME type are what let a caller cite, cache or re-read the content. Stripping them to the inner text leaves the agent holding data it cannot attribute to a source.",
+  "shown": true,
+  "docs_url": "https://modelcontextprotocol.io/specification/2026-07-28/server/tools#embedded-resources",
+  "docs_label": "MCP Docs",
+  "notes": {
+    "openai-agents": "OpenAI Agents SDK 0.23.1: the whole embedded resource is re-serialized as JSON inside a text item. The `uri` and `mimeType` survive as characters, so the resource is still identifiable if the agent parses the text.",
+    "pydantic-ai": "Pydantic AI 2.54.0: only the resource's text is returned, as a bare string. The `uri` and `mimeType` are gone, so the agent cannot tell this came from a resource at all.",
+    "mastra": "Mastra 2.2.0: a result without `structuredContent` comes back unchanged, embedded resource intact with its `uri` and `mimeType`. For a result that carries `structuredContent`, every content block is dropped, embedded resources included; only the structured value reaches the agent.",
+    "vercel_ai": "Vercel AI SDK (@ai-sdk/mcp 2.0.73): execute resolves with the CallToolResult, so a caller reading a step's toolResults gets the embedded resource block intact. The adapter's toModelOutput converter maps only text and image blocks, so the model receives an embedded resource block as a text part holding the block's JSON (the uri and contents as characters). Boundary-dependent: kept at execute, flattened to text at model_output.",
+    "strands": "Strands Agents 1.59.0: An embedded text resource becomes a bare `{\"text\": ...}` item (and a blob becomes text or an image by MIME type). The resource's `uri` and `mimeType` are dropped, so the model cannot tell the content came from a resource. The upstream code carries a TODO about exactly this.",
+    "openai_agents_js": "OpenAI Agents SDK (JS) 0.20.0: the model receives an embedded resource as its JSON serialization inside a text item; `MCPServer.callTool` itself returns the block intact.",
+    "agno": "Agno 3.1.2: an embedded resource becomes the text `[Embedded resource: <resource JSON>]` at both boundaries: the contents survive as characters, not as a resource block.",
+    "dspy": "DSPy 3.4.0: with the default `result_mode=\"text\"`, `Tool.acall` returns the embedded resource block as the MCP content object when the result has no text (direct: `y`). In a `dspy.ReAct` run the observation the model reads is that object's Python repr, `«type='resource' resource=TextResourceContents(...)»` (react: `a`). When a result carries any text block, `_convert_mcp_tool_result` returns the text alone and drops the embedded resource block at both boundaries.",
+    "langchain_js": "LangChain.js (@langchain/mcp-adapters 2.0.1): an embedded `resource` block goes into the artifact only. The `ToolMessage` content the model reads is `[]`, and `tool.invoke` returns `[]`.",
+    "copilot_sdk": "GitHub Copilot SDK 1.0.19 (Copilot runtime 1.0.95): depends on the boundary. `agent`: the `tool` message holds only the resource's text (`SENTINEL_EMBEDDED_RESOURCE`); its `uri` and `mimeType` are dropped. `direct`: `session.rpc.tools.execute` returns the `resource` block whole.",
+    "langchain4j": "LangChain4j 1.22.0-beta32: The default `McpToolExecutor` result converter accepts text blocks only. Any embedded `resource` block makes it throw `Unsupported content type: \"resource\"`: the direct executor raises it as a `RuntimeException`, and AiServices turns it into an error tool result the model reads in place of the block. A result with `structuredContent` never reads its blocks at all.",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): `mcpTool.Run` returns `{\"output\": text}`, where `formatMCPContent` replaces the block with a placeholder line (`[MCP embedded resource: uri=..., mimeType=...]` followed by the text), and the model receives that map as `FunctionResponse.response`. When the result also has `structuredContent`, as in the mixed result, `Run` returns `{\"output\": structuredContent}` and the block is dropped.",
+    "ms_agent_framework_dotnet": "Microsoft Agent Framework (.NET) 1.24.0 (ModelContextProtocol 2.2.0): an embedded text `resource` becomes a `TextContent` holding only the resource's text (`SENTINEL_EMBEDDED_RESOURCE`); its `uri` and `mimeType` are dropped at both boundaries. Beside `structuredContent` (`mixed_content`) the block survives only inside the `CallToolResult` JSON text."
+  },
+  "summary": "An embedded resource carries its own identity: a uri, a mime type, and contents."
+}

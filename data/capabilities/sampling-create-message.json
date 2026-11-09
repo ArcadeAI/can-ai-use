@@ -1,0 +1,50 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "sampling-create-message",
+  "title": "`sampling/createMessage`",
+  "description": "A server request asking the client's model for a generation, so the server can use an LLM without holding model credentials of its own.",
+  "question": "Can a server borrow the client's model through this framework?",
+  "spec": "https://modelcontextprotocol.io/specification/2025-11-25",
+  "status": "stable",
+  "categories": [
+    "Client features"
+  ],
+  "keywords": "sampling,createMessage,modelPreferences,maxTokens,server-initiated generation",
+  "why": "Sampling inverts the usual direction of control, which is why it is both powerful and rarely implemented.",
+  "docs_url": "https://modelcontextprotocol.io/specification/2025-11-25/client/sampling#creating-messages",
+  "docs_label": "MCP Docs",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/client/sampling#creating-messages",
+      "title": "MCP Docs"
+    }
+  ],
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "known_issues": [],
+  "notes": {
+    "crewai": "CrewAI 1.15.26: `crewai_tools.MCPServerAdapter` takes only server parameters, and mcpadapt opens its `ClientSession` with no callbacks, so the client declares no sampling capability and the server's `sampling/createMessage` is refused (`Sampling not supported`).",
+    "genkit_js": "Genkit (JS) 1.42.0: `GenkitMcpClient` builds its SDK `Client` with only `{ roots: { listChanged: true } }` and registers only a `roots/list` handler, so `sampling/createMessage` gets `Method not found` and there is no option to add a handler.",
+    "langchain": "LangChain MCP Adapters 0.3.2: the adapter has no sampling API. A `sampling_callback` put in the connection's `session_kwargs` is forwarded unread to the MCP SDK's `ClientSession` and answers the request, so it works, but only by writing against the SDK rather than the adapter.",
+    "openai-agents": "OpenAI Agents SDK 0.23.1: `MCPServerStdio` forwards only `message_handler` to its `ClientSession`, which sees notifications, not requests. With no sampling hook the client declares no sampling capability and the server's `sampling/createMessage` is refused (`Sampling not supported`).",
+    "mastra": "Mastra 2.2.0: `@mastra/mcp` documents the deprecated sampling capability as unsupported and registers no handler, so the server's `sampling/createMessage` gets `Method not found`.",
+    "strands": "Strands Agents 1.59.0: `MCPClient` passes its `ClientSession` an `elicitation_callback` only. There is no sampling parameter, so the server's `sampling/createMessage` is refused.",
+    "vercel_ai": "Vercel AI SDK (@ai-sdk/mcp 2.0.73): `sampling/createMessage` is answered -32601 \"Unsupported request method\". The client has no sampling handler or option.",
+    "openai_agents_js": "OpenAI Agents SDK (JS) 0.20.0: the `MCPServerStdio` / `MCPServerStreamableHttp` options take no sampling, elicitation or roots handler, and the SDK registers none on the MCP client it builds, so the server's `sampling/createMessage` request is answered with Method not found.",
+    "pi": "Pi (@earendil-works/pi-mcp 1.1.0): `McpClient` takes no sampling handler and registers none, so a `sampling/createMessage` request is answered with Method not found.",
+    "google_adk_js": "Google ADK (TypeScript) 2.2.1: `MCPSessionManager.createSession` builds `new Client({name: 'MCPClient', version: '1.0.0'})` with no capabilities and no request handlers, and `MCPToolset` takes no client hooks. `sampling/createMessage` is refused (`Method not found`).",
+    "agno": "Agno 3.1.2: `MCPTools` builds its fastmcp `Client` with no sampling handler and exposes no hook to add one, so a server's `sampling/createMessage` is refused.",
+    "haystack": "Haystack (mcp-haystack 1.5.2): `MCPClient` builds its `ClientSession(read, write)` with no sampling, elicitation, roots or message callback, and neither the server info nor `MCPToolset` takes one, so the server's `sampling/createMessage` got no answer and the tool call failed.",
+    "smolagents": "smolagents 1.26.0 (mcpadapt 0.1.20): `smolagents.MCPClient` takes server parameters, `adapter_kwargs` and `structured_output` only, and mcpadapt opens its `ClientSession` with no callbacks, so the client declares no sampling capability and the server's `sampling/createMessage` is refused (`Sampling not supported`).",
+    "dspy": "DSPy 3.4.0: DSPy takes no sampling handler. The server's request is answered only by a `sampling_callback` registered on the caller's own `mcp.Client`, which DSPy is handed by `Tool.from_mcp_tool` and never configures. DSPy itself offers no route.",
+    "langchain_js": "LangChain.js (@langchain/mcp-adapters 2.0.1): the adapter registers no sampling handler and offers no option for one. A legacy session answers `sampling/createMessage` with Method not found; a modern tool call that asks for it fails with \"asked for input this adapter cannot answer\".",
+    "beeai": "BeeAI Framework 0.1.85: no sampling handler. Sampling works only on a `ClientSession` the caller builds and hands `MCPTool.from_client`, which BeeAI uses as given; the session BeeAI opens itself for a transport has no callbacks.",
+    "copilot_sdk": "GitHub Copilot SDK 1.0.19 (Copilot runtime 1.0.95): the client declares the sampling capability, but the runtime answers every `sampling/createMessage` itself with `stopReason: \"cancelled\"` and the text \"The user cancelled the request.\". The documented `sampling.requested` session event, with `session.rpc.mcp.executeSampling` behind it, never fired, so the host's handler never ran. The session config has no option to enable it.",
+    "crewai-native": "CrewAI 1.15.26, native `crewai.mcp` client (`Agent(mcps=[...])`, not the `crewai_tools.MCPServerAdapter` row): `MCPClient.connect` builds its `ClientSession` from the transport streams alone, with no `sampling_callback`, and `MCPServerStdio`/`MCPServerHTTP`/`MCPServerSSE` take no hook for it, so the client does not declare the capability and the server's request is refused.",
+    "google_adk_java": "Google ADK (Java) 1.11.0: `McpSessionManager` builds the `McpSyncClient` with empty client capabilities and no sampling handler, and neither `McpToolset` nor `McpTool` takes one, so the server's `sampling/createMessage` is answered `Method not found`.",
+    "langchain4j": "LangChain4j 1.22.0-beta32: `DefaultMcpClient` has no sampling handler and declares no `sampling` capability, but it never answers a `sampling/createMessage` request either. The tool call waits until `toolExecutionTimeout` and fails with `There was a timeout executing the tool`.",
+    "koog": "Koog 1.3.0-beta: no Koog API. `McpToolRegistryProvider` takes no sampling handler; a request handler for `sampling/createMessage` set with `Client.setRequestHandler` on the Kotlin SDK `Client` before it is passed to `fromClient` answers the server.",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): mcptoolset has no sampling option. A `mcp.ClientOptions.CreateMessageWithToolsHandler` set on the `*mcp.Client` the caller passes as `mcptoolset.Config.Client` answers the server's request, so it works, but only by configuring go-sdk rather than the toolset."
+  },
+  "verdict": {},
+  "summary": "The cell asks whether the adapter answers it through its own API."
+}

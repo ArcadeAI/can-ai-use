@@ -1,0 +1,76 @@
+{
+  "schema": "mcp-mirror/client-probe@1",
+  "captured_at": "2026-10-09T19:54:55Z",
+  "fixture": "fixtures/client_features_server.py",
+  "fixture_python": "<checkout>/.mcp-mirror/fixture-2025-11-25/bin/python",
+  "spec_version": "2025-11-25",
+  "frameworks": {
+    "google_adk_java": {
+      "ok": true,
+      "versions": {
+        "framework": "1.11.0",
+        "adapter": "com.google.adk.tools.mcp 1.11.0, io.modelcontextprotocol.sdk:mcp-core 2.0.0, google-genai 1.75.0, java 21.0.12.1"
+      },
+      "negotiated_mcp_spec_version": "2025-11-25",
+      "client_probe": {
+        "sampling": {
+          "tool": "ask_sampling",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_SAMPLED",
+          "text": "{\"error\": \"Tool execution failed. Details: SENTINEL_CLIENT_FEATURE_UNAVAILABLE ask_sampling: McpError: Method not found: sampling/createMessage\"}",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "sampling.tools": {
+          "tool": "ask_sampling_tools",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_SAMPLED_AFTER_TOOL",
+          "text": "{\"error\": \"Tool execution failed. Details: SENTINEL_CLIENT_FEATURE_UNAVAILABLE ask_sampling_tools: McpError: Client does not support sampling tools capability\"}",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "elicitation.form": {
+          "tool": "ask_elicitation_form",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_ELICITED",
+          "text": "{\"error\": \"Tool execution failed. Details: SENTINEL_CLIENT_FEATURE_UNAVAILABLE ask_elicitation_form: McpError: Method not found: elicitation/create\"}",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "elicitation.url": {
+          "tool": "ask_elicitation_url",
+          "hook": null,
+          "route": null,
+          "expect": "\"action\": \"accept\"",
+          "text": "{\"error\": \"Tool execution failed. Details: SENTINEL_CLIENT_FEATURE_UNAVAILABLE ask_elicitation_url: McpError: Method not found: elicitation/create\"}",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "roots.list": {
+          "tool": "list_client_roots",
+          "hook": null,
+          "route": null,
+          "expect": "file:///tmp/mcp-mirror-root",
+          "text": "{\"error\": \"Tool execution failed. Details: SENTINEL_CLIENT_FEATURE_UNAVAILABLE list_client_roots: McpError: Roots not supported\"}",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "roots.list_changed": {
+          "tool": "roots_changes_seen",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_ROOTS_CHANGES_SEEN",
+          "text": "{\"text_output\": [{\"text\": \"SENTINEL_ROOTS_CHANGES_SEEN 0\"}]}",
+          "is_error": null,
+          "handler_saw": []
+        },
+        "capabilities": {
+          "text": "{\"text_output\": [{\"text\": \"SENTINEL_CLIENT_CAPABILITIES {}\"}]}"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "mcp-mirror-google-adk-js-worker",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "description": "Node worker that drives Google ADK (TypeScript)'s real MCPToolset (@google/adk/tools/mcp) so mcp-mirror can capture what ADK hands the model. Run `npm ci` here to enable the google_adk_js renderer.",
+  "dependencies": {
+    "@google/adk": "2.2.1",
+    "@modelcontextprotocol/sdk": "1.30.0",
+    "zod": "4.6.5"
+  }
+}

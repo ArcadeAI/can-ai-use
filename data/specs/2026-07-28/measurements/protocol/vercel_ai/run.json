@@ -1,0 +1,861 @@
+{
+  "schema": "mcp-mirror/protocol-run@1",
+  "captured_at": "2026-10-09T19:48:31Z",
+  "renderer": "vercel_ai",
+  "fixture": "fixtures/base_protocol_server.py",
+  "spec_version": "2026-07-28",
+  "versions": {
+    "framework": "2.0.73",
+    "adapter": "node v24.21.0"
+  },
+  "captures": [
+    "http.jsonl",
+    "stdio-00.jsonl",
+    "stdio-01.jsonl",
+    "stdio-02.jsonl",
+    "stdio-03.jsonl",
+    "stdio-04.jsonl",
+    "stdio-05.jsonl",
+    "stdio-06.jsonl",
+    "stdio-07.jsonl",
+    "stdio-08.jsonl"
+  ],
+  "transports": {
+    "stdio": {
+      "ok": true,
+      "versions": {
+        "framework": "2.0.73",
+        "adapter": "node v24.21.0"
+      },
+      "tools": [
+        {
+          "name": "dialect_2020_12",
+          "params": {
+            "type": "object",
+            "properties": {
+              "point": {
+                "type": "array",
+                "description": "An [x, y] pair.",
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "items": false
+              },
+              "window": {
+                "$ref": "#/$defs/range"
+              },
+              "label": {
+                "type": "string"
+              },
+              "units": {
+                "type": "string"
+              }
+            },
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "$defs": {
+              "range": {
+                "type": "object",
+                "properties": {
+                  "low": {
+                    "type": "number"
+                  },
+                  "high": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "low",
+                  "high"
+                ]
+              }
+            },
+            "dependentRequired": {
+              "label": [
+                "units"
+              ]
+            },
+            "required": [
+              "point"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "name": "dialect_draft_07",
+          "params": {
+            "type": "object",
+            "properties": {
+              "point": {
+                "type": "array",
+                "description": "An [x, y] pair.",
+                "items": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "additionalItems": false
+              },
+              "window": {
+                "$ref": "#/definitions/range"
+              }
+            },
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "definitions": {
+              "range": {
+                "type": "object",
+                "properties": {
+                  "low": {
+                    "type": "number"
+                  },
+                  "high": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "low",
+                  "high"
+                ]
+              }
+            },
+            "required": [
+              "point"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "name": "routed_lookup",
+          "params": {
+            "type": "object",
+            "properties": {
+              "region": {
+                "type": "string",
+                "x-mcp-header": "Region"
+              },
+              "key": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "region",
+              "key"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "name": "bad_header",
+          "params": {
+            "type": "object",
+            "properties": {
+              "filter": {
+                "type": "object",
+                "x-mcp-header": "Filter",
+                "properties": {
+                  "field": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        {
+          "name": "needs_input",
+          "params": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": false
+          }
+        }
+      ],
+      "result_boundaries": [
+        {
+          "id": "model_output",
+          "label": "Tool-result output the model receives (toModelOutput)",
+          "capture_api": "@ai-sdk/mcp tool toModelOutput applied to the execute result",
+          "capture_object": "the ToolResultOutput passed to the provider adapter",
+          "agent_path": true,
+          "limitation": "toModelOutput is called the way ai's createToolModelOutput calls it for a tool that resolved; no provider adapter ran and no provider request was captured."
+        },
+        {
+          "id": "execute",
+          "label": "Tool execute result (step toolResults output)",
+          "capture_api": "@ai-sdk/mcp tool execute",
+          "capture_object": "the CallToolResult execute resolves with",
+          "agent_path": false,
+          "limitation": null
+        }
+      ],
+      "results": [
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "model_output",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "vercel_ai",
+            "raw": {
+              "type": "content",
+              "value": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ]
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "execute",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "vercel_ai",
+            "raw": {
+              "_meta": {
+                "io.modelcontextprotocol/serverInfo": {
+                  "name": "base-protocol-mcp",
+                  "version": ""
+                }
+              },
+              "resultType": "complete",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ],
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "model_output",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "vercel_ai",
+            "raw": {
+              "type": "content",
+              "value": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ]
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "execute",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "vercel_ai",
+            "raw": {
+              "_meta": {
+                "io.modelcontextprotocol/serverInfo": {
+                  "name": "base-protocol-mcp",
+                  "version": ""
+                }
+              },
+              "resultType": "complete",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ],
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "model_output",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "origin": "vercel_ai",
+            "raw": {
+              "type": "content",
+              "value": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+                }
+              ]
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "execute",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "origin": "vercel_ai",
+            "raw": {
+              "_meta": {
+                "io.modelcontextprotocol/serverInfo": {
+                  "name": "base-protocol-mcp",
+                  "version": ""
+                }
+              },
+              "resultType": "complete",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+                }
+              ],
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "model_output",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "Server requested additional input, but multi round-trip requests are not supported yet",
+            "origin": "vercel_ai",
+            "raw": {
+              "tool": "needs_input",
+              "ok": false,
+              "threw": true,
+              "error": "Server requested additional input, but multi round-trip requests are not supported yet"
+            },
+            "error_channel": "exception"
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "execute",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "Server requested additional input, but multi round-trip requests are not supported yet",
+            "origin": "vercel_ai",
+            "raw": {
+              "tool": "needs_input",
+              "ok": false,
+              "threw": true,
+              "error": "Server requested additional input, but multi round-trip requests are not supported yet"
+            },
+            "error_channel": "exception"
+          }
+        }
+      ]
+    },
+    "http": {
+      "ok": true,
+      "versions": {
+        "framework": "2.0.73",
+        "adapter": "node v24.21.0"
+      },
+      "tools": [
+        {
+          "name": "dialect_2020_12",
+          "params": {
+            "type": "object",
+            "properties": {
+              "point": {
+                "type": "array",
+                "description": "An [x, y] pair.",
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "items": false
+              },
+              "window": {
+                "$ref": "#/$defs/range"
+              },
+              "label": {
+                "type": "string"
+              },
+              "units": {
+                "type": "string"
+              }
+            },
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "$defs": {
+              "range": {
+                "type": "object",
+                "properties": {
+                  "low": {
+                    "type": "number"
+                  },
+                  "high": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "low",
+                  "high"
+                ]
+              }
+            },
+            "dependentRequired": {
+              "label": [
+                "units"
+              ]
+            },
+            "required": [
+              "point"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "name": "dialect_draft_07",
+          "params": {
+            "type": "object",
+            "properties": {
+              "point": {
+                "type": "array",
+                "description": "An [x, y] pair.",
+                "items": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "additionalItems": false
+              },
+              "window": {
+                "$ref": "#/definitions/range"
+              }
+            },
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "definitions": {
+              "range": {
+                "type": "object",
+                "properties": {
+                  "low": {
+                    "type": "number"
+                  },
+                  "high": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "low",
+                  "high"
+                ]
+              }
+            },
+            "required": [
+              "point"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "name": "routed_lookup",
+          "params": {
+            "type": "object",
+            "properties": {
+              "region": {
+                "type": "string",
+                "x-mcp-header": "Region"
+              },
+              "key": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "region",
+              "key"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "name": "needs_input",
+          "params": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": false
+          }
+        }
+      ],
+      "result_boundaries": [
+        {
+          "id": "model_output",
+          "label": "Tool-result output the model receives (toModelOutput)",
+          "capture_api": "@ai-sdk/mcp tool toModelOutput applied to the execute result",
+          "capture_object": "the ToolResultOutput passed to the provider adapter",
+          "agent_path": true,
+          "limitation": "toModelOutput is called the way ai's createToolModelOutput calls it for a tool that resolved; no provider adapter ran and no provider request was captured."
+        },
+        {
+          "id": "execute",
+          "label": "Tool execute result (step toolResults output)",
+          "capture_api": "@ai-sdk/mcp tool execute",
+          "capture_object": "the CallToolResult execute resolves with",
+          "agent_path": false,
+          "limitation": null
+        }
+      ],
+      "results": [
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "model_output",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "vercel_ai",
+            "raw": {
+              "type": "content",
+              "value": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ]
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "execute",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "vercel_ai",
+            "raw": {
+              "_meta": {
+                "io.modelcontextprotocol/serverInfo": {
+                  "name": "base-protocol-mcp",
+                  "version": ""
+                }
+              },
+              "resultType": "complete",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ],
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "model_output",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "vercel_ai",
+            "raw": {
+              "type": "content",
+              "value": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ]
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "execute",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "vercel_ai",
+            "raw": {
+              "_meta": {
+                "io.modelcontextprotocol/serverInfo": {
+                  "name": "base-protocol-mcp",
+                  "version": ""
+                }
+              },
+              "resultType": "complete",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ],
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "model_output",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "origin": "vercel_ai",
+            "raw": {
+              "type": "content",
+              "value": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+                }
+              ]
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "execute",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "origin": "vercel_ai",
+            "raw": {
+              "_meta": {
+                "io.modelcontextprotocol/serverInfo": {
+                  "name": "base-protocol-mcp",
+                  "version": ""
+                }
+              },
+              "resultType": "complete",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+                }
+              ],
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "model_output",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "Server requested additional input, but multi round-trip requests are not supported yet",
+            "origin": "vercel_ai",
+            "raw": {
+              "tool": "needs_input",
+              "ok": false,
+              "threw": true,
+              "error": "Server requested additional input, but multi round-trip requests are not supported yet"
+            },
+            "error_channel": "exception"
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "execute",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "Server requested additional input, but multi round-trip requests are not supported yet",
+            "origin": "vercel_ai",
+            "raw": {
+              "tool": "needs_input",
+              "ok": false,
+              "threw": true,
+              "error": "Server requested additional input, but multi round-trip requests are not supported yet"
+            },
+            "error_channel": "exception"
+          }
+        }
+      ]
+    }
+  }
+}

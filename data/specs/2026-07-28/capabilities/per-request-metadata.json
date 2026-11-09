@@ -1,0 +1,28 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "per-request-metadata",
+  "title": "Per-request `_meta`",
+  "description": "The required request metadata carrying protocol version, client capabilities and client identity on every single request, replacing connection state.",
+  "question": "Does every request the framework sends carry the required metadata?",
+  "spec": "https://modelcontextprotocol.io/specification/2026-07-28",
+  "status": "stable",
+  "categories": [
+    "Base protocol"
+  ],
+  "keywords": "_meta,protocolVersion,clientCapabilities,clientInfo,stateless,statelessness",
+  "why": "This is the structural change of 2026-07-28: MCP is stateless, and the handshake that used to negotiate once per connection is gone. A framework still modelling a session sends requests the server must reject with `UnsupportedProtocolVersionError`, and this row is the difference between an adapter that was ported to this revision and one that was merely pointed at it.",
+  "docs_url": "https://modelcontextprotocol.io/specification/2026-07-28/basic#statelessness",
+  "docs_label": "MCP Docs",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic#statelessness",
+      "title": "MCP Docs"
+    }
+  ],
+  "usage_perc_y": null,
+  "usage_perc_a": null,
+  "usage_note": null,
+  "known_issues": [
+    "Measured by scripts/measure_protocol.py: each adapter runs against fixtures/base_protocol_server.py behind the wire recorder, and the cell is read from the captures."
+  ]
+}

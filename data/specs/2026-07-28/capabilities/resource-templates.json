@@ -1,0 +1,32 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "resource-templates",
+  "title": "`resources/templates/list`",
+  "description": "Lists parameterised resources as RFC 6570 URI templates whose arguments can be completed through the completion API.",
+  "question": "Does the framework expose resource templates as templates, or not at all?",
+  "spec": "https://modelcontextprotocol.io/specification/2026-07-28",
+  "status": "stable",
+  "categories": [
+    "Resources"
+  ],
+  "keywords": "resource templates,uriTemplate,RFC 6570,parameterised resources",
+  "usage_perc_y": null,
+  "usage_perc_a": null,
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/server/resources#resource-templates",
+      "title": "MCP Docs"
+    }
+  ],
+  "known_issues": [],
+  "why": "Templates are how a server exposes an unbounded resource space without enumerating it. A framework that only handles the concrete list sees an empty server whenever the interesting content is parameterised.",
+  "shown": true,
+  "docs_url": "https://modelcontextprotocol.io/specification/2026-07-28/server/resources#resource-templates",
+  "docs_label": "MCP Docs",
+  "notes": {
+    "agno": "Agno 3.1.2: `MCPTools` lists and calls tools only; it has no resource or prompt API, so resource templates are unreachable.",
+    "dspy": "DSPy 3.4.0: DSPy's MCP support is `dspy.Tool.from_mcp_tool`, which converts one tool. It has no resource or prompt API, so resources and prompts stay on the caller's MCP session.",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): `mcptoolset.Toolset` exposes only `Tools()`, and the `*mcp.ClientSession` it opens stays inside its unexported `connectionRefresher`, so the caller has no session to call `ListResourceTemplates` on."
+  }
+}

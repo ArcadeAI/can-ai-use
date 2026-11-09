@@ -1,0 +1,28 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "cancellation",
+  "title": "`notifications/cancelled`",
+  "description": "Abandons an in-flight request, signalled by notification on stdio and by closing the response stream on Streamable HTTP.",
+  "question": "Can the agent abandon a call and have the server hear about it?",
+  "spec": "https://modelcontextprotocol.io/specification/2026-07-28",
+  "status": "stable",
+  "categories": [
+    "Base protocol"
+  ],
+  "keywords": "cancellation,notifications/cancelled,requestId,abort,timeout",
+  "why": "An agent that stops waiting but never says so leaves the server doing work nobody will read, holding whatever the call was holding. The signalling is transport-specific, so a framework can be correct on one transport and silently wrong on the other.",
+  "docs_url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/patterns/cancellation#cancellation-flow",
+  "docs_label": "MCP Docs",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/patterns/cancellation#cancellation-flow",
+      "title": "MCP Docs"
+    }
+  ],
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "known_issues": [],
+  "notes": {
+    "vercel_ai": "Vercel AI SDK (@ai-sdk/mcp 2.0.73): a tool's `execute(args, { abortSignal })` rejects with \"Request was aborted\" when the signal fires, but the client sends no `notifications/cancelled`. The server keeps working and returns SENTINEL_NOT_CANCELLED.",
+    "ms_agent_framework_dotnet": "Microsoft Agent Framework (.NET) 1.24.0 (ModelContextProtocol 2.2.0): cancelling the `CancellationToken` passed to `AIAgent.RunAsync` after 1 s ends the run with `TaskCanceledException`, but no `notifications/cancelled` goes out: the server kept working and returned SENTINEL_NOT_CANCELLED for request 5. Calling `McpClient.CallToolAsync` directly with a cancelled token sends none either, so the gap is in the MCP C# SDK, not the agent."
+  }
+}

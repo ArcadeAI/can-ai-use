@@ -1,0 +1,1462 @@
+{
+  "schema": "mcp-mirror/result-boundaries@2",
+  "captured_at": "2026-10-01T18:07:53Z",
+  "fixture": "fixtures/results_server.py",
+  "fixture_python": "<checkout>/.mcp-mirror/fixture-2025-11-25/bin/python",
+  "spec_version": "2025-11-25",
+  "calls": [
+    {
+      "tool": "text_content",
+      "arguments": {}
+    },
+    {
+      "tool": "image_content",
+      "arguments": {}
+    },
+    {
+      "tool": "audio_content",
+      "arguments": {}
+    },
+    {
+      "tool": "embedded_resource_content",
+      "arguments": {}
+    },
+    {
+      "tool": "resource_link_content",
+      "arguments": {}
+    },
+    {
+      "tool": "annotated_content",
+      "arguments": {}
+    },
+    {
+      "tool": "mixed_content",
+      "arguments": {}
+    },
+    {
+      "tool": "text_and_structured",
+      "arguments": {}
+    },
+    {
+      "tool": "tool_error",
+      "arguments": {}
+    }
+  ],
+  "source": {
+    "text_content": {
+      "tool": "text_content",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_TEXT_BLOCK"
+        }
+      ],
+      "block_kinds": [
+        "text"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": "SENTINEL_TEXT_BLOCK",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_TEXT_BLOCK",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "image_content": {
+      "tool": "image_content",
+      "blocks": [
+        {
+          "type": "image",
+          "data": "<96 chars>",
+          "mimeType": "image/png"
+        }
+      ],
+      "block_kinds": [
+        "image"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": null,
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "image",
+            "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==",
+            "mimeType": "image/png",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "audio_content": {
+      "tool": "audio_content",
+      "blocks": [
+        {
+          "type": "audio",
+          "data": "<60 chars>",
+          "mimeType": "audio/wav"
+        }
+      ],
+      "block_kinds": [
+        "audio"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": null,
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "audio",
+            "data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
+            "mimeType": "audio/wav",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "embedded_resource_content": {
+      "tool": "embedded_resource_content",
+      "blocks": [
+        {
+          "type": "resource",
+          "resource": {
+            "uri": "file:///fixtures/embedded.txt",
+            "mimeType": "text/plain",
+            "_meta": null,
+            "text": "SENTINEL_EMBEDDED_RESOURCE"
+          }
+        }
+      ],
+      "block_kinds": [
+        "resource"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": null,
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "resource",
+            "resource": {
+              "uri": "file:///fixtures/embedded.txt",
+              "mimeType": "text/plain",
+              "_meta": null,
+              "text": "SENTINEL_EMBEDDED_RESOURCE"
+            },
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "resource_link_content": {
+      "tool": "resource_link_content",
+      "blocks": [
+        {
+          "name": "linked.txt",
+          "uri": "file:///fixtures/linked.txt",
+          "description": "SENTINEL_RESOURCE_LINK",
+          "mimeType": "text/plain",
+          "type": "resource_link"
+        }
+      ],
+      "block_kinds": [
+        "resource_link"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": null,
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "name": "linked.txt",
+            "title": null,
+            "uri": "file:///fixtures/linked.txt",
+            "description": "SENTINEL_RESOURCE_LINK",
+            "mimeType": "text/plain",
+            "size": null,
+            "icons": null,
+            "annotations": null,
+            "_meta": null,
+            "type": "resource_link"
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "annotated_content": {
+      "tool": "annotated_content",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_ANNOTATED_TEXT",
+          "annotations": {
+            "audience": [
+              "user"
+            ],
+            "priority": 0.9
+          }
+        }
+      ],
+      "block_kinds": [
+        "text"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": "SENTINEL_ANNOTATED_TEXT",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_ANNOTATED_TEXT",
+            "annotations": {
+              "audience": [
+                "user"
+              ],
+              "priority": 0.9
+            },
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "mixed_content": {
+      "tool": "mixed_content",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_TEXT_BLOCK",
+          "annotations": {
+            "audience": [
+              "user"
+            ],
+            "priority": 0.9
+          }
+        },
+        {
+          "type": "image",
+          "data": "<96 chars>",
+          "mimeType": "image/png"
+        },
+        {
+          "type": "audio",
+          "data": "<60 chars>",
+          "mimeType": "audio/wav"
+        },
+        {
+          "type": "resource",
+          "resource": {
+            "uri": "file:///fixtures/embedded.txt",
+            "mimeType": "text/plain",
+            "_meta": null,
+            "text": "SENTINEL_EMBEDDED_RESOURCE"
+          }
+        },
+        {
+          "name": "linked.txt",
+          "uri": "file:///fixtures/linked.txt",
+          "description": "SENTINEL_RESOURCE_LINK",
+          "mimeType": "text/plain",
+          "type": "resource_link"
+        }
+      ],
+      "block_kinds": [
+        "text",
+        "image",
+        "audio",
+        "resource",
+        "resource_link"
+      ],
+      "structured_content": {
+        "count": 2,
+        "records": [
+          {
+            "id": "rec_1",
+            "status": "active"
+          },
+          {
+            "id": "rec_2",
+            "status": "archived"
+          }
+        ],
+        "note": "SENTINEL_STRUCTURED_CONTENT"
+      },
+      "is_error": false,
+      "text": "SENTINEL_TEXT_BLOCK",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_TEXT_BLOCK",
+            "annotations": {
+              "audience": [
+                "user"
+              ],
+              "priority": 0.9
+            },
+            "_meta": null
+          },
+          {
+            "type": "image",
+            "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==",
+            "mimeType": "image/png",
+            "annotations": null,
+            "_meta": null
+          },
+          {
+            "type": "audio",
+            "data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
+            "mimeType": "audio/wav",
+            "annotations": null,
+            "_meta": null
+          },
+          {
+            "type": "resource",
+            "resource": {
+              "uri": "file:///fixtures/embedded.txt",
+              "mimeType": "text/plain",
+              "_meta": null,
+              "text": "SENTINEL_EMBEDDED_RESOURCE"
+            },
+            "annotations": null,
+            "_meta": null
+          },
+          {
+            "name": "linked.txt",
+            "title": null,
+            "uri": "file:///fixtures/linked.txt",
+            "description": "SENTINEL_RESOURCE_LINK",
+            "mimeType": "text/plain",
+            "size": null,
+            "icons": null,
+            "annotations": null,
+            "_meta": null,
+            "type": "resource_link"
+          }
+        ],
+        "structuredContent": {
+          "count": 2,
+          "records": [
+            {
+              "id": "rec_1",
+              "status": "active"
+            },
+            {
+              "id": "rec_2",
+              "status": "archived"
+            }
+          ],
+          "note": "SENTINEL_STRUCTURED_CONTENT"
+        },
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "text_and_structured": {
+      "tool": "text_and_structured",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_TEXT_BLOCK"
+        }
+      ],
+      "block_kinds": [
+        "text"
+      ],
+      "structured_content": {
+        "count": 2,
+        "records": [
+          {
+            "id": "rec_1",
+            "status": "active"
+          },
+          {
+            "id": "rec_2",
+            "status": "archived"
+          }
+        ],
+        "note": "SENTINEL_STRUCTURED_CONTENT"
+      },
+      "is_error": false,
+      "text": "SENTINEL_TEXT_BLOCK",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_TEXT_BLOCK",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "count": 2,
+          "records": [
+            {
+              "id": "rec_1",
+              "status": "active"
+            },
+            {
+              "id": "rec_2",
+              "status": "archived"
+            }
+          ],
+          "note": "SENTINEL_STRUCTURED_CONTENT"
+        },
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "tool_error": {
+      "tool": "tool_error",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_TOOL_ERROR: this tool always fails"
+        }
+      ],
+      "block_kinds": [
+        "text"
+      ],
+      "structured_content": null,
+      "is_error": true,
+      "text": "SENTINEL_TOOL_ERROR: this tool always fails",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_TOOL_ERROR: this tool always fails",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": true
+      },
+      "error_channel": null
+    }
+  },
+  "frameworks": {
+    "koog": {
+      "ok": true,
+      "versions": {
+        "framework": "1.3.0-beta",
+        "adapter": "ai.koog:agents-mcp 1.3.0-beta, io.modelcontextprotocol:kotlin-sdk-client 0.11.1, kotlin 2.3.10, java 21.0.12.1"
+      },
+      "evidence": {
+        "capture_api": "ai.koog AIAgent(toolRegistry = McpToolRegistryProvider.fromClient(...)) run with singleRunStrategy; OpenAILLMClient posts to a local fake /v1/chat/completions",
+        "capture_object": "the tools array of the chat-completions request body Koog's OpenAILLMClient sends ({type: function, function: {name, description, parameters}})",
+        "capture_stage": "provider_request",
+        "provider_request_captured": true,
+        "negotiated_mcp_spec_version": "2025-11-25",
+        "protocol_version_evidence": "initialize result protocolVersion, read on the transport's onMessage chain (the Kotlin SDK Client keeps no negotiated version)",
+        "limitation": "The provider is a local fake; no OpenAI model answered the request."
+      },
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Tool return value",
+          "capture_api": "ai.koog EventHandler.onToolCallCompleted (event.toolResult)",
+          "capture_object": "the CallToolResult McpTool.execute returned, as JSON",
+          "agent_path": false,
+          "limitation": null
+        },
+        {
+          "id": "agent",
+          "label": "Tool message to the model",
+          "capture_api": "ai.koog OpenAILLMClient, the next POST /v1/chat/completions",
+          "capture_object": "the content of the role=tool message (McpTool.encodeResultToString)",
+          "agent_path": true,
+          "limitation": "The provider is a local fake; no OpenAI model answered the request."
+        }
+      ],
+      "reps": [
+        {
+          "name": "text_content",
+          "description": "Return one text block and nothing else.",
+          "params": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {
+            "koog_metadata": {
+              "koog.mcp.tool.id": "text_content",
+              "koog.mcp.protocol.version": "2025-11-25",
+              "koog.mcp.transport.type": "pipe",
+              "koog.mcp.session.id": "",
+              "koog.mcp.server.url": "",
+              "koog.mcp.server.port": ""
+            }
+          },
+          "origin": "koog",
+          "raw": {
+            "function": {
+              "name": "text_content",
+              "description": "Return one text block and nothing else.",
+              "parameters": {
+                "type": "object",
+                "properties": {},
+                "required": []
+              }
+            },
+            "type": "function"
+          }
+        },
+        {
+          "name": "image_content",
+          "description": "Return one image block and nothing else.",
+          "params": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {
+            "koog_metadata": {
+              "koog.mcp.tool.id": "image_content",
+              "koog.mcp.protocol.version": "2025-11-25",
+              "koog.mcp.transport.type": "pipe",
+              "koog.mcp.session.id": "",
+              "koog.mcp.server.url": "",
+              "koog.mcp.server.port": ""
+            }
+          },
+          "origin": "koog",
+          "raw": {
+            "function": {
+              "name": "image_content",
+              "description": "Return one image block and nothing else.",
+              "parameters": {
+                "type": "object",
+                "properties": {},
+                "required": []
+              }
+            },
+            "type": "function"
+          }
+        },
+        {
+          "name": "audio_content",
+          "description": "Return one audio block and nothing else.",
+          "params": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {
+            "koog_metadata": {
+              "koog.mcp.tool.id": "audio_content",
+              "koog.mcp.protocol.version": "2025-11-25",
+              "koog.mcp.transport.type": "pipe",
+              "koog.mcp.session.id": "",
+              "koog.mcp.server.url": "",
+              "koog.mcp.server.port": ""
+            }
+          },
+          "origin": "koog",
+          "raw": {
+            "function": {
+              "name": "audio_content",
+              "description": "Return one audio block and nothing else.",
+              "parameters": {
+                "type": "object",
+                "properties": {},
+                "required": []
+              }
+            },
+            "type": "function"
+          }
+        },
+        {
+          "name": "embedded_resource_content",
+          "description": "Return one embedded resource block and nothing else.",
+          "params": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {
+            "koog_metadata": {
+              "koog.mcp.tool.id": "embedded_resource_content",
+              "koog.mcp.protocol.version": "2025-11-25",
+              "koog.mcp.transport.type": "pipe",
+              "koog.mcp.session.id": "",
+              "koog.mcp.server.url": "",
+              "koog.mcp.server.port": ""
+            }
+          },
+          "origin": "koog",
+          "raw": {
+            "function": {
+              "name": "embedded_resource_content",
+              "description": "Return one embedded resource block and nothing else.",
+              "parameters": {
+                "type": "object",
+                "properties": {},
+                "required": []
+              }
+            },
+            "type": "function"
+          }
+        },
+        {
+          "name": "resource_link_content",
+          "description": "Return one resource_link block and nothing else.",
+          "params": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {
+            "koog_metadata": {
+              "koog.mcp.tool.id": "resource_link_content",
+              "koog.mcp.protocol.version": "2025-11-25",
+              "koog.mcp.transport.type": "pipe",
+              "koog.mcp.session.id": "",
+              "koog.mcp.server.url": "",
+              "koog.mcp.server.port": ""
+            }
+          },
+          "origin": "koog",
+          "raw": {
+            "function": {
+              "name": "resource_link_content",
+              "description": "Return one resource_link block and nothing else.",
+              "parameters": {
+                "type": "object",
+                "properties": {},
+                "required": []
+              }
+            },
+            "type": "function"
+          }
+        },
+        {
+          "name": "annotated_content",
+          "description": "Return one text block carrying audience and priority annotations.",
+          "params": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {
+            "koog_metadata": {
+              "koog.mcp.tool.id": "annotated_content",
+              "koog.mcp.protocol.version": "2025-11-25",
+              "koog.mcp.transport.type": "pipe",
+              "koog.mcp.session.id": "",
+              "koog.mcp.server.url": "",
+              "koog.mcp.server.port": ""
+            }
+          },
+          "origin": "koog",
+          "raw": {
+            "function": {
+              "name": "annotated_content",
+              "description": "Return one text block carrying audience and priority annotations.",
+              "parameters": {
+                "type": "object",
+                "properties": {},
+                "required": []
+              }
+            },
+            "type": "function"
+          }
+        },
+        {
+          "name": "mixed_content",
+          "description": "Return one block of every kind plus structuredContent in one result.",
+          "params": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {
+            "koog_metadata": {
+              "koog.mcp.tool.id": "mixed_content",
+              "koog.mcp.protocol.version": "2025-11-25",
+              "koog.mcp.transport.type": "pipe",
+              "koog.mcp.session.id": "",
+              "koog.mcp.server.url": "",
+              "koog.mcp.server.port": ""
+            }
+          },
+          "origin": "koog",
+          "raw": {
+            "function": {
+              "name": "mixed_content",
+              "description": "Return one block of every kind plus structuredContent in one result.",
+              "parameters": {
+                "type": "object",
+                "properties": {},
+                "required": []
+              }
+            },
+            "type": "function"
+          }
+        },
+        {
+          "name": "text_and_structured",
+          "description": "Return one text block plus structuredContent, with no media.",
+          "params": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {
+            "koog_metadata": {
+              "koog.mcp.tool.id": "text_and_structured",
+              "koog.mcp.protocol.version": "2025-11-25",
+              "koog.mcp.transport.type": "pipe",
+              "koog.mcp.session.id": "",
+              "koog.mcp.server.url": "",
+              "koog.mcp.server.port": ""
+            }
+          },
+          "origin": "koog",
+          "raw": {
+            "function": {
+              "name": "text_and_structured",
+              "description": "Return one text block plus structuredContent, with no media.",
+              "parameters": {
+                "type": "object",
+                "properties": {},
+                "required": []
+              }
+            },
+            "type": "function"
+          }
+        },
+        {
+          "name": "tool_error",
+          "description": "Always fail, reporting the failure through isError rather than a protocol error.",
+          "params": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {
+            "koog_metadata": {
+              "koog.mcp.tool.id": "tool_error",
+              "koog.mcp.protocol.version": "2025-11-25",
+              "koog.mcp.transport.type": "pipe",
+              "koog.mcp.session.id": "",
+              "koog.mcp.server.url": "",
+              "koog.mcp.server.port": ""
+            }
+          },
+          "origin": "koog",
+          "raw": {
+            "function": {
+              "name": "tool_error",
+              "description": "Always fail, reporting the failure through isError rather than a protocol error.",
+              "parameters": {
+                "type": "object",
+                "properties": {},
+                "required": []
+              }
+            },
+            "type": "function"
+          }
+        }
+      ],
+      "results": [
+        {
+          "tool": "text_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "text_content",
+            "blocks": [
+              {
+                "text": "SENTINEL_TEXT_BLOCK",
+                "type": "text"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_TEXT_BLOCK",
+            "origin": "koog",
+            "raw": {
+              "content": [
+                {
+                  "text": "SENTINEL_TEXT_BLOCK",
+                  "type": "text"
+                }
+              ],
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "text_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "text_content",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"content\": [{\"text\": \"SENTINEL_TEXT_BLOCK\", \"type\": \"text\"}], \"isError\": false}",
+            "origin": "koog",
+            "raw": {
+              "role": "tool",
+              "content": "{\"content\": [{\"text\": \"SENTINEL_TEXT_BLOCK\", \"type\": \"text\"}], \"isError\": false}"
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "image_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "image_content",
+            "blocks": [
+              {
+                "data": "<96 chars>",
+                "mimeType": "image/png",
+                "type": "image"
+              }
+            ],
+            "block_kinds": [
+              "image"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": null,
+            "origin": "koog",
+            "raw": {
+              "content": [
+                {
+                  "data": "<96 chars>",
+                  "mimeType": "image/png",
+                  "type": "image"
+                }
+              ],
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "image_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "image_content",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"content\": [{\"data\": \"<96 chars>\", \"mimeType\": \"image/png\", \"type\": \"image\"}], \"isError\": false}",
+            "origin": "koog",
+            "raw": {
+              "role": "tool",
+              "content": "{\"content\": [{\"data\": \"<96 chars>\", \"mimeType\": \"image/png\", \"type\": \"image\"}], \"isError\": false}"
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "audio_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "audio_content",
+            "blocks": [
+              {
+                "data": "<60 chars>",
+                "mimeType": "audio/wav",
+                "type": "audio"
+              }
+            ],
+            "block_kinds": [
+              "audio"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": null,
+            "origin": "koog",
+            "raw": {
+              "content": [
+                {
+                  "data": "<60 chars>",
+                  "mimeType": "audio/wav",
+                  "type": "audio"
+                }
+              ],
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "audio_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "audio_content",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"content\": [{\"data\": \"<60 chars>\", \"mimeType\": \"audio/wav\", \"type\": \"audio\"}], \"isError\": false}",
+            "origin": "koog",
+            "raw": {
+              "role": "tool",
+              "content": "{\"content\": [{\"data\": \"<60 chars>\", \"mimeType\": \"audio/wav\", \"type\": \"audio\"}], \"isError\": false}"
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "embedded_resource_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "embedded_resource_content",
+            "blocks": [
+              {
+                "resource": {
+                  "text": "SENTINEL_EMBEDDED_RESOURCE",
+                  "uri": "file:///fixtures/embedded.txt",
+                  "mimeType": "text/plain"
+                },
+                "type": "resource"
+              }
+            ],
+            "block_kinds": [
+              "resource"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": null,
+            "origin": "koog",
+            "raw": {
+              "content": [
+                {
+                  "resource": {
+                    "text": "SENTINEL_EMBEDDED_RESOURCE",
+                    "uri": "file:///fixtures/embedded.txt",
+                    "mimeType": "text/plain"
+                  },
+                  "type": "resource"
+                }
+              ],
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "embedded_resource_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "embedded_resource_content",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"content\": [{\"resource\": {\"mimeType\": \"text/plain\", \"text\": \"SENTINEL_EMBEDDED_RESOURCE\", \"uri\": \"file:///fixtures/embedded.txt\"}, \"type\": \"resource\"}], \"isError\": false}",
+            "origin": "koog",
+            "raw": {
+              "role": "tool",
+              "content": "{\"content\": [{\"resource\": {\"mimeType\": \"text/plain\", \"text\": \"SENTINEL_EMBEDDED_RESOURCE\", \"uri\": \"file:///fixtures/embedded.txt\"}, \"type\": \"resource\"}], \"isError\": false}"
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "resource_link_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "resource_link_content",
+            "blocks": [
+              {
+                "name": "linked.txt",
+                "uri": "file:///fixtures/linked.txt",
+                "mimeType": "text/plain",
+                "description": "SENTINEL_RESOURCE_LINK",
+                "type": "resource_link"
+              }
+            ],
+            "block_kinds": [
+              "resource_link"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": null,
+            "origin": "koog",
+            "raw": {
+              "content": [
+                {
+                  "name": "linked.txt",
+                  "uri": "file:///fixtures/linked.txt",
+                  "mimeType": "text/plain",
+                  "description": "SENTINEL_RESOURCE_LINK",
+                  "type": "resource_link"
+                }
+              ],
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "resource_link_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "resource_link_content",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"content\": [{\"description\": \"SENTINEL_RESOURCE_LINK\", \"mimeType\": \"text/plain\", \"name\": \"linked.txt\", \"type\": \"resource_link\", \"uri\": \"file:///fixtures/linked.txt\"}], \"isError\": false}",
+            "origin": "koog",
+            "raw": {
+              "role": "tool",
+              "content": "{\"content\": [{\"description\": \"SENTINEL_RESOURCE_LINK\", \"mimeType\": \"text/plain\", \"name\": \"linked.txt\", \"type\": \"resource_link\", \"uri\": \"file:///fixtures/linked.txt\"}], \"isError\": false}"
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "annotated_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "annotated_content",
+            "blocks": [
+              {
+                "text": "SENTINEL_ANNOTATED_TEXT",
+                "annotations": {
+                  "audience": [
+                    "user"
+                  ],
+                  "priority": 0.9
+                },
+                "type": "text"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ANNOTATED_TEXT",
+            "origin": "koog",
+            "raw": {
+              "content": [
+                {
+                  "text": "SENTINEL_ANNOTATED_TEXT",
+                  "annotations": {
+                    "audience": [
+                      "user"
+                    ],
+                    "priority": 0.9
+                  },
+                  "type": "text"
+                }
+              ],
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "annotated_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "annotated_content",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"content\": [{\"annotations\": {\"audience\": [\"user\"], \"priority\": 0.9}, \"text\": \"SENTINEL_ANNOTATED_TEXT\", \"type\": \"text\"}], \"isError\": false}",
+            "origin": "koog",
+            "raw": {
+              "role": "tool",
+              "content": "{\"content\": [{\"annotations\": {\"audience\": [\"user\"], \"priority\": 0.9}, \"text\": \"SENTINEL_ANNOTATED_TEXT\", \"type\": \"text\"}], \"isError\": false}"
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "mixed_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "mixed_content",
+            "blocks": [
+              {
+                "text": "SENTINEL_TEXT_BLOCK",
+                "annotations": {
+                  "audience": [
+                    "user"
+                  ],
+                  "priority": 0.9
+                },
+                "type": "text"
+              },
+              {
+                "data": "<96 chars>",
+                "mimeType": "image/png",
+                "type": "image"
+              },
+              {
+                "data": "<60 chars>",
+                "mimeType": "audio/wav",
+                "type": "audio"
+              },
+              {
+                "resource": {
+                  "text": "SENTINEL_EMBEDDED_RESOURCE",
+                  "uri": "file:///fixtures/embedded.txt",
+                  "mimeType": "text/plain"
+                },
+                "type": "resource"
+              },
+              {
+                "name": "linked.txt",
+                "uri": "file:///fixtures/linked.txt",
+                "mimeType": "text/plain",
+                "description": "SENTINEL_RESOURCE_LINK",
+                "type": "resource_link"
+              }
+            ],
+            "block_kinds": [
+              "text",
+              "image",
+              "audio",
+              "resource",
+              "resource_link"
+            ],
+            "structured_content": {
+              "count": 2,
+              "records": [
+                {
+                  "id": "rec_1",
+                  "status": "active"
+                },
+                {
+                  "id": "rec_2",
+                  "status": "archived"
+                }
+              ],
+              "note": "SENTINEL_STRUCTURED_CONTENT"
+            },
+            "is_error": null,
+            "text": "SENTINEL_TEXT_BLOCK",
+            "origin": "koog",
+            "raw": {
+              "content": [
+                {
+                  "text": "SENTINEL_TEXT_BLOCK",
+                  "annotations": {
+                    "audience": [
+                      "user"
+                    ],
+                    "priority": 0.9
+                  },
+                  "type": "text"
+                },
+                {
+                  "data": "<96 chars>",
+                  "mimeType": "image/png",
+                  "type": "image"
+                },
+                {
+                  "data": "<60 chars>",
+                  "mimeType": "audio/wav",
+                  "type": "audio"
+                },
+                {
+                  "resource": {
+                    "text": "SENTINEL_EMBEDDED_RESOURCE",
+                    "uri": "file:///fixtures/embedded.txt",
+                    "mimeType": "text/plain"
+                  },
+                  "type": "resource"
+                },
+                {
+                  "name": "linked.txt",
+                  "uri": "file:///fixtures/linked.txt",
+                  "mimeType": "text/plain",
+                  "description": "SENTINEL_RESOURCE_LINK",
+                  "type": "resource_link"
+                }
+              ],
+              "isError": false,
+              "structuredContent": {
+                "count": 2,
+                "records": [
+                  {
+                    "id": "rec_1",
+                    "status": "active"
+                  },
+                  {
+                    "id": "rec_2",
+                    "status": "archived"
+                  }
+                ],
+                "note": "SENTINEL_STRUCTURED_CONTENT"
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "mixed_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "mixed_content",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": {
+              "count": 2,
+              "records": [
+                {
+                  "id": "rec_1",
+                  "status": "active"
+                },
+                {
+                  "id": "rec_2",
+                  "status": "archived"
+                }
+              ],
+              "note": "SENTINEL_STRUCTURED_CONTENT"
+            },
+            "is_error": null,
+            "text": "{\"content\": [{\"annotations\": {\"audience\": [\"user\"], \"priority\": 0.9}, \"text\": \"SENTINEL_TEXT_BLOCK\", \"type\": \"text\"}, {\"data\": \"<96 chars>\", \"mimeType\": \"image/png\", \"type\": \"image\"}, {\"data\": \"<60 chars>\", \"mimeType\": \"audio/wav\", \"type\": \"audio\"}, {\"resource\": {\"mimeType\": \"text/plain\", \"text\": \"SENTINEL_EMBEDDED_RESOURCE\", \"uri\": \"file:///fixtures/embedded.txt\"}, \"type\": \"resource\"}, {\"description\": \"SENTINEL_RESOURCE_LINK\", \"mimeType\": \"text/plain\", \"name\": \"linked.txt\", \"type\": \"resource_link\", \"uri\": \"file:///fixtures/linked.txt\"}], \"isError\": false, \"structuredContent\": {\"count\": 2, \"note\": \"SENTINEL_STRUCTURED_CONTENT\", \"records\": [{\"id\": \"rec_1\", \"status\": \"active\"}, {\"id\": \"rec_2\", \"status\": \"archived\"}]}}",
+            "origin": "koog",
+            "raw": {
+              "role": "tool",
+              "content": "{\"content\": [{\"annotations\": {\"audience\": [\"user\"], \"priority\": 0.9}, \"text\": \"SENTINEL_TEXT_BLOCK\", \"type\": \"text\"}, {\"data\": \"<96 chars>\", \"mimeType\": \"image/png\", \"type\": \"image\"}, {\"data\": \"<60 chars>\", \"mimeType\": \"audio/wav\", \"type\": \"audio\"}, {\"resource\": {\"mimeType\": \"text/plain\", \"text\": \"SENTINEL_EMBEDDED_RESOURCE\", \"uri\": \"file:///fixtures/embedded.txt\"}, \"type\": \"resource\"}, {\"description\": \"SENTINEL_RESOURCE_LINK\", \"mimeType\": \"text/plain\", \"name\": \"linked.txt\", \"type\": \"resource_link\", \"uri\": \"file:///fixtures/linked.txt\"}], \"isError\": false, \"structuredContent\": {\"count\": 2, \"note\": \"SENTINEL_STRUCTURED_CONTENT\", \"records\": [{\"id\": \"rec_1\", \"status\": \"active\"}, {\"id\": \"rec_2\", \"status\": \"archived\"}]}}"
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "text_and_structured",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "text_and_structured",
+            "blocks": [
+              {
+                "text": "SENTINEL_TEXT_BLOCK",
+                "type": "text"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": {
+              "count": 2,
+              "records": [
+                {
+                  "id": "rec_1",
+                  "status": "active"
+                },
+                {
+                  "id": "rec_2",
+                  "status": "archived"
+                }
+              ],
+              "note": "SENTINEL_STRUCTURED_CONTENT"
+            },
+            "is_error": null,
+            "text": "SENTINEL_TEXT_BLOCK",
+            "origin": "koog",
+            "raw": {
+              "content": [
+                {
+                  "text": "SENTINEL_TEXT_BLOCK",
+                  "type": "text"
+                }
+              ],
+              "isError": false,
+              "structuredContent": {
+                "count": 2,
+                "records": [
+                  {
+                    "id": "rec_1",
+                    "status": "active"
+                  },
+                  {
+                    "id": "rec_2",
+                    "status": "archived"
+                  }
+                ],
+                "note": "SENTINEL_STRUCTURED_CONTENT"
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "text_and_structured",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "text_and_structured",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": {
+              "count": 2,
+              "records": [
+                {
+                  "id": "rec_1",
+                  "status": "active"
+                },
+                {
+                  "id": "rec_2",
+                  "status": "archived"
+                }
+              ],
+              "note": "SENTINEL_STRUCTURED_CONTENT"
+            },
+            "is_error": null,
+            "text": "{\"content\": [{\"text\": \"SENTINEL_TEXT_BLOCK\", \"type\": \"text\"}], \"isError\": false, \"structuredContent\": {\"count\": 2, \"note\": \"SENTINEL_STRUCTURED_CONTENT\", \"records\": [{\"id\": \"rec_1\", \"status\": \"active\"}, {\"id\": \"rec_2\", \"status\": \"archived\"}]}}",
+            "origin": "koog",
+            "raw": {
+              "role": "tool",
+              "content": "{\"content\": [{\"text\": \"SENTINEL_TEXT_BLOCK\", \"type\": \"text\"}], \"isError\": false, \"structuredContent\": {\"count\": 2, \"note\": \"SENTINEL_STRUCTURED_CONTENT\", \"records\": [{\"id\": \"rec_1\", \"status\": \"active\"}, {\"id\": \"rec_2\", \"status\": \"archived\"}]}}"
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "tool_error",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "tool_error",
+            "blocks": [
+              {
+                "text": "SENTINEL_TOOL_ERROR: this tool always fails",
+                "type": "text"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": true,
+            "text": "SENTINEL_TOOL_ERROR: this tool always fails",
+            "origin": "koog",
+            "raw": {
+              "content": [
+                {
+                  "text": "SENTINEL_TOOL_ERROR: this tool always fails",
+                  "type": "text"
+                }
+              ],
+              "isError": true
+            },
+            "error_channel": "is_error"
+          }
+        },
+        {
+          "tool": "tool_error",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "tool_error",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "Error: SENTINEL_TOOL_ERROR: this tool always fails",
+            "origin": "koog",
+            "raw": {
+              "role": "tool",
+              "content": "Error: SENTINEL_TOOL_ERROR: this tool always fails"
+            },
+            "error_channel": "text_prefix"
+          }
+        }
+      ]
+    }
+  }
+}

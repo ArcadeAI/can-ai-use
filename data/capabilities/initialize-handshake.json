@@ -1,0 +1,32 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "initialize-handshake",
+  "title": "`initialize`",
+  "description": "The opening exchange in which client and server agree a protocol version and declare their capabilities once for the whole connection.",
+  "question": "Does this framework complete the handshake and act on the negotiated version?",
+  "spec": "https://modelcontextprotocol.io/specification/2025-11-25",
+  "status": "stable",
+  "categories": [
+    "Base protocol"
+  ],
+  "keywords": "initialize,initialized,handshake,capability negotiation,protocolVersion",
+  "why": "Statefulness starts here. Every capability the rest of the session relies on is settled in this one exchange, which is why 2026-07-28 removed it in favour of per-request metadata.",
+  "docs_url": "https://modelcontextprotocol.io/specification/2025-11-25/basic/lifecycle#initialization",
+  "docs_label": "MCP Docs",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/basic/lifecycle#initialization",
+      "title": "MCP Docs"
+    },
+    {
+      "url": "https://github.com/modelcontextprotocol/conformance",
+      "title": "MCP conformance suite"
+    }
+  ],
+  "usage_perc_y": null,
+  "usage_perc_a": null,
+  "usage_note": null,
+  "known_issues": [
+    "Measured with the official MCP conformance suite 0.1.16, whose client scenarios are tagged 2025-11-25."
+  ]
+}

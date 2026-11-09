@@ -1,0 +1,93 @@
+{
+  "schema": "mcp-mirror/client-probe@1",
+  "captured_at": "2026-10-09T21:05:06Z",
+  "fixture": "fixtures/client_features_server.py",
+  "fixture_python": "<checkout>/.mcp-mirror/fixture-2025-11-25/bin/python",
+  "spec_version": "2025-11-25",
+  "frameworks": {
+    "ms_agent_framework": {
+      "ok": true,
+      "versions": {
+        "framework": "1.21.0",
+        "adapter": "1.21.0"
+      },
+      "negotiated_mcp_spec_version": "2025-11-25",
+      "client_probe": {
+        "sampling": {
+          "tool": "ask_sampling",
+          "hook": "MCPTool(client=..., sampling_approval_callback=...)",
+          "route": "adapter",
+          "expect": "SENTINEL_SAMPLED",
+          "text": "{\"answered\": \"ask_sampling\", \"response\": {\"role\": \"assistant\", \"content\": {\"type\": \"text\", \"text\": \"SENTINEL_SAMPLED\"}, \"model\": \"mcp-mirror-stub\"}}",
+          "is_error": null,
+          "handler_saw": [
+            {
+              "hook": "MCPTool.client.get_response",
+              "tools": false,
+              "replied": "endTurn"
+            }
+          ]
+        },
+        "sampling.tools": {
+          "tool": "ask_sampling_tools",
+          "hook": "MCPTool(client=..., sampling_approval_callback=...)",
+          "route": "adapter",
+          "expect": "SENTINEL_SAMPLED_AFTER_TOOL",
+          "text": "{\"answered\": \"ask_sampling_tools\", \"response\": {\"rounds\": [{\"role\": \"assistant\", \"content\": [{\"type\": \"tool_use\", \"name\": \"sentinel_lookup\", \"id\": \"SENTINEL_TOOL_USE_ID\", \"input\": {\"word\": \"mirror\"}}], \"model\": \"mcp-mirror-stub\", \"stopReason\": \"toolUse\"}, {\"role\": \"assistant\", \"content\": {\"type\": \"text\", \"text\": \"SENTINEL_SAMPLED_AFTER_TOOL\"}, \"model\": \"mcp-mirror-stub\"}]}}",
+          "is_error": null,
+          "handler_saw": [
+            {
+              "hook": "MCPTool.client.get_response",
+              "tools": true,
+              "replied": "toolUse"
+            },
+            {
+              "hook": "MCPTool.client.get_response",
+              "tools": true,
+              "replied": "endTurn"
+            }
+          ]
+        },
+        "elicitation.form": {
+          "tool": "ask_elicitation_form",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_ELICITED",
+          "text": "ToolExecutionException: SENTINEL_CLIENT_FEATURE_UNAVAILABLE ask_elicitation_form: McpError: Elicitation not supported",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "elicitation.url": {
+          "tool": "ask_elicitation_url",
+          "hook": null,
+          "route": null,
+          "expect": "\"action\": \"accept\"",
+          "text": "ToolExecutionException: SENTINEL_CLIENT_FEATURE_UNAVAILABLE ask_elicitation_url: McpError: Elicitation not supported",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "roots.list": {
+          "tool": "list_client_roots",
+          "hook": null,
+          "route": null,
+          "expect": "file:///tmp/mcp-mirror-root",
+          "text": "ToolExecutionException: SENTINEL_CLIENT_FEATURE_UNAVAILABLE list_client_roots: McpError: List roots not supported",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "roots.list_changed": {
+          "tool": "roots_changes_seen",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_ROOTS_CHANGES_SEEN",
+          "text": "{\"seen\": 0}",
+          "is_error": null,
+          "handler_saw": []
+        },
+        "capabilities": {
+          "text": "{\"sampling\": {\"tools\": {}}}"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{"format": "mcp-mirror.harness-output/1"}
+{"event": "init", "harness_version": null, "model": "Auto Balance", "permission_mode": "default", "mcp_servers": null, "mcp_tools": null}
+{"event": "routed", "model": "Grok 4.7"}
+{"event": "text", "text": "> Auto routed to Grok 4.7\n\nready"}
+{"event": "result", "subtype": "success", "is_error": false, "num_turns": null, "text": "> Auto routed to Grok 4.7\n\nready"}

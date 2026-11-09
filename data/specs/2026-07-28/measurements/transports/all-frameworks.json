@@ -1,0 +1,15 @@
+{
+  "schema": "mcp-mirror/transports@1",
+  "captured_at": "2026-09-30T18:27:13Z",
+  "spec_version": "2026-07-28",
+  "fixtures": {
+    "definitions": "fixtures/tricky_server.py",
+    "results": "fixtures/results_server.py"
+  },
+  "transports": [
+    "stdio",
+    "http"
+  ],
+  "command": "uv run python scripts/measure_transports.py --spec-version 2026-07-28 --renderers openai_agents,pydantic_ai,mastra --out data/specs/2026-07-28/measurements/transports/all-frameworks.json",
+  "frameworks": {}
+}

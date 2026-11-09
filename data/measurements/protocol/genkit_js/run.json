@@ -1,0 +1,879 @@
+{
+  "schema": "mcp-mirror/protocol-run@1",
+  "captured_at": "2026-10-01T08:14:31Z",
+  "renderer": "genkit_js",
+  "fixture": "fixtures/base_protocol_server.py",
+  "spec_version": "2025-11-25",
+  "versions": {
+    "framework": "1.42.0",
+    "adapter": "@genkit-ai/mcp 1.42.0, @modelcontextprotocol/sdk 1.30.0, node v24.21.0"
+  },
+  "captures": [
+    "http.jsonl",
+    "stdio-00.jsonl",
+    "stdio-01.jsonl",
+    "stdio-02.jsonl",
+    "stdio-03.jsonl",
+    "stdio-04.jsonl",
+    "stdio-05.jsonl",
+    "stdio-06.jsonl",
+    "stdio-07.jsonl",
+    "stdio-08.jsonl",
+    "stdio-09.jsonl",
+    "stdio-10.jsonl",
+    "stdio-11.jsonl",
+    "stdio-12.jsonl"
+  ],
+  "transports": {
+    "stdio": {
+      "ok": true,
+      "versions": {
+        "framework": "1.42.0",
+        "adapter": "@genkit-ai/mcp 1.42.0, @modelcontextprotocol/sdk 1.30.0, node v24.21.0"
+      },
+      "tools": [
+        {
+          "name": "dialect_2020_12",
+          "params": {
+            "type": "object",
+            "properties": {
+              "point": {
+                "type": "array",
+                "description": "An [x, y] pair.",
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "items": false
+              },
+              "window": {
+                "$ref": "#/$defs/range"
+              },
+              "label": {
+                "type": "string"
+              },
+              "units": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "point"
+            ],
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "$defs": {
+              "range": {
+                "type": "object",
+                "properties": {
+                  "low": {
+                    "type": "number"
+                  },
+                  "high": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "low",
+                  "high"
+                ]
+              }
+            },
+            "dependentRequired": {
+              "label": [
+                "units"
+              ]
+            }
+          }
+        },
+        {
+          "name": "dialect_draft_07",
+          "params": {
+            "type": "object",
+            "properties": {
+              "point": {
+                "type": "array",
+                "description": "An [x, y] pair.",
+                "items": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "additionalItems": false
+              },
+              "window": {
+                "$ref": "#/definitions/range"
+              }
+            },
+            "required": [
+              "point"
+            ],
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "definitions": {
+              "range": {
+                "type": "object",
+                "properties": {
+                  "low": {
+                    "type": "number"
+                  },
+                  "high": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "low",
+                  "high"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "name": "routed_lookup",
+          "params": {
+            "type": "object",
+            "properties": {
+              "region": {
+                "type": "string",
+                "x-mcp-header": "Region"
+              },
+              "key": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "region",
+              "key"
+            ]
+          }
+        },
+        {
+          "name": "bad_header",
+          "params": {
+            "type": "object",
+            "properties": {
+              "filter": {
+                "type": "object",
+                "x-mcp-header": "Filter",
+                "properties": {
+                  "field": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "needs_input",
+          "params": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      ],
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Tool action return value",
+          "capture_api": "@genkit-ai/mcp ToolAction from GenkitMcpHost.getActiveTools(ai), called with the arguments",
+          "capture_object": "the value createDynamicTool's processResult returned",
+          "agent_path": false,
+          "limitation": null
+        },
+        {
+          "id": "agent",
+          "label": "Tool response to the model",
+          "capture_api": "genkit ai.generate, next GenerateRequest.messages",
+          "capture_object": "the toolResponse part in the GenerateRequest the model action receives",
+          "agent_path": true,
+          "limitation": "The model is a scripted ai.defineModel action; no provider plugin serialized the request."
+        },
+        {
+          "id": "multipart",
+          "label": "Tool response to the model, createMcpHost({ multipart: true })",
+          "capture_api": "genkit ai.generate with createMcpHost({ multipart: true }), next GenerateRequest.messages",
+          "capture_object": "the toolResponse part (output and content) in the GenerateRequest the model action receives",
+          "agent_path": false,
+          "limitation": "This is a documented non-default host option, not the behaviour a caller gets without configuring it."
+        }
+      ],
+      "results": [
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "no schema with key or ref \"https://json-schema.org/draft/2020-12/schema\"",
+            "origin": "genkit_js",
+            "raw": {
+              "tool": "dialect_2020_12",
+              "ok": false,
+              "threw": true,
+              "error": "no schema with key or ref \"https://json-schema.org/draft/2020-12/schema\"",
+              "structuredFromServer": null
+            },
+            "error_channel": "exception"
+          }
+        },
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "no schema with key or ref \"https://json-schema.org/draft/2020-12/schema\"",
+            "origin": "genkit_js",
+            "raw": {
+              "tool": "dialect_2020_12",
+              "ok": false,
+              "threw": true,
+              "error": "no schema with key or ref \"https://json-schema.org/draft/2020-12/schema\"",
+              "structuredFromServer": null
+            },
+            "error_channel": "exception"
+          }
+        },
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "multipart",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "no schema with key or ref \"https://json-schema.org/draft/2020-12/schema\"",
+            "origin": "genkit_js",
+            "raw": {
+              "tool": "dialect_2020_12",
+              "ok": false,
+              "threw": true,
+              "error": "no schema with key or ref \"https://json-schema.org/draft/2020-12/schema\"",
+              "structuredFromServer": null
+            },
+            "error_channel": "exception"
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "genkit_js",
+            "raw": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "genkit_js",
+            "raw": {
+              "name": "dialect_draft_07",
+              "ref": "mcp-mirror-call",
+              "output": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "multipart",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "genkit_js",
+            "raw": {
+              "name": "dialect_draft_07",
+              "ref": "mcp-mirror-call",
+              "output": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "strict mode: unknown keyword: \"x-mcp-header\"",
+            "origin": "genkit_js",
+            "raw": {
+              "tool": "routed_lookup",
+              "ok": false,
+              "threw": true,
+              "error": "strict mode: unknown keyword: \"x-mcp-header\"",
+              "structuredFromServer": null
+            },
+            "error_channel": "exception"
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "strict mode: unknown keyword: \"x-mcp-header\"",
+            "origin": "genkit_js",
+            "raw": {
+              "tool": "routed_lookup",
+              "ok": false,
+              "threw": true,
+              "error": "strict mode: unknown keyword: \"x-mcp-header\"",
+              "structuredFromServer": null
+            },
+            "error_channel": "exception"
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "multipart",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "strict mode: unknown keyword: \"x-mcp-header\"",
+            "origin": "genkit_js",
+            "raw": {
+              "tool": "routed_lookup",
+              "ok": false,
+              "threw": true,
+              "error": "strict mode: unknown keyword: \"x-mcp-header\"",
+              "structuredFromServer": null
+            },
+            "error_channel": "exception"
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS needs_input {}",
+            "origin": "genkit_js",
+            "raw": "SENTINEL_ARGUMENTS needs_input {}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS needs_input {}",
+            "origin": "genkit_js",
+            "raw": {
+              "name": "needs_input",
+              "ref": "mcp-mirror-call",
+              "output": "SENTINEL_ARGUMENTS needs_input {}"
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "multipart",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS needs_input {}",
+            "origin": "genkit_js",
+            "raw": {
+              "name": "needs_input",
+              "ref": "mcp-mirror-call",
+              "output": "SENTINEL_ARGUMENTS needs_input {}"
+            },
+            "error_channel": null
+          }
+        }
+      ]
+    },
+    "http": {
+      "ok": true,
+      "versions": {
+        "framework": "1.42.0",
+        "adapter": "@genkit-ai/mcp 1.42.0, @modelcontextprotocol/sdk 1.30.0, node v24.21.0"
+      },
+      "tools": [
+        {
+          "name": "dialect_2020_12",
+          "params": {
+            "type": "object",
+            "properties": {
+              "point": {
+                "type": "array",
+                "description": "An [x, y] pair.",
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "items": false
+              },
+              "window": {
+                "$ref": "#/$defs/range"
+              },
+              "label": {
+                "type": "string"
+              },
+              "units": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "point"
+            ],
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "$defs": {
+              "range": {
+                "type": "object",
+                "properties": {
+                  "low": {
+                    "type": "number"
+                  },
+                  "high": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "low",
+                  "high"
+                ]
+              }
+            },
+            "dependentRequired": {
+              "label": [
+                "units"
+              ]
+            }
+          }
+        },
+        {
+          "name": "dialect_draft_07",
+          "params": {
+            "type": "object",
+            "properties": {
+              "point": {
+                "type": "array",
+                "description": "An [x, y] pair.",
+                "items": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "additionalItems": false
+              },
+              "window": {
+                "$ref": "#/definitions/range"
+              }
+            },
+            "required": [
+              "point"
+            ],
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "definitions": {
+              "range": {
+                "type": "object",
+                "properties": {
+                  "low": {
+                    "type": "number"
+                  },
+                  "high": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "low",
+                  "high"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "name": "routed_lookup",
+          "params": {
+            "type": "object",
+            "properties": {
+              "region": {
+                "type": "string",
+                "x-mcp-header": "Region"
+              },
+              "key": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "region",
+              "key"
+            ]
+          }
+        },
+        {
+          "name": "bad_header",
+          "params": {
+            "type": "object",
+            "properties": {
+              "filter": {
+                "type": "object",
+                "x-mcp-header": "Filter",
+                "properties": {
+                  "field": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "needs_input",
+          "params": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      ],
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Tool action return value",
+          "capture_api": "@genkit-ai/mcp ToolAction from GenkitMcpHost.getActiveTools(ai), called with the arguments",
+          "capture_object": "the value createDynamicTool's processResult returned",
+          "agent_path": false,
+          "limitation": null
+        },
+        {
+          "id": "agent",
+          "label": "Tool response to the model",
+          "capture_api": "genkit ai.generate, next GenerateRequest.messages",
+          "capture_object": "the toolResponse part in the GenerateRequest the model action receives",
+          "agent_path": true,
+          "limitation": "The model is a scripted ai.defineModel action; no provider plugin serialized the request."
+        },
+        {
+          "id": "multipart",
+          "label": "Tool response to the model, createMcpHost({ multipart: true })",
+          "capture_api": "genkit ai.generate with createMcpHost({ multipart: true }), next GenerateRequest.messages",
+          "capture_object": "the toolResponse part (output and content) in the GenerateRequest the model action receives",
+          "agent_path": false,
+          "limitation": "This is a documented non-default host option, not the behaviour a caller gets without configuring it."
+        }
+      ],
+      "results": [
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "no schema with key or ref \"https://json-schema.org/draft/2020-12/schema\"",
+            "origin": "genkit_js",
+            "raw": {
+              "tool": "dialect_2020_12",
+              "ok": false,
+              "threw": true,
+              "error": "no schema with key or ref \"https://json-schema.org/draft/2020-12/schema\"",
+              "structuredFromServer": null
+            },
+            "error_channel": "exception"
+          }
+        },
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "no schema with key or ref \"https://json-schema.org/draft/2020-12/schema\"",
+            "origin": "genkit_js",
+            "raw": {
+              "tool": "dialect_2020_12",
+              "ok": false,
+              "threw": true,
+              "error": "no schema with key or ref \"https://json-schema.org/draft/2020-12/schema\"",
+              "structuredFromServer": null
+            },
+            "error_channel": "exception"
+          }
+        },
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "multipart",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "no schema with key or ref \"https://json-schema.org/draft/2020-12/schema\"",
+            "origin": "genkit_js",
+            "raw": {
+              "tool": "dialect_2020_12",
+              "ok": false,
+              "threw": true,
+              "error": "no schema with key or ref \"https://json-schema.org/draft/2020-12/schema\"",
+              "structuredFromServer": null
+            },
+            "error_channel": "exception"
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "genkit_js",
+            "raw": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "genkit_js",
+            "raw": {
+              "name": "dialect_draft_07",
+              "ref": "mcp-mirror-call",
+              "output": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "multipart",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "genkit_js",
+            "raw": {
+              "name": "dialect_draft_07",
+              "ref": "mcp-mirror-call",
+              "output": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "strict mode: unknown keyword: \"x-mcp-header\"",
+            "origin": "genkit_js",
+            "raw": {
+              "tool": "routed_lookup",
+              "ok": false,
+              "threw": true,
+              "error": "strict mode: unknown keyword: \"x-mcp-header\"",
+              "structuredFromServer": null
+            },
+            "error_channel": "exception"
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "strict mode: unknown keyword: \"x-mcp-header\"",
+            "origin": "genkit_js",
+            "raw": {
+              "tool": "routed_lookup",
+              "ok": false,
+              "threw": true,
+              "error": "strict mode: unknown keyword: \"x-mcp-header\"",
+              "structuredFromServer": null
+            },
+            "error_channel": "exception"
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "multipart",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "strict mode: unknown keyword: \"x-mcp-header\"",
+            "origin": "genkit_js",
+            "raw": {
+              "tool": "routed_lookup",
+              "ok": false,
+              "threw": true,
+              "error": "strict mode: unknown keyword: \"x-mcp-header\"",
+              "structuredFromServer": null
+            },
+            "error_channel": "exception"
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS needs_input {}",
+            "origin": "genkit_js",
+            "raw": "SENTINEL_ARGUMENTS needs_input {}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS needs_input {}",
+            "origin": "genkit_js",
+            "raw": {
+              "name": "needs_input",
+              "ref": "mcp-mirror-call",
+              "output": "SENTINEL_ARGUMENTS needs_input {}"
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "multipart",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS needs_input {}",
+            "origin": "genkit_js",
+            "raw": {
+              "name": "needs_input",
+              "ref": "mcp-mirror-call",
+              "output": "SENTINEL_ARGUMENTS needs_input {}"
+            },
+            "error_channel": null
+          }
+        }
+      ]
+    }
+  }
+}

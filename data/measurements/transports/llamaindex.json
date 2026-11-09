@@ -1,0 +1,2307 @@
+{
+  "schema": "mcp-mirror/transports@1",
+  "captured_at": "2026-09-30T22:39:50Z",
+  "spec_version": "2025-11-25",
+  "fixtures": {
+    "definitions": "fixtures/tricky_server.py",
+    "results": "fixtures/results_server.py"
+  },
+  "transports": [
+    "stdio",
+    "http",
+    "sse"
+  ],
+  "command": "uv run python scripts/measure_transports.py --spec-version 2025-11-25 --renderers llamaindex --out data/measurements/transports/llamaindex.json",
+  "frameworks": {
+    "llamaindex": {
+      "transports": {
+        "stdio": {
+          "definitions": {
+            "ok": true,
+            "fixture": "fixtures/tricky_server.py",
+            "capture": "wire/llamaindex-tricky_server-stdio.jsonl",
+            "version": "0.14.25",
+            "answers": {
+              "tools": [
+                {
+                  "name": "search_records",
+                  "description": "Search records with optional filters. Read-only.",
+                  "params": {
+                    "properties": {
+                      "query": {
+                        "description": "Full-text search query.",
+                        "title": "Query",
+                        "type": "string"
+                      },
+                      "status": {
+                        "anyOf": [
+                          {
+                            "enum": [
+                              "active",
+                              "archived",
+                              "pending",
+                              "deleted"
+                            ],
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "description": "Filter by record status.",
+                        "title": "Status"
+                      },
+                      "owner_email": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "description": "Restrict to records owned by this email address.",
+                        "title": "Owner Email"
+                      },
+                      "created_after": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "description": "Only records created at or after this RFC 3339 timestamp.",
+                        "title": "Created After"
+                      },
+                      "limit": {
+                        "default": 20,
+                        "description": "Maximum number of records to return.",
+                        "title": "Limit",
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "query"
+                    ],
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "create_report",
+                  "description": "Create a structured report from sections.",
+                  "params": {
+                    "properties": {
+                      "title": {
+                        "description": "Report title.",
+                        "title": "Title",
+                        "type": "string"
+                      },
+                      "config": {
+                        "additionalProperties": true,
+                        "description": "Rendering configuration.",
+                        "title": "Config",
+                        "type": "object"
+                      },
+                      "sections": {
+                        "anyOf": [
+                          {
+                            "items": {
+                              "additionalProperties": true,
+                              "type": "object"
+                            },
+                            "type": "array"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "description": "Ordered report sections.",
+                        "title": "Sections"
+                      }
+                    },
+                    "required": [
+                      "title",
+                      "config"
+                    ],
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "deliver_payload",
+                  "description": "Deliver a payload to a destination.",
+                  "params": {
+                    "properties": {
+                      "destination": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "additionalProperties": true,
+                            "type": "object"
+                          }
+                        ],
+                        "description": "Where to deliver the payload.",
+                        "title": "Destination"
+                      },
+                      "mode": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "description": "Delivery mode.",
+                        "title": "Mode"
+                      }
+                    },
+                    "required": [
+                      "destination"
+                    ],
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "delete_account",
+                  "description": "Permanently deletes a user account and all of its associated data. This action is destructive and irreversible: it cannot be undone, and it requires elevated admin scope (accounts:delete). Use with extreme caution.",
+                  "params": {
+                    "properties": {
+                      "account_id": {
+                        "description": "The id of the account to delete.",
+                        "title": "Account Id",
+                        "type": "string"
+                      },
+                      "confirm": {
+                        "description": "Must be true to proceed with the deletion.",
+                        "title": "Confirm",
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "account_id",
+                      "confirm"
+                    ],
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "explain_topic",
+                  "description": "Explain a topic in depth for a curious reader. This description is deliberately very long (over 1024 characters) so that adapters which truncate tool descriptions to fit a model's function-description limit can be detected by mcp-mirror. It also contains Unicode and special characters to verify they survive the round trip: accented words like caf\u00e9, na\u00efve, r\u00e9sum\u00e9, jalape\u00f1o, and Z\u00fcrich; non-Latin scripts such as \u65e5\u672c\u8a9e (Japanese), \u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac (Greek), and \u041a\u0438\u0440\u0438\u043b\u043b\u0438\u0446\u0430 (Cyrillic); mathematical symbols \u2211 \u222b \u2248 \u2260 \u221e \u2286 \u2295; currency signs \u20ac \u00a3 \u00a5 \u20bf; smart punctuation \u201ccurly quotes\u201d, \u2018single quotes\u2019, an em-dash, an en\u2013dash, and an ellipsis\u2026; plus a few emoji \ud83d\udd10 \ud83d\ude80 \u2705 for good measure. The reader should receive a structured, well-paced explanation that starts from first principles, introduces the key vocabulary, walks through one concrete worked example, names the most common misconceptions, and then points to where to learn more. Keep the tone precise and friendly. Prefer short sentences. Define every term of art the first time it appears, and never assume the reader has seen the topic before. End with a one-paragraph recap that a busy person could read on its own and still come away with the single most important idea. SENTINEL_END_OF_LONG_DESCRIPTION.",
+                  "params": {
+                    "properties": {
+                      "topic": {
+                        "description": "The subject to explain (supports Unicode: caf\u00e9, na\u00efve, \u65e5\u672c\u8a9e).",
+                        "title": "Topic",
+                        "type": "string"
+                      },
+                      "max_words": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "description": "Soft cap on the explanation length.",
+                        "title": "Max Words"
+                      }
+                    },
+                    "required": [
+                      "topic"
+                    ],
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                }
+              ],
+              "probe": {
+                "resources.list": {
+                  "ok": true,
+                  "entries": [
+                    {
+                      "uri": "file:///fixtures/notes.txt",
+                      "name": "notes.txt",
+                      "title": "Release notes",
+                      "description": "SENTINEL_RESOURCE_DESCRIPTION",
+                      "mimeType": "text/plain"
+                    },
+                    {
+                      "uri": "file:///fixtures/logo.png",
+                      "name": "logo.png",
+                      "title": null,
+                      "description": "A binary resource, to check base64 survives the round trip.",
+                      "mimeType": "image/png"
+                    }
+                  ]
+                },
+                "resources.read.text": {
+                  "ok": true,
+                  "uri": "file:///fixtures/notes.txt",
+                  "mimeType": "text/plain",
+                  "text": "SENTINEL_RESOURCE_TEXT"
+                },
+                "resources.read.blob": {
+                  "ok": true,
+                  "uri": "file:///fixtures/logo.png",
+                  "mimeType": "image/png",
+                  "blob_sha256": "c414cd0e204de974f73753c7e28d7638e7b3691bb8b1a2bab6b25bb7fed7ce77",
+                  "blob_bytes": 70
+                },
+                "resources.templates": {
+                  "ok": true,
+                  "entries": [
+                    {
+                      "uriTemplate": "file:///fixtures/records/{record_id}",
+                      "name": "record",
+                      "description": "SENTINEL_TEMPLATE_DESCRIPTION",
+                      "mimeType": "application/json"
+                    }
+                  ]
+                },
+                "prompts.list": {
+                  "ok": true,
+                  "entries": [
+                    {
+                      "name": "summarize_records",
+                      "title": "Summarize records",
+                      "description": "SENTINEL_PROMPT_DESCRIPTION",
+                      "arguments": [
+                        {
+                          "name": "status",
+                          "description": "SENTINEL_ARGUMENT_DESCRIPTION",
+                          "required": true
+                        },
+                        {
+                          "name": "tone",
+                          "description": "Optional writing tone.",
+                          "required": false
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "prompts.get": {
+                  "ok": true,
+                  "description": null,
+                  "messages": [
+                    {
+                      "role": "user",
+                      "type": null,
+                      "text": "SENTINEL_PROMPT_MESSAGE status=x"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "results": {
+            "ok": true,
+            "fixture": "fixtures/results_server.py",
+            "capture": "wire/llamaindex-results_server-stdio.jsonl",
+            "version": "0.14.25",
+            "answers": {
+              "tools": [
+                {
+                  "name": "text_content",
+                  "description": "Return one text block and nothing else.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "image_content",
+                  "description": "Return one image block and nothing else.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "audio_content",
+                  "description": "Return one audio block and nothing else.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "embedded_resource_content",
+                  "description": "Return one embedded resource block and nothing else.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "resource_link_content",
+                  "description": "Return one resource_link block and nothing else.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "annotated_content",
+                  "description": "Return one text block carrying audience and priority annotations.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "mixed_content",
+                  "description": "Return one block of every kind plus structuredContent in one result.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "text_and_structured",
+                  "description": "Return one text block plus structuredContent, with no media.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "tool_error",
+                  "description": "Always fail, reporting the failure through isError rather than a protocol error.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                }
+              ],
+              "results": [
+                {
+                  "tool": "text_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TEXT_BLOCK', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": false,
+                    "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TEXT_BLOCK', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "text_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TEXT_BLOCK', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TEXT_BLOCK', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "image_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[ImageContent(type='image', data='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==', mime_type='image/png', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": false,
+                    "text": "meta=None content=[ImageContent(type='image', data='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==', mime_type='image/png', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "image_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[ImageContent(type='image', data='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==', mime_type='image/png', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "meta=None content=[ImageContent(type='image', data='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==', mime_type='image/png', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "audio_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[AudioContent(type='audio', data='UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=', mime_type='audio/wav', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": false,
+                    "text": "meta=None content=[AudioContent(type='audio', data='UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=', mime_type='audio/wav', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "audio_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[AudioContent(type='audio', data='UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=', mime_type='audio/wav', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "meta=None content=[AudioContent(type='audio', data='UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=', mime_type='audio/wav', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "embedded_resource_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[EmbeddedResource(type='resource', resource=TextResourceContents(uri='file:///fixtures/embedded.txt', mime_type='text/plain', meta=None, text='SENTINEL_EMBEDDED_RESOURCE'), annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": false,
+                    "text": "meta=None content=[EmbeddedResource(type='resource', resource=TextResourceContents(uri='file:///fixtures/embedded.txt', mime_type='text/plain', meta=None, text='SENTINEL_EMBEDDED_RESOURCE'), annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "embedded_resource_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[EmbeddedResource(type='resource', resource=TextResourceContents(uri='file:///fixtures/embedded.txt', mime_type='text/plain', meta=None, text='SENTINEL_EMBEDDED_RESOURCE'), annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "meta=None content=[EmbeddedResource(type='resource', resource=TextResourceContents(uri='file:///fixtures/embedded.txt', mime_type='text/plain', meta=None, text='SENTINEL_EMBEDDED_RESOURCE'), annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "resource_link_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[ResourceLink(name='linked.txt', title=None, uri='file:///fixtures/linked.txt', description='SENTINEL_RESOURCE_LINK', mime_type='text/plain', size=None, icons=None, annotations=None, meta=None, type='resource_link')] structured_content=None is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": false,
+                    "text": "meta=None content=[ResourceLink(name='linked.txt', title=None, uri='file:///fixtures/linked.txt', description='SENTINEL_RESOURCE_LINK', mime_type='text/plain', size=None, icons=None, annotations=None, meta=None, type='resource_link')] structured_content=None is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "resource_link_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[ResourceLink(name='linked.txt', title=None, uri='file:///fixtures/linked.txt', description='SENTINEL_RESOURCE_LINK', mime_type='text/plain', size=None, icons=None, annotations=None, meta=None, type='resource_link')] structured_content=None is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "meta=None content=[ResourceLink(name='linked.txt', title=None, uri='file:///fixtures/linked.txt', description='SENTINEL_RESOURCE_LINK', mime_type='text/plain', size=None, icons=None, annotations=None, meta=None, type='resource_link')] structured_content=None is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "annotated_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='SENTINEL_ANNOTATED_TEXT', annotations=Annotations(audience=['user'], priority=0.9, last_modified=None), meta=None)] structured_content=None is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": false,
+                    "text": "meta=None content=[TextContent(type='text', text='SENTINEL_ANNOTATED_TEXT', annotations=Annotations(audience=['user'], priority=0.9, last_modified=None), meta=None)] structured_content=None is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "annotated_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='SENTINEL_ANNOTATED_TEXT', annotations=Annotations(audience=['user'], priority=0.9, last_modified=None), meta=None)] structured_content=None is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "meta=None content=[TextContent(type='text', text='SENTINEL_ANNOTATED_TEXT', annotations=Annotations(audience=['user'], priority=0.9, last_modified=None), meta=None)] structured_content=None is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "mixed_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TEXT_BLOCK', annotations=Annotations(audience=['user'], priority=0.9, last_modified=None), meta=None), ImageContent(type='image', data='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==', mime_type='image/png', annotations=None, meta=None), AudioContent(type='audio', data='UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=', mime_type='audio/wav', annotations=None, meta=None), EmbeddedResource(type='resource', resource=TextResourceContents(uri='file:///fixtures/embedded.txt', mime_type='text/plain', meta=None, text='SENTINEL_EMBEDDED_RESOURCE'), annotations=None, meta=None), ResourceLink(name='linked.txt', title=None, uri='file:///fixtures/linked.txt', description='SENTINEL_RESOURCE_LINK', mime_type='text/plain', size=None, icons=None, annotations=None, meta=None, type='resource_link')] structured_content={'count': 2, 'records': [{'id': 'rec_1', 'status': 'active'}, {'id': 'rec_2', 'status': 'archived'}], 'note': 'SENTINEL_STRUCTURED_CONTENT'} is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": false,
+                    "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TEXT_BLOCK', annotations=Annotations(audience=['user'], priority=0.9, last_modified=None), meta=None), ImageContent(type='image', data='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==', mime_type='image/png', annotations=None, meta=None), AudioContent(type='audio', data='UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=', mime_type='audio/wav', annotations=None, meta=None), EmbeddedResource(type='resource', resource=TextResourceContents(uri='file:///fixtures/embedded.txt', mime_type='text/plain', meta=None, text='SENTINEL_EMBEDDED_RESOURCE'), annotations=None, meta=None), ResourceLink(name='linked.txt', title=None, uri='file:///fixtures/linked.txt', description='SENTINEL_RESOURCE_LINK', mime_type='text/plain', size=None, icons=None, annotations=None, meta=None, type='resource_link')] structured_content={'count': 2, 'records': [{'id': 'rec_1', 'status': 'active'}, {'id': 'rec_2', 'status': 'archived'}], 'note': 'SENTINEL_STRUCTURED_CONTENT'} is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "mixed_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TEXT_BLOCK', annotations=Annotations(audience=['user'], priority=0.9, last_modified=None), meta=None), ImageContent(type='image', data='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==', mime_type='image/png', annotations=None, meta=None), AudioContent(type='audio', data='UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=', mime_type='audio/wav', annotations=None, meta=None), EmbeddedResource(type='resource', resource=TextResourceContents(uri='file:///fixtures/embedded.txt', mime_type='text/plain', meta=None, text='SENTINEL_EMBEDDED_RESOURCE'), annotations=None, meta=None), ResourceLink(name='linked.txt', title=None, uri='file:///fixtures/linked.txt', description='SENTINEL_RESOURCE_LINK', mime_type='text/plain', size=None, icons=None, annotations=None, meta=None, type='resource_link')] structured_content={'count': 2, 'records': [{'id': 'rec_1', 'status': 'active'}, {'id': 'rec_2', 'status': 'archived'}], 'note': 'SENTINEL_STRUCTURED_CONTENT'} is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TEXT_BLOCK', annotations=Annotations(audience=['user'], priority=0.9, last_modified=None), meta=None), ImageContent(type='image', data='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==', mime_type='image/png', annotations=None, meta=None), AudioContent(type='audio', data='UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=', mime_type='audio/wav', annotations=None, meta=None), EmbeddedResource(type='resource', resource=TextResourceContents(uri='file:///fixtures/embedded.txt', mime_type='text/plain', meta=None, text='SENTINEL_EMBEDDED_RESOURCE'), annotations=None, meta=None), ResourceLink(name='linked.txt', title=None, uri='file:///fixtures/linked.txt', description='SENTINEL_RESOURCE_LINK', mime_type='text/plain', size=None, icons=None, annotations=None, meta=None, type='resource_link')] structured_content={'count': 2, 'records': [{'id': 'rec_1', 'status': 'active'}, {'id': 'rec_2', 'status': 'archived'}], 'note': 'SENTINEL_STRUCTURED_CONTENT'} is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "text_and_structured",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TEXT_BLOCK', annotations=None, meta=None)] structured_content={'count': 2, 'records': [{'id': 'rec_1', 'status': 'active'}, {'id': 'rec_2', 'status': 'archived'}], 'note': 'SENTINEL_STRUCTURED_CONTENT'} is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": false,
+                    "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TEXT_BLOCK', annotations=None, meta=None)] structured_content={'count': 2, 'records': [{'id': 'rec_1', 'status': 'active'}, {'id': 'rec_2', 'status': 'archived'}], 'note': 'SENTINEL_STRUCTURED_CONTENT'} is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "text_and_structured",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TEXT_BLOCK', annotations=None, meta=None)] structured_content={'count': 2, 'records': [{'id': 'rec_1', 'status': 'active'}, {'id': 'rec_2', 'status': 'archived'}], 'note': 'SENTINEL_STRUCTURED_CONTENT'} is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TEXT_BLOCK', annotations=None, meta=None)] structured_content={'count': 2, 'records': [{'id': 'rec_1', 'status': 'active'}, {'id': 'rec_2', 'status': 'archived'}], 'note': 'SENTINEL_STRUCTURED_CONTENT'} is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "tool_error",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TOOL_ERROR: this tool always fails', annotations=None, meta=None)] structured_content=None is_error=True result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": false,
+                    "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TOOL_ERROR: this tool always fails', annotations=None, meta=None)] structured_content=None is_error=True result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "tool_error",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TOOL_ERROR: this tool always fails', annotations=None, meta=None)] structured_content=None is_error=True result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TOOL_ERROR: this tool always fails', annotations=None, meta=None)] structured_content=None is_error=True result_type='complete'",
+                    "error_channel": null
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "http": {
+          "definitions": {
+            "ok": true,
+            "fixture": "fixtures/tricky_server.py",
+            "capture": "wire/llamaindex-tricky_server-http.jsonl",
+            "version": "0.14.25",
+            "answers": {
+              "tools": [
+                {
+                  "name": "search_records",
+                  "description": "Search records with optional filters. Read-only.",
+                  "params": {
+                    "properties": {
+                      "query": {
+                        "description": "Full-text search query.",
+                        "title": "Query",
+                        "type": "string"
+                      },
+                      "status": {
+                        "anyOf": [
+                          {
+                            "enum": [
+                              "active",
+                              "archived",
+                              "pending",
+                              "deleted"
+                            ],
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "description": "Filter by record status.",
+                        "title": "Status"
+                      },
+                      "owner_email": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "description": "Restrict to records owned by this email address.",
+                        "title": "Owner Email"
+                      },
+                      "created_after": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "description": "Only records created at or after this RFC 3339 timestamp.",
+                        "title": "Created After"
+                      },
+                      "limit": {
+                        "default": 20,
+                        "description": "Maximum number of records to return.",
+                        "title": "Limit",
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "query"
+                    ],
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "create_report",
+                  "description": "Create a structured report from sections.",
+                  "params": {
+                    "properties": {
+                      "title": {
+                        "description": "Report title.",
+                        "title": "Title",
+                        "type": "string"
+                      },
+                      "config": {
+                        "additionalProperties": true,
+                        "description": "Rendering configuration.",
+                        "title": "Config",
+                        "type": "object"
+                      },
+                      "sections": {
+                        "anyOf": [
+                          {
+                            "items": {
+                              "additionalProperties": true,
+                              "type": "object"
+                            },
+                            "type": "array"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "description": "Ordered report sections.",
+                        "title": "Sections"
+                      }
+                    },
+                    "required": [
+                      "title",
+                      "config"
+                    ],
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "deliver_payload",
+                  "description": "Deliver a payload to a destination.",
+                  "params": {
+                    "properties": {
+                      "destination": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "additionalProperties": true,
+                            "type": "object"
+                          }
+                        ],
+                        "description": "Where to deliver the payload.",
+                        "title": "Destination"
+                      },
+                      "mode": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "description": "Delivery mode.",
+                        "title": "Mode"
+                      }
+                    },
+                    "required": [
+                      "destination"
+                    ],
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "delete_account",
+                  "description": "Permanently deletes a user account and all of its associated data. This action is destructive and irreversible: it cannot be undone, and it requires elevated admin scope (accounts:delete). Use with extreme caution.",
+                  "params": {
+                    "properties": {
+                      "account_id": {
+                        "description": "The id of the account to delete.",
+                        "title": "Account Id",
+                        "type": "string"
+                      },
+                      "confirm": {
+                        "description": "Must be true to proceed with the deletion.",
+                        "title": "Confirm",
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "account_id",
+                      "confirm"
+                    ],
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "explain_topic",
+                  "description": "Explain a topic in depth for a curious reader. This description is deliberately very long (over 1024 characters) so that adapters which truncate tool descriptions to fit a model's function-description limit can be detected by mcp-mirror. It also contains Unicode and special characters to verify they survive the round trip: accented words like caf\u00e9, na\u00efve, r\u00e9sum\u00e9, jalape\u00f1o, and Z\u00fcrich; non-Latin scripts such as \u65e5\u672c\u8a9e (Japanese), \u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac (Greek), and \u041a\u0438\u0440\u0438\u043b\u043b\u0438\u0446\u0430 (Cyrillic); mathematical symbols \u2211 \u222b \u2248 \u2260 \u221e \u2286 \u2295; currency signs \u20ac \u00a3 \u00a5 \u20bf; smart punctuation \u201ccurly quotes\u201d, \u2018single quotes\u2019, an em-dash, an en\u2013dash, and an ellipsis\u2026; plus a few emoji \ud83d\udd10 \ud83d\ude80 \u2705 for good measure. The reader should receive a structured, well-paced explanation that starts from first principles, introduces the key vocabulary, walks through one concrete worked example, names the most common misconceptions, and then points to where to learn more. Keep the tone precise and friendly. Prefer short sentences. Define every term of art the first time it appears, and never assume the reader has seen the topic before. End with a one-paragraph recap that a busy person could read on its own and still come away with the single most important idea. SENTINEL_END_OF_LONG_DESCRIPTION.",
+                  "params": {
+                    "properties": {
+                      "topic": {
+                        "description": "The subject to explain (supports Unicode: caf\u00e9, na\u00efve, \u65e5\u672c\u8a9e).",
+                        "title": "Topic",
+                        "type": "string"
+                      },
+                      "max_words": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "description": "Soft cap on the explanation length.",
+                        "title": "Max Words"
+                      }
+                    },
+                    "required": [
+                      "topic"
+                    ],
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                }
+              ],
+              "probe": {
+                "resources.list": {
+                  "ok": true,
+                  "entries": [
+                    {
+                      "uri": "file:///fixtures/notes.txt",
+                      "name": "notes.txt",
+                      "title": "Release notes",
+                      "description": "SENTINEL_RESOURCE_DESCRIPTION",
+                      "mimeType": "text/plain"
+                    },
+                    {
+                      "uri": "file:///fixtures/logo.png",
+                      "name": "logo.png",
+                      "title": null,
+                      "description": "A binary resource, to check base64 survives the round trip.",
+                      "mimeType": "image/png"
+                    }
+                  ]
+                },
+                "resources.read.text": {
+                  "ok": true,
+                  "uri": "file:///fixtures/notes.txt",
+                  "mimeType": "text/plain",
+                  "text": "SENTINEL_RESOURCE_TEXT"
+                },
+                "resources.read.blob": {
+                  "ok": true,
+                  "uri": "file:///fixtures/logo.png",
+                  "mimeType": "image/png",
+                  "blob_sha256": "c414cd0e204de974f73753c7e28d7638e7b3691bb8b1a2bab6b25bb7fed7ce77",
+                  "blob_bytes": 70
+                },
+                "resources.templates": {
+                  "ok": true,
+                  "entries": [
+                    {
+                      "uriTemplate": "file:///fixtures/records/{record_id}",
+                      "name": "record",
+                      "description": "SENTINEL_TEMPLATE_DESCRIPTION",
+                      "mimeType": "application/json"
+                    }
+                  ]
+                },
+                "prompts.list": {
+                  "ok": true,
+                  "entries": [
+                    {
+                      "name": "summarize_records",
+                      "title": "Summarize records",
+                      "description": "SENTINEL_PROMPT_DESCRIPTION",
+                      "arguments": [
+                        {
+                          "name": "status",
+                          "description": "SENTINEL_ARGUMENT_DESCRIPTION",
+                          "required": true
+                        },
+                        {
+                          "name": "tone",
+                          "description": "Optional writing tone.",
+                          "required": false
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "prompts.get": {
+                  "ok": true,
+                  "description": null,
+                  "messages": [
+                    {
+                      "role": "user",
+                      "type": null,
+                      "text": "SENTINEL_PROMPT_MESSAGE status=x"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "results": {
+            "ok": true,
+            "fixture": "fixtures/results_server.py",
+            "capture": "wire/llamaindex-results_server-http.jsonl",
+            "version": "0.14.25",
+            "answers": {
+              "tools": [
+                {
+                  "name": "text_content",
+                  "description": "Return one text block and nothing else.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "image_content",
+                  "description": "Return one image block and nothing else.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "audio_content",
+                  "description": "Return one audio block and nothing else.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "embedded_resource_content",
+                  "description": "Return one embedded resource block and nothing else.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "resource_link_content",
+                  "description": "Return one resource_link block and nothing else.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "annotated_content",
+                  "description": "Return one text block carrying audience and priority annotations.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "mixed_content",
+                  "description": "Return one block of every kind plus structuredContent in one result.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "text_and_structured",
+                  "description": "Return one text block plus structuredContent, with no media.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "tool_error",
+                  "description": "Always fail, reporting the failure through isError rather than a protocol error.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                }
+              ],
+              "results": [
+                {
+                  "tool": "text_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TEXT_BLOCK', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": false,
+                    "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TEXT_BLOCK', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "text_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TEXT_BLOCK', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TEXT_BLOCK', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "image_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[ImageContent(type='image', data='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==', mime_type='image/png', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": false,
+                    "text": "meta=None content=[ImageContent(type='image', data='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==', mime_type='image/png', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "image_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[ImageContent(type='image', data='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==', mime_type='image/png', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "meta=None content=[ImageContent(type='image', data='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==', mime_type='image/png', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "audio_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[AudioContent(type='audio', data='UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=', mime_type='audio/wav', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": false,
+                    "text": "meta=None content=[AudioContent(type='audio', data='UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=', mime_type='audio/wav', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "audio_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[AudioContent(type='audio', data='UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=', mime_type='audio/wav', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "meta=None content=[AudioContent(type='audio', data='UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=', mime_type='audio/wav', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "embedded_resource_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[EmbeddedResource(type='resource', resource=TextResourceContents(uri='file:///fixtures/embedded.txt', mime_type='text/plain', meta=None, text='SENTINEL_EMBEDDED_RESOURCE'), annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": false,
+                    "text": "meta=None content=[EmbeddedResource(type='resource', resource=TextResourceContents(uri='file:///fixtures/embedded.txt', mime_type='text/plain', meta=None, text='SENTINEL_EMBEDDED_RESOURCE'), annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "embedded_resource_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[EmbeddedResource(type='resource', resource=TextResourceContents(uri='file:///fixtures/embedded.txt', mime_type='text/plain', meta=None, text='SENTINEL_EMBEDDED_RESOURCE'), annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "meta=None content=[EmbeddedResource(type='resource', resource=TextResourceContents(uri='file:///fixtures/embedded.txt', mime_type='text/plain', meta=None, text='SENTINEL_EMBEDDED_RESOURCE'), annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "resource_link_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[ResourceLink(name='linked.txt', title=None, uri='file:///fixtures/linked.txt', description='SENTINEL_RESOURCE_LINK', mime_type='text/plain', size=None, icons=None, annotations=None, meta=None, type='resource_link')] structured_content=None is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": false,
+                    "text": "meta=None content=[ResourceLink(name='linked.txt', title=None, uri='file:///fixtures/linked.txt', description='SENTINEL_RESOURCE_LINK', mime_type='text/plain', size=None, icons=None, annotations=None, meta=None, type='resource_link')] structured_content=None is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "resource_link_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[ResourceLink(name='linked.txt', title=None, uri='file:///fixtures/linked.txt', description='SENTINEL_RESOURCE_LINK', mime_type='text/plain', size=None, icons=None, annotations=None, meta=None, type='resource_link')] structured_content=None is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "meta=None content=[ResourceLink(name='linked.txt', title=None, uri='file:///fixtures/linked.txt', description='SENTINEL_RESOURCE_LINK', mime_type='text/plain', size=None, icons=None, annotations=None, meta=None, type='resource_link')] structured_content=None is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "annotated_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='SENTINEL_ANNOTATED_TEXT', annotations=Annotations(audience=['user'], priority=0.9, last_modified=None), meta=None)] structured_content=None is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": false,
+                    "text": "meta=None content=[TextContent(type='text', text='SENTINEL_ANNOTATED_TEXT', annotations=Annotations(audience=['user'], priority=0.9, last_modified=None), meta=None)] structured_content=None is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "annotated_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='SENTINEL_ANNOTATED_TEXT', annotations=Annotations(audience=['user'], priority=0.9, last_modified=None), meta=None)] structured_content=None is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "meta=None content=[TextContent(type='text', text='SENTINEL_ANNOTATED_TEXT', annotations=Annotations(audience=['user'], priority=0.9, last_modified=None), meta=None)] structured_content=None is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "mixed_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TEXT_BLOCK', annotations=Annotations(audience=['user'], priority=0.9, last_modified=None), meta=None), ImageContent(type='image', data='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==', mime_type='image/png', annotations=None, meta=None), AudioContent(type='audio', data='UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=', mime_type='audio/wav', annotations=None, meta=None), EmbeddedResource(type='resource', resource=TextResourceContents(uri='file:///fixtures/embedded.txt', mime_type='text/plain', meta=None, text='SENTINEL_EMBEDDED_RESOURCE'), annotations=None, meta=None), ResourceLink(name='linked.txt', title=None, uri='file:///fixtures/linked.txt', description='SENTINEL_RESOURCE_LINK', mime_type='text/plain', size=None, icons=None, annotations=None, meta=None, type='resource_link')] structured_content={'count': 2, 'records': [{'id': 'rec_1', 'status': 'active'}, {'id': 'rec_2', 'status': 'archived'}], 'note': 'SENTINEL_STRUCTURED_CONTENT'} is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": false,
+                    "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TEXT_BLOCK', annotations=Annotations(audience=['user'], priority=0.9, last_modified=None), meta=None), ImageContent(type='image', data='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==', mime_type='image/png', annotations=None, meta=None), AudioContent(type='audio', data='UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=', mime_type='audio/wav', annotations=None, meta=None), EmbeddedResource(type='resource', resource=TextResourceContents(uri='file:///fixtures/embedded.txt', mime_type='text/plain', meta=None, text='SENTINEL_EMBEDDED_RESOURCE'), annotations=None, meta=None), ResourceLink(name='linked.txt', title=None, uri='file:///fixtures/linked.txt', description='SENTINEL_RESOURCE_LINK', mime_type='text/plain', size=None, icons=None, annotations=None, meta=None, type='resource_link')] structured_content={'count': 2, 'records': [{'id': 'rec_1', 'status': 'active'}, {'id': 'rec_2', 'status': 'archived'}], 'note': 'SENTINEL_STRUCTURED_CONTENT'} is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "mixed_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TEXT_BLOCK', annotations=Annotations(audience=['user'], priority=0.9, last_modified=None), meta=None), ImageContent(type='image', data='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==', mime_type='image/png', annotations=None, meta=None), AudioContent(type='audio', data='UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=', mime_type='audio/wav', annotations=None, meta=None), EmbeddedResource(type='resource', resource=TextResourceContents(uri='file:///fixtures/embedded.txt', mime_type='text/plain', meta=None, text='SENTINEL_EMBEDDED_RESOURCE'), annotations=None, meta=None), ResourceLink(name='linked.txt', title=None, uri='file:///fixtures/linked.txt', description='SENTINEL_RESOURCE_LINK', mime_type='text/plain', size=None, icons=None, annotations=None, meta=None, type='resource_link')] structured_content={'count': 2, 'records': [{'id': 'rec_1', 'status': 'active'}, {'id': 'rec_2', 'status': 'archived'}], 'note': 'SENTINEL_STRUCTURED_CONTENT'} is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TEXT_BLOCK', annotations=Annotations(audience=['user'], priority=0.9, last_modified=None), meta=None), ImageContent(type='image', data='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==', mime_type='image/png', annotations=None, meta=None), AudioContent(type='audio', data='UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=', mime_type='audio/wav', annotations=None, meta=None), EmbeddedResource(type='resource', resource=TextResourceContents(uri='file:///fixtures/embedded.txt', mime_type='text/plain', meta=None, text='SENTINEL_EMBEDDED_RESOURCE'), annotations=None, meta=None), ResourceLink(name='linked.txt', title=None, uri='file:///fixtures/linked.txt', description='SENTINEL_RESOURCE_LINK', mime_type='text/plain', size=None, icons=None, annotations=None, meta=None, type='resource_link')] structured_content={'count': 2, 'records': [{'id': 'rec_1', 'status': 'active'}, {'id': 'rec_2', 'status': 'archived'}], 'note': 'SENTINEL_STRUCTURED_CONTENT'} is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "text_and_structured",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TEXT_BLOCK', annotations=None, meta=None)] structured_content={'count': 2, 'records': [{'id': 'rec_1', 'status': 'active'}, {'id': 'rec_2', 'status': 'archived'}], 'note': 'SENTINEL_STRUCTURED_CONTENT'} is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": false,
+                    "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TEXT_BLOCK', annotations=None, meta=None)] structured_content={'count': 2, 'records': [{'id': 'rec_1', 'status': 'active'}, {'id': 'rec_2', 'status': 'archived'}], 'note': 'SENTINEL_STRUCTURED_CONTENT'} is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "text_and_structured",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TEXT_BLOCK', annotations=None, meta=None)] structured_content={'count': 2, 'records': [{'id': 'rec_1', 'status': 'active'}, {'id': 'rec_2', 'status': 'archived'}], 'note': 'SENTINEL_STRUCTURED_CONTENT'} is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TEXT_BLOCK', annotations=None, meta=None)] structured_content={'count': 2, 'records': [{'id': 'rec_1', 'status': 'active'}, {'id': 'rec_2', 'status': 'archived'}], 'note': 'SENTINEL_STRUCTURED_CONTENT'} is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "tool_error",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TOOL_ERROR: this tool always fails', annotations=None, meta=None)] structured_content=None is_error=True result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": false,
+                    "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TOOL_ERROR: this tool always fails', annotations=None, meta=None)] structured_content=None is_error=True result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "tool_error",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TOOL_ERROR: this tool always fails', annotations=None, meta=None)] structured_content=None is_error=True result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TOOL_ERROR: this tool always fails', annotations=None, meta=None)] structured_content=None is_error=True result_type='complete'",
+                    "error_channel": null
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "sse": {
+          "definitions": {
+            "ok": true,
+            "fixture": "fixtures/tricky_server.py",
+            "capture": "wire/llamaindex-tricky_server-sse.jsonl",
+            "version": "0.14.25",
+            "answers": {
+              "tools": [
+                {
+                  "name": "search_records",
+                  "description": "Search records with optional filters. Read-only.",
+                  "params": {
+                    "properties": {
+                      "query": {
+                        "description": "Full-text search query.",
+                        "title": "Query",
+                        "type": "string"
+                      },
+                      "status": {
+                        "anyOf": [
+                          {
+                            "enum": [
+                              "active",
+                              "archived",
+                              "pending",
+                              "deleted"
+                            ],
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "description": "Filter by record status.",
+                        "title": "Status"
+                      },
+                      "owner_email": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "description": "Restrict to records owned by this email address.",
+                        "title": "Owner Email"
+                      },
+                      "created_after": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "description": "Only records created at or after this RFC 3339 timestamp.",
+                        "title": "Created After"
+                      },
+                      "limit": {
+                        "default": 20,
+                        "description": "Maximum number of records to return.",
+                        "title": "Limit",
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "query"
+                    ],
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "create_report",
+                  "description": "Create a structured report from sections.",
+                  "params": {
+                    "properties": {
+                      "title": {
+                        "description": "Report title.",
+                        "title": "Title",
+                        "type": "string"
+                      },
+                      "config": {
+                        "additionalProperties": true,
+                        "description": "Rendering configuration.",
+                        "title": "Config",
+                        "type": "object"
+                      },
+                      "sections": {
+                        "anyOf": [
+                          {
+                            "items": {
+                              "additionalProperties": true,
+                              "type": "object"
+                            },
+                            "type": "array"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "description": "Ordered report sections.",
+                        "title": "Sections"
+                      }
+                    },
+                    "required": [
+                      "title",
+                      "config"
+                    ],
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "deliver_payload",
+                  "description": "Deliver a payload to a destination.",
+                  "params": {
+                    "properties": {
+                      "destination": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "additionalProperties": true,
+                            "type": "object"
+                          }
+                        ],
+                        "description": "Where to deliver the payload.",
+                        "title": "Destination"
+                      },
+                      "mode": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "description": "Delivery mode.",
+                        "title": "Mode"
+                      }
+                    },
+                    "required": [
+                      "destination"
+                    ],
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "delete_account",
+                  "description": "Permanently deletes a user account and all of its associated data. This action is destructive and irreversible: it cannot be undone, and it requires elevated admin scope (accounts:delete). Use with extreme caution.",
+                  "params": {
+                    "properties": {
+                      "account_id": {
+                        "description": "The id of the account to delete.",
+                        "title": "Account Id",
+                        "type": "string"
+                      },
+                      "confirm": {
+                        "description": "Must be true to proceed with the deletion.",
+                        "title": "Confirm",
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "account_id",
+                      "confirm"
+                    ],
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "explain_topic",
+                  "description": "Explain a topic in depth for a curious reader. This description is deliberately very long (over 1024 characters) so that adapters which truncate tool descriptions to fit a model's function-description limit can be detected by mcp-mirror. It also contains Unicode and special characters to verify they survive the round trip: accented words like caf\u00e9, na\u00efve, r\u00e9sum\u00e9, jalape\u00f1o, and Z\u00fcrich; non-Latin scripts such as \u65e5\u672c\u8a9e (Japanese), \u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac (Greek), and \u041a\u0438\u0440\u0438\u043b\u043b\u0438\u0446\u0430 (Cyrillic); mathematical symbols \u2211 \u222b \u2248 \u2260 \u221e \u2286 \u2295; currency signs \u20ac \u00a3 \u00a5 \u20bf; smart punctuation \u201ccurly quotes\u201d, \u2018single quotes\u2019, an em-dash, an en\u2013dash, and an ellipsis\u2026; plus a few emoji \ud83d\udd10 \ud83d\ude80 \u2705 for good measure. The reader should receive a structured, well-paced explanation that starts from first principles, introduces the key vocabulary, walks through one concrete worked example, names the most common misconceptions, and then points to where to learn more. Keep the tone precise and friendly. Prefer short sentences. Define every term of art the first time it appears, and never assume the reader has seen the topic before. End with a one-paragraph recap that a busy person could read on its own and still come away with the single most important idea. SENTINEL_END_OF_LONG_DESCRIPTION.",
+                  "params": {
+                    "properties": {
+                      "topic": {
+                        "description": "The subject to explain (supports Unicode: caf\u00e9, na\u00efve, \u65e5\u672c\u8a9e).",
+                        "title": "Topic",
+                        "type": "string"
+                      },
+                      "max_words": {
+                        "anyOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "description": "Soft cap on the explanation length.",
+                        "title": "Max Words"
+                      }
+                    },
+                    "required": [
+                      "topic"
+                    ],
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                }
+              ],
+              "probe": {
+                "resources.list": {
+                  "ok": true,
+                  "entries": [
+                    {
+                      "uri": "file:///fixtures/notes.txt",
+                      "name": "notes.txt",
+                      "title": "Release notes",
+                      "description": "SENTINEL_RESOURCE_DESCRIPTION",
+                      "mimeType": "text/plain"
+                    },
+                    {
+                      "uri": "file:///fixtures/logo.png",
+                      "name": "logo.png",
+                      "title": null,
+                      "description": "A binary resource, to check base64 survives the round trip.",
+                      "mimeType": "image/png"
+                    }
+                  ]
+                },
+                "resources.read.text": {
+                  "ok": true,
+                  "uri": "file:///fixtures/notes.txt",
+                  "mimeType": "text/plain",
+                  "text": "SENTINEL_RESOURCE_TEXT"
+                },
+                "resources.read.blob": {
+                  "ok": true,
+                  "uri": "file:///fixtures/logo.png",
+                  "mimeType": "image/png",
+                  "blob_sha256": "c414cd0e204de974f73753c7e28d7638e7b3691bb8b1a2bab6b25bb7fed7ce77",
+                  "blob_bytes": 70
+                },
+                "resources.templates": {
+                  "ok": true,
+                  "entries": [
+                    {
+                      "uriTemplate": "file:///fixtures/records/{record_id}",
+                      "name": "record",
+                      "description": "SENTINEL_TEMPLATE_DESCRIPTION",
+                      "mimeType": "application/json"
+                    }
+                  ]
+                },
+                "prompts.list": {
+                  "ok": true,
+                  "entries": [
+                    {
+                      "name": "summarize_records",
+                      "title": "Summarize records",
+                      "description": "SENTINEL_PROMPT_DESCRIPTION",
+                      "arguments": [
+                        {
+                          "name": "status",
+                          "description": "SENTINEL_ARGUMENT_DESCRIPTION",
+                          "required": true
+                        },
+                        {
+                          "name": "tone",
+                          "description": "Optional writing tone.",
+                          "required": false
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "prompts.get": {
+                  "ok": true,
+                  "description": null,
+                  "messages": [
+                    {
+                      "role": "user",
+                      "type": null,
+                      "text": "SENTINEL_PROMPT_MESSAGE status=x"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "results": {
+            "ok": true,
+            "fixture": "fixtures/results_server.py",
+            "capture": "wire/llamaindex-results_server-sse.jsonl",
+            "version": "0.14.25",
+            "answers": {
+              "tools": [
+                {
+                  "name": "text_content",
+                  "description": "Return one text block and nothing else.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "image_content",
+                  "description": "Return one image block and nothing else.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "audio_content",
+                  "description": "Return one audio block and nothing else.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "embedded_resource_content",
+                  "description": "Return one embedded resource block and nothing else.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "resource_link_content",
+                  "description": "Return one resource_link block and nothing else.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "annotated_content",
+                  "description": "Return one text block carrying audience and priority annotations.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "mixed_content",
+                  "description": "Return one block of every kind plus structuredContent in one result.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "text_and_structured",
+                  "description": "Return one text block plus structuredContent, with no media.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "tool_error",
+                  "description": "Always fail, reporting the failure through isError rather than a protocol error.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                }
+              ],
+              "results": [
+                {
+                  "tool": "text_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TEXT_BLOCK', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": false,
+                    "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TEXT_BLOCK', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "text_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TEXT_BLOCK', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TEXT_BLOCK', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "image_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[ImageContent(type='image', data='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==', mime_type='image/png', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": false,
+                    "text": "meta=None content=[ImageContent(type='image', data='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==', mime_type='image/png', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "image_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[ImageContent(type='image', data='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==', mime_type='image/png', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "meta=None content=[ImageContent(type='image', data='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==', mime_type='image/png', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "audio_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[AudioContent(type='audio', data='UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=', mime_type='audio/wav', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": false,
+                    "text": "meta=None content=[AudioContent(type='audio', data='UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=', mime_type='audio/wav', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "audio_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[AudioContent(type='audio', data='UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=', mime_type='audio/wav', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "meta=None content=[AudioContent(type='audio', data='UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=', mime_type='audio/wav', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "embedded_resource_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[EmbeddedResource(type='resource', resource=TextResourceContents(uri='file:///fixtures/embedded.txt', mime_type='text/plain', meta=None, text='SENTINEL_EMBEDDED_RESOURCE'), annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": false,
+                    "text": "meta=None content=[EmbeddedResource(type='resource', resource=TextResourceContents(uri='file:///fixtures/embedded.txt', mime_type='text/plain', meta=None, text='SENTINEL_EMBEDDED_RESOURCE'), annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "embedded_resource_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[EmbeddedResource(type='resource', resource=TextResourceContents(uri='file:///fixtures/embedded.txt', mime_type='text/plain', meta=None, text='SENTINEL_EMBEDDED_RESOURCE'), annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "meta=None content=[EmbeddedResource(type='resource', resource=TextResourceContents(uri='file:///fixtures/embedded.txt', mime_type='text/plain', meta=None, text='SENTINEL_EMBEDDED_RESOURCE'), annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "resource_link_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[ResourceLink(name='linked.txt', title=None, uri='file:///fixtures/linked.txt', description='SENTINEL_RESOURCE_LINK', mime_type='text/plain', size=None, icons=None, annotations=None, meta=None, type='resource_link')] structured_content=None is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": false,
+                    "text": "meta=None content=[ResourceLink(name='linked.txt', title=None, uri='file:///fixtures/linked.txt', description='SENTINEL_RESOURCE_LINK', mime_type='text/plain', size=None, icons=None, annotations=None, meta=None, type='resource_link')] structured_content=None is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "resource_link_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[ResourceLink(name='linked.txt', title=None, uri='file:///fixtures/linked.txt', description='SENTINEL_RESOURCE_LINK', mime_type='text/plain', size=None, icons=None, annotations=None, meta=None, type='resource_link')] structured_content=None is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "meta=None content=[ResourceLink(name='linked.txt', title=None, uri='file:///fixtures/linked.txt', description='SENTINEL_RESOURCE_LINK', mime_type='text/plain', size=None, icons=None, annotations=None, meta=None, type='resource_link')] structured_content=None is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "annotated_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='SENTINEL_ANNOTATED_TEXT', annotations=Annotations(audience=['user'], priority=0.9, last_modified=None), meta=None)] structured_content=None is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": false,
+                    "text": "meta=None content=[TextContent(type='text', text='SENTINEL_ANNOTATED_TEXT', annotations=Annotations(audience=['user'], priority=0.9, last_modified=None), meta=None)] structured_content=None is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "annotated_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='SENTINEL_ANNOTATED_TEXT', annotations=Annotations(audience=['user'], priority=0.9, last_modified=None), meta=None)] structured_content=None is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "meta=None content=[TextContent(type='text', text='SENTINEL_ANNOTATED_TEXT', annotations=Annotations(audience=['user'], priority=0.9, last_modified=None), meta=None)] structured_content=None is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "mixed_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TEXT_BLOCK', annotations=Annotations(audience=['user'], priority=0.9, last_modified=None), meta=None), ImageContent(type='image', data='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==', mime_type='image/png', annotations=None, meta=None), AudioContent(type='audio', data='UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=', mime_type='audio/wav', annotations=None, meta=None), EmbeddedResource(type='resource', resource=TextResourceContents(uri='file:///fixtures/embedded.txt', mime_type='text/plain', meta=None, text='SENTINEL_EMBEDDED_RESOURCE'), annotations=None, meta=None), ResourceLink(name='linked.txt', title=None, uri='file:///fixtures/linked.txt', description='SENTINEL_RESOURCE_LINK', mime_type='text/plain', size=None, icons=None, annotations=None, meta=None, type='resource_link')] structured_content={'count': 2, 'records': [{'id': 'rec_1', 'status': 'active'}, {'id': 'rec_2', 'status': 'archived'}], 'note': 'SENTINEL_STRUCTURED_CONTENT'} is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": false,
+                    "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TEXT_BLOCK', annotations=Annotations(audience=['user'], priority=0.9, last_modified=None), meta=None), ImageContent(type='image', data='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==', mime_type='image/png', annotations=None, meta=None), AudioContent(type='audio', data='UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=', mime_type='audio/wav', annotations=None, meta=None), EmbeddedResource(type='resource', resource=TextResourceContents(uri='file:///fixtures/embedded.txt', mime_type='text/plain', meta=None, text='SENTINEL_EMBEDDED_RESOURCE'), annotations=None, meta=None), ResourceLink(name='linked.txt', title=None, uri='file:///fixtures/linked.txt', description='SENTINEL_RESOURCE_LINK', mime_type='text/plain', size=None, icons=None, annotations=None, meta=None, type='resource_link')] structured_content={'count': 2, 'records': [{'id': 'rec_1', 'status': 'active'}, {'id': 'rec_2', 'status': 'archived'}], 'note': 'SENTINEL_STRUCTURED_CONTENT'} is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "mixed_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TEXT_BLOCK', annotations=Annotations(audience=['user'], priority=0.9, last_modified=None), meta=None), ImageContent(type='image', data='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==', mime_type='image/png', annotations=None, meta=None), AudioContent(type='audio', data='UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=', mime_type='audio/wav', annotations=None, meta=None), EmbeddedResource(type='resource', resource=TextResourceContents(uri='file:///fixtures/embedded.txt', mime_type='text/plain', meta=None, text='SENTINEL_EMBEDDED_RESOURCE'), annotations=None, meta=None), ResourceLink(name='linked.txt', title=None, uri='file:///fixtures/linked.txt', description='SENTINEL_RESOURCE_LINK', mime_type='text/plain', size=None, icons=None, annotations=None, meta=None, type='resource_link')] structured_content={'count': 2, 'records': [{'id': 'rec_1', 'status': 'active'}, {'id': 'rec_2', 'status': 'archived'}], 'note': 'SENTINEL_STRUCTURED_CONTENT'} is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TEXT_BLOCK', annotations=Annotations(audience=['user'], priority=0.9, last_modified=None), meta=None), ImageContent(type='image', data='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==', mime_type='image/png', annotations=None, meta=None), AudioContent(type='audio', data='UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=', mime_type='audio/wav', annotations=None, meta=None), EmbeddedResource(type='resource', resource=TextResourceContents(uri='file:///fixtures/embedded.txt', mime_type='text/plain', meta=None, text='SENTINEL_EMBEDDED_RESOURCE'), annotations=None, meta=None), ResourceLink(name='linked.txt', title=None, uri='file:///fixtures/linked.txt', description='SENTINEL_RESOURCE_LINK', mime_type='text/plain', size=None, icons=None, annotations=None, meta=None, type='resource_link')] structured_content={'count': 2, 'records': [{'id': 'rec_1', 'status': 'active'}, {'id': 'rec_2', 'status': 'archived'}], 'note': 'SENTINEL_STRUCTURED_CONTENT'} is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "text_and_structured",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TEXT_BLOCK', annotations=None, meta=None)] structured_content={'count': 2, 'records': [{'id': 'rec_1', 'status': 'active'}, {'id': 'rec_2', 'status': 'archived'}], 'note': 'SENTINEL_STRUCTURED_CONTENT'} is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": false,
+                    "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TEXT_BLOCK', annotations=None, meta=None)] structured_content={'count': 2, 'records': [{'id': 'rec_1', 'status': 'active'}, {'id': 'rec_2', 'status': 'archived'}], 'note': 'SENTINEL_STRUCTURED_CONTENT'} is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "text_and_structured",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TEXT_BLOCK', annotations=None, meta=None)] structured_content={'count': 2, 'records': [{'id': 'rec_1', 'status': 'active'}, {'id': 'rec_2', 'status': 'archived'}], 'note': 'SENTINEL_STRUCTURED_CONTENT'} is_error=False result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TEXT_BLOCK', annotations=None, meta=None)] structured_content={'count': 2, 'records': [{'id': 'rec_1', 'status': 'active'}, {'id': 'rec_2', 'status': 'archived'}], 'note': 'SENTINEL_STRUCTURED_CONTENT'} is_error=False result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "tool_error",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TOOL_ERROR: this tool always fails', annotations=None, meta=None)] structured_content=None is_error=True result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": false,
+                    "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TOOL_ERROR: this tool always fails', annotations=None, meta=None)] structured_content=None is_error=True result_type='complete'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "tool_error",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [
+                      {
+                        "type": "text",
+                        "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TOOL_ERROR: this tool always fails', annotations=None, meta=None)] structured_content=None is_error=True result_type='complete'"
+                      }
+                    ],
+                    "block_kinds": [
+                      "text"
+                    ],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "meta=None content=[TextContent(type='text', text='SENTINEL_TOOL_ERROR: this tool always fails', annotations=None, meta=None)] structured_content=None is_error=True result_type='complete'",
+                    "error_channel": null
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

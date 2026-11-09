@@ -1,0 +1,12 @@
+{"format": "mcp-mirror.harness-output/1"}
+{"event": "init", "harness_version": null, "permission_mode": null, "mcp_servers": null, "mcp_tools": null}
+{"event": "tool_use", "tool": "codemode", "input": {"code": "return await tools.mcp__ntf__add_tool({})"}}
+{"event": "tool_use", "tool": "mcp__ntf__add_tool", "input": {}}
+{"event": "tool_result", "is_error": false, "text": "SENTINEL_MUTATED add_tool: sent on the session"}
+{"event": "tool_result", "is_error": false, "text": "Script completed\nWall time 0.1 seconds\nOutput:\n{\"content\":[{\"text\":\"SENTINEL_MUTATED add_tool: sent on the session\",\"type\":\"text\"}],\"isError\":false}"}
+{"event": "tool_use", "tool": "codemode", "input": {"code": "return await tools.mcp__ntf__SENTINEL_ADDED_TOOL({})"}}
+{"event": "tool_use", "tool": "mcp__ntf__SENTINEL_ADDED_TOOL", "input": {}}
+{"event": "tool_result", "is_error": false, "text": "SENTINEL_ADDED_TOOL_CALLED"}
+{"event": "tool_result", "is_error": false, "text": "Script completed\nWall time 0.0 seconds\nOutput:\n{\"content\":[{\"text\":\"SENTINEL_ADDED_TOOL_CALLED\",\"type\":\"text\"}],\"isError\":false}"}
+{"event": "text", "text": "done"}
+{"event": "result", "subtype": "stop", "is_error": false, "num_turns": 3, "text": "done"}

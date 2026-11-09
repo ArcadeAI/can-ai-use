@@ -1,0 +1,4511 @@
+{
+ "schema": "mcp-mirror/utilities-probe@1",
+ "captured_at": "2026-10-09T21:10:21Z",
+ "fixture": "fixtures/utilities_server.py",
+ "fixture_python": "<checkout>/.mcp-mirror/fixture-2026-07-28/bin/python",
+ "spec_version": "2026-07-28",
+ "source": {
+  "sdk": 2,
+  "tools": [
+   "slow_with_progress",
+   "cancellable_wait",
+   "emit_logs",
+   "task_capable",
+   "page_filler_00",
+   "page_filler_01",
+   "page_filler_02",
+   "page_filler_03",
+   "page_filler_04",
+   "page_filler_05",
+   "page_filler_06",
+   "page_filler_07",
+   "page_filler_08",
+   "page_filler_09",
+   "page_filler_10",
+   "page_filler_11",
+   "page_filler_12",
+   "page_filler_13",
+   "page_filler_14",
+   "page_filler_15",
+   "page_filler_16",
+   "page_filler_17",
+   "page_filler_18",
+   "page_filler_19",
+   "page_filler_20",
+   "page_filler_21",
+   "page_filler_22",
+   "page_filler_23",
+   "page_filler_24",
+   "page_filler_25",
+   "page_filler_26",
+   "page_filler_27",
+   "page_filler_28",
+   "page_filler_29",
+   "page_filler_30",
+   "page_filler_31",
+   "page_filler_32",
+   "page_filler_33",
+   "page_filler_34",
+   "page_filler_35",
+   "page_filler_36",
+   "page_filler_37",
+   "page_filler_38",
+   "page_filler_39",
+   "page_filler_40",
+   "page_filler_41",
+   "page_filler_42",
+   "page_filler_43",
+   "page_filler_44",
+   "page_filler_45",
+   "page_filler_46",
+   "page_filler_47",
+   "page_filler_48",
+   "page_filler_49",
+   "page_filler_50",
+   "page_filler_51",
+   "page_filler_52",
+   "page_filler_53",
+   "page_filler_54",
+   "SENTINEL_LAST_TOOL"
+  ],
+  "page_size": 20,
+  "progress_steps": 5,
+  "log_levels": [
+   "debug",
+   "info",
+   "notice",
+   "warning",
+   "error"
+  ],
+  "completion": {
+   "prompt": [
+    "crimson",
+    "cyan",
+    "cobalt"
+   ],
+   "resource": [
+    "rec_1",
+    "rec_10",
+    "rec_11"
+   ]
+  },
+  "cache_ttl_ms": 1500,
+  "tasks_extension": "io.modelcontextprotocol/tasks"
+ },
+ "frameworks": {
+  "copilot_sdk": {
+   "ok": true,
+   "versions": {
+    "framework": "1.0.19",
+    "adapter": "Copilot runtime 1.0.95, node v24.21.0"
+   },
+   "utilities": {
+    "tools.list": {
+     "ok": true,
+     "route": "adapter",
+     "api": "session.rpc.mcp.listTools",
+     "names": [
+      "slow_with_progress",
+      "cancellable_wait",
+      "emit_logs",
+      "task_capable",
+      "page_filler_00",
+      "page_filler_01",
+      "page_filler_02",
+      "page_filler_03",
+      "page_filler_04",
+      "page_filler_05",
+      "page_filler_06",
+      "page_filler_07",
+      "page_filler_08",
+      "page_filler_09",
+      "page_filler_10",
+      "page_filler_11",
+      "page_filler_12",
+      "page_filler_13",
+      "page_filler_14",
+      "page_filler_15",
+      "page_filler_16",
+      "page_filler_17",
+      "page_filler_18",
+      "page_filler_19",
+      "page_filler_20",
+      "page_filler_21",
+      "page_filler_22",
+      "page_filler_23",
+      "page_filler_24",
+      "page_filler_25",
+      "page_filler_26",
+      "page_filler_27",
+      "page_filler_28",
+      "page_filler_29",
+      "page_filler_30",
+      "page_filler_31",
+      "page_filler_32",
+      "page_filler_33",
+      "page_filler_34",
+      "page_filler_35",
+      "page_filler_36",
+      "page_filler_37",
+      "page_filler_38",
+      "page_filler_39",
+      "page_filler_40",
+      "page_filler_41",
+      "page_filler_42",
+      "page_filler_43",
+      "page_filler_44",
+      "page_filler_45",
+      "page_filler_46",
+      "page_filler_47",
+      "page_filler_48",
+      "page_filler_49",
+      "page_filler_50",
+      "page_filler_51",
+      "page_filler_52",
+      "page_filler_53",
+      "page_filler_54",
+      "SENTINEL_LAST_TOOL"
+     ]
+    },
+    "progress": {
+     "ok": true,
+     "route": "adapter",
+     "api": "session event tool.execution_progress",
+     "events": [
+      {
+       "progress": null,
+       "total": null,
+       "message": "1.0/5.0 (20%): SENTINEL_PROGRESS 1/5"
+      },
+      {
+       "progress": null,
+       "total": null,
+       "message": "2.0/5.0 (40%): SENTINEL_PROGRESS 2/5"
+      },
+      {
+       "progress": null,
+       "total": null,
+       "message": "3.0/5.0 (60%): SENTINEL_PROGRESS 3/5"
+      },
+      {
+       "progress": null,
+       "total": null,
+       "message": "4.0/5.0 (80%): SENTINEL_PROGRESS 4/5"
+      },
+      {
+       "progress": null,
+       "total": null,
+       "message": "5.0/5.0 (100%): SENTINEL_PROGRESS 5/5"
+      }
+     ],
+     "text": "SENTINEL_SLOW_DONE progress_sent=5"
+    },
+    "logging": {
+     "ok": true,
+     "route": "adapter",
+     "api": "session.rpc.diagnostics.read (non-protocol entries)",
+     "messages": [
+      {
+       "level": "warning",
+       "data": "mcp-mirror record: capture /var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-utilities-u0vijs6g/copilot_sdk-logging-ZOe3FG"
+      },
+      {
+       "level": "warning",
+       "data": "<checkout>/fixtures/_dual.py:136: MCPDeprecationWarning: The logging capability is deprecated as of 2026-07-28 (SEP-2577)."
+      },
+      {
+       "level": "warning",
+       "data": "<checkout>/fixtures/utilities_server.py:199: MCPDeprecationWarning: The logging capability is deprecated as of 2026-07-28 (SEP-2577)."
+      },
+      {
+       "level": "warning",
+       "data": "  await session.send_log_message("
+      }
+     ],
+     "text": "SENTINEL_LOGS_SENT 5 at level>=debug"
+    },
+    "completion": {
+     "ok": false,
+     "unsupported": "the Copilot SDK has no API that sends completion/complete to an MCP server"
+    },
+    "cancellation": {
+     "ok": true,
+     "route": "adapter",
+     "mechanism": "CopilotSession.abort() during the tool call",
+     "abandoned_after_s": 1.01,
+     "outcome": "returned: null"
+    },
+    "tasks": {
+     "ok": true,
+     "route": "adapter",
+     "text": "SENTINEL_TASK_CAPABLE task_requested=False"
+    },
+    "caching": {
+     "ok": true,
+     "route": "adapter",
+     "api": "session.rpc.mcp.listTools",
+     "marks": [
+      {
+       "call": "first",
+       "started": "2026-10-09T21:10:19.700000+00:00",
+       "finished": "2026-10-09T21:10:19.708000+00:00",
+       "count": 60
+      },
+      {
+       "call": "within_ttl",
+       "started": "2026-10-09T21:10:19.708000+00:00",
+       "finished": "2026-10-09T21:10:19.713000+00:00",
+       "count": 60
+      },
+      {
+       "call": "after_ttl",
+       "started": "2026-10-09T21:10:21.714000+00:00",
+       "finished": "2026-10-09T21:10:21.718000+00:00",
+       "count": 60
+      }
+     ]
+    }
+   },
+   "wire": {
+    "tools.list": [
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 1,
+      "t": "2026-10-09T21:10:10.833538+00:00",
+      "elapsed": 0.008259,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "server/discover",
+      "id": 0,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 0,
+       "method": "server/discover",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 2,
+      "t": "2026-10-09T21:10:11.092117+00:00",
+      "elapsed": 0.266838,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "server/discover",
+      "id": 0,
+      "revision": null,
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 0,
+       "result": {
+        "cacheScope": "private",
+        "capabilities": {
+         "completions": {},
+         "extensions": {
+          "io.modelcontextprotocol/tasks": {}
+         },
+         "logging": {},
+         "prompts": {
+          "listChanged": false
+         },
+         "resources": {
+          "listChanged": false,
+          "subscribe": false
+         },
+         "tools": {
+          "listChanged": false
+         }
+        },
+        "resultType": "complete",
+        "supportedVersions": [
+         "2026-07-28"
+        ],
+        "ttlMs": 0,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "negotiation",
+      "seq": 3,
+      "t": "2026-10-09T21:10:11.092182+00:00",
+      "elapsed": 0.266891,
+      "session": "stdio",
+      "via": "server/discover",
+      "requested_revision": "2026-07-28",
+      "negotiated_revision": null,
+      "supported_versions": [
+       "2026-07-28"
+      ],
+      "client_capabilities": {
+       "sampling": {}
+      },
+      "client_info": {
+       "name": "copilot-cli",
+       "version": "1.0.95"
+      },
+      "server_capabilities": {
+       "completions": {},
+       "extensions": {
+        "io.modelcontextprotocol/tasks": {}
+       },
+       "logging": {},
+       "prompts": {
+        "listChanged": false
+       },
+       "resources": {
+        "listChanged": false,
+        "subscribe": false
+       },
+       "tools": {
+        "listChanged": false
+       }
+      },
+      "error": null
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 4,
+      "t": "2026-10-09T21:10:11.094065+00:00",
+      "elapsed": 0.26878,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 1,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 1,
+       "method": "tools/list",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         },
+         "progressToken": 0
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "negotiation",
+      "seq": 5,
+      "t": "2026-10-09T21:10:11.094102+00:00",
+      "elapsed": 0.268812,
+      "session": "stdio",
+      "via": "request-meta",
+      "negotiated_revision": "2026-07-28",
+      "client_capabilities": {
+       "sampling": {}
+      },
+      "client_info": {
+       "name": "copilot-cli",
+       "version": "1.0.95"
+      },
+      "method": "tools/list",
+      "id": 1
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 6,
+      "t": "2026-10-09T21:10:11.094961+00:00",
+      "elapsed": 0.269675,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 1,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 1,
+       "result": {
+        "cacheScope": "private",
+        "nextCursor": "20",
+        "resultType": "complete",
+        "tools": [
+         "slow_with_progress",
+         "cancellable_wait",
+         "emit_logs",
+         "task_capable",
+         "page_filler_00",
+         "page_filler_01",
+         "page_filler_02",
+         "page_filler_03",
+         "page_filler_04",
+         "page_filler_05",
+         "page_filler_06",
+         "page_filler_07",
+         "page_filler_08",
+         "page_filler_09",
+         "page_filler_10",
+         "page_filler_11",
+         "page_filler_12",
+         "page_filler_13",
+         "page_filler_14",
+         "page_filler_15"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 7,
+      "t": "2026-10-09T21:10:11.095420+00:00",
+      "elapsed": 0.270131,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 2,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 2,
+       "method": "tools/list",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         },
+         "progressToken": 1
+        },
+        "cursor": "20"
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 8,
+      "t": "2026-10-09T21:10:11.096064+00:00",
+      "elapsed": 0.270774,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 2,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 2,
+       "result": {
+        "cacheScope": "private",
+        "nextCursor": "40",
+        "resultType": "complete",
+        "tools": [
+         "page_filler_16",
+         "page_filler_17",
+         "page_filler_18",
+         "page_filler_19",
+         "page_filler_20",
+         "page_filler_21",
+         "page_filler_22",
+         "page_filler_23",
+         "page_filler_24",
+         "page_filler_25",
+         "page_filler_26",
+         "page_filler_27",
+         "page_filler_28",
+         "page_filler_29",
+         "page_filler_30",
+         "page_filler_31",
+         "page_filler_32",
+         "page_filler_33",
+         "page_filler_34",
+         "page_filler_35"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 9,
+      "t": "2026-10-09T21:10:11.096357+00:00",
+      "elapsed": 0.271066,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 3,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 3,
+       "method": "tools/list",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         },
+         "progressToken": 2
+        },
+        "cursor": "40"
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 10,
+      "t": "2026-10-09T21:10:11.096930+00:00",
+      "elapsed": 0.27164,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 3,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 3,
+       "result": {
+        "cacheScope": "private",
+        "resultType": "complete",
+        "tools": [
+         "page_filler_36",
+         "page_filler_37",
+         "page_filler_38",
+         "page_filler_39",
+         "page_filler_40",
+         "page_filler_41",
+         "page_filler_42",
+         "page_filler_43",
+         "page_filler_44",
+         "page_filler_45",
+         "page_filler_46",
+         "page_filler_47",
+         "page_filler_48",
+         "page_filler_49",
+         "page_filler_50",
+         "page_filler_51",
+         "page_filler_52",
+         "page_filler_53",
+         "page_filler_54",
+         "SENTINEL_LAST_TOOL"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 11,
+      "t": "2026-10-09T21:10:11.138860+00:00",
+      "elapsed": 0.313574,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 4,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 4,
+       "method": "tools/list",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         },
+         "progressToken": 3
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 12,
+      "t": "2026-10-09T21:10:11.139797+00:00",
+      "elapsed": 0.314509,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 4,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 4,
+       "result": {
+        "cacheScope": "private",
+        "nextCursor": "20",
+        "resultType": "complete",
+        "tools": [
+         "slow_with_progress",
+         "cancellable_wait",
+         "emit_logs",
+         "task_capable",
+         "page_filler_00",
+         "page_filler_01",
+         "page_filler_02",
+         "page_filler_03",
+         "page_filler_04",
+         "page_filler_05",
+         "page_filler_06",
+         "page_filler_07",
+         "page_filler_08",
+         "page_filler_09",
+         "page_filler_10",
+         "page_filler_11",
+         "page_filler_12",
+         "page_filler_13",
+         "page_filler_14",
+         "page_filler_15"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 13,
+      "t": "2026-10-09T21:10:11.140131+00:00",
+      "elapsed": 0.314841,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 5,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 5,
+       "method": "tools/list",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         },
+         "progressToken": 4
+        },
+        "cursor": "20"
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 14,
+      "t": "2026-10-09T21:10:11.140700+00:00",
+      "elapsed": 0.31541,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 5,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 5,
+       "result": {
+        "cacheScope": "private",
+        "nextCursor": "40",
+        "resultType": "complete",
+        "tools": [
+         "page_filler_16",
+         "page_filler_17",
+         "page_filler_18",
+         "page_filler_19",
+         "page_filler_20",
+         "page_filler_21",
+         "page_filler_22",
+         "page_filler_23",
+         "page_filler_24",
+         "page_filler_25",
+         "page_filler_26",
+         "page_filler_27",
+         "page_filler_28",
+         "page_filler_29",
+         "page_filler_30",
+         "page_filler_31",
+         "page_filler_32",
+         "page_filler_33",
+         "page_filler_34",
+         "page_filler_35"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 15,
+      "t": "2026-10-09T21:10:11.140977+00:00",
+      "elapsed": 0.315686,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 6,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 6,
+       "method": "tools/list",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         },
+         "progressToken": 5
+        },
+        "cursor": "40"
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 16,
+      "t": "2026-10-09T21:10:11.141480+00:00",
+      "elapsed": 0.31619,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 6,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 6,
+       "result": {
+        "cacheScope": "private",
+        "resultType": "complete",
+        "tools": [
+         "page_filler_36",
+         "page_filler_37",
+         "page_filler_38",
+         "page_filler_39",
+         "page_filler_40",
+         "page_filler_41",
+         "page_filler_42",
+         "page_filler_43",
+         "page_filler_44",
+         "page_filler_45",
+         "page_filler_46",
+         "page_filler_47",
+         "page_filler_48",
+         "page_filler_49",
+         "page_filler_50",
+         "page_filler_51",
+         "page_filler_52",
+         "page_filler_53",
+         "page_filler_54",
+         "SENTINEL_LAST_TOOL"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     }
+    ],
+    "progress": [
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 1,
+      "t": "2026-10-09T21:10:11.402951+00:00",
+      "elapsed": 0.008501,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "server/discover",
+      "id": 0,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 0,
+       "method": "server/discover",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 2,
+      "t": "2026-10-09T21:10:11.660027+00:00",
+      "elapsed": 0.265575,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "server/discover",
+      "id": 0,
+      "revision": null,
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 0,
+       "result": {
+        "cacheScope": "private",
+        "capabilities": {
+         "completions": {},
+         "extensions": {
+          "io.modelcontextprotocol/tasks": {}
+         },
+         "logging": {},
+         "prompts": {
+          "listChanged": false
+         },
+         "resources": {
+          "listChanged": false,
+          "subscribe": false
+         },
+         "tools": {
+          "listChanged": false
+         }
+        },
+        "resultType": "complete",
+        "supportedVersions": [
+         "2026-07-28"
+        ],
+        "ttlMs": 0,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "negotiation",
+      "seq": 3,
+      "t": "2026-10-09T21:10:11.660077+00:00",
+      "elapsed": 0.265619,
+      "session": "stdio",
+      "via": "server/discover",
+      "requested_revision": "2026-07-28",
+      "negotiated_revision": null,
+      "supported_versions": [
+       "2026-07-28"
+      ],
+      "client_capabilities": {
+       "sampling": {}
+      },
+      "client_info": {
+       "name": "copilot-cli",
+       "version": "1.0.95"
+      },
+      "server_capabilities": {
+       "completions": {},
+       "extensions": {
+        "io.modelcontextprotocol/tasks": {}
+       },
+       "logging": {},
+       "prompts": {
+        "listChanged": false
+       },
+       "resources": {
+        "listChanged": false,
+        "subscribe": false
+       },
+       "tools": {
+        "listChanged": false
+       }
+      },
+      "error": null
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 4,
+      "t": "2026-10-09T21:10:11.661826+00:00",
+      "elapsed": 0.267371,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 1,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 1,
+       "method": "tools/list",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         },
+         "progressToken": 0
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "negotiation",
+      "seq": 5,
+      "t": "2026-10-09T21:10:11.661855+00:00",
+      "elapsed": 0.267397,
+      "session": "stdio",
+      "via": "request-meta",
+      "negotiated_revision": "2026-07-28",
+      "client_capabilities": {
+       "sampling": {}
+      },
+      "client_info": {
+       "name": "copilot-cli",
+       "version": "1.0.95"
+      },
+      "method": "tools/list",
+      "id": 1
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 6,
+      "t": "2026-10-09T21:10:11.662708+00:00",
+      "elapsed": 0.268253,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 1,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 1,
+       "result": {
+        "cacheScope": "private",
+        "nextCursor": "20",
+        "resultType": "complete",
+        "tools": [
+         "slow_with_progress",
+         "cancellable_wait",
+         "emit_logs",
+         "task_capable",
+         "page_filler_00",
+         "page_filler_01",
+         "page_filler_02",
+         "page_filler_03",
+         "page_filler_04",
+         "page_filler_05",
+         "page_filler_06",
+         "page_filler_07",
+         "page_filler_08",
+         "page_filler_09",
+         "page_filler_10",
+         "page_filler_11",
+         "page_filler_12",
+         "page_filler_13",
+         "page_filler_14",
+         "page_filler_15"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 7,
+      "t": "2026-10-09T21:10:11.663186+00:00",
+      "elapsed": 0.26873,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 2,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 2,
+       "method": "tools/list",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         },
+         "progressToken": 1
+        },
+        "cursor": "20"
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 8,
+      "t": "2026-10-09T21:10:11.663982+00:00",
+      "elapsed": 0.269525,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 2,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 2,
+       "result": {
+        "cacheScope": "private",
+        "nextCursor": "40",
+        "resultType": "complete",
+        "tools": [
+         "page_filler_16",
+         "page_filler_17",
+         "page_filler_18",
+         "page_filler_19",
+         "page_filler_20",
+         "page_filler_21",
+         "page_filler_22",
+         "page_filler_23",
+         "page_filler_24",
+         "page_filler_25",
+         "page_filler_26",
+         "page_filler_27",
+         "page_filler_28",
+         "page_filler_29",
+         "page_filler_30",
+         "page_filler_31",
+         "page_filler_32",
+         "page_filler_33",
+         "page_filler_34",
+         "page_filler_35"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 9,
+      "t": "2026-10-09T21:10:11.664300+00:00",
+      "elapsed": 0.269843,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 3,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 3,
+       "method": "tools/list",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         },
+         "progressToken": 2
+        },
+        "cursor": "40"
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 10,
+      "t": "2026-10-09T21:10:11.664858+00:00",
+      "elapsed": 0.270401,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 3,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 3,
+       "result": {
+        "cacheScope": "private",
+        "resultType": "complete",
+        "tools": [
+         "page_filler_36",
+         "page_filler_37",
+         "page_filler_38",
+         "page_filler_39",
+         "page_filler_40",
+         "page_filler_41",
+         "page_filler_42",
+         "page_filler_43",
+         "page_filler_44",
+         "page_filler_45",
+         "page_filler_46",
+         "page_filler_47",
+         "page_filler_48",
+         "page_filler_49",
+         "page_filler_50",
+         "page_filler_51",
+         "page_filler_52",
+         "page_filler_53",
+         "page_filler_54",
+         "SENTINEL_LAST_TOOL"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 11,
+      "t": "2026-10-09T21:10:11.733295+00:00",
+      "elapsed": 0.338842,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/call",
+      "id": 4,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 4,
+       "method": "tools/call",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         },
+         "progressToken": 3
+        },
+        "arguments": {},
+        "name": "slow_with_progress"
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 12,
+      "t": "2026-10-09T21:10:11.785339+00:00",
+      "elapsed": 0.390886,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "notification",
+      "method": "notifications/progress",
+      "id": null,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "method": "notifications/progress",
+       "params": {
+        "progressToken": 3,
+        "progress": 1.0,
+        "total": 5.0,
+        "message": "SENTINEL_PROGRESS 1/5"
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 13,
+      "t": "2026-10-09T21:10:11.836404+00:00",
+      "elapsed": 0.441949,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "notification",
+      "method": "notifications/progress",
+      "id": null,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "method": "notifications/progress",
+       "params": {
+        "progressToken": 3,
+        "progress": 2.0,
+        "total": 5.0,
+        "message": "SENTINEL_PROGRESS 2/5"
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 14,
+      "t": "2026-10-09T21:10:11.886746+00:00",
+      "elapsed": 0.492294,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "notification",
+      "method": "notifications/progress",
+      "id": null,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "method": "notifications/progress",
+       "params": {
+        "progressToken": 3,
+        "progress": 3.0,
+        "total": 5.0,
+        "message": "SENTINEL_PROGRESS 3/5"
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 15,
+      "t": "2026-10-09T21:10:11.938341+00:00",
+      "elapsed": 0.543887,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "notification",
+      "method": "notifications/progress",
+      "id": null,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "method": "notifications/progress",
+       "params": {
+        "progressToken": 3,
+        "progress": 4.0,
+        "total": 5.0,
+        "message": "SENTINEL_PROGRESS 4/5"
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 16,
+      "t": "2026-10-09T21:10:11.989771+00:00",
+      "elapsed": 0.595317,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "notification",
+      "method": "notifications/progress",
+      "id": null,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "method": "notifications/progress",
+       "params": {
+        "progressToken": 3,
+        "progress": 5.0,
+        "total": 5.0,
+        "message": "SENTINEL_PROGRESS 5/5"
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 17,
+      "t": "2026-10-09T21:10:11.989972+00:00",
+      "elapsed": 0.595514,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/call",
+      "id": 4,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 4,
+       "result": {
+        "content": [
+         {
+          "text": "SENTINEL_SLOW_DONE progress_sent=5",
+          "type": "text"
+         }
+        ],
+        "isError": false,
+        "resultType": "complete",
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     }
+    ],
+    "logging": [
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 1,
+      "t": "2026-10-09T21:10:12.264415+00:00",
+      "elapsed": 0.008231,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "server/discover",
+      "id": 0,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 0,
+       "method": "server/discover",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 2,
+      "t": "2026-10-09T21:10:12.511492+00:00",
+      "elapsed": 0.255308,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "server/discover",
+      "id": 0,
+      "revision": null,
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 0,
+       "result": {
+        "cacheScope": "private",
+        "capabilities": {
+         "completions": {},
+         "extensions": {
+          "io.modelcontextprotocol/tasks": {}
+         },
+         "logging": {},
+         "prompts": {
+          "listChanged": false
+         },
+         "resources": {
+          "listChanged": false,
+          "subscribe": false
+         },
+         "tools": {
+          "listChanged": false
+         }
+        },
+        "resultType": "complete",
+        "supportedVersions": [
+         "2026-07-28"
+        ],
+        "ttlMs": 0,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "negotiation",
+      "seq": 3,
+      "t": "2026-10-09T21:10:12.511554+00:00",
+      "elapsed": 0.25536,
+      "session": "stdio",
+      "via": "server/discover",
+      "requested_revision": "2026-07-28",
+      "negotiated_revision": null,
+      "supported_versions": [
+       "2026-07-28"
+      ],
+      "client_capabilities": {
+       "sampling": {}
+      },
+      "client_info": {
+       "name": "copilot-cli",
+       "version": "1.0.95"
+      },
+      "server_capabilities": {
+       "completions": {},
+       "extensions": {
+        "io.modelcontextprotocol/tasks": {}
+       },
+       "logging": {},
+       "prompts": {
+        "listChanged": false
+       },
+       "resources": {
+        "listChanged": false,
+        "subscribe": false
+       },
+       "tools": {
+        "listChanged": false
+       }
+      },
+      "error": null
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 4,
+      "t": "2026-10-09T21:10:12.513422+00:00",
+      "elapsed": 0.25723,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 1,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 1,
+       "method": "tools/list",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         },
+         "progressToken": 0
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "negotiation",
+      "seq": 5,
+      "t": "2026-10-09T21:10:12.513449+00:00",
+      "elapsed": 0.257254,
+      "session": "stdio",
+      "via": "request-meta",
+      "negotiated_revision": "2026-07-28",
+      "client_capabilities": {
+       "sampling": {}
+      },
+      "client_info": {
+       "name": "copilot-cli",
+       "version": "1.0.95"
+      },
+      "method": "tools/list",
+      "id": 1
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 6,
+      "t": "2026-10-09T21:10:12.514286+00:00",
+      "elapsed": 0.258092,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 1,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 1,
+       "result": {
+        "cacheScope": "private",
+        "nextCursor": "20",
+        "resultType": "complete",
+        "tools": [
+         "slow_with_progress",
+         "cancellable_wait",
+         "emit_logs",
+         "task_capable",
+         "page_filler_00",
+         "page_filler_01",
+         "page_filler_02",
+         "page_filler_03",
+         "page_filler_04",
+         "page_filler_05",
+         "page_filler_06",
+         "page_filler_07",
+         "page_filler_08",
+         "page_filler_09",
+         "page_filler_10",
+         "page_filler_11",
+         "page_filler_12",
+         "page_filler_13",
+         "page_filler_14",
+         "page_filler_15"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 7,
+      "t": "2026-10-09T21:10:12.514634+00:00",
+      "elapsed": 0.25844,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 2,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 2,
+       "method": "tools/list",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         },
+         "progressToken": 1
+        },
+        "cursor": "20"
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 8,
+      "t": "2026-10-09T21:10:12.515256+00:00",
+      "elapsed": 0.259064,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 2,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 2,
+       "result": {
+        "cacheScope": "private",
+        "nextCursor": "40",
+        "resultType": "complete",
+        "tools": [
+         "page_filler_16",
+         "page_filler_17",
+         "page_filler_18",
+         "page_filler_19",
+         "page_filler_20",
+         "page_filler_21",
+         "page_filler_22",
+         "page_filler_23",
+         "page_filler_24",
+         "page_filler_25",
+         "page_filler_26",
+         "page_filler_27",
+         "page_filler_28",
+         "page_filler_29",
+         "page_filler_30",
+         "page_filler_31",
+         "page_filler_32",
+         "page_filler_33",
+         "page_filler_34",
+         "page_filler_35"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 9,
+      "t": "2026-10-09T21:10:12.515581+00:00",
+      "elapsed": 0.259387,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 3,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 3,
+       "method": "tools/list",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         },
+         "progressToken": 2
+        },
+        "cursor": "40"
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 10,
+      "t": "2026-10-09T21:10:12.516163+00:00",
+      "elapsed": 0.259969,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 3,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 3,
+       "result": {
+        "cacheScope": "private",
+        "resultType": "complete",
+        "tools": [
+         "page_filler_36",
+         "page_filler_37",
+         "page_filler_38",
+         "page_filler_39",
+         "page_filler_40",
+         "page_filler_41",
+         "page_filler_42",
+         "page_filler_43",
+         "page_filler_44",
+         "page_filler_45",
+         "page_filler_46",
+         "page_filler_47",
+         "page_filler_48",
+         "page_filler_49",
+         "page_filler_50",
+         "page_filler_51",
+         "page_filler_52",
+         "page_filler_53",
+         "page_filler_54",
+         "SENTINEL_LAST_TOOL"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 11,
+      "t": "2026-10-09T21:10:12.586323+00:00",
+      "elapsed": 0.330141,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/call",
+      "id": 4,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 4,
+       "method": "tools/call",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         },
+         "progressToken": 3
+        },
+        "arguments": {},
+        "name": "emit_logs"
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 12,
+      "t": "2026-10-09T21:10:12.588034+00:00",
+      "elapsed": 0.331841,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/call",
+      "id": 4,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 4,
+       "result": {
+        "content": [
+         {
+          "text": "SENTINEL_LOGS_SENT 5 at level>=debug",
+          "type": "text"
+         }
+        ],
+        "isError": false,
+        "resultType": "complete",
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     }
+    ],
+    "completion": [
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 1,
+      "t": "2026-10-09T21:10:13.191720+00:00",
+      "elapsed": 0.008055,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "server/discover",
+      "id": 0,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 0,
+       "method": "server/discover",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 2,
+      "t": "2026-10-09T21:10:13.443131+00:00",
+      "elapsed": 0.259467,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "server/discover",
+      "id": 0,
+      "revision": null,
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 0,
+       "result": {
+        "cacheScope": "private",
+        "capabilities": {
+         "completions": {},
+         "extensions": {
+          "io.modelcontextprotocol/tasks": {}
+         },
+         "logging": {},
+         "prompts": {
+          "listChanged": false
+         },
+         "resources": {
+          "listChanged": false,
+          "subscribe": false
+         },
+         "tools": {
+          "listChanged": false
+         }
+        },
+        "resultType": "complete",
+        "supportedVersions": [
+         "2026-07-28"
+        ],
+        "ttlMs": 0,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "negotiation",
+      "seq": 3,
+      "t": "2026-10-09T21:10:13.443188+00:00",
+      "elapsed": 0.259517,
+      "session": "stdio",
+      "via": "server/discover",
+      "requested_revision": "2026-07-28",
+      "negotiated_revision": null,
+      "supported_versions": [
+       "2026-07-28"
+      ],
+      "client_capabilities": {
+       "sampling": {}
+      },
+      "client_info": {
+       "name": "copilot-cli",
+       "version": "1.0.95"
+      },
+      "server_capabilities": {
+       "completions": {},
+       "extensions": {
+        "io.modelcontextprotocol/tasks": {}
+       },
+       "logging": {},
+       "prompts": {
+        "listChanged": false
+       },
+       "resources": {
+        "listChanged": false,
+        "subscribe": false
+       },
+       "tools": {
+        "listChanged": false
+       }
+      },
+      "error": null
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 4,
+      "t": "2026-10-09T21:10:13.444937+00:00",
+      "elapsed": 0.261269,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 1,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 1,
+       "method": "tools/list",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         },
+         "progressToken": 0
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "negotiation",
+      "seq": 5,
+      "t": "2026-10-09T21:10:13.444970+00:00",
+      "elapsed": 0.261299,
+      "session": "stdio",
+      "via": "request-meta",
+      "negotiated_revision": "2026-07-28",
+      "client_capabilities": {
+       "sampling": {}
+      },
+      "client_info": {
+       "name": "copilot-cli",
+       "version": "1.0.95"
+      },
+      "method": "tools/list",
+      "id": 1
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 6,
+      "t": "2026-10-09T21:10:13.445890+00:00",
+      "elapsed": 0.26222,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 1,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 1,
+       "result": {
+        "cacheScope": "private",
+        "nextCursor": "20",
+        "resultType": "complete",
+        "tools": [
+         "slow_with_progress",
+         "cancellable_wait",
+         "emit_logs",
+         "task_capable",
+         "page_filler_00",
+         "page_filler_01",
+         "page_filler_02",
+         "page_filler_03",
+         "page_filler_04",
+         "page_filler_05",
+         "page_filler_06",
+         "page_filler_07",
+         "page_filler_08",
+         "page_filler_09",
+         "page_filler_10",
+         "page_filler_11",
+         "page_filler_12",
+         "page_filler_13",
+         "page_filler_14",
+         "page_filler_15"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 7,
+      "t": "2026-10-09T21:10:13.446245+00:00",
+      "elapsed": 0.262573,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 2,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 2,
+       "method": "tools/list",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         },
+         "progressToken": 1
+        },
+        "cursor": "20"
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 8,
+      "t": "2026-10-09T21:10:13.446853+00:00",
+      "elapsed": 0.263183,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 2,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 2,
+       "result": {
+        "cacheScope": "private",
+        "nextCursor": "40",
+        "resultType": "complete",
+        "tools": [
+         "page_filler_16",
+         "page_filler_17",
+         "page_filler_18",
+         "page_filler_19",
+         "page_filler_20",
+         "page_filler_21",
+         "page_filler_22",
+         "page_filler_23",
+         "page_filler_24",
+         "page_filler_25",
+         "page_filler_26",
+         "page_filler_27",
+         "page_filler_28",
+         "page_filler_29",
+         "page_filler_30",
+         "page_filler_31",
+         "page_filler_32",
+         "page_filler_33",
+         "page_filler_34",
+         "page_filler_35"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 9,
+      "t": "2026-10-09T21:10:13.447170+00:00",
+      "elapsed": 0.263499,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 3,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 3,
+       "method": "tools/list",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         },
+         "progressToken": 2
+        },
+        "cursor": "40"
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 10,
+      "t": "2026-10-09T21:10:13.447694+00:00",
+      "elapsed": 0.264023,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 3,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 3,
+       "result": {
+        "cacheScope": "private",
+        "resultType": "complete",
+        "tools": [
+         "page_filler_36",
+         "page_filler_37",
+         "page_filler_38",
+         "page_filler_39",
+         "page_filler_40",
+         "page_filler_41",
+         "page_filler_42",
+         "page_filler_43",
+         "page_filler_44",
+         "page_filler_45",
+         "page_filler_46",
+         "page_filler_47",
+         "page_filler_48",
+         "page_filler_49",
+         "page_filler_50",
+         "page_filler_51",
+         "page_filler_52",
+         "page_filler_53",
+         "page_filler_54",
+         "SENTINEL_LAST_TOOL"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     }
+    ],
+    "cancellation": [
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 1,
+      "t": "2026-10-09T21:10:13.733926+00:00",
+      "elapsed": 0.007619,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "server/discover",
+      "id": 0,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 0,
+       "method": "server/discover",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 2,
+      "t": "2026-10-09T21:10:13.994430+00:00",
+      "elapsed": 0.268128,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "server/discover",
+      "id": 0,
+      "revision": null,
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 0,
+       "result": {
+        "cacheScope": "private",
+        "capabilities": {
+         "completions": {},
+         "extensions": {
+          "io.modelcontextprotocol/tasks": {}
+         },
+         "logging": {},
+         "prompts": {
+          "listChanged": false
+         },
+         "resources": {
+          "listChanged": false,
+          "subscribe": false
+         },
+         "tools": {
+          "listChanged": false
+         }
+        },
+        "resultType": "complete",
+        "supportedVersions": [
+         "2026-07-28"
+        ],
+        "ttlMs": 0,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "negotiation",
+      "seq": 3,
+      "t": "2026-10-09T21:10:13.994488+00:00",
+      "elapsed": 0.268175,
+      "session": "stdio",
+      "via": "server/discover",
+      "requested_revision": "2026-07-28",
+      "negotiated_revision": null,
+      "supported_versions": [
+       "2026-07-28"
+      ],
+      "client_capabilities": {
+       "sampling": {}
+      },
+      "client_info": {
+       "name": "copilot-cli",
+       "version": "1.0.95"
+      },
+      "server_capabilities": {
+       "completions": {},
+       "extensions": {
+        "io.modelcontextprotocol/tasks": {}
+       },
+       "logging": {},
+       "prompts": {
+        "listChanged": false
+       },
+       "resources": {
+        "listChanged": false,
+        "subscribe": false
+       },
+       "tools": {
+        "listChanged": false
+       }
+      },
+      "error": null
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 4,
+      "t": "2026-10-09T21:10:13.996249+00:00",
+      "elapsed": 0.26994,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 1,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 1,
+       "method": "tools/list",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         },
+         "progressToken": 0
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "negotiation",
+      "seq": 5,
+      "t": "2026-10-09T21:10:13.996280+00:00",
+      "elapsed": 0.269968,
+      "session": "stdio",
+      "via": "request-meta",
+      "negotiated_revision": "2026-07-28",
+      "client_capabilities": {
+       "sampling": {}
+      },
+      "client_info": {
+       "name": "copilot-cli",
+       "version": "1.0.95"
+      },
+      "method": "tools/list",
+      "id": 1
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 6,
+      "t": "2026-10-09T21:10:13.997062+00:00",
+      "elapsed": 0.270751,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 1,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 1,
+       "result": {
+        "cacheScope": "private",
+        "nextCursor": "20",
+        "resultType": "complete",
+        "tools": [
+         "slow_with_progress",
+         "cancellable_wait",
+         "emit_logs",
+         "task_capable",
+         "page_filler_00",
+         "page_filler_01",
+         "page_filler_02",
+         "page_filler_03",
+         "page_filler_04",
+         "page_filler_05",
+         "page_filler_06",
+         "page_filler_07",
+         "page_filler_08",
+         "page_filler_09",
+         "page_filler_10",
+         "page_filler_11",
+         "page_filler_12",
+         "page_filler_13",
+         "page_filler_14",
+         "page_filler_15"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 7,
+      "t": "2026-10-09T21:10:13.997453+00:00",
+      "elapsed": 0.271141,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 2,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 2,
+       "method": "tools/list",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         },
+         "progressToken": 1
+        },
+        "cursor": "20"
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 8,
+      "t": "2026-10-09T21:10:13.998085+00:00",
+      "elapsed": 0.271773,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 2,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 2,
+       "result": {
+        "cacheScope": "private",
+        "nextCursor": "40",
+        "resultType": "complete",
+        "tools": [
+         "page_filler_16",
+         "page_filler_17",
+         "page_filler_18",
+         "page_filler_19",
+         "page_filler_20",
+         "page_filler_21",
+         "page_filler_22",
+         "page_filler_23",
+         "page_filler_24",
+         "page_filler_25",
+         "page_filler_26",
+         "page_filler_27",
+         "page_filler_28",
+         "page_filler_29",
+         "page_filler_30",
+         "page_filler_31",
+         "page_filler_32",
+         "page_filler_33",
+         "page_filler_34",
+         "page_filler_35"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 9,
+      "t": "2026-10-09T21:10:13.998387+00:00",
+      "elapsed": 0.272074,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 3,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 3,
+       "method": "tools/list",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         },
+         "progressToken": 2
+        },
+        "cursor": "40"
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 10,
+      "t": "2026-10-09T21:10:13.998908+00:00",
+      "elapsed": 0.272595,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 3,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 3,
+       "result": {
+        "cacheScope": "private",
+        "resultType": "complete",
+        "tools": [
+         "page_filler_36",
+         "page_filler_37",
+         "page_filler_38",
+         "page_filler_39",
+         "page_filler_40",
+         "page_filler_41",
+         "page_filler_42",
+         "page_filler_43",
+         "page_filler_44",
+         "page_filler_45",
+         "page_filler_46",
+         "page_filler_47",
+         "page_filler_48",
+         "page_filler_49",
+         "page_filler_50",
+         "page_filler_51",
+         "page_filler_52",
+         "page_filler_53",
+         "page_filler_54",
+         "SENTINEL_LAST_TOOL"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 11,
+      "t": "2026-10-09T21:10:14.063037+00:00",
+      "elapsed": 0.336729,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/call",
+      "id": 4,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 4,
+       "method": "tools/call",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         },
+         "progressToken": 3
+        },
+        "arguments": {
+         "seconds": 4
+        },
+        "name": "cancellable_wait"
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 12,
+      "t": "2026-10-09T21:10:15.043606+00:00",
+      "elapsed": 1.317302,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "notification",
+      "method": "notifications/cancelled",
+      "id": null,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "method": "notifications/cancelled",
+       "params": {
+        "requestId": 4,
+        "reason": "request cancelled"
+       }
+      }
+     }
+    ],
+    "tasks": [
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 1,
+      "t": "2026-10-09T21:10:18.835123+00:00",
+      "elapsed": 0.007402,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "server/discover",
+      "id": 0,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 0,
+       "method": "server/discover",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 2,
+      "t": "2026-10-09T21:10:19.082720+00:00",
+      "elapsed": 0.254998,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "server/discover",
+      "id": 0,
+      "revision": null,
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 0,
+       "result": {
+        "cacheScope": "private",
+        "capabilities": {
+         "completions": {},
+         "extensions": {
+          "io.modelcontextprotocol/tasks": {}
+         },
+         "logging": {},
+         "prompts": {
+          "listChanged": false
+         },
+         "resources": {
+          "listChanged": false,
+          "subscribe": false
+         },
+         "tools": {
+          "listChanged": false
+         }
+        },
+        "resultType": "complete",
+        "supportedVersions": [
+         "2026-07-28"
+        ],
+        "ttlMs": 0,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "negotiation",
+      "seq": 3,
+      "t": "2026-10-09T21:10:19.082777+00:00",
+      "elapsed": 0.255047,
+      "session": "stdio",
+      "via": "server/discover",
+      "requested_revision": "2026-07-28",
+      "negotiated_revision": null,
+      "supported_versions": [
+       "2026-07-28"
+      ],
+      "client_capabilities": {
+       "sampling": {}
+      },
+      "client_info": {
+       "name": "copilot-cli",
+       "version": "1.0.95"
+      },
+      "server_capabilities": {
+       "completions": {},
+       "extensions": {
+        "io.modelcontextprotocol/tasks": {}
+       },
+       "logging": {},
+       "prompts": {
+        "listChanged": false
+       },
+       "resources": {
+        "listChanged": false,
+        "subscribe": false
+       },
+       "tools": {
+        "listChanged": false
+       }
+      },
+      "error": null
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 4,
+      "t": "2026-10-09T21:10:19.084471+00:00",
+      "elapsed": 0.256744,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 1,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 1,
+       "method": "tools/list",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         },
+         "progressToken": 0
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "negotiation",
+      "seq": 5,
+      "t": "2026-10-09T21:10:19.084503+00:00",
+      "elapsed": 0.256773,
+      "session": "stdio",
+      "via": "request-meta",
+      "negotiated_revision": "2026-07-28",
+      "client_capabilities": {
+       "sampling": {}
+      },
+      "client_info": {
+       "name": "copilot-cli",
+       "version": "1.0.95"
+      },
+      "method": "tools/list",
+      "id": 1
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 6,
+      "t": "2026-10-09T21:10:19.085300+00:00",
+      "elapsed": 0.25757,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 1,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 1,
+       "result": {
+        "cacheScope": "private",
+        "nextCursor": "20",
+        "resultType": "complete",
+        "tools": [
+         "slow_with_progress",
+         "cancellable_wait",
+         "emit_logs",
+         "task_capable",
+         "page_filler_00",
+         "page_filler_01",
+         "page_filler_02",
+         "page_filler_03",
+         "page_filler_04",
+         "page_filler_05",
+         "page_filler_06",
+         "page_filler_07",
+         "page_filler_08",
+         "page_filler_09",
+         "page_filler_10",
+         "page_filler_11",
+         "page_filler_12",
+         "page_filler_13",
+         "page_filler_14",
+         "page_filler_15"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 7,
+      "t": "2026-10-09T21:10:19.085627+00:00",
+      "elapsed": 0.257897,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 2,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 2,
+       "method": "tools/list",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         },
+         "progressToken": 1
+        },
+        "cursor": "20"
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 8,
+      "t": "2026-10-09T21:10:19.086218+00:00",
+      "elapsed": 0.258487,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 2,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 2,
+       "result": {
+        "cacheScope": "private",
+        "nextCursor": "40",
+        "resultType": "complete",
+        "tools": [
+         "page_filler_16",
+         "page_filler_17",
+         "page_filler_18",
+         "page_filler_19",
+         "page_filler_20",
+         "page_filler_21",
+         "page_filler_22",
+         "page_filler_23",
+         "page_filler_24",
+         "page_filler_25",
+         "page_filler_26",
+         "page_filler_27",
+         "page_filler_28",
+         "page_filler_29",
+         "page_filler_30",
+         "page_filler_31",
+         "page_filler_32",
+         "page_filler_33",
+         "page_filler_34",
+         "page_filler_35"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 9,
+      "t": "2026-10-09T21:10:19.086467+00:00",
+      "elapsed": 0.258736,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 3,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 3,
+       "method": "tools/list",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         },
+         "progressToken": 2
+        },
+        "cursor": "40"
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 10,
+      "t": "2026-10-09T21:10:19.086996+00:00",
+      "elapsed": 0.259269,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 3,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 3,
+       "result": {
+        "cacheScope": "private",
+        "resultType": "complete",
+        "tools": [
+         "page_filler_36",
+         "page_filler_37",
+         "page_filler_38",
+         "page_filler_39",
+         "page_filler_40",
+         "page_filler_41",
+         "page_filler_42",
+         "page_filler_43",
+         "page_filler_44",
+         "page_filler_45",
+         "page_filler_46",
+         "page_filler_47",
+         "page_filler_48",
+         "page_filler_49",
+         "page_filler_50",
+         "page_filler_51",
+         "page_filler_52",
+         "page_filler_53",
+         "page_filler_54",
+         "SENTINEL_LAST_TOOL"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 11,
+      "t": "2026-10-09T21:10:19.149799+00:00",
+      "elapsed": 0.322075,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/call",
+      "id": 4,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 4,
+       "method": "tools/call",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         },
+         "progressToken": 3
+        },
+        "arguments": {},
+        "name": "task_capable"
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 12,
+      "t": "2026-10-09T21:10:19.150820+00:00",
+      "elapsed": 0.323092,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/call",
+      "id": 4,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 4,
+       "result": {
+        "content": [
+         {
+          "text": "SENTINEL_TASK_CAPABLE task_requested=False",
+          "type": "text"
+         }
+        ],
+        "isError": false,
+        "resultType": "complete",
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     }
+    ],
+    "caching": [
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 1,
+      "t": "2026-10-09T21:10:19.414633+00:00",
+      "elapsed": 0.008418,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "server/discover",
+      "id": 0,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 0,
+       "method": "server/discover",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 2,
+      "t": "2026-10-09T21:10:19.658198+00:00",
+      "elapsed": 0.251982,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "server/discover",
+      "id": 0,
+      "revision": null,
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 0,
+       "result": {
+        "cacheScope": "private",
+        "capabilities": {
+         "completions": {},
+         "extensions": {
+          "io.modelcontextprotocol/tasks": {}
+         },
+         "logging": {},
+         "prompts": {
+          "listChanged": false
+         },
+         "resources": {
+          "listChanged": false,
+          "subscribe": false
+         },
+         "tools": {
+          "listChanged": false
+         }
+        },
+        "resultType": "complete",
+        "supportedVersions": [
+         "2026-07-28"
+        ],
+        "ttlMs": 0,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "negotiation",
+      "seq": 3,
+      "t": "2026-10-09T21:10:19.658255+00:00",
+      "elapsed": 0.25203,
+      "session": "stdio",
+      "via": "server/discover",
+      "requested_revision": "2026-07-28",
+      "negotiated_revision": null,
+      "supported_versions": [
+       "2026-07-28"
+      ],
+      "client_capabilities": {
+       "sampling": {}
+      },
+      "client_info": {
+       "name": "copilot-cli",
+       "version": "1.0.95"
+      },
+      "server_capabilities": {
+       "completions": {},
+       "extensions": {
+        "io.modelcontextprotocol/tasks": {}
+       },
+       "logging": {},
+       "prompts": {
+        "listChanged": false
+       },
+       "resources": {
+        "listChanged": false,
+        "subscribe": false
+       },
+       "tools": {
+        "listChanged": false
+       }
+      },
+      "error": null
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 4,
+      "t": "2026-10-09T21:10:19.659891+00:00",
+      "elapsed": 0.25367,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 1,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 1,
+       "method": "tools/list",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         },
+         "progressToken": 0
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "negotiation",
+      "seq": 5,
+      "t": "2026-10-09T21:10:19.659925+00:00",
+      "elapsed": 0.2537,
+      "session": "stdio",
+      "via": "request-meta",
+      "negotiated_revision": "2026-07-28",
+      "client_capabilities": {
+       "sampling": {}
+      },
+      "client_info": {
+       "name": "copilot-cli",
+       "version": "1.0.95"
+      },
+      "method": "tools/list",
+      "id": 1
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 6,
+      "t": "2026-10-09T21:10:19.660655+00:00",
+      "elapsed": 0.254433,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 1,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 1,
+       "result": {
+        "cacheScope": "private",
+        "nextCursor": "20",
+        "resultType": "complete",
+        "tools": [
+         "slow_with_progress",
+         "cancellable_wait",
+         "emit_logs",
+         "task_capable",
+         "page_filler_00",
+         "page_filler_01",
+         "page_filler_02",
+         "page_filler_03",
+         "page_filler_04",
+         "page_filler_05",
+         "page_filler_06",
+         "page_filler_07",
+         "page_filler_08",
+         "page_filler_09",
+         "page_filler_10",
+         "page_filler_11",
+         "page_filler_12",
+         "page_filler_13",
+         "page_filler_14",
+         "page_filler_15"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 7,
+      "t": "2026-10-09T21:10:19.660990+00:00",
+      "elapsed": 0.254766,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 2,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 2,
+       "method": "tools/list",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         },
+         "progressToken": 1
+        },
+        "cursor": "20"
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 8,
+      "t": "2026-10-09T21:10:19.661571+00:00",
+      "elapsed": 0.255346,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 2,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 2,
+       "result": {
+        "cacheScope": "private",
+        "nextCursor": "40",
+        "resultType": "complete",
+        "tools": [
+         "page_filler_16",
+         "page_filler_17",
+         "page_filler_18",
+         "page_filler_19",
+         "page_filler_20",
+         "page_filler_21",
+         "page_filler_22",
+         "page_filler_23",
+         "page_filler_24",
+         "page_filler_25",
+         "page_filler_26",
+         "page_filler_27",
+         "page_filler_28",
+         "page_filler_29",
+         "page_filler_30",
+         "page_filler_31",
+         "page_filler_32",
+         "page_filler_33",
+         "page_filler_34",
+         "page_filler_35"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 9,
+      "t": "2026-10-09T21:10:19.661835+00:00",
+      "elapsed": 0.255609,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 3,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 3,
+       "method": "tools/list",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         },
+         "progressToken": 2
+        },
+        "cursor": "40"
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 10,
+      "t": "2026-10-09T21:10:19.662345+00:00",
+      "elapsed": 0.256122,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 3,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 3,
+       "result": {
+        "cacheScope": "private",
+        "resultType": "complete",
+        "tools": [
+         "page_filler_36",
+         "page_filler_37",
+         "page_filler_38",
+         "page_filler_39",
+         "page_filler_40",
+         "page_filler_41",
+         "page_filler_42",
+         "page_filler_43",
+         "page_filler_44",
+         "page_filler_45",
+         "page_filler_46",
+         "page_filler_47",
+         "page_filler_48",
+         "page_filler_49",
+         "page_filler_50",
+         "page_filler_51",
+         "page_filler_52",
+         "page_filler_53",
+         "page_filler_54",
+         "SENTINEL_LAST_TOOL"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 11,
+      "t": "2026-10-09T21:10:19.705170+00:00",
+      "elapsed": 0.298949,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 4,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 4,
+       "method": "tools/list",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         },
+         "progressToken": 3
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 12,
+      "t": "2026-10-09T21:10:19.706121+00:00",
+      "elapsed": 0.299899,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 4,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 4,
+       "result": {
+        "cacheScope": "private",
+        "nextCursor": "20",
+        "resultType": "complete",
+        "tools": [
+         "slow_with_progress",
+         "cancellable_wait",
+         "emit_logs",
+         "task_capable",
+         "page_filler_00",
+         "page_filler_01",
+         "page_filler_02",
+         "page_filler_03",
+         "page_filler_04",
+         "page_filler_05",
+         "page_filler_06",
+         "page_filler_07",
+         "page_filler_08",
+         "page_filler_09",
+         "page_filler_10",
+         "page_filler_11",
+         "page_filler_12",
+         "page_filler_13",
+         "page_filler_14",
+         "page_filler_15"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 13,
+      "t": "2026-10-09T21:10:19.706490+00:00",
+      "elapsed": 0.300265,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 5,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 5,
+       "method": "tools/list",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         },
+         "progressToken": 4
+        },
+        "cursor": "20"
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 14,
+      "t": "2026-10-09T21:10:19.707097+00:00",
+      "elapsed": 0.300874,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 5,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 5,
+       "result": {
+        "cacheScope": "private",
+        "nextCursor": "40",
+        "resultType": "complete",
+        "tools": [
+         "page_filler_16",
+         "page_filler_17",
+         "page_filler_18",
+         "page_filler_19",
+         "page_filler_20",
+         "page_filler_21",
+         "page_filler_22",
+         "page_filler_23",
+         "page_filler_24",
+         "page_filler_25",
+         "page_filler_26",
+         "page_filler_27",
+         "page_filler_28",
+         "page_filler_29",
+         "page_filler_30",
+         "page_filler_31",
+         "page_filler_32",
+         "page_filler_33",
+         "page_filler_34",
+         "page_filler_35"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 15,
+      "t": "2026-10-09T21:10:19.707397+00:00",
+      "elapsed": 0.301173,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 6,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 6,
+       "method": "tools/list",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         },
+         "progressToken": 5
+        },
+        "cursor": "40"
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 16,
+      "t": "2026-10-09T21:10:19.707933+00:00",
+      "elapsed": 0.301708,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 6,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 6,
+       "result": {
+        "cacheScope": "private",
+        "resultType": "complete",
+        "tools": [
+         "page_filler_36",
+         "page_filler_37",
+         "page_filler_38",
+         "page_filler_39",
+         "page_filler_40",
+         "page_filler_41",
+         "page_filler_42",
+         "page_filler_43",
+         "page_filler_44",
+         "page_filler_45",
+         "page_filler_46",
+         "page_filler_47",
+         "page_filler_48",
+         "page_filler_49",
+         "page_filler_50",
+         "page_filler_51",
+         "page_filler_52",
+         "page_filler_53",
+         "page_filler_54",
+         "SENTINEL_LAST_TOOL"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 17,
+      "t": "2026-10-09T21:10:19.708759+00:00",
+      "elapsed": 0.302535,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 7,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 7,
+       "method": "tools/list",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         },
+         "progressToken": 6
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 18,
+      "t": "2026-10-09T21:10:19.709370+00:00",
+      "elapsed": 0.303145,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 7,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 7,
+       "result": {
+        "cacheScope": "private",
+        "nextCursor": "20",
+        "resultType": "complete",
+        "tools": [
+         "slow_with_progress",
+         "cancellable_wait",
+         "emit_logs",
+         "task_capable",
+         "page_filler_00",
+         "page_filler_01",
+         "page_filler_02",
+         "page_filler_03",
+         "page_filler_04",
+         "page_filler_05",
+         "page_filler_06",
+         "page_filler_07",
+         "page_filler_08",
+         "page_filler_09",
+         "page_filler_10",
+         "page_filler_11",
+         "page_filler_12",
+         "page_filler_13",
+         "page_filler_14",
+         "page_filler_15"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 19,
+      "t": "2026-10-09T21:10:19.709637+00:00",
+      "elapsed": 0.303413,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 8,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 8,
+       "method": "tools/list",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         },
+         "progressToken": 7
+        },
+        "cursor": "20"
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 20,
+      "t": "2026-10-09T21:10:19.710159+00:00",
+      "elapsed": 0.303934,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 8,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 8,
+       "result": {
+        "cacheScope": "private",
+        "nextCursor": "40",
+        "resultType": "complete",
+        "tools": [
+         "page_filler_16",
+         "page_filler_17",
+         "page_filler_18",
+         "page_filler_19",
+         "page_filler_20",
+         "page_filler_21",
+         "page_filler_22",
+         "page_filler_23",
+         "page_filler_24",
+         "page_filler_25",
+         "page_filler_26",
+         "page_filler_27",
+         "page_filler_28",
+         "page_filler_29",
+         "page_filler_30",
+         "page_filler_31",
+         "page_filler_32",
+         "page_filler_33",
+         "page_filler_34",
+         "page_filler_35"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 21,
+      "t": "2026-10-09T21:10:19.710426+00:00",
+      "elapsed": 0.304201,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 9,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 9,
+       "method": "tools/list",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         },
+         "progressToken": 8
+        },
+        "cursor": "40"
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 22,
+      "t": "2026-10-09T21:10:19.710918+00:00",
+      "elapsed": 0.304692,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 9,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 9,
+       "result": {
+        "cacheScope": "private",
+        "resultType": "complete",
+        "tools": [
+         "page_filler_36",
+         "page_filler_37",
+         "page_filler_38",
+         "page_filler_39",
+         "page_filler_40",
+         "page_filler_41",
+         "page_filler_42",
+         "page_filler_43",
+         "page_filler_44",
+         "page_filler_45",
+         "page_filler_46",
+         "page_filler_47",
+         "page_filler_48",
+         "page_filler_49",
+         "page_filler_50",
+         "page_filler_51",
+         "page_filler_52",
+         "page_filler_53",
+         "page_filler_54",
+         "SENTINEL_LAST_TOOL"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 23,
+      "t": "2026-10-09T21:10:21.715107+00:00",
+      "elapsed": 2.308871,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 10,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 10,
+       "method": "tools/list",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         },
+         "progressToken": 9
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 24,
+      "t": "2026-10-09T21:10:21.715941+00:00",
+      "elapsed": 2.309702,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 10,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 10,
+       "result": {
+        "cacheScope": "private",
+        "nextCursor": "20",
+        "resultType": "complete",
+        "tools": [
+         "slow_with_progress",
+         "cancellable_wait",
+         "emit_logs",
+         "task_capable",
+         "page_filler_00",
+         "page_filler_01",
+         "page_filler_02",
+         "page_filler_03",
+         "page_filler_04",
+         "page_filler_05",
+         "page_filler_06",
+         "page_filler_07",
+         "page_filler_08",
+         "page_filler_09",
+         "page_filler_10",
+         "page_filler_11",
+         "page_filler_12",
+         "page_filler_13",
+         "page_filler_14",
+         "page_filler_15"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 25,
+      "t": "2026-10-09T21:10:21.716262+00:00",
+      "elapsed": 2.310022,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 11,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 11,
+       "method": "tools/list",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         },
+         "progressToken": 10
+        },
+        "cursor": "20"
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 26,
+      "t": "2026-10-09T21:10:21.716852+00:00",
+      "elapsed": 2.310614,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 11,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 11,
+       "result": {
+        "cacheScope": "private",
+        "nextCursor": "40",
+        "resultType": "complete",
+        "tools": [
+         "page_filler_16",
+         "page_filler_17",
+         "page_filler_18",
+         "page_filler_19",
+         "page_filler_20",
+         "page_filler_21",
+         "page_filler_22",
+         "page_filler_23",
+         "page_filler_24",
+         "page_filler_25",
+         "page_filler_26",
+         "page_filler_27",
+         "page_filler_28",
+         "page_filler_29",
+         "page_filler_30",
+         "page_filler_31",
+         "page_filler_32",
+         "page_filler_33",
+         "page_filler_34",
+         "page_filler_35"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 27,
+      "t": "2026-10-09T21:10:21.717139+00:00",
+      "elapsed": 2.3109,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 12,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 12,
+       "method": "tools/list",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "copilot-cli",
+          "version": "1.0.95"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {
+          "sampling": {}
+         },
+         "progressToken": 11
+        },
+        "cursor": "40"
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 28,
+      "t": "2026-10-09T21:10:21.717683+00:00",
+      "elapsed": 2.311443,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 12,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 12,
+       "result": {
+        "cacheScope": "private",
+        "resultType": "complete",
+        "tools": [
+         "page_filler_36",
+         "page_filler_37",
+         "page_filler_38",
+         "page_filler_39",
+         "page_filler_40",
+         "page_filler_41",
+         "page_filler_42",
+         "page_filler_43",
+         "page_filler_44",
+         "page_filler_45",
+         "page_filler_46",
+         "page_filler_47",
+         "page_filler_48",
+         "page_filler_49",
+         "page_filler_50",
+         "page_filler_51",
+         "page_filler_52",
+         "page_filler_53",
+         "page_filler_54",
+         "SENTINEL_LAST_TOOL"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     }
+    ]
+   }
+  }
+ }
+}

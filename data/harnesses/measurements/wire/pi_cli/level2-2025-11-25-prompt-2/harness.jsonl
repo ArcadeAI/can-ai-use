@@ -1,0 +1,4 @@
+{"format": "mcp-mirror.harness-output/1"}
+{"event": "init", "harness_version": null, "permission_mode": null, "mcp_servers": null, "mcp_tools": null}
+{"event": "text", "text": "done"}
+{"event": "result", "subtype": "stop", "is_error": false, "num_turns": 1, "text": "done"}

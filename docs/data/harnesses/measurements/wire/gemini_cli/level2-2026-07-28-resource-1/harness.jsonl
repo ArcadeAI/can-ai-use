@@ -1,0 +1,6 @@
+{"format": "mcp-mirror.harness-output/1"}
+{"event": "init", "harness_version": null, "permission_mode": null, "model": "gemini-2.5-flash", "mcp_servers": null, "mcp_tools": []}
+{"event": "tool_use", "tool": "read_mcp_resource", "input": {"uri": "file:///fixtures/notes.txt"}}
+{"event": "tool_result", "is_error": false, "text": "Successfully read resource \"notes.txt\" from server \"def\""}
+{"event": "text", "text": "done"}
+{"event": "result", "subtype": "success", "is_error": false, "num_turns": null, "tool_calls": 1, "text": ""}

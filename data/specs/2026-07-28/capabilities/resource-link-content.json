@@ -1,0 +1,42 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "resource-link-content",
+  "title": "`resource_link`",
+  "description": "A tool result block that points at a resource URI instead of inlining its contents.",
+  "question": "Does a resource link reach the agent as a reference it can follow?",
+  "spec": "https://modelcontextprotocol.io/specification/2026-07-28",
+  "status": "stable",
+  "categories": [
+    "Tool results",
+    "Resources"
+  ],
+  "keywords": "resource_link,resource link,uri,reference,large results",
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/server/tools#resource-links",
+      "title": "MCP Docs"
+    }
+  ],
+  "known_issues": [],
+  "why": "Resource links are how a large result stays out of the context window until something asks for it. A framework that flattens the link to text keeps the URI as prose and loses the ability to fetch what it points at.",
+  "shown": true,
+  "docs_url": "https://modelcontextprotocol.io/specification/2026-07-28/server/tools#resource-links",
+  "docs_label": "MCP Docs",
+  "notes": {
+    "openai-agents": "OpenAI Agents SDK 0.23.1: the link is re-serialized as JSON inside a text item, retaining `uri`, `name` and `description`. Followable, but only after parsing text.",
+    "pydantic-ai": "Pydantic AI 2.54.0: only the URI is returned, as a bare string. The link is still followable, but its `name`, `description` and `mimeType` are gone.",
+    "mastra": "Mastra 2.2.0: a result without `structuredContent` comes back unchanged, resource_link intact with its `name`, `uri`, `description` and `mimeType`. For a result that carries `structuredContent`, every content block is dropped, resource links included; only the structured value reaches the agent.",
+    "vercel_ai": "Vercel AI SDK (@ai-sdk/mcp 2.0.73): execute resolves with the CallToolResult, so a caller reading a step's toolResults gets the resource link block intact. The adapter's toModelOutput converter maps only text and image blocks, so the model receives a resource link block as a text part holding the block's JSON (the uri, name and MIME type as characters). Boundary-dependent: kept at execute, flattened to text at model_output.",
+    "strands": "Strands Agents 1.59.0: `map_mcp_content_to_tool_result_content` handles text, image and embedded-resource blocks only. A `resource_link` block is dropped with a debug log, alone or beside other blocks.",
+    "openai_agents_js": "OpenAI Agents SDK (JS) 0.20.0: the model receives a resource link as its JSON serialization inside a text item; `MCPServer.callTool` itself returns the block intact.",
+    "agno": "Agno 3.1.2: a `resource_link` block becomes the text `[Unsupported content type: resource_link]` at both boundaries; the URI is lost.",
+    "dspy": "DSPy 3.4.0: with the default `result_mode=\"text\"`, `Tool.acall` returns the resource link block as the MCP content object when the result has no text (direct: `y`). In a `dspy.ReAct` run the observation the model reads is that object's Python repr, `«name='linked.txt' uri='file:///fixtures/linked.txt' ...»` (react: `a`). When a result carries any text block, `_convert_mcp_tool_result` returns the text alone and drops the resource link block at both boundaries.",
+    "langchain_js": "LangChain.js (@langchain/mcp-adapters 2.0.1): a `resource_link` becomes a LangChain `file` block with `url`, `mimeType` and `metadata.{uri,name}`; its `description` is kept only in the app-side artifact.",
+    "copilot_sdk": "GitHub Copilot SDK 1.0.19 (Copilot runtime 1.0.95): depends on the boundary. `agent`: the `tool` message the provider receives is an empty string; the link's `uri`, `name` and `description` are dropped. `direct`: `session.rpc.tools.execute` returns the `resource_link` block whole.",
+    "langchain4j": "LangChain4j 1.22.0-beta32: The default `McpToolExecutor` result converter accepts text blocks only. Any `resource_link` block makes it throw `Unsupported content type: \"resource_link\"`: the direct executor raises it as a `RuntimeException`, and AiServices turns it into an error tool result the model reads in place of the block. A result with `structuredContent` never reads its blocks at all.",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): `mcpTool.Run` returns `{\"output\": text}`, where `formatMCPContent` replaces the block with a placeholder line (`[MCP resource link: uri=..., mimeType=..., name=..., description=...]`), and the model receives that map as `FunctionResponse.response`. When the result also has `structuredContent`, as in the mixed result, `Run` returns `{\"output\": structuredContent}` and the block is dropped.",
+    "ms_agent_framework_dotnet": "Microsoft Agent Framework (.NET) 1.24.0 (ModelContextProtocol 2.2.0): `McpClientTool` has no `AIContent` for a `resource_link`, so it returns the whole `CallToolResult` as a JSON string at both boundaries. The link's fields are readable only by parsing that text."
+  },
+  "summary": "A resource_link is a pointer the agent is meant to be able to follow."
+}

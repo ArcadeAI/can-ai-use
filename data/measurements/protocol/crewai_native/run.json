@@ -1,0 +1,737 @@
+{
+  "schema": "mcp-mirror/protocol-run@1",
+  "captured_at": "2026-10-09T19:09:23Z",
+  "renderer": "crewai_native",
+  "fixture": "fixtures/base_protocol_server.py",
+  "spec_version": "2025-11-25",
+  "versions": {
+    "framework": "1.15.26",
+    "adapter": "1.15.26"
+  },
+  "captures": [
+    "http.jsonl",
+    "stdio-00.jsonl",
+    "stdio-01.jsonl",
+    "stdio-02.jsonl",
+    "stdio-03.jsonl",
+    "stdio-04.jsonl",
+    "stdio-05.jsonl",
+    "stdio-06.jsonl",
+    "stdio-07.jsonl",
+    "stdio-08.jsonl",
+    "stdio-09.jsonl",
+    "stdio-10.jsonl",
+    "stdio-11.jsonl",
+    "stdio-12.jsonl",
+    "stdio-13.jsonl",
+    "stdio-14.jsonl",
+    "stdio-15.jsonl",
+    "stdio-16.jsonl"
+  ],
+  "transports": {
+    "stdio": {
+      "ok": true,
+      "versions": {
+        "framework": "1.15.26",
+        "adapter": "1.15.26"
+      },
+      "tools": [
+        {
+          "name": "venv_bin_python3_scripts_measure_protocol_py_record_int_2fa6880b",
+          "params": {
+            "additionalProperties": false,
+            "properties": {
+              "point": {
+                "description": "An [x, y] pair.",
+                "items": {},
+                "title": "Point",
+                "type": "array"
+              },
+              "window": {
+                "anyOf": [
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "low": {
+                        "title": "Low",
+                        "type": "number"
+                      },
+                      "high": {
+                        "title": "High",
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "low",
+                      "high"
+                    ],
+                    "title": "Window",
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null
+              },
+              "label": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Label"
+              },
+              "units": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Units"
+              }
+            },
+            "required": [
+              "point",
+              "window",
+              "label",
+              "units"
+            ],
+            "type": "object"
+          }
+        },
+        {
+          "name": "venv_bin_python3_scripts_measure_protocol_py_record_int_21ee1e91",
+          "params": {
+            "properties": {},
+            "type": "object",
+            "additionalProperties": false,
+            "required": []
+          }
+        },
+        {
+          "name": "venv_bin_python3_scripts_measure_protocol_py_record_int_7464c523",
+          "params": {
+            "additionalProperties": false,
+            "properties": {
+              "region": {
+                "title": "Region",
+                "type": "string"
+              },
+              "key": {
+                "title": "Key",
+                "type": "string"
+              }
+            },
+            "required": [
+              "region",
+              "key"
+            ],
+            "type": "object"
+          }
+        },
+        {
+          "name": "venv_bin_python3_scripts_measure_protocol_py_record_int_a21af32b",
+          "params": {
+            "additionalProperties": false,
+            "properties": {
+              "filter": {
+                "anyOf": [
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "field": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "title": "Field"
+                      }
+                    },
+                    "title": "Filter",
+                    "type": "object",
+                    "required": [
+                      "field"
+                    ]
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null
+              }
+            },
+            "type": "object",
+            "required": [
+              "filter"
+            ]
+          }
+        },
+        {
+          "name": "venv_bin_python3_scripts_measure_protocol_py_record_int_ae3bd6da",
+          "params": {
+            "additionalProperties": false,
+            "properties": {},
+            "type": "object",
+            "required": []
+          }
+        }
+      ],
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Direct tool invocation",
+          "capture_api": "crewai.tools.BaseTool.run on the MCPNativeTool Agent.get_mcp_tools returns",
+          "capture_object": "the tool return value: the first content block's text, or a ToolFailure when isError is set",
+          "agent_path": false,
+          "limitation": null
+        },
+        {
+          "id": "agent",
+          "label": "Native tool call result",
+          "capture_api": "crewai.utilities.agent_utils.execute_single_native_tool_call",
+          "capture_object": "NativeToolCallResult.result, the tool message content the next model turn receives",
+          "agent_path": true,
+          "limitation": "The executor step is driven with a scripted OpenAI-style tool call. No LLM was bound and no crew was kicked off."
+        }
+      ],
+      "results": [
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5.0, \"low\": 0.0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5.0, \"low\": 0.0}}",
+            "origin": "crewai_native",
+            "raw": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5.0, \"low\": 0.0}}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5.0, \"low\": 0.0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5.0, \"low\": 0.0}}",
+            "origin": "crewai_native",
+            "raw": "{\"role\": \"tool\", \"tool_call_id\": \"mcp-mirror-call\", \"name\": \"venv_bin_python3_scripts_measure_protocol_py_record_int_2fa6880b\", \"content\": \"SENTINEL_ARGUMENTS dialect_2020_12 {\\\"point\\\": [1, 2], \\\"window\\\": {\\\"high\\\": 5.0, \\\"low\\\": 0.0}}\"}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "crewai_native",
+            "raw": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "crewai_native",
+            "raw": "{\"role\": \"tool\", \"tool_call_id\": \"mcp-mirror-call\", \"name\": \"venv_bin_python3_scripts_measure_protocol_py_record_int_21ee1e91\", \"content\": \"SENTINEL_ARGUMENTS dialect_draft_07 {\\\"point\\\": [1, 2], \\\"window\\\": {\\\"high\\\": 5, \\\"low\\\": 0}}\"}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "origin": "crewai_native",
+            "raw": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "origin": "crewai_native",
+            "raw": "{\"role\": \"tool\", \"tool_call_id\": \"mcp-mirror-call\", \"name\": \"venv_bin_python3_scripts_measure_protocol_py_record_int_7464c523\", \"content\": \"SENTINEL_ARGUMENTS routed_lookup {\\\"key\\\": \\\"k1\\\", \\\"region\\\": \\\"eu-west-1\\\"}\"}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS needs_input {}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS needs_input {}",
+            "origin": "crewai_native",
+            "raw": "SENTINEL_ARGUMENTS needs_input {}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS needs_input {}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS needs_input {}",
+            "origin": "crewai_native",
+            "raw": "{\"role\": \"tool\", \"tool_call_id\": \"mcp-mirror-call\", \"name\": \"venv_bin_python3_scripts_measure_protocol_py_record_int_ae3bd6da\", \"content\": \"SENTINEL_ARGUMENTS needs_input {}\"}",
+            "error_channel": null
+          }
+        }
+      ]
+    },
+    "http": {
+      "ok": true,
+      "versions": {
+        "framework": "1.15.26",
+        "adapter": "1.15.26"
+      },
+      "tools": [
+        {
+          "name": "127_0_0_1_50278_mcp_dialect_2020_12",
+          "params": {
+            "additionalProperties": false,
+            "properties": {
+              "point": {
+                "description": "An [x, y] pair.",
+                "items": {},
+                "title": "Point",
+                "type": "array"
+              },
+              "window": {
+                "anyOf": [
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "low": {
+                        "title": "Low",
+                        "type": "number"
+                      },
+                      "high": {
+                        "title": "High",
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "low",
+                      "high"
+                    ],
+                    "title": "Window",
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null
+              },
+              "label": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Label"
+              },
+              "units": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Units"
+              }
+            },
+            "required": [
+              "point",
+              "window",
+              "label",
+              "units"
+            ],
+            "type": "object"
+          }
+        },
+        {
+          "name": "127_0_0_1_50278_mcp_dialect_draft_07",
+          "params": {
+            "properties": {},
+            "type": "object",
+            "additionalProperties": false,
+            "required": []
+          }
+        },
+        {
+          "name": "127_0_0_1_50278_mcp_routed_lookup",
+          "params": {
+            "additionalProperties": false,
+            "properties": {
+              "region": {
+                "title": "Region",
+                "type": "string"
+              },
+              "key": {
+                "title": "Key",
+                "type": "string"
+              }
+            },
+            "required": [
+              "region",
+              "key"
+            ],
+            "type": "object"
+          }
+        },
+        {
+          "name": "127_0_0_1_50278_mcp_bad_header",
+          "params": {
+            "additionalProperties": false,
+            "properties": {
+              "filter": {
+                "anyOf": [
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "field": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "title": "Field"
+                      }
+                    },
+                    "title": "Filter",
+                    "type": "object",
+                    "required": [
+                      "field"
+                    ]
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null
+              }
+            },
+            "type": "object",
+            "required": [
+              "filter"
+            ]
+          }
+        },
+        {
+          "name": "127_0_0_1_50278_mcp_needs_input",
+          "params": {
+            "additionalProperties": false,
+            "properties": {},
+            "type": "object",
+            "required": []
+          }
+        }
+      ],
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Direct tool invocation",
+          "capture_api": "crewai.tools.BaseTool.run on the MCPNativeTool Agent.get_mcp_tools returns",
+          "capture_object": "the tool return value: the first content block's text, or a ToolFailure when isError is set",
+          "agent_path": false,
+          "limitation": null
+        },
+        {
+          "id": "agent",
+          "label": "Native tool call result",
+          "capture_api": "crewai.utilities.agent_utils.execute_single_native_tool_call",
+          "capture_object": "NativeToolCallResult.result, the tool message content the next model turn receives",
+          "agent_path": true,
+          "limitation": "The executor step is driven with a scripted OpenAI-style tool call. No LLM was bound and no crew was kicked off."
+        }
+      ],
+      "results": [
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "RuntimeError: Error executing MCP tool dialect_2020_12: Error during MCP client disconnect: no running event loop",
+            "origin": "crewai_native",
+            "raw": "RuntimeError('Error executing MCP tool dialect_2020_12: Error during MCP client disconnect: no running event loop')",
+            "error_channel": "exception"
+          }
+        },
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "Error executing tool: Error executing MCP tool dialect_2020_12: Error during MCP client disconnect: no running event loop"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": true,
+            "text": "Error executing tool: Error executing MCP tool dialect_2020_12: Error during MCP client disconnect: no running event loop",
+            "origin": "crewai_native",
+            "raw": "{\"role\": \"tool\", \"tool_call_id\": \"mcp-mirror-call\", \"name\": \"127_0_0_1_50278_mcp_dialect_2020_12\", \"content\": \"Error executing tool: Error executing MCP tool dialect_2020_12: Error during MCP client disconnect: no running event loop\"}",
+            "error_channel": "message"
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "RuntimeError: Error executing MCP tool dialect_draft_07: Error during MCP client disconnect: no running event loop",
+            "origin": "crewai_native",
+            "raw": "RuntimeError('Error executing MCP tool dialect_draft_07: Error during MCP client disconnect: no running event loop')",
+            "error_channel": "exception"
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "Error executing tool: Error executing MCP tool dialect_draft_07: Error during MCP client disconnect: no running event loop"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": true,
+            "text": "Error executing tool: Error executing MCP tool dialect_draft_07: Error during MCP client disconnect: no running event loop",
+            "origin": "crewai_native",
+            "raw": "{\"role\": \"tool\", \"tool_call_id\": \"mcp-mirror-call\", \"name\": \"127_0_0_1_50278_mcp_dialect_draft_07\", \"content\": \"Error executing tool: Error executing MCP tool dialect_draft_07: Error during MCP client disconnect: no running event loop\"}",
+            "error_channel": "message"
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "RuntimeError: Error executing MCP tool routed_lookup: Error during MCP client disconnect: no running event loop",
+            "origin": "crewai_native",
+            "raw": "RuntimeError('Error executing MCP tool routed_lookup: Error during MCP client disconnect: no running event loop')",
+            "error_channel": "exception"
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "Error executing tool: Error executing MCP tool routed_lookup: Error during MCP client disconnect: no running event loop"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": true,
+            "text": "Error executing tool: Error executing MCP tool routed_lookup: Error during MCP client disconnect: no running event loop",
+            "origin": "crewai_native",
+            "raw": "{\"role\": \"tool\", \"tool_call_id\": \"mcp-mirror-call\", \"name\": \"127_0_0_1_50278_mcp_routed_lookup\", \"content\": \"Error executing tool: Error executing MCP tool routed_lookup: Error during MCP client disconnect: no running event loop\"}",
+            "error_channel": "message"
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "RuntimeError: Error executing MCP tool needs_input: Error during MCP client disconnect: no running event loop",
+            "origin": "crewai_native",
+            "raw": "RuntimeError('Error executing MCP tool needs_input: Error during MCP client disconnect: no running event loop')",
+            "error_channel": "exception"
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "Error executing tool: Error executing MCP tool needs_input: Error during MCP client disconnect: no running event loop"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": true,
+            "text": "Error executing tool: Error executing MCP tool needs_input: Error during MCP client disconnect: no running event loop",
+            "origin": "crewai_native",
+            "raw": "{\"role\": \"tool\", \"tool_call_id\": \"mcp-mirror-call\", \"name\": \"127_0_0_1_50278_mcp_needs_input\", \"content\": \"Error executing tool: Error executing MCP tool needs_input: Error during MCP client disconnect: no running event loop\"}",
+            "error_channel": "message"
+          }
+        }
+      ]
+    }
+  }
+}

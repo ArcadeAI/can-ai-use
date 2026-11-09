@@ -1,0 +1,35 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "caching-hints",
+  "title": "`ttlMs` / `cacheScope`",
+  "description": "Freshness and sharing hints required on cacheable results, giving a time to live in milliseconds and a public or private scope.",
+  "question": "Does the framework respect the server's caching hints?",
+  "spec": "https://modelcontextprotocol.io/specification/2026-07-28",
+  "status": "stable",
+  "categories": [
+    "Server utilities"
+  ],
+  "keywords": "caching,ttlMs,cacheScope,public,private,freshness",
+  "why": "New in 2026-07-28, and it cuts both ways. A framework that ignores `ttlMs` re-fetches constantly or serves stale results; one that ignores `cacheScope` risks caching a private, authorization-scoped result and serving it to another caller.",
+  "docs_url": "https://modelcontextprotocol.io/specification/2026-07-28/server/utilities/caching#cacheable-results",
+  "docs_label": "MCP Docs",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/server/utilities/caching#cacheable-results",
+      "title": "MCP Docs"
+    }
+  ],
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "known_issues": [],
+  "notes": {
+    "openai-agents": "OpenAI Agents SDK 0.23.1: `MCPServerStdio` passes `cache=None` to the mcp client, which switches off its ttl-aware cache, and `cache_tools_list` defaults to off. Every list goes back to the server inside `ttlMs`. Turning `cache_tools_list` on caches until `invalidate_tools_cache()`, which ignores `ttlMs` too.",
+    "pydantic-ai": "Pydantic AI 2.54.0: `MCPToolset` caches the tool list (`cache_tools`, on by default) until a `list_changed` notification or until the toolset closes. It ignores `ttlMs`, so a re-list after the hint expired is served stale.",
+    "strands": "Strands Agents 1.59.0: `list_tools_sync` asks the server on every call, inside the `ttlMs` window as well as after it, so the hint is neither honored nor needed. `load_tools`, which an agent reads, keeps the first listing until an `on_tools_changed` refresh and does not read `ttlMs` either.",
+    "vercel_ai": "Vercel AI SDK (@ai-sdk/mcp 2.0.73): `client.tools()` calls `tools/list` every time and ignores `ttlMs`. A re-list inside the ttl goes to the server, and so does one after it, so it is never stale but never cached.",
+    "openai_agents_js": "OpenAI Agents SDK (JS) 0.20.0: the server's `ttlMs` is not honoured on the path the SDK uses. `listTools` passes `cacheMode: 'bypass'` to the MCP client on a 2026-07-28 session, so every re-list inside the TTL went to the server. The SDK's own `cacheToolsList` option is a separate, TTL-blind cache.",
+    "agno": "Agno 3.1.2: `build_tools` asks the server on every call, inside the `ttlMs` window as well as after it, so the hint is not read; an `Agent` without `refresh_connection=True` keeps the first listing regardless.",
+    "copilot_sdk": "GitHub Copilot SDK 1.0.19 (Copilot runtime 1.0.95): `session.rpc.mcp.listTools` ignores `ttlMs`. The re-list inside the 1500 ms window went to the server, as did the one after it.",
+    "langchain4j": "LangChain4j 1.22.0-beta32: `DefaultMcpClient` caches `tools/list` and refreshes the cache only on `notifications/tools/list_changed`. It ignores `ttlMs`, so a re-list after the TTL is still served from the stale cache.",
+    "ms_agent_framework_dotnet": "Microsoft Agent Framework (.NET) 1.24.0 (ModelContextProtocol 2.2.0): `McpClient.ListToolsAsync` ignores `ttlMs`. The re-list inside the 1500 ms window went to the server, as did the one after it."
+  }
+}

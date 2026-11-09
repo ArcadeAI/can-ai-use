@@ -1,0 +1,285 @@
+{
+  "format": "mcp-mirror.harness-session/1",
+  "harness": "deepseek_harness",
+  "name": "DeepSeek Harness",
+  "version": "0.2.0-rc.2",
+  "captured_at": "2026-10-14T18:25:33+00:00",
+  "command": "uv run python scripts/measure_harness.py deepseek_harness --level 1",
+  "recorder": "mcp-mirror 0.1.0",
+  "fixture_sdk": "mcp 1.28.1",
+  "fixture_lines": [
+    {
+      "revision": "2025-11-25",
+      "python": "python",
+      "sdk": "mcp 1.28.1"
+    },
+    {
+      "revision": "2026-07-28",
+      "python": ".mcp-mirror/fixture-2026-07-28/bin/python",
+      "sdk": "mcp 2.0.0"
+    }
+  ],
+  "servers": {
+    "def": "fixtures/definitions_server.py",
+    "res": "fixtures/results_server.py",
+    "ntf": "fixtures/notify_server.py",
+    "cf": "fixtures/client_features_server.py",
+    "util": "fixtures/utilities_server.py"
+  },
+  "level_1": {
+    "status": "ran",
+    "model": "stub:anthropic",
+    "revisions": [
+      "2025-11-25",
+      "2026-07-28"
+    ],
+    "sessions": [
+      {
+        "id": "stdio",
+        "level": 1,
+        "revision": "2025-11-25",
+        "transport": "stdio",
+        "prompt": "Reply with the single word ready.",
+        "argv": [
+          ".mcp-mirror/harnesses/deepseek_harness/node_modules/.bin/dsh",
+          "--profile",
+          "headless",
+          "--patch",
+          "<config>",
+          "Reply with the single word ready.",
+          "--json"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 4.21,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level1-2025-11-25-stdio/def.jsonl",
+          "res": "level1-2025-11-25-stdio/res.jsonl",
+          "ntf": "level1-2025-11-25-stdio/ntf.jsonl",
+          "cf": "level1-2025-11-25-stdio/cf.jsonl",
+          "util": "level1-2025-11-25-stdio/util.jsonl"
+        },
+        "output": "level1-2025-11-25-stdio/harness.jsonl",
+        "fresh": "level1-2025-11-25-stdio/fresh.json",
+        "stderr_tail": [],
+        "model": "level1-2025-11-25-stdio/model.jsonl"
+      },
+      {
+        "id": "http",
+        "level": 1,
+        "revision": "2025-11-25",
+        "transport": "http",
+        "prompt": "Reply with the single word ready.",
+        "argv": [
+          ".mcp-mirror/harnesses/deepseek_harness/node_modules/.bin/dsh",
+          "--profile",
+          "headless",
+          "--patch",
+          "<config>",
+          "Reply with the single word ready.",
+          "--json"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 2.34,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level1-2025-11-25-http/def.jsonl",
+          "res": "level1-2025-11-25-http/res.jsonl",
+          "ntf": "level1-2025-11-25-http/ntf.jsonl",
+          "cf": "level1-2025-11-25-http/cf.jsonl",
+          "util": "level1-2025-11-25-http/util.jsonl"
+        },
+        "output": "level1-2025-11-25-http/harness.jsonl",
+        "fresh": "level1-2025-11-25-http/fresh.json",
+        "stderr_tail": [],
+        "model": "level1-2025-11-25-http/model.jsonl"
+      },
+      {
+        "id": "slow-start",
+        "level": 1,
+        "revision": "2025-11-25",
+        "transport": "stdio",
+        "prompt": "Reply with the single word ready.",
+        "argv": [
+          ".mcp-mirror/harnesses/deepseek_harness/node_modules/.bin/dsh",
+          "--profile",
+          "headless",
+          "--patch",
+          "<config>",
+          "Reply with the single word ready.",
+          "--json"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 17.91,
+        "delay_s": {
+          "util": 8
+        },
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "sh -c 'sleep 8; exec python fixtures/utilities_server.py'"
+        },
+        "captures": {
+          "def": "level1-2025-11-25-slow-start/def.jsonl",
+          "res": "level1-2025-11-25-slow-start/res.jsonl",
+          "ntf": "level1-2025-11-25-slow-start/ntf.jsonl",
+          "cf": "level1-2025-11-25-slow-start/cf.jsonl",
+          "util": "level1-2025-11-25-slow-start/util.jsonl"
+        },
+        "output": "level1-2025-11-25-slow-start/harness.jsonl",
+        "fresh": "level1-2025-11-25-slow-start/fresh.json",
+        "stderr_tail": [],
+        "model": "level1-2025-11-25-slow-start/model.jsonl"
+      },
+      {
+        "id": "stdio",
+        "level": 1,
+        "revision": "2026-07-28",
+        "transport": "stdio",
+        "prompt": "Reply with the single word ready.",
+        "argv": [
+          ".mcp-mirror/harnesses/deepseek_harness/node_modules/.bin/dsh",
+          "--profile",
+          "headless",
+          "--patch",
+          "<config>",
+          "Reply with the single word ready.",
+          "--json"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 4.64,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level1-2026-07-28-stdio/def.jsonl",
+          "res": "level1-2026-07-28-stdio/res.jsonl",
+          "ntf": "level1-2026-07-28-stdio/ntf.jsonl",
+          "cf": "level1-2026-07-28-stdio/cf.jsonl",
+          "util": "level1-2026-07-28-stdio/util.jsonl"
+        },
+        "output": "level1-2026-07-28-stdio/harness.jsonl",
+        "fresh": "level1-2026-07-28-stdio/fresh.json",
+        "stderr_tail": [
+          "  return Server(name, **keywords)"
+        ],
+        "model": "level1-2026-07-28-stdio/model.jsonl"
+      },
+      {
+        "id": "http",
+        "level": 1,
+        "revision": "2026-07-28",
+        "transport": "http",
+        "prompt": "Reply with the single word ready.",
+        "argv": [
+          ".mcp-mirror/harnesses/deepseek_harness/node_modules/.bin/dsh",
+          "--profile",
+          "headless",
+          "--patch",
+          "<config>",
+          "Reply with the single word ready.",
+          "--json"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 1.29,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level1-2026-07-28-http/def.jsonl",
+          "res": "level1-2026-07-28-http/res.jsonl",
+          "ntf": "level1-2026-07-28-http/ntf.jsonl",
+          "cf": "level1-2026-07-28-http/cf.jsonl",
+          "util": "level1-2026-07-28-http/util.jsonl"
+        },
+        "output": "level1-2026-07-28-http/harness.jsonl",
+        "fresh": "level1-2026-07-28-http/fresh.json",
+        "stderr_tail": [],
+        "model": "level1-2026-07-28-http/model.jsonl"
+      },
+      {
+        "id": "slow-start",
+        "level": 1,
+        "revision": "2026-07-28",
+        "transport": "stdio",
+        "prompt": "Reply with the single word ready.",
+        "argv": [
+          ".mcp-mirror/harnesses/deepseek_harness/node_modules/.bin/dsh",
+          "--profile",
+          "headless",
+          "--patch",
+          "<config>",
+          "Reply with the single word ready.",
+          "--json"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 17.79,
+        "delay_s": {
+          "util": 8
+        },
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": "sh -c 'sleep 8; exec .mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py'"
+        },
+        "captures": {
+          "def": "level1-2026-07-28-slow-start/def.jsonl",
+          "res": "level1-2026-07-28-slow-start/res.jsonl",
+          "ntf": "level1-2026-07-28-slow-start/ntf.jsonl",
+          "cf": "level1-2026-07-28-slow-start/cf.jsonl",
+          "util": "level1-2026-07-28-slow-start/util.jsonl"
+        },
+        "output": "level1-2026-07-28-slow-start/harness.jsonl",
+        "fresh": "level1-2026-07-28-slow-start/fresh.json",
+        "stderr_tail": [
+          "  return Server(name, **keywords)"
+        ],
+        "model": "level1-2026-07-28-slow-start/model.jsonl"
+      }
+    ]
+  },
+  "level_2": {
+    "status": "skipped",
+    "reason": "level 2 not requested (--level 1)",
+    "sessions": []
+  },
+  "fresh": {
+    "passed": true,
+    "sessions": 6,
+    "failed": []
+  }
+}

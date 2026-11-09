@@ -1,0 +1,8 @@
+{"format": "mcp-mirror.harness-output/1"}
+{"event": "init", "harness_version": null, "permission_mode": null, "mcp_servers": null, "mcp_tools": null}
+{"event": "tool_use", "tool": "codemode", "input": {"code": "return await tools.mcp__def__delete_account({account_id: 'a', confirm: false})"}}
+{"event": "tool_use", "tool": "mcp__def__delete_account", "input": {"account_id": "a", "confirm": false}}
+{"event": "tool_result", "is_error": true, "text": "SENTINEL_TOOL_ERROR: confirm was not set"}
+{"event": "tool_result", "is_error": false, "text": "Script completed\nWall time 0.1 seconds\nOutput:\n{\"content\":[{\"type\":\"text\",\"text\":\"SENTINEL_TOOL_ERROR: confirm was not set\"}],\"isError\":true}"}
+{"event": "text", "text": "done"}
+{"event": "result", "subtype": "stop", "is_error": false, "num_turns": 2, "text": "done"}

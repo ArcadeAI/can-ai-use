@@ -1,0 +1,677 @@
+{
+  "schema": "mcp-mirror/protocol-run@1",
+  "captured_at": "2026-10-09T21:02:49Z",
+  "renderer": "openai_agents",
+  "fixture": "fixtures/base_protocol_server.py",
+  "spec_version": "2026-07-28",
+  "versions": {
+    "framework": "0.23.1",
+    "adapter": "0.23.1"
+  },
+  "captures": [
+    "http.jsonl",
+    "stdio-00.jsonl",
+    "stdio-01.jsonl",
+    "stdio-02.jsonl",
+    "stdio-03.jsonl",
+    "stdio-04.jsonl",
+    "stdio-05.jsonl",
+    "stdio-06.jsonl",
+    "stdio-07.jsonl",
+    "stdio-08.jsonl"
+  ],
+  "transports": {
+    "stdio": {
+      "ok": true,
+      "versions": {
+        "framework": "0.23.1",
+        "adapter": "0.23.1"
+      },
+      "tools": [
+        {
+          "name": "dialect_2020_12",
+          "params": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "$defs": {
+              "range": {
+                "type": "object",
+                "properties": {
+                  "low": {
+                    "type": "number"
+                  },
+                  "high": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "low",
+                  "high"
+                ]
+              }
+            },
+            "properties": {
+              "point": {
+                "type": "array",
+                "description": "An [x, y] pair.",
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "items": false
+              },
+              "window": {
+                "$ref": "#/$defs/range"
+              },
+              "label": {
+                "type": "string"
+              },
+              "units": {
+                "type": "string"
+              }
+            },
+            "dependentRequired": {
+              "label": [
+                "units"
+              ]
+            },
+            "required": [
+              "point"
+            ]
+          }
+        },
+        {
+          "name": "dialect_draft_07",
+          "params": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "definitions": {
+              "range": {
+                "type": "object",
+                "properties": {
+                  "low": {
+                    "type": "number"
+                  },
+                  "high": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "low",
+                  "high"
+                ]
+              }
+            },
+            "properties": {
+              "point": {
+                "type": "array",
+                "description": "An [x, y] pair.",
+                "items": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "additionalItems": false
+              },
+              "window": {
+                "$ref": "#/definitions/range"
+              }
+            },
+            "required": [
+              "point"
+            ]
+          }
+        },
+        {
+          "name": "routed_lookup",
+          "params": {
+            "type": "object",
+            "properties": {
+              "region": {
+                "type": "string",
+                "x-mcp-header": "Region"
+              },
+              "key": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "region",
+              "key"
+            ]
+          }
+        },
+        {
+          "name": "needs_input",
+          "params": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      ],
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Adapter invocation helper",
+          "capture_api": "agents.mcp.util.MCPUtil.invoke_mcp_tool",
+          "capture_object": "the Agents SDK ToolOutput",
+          "agent_path": false,
+          "limitation": null
+        },
+        {
+          "id": "agent",
+          "label": "Agent tool invocation",
+          "capture_api": "agents.tool.FunctionTool.on_invoke_tool",
+          "capture_object": "the ToolOutput the agent loop feeds back to the model",
+          "agent_path": true,
+          "limitation": "The FunctionTool callable is driven directly. No model implementation was bound and no provider request was captured."
+        }
+      ],
+      "results": [
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "openai_agents",
+            "raw": "{'type': 'text', 'text': 'SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}'}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "openai_agents",
+            "raw": "{'type': 'text', 'text': 'SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}'}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "openai_agents",
+            "raw": "{'type': 'text', 'text': 'SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}'}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "openai_agents",
+            "raw": "{'type': 'text', 'text': 'SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}'}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "origin": "openai_agents",
+            "raw": "{'type': 'text', 'text': 'SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}'}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "origin": "openai_agents",
+            "raw": "{'type': 'text', 'text': 'SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}'}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "AgentsException: Error invoking MCP tool needs_input on server 'stdio: <checkout>/.venv/bin/python3': Server returned InputRequiredResult; pass allow_input_required=True to receive it and retry call_tool(..., input_responses=..., request_state=result.request_state).",
+            "origin": "openai_agents",
+            "raw": "AgentsException(\"Error invoking MCP tool needs_input on server 'stdio: <checkout>/.venv/bin/python3': Server returned InputRequiredResult; pass allow_input_required=True to receive it and retry call_tool(..., input_responses=..., request_state=result.request_state).\")",
+            "error_channel": "exception"
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "AttributeError: 'RunContextWrapper' object has no attribute 'run_config'",
+            "origin": "openai_agents",
+            "raw": "AttributeError(\"'RunContextWrapper' object has no attribute 'run_config'\")",
+            "error_channel": "exception"
+          }
+        }
+      ]
+    },
+    "http": {
+      "ok": true,
+      "versions": {
+        "framework": "0.23.1",
+        "adapter": "0.23.1"
+      },
+      "tools": [
+        {
+          "name": "dialect_2020_12",
+          "params": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "$defs": {
+              "range": {
+                "type": "object",
+                "properties": {
+                  "low": {
+                    "type": "number"
+                  },
+                  "high": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "low",
+                  "high"
+                ]
+              }
+            },
+            "properties": {
+              "point": {
+                "type": "array",
+                "description": "An [x, y] pair.",
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "items": false
+              },
+              "window": {
+                "$ref": "#/$defs/range"
+              },
+              "label": {
+                "type": "string"
+              },
+              "units": {
+                "type": "string"
+              }
+            },
+            "dependentRequired": {
+              "label": [
+                "units"
+              ]
+            },
+            "required": [
+              "point"
+            ]
+          }
+        },
+        {
+          "name": "dialect_draft_07",
+          "params": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "definitions": {
+              "range": {
+                "type": "object",
+                "properties": {
+                  "low": {
+                    "type": "number"
+                  },
+                  "high": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "low",
+                  "high"
+                ]
+              }
+            },
+            "properties": {
+              "point": {
+                "type": "array",
+                "description": "An [x, y] pair.",
+                "items": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "additionalItems": false
+              },
+              "window": {
+                "$ref": "#/definitions/range"
+              }
+            },
+            "required": [
+              "point"
+            ]
+          }
+        },
+        {
+          "name": "routed_lookup",
+          "params": {
+            "type": "object",
+            "properties": {
+              "region": {
+                "type": "string",
+                "x-mcp-header": "Region"
+              },
+              "key": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "region",
+              "key"
+            ]
+          }
+        },
+        {
+          "name": "needs_input",
+          "params": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      ],
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Adapter invocation helper",
+          "capture_api": "agents.mcp.util.MCPUtil.invoke_mcp_tool",
+          "capture_object": "the Agents SDK ToolOutput",
+          "agent_path": false,
+          "limitation": null
+        },
+        {
+          "id": "agent",
+          "label": "Agent tool invocation",
+          "capture_api": "agents.tool.FunctionTool.on_invoke_tool",
+          "capture_object": "the ToolOutput the agent loop feeds back to the model",
+          "agent_path": true,
+          "limitation": "The FunctionTool callable is driven directly. No model implementation was bound and no provider request was captured."
+        }
+      ],
+      "results": [
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "openai_agents",
+            "raw": "{'type': 'text', 'text': 'SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}'}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "openai_agents",
+            "raw": "{'type': 'text', 'text': 'SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}'}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "openai_agents",
+            "raw": "{'type': 'text', 'text': 'SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}'}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "openai_agents",
+            "raw": "{'type': 'text', 'text': 'SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}'}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "origin": "openai_agents",
+            "raw": "{'type': 'text', 'text': 'SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}'}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "origin": "openai_agents",
+            "raw": "{'type': 'text', 'text': 'SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}'}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "AgentsException: Error invoking MCP tool needs_input on server 'streamable_http: http://127.0.0.1:64780/mcp': Server returned InputRequiredResult; pass allow_input_required=True to receive it and retry call_tool(..., input_responses=..., request_state=result.request_state).",
+            "origin": "openai_agents",
+            "raw": "AgentsException(\"Error invoking MCP tool needs_input on server 'streamable_http: http://127.0.0.1:64780/mcp': Server returned InputRequiredResult; pass allow_input_required=True to receive it and retry call_tool(..., input_responses=..., request_state=result.request_state).\")",
+            "error_channel": "exception"
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "AttributeError: 'RunContextWrapper' object has no attribute 'run_config'",
+            "origin": "openai_agents",
+            "raw": "AttributeError(\"'RunContextWrapper' object has no attribute 'run_config'\")",
+            "error_channel": "exception"
+          }
+        }
+      ]
+    }
+  }
+}

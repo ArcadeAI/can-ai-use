@@ -1,0 +1,787 @@
+{
+  "schema": "mcp-mirror/protocol-run@1",
+  "captured_at": "2026-10-09T21:01:34Z",
+  "renderer": "langchain4j",
+  "fixture": "fixtures/base_protocol_server.py",
+  "spec_version": "2026-07-28",
+  "versions": {
+    "framework": "1.22.0-beta32",
+    "adapter": "langchain4j 1.22.0, langchain4j-core 1.22.0, java 21.0.12.1"
+  },
+  "captures": [
+    "http.jsonl",
+    "stdio-00.jsonl",
+    "stdio-01.jsonl",
+    "stdio-02.jsonl",
+    "stdio-03.jsonl",
+    "stdio-04.jsonl",
+    "stdio-05.jsonl",
+    "stdio-06.jsonl",
+    "stdio-07.jsonl",
+    "stdio-08.jsonl"
+  ],
+  "transports": {
+    "stdio": {
+      "ok": true,
+      "versions": {
+        "framework": "1.22.0-beta32",
+        "adapter": "langchain4j 1.22.0, langchain4j-core 1.22.0, java 21.0.12.1"
+      },
+      "tools": [
+        {
+          "name": "dialect_2020_12",
+          "params": {
+            "type": "object",
+            "properties": {
+              "point": {
+                "type": "array",
+                "description": "An [x, y] pair.",
+                "items": {
+                  "type": "object",
+                  "properties": {},
+                  "required": []
+                }
+              },
+              "window": {
+                "$ref": "#/$defs/range"
+              },
+              "label": {
+                "type": "string"
+              },
+              "units": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "point"
+            ],
+            "$defs": {
+              "range": {
+                "type": "object",
+                "properties": {
+                  "low": {
+                    "type": "number"
+                  },
+                  "high": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "low",
+                  "high"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "name": "dialect_draft_07",
+          "params": {
+            "type": "object",
+            "properties": {
+              "point": {
+                "type": "array",
+                "description": "An [x, y] pair.",
+                "items": {
+                  "type": "object",
+                  "properties": {},
+                  "required": []
+                }
+              },
+              "window": {
+                "$ref": "#/$defs/range"
+              }
+            },
+            "required": [
+              "point"
+            ],
+            "$defs": {
+              "range": {
+                "type": "object",
+                "properties": {
+                  "low": {
+                    "type": "number"
+                  },
+                  "high": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "low",
+                  "high"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "name": "routed_lookup",
+          "params": {
+            "type": "object",
+            "properties": {
+              "region": {
+                "type": "string"
+              },
+              "key": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "region",
+              "key"
+            ]
+          }
+        },
+        {
+          "name": "needs_input",
+          "params": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          }
+        }
+      ],
+      "result_boundaries": [
+        {
+          "id": "agent",
+          "label": "Tool result message to the model",
+          "capture_api": "AiServices tool loop for a scripted ToolExecutionRequest",
+          "capture_object": "ToolExecutionResultMessage (contents, isError) in the next ChatRequest",
+          "agent_path": true,
+          "limitation": "No provider model ran; the model's tool call is scripted."
+        },
+        {
+          "id": "direct",
+          "label": "Adapter tool executor",
+          "capture_api": "McpToolProvider.provideTools(...).toolExecutorByName(name).executeWithContext",
+          "capture_object": "the ToolExecutionResult the McpToolExecutor returns, or the exception it throws",
+          "agent_path": false,
+          "limitation": null
+        }
+      ],
+      "results": [
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "langchain4j",
+            "raw": {
+              "id": "call_mirror_1",
+              "toolName": "dialect_2020_12",
+              "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ],
+              "isError": false,
+              "attributes": {}
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "langchain4j",
+            "raw": {
+              "resultText": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+              "result": null,
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ],
+              "isError": false,
+              "attributes": {}
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "langchain4j",
+            "raw": {
+              "id": "call_mirror_1",
+              "toolName": "dialect_draft_07",
+              "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ],
+              "isError": false,
+              "attributes": {}
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "langchain4j",
+            "raw": {
+              "resultText": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+              "result": null,
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ],
+              "isError": false,
+              "attributes": {}
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "origin": "langchain4j",
+            "raw": {
+              "id": "call_mirror_1",
+              "toolName": "routed_lookup",
+              "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+                }
+              ],
+              "isError": false,
+              "attributes": {}
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "origin": "langchain4j",
+            "raw": {
+              "resultText": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+              "result": null,
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+                }
+              ],
+              "isError": false,
+              "attributes": {}
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "Server sent inputRequests that the client cannot handle"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": true,
+            "text": "Server sent inputRequests that the client cannot handle",
+            "origin": "langchain4j",
+            "raw": {
+              "id": "call_mirror_1",
+              "toolName": "needs_input",
+              "text": "Server sent inputRequests that the client cannot handle",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "Server sent inputRequests that the client cannot handle"
+                }
+              ],
+              "isError": true,
+              "attributes": {}
+            },
+            "error_channel": "flag"
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "RuntimeException: Server sent inputRequests that the client cannot handle",
+            "origin": "langchain4j",
+            "raw": {
+              "exception": "java.lang.RuntimeException",
+              "error": "RuntimeException: Server sent inputRequests that the client cannot handle"
+            },
+            "error_channel": "exception"
+          }
+        }
+      ]
+    },
+    "http": {
+      "ok": true,
+      "versions": {
+        "framework": "1.22.0-beta32",
+        "adapter": "langchain4j 1.22.0, langchain4j-core 1.22.0, java 21.0.12.1"
+      },
+      "tools": [
+        {
+          "name": "dialect_2020_12",
+          "params": {
+            "type": "object",
+            "properties": {
+              "point": {
+                "type": "array",
+                "description": "An [x, y] pair.",
+                "items": {
+                  "type": "object",
+                  "properties": {},
+                  "required": []
+                }
+              },
+              "window": {
+                "$ref": "#/$defs/range"
+              },
+              "label": {
+                "type": "string"
+              },
+              "units": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "point"
+            ],
+            "$defs": {
+              "range": {
+                "type": "object",
+                "properties": {
+                  "low": {
+                    "type": "number"
+                  },
+                  "high": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "low",
+                  "high"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "name": "dialect_draft_07",
+          "params": {
+            "type": "object",
+            "properties": {
+              "point": {
+                "type": "array",
+                "description": "An [x, y] pair.",
+                "items": {
+                  "type": "object",
+                  "properties": {},
+                  "required": []
+                }
+              },
+              "window": {
+                "$ref": "#/$defs/range"
+              }
+            },
+            "required": [
+              "point"
+            ],
+            "$defs": {
+              "range": {
+                "type": "object",
+                "properties": {
+                  "low": {
+                    "type": "number"
+                  },
+                  "high": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "low",
+                  "high"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "name": "routed_lookup",
+          "params": {
+            "type": "object",
+            "properties": {
+              "region": {
+                "type": "string"
+              },
+              "key": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "region",
+              "key"
+            ]
+          }
+        },
+        {
+          "name": "needs_input",
+          "params": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          }
+        }
+      ],
+      "result_boundaries": [
+        {
+          "id": "agent",
+          "label": "Tool result message to the model",
+          "capture_api": "AiServices tool loop for a scripted ToolExecutionRequest",
+          "capture_object": "ToolExecutionResultMessage (contents, isError) in the next ChatRequest",
+          "agent_path": true,
+          "limitation": "No provider model ran; the model's tool call is scripted."
+        },
+        {
+          "id": "direct",
+          "label": "Adapter tool executor",
+          "capture_api": "McpToolProvider.provideTools(...).toolExecutorByName(name).executeWithContext",
+          "capture_object": "the ToolExecutionResult the McpToolExecutor returns, or the exception it throws",
+          "agent_path": false,
+          "limitation": null
+        }
+      ],
+      "results": [
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "langchain4j",
+            "raw": {
+              "id": "call_mirror_1",
+              "toolName": "dialect_2020_12",
+              "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ],
+              "isError": false,
+              "attributes": {}
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "langchain4j",
+            "raw": {
+              "resultText": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+              "result": null,
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ],
+              "isError": false,
+              "attributes": {}
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "langchain4j",
+            "raw": {
+              "id": "call_mirror_1",
+              "toolName": "dialect_draft_07",
+              "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ],
+              "isError": false,
+              "attributes": {}
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "langchain4j",
+            "raw": {
+              "resultText": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+              "result": null,
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ],
+              "isError": false,
+              "attributes": {}
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "origin": "langchain4j",
+            "raw": {
+              "id": "call_mirror_1",
+              "toolName": "routed_lookup",
+              "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+                }
+              ],
+              "isError": false,
+              "attributes": {}
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "origin": "langchain4j",
+            "raw": {
+              "resultText": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+              "result": null,
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+                }
+              ],
+              "isError": false,
+              "attributes": {}
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "Server sent inputRequests that the client cannot handle"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": true,
+            "text": "Server sent inputRequests that the client cannot handle",
+            "origin": "langchain4j",
+            "raw": {
+              "id": "call_mirror_1",
+              "toolName": "needs_input",
+              "text": "Server sent inputRequests that the client cannot handle",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "Server sent inputRequests that the client cannot handle"
+                }
+              ],
+              "isError": true,
+              "attributes": {}
+            },
+            "error_channel": "flag"
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "RuntimeException: Server sent inputRequests that the client cannot handle",
+            "origin": "langchain4j",
+            "raw": {
+              "exception": "java.lang.RuntimeException",
+              "error": "RuntimeException: Server sent inputRequests that the client cannot handle"
+            },
+            "error_channel": "exception"
+          }
+        }
+      ]
+    }
+  }
+}

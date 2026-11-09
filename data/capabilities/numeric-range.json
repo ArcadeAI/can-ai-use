@@ -1,0 +1,40 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "numeric-range",
+  "title": "Numeric Ranges",
+  "description": "Bounds on a numeric parameter.",
+  "question": "Is the numeric range constraint present at each capture boundary?",
+  "spec": "https://json-schema.org/draft/2020-12/json-schema-validation",
+  "status": "stable",
+  "categories": [
+    "Parameter contract"
+  ],
+  "keywords": "minimum,maximum,range,bounds,constraint",
+  "usage_perc_y": null,
+  "usage_perc_a": null,
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "links": [
+    {
+      "url": "https://json-schema.org/understanding-json-schema/reference/numeric#range",
+      "title": "JSON Schema Docs"
+    },
+    {
+      "url": "https://platform.openai.com/docs/guides/function-calling",
+      "title": "OpenAI function calling, tool schema"
+    }
+  ],
+  "known_issues": [],
+  "why": "Without bounds a downstream model may request out-of-range values.",
+  "shown": true,
+  "docs_url": "https://json-schema.org/understanding-json-schema/reference/numeric#range",
+  "docs_label": "JSON Schema Docs",
+  "notes": {
+    "crewai": "CrewAI: preserved inside the `anyOf` wrapper emitted for optional fields, so the constraint sits one level down rather than being lost.",
+    "llamaindex": "LlamaIndex (llama-index-tools-mcp 0.6.0): `McpToolSpec` rebuilds each `inputSchema` as a Pydantic model (`create_model_from_json_schema`), and the model's JSON schema is what `ToolMetadata.to_openai_tool` hands the LLM. Fields become plain `int`/`float` with no constraints, so `minimum` and `maximum` are dropped.",
+    "google_adk_js": "Google ADK (TypeScript) 2.2.1: `MCPTool._getDeclaration` passes `inputSchema` through `toGeminiSchema`, which keeps `type`, `description`, `enum`, `items`, `properties`, `required` and `anyOf` in the genai `Schema` dialect; `minimum` and `maximum` are not among them, so `limit`'s bounds and `max_words.minimum` are dropped.",
+    "copilot_sdk": "GitHub Copilot SDK 1.0.19 (Copilot runtime 1.0.95): `minimum` and `maximum` are removed from the provider schema and appended to the parameter description as text, e.g. `{minimum: 1, maximum: 100}` on `limit`.",
+    "langchain4j": "LangChain4j 1.22.0-beta32: `McpToolProvider` maps each `inputSchema` into LangChain4j's own `JsonSchemaElement` model (`JsonObjectSchema`, `JsonStringSchema`, `JsonIntegerSchema`, ...), and the `ToolSpecification` AiServices hands the `ChatModel` is built from that model. `JsonIntegerSchema` and `JsonNumberSchema` hold a description only, so `minimum` and `maximum` are dropped.",
+    "koog": "Koog 1.3.0-beta: `minimum` and `maximum` are dropped: `ToolParameterType.Integer` has no range slot, so `limit` (1 to 100) and `max_words` reach the model as bare integers."
+  },
+  "summary": "A framework that rebuilds the input schema from its own model class can drop the bounds. Where a framework builds its schema from a model class, optional parameters are wrapped, and a constraint that stays inside the wrapper counts as present."
+}

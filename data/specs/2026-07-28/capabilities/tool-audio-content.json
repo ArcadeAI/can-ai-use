@@ -1,0 +1,37 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "tool-audio-content",
+  "title": "Audio content",
+  "description": "The `audio` content block, carrying base64-encoded audio data and its MIME type.",
+  "question": "Does an audio result survive adaptation?",
+  "spec": "https://modelcontextprotocol.io/specification/2026-07-28",
+  "status": "stable",
+  "categories": [
+    "Tool results"
+  ],
+  "keywords": "audio content,AudioContent,base64,mimeType,multimodal",
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/server/tools#audio-content",
+      "title": "MCP Docs"
+    }
+  ],
+  "known_issues": [],
+  "why": "Audio is the least-implemented content type in the union, which makes it the sharpest test of whether a framework handles the content list generically or only the cases it happened to code for.",
+  "shown": true,
+  "docs_url": "https://modelcontextprotocol.io/specification/2026-07-28/server/tools#audio-content",
+  "docs_label": "MCP Docs",
+  "notes": {
+    "openai-agents": "OpenAI Agents SDK 0.23.1: the audio block is re-serialized as JSON inside a text output item. The base64 payload and `audio/wav` MIME type are all still present, but the agent receives them as characters rather than as audio content.",
+    "mastra": "Mastra 2.2.0: a result without `structuredContent` comes back unchanged, audio block intact. For a result that carries `structuredContent`, every content block is dropped, audio included; only the structured value reaches the agent.",
+    "vercel_ai": "Vercel AI SDK (@ai-sdk/mcp 2.0.73): execute resolves with the CallToolResult, so a caller reading a step's toolResults gets the audio block intact. The adapter's toModelOutput converter maps only text and image blocks, so the model receives an audio block as a text part holding the block's JSON (type, MIME type and base64 data as characters). Boundary-dependent: kept at execute, flattened to text at model_output.",
+    "strands": "Strands Agents 1.59.0: `map_mcp_content_to_tool_result_content` has no audio branch, so an audio block is dropped with a debug log, alone or beside other blocks.",
+    "openai_agents_js": "OpenAI Agents SDK (JS) 0.20.0: the model receives an audio block as its JSON serialization inside a text item (`{\"type\":\"audio\",...}`); `MCPServer.callTool` itself returns the block intact.",
+    "dspy": "DSPy 3.4.0: with the default `result_mode=\"text\"`, `Tool.acall` returns the audio block as the MCP content object when the result has no text (direct: `y`). In a `dspy.ReAct` run the observation the model reads is that object's Python repr, `«type='audio' data='...' mime_type='audio/wav' ...»` (react: `a`). When a result carries any text block, `_convert_mcp_tool_result` returns the text alone and drops the audio block at both boundaries.",
+    "copilot_sdk": "GitHub Copilot SDK 1.0.19 (Copilot runtime 1.0.95): depends on the boundary. `agent`: the `tool` message the provider receives is an empty string, and unlike an image the audio is not forwarded in a follow-up message. `direct`: `session.rpc.tools.execute` returns the `audio` block whole.",
+    "langchain4j": "LangChain4j 1.22.0-beta32: The default `McpToolExecutor` result converter accepts text blocks only. Any `audio` block makes it throw `Unsupported content type: \"audio\"`: the direct executor raises it as a `RuntimeException`, and AiServices turns it into an error tool result the model reads in place of the block. A result with `structuredContent` never reads its blocks at all.",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): `mcpTool.Run` returns `{\"output\": text}`, where `formatMCPContent` replaces the block with a placeholder line (`[MCP audio: mimeType=\"audio/wav\", size=44 bytes]`, with no audio data), and the model receives that map as `FunctionResponse.response`. When the result also has `structuredContent`, as in the mixed result, `Run` returns `{\"output\": structuredContent}` and the block is dropped.",
+    "ms_agent_framework_dotnet": "Microsoft Agent Framework (.NET) 1.24.0 (ModelContextProtocol 2.2.0): a lone audio block becomes a `DataContent` with its bytes and MIME type at both boundaries. Beside `structuredContent` (`mixed_content`) `McpClientTool` returns the `CallToolResult` as JSON, so the audio reaches the model as base64 characters inside a text result, not as audio."
+  }
+}

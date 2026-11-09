@@ -1,0 +1,36 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "enum",
+  "title": "`enum`",
+  "description": "Restricts a parameter to a fixed set of allowed values, for example status: active, archived, deleted.",
+  "question": "Are the allowed enum values present at each capture boundary?",
+  "spec": "https://json-schema.org/draft/2020-12/json-schema-validation",
+  "status": "stable",
+  "categories": [
+    "Parameter contract"
+  ],
+  "keywords": "enum,enum values,constraint,values,parameters",
+  "usage_perc_y": null,
+  "usage_perc_a": null,
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "links": [
+    {
+      "url": "https://json-schema.org/understanding-json-schema/reference/enum",
+      "title": "JSON Schema Docs"
+    },
+    {
+      "url": "https://platform.openai.com/docs/guides/function-calling",
+      "title": "OpenAI function calling, tool schema"
+    }
+  ],
+  "known_issues": [],
+  "why": "If it were lost, a downstream model could pass values your server rejects, producing a failed call the agent must recover from.",
+  "shown": true,
+  "docs_url": "https://json-schema.org/understanding-json-schema/reference/enum",
+  "docs_label": "JSON Schema Docs",
+  "notes": {
+    "crewai": "CrewAI: preserved inside the `anyOf` wrapper emitted for optional fields, so the constraint sits one level down rather than being lost.",
+    "koog": "Koog 1.3.0-beta: `enum` on a typed property is dropped: `ToolParameterType.String` has no slot for allowed values, so `status` and the nested `config.format` reach the model as plain strings."
+  },
+  "summary": "Where a framework builds its schema from a model class, optional parameters are wrapped, and a constraint that stays inside the wrapper counts as present."
+}

@@ -1,0 +1,3 @@
+{"type":"capture","seq":0,"t":"2026-10-14T16:39:15.559979+00:00","elapsed":0.000157,"format":"mcp-mirror.wire/1","recorder":"mcp-mirror 0.1.0","fixture":"python fixtures/client_features_server.py","transport":"stdio","url":null}
+{"type":"message","seq":1,"t":"2026-10-14T16:39:15.571863+00:00","elapsed":0.011899,"session":"stdio","direction":"client_to_server","origin":"client","kind":"request","method":"initialize","id":1,"revision":null,"batch":false,"message":{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-11-25","capabilities":{"roots":{}},"clientInfo":{"name":"pi","version":"1.2.0"}}}}
+{"type":"end","seq":2,"t":"2026-10-14T16:39:15.933681+00:00","elapsed":0.373736,"messages":1,"sessions":1}

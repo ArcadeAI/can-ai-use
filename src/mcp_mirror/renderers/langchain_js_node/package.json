@@ -1,0 +1,15 @@
+{
+  "name": "mcp-mirror-langchain-js-worker",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "description": "Node worker that drives LangChain.js's real MCP adapter (@langchain/mcp-adapters MCPAdapter) so mcp-mirror can capture the tools it hands the model. Run `npm ci` here to enable the langchain_js renderer.",
+  "dependencies": {
+    "@langchain/core": "1.2.14",
+    "@langchain/langgraph": "1.4.18",
+    "@langchain/mcp-adapters": "2.0.1",
+    "@modelcontextprotocol/client": "2.2.0",
+    "@modelcontextprotocol/core": "2.2.0",
+    "zod": "4.6.5"
+  }
+}

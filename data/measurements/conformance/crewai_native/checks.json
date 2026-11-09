@@ -1,0 +1,624 @@
+{
+  "schema": "mcp-mirror/conformance@1",
+  "captured_at": "2026-10-09T19:48:18Z",
+  "renderer": "crewai_native",
+  "versions": {
+    "framework": "1.15.26",
+    "adapter": "1.15.26"
+  },
+  "suite": {
+    "package": "@modelcontextprotocol/conformance",
+    "version": "0.1.16"
+  },
+  "spec_version": "2025-11-25",
+  "spec_note": "Every scenario that ran is tagged 2025-11-25 by the suite (see scenario_tags); the suite has no 2026-07-28 client scenarios.",
+  "scenario_tags": {
+    "auth/basic-cimd": [
+      "2025-11-25"
+    ],
+    "auth/metadata-default": [
+      "2025-11-25"
+    ],
+    "auth/metadata-var1": [
+      "2025-11-25"
+    ],
+    "auth/metadata-var2": [
+      "2025-11-25"
+    ],
+    "auth/metadata-var3": [
+      "2025-11-25"
+    ],
+    "auth/pre-registration": [
+      "2025-11-25"
+    ],
+    "auth/scope-from-scopes-supported": [
+      "2025-11-25"
+    ],
+    "auth/scope-from-www-authenticate": [
+      "2025-11-25"
+    ],
+    "auth/scope-omitted-when-undefined": [
+      "2025-11-25"
+    ],
+    "auth/scope-retry-limit": [
+      "2025-11-25"
+    ],
+    "auth/scope-step-up": [
+      "2025-11-25"
+    ],
+    "auth/token-endpoint-auth-basic": [
+      "2025-06-18",
+      "2025-11-25"
+    ],
+    "auth/token-endpoint-auth-none": [
+      "2025-06-18",
+      "2025-11-25"
+    ],
+    "auth/token-endpoint-auth-post": [
+      "2025-06-18",
+      "2025-11-25"
+    ],
+    "elicitation-sep1034-client-defaults": [
+      "2025-11-25"
+    ],
+    "initialize": [
+      "2025-06-18",
+      "2025-11-25"
+    ],
+    "sse-retry": [
+      "2025-11-25"
+    ],
+    "tools_call": [
+      "2025-06-18",
+      "2025-11-25"
+    ]
+  },
+  "client_command": "python scripts/conformance_client.py crewai_native <url>",
+  "command": "uv run python scripts/run_conformance.py --renderers crewai_native",
+  "suites": {
+    "auth": {
+      "exit_code": 1,
+      "scenarios": {
+        "auth/basic-cimd": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "cimd-client-id-used", "status": "FAILURE", "description": "Client did not make an authorization request to test CIMD support"}
+          ],
+          "client": null,
+          "client_stderr_tail": "s/mcp-mirror/rm-python-a-crewn/scripts/conformance_client.py\", line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-8afreci1/mcp_mirror/renderers/crewai_native_renderer.py\", line 230, in render\n    raise RenderError(f\"crewai_native renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: crewai_native renderer failed: MCP server refused the connection with HTTP 401 Unauthorized. This is an authentication failure - check the credentials sent in the server's headers."
+        },
+        "auth/metadata-default": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "prm-pathbased-requested", "status": "FAILURE", "description": "Expected Check Missing: prm-pathbased-requested"},
+            {"id": "authorization-server-metadata", "status": "FAILURE", "description": "Expected Check Missing: authorization-server-metadata"},
+            {"id": "client-registration", "status": "FAILURE", "description": "Expected Check Missing: client-registration"},
+            {"id": "authorization-request", "status": "FAILURE", "description": "Expected Check Missing: authorization-request"},
+            {"id": "token-request", "status": "FAILURE", "description": "Expected Check Missing: token-request"}
+          ],
+          "client": null,
+          "client_stderr_tail": "s/mcp-mirror/rm-python-a-crewn/scripts/conformance_client.py\", line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-3mbcxrwv/mcp_mirror/renderers/crewai_native_renderer.py\", line 230, in render\n    raise RenderError(f\"crewai_native renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: crewai_native renderer failed: MCP server refused the connection with HTTP 401 Unauthorized. This is an authentication failure - check the credentials sent in the server's headers."
+        },
+        "auth/metadata-var1": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "prm-pathbased-requested", "status": "FAILURE", "description": "Expected Check Missing: prm-pathbased-requested"},
+            {"id": "authorization-server-metadata", "status": "FAILURE", "description": "Expected Check Missing: authorization-server-metadata"},
+            {"id": "client-registration", "status": "FAILURE", "description": "Expected Check Missing: client-registration"},
+            {"id": "authorization-request", "status": "FAILURE", "description": "Expected Check Missing: authorization-request"},
+            {"id": "token-request", "status": "FAILURE", "description": "Expected Check Missing: token-request"}
+          ],
+          "client": null,
+          "client_stderr_tail": "s/mcp-mirror/rm-python-a-crewn/scripts/conformance_client.py\", line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-pv0dmzoc/mcp_mirror/renderers/crewai_native_renderer.py\", line 230, in render\n    raise RenderError(f\"crewai_native renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: crewai_native renderer failed: MCP server refused the connection with HTTP 401 Unauthorized. This is an authentication failure - check the credentials sent in the server's headers."
+        },
+        "auth/metadata-var2": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "authorization-server-metadata", "status": "FAILURE", "description": "Expected Check Missing: authorization-server-metadata"},
+            {"id": "client-registration", "status": "FAILURE", "description": "Expected Check Missing: client-registration"},
+            {"id": "authorization-request", "status": "FAILURE", "description": "Expected Check Missing: authorization-request"},
+            {"id": "token-request", "status": "FAILURE", "description": "Expected Check Missing: token-request"}
+          ],
+          "client": null,
+          "client_stderr_tail": "s/mcp-mirror/rm-python-a-crewn/scripts/conformance_client.py\", line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-0i_slbhk/mcp_mirror/renderers/crewai_native_renderer.py\", line 230, in render\n    raise RenderError(f\"crewai_native renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: crewai_native renderer failed: MCP server refused the connection with HTTP 401 Unauthorized. This is an authentication failure - check the credentials sent in the server's headers."
+        },
+        "auth/metadata-var3": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "authorization-server-metadata", "status": "FAILURE", "description": "Expected Check Missing: authorization-server-metadata"},
+            {"id": "client-registration", "status": "FAILURE", "description": "Expected Check Missing: client-registration"},
+            {"id": "authorization-request", "status": "FAILURE", "description": "Expected Check Missing: authorization-request"},
+            {"id": "token-request", "status": "FAILURE", "description": "Expected Check Missing: token-request"}
+          ],
+          "client": null,
+          "client_stderr_tail": "s/mcp-mirror/rm-python-a-crewn/scripts/conformance_client.py\", line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-_b6iybnr/mcp_mirror/renderers/crewai_native_renderer.py\", line 230, in render\n    raise RenderError(f\"crewai_native renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: crewai_native renderer failed: MCP server refused the connection with HTTP 401 Unauthorized. This is an authentication failure - check the credentials sent in the server's headers."
+        },
+        "auth/pre-registration": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "pre-registration-auth", "status": "FAILURE", "description": "Client did not make a token request"}
+          ],
+          "client": null,
+          "client_stderr_tail": "s/mcp-mirror/rm-python-a-crewn/scripts/conformance_client.py\", line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-z0iy__sj/mcp_mirror/renderers/crewai_native_renderer.py\", line 230, in render\n    raise RenderError(f\"crewai_native renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: crewai_native renderer failed: MCP server refused the connection with HTTP 401 Unauthorized. This is an authentication failure - check the credentials sent in the server's headers."
+        },
+        "auth/scope-from-scopes-supported": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "scope-from-scopes-supported", "status": "FAILURE", "description": "Client did not complete authorization flow - scope check could not be performed"}
+          ],
+          "client": null,
+          "client_stderr_tail": "s/mcp-mirror/rm-python-a-crewn/scripts/conformance_client.py\", line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-bkxzyo3p/mcp_mirror/renderers/crewai_native_renderer.py\", line 230, in render\n    raise RenderError(f\"crewai_native renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: crewai_native renderer failed: MCP server refused the connection with HTTP 401 Unauthorized. This is an authentication failure - check the credentials sent in the server's headers."
+        },
+        "auth/scope-from-www-authenticate": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "scope-from-www-authenticate", "status": "FAILURE", "description": "Client did not complete authorization flow - scope check could not be performed"}
+          ],
+          "client": null,
+          "client_stderr_tail": "s/mcp-mirror/rm-python-a-crewn/scripts/conformance_client.py\", line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-xhipf6p2/mcp_mirror/renderers/crewai_native_renderer.py\", line 230, in render\n    raise RenderError(f\"crewai_native renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: crewai_native renderer failed: MCP server refused the connection with HTTP 401 Unauthorized. This is an authentication failure - check the credentials sent in the server's headers."
+        },
+        "auth/scope-omitted-when-undefined": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "scope-omitted-when-undefined", "status": "FAILURE", "description": "Client did not complete authorization flow - scope check could not be performed"}
+          ],
+          "client": null,
+          "client_stderr_tail": "s/mcp-mirror/rm-python-a-crewn/scripts/conformance_client.py\", line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-j29h7ud8/mcp_mirror/renderers/crewai_native_renderer.py\", line 230, in render\n    raise RenderError(f\"crewai_native renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: crewai_native renderer failed: MCP server refused the connection with HTTP 401 Unauthorized. This is an authentication failure - check the credentials sent in the server's headers."
+        },
+        "auth/scope-retry-limit": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 200}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized", "statusCode": 202}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "scope-retry-limit", "status": "FAILURE", "description": "Client did not make any authorization requests"}
+          ],
+          "client": null,
+          "client_stderr_tail": "s/mcp-mirror/rm-python-a-crewn/scripts/conformance_client.py\", line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-wfr8159s/mcp_mirror/renderers/crewai_native_renderer.py\", line 230, in render\n    raise RenderError(f\"crewai_native renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: crewai_native renderer failed: MCP server refused the connection with HTTP 401 Unauthorized. This is an authentication failure - check the credentials sent in the server's headers."
+        },
+        "auth/scope-step-up": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 200}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized", "statusCode": 202}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "scope-step-up-initial", "status": "FAILURE", "description": "Client did not make an initial authorization request"},
+            {"id": "scope-step-up-escalation", "status": "FAILURE", "description": "Client did not make a second authorization request for scope escalation"}
+          ],
+          "client": null,
+          "client_stderr_tail": "s/mcp-mirror/rm-python-a-crewn/scripts/conformance_client.py\", line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-2gzm_jsw/mcp_mirror/renderers/crewai_native_renderer.py\", line 230, in render\n    raise RenderError(f\"crewai_native renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: crewai_native renderer failed: MCP server refused the connection with HTTP 401 Unauthorized. This is an authentication failure - check the credentials sent in the server's headers."
+        },
+        "auth/token-endpoint-auth-basic": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "token-endpoint-auth-method", "status": "FAILURE", "description": "Client did not make a token request"},
+            {"id": "resource-parameter-in-authorization", "status": "FAILURE", "description": "Client MUST include resource parameter in authorization request per RFC 8707", "details": {"resource": "not provided"}},
+            {"id": "resource-parameter-in-token", "status": "FAILURE", "description": "Client MUST include resource parameter in token request per RFC 8707", "details": {"resource": "not provided"}}
+          ],
+          "client": null,
+          "client_stderr_tail": "s/mcp-mirror/rm-python-a-crewn/scripts/conformance_client.py\", line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-i3x7te8z/mcp_mirror/renderers/crewai_native_renderer.py\", line 230, in render\n    raise RenderError(f\"crewai_native renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: crewai_native renderer failed: MCP server refused the connection with HTTP 401 Unauthorized. This is an authentication failure - check the credentials sent in the server's headers."
+        },
+        "auth/token-endpoint-auth-none": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "token-endpoint-auth-method", "status": "FAILURE", "description": "Client did not make a token request"},
+            {"id": "resource-parameter-in-authorization", "status": "FAILURE", "description": "Client MUST include resource parameter in authorization request per RFC 8707", "details": {"resource": "not provided"}},
+            {"id": "resource-parameter-in-token", "status": "FAILURE", "description": "Client MUST include resource parameter in token request per RFC 8707", "details": {"resource": "not provided"}}
+          ],
+          "client": null,
+          "client_stderr_tail": "s/mcp-mirror/rm-python-a-crewn/scripts/conformance_client.py\", line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-tqsd4ard/mcp_mirror/renderers/crewai_native_renderer.py\", line 230, in render\n    raise RenderError(f\"crewai_native renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: crewai_native renderer failed: MCP server refused the connection with HTTP 401 Unauthorized. This is an authentication failure - check the credentials sent in the server's headers."
+        },
+        "auth/token-endpoint-auth-post": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "token-endpoint-auth-method", "status": "FAILURE", "description": "Client did not make a token request"},
+            {"id": "resource-parameter-in-authorization", "status": "FAILURE", "description": "Client MUST include resource parameter in authorization request per RFC 8707", "details": {"resource": "not provided"}},
+            {"id": "resource-parameter-in-token", "status": "FAILURE", "description": "Client MUST include resource parameter in token request per RFC 8707", "details": {"resource": "not provided"}}
+          ],
+          "client": null,
+          "client_stderr_tail": "s/mcp-mirror/rm-python-a-crewn/scripts/conformance_client.py\", line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-vaqz394k/mcp_mirror/renderers/crewai_native_renderer.py\", line 230, in render\n    raise RenderError(f\"crewai_native renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: crewai_native renderer failed: MCP server refused the connection with HTTP 401 Unauthorized. This is an authentication failure - check the credentials sent in the server's headers."
+        }
+      }
+    },
+    "core": {
+      "exit_code": 1,
+      "scenarios": {
+        "auth/basic-cimd": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "cimd-client-id-used", "status": "FAILURE", "description": "Client did not make an authorization request to test CIMD support"}
+          ],
+          "client": null,
+          "client_stderr_tail": "s/mcp-mirror/rm-python-a-crewn/scripts/conformance_client.py\", line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-rbhtixj3/mcp_mirror/renderers/crewai_native_renderer.py\", line 230, in render\n    raise RenderError(f\"crewai_native renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: crewai_native renderer failed: MCP server refused the connection with HTTP 401 Unauthorized. This is an authentication failure - check the credentials sent in the server's headers."
+        },
+        "auth/metadata-default": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "prm-pathbased-requested", "status": "FAILURE", "description": "Expected Check Missing: prm-pathbased-requested"},
+            {"id": "authorization-server-metadata", "status": "FAILURE", "description": "Expected Check Missing: authorization-server-metadata"},
+            {"id": "client-registration", "status": "FAILURE", "description": "Expected Check Missing: client-registration"},
+            {"id": "authorization-request", "status": "FAILURE", "description": "Expected Check Missing: authorization-request"},
+            {"id": "token-request", "status": "FAILURE", "description": "Expected Check Missing: token-request"}
+          ],
+          "client": null,
+          "client_stderr_tail": "s/mcp-mirror/rm-python-a-crewn/scripts/conformance_client.py\", line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-4aykyni6/mcp_mirror/renderers/crewai_native_renderer.py\", line 230, in render\n    raise RenderError(f\"crewai_native renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: crewai_native renderer failed: MCP server refused the connection with HTTP 401 Unauthorized. This is an authentication failure - check the credentials sent in the server's headers."
+        },
+        "auth/metadata-var1": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "prm-pathbased-requested", "status": "FAILURE", "description": "Expected Check Missing: prm-pathbased-requested"},
+            {"id": "authorization-server-metadata", "status": "FAILURE", "description": "Expected Check Missing: authorization-server-metadata"},
+            {"id": "client-registration", "status": "FAILURE", "description": "Expected Check Missing: client-registration"},
+            {"id": "authorization-request", "status": "FAILURE", "description": "Expected Check Missing: authorization-request"},
+            {"id": "token-request", "status": "FAILURE", "description": "Expected Check Missing: token-request"}
+          ],
+          "client": null,
+          "client_stderr_tail": "s/mcp-mirror/rm-python-a-crewn/scripts/conformance_client.py\", line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-qqo5zb0l/mcp_mirror/renderers/crewai_native_renderer.py\", line 230, in render\n    raise RenderError(f\"crewai_native renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: crewai_native renderer failed: MCP server refused the connection with HTTP 401 Unauthorized. This is an authentication failure - check the credentials sent in the server's headers."
+        },
+        "auth/metadata-var2": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "authorization-server-metadata", "status": "FAILURE", "description": "Expected Check Missing: authorization-server-metadata"},
+            {"id": "client-registration", "status": "FAILURE", "description": "Expected Check Missing: client-registration"},
+            {"id": "authorization-request", "status": "FAILURE", "description": "Expected Check Missing: authorization-request"},
+            {"id": "token-request", "status": "FAILURE", "description": "Expected Check Missing: token-request"}
+          ],
+          "client": null,
+          "client_stderr_tail": "s/mcp-mirror/rm-python-a-crewn/scripts/conformance_client.py\", line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-xbw3zyt5/mcp_mirror/renderers/crewai_native_renderer.py\", line 230, in render\n    raise RenderError(f\"crewai_native renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: crewai_native renderer failed: MCP server refused the connection with HTTP 401 Unauthorized. This is an authentication failure - check the credentials sent in the server's headers."
+        },
+        "auth/metadata-var3": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "authorization-server-metadata", "status": "FAILURE", "description": "Expected Check Missing: authorization-server-metadata"},
+            {"id": "client-registration", "status": "FAILURE", "description": "Expected Check Missing: client-registration"},
+            {"id": "authorization-request", "status": "FAILURE", "description": "Expected Check Missing: authorization-request"},
+            {"id": "token-request", "status": "FAILURE", "description": "Expected Check Missing: token-request"}
+          ],
+          "client": null,
+          "client_stderr_tail": "s/mcp-mirror/rm-python-a-crewn/scripts/conformance_client.py\", line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-0meoqx43/mcp_mirror/renderers/crewai_native_renderer.py\", line 230, in render\n    raise RenderError(f\"crewai_native renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: crewai_native renderer failed: MCP server refused the connection with HTTP 401 Unauthorized. This is an authentication failure - check the credentials sent in the server's headers."
+        },
+        "auth/pre-registration": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "pre-registration-auth", "status": "FAILURE", "description": "Client did not make a token request"}
+          ],
+          "client": null,
+          "client_stderr_tail": "s/mcp-mirror/rm-python-a-crewn/scripts/conformance_client.py\", line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-5wtisc83/mcp_mirror/renderers/crewai_native_renderer.py\", line 230, in render\n    raise RenderError(f\"crewai_native renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: crewai_native renderer failed: MCP server refused the connection with HTTP 401 Unauthorized. This is an authentication failure - check the credentials sent in the server's headers."
+        },
+        "auth/scope-from-scopes-supported": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "scope-from-scopes-supported", "status": "FAILURE", "description": "Client did not complete authorization flow - scope check could not be performed"}
+          ],
+          "client": null,
+          "client_stderr_tail": "s/mcp-mirror/rm-python-a-crewn/scripts/conformance_client.py\", line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-zq78blts/mcp_mirror/renderers/crewai_native_renderer.py\", line 230, in render\n    raise RenderError(f\"crewai_native renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: crewai_native renderer failed: MCP server refused the connection with HTTP 401 Unauthorized. This is an authentication failure - check the credentials sent in the server's headers."
+        },
+        "auth/scope-from-www-authenticate": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "scope-from-www-authenticate", "status": "FAILURE", "description": "Client did not complete authorization flow - scope check could not be performed"}
+          ],
+          "client": null,
+          "client_stderr_tail": "s/mcp-mirror/rm-python-a-crewn/scripts/conformance_client.py\", line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-exn86jii/mcp_mirror/renderers/crewai_native_renderer.py\", line 230, in render\n    raise RenderError(f\"crewai_native renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: crewai_native renderer failed: MCP server refused the connection with HTTP 401 Unauthorized. This is an authentication failure - check the credentials sent in the server's headers."
+        },
+        "auth/scope-omitted-when-undefined": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "scope-omitted-when-undefined", "status": "FAILURE", "description": "Client did not complete authorization flow - scope check could not be performed"}
+          ],
+          "client": null,
+          "client_stderr_tail": "s/mcp-mirror/rm-python-a-crewn/scripts/conformance_client.py\", line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-tshqyq4w/mcp_mirror/renderers/crewai_native_renderer.py\", line 230, in render\n    raise RenderError(f\"crewai_native renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: crewai_native renderer failed: MCP server refused the connection with HTTP 401 Unauthorized. This is an authentication failure - check the credentials sent in the server's headers."
+        },
+        "auth/scope-retry-limit": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 200}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized", "statusCode": 202}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "scope-retry-limit", "status": "FAILURE", "description": "Client did not make any authorization requests"}
+          ],
+          "client": null,
+          "client_stderr_tail": "s/mcp-mirror/rm-python-a-crewn/scripts/conformance_client.py\", line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-0xngsf0h/mcp_mirror/renderers/crewai_native_renderer.py\", line 230, in render\n    raise RenderError(f\"crewai_native renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: crewai_native renderer failed: MCP server refused the connection with HTTP 401 Unauthorized. This is an authentication failure - check the credentials sent in the server's headers."
+        },
+        "auth/scope-step-up": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 200}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized", "statusCode": 202}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "scope-step-up-initial", "status": "FAILURE", "description": "Client did not make an initial authorization request"},
+            {"id": "scope-step-up-escalation", "status": "FAILURE", "description": "Client did not make a second authorization request for scope escalation"}
+          ],
+          "client": null,
+          "client_stderr_tail": "s/mcp-mirror/rm-python-a-crewn/scripts/conformance_client.py\", line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-umcepcpq/mcp_mirror/renderers/crewai_native_renderer.py\", line 230, in render\n    raise RenderError(f\"crewai_native renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: crewai_native renderer failed: MCP server refused the connection with HTTP 401 Unauthorized. This is an authentication failure - check the credentials sent in the server's headers."
+        },
+        "auth/token-endpoint-auth-basic": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "token-endpoint-auth-method", "status": "FAILURE", "description": "Client did not make a token request"},
+            {"id": "resource-parameter-in-authorization", "status": "FAILURE", "description": "Client MUST include resource parameter in authorization request per RFC 8707", "details": {"resource": "not provided"}},
+            {"id": "resource-parameter-in-token", "status": "FAILURE", "description": "Client MUST include resource parameter in token request per RFC 8707", "details": {"resource": "not provided"}}
+          ],
+          "client": null,
+          "client_stderr_tail": "s/mcp-mirror/rm-python-a-crewn/scripts/conformance_client.py\", line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-rp5r9ahx/mcp_mirror/renderers/crewai_native_renderer.py\", line 230, in render\n    raise RenderError(f\"crewai_native renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: crewai_native renderer failed: MCP server refused the connection with HTTP 401 Unauthorized. This is an authentication failure - check the credentials sent in the server's headers."
+        },
+        "auth/token-endpoint-auth-none": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "token-endpoint-auth-method", "status": "FAILURE", "description": "Client did not make a token request"},
+            {"id": "resource-parameter-in-authorization", "status": "FAILURE", "description": "Client MUST include resource parameter in authorization request per RFC 8707", "details": {"resource": "not provided"}},
+            {"id": "resource-parameter-in-token", "status": "FAILURE", "description": "Client MUST include resource parameter in token request per RFC 8707", "details": {"resource": "not provided"}}
+          ],
+          "client": null,
+          "client_stderr_tail": "s/mcp-mirror/rm-python-a-crewn/scripts/conformance_client.py\", line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-wxkpfjod/mcp_mirror/renderers/crewai_native_renderer.py\", line 230, in render\n    raise RenderError(f\"crewai_native renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: crewai_native renderer failed: MCP server refused the connection with HTTP 401 Unauthorized. This is an authentication failure - check the credentials sent in the server's headers."
+        },
+        "auth/token-endpoint-auth-post": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "token-endpoint-auth-method", "status": "FAILURE", "description": "Client did not make a token request"},
+            {"id": "resource-parameter-in-authorization", "status": "FAILURE", "description": "Client MUST include resource parameter in authorization request per RFC 8707", "details": {"resource": "not provided"}},
+            {"id": "resource-parameter-in-token", "status": "FAILURE", "description": "Client MUST include resource parameter in token request per RFC 8707", "details": {"resource": "not provided"}}
+          ],
+          "client": null,
+          "client_stderr_tail": "s/mcp-mirror/rm-python-a-crewn/scripts/conformance_client.py\", line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-6a7l_tao/mcp_mirror/renderers/crewai_native_renderer.py\", line 230, in render\n    raise RenderError(f\"crewai_native renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: crewai_native renderer failed: MCP server refused the connection with HTTP 401 Unauthorized. This is an authentication failure - check the credentials sent in the server's headers."
+        },
+        "elicitation-sep1034-client-defaults": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 200, "sessionIdIssued": true}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized", "statusCode": 202}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "GET", "path": "/mcp"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list", "statusCode": 200, "sessionIdIssued": true}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "DELETE", "path": "/mcp"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "GET", "path": "/mcp", "statusCode": 200, "sessionIdIssued": true}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "DELETE", "path": "/mcp", "statusCode": 200}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 200, "sessionIdIssued": true}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized", "statusCode": 202}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "GET", "path": "/mcp"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list", "statusCode": 200, "sessionIdIssued": true}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "DELETE", "path": "/mcp"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "GET", "path": "/mcp", "statusCode": 200, "sessionIdIssued": true}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "DELETE", "path": "/mcp", "statusCode": 200}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 200, "sessionIdIssued": true}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "GET", "path": "/mcp"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized", "statusCode": 202}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/call"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp"}},
+            {"id": "client-elicitation-sep1034-general", "status": "FAILURE", "description": "Client handles elicitation with defaults", "errorMessage": "Elicitation failed: MCP error -32600: Elicitation not supported"},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "statusCode": 202}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/call", "statusCode": 200, "sessionIdIssued": true}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list", "statusCode": 200, "sessionIdIssued": true}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "DELETE", "path": "/mcp"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "GET", "path": "/mcp", "statusCode": 200, "sessionIdIssued": true}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "DELETE", "path": "/mcp", "statusCode": 200}},
+            {"id": "client-elicitation-sep1034-string-default", "status": "FAILURE", "description": "Server applies default default for elicitation", "details": {"message": "Tool was not called by client"}},
+            {"id": "client-elicitation-sep1034-integer-default", "status": "FAILURE", "description": "Server applies default default for elicitation", "details": {"message": "Tool was not called by client"}},
+            {"id": "client-elicitation-sep1034-number-default", "status": "FAILURE", "description": "Server applies default default for elicitation", "details": {"message": "Tool was not called by client"}},
+            {"id": "client-elicitation-sep1034-enum-default", "status": "FAILURE", "description": "Server applies default default for elicitation", "details": {"message": "Tool was not called by client"}},
+            {"id": "client-elicitation-sep1034-boolean-default", "status": "FAILURE", "description": "Server applies default default for elicitation", "details": {"message": "Tool was not called by client"}}
+          ],
+          "client": {
+            "renderer": "crewai_native",
+            "versions": {
+              "framework": "1.15.26",
+              "adapter": "1.15.26"
+            },
+            "auth_hook": null,
+            "tools": [
+              "localhost_61274_mcp_test_client_elicitation_defaults"
+            ],
+            "called": {
+              "tool": "localhost_61274_mcp_test_client_elicitation_defaults",
+              "arguments": {},
+              "result": {
+                "tool": "localhost_61274_mcp_test_client_elicitation_defaults",
+                "blocks": [
+                  {
+                    "type": "text",
+                    "text": "Error executing tool: Error executing MCP tool test_client_elicitation_defaults: Error during MCP client disconnect: no running event loop"
+                  }
+                ],
+                "block_kinds": [
+                  "text"
+                ],
+                "structured_content": null,
+                "is_error": true,
+                "text": "Error executing tool: Error executing MCP tool test_client_elicitation_defaults: Error during MCP client disconnect: no running event loop",
+                "origin": "crewai_native",
+                "raw": "{\"role\": \"tool\", \"tool_call_id\": \"mcp-mirror-call\", \"name\": \"localhost_61274_mcp_test_client_elicitation_defaults\", \"content\": \"Error executing tool: Error executing MCP tool test_client_elicitation_defaults: Error during MCP client disconnect: no running event loop\"}",
+                "error_channel": "message"
+              }
+            }
+          },
+          "client_stderr_tail": "ation_defaults                  \u2502\n\u2502  Iteration: 1                                                                \u2502\n\u2502  Attempt: 0                                                                  \u2502\n\u2502  Error: Error executing MCP tool test_client_elicitation_defaults: Error     \u2502\n\u2502  during MCP client disconnect: no running event loop                         \u2502\n\u2502                                                                              \u2502\n\u2502                                                                              \u2502\n\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256f"
+        },
+        "initialize": {
+          "checks": [
+            {"id": "mcp-client-initialization", "status": "SUCCESS", "description": "Validates that MCP client properly initializes with server", "details": {"protocolVersionSent": "2025-11-25", "expectedSpecVersion": "2025-11-25", "versionMatch": true, "clientName": "mcp", "clientVersion": "0.1.0"}},
+            {"id": "server-info", "status": "INFO", "details": {}}
+          ],
+          "client": {
+            "renderer": "crewai_native",
+            "versions": {
+              "framework": "1.15.26",
+              "adapter": "1.15.26"
+            },
+            "auth_hook": null,
+            "tools": []
+          },
+          "client_stderr_tail": "                                \u2502\n\u2502  Server: localhost                                                           \u2502\n\u2502  URL: http://localhost:61272                                                 \u2502\n\u2502  Transport: streamable-http                                                  \u2502\n\u2502  Duration: 3946.68ms                                                         \u2502\n\u2502                                                                              \u2502\n\u2502                                                                              \u2502\n\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256f"
+        },
+        "sse-retry": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "GET", "sessionIdIssued": true}},
+            {"id": "outgoing-sse-event", "status": "INFO", "details": {}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "GET", "sessionIdIssued": true}},
+            {"id": "outgoing-sse-event", "status": "INFO", "details": {}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "GET", "sessionIdIssued": true}},
+            {"id": "outgoing-sse-event", "status": "INFO", "details": {}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST"}},
+            {"id": "outgoing-sse-event", "status": "INFO", "details": {}},
+            {"id": "outgoing-stream-close", "status": "INFO", "details": {}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "GET", "sessionIdIssued": true}},
+            {"id": "outgoing-sse-event", "status": "INFO", "details": {}},
+            {"id": "outgoing-sse-event", "status": "INFO", "details": {}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {}},
+            {"id": "client-sse-graceful-reconnect", "status": "SUCCESS", "description": "Client reconnects via GET after SSE stream is closed gracefully", "details": {"getConnectionCount": 4}},
+            {"id": "client-sse-retry-timing", "status": "WARNING", "description": "Client MUST respect the retry field, waiting the given number of milliseconds before attempting to reconnect", "errorMessage": "Client reconnected slightly late (701ms instead of 500ms). This is acceptable but may indicate network delays.", "details": {"expectedRetryMs": 500, "actualDelayMs": 701, "minAcceptableMs": 450, "maxAcceptableMs": 700, "veryLateThresholdMs": 1000, "earlyToleranceMs": 50, "lateToleranceMs": 200, "withinTolerance": false, "tooEarly": false, "slightlyLate": true, "veryLate": false, "getConnectionCount": 4}},
+            {"id": "client-sse-last-event-id", "status": "SUCCESS", "description": "Client SHOULD send Last-Event-ID header on reconnection for resumability", "details": {"hasLastEventId": true, "lastEventIds": ["event-4"], "getConnectionCount": 4}}
+          ],
+          "client": {
+            "renderer": "crewai_native",
+            "versions": {
+              "framework": "1.15.26",
+              "adapter": "1.15.26"
+            },
+            "auth_hook": null,
+            "tools": [
+              "localhost_61275_test_reconnection"
+            ],
+            "called": {
+              "tool": "localhost_61275_test_reconnection",
+              "arguments": {},
+              "result": {
+                "tool": "localhost_61275_test_reconnection",
+                "blocks": [
+                  {
+                    "type": "text",
+                    "text": "Error executing tool: Error executing MCP tool test_reconnection: Error during MCP client disconnect: no running event loop"
+                  }
+                ],
+                "block_kinds": [
+                  "text"
+                ],
+                "structured_content": null,
+                "is_error": true,
+                "text": "Error executing tool: Error executing MCP tool test_reconnection: Error during MCP client disconnect: no running event loop",
+                "origin": "crewai_native",
+                "raw": "{\"role\": \"tool\", \"tool_call_id\": \"mcp-mirror-call\", \"name\": \"localhost_61275_test_reconnection\", \"content\": \"Error executing tool: Error executing MCP tool test_reconnection: Error during MCP client disconnect: no running event loop\"}",
+                "error_channel": "message"
+              }
+            }
+          },
+          "client_stderr_tail": "ed \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256e\n\u2502                                                                              \u2502\n\u2502  MCP Tool Started                                                            \u2502\n\u2502  Name: test_reconnection                                                     \u2502\n\u2502  Server: localhost                                                           \u2502\n\u2502                                                                              \u2502\n\u2502                                                                              \u2502\n\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256f"
+        },
+        "tools_call": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 200}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized", "statusCode": 202}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list", "statusCode": 200}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 200}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized", "statusCode": 202}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list", "statusCode": 200}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 200}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized", "statusCode": 202}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/call"}},
+            {"id": "tool-add-numbers", "status": "SUCCESS", "description": "Validates that the add_numbers tool works correctly", "details": {"a": 1, "b": 1, "result": 2}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/call", "statusCode": 200}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list", "statusCode": 200}}
+          ],
+          "client": {
+            "renderer": "crewai_native",
+            "versions": {
+              "framework": "1.15.26",
+              "adapter": "1.15.26"
+            },
+            "auth_hook": null,
+            "tools": [
+              "localhost_61273_mcp_add_numbers"
+            ],
+            "called": {
+              "tool": "localhost_61273_mcp_add_numbers",
+              "arguments": {
+                "a": 1,
+                "b": 1
+              },
+              "result": {
+                "tool": "localhost_61273_mcp_add_numbers",
+                "blocks": [
+                  {
+                    "type": "text",
+                    "text": "Error executing tool: Error executing MCP tool add_numbers: Error during MCP client disconnect: no running event loop"
+                  }
+                ],
+                "block_kinds": [
+                  "text"
+                ],
+                "structured_content": null,
+                "is_error": true,
+                "text": "Error executing tool: Error executing MCP tool add_numbers: Error during MCP client disconnect: no running event loop",
+                "origin": "crewai_native",
+                "raw": "{\"role\": \"tool\", \"tool_call_id\": \"mcp-mirror-call\", \"name\": \"localhost_61273_mcp_add_numbers\", \"content\": \"Error executing tool: Error executing MCP tool add_numbers: Error during MCP client disconnect: no running event loop\"}",
+                "error_channel": "message"
+              }
+            }
+          },
+          "client_stderr_tail": "                                \u2502\n\u2502  Server: localhost                                                           \u2502\n\u2502  URL: http://localhost:61273/mcp                                             \u2502\n\u2502  Transport: streamable-http                                                  \u2502\n\u2502  Duration: 216.79ms                                                          \u2502\n\u2502                                                                              \u2502\n\u2502                                                                              \u2502\n\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256f"
+        }
+      }
+    }
+  }
+}

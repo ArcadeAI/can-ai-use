@@ -1,0 +1,160 @@
+{
+  "schema": "mcp-mirror/surface-probe@1",
+  "captured_at": "2026-10-09T21:11:59Z",
+  "fixture": "fixtures/tricky_server.py",
+  "fixture_python": "<checkout>/.mcp-mirror/fixture-2026-07-28/bin/python",
+  "spec_version": "2026-07-28",
+  "source": {
+    "resources.list": {
+      "ok": true,
+      "entries": [
+        {
+          "uri": "file:///fixtures/notes.txt",
+          "name": "notes.txt",
+          "title": "Release notes",
+          "description": "SENTINEL_RESOURCE_DESCRIPTION",
+          "mimeType": "text/plain"
+        },
+        {
+          "uri": "file:///fixtures/logo.png",
+          "name": "logo.png",
+          "title": null,
+          "description": "A binary resource, to check base64 survives the round trip.",
+          "mimeType": "image/png"
+        }
+      ]
+    },
+    "resources.read.text": {
+      "ok": true,
+      "uri": "file:///fixtures/notes.txt",
+      "mimeType": "text/plain",
+      "text": "SENTINEL_RESOURCE_TEXT"
+    },
+    "resources.read.blob": {
+      "ok": true,
+      "uri": "file:///fixtures/logo.png",
+      "mimeType": "image/png",
+      "blob_sha256": "c414cd0e204de974f73753c7e28d7638e7b3691bb8b1a2bab6b25bb7fed7ce77",
+      "blob_bytes": 70
+    },
+    "resources.templates": {
+      "ok": true,
+      "entries": [
+        {
+          "uriTemplate": "file:///fixtures/records/{record_id}",
+          "name": "record",
+          "description": "SENTINEL_TEMPLATE_DESCRIPTION",
+          "mimeType": "application/json"
+        }
+      ]
+    },
+    "prompts.list": {
+      "ok": true,
+      "entries": [
+        {
+          "name": "summarize_records",
+          "title": "Summarize records",
+          "description": "SENTINEL_PROMPT_DESCRIPTION",
+          "arguments": [
+            {
+              "name": "status",
+              "description": "SENTINEL_ARGUMENT_DESCRIPTION",
+              "required": true
+            },
+            {
+              "name": "tone",
+              "description": "Optional writing tone.",
+              "required": false
+            }
+          ]
+        }
+      ]
+    },
+    "prompts.get": {
+      "ok": true,
+      "description": "SENTINEL_PROMPT_DESCRIPTION",
+      "messages": [
+        {
+          "role": "user",
+          "type": "text",
+          "text": "SENTINEL_PROMPT_MESSAGE status=x"
+        }
+      ]
+    }
+  },
+  "frameworks": {
+    "google_adk_go": {
+      "ok": true,
+      "versions": {
+        "framework": "2.5.0",
+        "adapter": "google.golang.org/adk/v2/tool/mcptoolset 2.5.0, github.com/modelcontextprotocol/go-sdk 1.8.0, google.golang.org/genai 1.71.0, go1.27.1"
+      },
+      "probe": {
+        "prompts.get": {
+          "ok": false,
+          "unsupported": "mcptoolset.Toolset exposes only Tools(); the *mcp.ClientSession it opens stays inside its connectionRefresher, so the caller has no session to call GetPrompt on"
+        },
+        "prompts.list": {
+          "ok": false,
+          "unsupported": "mcptoolset.Toolset exposes only Tools(); the *mcp.ClientSession it opens stays inside its connectionRefresher, so the caller has no session to call ListPrompts on"
+        },
+        "resources.list": {
+          "ok": false,
+          "unsupported": "mcptoolset.Toolset exposes only Tools(); the *mcp.ClientSession it opens stays inside its connectionRefresher, so the caller has no session to call ListResources on"
+        },
+        "resources.read.blob": {
+          "ok": false,
+          "unsupported": "mcptoolset.Toolset exposes only Tools(); the *mcp.ClientSession it opens stays inside its connectionRefresher, so the caller has no session to call ReadResource on"
+        },
+        "resources.read.text": {
+          "ok": false,
+          "unsupported": "mcptoolset.Toolset exposes only Tools(); the *mcp.ClientSession it opens stays inside its connectionRefresher, so the caller has no session to call ReadResource on"
+        },
+        "resources.templates": {
+          "ok": false,
+          "unsupported": "mcptoolset.Toolset exposes only Tools(); the *mcp.ClientSession it opens stays inside its connectionRefresher, so the caller has no session to call ListResourceTemplates on"
+        }
+      },
+      "wire": {
+        "negotiations": [
+          {
+            "via": "server/discover",
+            "requested_revision": "2026-07-28",
+            "negotiated_revision": null,
+            "client_capabilities": {
+              "roots": {
+                "listChanged": true
+              }
+            },
+            "server_capabilities": {
+              "extensions": {
+                "io.modelcontextprotocol/ui": {}
+              },
+              "prompts": {
+                "listChanged": false
+              },
+              "resources": {
+                "listChanged": false,
+                "subscribe": false
+              },
+              "tools": {
+                "listChanged": false
+              }
+            }
+          },
+          {
+            "via": "request-meta",
+            "requested_revision": null,
+            "negotiated_revision": "2026-07-28",
+            "client_capabilities": {
+              "roots": {
+                "listChanged": true
+              }
+            },
+            "server_capabilities": null
+          }
+        ]
+      }
+    }
+  }
+}

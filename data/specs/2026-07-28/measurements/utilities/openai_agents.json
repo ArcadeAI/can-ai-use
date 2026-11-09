@@ -1,0 +1,3001 @@
+{
+ "schema": "mcp-mirror/utilities-probe@1",
+ "captured_at": "2026-10-09T21:01:20Z",
+ "fixture": "fixtures/utilities_server.py",
+ "fixture_python": "<checkout>/.mcp-mirror/fixture-2026-07-28/bin/python",
+ "spec_version": "2026-07-28",
+ "source": {
+  "sdk": 2,
+  "tools": [
+   "slow_with_progress",
+   "cancellable_wait",
+   "emit_logs",
+   "task_capable",
+   "page_filler_00",
+   "page_filler_01",
+   "page_filler_02",
+   "page_filler_03",
+   "page_filler_04",
+   "page_filler_05",
+   "page_filler_06",
+   "page_filler_07",
+   "page_filler_08",
+   "page_filler_09",
+   "page_filler_10",
+   "page_filler_11",
+   "page_filler_12",
+   "page_filler_13",
+   "page_filler_14",
+   "page_filler_15",
+   "page_filler_16",
+   "page_filler_17",
+   "page_filler_18",
+   "page_filler_19",
+   "page_filler_20",
+   "page_filler_21",
+   "page_filler_22",
+   "page_filler_23",
+   "page_filler_24",
+   "page_filler_25",
+   "page_filler_26",
+   "page_filler_27",
+   "page_filler_28",
+   "page_filler_29",
+   "page_filler_30",
+   "page_filler_31",
+   "page_filler_32",
+   "page_filler_33",
+   "page_filler_34",
+   "page_filler_35",
+   "page_filler_36",
+   "page_filler_37",
+   "page_filler_38",
+   "page_filler_39",
+   "page_filler_40",
+   "page_filler_41",
+   "page_filler_42",
+   "page_filler_43",
+   "page_filler_44",
+   "page_filler_45",
+   "page_filler_46",
+   "page_filler_47",
+   "page_filler_48",
+   "page_filler_49",
+   "page_filler_50",
+   "page_filler_51",
+   "page_filler_52",
+   "page_filler_53",
+   "page_filler_54",
+   "SENTINEL_LAST_TOOL"
+  ],
+  "page_size": 20,
+  "progress_steps": 5,
+  "log_levels": [
+   "debug",
+   "info",
+   "notice",
+   "warning",
+   "error"
+  ],
+  "completion": {
+   "prompt": [
+    "crimson",
+    "cyan",
+    "cobalt"
+   ],
+   "resource": [
+    "rec_1",
+    "rec_10",
+    "rec_11"
+   ]
+  },
+  "cache_ttl_ms": 1500,
+  "tasks_extension": "io.modelcontextprotocol/tasks"
+ },
+ "frameworks": {
+  "openai_agents": {
+   "ok": true,
+   "versions": {
+    "framework": "0.23.1",
+    "adapter": "0.23.1"
+   },
+   "utilities": {
+    "tools.list": {
+     "ok": true,
+     "route": "adapter",
+     "names": [
+      "slow_with_progress",
+      "cancellable_wait",
+      "emit_logs",
+      "task_capable",
+      "page_filler_00",
+      "page_filler_01",
+      "page_filler_02",
+      "page_filler_03",
+      "page_filler_04",
+      "page_filler_05",
+      "page_filler_06",
+      "page_filler_07",
+      "page_filler_08",
+      "page_filler_09",
+      "page_filler_10",
+      "page_filler_11",
+      "page_filler_12",
+      "page_filler_13",
+      "page_filler_14",
+      "page_filler_15",
+      "page_filler_16",
+      "page_filler_17",
+      "page_filler_18",
+      "page_filler_19",
+      "page_filler_20",
+      "page_filler_21",
+      "page_filler_22",
+      "page_filler_23",
+      "page_filler_24",
+      "page_filler_25",
+      "page_filler_26",
+      "page_filler_27",
+      "page_filler_28",
+      "page_filler_29",
+      "page_filler_30",
+      "page_filler_31",
+      "page_filler_32",
+      "page_filler_33",
+      "page_filler_34",
+      "page_filler_35",
+      "page_filler_36",
+      "page_filler_37",
+      "page_filler_38",
+      "page_filler_39",
+      "page_filler_40",
+      "page_filler_41",
+      "page_filler_42",
+      "page_filler_43",
+      "page_filler_44",
+      "page_filler_45",
+      "page_filler_46",
+      "page_filler_47",
+      "page_filler_48",
+      "page_filler_49",
+      "page_filler_50",
+      "page_filler_51",
+      "page_filler_52",
+      "page_filler_53",
+      "page_filler_54",
+      "SENTINEL_LAST_TOOL"
+     ]
+    },
+    "progress": {
+     "ok": true,
+     "route": "manual",
+     "api": "MCPServer.call_tool(meta={'progressToken': ...}) + message_handler",
+     "events": [
+      {
+       "progress": 1.0,
+       "total": 5.0,
+       "message": "SENTINEL_PROGRESS 1/5"
+      },
+      {
+       "progress": 2.0,
+       "total": 5.0,
+       "message": "SENTINEL_PROGRESS 2/5"
+      },
+      {
+       "progress": 3.0,
+       "total": 5.0,
+       "message": "SENTINEL_PROGRESS 3/5"
+      },
+      {
+       "progress": 4.0,
+       "total": 5.0,
+       "message": "SENTINEL_PROGRESS 4/5"
+      },
+      {
+       "progress": 5.0,
+       "total": 5.0,
+       "message": "SENTINEL_PROGRESS 5/5"
+      }
+     ],
+     "text": "SENTINEL_SLOW_DONE progress_sent=5"
+    },
+    "logging": {
+     "ok": true,
+     "route": "adapter",
+     "api": "MCPServerStdio(message_handler=...)",
+     "messages": [],
+     "text": "SENTINEL_LOGS_SENT 5 at level>=debug"
+    },
+    "completion": {
+     "ok": true,
+     "route": "session",
+     "api": "MCPServer.session.complete",
+     "prompt": [
+      "crimson",
+      "cyan",
+      "cobalt"
+     ],
+     "resource": [
+      "rec_1",
+      "rec_10",
+      "rec_11"
+     ]
+    },
+    "cancellation": {
+     "ok": true,
+     "route": "adapter",
+     "mechanism": "asyncio task.cancel() around MCPServer.call_tool",
+     "abandoned_after_s": 1.003,
+     "outcome": "cancelled"
+    },
+    "tasks": {
+     "ok": true,
+     "route": "adapter",
+     "text": "SENTINEL_TASK_CAPABLE task_requested=False"
+    },
+    "caching": {
+     "ok": true,
+     "route": "adapter",
+     "api": "MCPServer.list_tools (defaults)",
+     "marks": [
+      {
+       "call": "first",
+       "started": "2026-10-09T21:01:18.111195+00:00",
+       "finished": "2026-10-09T21:01:18.115417+00:00",
+       "count": 60
+      },
+      {
+       "call": "within_ttl",
+       "started": "2026-10-09T21:01:18.115424+00:00",
+       "finished": "2026-10-09T21:01:18.118585+00:00",
+       "count": 60
+      },
+      {
+       "call": "after_ttl",
+       "started": "2026-10-09T21:01:20.120361+00:00",
+       "finished": "2026-10-09T21:01:20.129448+00:00",
+       "count": 60
+      }
+     ]
+    }
+   },
+   "wire": {
+    "tools.list": [
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 1,
+      "t": "2026-10-09T21:01:13.698009+00:00",
+      "elapsed": 0.0076,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "server/discover",
+      "id": 1,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 1,
+       "method": "server/discover",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "mcp",
+          "version": "0.1.0"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {}
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 2,
+      "t": "2026-10-09T21:01:13.949804+00:00",
+      "elapsed": 0.259404,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "server/discover",
+      "id": 1,
+      "revision": null,
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 1,
+       "result": {
+        "cacheScope": "private",
+        "capabilities": {
+         "completions": {},
+         "extensions": {
+          "io.modelcontextprotocol/tasks": {}
+         },
+         "logging": {},
+         "prompts": {
+          "listChanged": false
+         },
+         "resources": {
+          "listChanged": false,
+          "subscribe": false
+         },
+         "tools": {
+          "listChanged": false
+         }
+        },
+        "resultType": "complete",
+        "supportedVersions": [
+         "2026-07-28"
+        ],
+        "ttlMs": 0,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "negotiation",
+      "seq": 3,
+      "t": "2026-10-09T21:01:13.949870+00:00",
+      "elapsed": 0.259454,
+      "session": "stdio",
+      "via": "server/discover",
+      "requested_revision": "2026-07-28",
+      "negotiated_revision": null,
+      "supported_versions": [
+       "2026-07-28"
+      ],
+      "client_capabilities": {},
+      "client_info": {
+       "name": "mcp",
+       "version": "0.1.0"
+      },
+      "server_capabilities": {
+       "completions": {},
+       "extensions": {
+        "io.modelcontextprotocol/tasks": {}
+       },
+       "logging": {},
+       "prompts": {
+        "listChanged": false
+       },
+       "resources": {
+        "listChanged": false,
+        "subscribe": false
+       },
+       "tools": {
+        "listChanged": false
+       }
+      },
+      "error": null
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 4,
+      "t": "2026-10-09T21:01:13.950702+00:00",
+      "elapsed": 0.26029,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 2,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 2,
+       "method": "tools/list",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "mcp",
+          "version": "0.1.0"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {}
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "negotiation",
+      "seq": 5,
+      "t": "2026-10-09T21:01:13.950726+00:00",
+      "elapsed": 0.26031,
+      "session": "stdio",
+      "via": "request-meta",
+      "negotiated_revision": "2026-07-28",
+      "client_capabilities": {},
+      "client_info": {
+       "name": "mcp",
+       "version": "0.1.0"
+      },
+      "method": "tools/list",
+      "id": 2
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 6,
+      "t": "2026-10-09T21:01:13.951491+00:00",
+      "elapsed": 0.261078,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 2,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 2,
+       "result": {
+        "cacheScope": "private",
+        "nextCursor": "20",
+        "resultType": "complete",
+        "tools": [
+         "slow_with_progress",
+         "cancellable_wait",
+         "emit_logs",
+         "task_capable",
+         "page_filler_00",
+         "page_filler_01",
+         "page_filler_02",
+         "page_filler_03",
+         "page_filler_04",
+         "page_filler_05",
+         "page_filler_06",
+         "page_filler_07",
+         "page_filler_08",
+         "page_filler_09",
+         "page_filler_10",
+         "page_filler_11",
+         "page_filler_12",
+         "page_filler_13",
+         "page_filler_14",
+         "page_filler_15"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 7,
+      "t": "2026-10-09T21:01:13.952188+00:00",
+      "elapsed": 0.261775,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 3,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 3,
+       "method": "tools/list",
+       "params": {
+        "cursor": "20",
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "mcp",
+          "version": "0.1.0"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {}
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 8,
+      "t": "2026-10-09T21:01:13.952818+00:00",
+      "elapsed": 0.262402,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 3,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 3,
+       "result": {
+        "cacheScope": "private",
+        "nextCursor": "40",
+        "resultType": "complete",
+        "tools": [
+         "page_filler_16",
+         "page_filler_17",
+         "page_filler_18",
+         "page_filler_19",
+         "page_filler_20",
+         "page_filler_21",
+         "page_filler_22",
+         "page_filler_23",
+         "page_filler_24",
+         "page_filler_25",
+         "page_filler_26",
+         "page_filler_27",
+         "page_filler_28",
+         "page_filler_29",
+         "page_filler_30",
+         "page_filler_31",
+         "page_filler_32",
+         "page_filler_33",
+         "page_filler_34",
+         "page_filler_35"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 9,
+      "t": "2026-10-09T21:01:13.953374+00:00",
+      "elapsed": 0.262957,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 4,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 4,
+       "method": "tools/list",
+       "params": {
+        "cursor": "40",
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "mcp",
+          "version": "0.1.0"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {}
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 10,
+      "t": "2026-10-09T21:01:13.953939+00:00",
+      "elapsed": 0.263522,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 4,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 4,
+       "result": {
+        "cacheScope": "private",
+        "resultType": "complete",
+        "tools": [
+         "page_filler_36",
+         "page_filler_37",
+         "page_filler_38",
+         "page_filler_39",
+         "page_filler_40",
+         "page_filler_41",
+         "page_filler_42",
+         "page_filler_43",
+         "page_filler_44",
+         "page_filler_45",
+         "page_filler_46",
+         "page_filler_47",
+         "page_filler_48",
+         "page_filler_49",
+         "page_filler_50",
+         "page_filler_51",
+         "page_filler_52",
+         "page_filler_53",
+         "page_filler_54",
+         "SENTINEL_LAST_TOOL"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     }
+    ],
+    "progress": [
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 1,
+      "t": "2026-10-09T21:01:14.128782+00:00",
+      "elapsed": 0.00784,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "server/discover",
+      "id": 1,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 1,
+       "method": "server/discover",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "mcp",
+          "version": "0.1.0"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {}
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 2,
+      "t": "2026-10-09T21:01:14.361213+00:00",
+      "elapsed": 0.240283,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "server/discover",
+      "id": 1,
+      "revision": null,
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 1,
+       "result": {
+        "cacheScope": "private",
+        "capabilities": {
+         "completions": {},
+         "extensions": {
+          "io.modelcontextprotocol/tasks": {}
+         },
+         "logging": {},
+         "prompts": {
+          "listChanged": false
+         },
+         "resources": {
+          "listChanged": false,
+          "subscribe": false
+         },
+         "tools": {
+          "listChanged": false
+         }
+        },
+        "resultType": "complete",
+        "supportedVersions": [
+         "2026-07-28"
+        ],
+        "ttlMs": 0,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "negotiation",
+      "seq": 3,
+      "t": "2026-10-09T21:01:14.361290+00:00",
+      "elapsed": 0.240342,
+      "session": "stdio",
+      "via": "server/discover",
+      "requested_revision": "2026-07-28",
+      "negotiated_revision": null,
+      "supported_versions": [
+       "2026-07-28"
+      ],
+      "client_capabilities": {},
+      "client_info": {
+       "name": "mcp",
+       "version": "0.1.0"
+      },
+      "server_capabilities": {
+       "completions": {},
+       "extensions": {
+        "io.modelcontextprotocol/tasks": {}
+       },
+       "logging": {},
+       "prompts": {
+        "listChanged": false
+       },
+       "resources": {
+        "listChanged": false,
+        "subscribe": false
+       },
+       "tools": {
+        "listChanged": false
+       }
+      },
+      "error": null
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 4,
+      "t": "2026-10-09T21:01:14.362675+00:00",
+      "elapsed": 0.241729,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/call",
+      "id": 2,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 2,
+       "method": "tools/call",
+       "params": {
+        "_meta": {
+         "progressToken": "mcp-mirror-progress",
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "mcp",
+          "version": "0.1.0"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {}
+        },
+        "name": "slow_with_progress",
+        "arguments": {}
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "negotiation",
+      "seq": 5,
+      "t": "2026-10-09T21:01:14.362707+00:00",
+      "elapsed": 0.241758,
+      "session": "stdio",
+      "via": "request-meta",
+      "negotiated_revision": "2026-07-28",
+      "client_capabilities": {},
+      "client_info": {
+       "name": "mcp",
+       "version": "0.1.0"
+      },
+      "method": "tools/call",
+      "id": 2
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 6,
+      "t": "2026-10-09T21:01:14.414491+00:00",
+      "elapsed": 0.293548,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "notification",
+      "method": "notifications/progress",
+      "id": null,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "method": "notifications/progress",
+       "params": {
+        "progressToken": "mcp-mirror-progress",
+        "progress": 1.0,
+        "total": 5.0,
+        "message": "SENTINEL_PROGRESS 1/5"
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 7,
+      "t": "2026-10-09T21:01:14.466600+00:00",
+      "elapsed": 0.345656,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "notification",
+      "method": "notifications/progress",
+      "id": null,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "method": "notifications/progress",
+       "params": {
+        "progressToken": "mcp-mirror-progress",
+        "progress": 2.0,
+        "total": 5.0,
+        "message": "SENTINEL_PROGRESS 2/5"
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 8,
+      "t": "2026-10-09T21:01:14.518735+00:00",
+      "elapsed": 0.397793,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "notification",
+      "method": "notifications/progress",
+      "id": null,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "method": "notifications/progress",
+       "params": {
+        "progressToken": "mcp-mirror-progress",
+        "progress": 3.0,
+        "total": 5.0,
+        "message": "SENTINEL_PROGRESS 3/5"
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 9,
+      "t": "2026-10-09T21:01:14.571416+00:00",
+      "elapsed": 0.450483,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "notification",
+      "method": "notifications/progress",
+      "id": null,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "method": "notifications/progress",
+       "params": {
+        "progressToken": "mcp-mirror-progress",
+        "progress": 4.0,
+        "total": 5.0,
+        "message": "SENTINEL_PROGRESS 4/5"
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 10,
+      "t": "2026-10-09T21:01:14.624701+00:00",
+      "elapsed": 0.503777,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "notification",
+      "method": "notifications/progress",
+      "id": null,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "method": "notifications/progress",
+       "params": {
+        "progressToken": "mcp-mirror-progress",
+        "progress": 5.0,
+        "total": 5.0,
+        "message": "SENTINEL_PROGRESS 5/5"
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 11,
+      "t": "2026-10-09T21:01:14.625228+00:00",
+      "elapsed": 0.504282,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/call",
+      "id": 2,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 2,
+       "result": {
+        "content": [
+         {
+          "text": "SENTINEL_SLOW_DONE progress_sent=5",
+          "type": "text"
+         }
+        ],
+        "isError": false,
+        "resultType": "complete",
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 12,
+      "t": "2026-10-09T21:01:14.627262+00:00",
+      "elapsed": 0.506318,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 3,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 3,
+       "method": "tools/list",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "mcp",
+          "version": "0.1.0"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {}
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 13,
+      "t": "2026-10-09T21:01:14.628981+00:00",
+      "elapsed": 0.508041,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 3,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 3,
+       "result": {
+        "cacheScope": "private",
+        "nextCursor": "20",
+        "resultType": "complete",
+        "tools": [
+         "slow_with_progress",
+         "cancellable_wait",
+         "emit_logs",
+         "task_capable",
+         "page_filler_00",
+         "page_filler_01",
+         "page_filler_02",
+         "page_filler_03",
+         "page_filler_04",
+         "page_filler_05",
+         "page_filler_06",
+         "page_filler_07",
+         "page_filler_08",
+         "page_filler_09",
+         "page_filler_10",
+         "page_filler_11",
+         "page_filler_12",
+         "page_filler_13",
+         "page_filler_14",
+         "page_filler_15"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     }
+    ],
+    "logging": [
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 1,
+      "t": "2026-10-09T21:01:14.810006+00:00",
+      "elapsed": 0.006504,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "server/discover",
+      "id": 1,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 1,
+       "method": "server/discover",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "mcp",
+          "version": "0.1.0"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {}
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 2,
+      "t": "2026-10-09T21:01:15.021811+00:00",
+      "elapsed": 0.218317,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "server/discover",
+      "id": 1,
+      "revision": null,
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 1,
+       "result": {
+        "cacheScope": "private",
+        "capabilities": {
+         "completions": {},
+         "extensions": {
+          "io.modelcontextprotocol/tasks": {}
+         },
+         "logging": {},
+         "prompts": {
+          "listChanged": false
+         },
+         "resources": {
+          "listChanged": false,
+          "subscribe": false
+         },
+         "tools": {
+          "listChanged": false
+         }
+        },
+        "resultType": "complete",
+        "supportedVersions": [
+         "2026-07-28"
+        ],
+        "ttlMs": 0,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "negotiation",
+      "seq": 3,
+      "t": "2026-10-09T21:01:15.021872+00:00",
+      "elapsed": 0.218364,
+      "session": "stdio",
+      "via": "server/discover",
+      "requested_revision": "2026-07-28",
+      "negotiated_revision": null,
+      "supported_versions": [
+       "2026-07-28"
+      ],
+      "client_capabilities": {},
+      "client_info": {
+       "name": "mcp",
+       "version": "0.1.0"
+      },
+      "server_capabilities": {
+       "completions": {},
+       "extensions": {
+        "io.modelcontextprotocol/tasks": {}
+       },
+       "logging": {},
+       "prompts": {
+        "listChanged": false
+       },
+       "resources": {
+        "listChanged": false,
+        "subscribe": false
+       },
+       "tools": {
+        "listChanged": false
+       }
+      },
+      "error": null
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 4,
+      "t": "2026-10-09T21:01:15.022725+00:00",
+      "elapsed": 0.219219,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/call",
+      "id": 2,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 2,
+       "method": "tools/call",
+       "params": {
+        "name": "emit_logs",
+        "arguments": {},
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "mcp",
+          "version": "0.1.0"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {}
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "negotiation",
+      "seq": 5,
+      "t": "2026-10-09T21:01:15.022752+00:00",
+      "elapsed": 0.219244,
+      "session": "stdio",
+      "via": "request-meta",
+      "negotiated_revision": "2026-07-28",
+      "client_capabilities": {},
+      "client_info": {
+       "name": "mcp",
+       "version": "0.1.0"
+      },
+      "method": "tools/call",
+      "id": 2
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 6,
+      "t": "2026-10-09T21:01:15.023566+00:00",
+      "elapsed": 0.220058,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/call",
+      "id": 2,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 2,
+       "result": {
+        "content": [
+         {
+          "text": "SENTINEL_LOGS_SENT 5 at level>=debug",
+          "type": "text"
+         }
+        ],
+        "isError": false,
+        "resultType": "complete",
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 7,
+      "t": "2026-10-09T21:01:15.024019+00:00",
+      "elapsed": 0.220513,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 3,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 3,
+       "method": "tools/list",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "mcp",
+          "version": "0.1.0"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {}
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 8,
+      "t": "2026-10-09T21:01:15.024653+00:00",
+      "elapsed": 0.221145,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 3,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 3,
+       "result": {
+        "cacheScope": "private",
+        "nextCursor": "20",
+        "resultType": "complete",
+        "tools": [
+         "slow_with_progress",
+         "cancellable_wait",
+         "emit_logs",
+         "task_capable",
+         "page_filler_00",
+         "page_filler_01",
+         "page_filler_02",
+         "page_filler_03",
+         "page_filler_04",
+         "page_filler_05",
+         "page_filler_06",
+         "page_filler_07",
+         "page_filler_08",
+         "page_filler_09",
+         "page_filler_10",
+         "page_filler_11",
+         "page_filler_12",
+         "page_filler_13",
+         "page_filler_14",
+         "page_filler_15"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     }
+    ],
+    "completion": [
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 1,
+      "t": "2026-10-09T21:01:15.388652+00:00",
+      "elapsed": 0.006599,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "server/discover",
+      "id": 1,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 1,
+       "method": "server/discover",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "mcp",
+          "version": "0.1.0"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {}
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 2,
+      "t": "2026-10-09T21:01:15.605179+00:00",
+      "elapsed": 0.223137,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "server/discover",
+      "id": 1,
+      "revision": null,
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 1,
+       "result": {
+        "cacheScope": "private",
+        "capabilities": {
+         "completions": {},
+         "extensions": {
+          "io.modelcontextprotocol/tasks": {}
+         },
+         "logging": {},
+         "prompts": {
+          "listChanged": false
+         },
+         "resources": {
+          "listChanged": false,
+          "subscribe": false
+         },
+         "tools": {
+          "listChanged": false
+         }
+        },
+        "resultType": "complete",
+        "supportedVersions": [
+         "2026-07-28"
+        ],
+        "ttlMs": 0,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "negotiation",
+      "seq": 3,
+      "t": "2026-10-09T21:01:15.605235+00:00",
+      "elapsed": 0.223177,
+      "session": "stdio",
+      "via": "server/discover",
+      "requested_revision": "2026-07-28",
+      "negotiated_revision": null,
+      "supported_versions": [
+       "2026-07-28"
+      ],
+      "client_capabilities": {},
+      "client_info": {
+       "name": "mcp",
+       "version": "0.1.0"
+      },
+      "server_capabilities": {
+       "completions": {},
+       "extensions": {
+        "io.modelcontextprotocol/tasks": {}
+       },
+       "logging": {},
+       "prompts": {
+        "listChanged": false
+       },
+       "resources": {
+        "listChanged": false,
+        "subscribe": false
+       },
+       "tools": {
+        "listChanged": false
+       }
+      },
+      "error": null
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 4,
+      "t": "2026-10-09T21:01:15.606101+00:00",
+      "elapsed": 0.224043,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "completion/complete",
+      "id": 2,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 2,
+       "method": "completion/complete",
+       "params": {
+        "ref": {
+         "type": "ref/prompt",
+         "name": "pick_colour"
+        },
+        "argument": {
+         "name": "colour",
+         "value": "c"
+        },
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "mcp",
+          "version": "0.1.0"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {}
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "negotiation",
+      "seq": 5,
+      "t": "2026-10-09T21:01:15.606121+00:00",
+      "elapsed": 0.224062,
+      "session": "stdio",
+      "via": "request-meta",
+      "negotiated_revision": "2026-07-28",
+      "client_capabilities": {},
+      "client_info": {
+       "name": "mcp",
+       "version": "0.1.0"
+      },
+      "method": "completion/complete",
+      "id": 2
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 6,
+      "t": "2026-10-09T21:01:15.606720+00:00",
+      "elapsed": 0.224661,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "completion/complete",
+      "id": 2,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 2,
+       "result": {
+        "completion": {
+         "hasMore": false,
+         "total": 3,
+         "values": [
+          "crimson",
+          "cyan",
+          "cobalt"
+         ]
+        },
+        "resultType": "complete",
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 7,
+      "t": "2026-10-09T21:01:15.607206+00:00",
+      "elapsed": 0.225148,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "completion/complete",
+      "id": 3,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 3,
+       "method": "completion/complete",
+       "params": {
+        "ref": {
+         "type": "ref/resource",
+         "uri": "file:///fixtures/records/{record_id}"
+        },
+        "argument": {
+         "name": "record_id",
+         "value": "rec_1"
+        },
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "mcp",
+          "version": "0.1.0"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {}
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 8,
+      "t": "2026-10-09T21:01:15.607742+00:00",
+      "elapsed": 0.225684,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "completion/complete",
+      "id": 3,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 3,
+       "result": {
+        "completion": {
+         "hasMore": false,
+         "total": 3,
+         "values": [
+          "rec_1",
+          "rec_10",
+          "rec_11"
+         ]
+        },
+        "resultType": "complete",
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     }
+    ],
+    "cancellation": [
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 1,
+      "t": "2026-10-09T21:01:15.769529+00:00",
+      "elapsed": 0.006947,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "server/discover",
+      "id": 1,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 1,
+       "method": "server/discover",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "mcp",
+          "version": "0.1.0"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {}
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 2,
+      "t": "2026-10-09T21:01:15.986487+00:00",
+      "elapsed": 0.223913,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "server/discover",
+      "id": 1,
+      "revision": null,
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 1,
+       "result": {
+        "cacheScope": "private",
+        "capabilities": {
+         "completions": {},
+         "extensions": {
+          "io.modelcontextprotocol/tasks": {}
+         },
+         "logging": {},
+         "prompts": {
+          "listChanged": false
+         },
+         "resources": {
+          "listChanged": false,
+          "subscribe": false
+         },
+         "tools": {
+          "listChanged": false
+         }
+        },
+        "resultType": "complete",
+        "supportedVersions": [
+         "2026-07-28"
+        ],
+        "ttlMs": 0,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "negotiation",
+      "seq": 3,
+      "t": "2026-10-09T21:01:15.986539+00:00",
+      "elapsed": 0.223951,
+      "session": "stdio",
+      "via": "server/discover",
+      "requested_revision": "2026-07-28",
+      "negotiated_revision": null,
+      "supported_versions": [
+       "2026-07-28"
+      ],
+      "client_capabilities": {},
+      "client_info": {
+       "name": "mcp",
+       "version": "0.1.0"
+      },
+      "server_capabilities": {
+       "completions": {},
+       "extensions": {
+        "io.modelcontextprotocol/tasks": {}
+       },
+       "logging": {},
+       "prompts": {
+        "listChanged": false
+       },
+       "resources": {
+        "listChanged": false,
+        "subscribe": false
+       },
+       "tools": {
+        "listChanged": false
+       }
+      },
+      "error": null
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 4,
+      "t": "2026-10-09T21:01:15.987428+00:00",
+      "elapsed": 0.224841,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/call",
+      "id": 2,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 2,
+       "method": "tools/call",
+       "params": {
+        "name": "cancellable_wait",
+        "arguments": {
+         "seconds": 4
+        },
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "mcp",
+          "version": "0.1.0"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {}
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "negotiation",
+      "seq": 5,
+      "t": "2026-10-09T21:01:15.987450+00:00",
+      "elapsed": 0.224861,
+      "session": "stdio",
+      "via": "request-meta",
+      "negotiated_revision": "2026-07-28",
+      "client_capabilities": {},
+      "client_info": {
+       "name": "mcp",
+       "version": "0.1.0"
+      },
+      "method": "tools/call",
+      "id": 2
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 6,
+      "t": "2026-10-09T21:01:16.990009+00:00",
+      "elapsed": 1.227428,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "notification",
+      "method": "notifications/cancelled",
+      "id": null,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "method": "notifications/cancelled",
+       "params": {
+        "requestId": 2,
+        "reason": "caller cancelled"
+       }
+      }
+     }
+    ],
+    "tasks": [
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 1,
+      "t": "2026-10-09T21:01:17.461090+00:00",
+      "elapsed": 0.007418,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "server/discover",
+      "id": 1,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 1,
+       "method": "server/discover",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "mcp",
+          "version": "0.1.0"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {}
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 2,
+      "t": "2026-10-09T21:01:17.693428+00:00",
+      "elapsed": 0.239769,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "server/discover",
+      "id": 1,
+      "revision": null,
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 1,
+       "result": {
+        "cacheScope": "private",
+        "capabilities": {
+         "completions": {},
+         "extensions": {
+          "io.modelcontextprotocol/tasks": {}
+         },
+         "logging": {},
+         "prompts": {
+          "listChanged": false
+         },
+         "resources": {
+          "listChanged": false,
+          "subscribe": false
+         },
+         "tools": {
+          "listChanged": false
+         }
+        },
+        "resultType": "complete",
+        "supportedVersions": [
+         "2026-07-28"
+        ],
+        "ttlMs": 0,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "negotiation",
+      "seq": 3,
+      "t": "2026-10-09T21:01:17.693503+00:00",
+      "elapsed": 0.239825,
+      "session": "stdio",
+      "via": "server/discover",
+      "requested_revision": "2026-07-28",
+      "negotiated_revision": null,
+      "supported_versions": [
+       "2026-07-28"
+      ],
+      "client_capabilities": {},
+      "client_info": {
+       "name": "mcp",
+       "version": "0.1.0"
+      },
+      "server_capabilities": {
+       "completions": {},
+       "extensions": {
+        "io.modelcontextprotocol/tasks": {}
+       },
+       "logging": {},
+       "prompts": {
+        "listChanged": false
+       },
+       "resources": {
+        "listChanged": false,
+        "subscribe": false
+       },
+       "tools": {
+        "listChanged": false
+       }
+      },
+      "error": null
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 4,
+      "t": "2026-10-09T21:01:17.694645+00:00",
+      "elapsed": 0.240969,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/call",
+      "id": 2,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 2,
+       "method": "tools/call",
+       "params": {
+        "name": "task_capable",
+        "arguments": {},
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "mcp",
+          "version": "0.1.0"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {}
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "negotiation",
+      "seq": 5,
+      "t": "2026-10-09T21:01:17.694676+00:00",
+      "elapsed": 0.240997,
+      "session": "stdio",
+      "via": "request-meta",
+      "negotiated_revision": "2026-07-28",
+      "client_capabilities": {},
+      "client_info": {
+       "name": "mcp",
+       "version": "0.1.0"
+      },
+      "method": "tools/call",
+      "id": 2
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 6,
+      "t": "2026-10-09T21:01:17.695493+00:00",
+      "elapsed": 0.241814,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/call",
+      "id": 2,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 2,
+       "result": {
+        "content": [
+         {
+          "text": "SENTINEL_TASK_CAPABLE task_requested=False",
+          "type": "text"
+         }
+        ],
+        "isError": false,
+        "resultType": "complete",
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 7,
+      "t": "2026-10-09T21:01:17.695930+00:00",
+      "elapsed": 0.242251,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 3,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 3,
+       "method": "tools/list",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "mcp",
+          "version": "0.1.0"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {}
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 8,
+      "t": "2026-10-09T21:01:17.696535+00:00",
+      "elapsed": 0.242857,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 3,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 3,
+       "result": {
+        "cacheScope": "private",
+        "nextCursor": "20",
+        "resultType": "complete",
+        "tools": [
+         "slow_with_progress",
+         "cancellable_wait",
+         "emit_logs",
+         "task_capable",
+         "page_filler_00",
+         "page_filler_01",
+         "page_filler_02",
+         "page_filler_03",
+         "page_filler_04",
+         "page_filler_05",
+         "page_filler_06",
+         "page_filler_07",
+         "page_filler_08",
+         "page_filler_09",
+         "page_filler_10",
+         "page_filler_11",
+         "page_filler_12",
+         "page_filler_13",
+         "page_filler_14",
+         "page_filler_15"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     }
+    ],
+    "caching": [
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 1,
+      "t": "2026-10-09T21:01:17.873129+00:00",
+      "elapsed": 0.007884,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "server/discover",
+      "id": 1,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 1,
+       "method": "server/discover",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "mcp",
+          "version": "0.1.0"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {}
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 2,
+      "t": "2026-10-09T21:01:18.110463+00:00",
+      "elapsed": 0.245233,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "server/discover",
+      "id": 1,
+      "revision": null,
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 1,
+       "result": {
+        "cacheScope": "private",
+        "capabilities": {
+         "completions": {},
+         "extensions": {
+          "io.modelcontextprotocol/tasks": {}
+         },
+         "logging": {},
+         "prompts": {
+          "listChanged": false
+         },
+         "resources": {
+          "listChanged": false,
+          "subscribe": false
+         },
+         "tools": {
+          "listChanged": false
+         }
+        },
+        "resultType": "complete",
+        "supportedVersions": [
+         "2026-07-28"
+        ],
+        "ttlMs": 0,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "negotiation",
+      "seq": 3,
+      "t": "2026-10-09T21:01:18.110530+00:00",
+      "elapsed": 0.245279,
+      "session": "stdio",
+      "via": "server/discover",
+      "requested_revision": "2026-07-28",
+      "negotiated_revision": null,
+      "supported_versions": [
+       "2026-07-28"
+      ],
+      "client_capabilities": {},
+      "client_info": {
+       "name": "mcp",
+       "version": "0.1.0"
+      },
+      "server_capabilities": {
+       "completions": {},
+       "extensions": {
+        "io.modelcontextprotocol/tasks": {}
+       },
+       "logging": {},
+       "prompts": {
+        "listChanged": false
+       },
+       "resources": {
+        "listChanged": false,
+        "subscribe": false
+       },
+       "tools": {
+        "listChanged": false
+       }
+      },
+      "error": null
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 4,
+      "t": "2026-10-09T21:01:18.111562+00:00",
+      "elapsed": 0.246314,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 2,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 2,
+       "method": "tools/list",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "mcp",
+          "version": "0.1.0"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {}
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "negotiation",
+      "seq": 5,
+      "t": "2026-10-09T21:01:18.111592+00:00",
+      "elapsed": 0.246341,
+      "session": "stdio",
+      "via": "request-meta",
+      "negotiated_revision": "2026-07-28",
+      "client_capabilities": {},
+      "client_info": {
+       "name": "mcp",
+       "version": "0.1.0"
+      },
+      "method": "tools/list",
+      "id": 2
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 6,
+      "t": "2026-10-09T21:01:18.112326+00:00",
+      "elapsed": 0.247078,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 2,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 2,
+       "result": {
+        "cacheScope": "private",
+        "nextCursor": "20",
+        "resultType": "complete",
+        "tools": [
+         "slow_with_progress",
+         "cancellable_wait",
+         "emit_logs",
+         "task_capable",
+         "page_filler_00",
+         "page_filler_01",
+         "page_filler_02",
+         "page_filler_03",
+         "page_filler_04",
+         "page_filler_05",
+         "page_filler_06",
+         "page_filler_07",
+         "page_filler_08",
+         "page_filler_09",
+         "page_filler_10",
+         "page_filler_11",
+         "page_filler_12",
+         "page_filler_13",
+         "page_filler_14",
+         "page_filler_15"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 7,
+      "t": "2026-10-09T21:01:18.112971+00:00",
+      "elapsed": 0.247721,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 3,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 3,
+       "method": "tools/list",
+       "params": {
+        "cursor": "20",
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "mcp",
+          "version": "0.1.0"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {}
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 8,
+      "t": "2026-10-09T21:01:18.113572+00:00",
+      "elapsed": 0.248322,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 3,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 3,
+       "result": {
+        "cacheScope": "private",
+        "nextCursor": "40",
+        "resultType": "complete",
+        "tools": [
+         "page_filler_16",
+         "page_filler_17",
+         "page_filler_18",
+         "page_filler_19",
+         "page_filler_20",
+         "page_filler_21",
+         "page_filler_22",
+         "page_filler_23",
+         "page_filler_24",
+         "page_filler_25",
+         "page_filler_26",
+         "page_filler_27",
+         "page_filler_28",
+         "page_filler_29",
+         "page_filler_30",
+         "page_filler_31",
+         "page_filler_32",
+         "page_filler_33",
+         "page_filler_34",
+         "page_filler_35"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 9,
+      "t": "2026-10-09T21:01:18.114105+00:00",
+      "elapsed": 0.248857,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 4,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 4,
+       "method": "tools/list",
+       "params": {
+        "cursor": "40",
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "mcp",
+          "version": "0.1.0"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {}
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 10,
+      "t": "2026-10-09T21:01:18.114719+00:00",
+      "elapsed": 0.249476,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 4,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 4,
+       "result": {
+        "cacheScope": "private",
+        "resultType": "complete",
+        "tools": [
+         "page_filler_36",
+         "page_filler_37",
+         "page_filler_38",
+         "page_filler_39",
+         "page_filler_40",
+         "page_filler_41",
+         "page_filler_42",
+         "page_filler_43",
+         "page_filler_44",
+         "page_filler_45",
+         "page_filler_46",
+         "page_filler_47",
+         "page_filler_48",
+         "page_filler_49",
+         "page_filler_50",
+         "page_filler_51",
+         "page_filler_52",
+         "page_filler_53",
+         "page_filler_54",
+         "SENTINEL_LAST_TOOL"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 11,
+      "t": "2026-10-09T21:01:18.115573+00:00",
+      "elapsed": 0.250323,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 5,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 5,
+       "method": "tools/list",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "mcp",
+          "version": "0.1.0"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {}
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 12,
+      "t": "2026-10-09T21:01:18.116128+00:00",
+      "elapsed": 0.250878,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 5,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 5,
+       "result": {
+        "cacheScope": "private",
+        "nextCursor": "20",
+        "resultType": "complete",
+        "tools": [
+         "slow_with_progress",
+         "cancellable_wait",
+         "emit_logs",
+         "task_capable",
+         "page_filler_00",
+         "page_filler_01",
+         "page_filler_02",
+         "page_filler_03",
+         "page_filler_04",
+         "page_filler_05",
+         "page_filler_06",
+         "page_filler_07",
+         "page_filler_08",
+         "page_filler_09",
+         "page_filler_10",
+         "page_filler_11",
+         "page_filler_12",
+         "page_filler_13",
+         "page_filler_14",
+         "page_filler_15"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 13,
+      "t": "2026-10-09T21:01:18.116580+00:00",
+      "elapsed": 0.251329,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 6,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 6,
+       "method": "tools/list",
+       "params": {
+        "cursor": "20",
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "mcp",
+          "version": "0.1.0"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {}
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 14,
+      "t": "2026-10-09T21:01:18.117084+00:00",
+      "elapsed": 0.251834,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 6,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 6,
+       "result": {
+        "cacheScope": "private",
+        "nextCursor": "40",
+        "resultType": "complete",
+        "tools": [
+         "page_filler_16",
+         "page_filler_17",
+         "page_filler_18",
+         "page_filler_19",
+         "page_filler_20",
+         "page_filler_21",
+         "page_filler_22",
+         "page_filler_23",
+         "page_filler_24",
+         "page_filler_25",
+         "page_filler_26",
+         "page_filler_27",
+         "page_filler_28",
+         "page_filler_29",
+         "page_filler_30",
+         "page_filler_31",
+         "page_filler_32",
+         "page_filler_33",
+         "page_filler_34",
+         "page_filler_35"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 15,
+      "t": "2026-10-09T21:01:18.117485+00:00",
+      "elapsed": 0.252235,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 7,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 7,
+       "method": "tools/list",
+       "params": {
+        "cursor": "40",
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "mcp",
+          "version": "0.1.0"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {}
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 16,
+      "t": "2026-10-09T21:01:18.118002+00:00",
+      "elapsed": 0.252751,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 7,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 7,
+       "result": {
+        "cacheScope": "private",
+        "resultType": "complete",
+        "tools": [
+         "page_filler_36",
+         "page_filler_37",
+         "page_filler_38",
+         "page_filler_39",
+         "page_filler_40",
+         "page_filler_41",
+         "page_filler_42",
+         "page_filler_43",
+         "page_filler_44",
+         "page_filler_45",
+         "page_filler_46",
+         "page_filler_47",
+         "page_filler_48",
+         "page_filler_49",
+         "page_filler_50",
+         "page_filler_51",
+         "page_filler_52",
+         "page_filler_53",
+         "page_filler_54",
+         "SENTINEL_LAST_TOOL"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 17,
+      "t": "2026-10-09T21:01:20.120781+00:00",
+      "elapsed": 2.255523,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 8,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 8,
+       "method": "tools/list",
+       "params": {
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "mcp",
+          "version": "0.1.0"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {}
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 18,
+      "t": "2026-10-09T21:01:20.123056+00:00",
+      "elapsed": 2.257807,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 8,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 8,
+       "result": {
+        "cacheScope": "private",
+        "nextCursor": "20",
+        "resultType": "complete",
+        "tools": [
+         "slow_with_progress",
+         "cancellable_wait",
+         "emit_logs",
+         "task_capable",
+         "page_filler_00",
+         "page_filler_01",
+         "page_filler_02",
+         "page_filler_03",
+         "page_filler_04",
+         "page_filler_05",
+         "page_filler_06",
+         "page_filler_07",
+         "page_filler_08",
+         "page_filler_09",
+         "page_filler_10",
+         "page_filler_11",
+         "page_filler_12",
+         "page_filler_13",
+         "page_filler_14",
+         "page_filler_15"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 19,
+      "t": "2026-10-09T21:01:20.124456+00:00",
+      "elapsed": 2.259197,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 9,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 9,
+       "method": "tools/list",
+       "params": {
+        "cursor": "20",
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "mcp",
+          "version": "0.1.0"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {}
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 20,
+      "t": "2026-10-09T21:01:20.125694+00:00",
+      "elapsed": 2.260436,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 9,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 9,
+       "result": {
+        "cacheScope": "private",
+        "nextCursor": "40",
+        "resultType": "complete",
+        "tools": [
+         "page_filler_16",
+         "page_filler_17",
+         "page_filler_18",
+         "page_filler_19",
+         "page_filler_20",
+         "page_filler_21",
+         "page_filler_22",
+         "page_filler_23",
+         "page_filler_24",
+         "page_filler_25",
+         "page_filler_26",
+         "page_filler_27",
+         "page_filler_28",
+         "page_filler_29",
+         "page_filler_30",
+         "page_filler_31",
+         "page_filler_32",
+         "page_filler_33",
+         "page_filler_34",
+         "page_filler_35"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 21,
+      "t": "2026-10-09T21:01:20.126668+00:00",
+      "elapsed": 2.261408,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 10,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 10,
+       "method": "tools/list",
+       "params": {
+        "cursor": "40",
+        "_meta": {
+         "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+         "io.modelcontextprotocol/clientInfo": {
+          "name": "mcp",
+          "version": "0.1.0"
+         },
+         "io.modelcontextprotocol/clientCapabilities": {}
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 22,
+      "t": "2026-10-09T21:01:20.127987+00:00",
+      "elapsed": 2.262727,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 10,
+      "revision": "2026-07-28",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 10,
+       "result": {
+        "cacheScope": "private",
+        "resultType": "complete",
+        "tools": [
+         "page_filler_36",
+         "page_filler_37",
+         "page_filler_38",
+         "page_filler_39",
+         "page_filler_40",
+         "page_filler_41",
+         "page_filler_42",
+         "page_filler_43",
+         "page_filler_44",
+         "page_filler_45",
+         "page_filler_46",
+         "page_filler_47",
+         "page_filler_48",
+         "page_filler_49",
+         "page_filler_50",
+         "page_filler_51",
+         "page_filler_52",
+         "page_filler_53",
+         "page_filler_54",
+         "SENTINEL_LAST_TOOL"
+        ],
+        "ttlMs": 1500,
+        "_meta": {
+         "io.modelcontextprotocol/serverInfo": {
+          "name": "utilities-mcp",
+          "version": ""
+         }
+        }
+       }
+      }
+     }
+    ]
+   }
+  }
+ }
+}

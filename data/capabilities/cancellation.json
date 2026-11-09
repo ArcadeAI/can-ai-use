@@ -1,0 +1,42 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "cancellation",
+  "title": "`notifications/cancelled`",
+  "description": "Abandons an in-flight request, signalled by notification on stdio and by closing the response stream on Streamable HTTP.",
+  "question": "Can the agent abandon a call and have the server hear about it?",
+  "spec": "https://modelcontextprotocol.io/specification/2025-11-25",
+  "status": "stable",
+  "categories": [
+    "Base protocol"
+  ],
+  "keywords": "cancellation,notifications/cancelled,requestId,abort,timeout",
+  "why": "An agent that stops waiting but never says so leaves the server doing work nobody will read, holding whatever the call was holding. The signalling is transport-specific, so a framework can be correct on one transport and silently wrong on the other.",
+  "docs_url": "https://modelcontextprotocol.io/specification/2025-11-25/basic/patterns/cancellation#cancellation-flow",
+  "docs_label": "MCP Docs",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/basic/patterns/cancellation#cancellation-flow",
+      "title": "MCP Docs"
+    }
+  ],
+  "usage_perc_y": null,
+  "usage_perc_a": null,
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "known_issues": [],
+  "notes": {
+    "crewai": "CrewAI 1.15.26: a CrewAI tool's `.run()` blocks on the adapter's loop with no timeout or cancel route. `MCPServerAdapter` never passes `client_session_timeout_seconds`, so no timeout applies either.",
+    "genkit_js": "Genkit (JS) 1.42.0: `ai.generate({ abortSignal })` is the caller's cancellation hook, but aborting does not reach the MCP request: no `notifications/cancelled` was sent, and the tool call ran on and returned `SENTINEL_NOT_CANCELLED` after about 4 s.",
+    "langchain": "LangChain MCP Adapters 0.3.2: cancelling the task that awaits `StructuredTool.ainvoke` stops the caller waiting, but the mcp 1.x `ClientSession` sends no `notifications/cancelled`. The server keeps working on the call until the session closes.",
+    "ms_agent_framework": "Microsoft Agent Framework 1.21.0: cancelling the asyncio task around `MCPTool.call_tool` abandons the call, but no `notifications/cancelled` reaches the server; the request is left unanswered until the session closes.",
+    "autogen": "AutoGen 0.7.5: `McpWorkbench.call_tool` links the `CancellationToken` to the un-awaited `session.call_tool` coroutine, so `token.cancel()` raises `AttributeError: 'coroutine' object has no attribute 'cancel'`, the call runs to completion, and no `notifications/cancelled` is sent.",
+    "vercel_ai": "Vercel AI SDK (@ai-sdk/mcp 2.0.73): a tool's `execute(args, { abortSignal })` rejects with \"Request was aborted\" when the signal fires, but the client sends no `notifications/cancelled`. The server keeps working and returns SENTINEL_NOT_CANCELLED.",
+    "semantic_kernel": "Semantic Kernel 1.45.0: cancelling `Kernel.invoke` abandons the call locally; no `notifications/cancelled` reaches the server.",
+    "smolagents": "smolagents 1.26.0 (mcpadapt 0.1.20): calling a smolagents `Tool` blocks on `asyncio.run_coroutine_threadsafe(...).result()` against the adapter's background loop, and neither `MCPClient` nor the tool offers a cancel route, so no caller can send `notifications/cancelled`.",
+    "spring_ai": "Spring AI 2.0.1: `ToolCallback.call` is synchronous and takes no cancellation signal. Interrupting the calling thread (`Future.cancel(true)`) abandons the wait, but no `notifications/cancelled` goes out; the wire shows the `tools/call` and nothing after it.",
+    "beeai": "BeeAI Framework 0.1.85: cancelling the asyncio task around `MCPTool.run` abandons the call, but no `notifications/cancelled` is sent, so the server is never told and the request is left unanswered.",
+    "crewai-native": "CrewAI 1.15.26, native `crewai.mcp` client (`Agent(mcps=[...])`, not the `crewai_tools.MCPServerAdapter` row): `MCPClient.call_tool` has no cancel route. Cancelling the asyncio task around it closes the session without sending `notifications/cancelled`; the only bound is `execution_timeout` (`asyncio.wait_for`), which also abandons the request silently. Each `MCPNativeTool` call opens and closes a fresh `MCPClient`.",
+    "google_adk_java": "Google ADK (Java) 1.11.0: `McpTool.runAsync` calls the blocking `McpSyncClient.callTool`, and `RunConfig` carries no cancellation signal. Interrupting the thread blocked in `Runner.runAsync` (`Future.cancel(true)`) abandons the wait after 1 s, but no `notifications/cancelled` goes out.",
+    "koog": "Koog 1.3.0-beta: cancelling the coroutine running `AIAgent.run` abandons the wait after 1 s, but `McpTool.execute` suspends in Kotlin SDK 0.11.1's `Client.callTool`, which sends `notifications/cancelled` only when its own request timeout fires. The wire shows the `tools/call` and no `notifications/cancelled`.",
+    "ms_agent_framework_dotnet": "Microsoft Agent Framework (.NET) 1.24.0 (ModelContextProtocol 2.2.0): cancelling the `CancellationToken` passed to `AIAgent.RunAsync` after 1 s ends the run with `TaskCanceledException`, but no `notifications/cancelled` goes out: the server kept working and returned SENTINEL_NOT_CANCELLED for request 6. Calling `McpClient.CallToolAsync` directly with a cancelled token sends none either, so the gap is in the MCP C# SDK, not the agent."
+  }
+}

@@ -1,0 +1,927 @@
+{
+  "schema": "mcp-mirror/protocol-run@1",
+  "captured_at": "2026-10-09T19:19:26Z",
+  "renderer": "strands",
+  "fixture": "fixtures/base_protocol_server.py",
+  "spec_version": "2026-07-28",
+  "versions": {
+    "framework": "1.59.0",
+    "adapter": "1.59.0"
+  },
+  "captures": [
+    "http.jsonl",
+    "stdio-00.jsonl",
+    "stdio-01.jsonl",
+    "stdio-02.jsonl",
+    "stdio-03.jsonl",
+    "stdio-04.jsonl",
+    "stdio-05.jsonl",
+    "stdio-06.jsonl",
+    "stdio-07.jsonl",
+    "stdio-08.jsonl"
+  ],
+  "transports": {
+    "stdio": {
+      "ok": true,
+      "versions": {
+        "framework": "1.59.0",
+        "adapter": "1.59.0"
+      },
+      "tools": [
+        {
+          "name": "dialect_2020_12",
+          "params": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "$defs": {
+              "range": {
+                "type": "object",
+                "properties": {
+                  "low": {
+                    "type": "number"
+                  },
+                  "high": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "low",
+                  "high"
+                ]
+              }
+            },
+            "properties": {
+              "point": {
+                "type": "array",
+                "description": "An [x, y] pair.",
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "items": false
+              },
+              "window": {
+                "$ref": "#/$defs/range"
+              },
+              "label": {
+                "type": "string",
+                "description": "Property label"
+              },
+              "units": {
+                "type": "string",
+                "description": "Property units"
+              }
+            },
+            "dependentRequired": {
+              "label": [
+                "units"
+              ]
+            },
+            "required": [
+              "point"
+            ]
+          }
+        },
+        {
+          "name": "dialect_draft_07",
+          "params": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "definitions": {
+              "range": {
+                "type": "object",
+                "properties": {
+                  "low": {
+                    "type": "number"
+                  },
+                  "high": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "low",
+                  "high"
+                ]
+              }
+            },
+            "properties": {
+              "point": {
+                "type": "array",
+                "description": "An [x, y] pair.",
+                "items": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "additionalItems": false
+              },
+              "window": {
+                "$ref": "#/definitions/range"
+              }
+            },
+            "required": [
+              "point"
+            ]
+          }
+        },
+        {
+          "name": "routed_lookup",
+          "params": {
+            "type": "object",
+            "properties": {
+              "region": {
+                "type": "string",
+                "x-mcp-header": "Region",
+                "description": "Property region"
+              },
+              "key": {
+                "type": "string",
+                "description": "Property key"
+              }
+            },
+            "required": [
+              "region",
+              "key"
+            ]
+          }
+        },
+        {
+          "name": "needs_input",
+          "params": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          }
+        }
+      ],
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Tool return value",
+          "capture_api": "strands.hooks.AfterToolCallEvent.result",
+          "capture_object": "the ToolResult MCPAgentTool yielded (MCPClient.call_tool_async's return)",
+          "agent_path": false,
+          "limitation": null
+        },
+        {
+          "id": "agent",
+          "label": "Tool result to the model",
+          "capture_api": "strands.models.Model.stream, next call's messages",
+          "capture_object": "the toolResult content block in the Messages the model receives",
+          "agent_path": true,
+          "limitation": "The model is a scripted strands.models.Model; no provider class formatted or serialized the request."
+        }
+      ],
+      "results": [
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "strands",
+            "raw": {
+              "status": "success",
+              "toolUseId": "mcp-mirror-call",
+              "content": [
+                {
+                  "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ],
+              "metadata": {
+                "io.modelcontextprotocol/serverInfo": {
+                  "name": "base-protocol-mcp",
+                  "version": ""
+                }
+              },
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "strands",
+            "raw": {
+              "status": "success",
+              "toolUseId": "mcp-mirror-call",
+              "content": [
+                {
+                  "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ],
+              "metadata": {
+                "io.modelcontextprotocol/serverInfo": {
+                  "name": "base-protocol-mcp",
+                  "version": ""
+                }
+              },
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "strands",
+            "raw": {
+              "status": "success",
+              "toolUseId": "mcp-mirror-call",
+              "content": [
+                {
+                  "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ],
+              "metadata": {
+                "io.modelcontextprotocol/serverInfo": {
+                  "name": "base-protocol-mcp",
+                  "version": ""
+                }
+              },
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "strands",
+            "raw": {
+              "status": "success",
+              "toolUseId": "mcp-mirror-call",
+              "content": [
+                {
+                  "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ],
+              "metadata": {
+                "io.modelcontextprotocol/serverInfo": {
+                  "name": "base-protocol-mcp",
+                  "version": ""
+                }
+              },
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "origin": "strands",
+            "raw": {
+              "status": "success",
+              "toolUseId": "mcp-mirror-call",
+              "content": [
+                {
+                  "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+                }
+              ],
+              "metadata": {
+                "io.modelcontextprotocol/serverInfo": {
+                  "name": "base-protocol-mcp",
+                  "version": ""
+                }
+              },
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "origin": "strands",
+            "raw": {
+              "status": "success",
+              "toolUseId": "mcp-mirror-call",
+              "content": [
+                {
+                  "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+                }
+              ],
+              "metadata": {
+                "io.modelcontextprotocol/serverInfo": {
+                  "name": "base-protocol-mcp",
+                  "version": ""
+                }
+              },
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "Tool execution failed: Elicitation not supported"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": true,
+            "text": "Tool execution failed: Elicitation not supported",
+            "origin": "strands",
+            "raw": {
+              "status": "error",
+              "toolUseId": "mcp-mirror-call",
+              "content": [
+                {
+                  "text": "Tool execution failed: Elicitation not supported"
+                }
+              ]
+            },
+            "error_channel": "flag"
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "Tool execution failed: Elicitation not supported"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": true,
+            "text": "Tool execution failed: Elicitation not supported",
+            "origin": "strands",
+            "raw": {
+              "status": "error",
+              "toolUseId": "mcp-mirror-call",
+              "content": [
+                {
+                  "text": "Tool execution failed: Elicitation not supported"
+                }
+              ]
+            },
+            "error_channel": "flag"
+          }
+        }
+      ]
+    },
+    "http": {
+      "ok": true,
+      "versions": {
+        "framework": "1.59.0",
+        "adapter": "1.59.0"
+      },
+      "tools": [
+        {
+          "name": "dialect_2020_12",
+          "params": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "$defs": {
+              "range": {
+                "type": "object",
+                "properties": {
+                  "low": {
+                    "type": "number"
+                  },
+                  "high": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "low",
+                  "high"
+                ]
+              }
+            },
+            "properties": {
+              "point": {
+                "type": "array",
+                "description": "An [x, y] pair.",
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "items": false
+              },
+              "window": {
+                "$ref": "#/$defs/range"
+              },
+              "label": {
+                "type": "string",
+                "description": "Property label"
+              },
+              "units": {
+                "type": "string",
+                "description": "Property units"
+              }
+            },
+            "dependentRequired": {
+              "label": [
+                "units"
+              ]
+            },
+            "required": [
+              "point"
+            ]
+          }
+        },
+        {
+          "name": "dialect_draft_07",
+          "params": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "type": "object",
+            "definitions": {
+              "range": {
+                "type": "object",
+                "properties": {
+                  "low": {
+                    "type": "number"
+                  },
+                  "high": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "low",
+                  "high"
+                ]
+              }
+            },
+            "properties": {
+              "point": {
+                "type": "array",
+                "description": "An [x, y] pair.",
+                "items": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "additionalItems": false
+              },
+              "window": {
+                "$ref": "#/definitions/range"
+              }
+            },
+            "required": [
+              "point"
+            ]
+          }
+        },
+        {
+          "name": "routed_lookup",
+          "params": {
+            "type": "object",
+            "properties": {
+              "region": {
+                "type": "string",
+                "x-mcp-header": "Region",
+                "description": "Property region"
+              },
+              "key": {
+                "type": "string",
+                "description": "Property key"
+              }
+            },
+            "required": [
+              "region",
+              "key"
+            ]
+          }
+        },
+        {
+          "name": "needs_input",
+          "params": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          }
+        }
+      ],
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Tool return value",
+          "capture_api": "strands.hooks.AfterToolCallEvent.result",
+          "capture_object": "the ToolResult MCPAgentTool yielded (MCPClient.call_tool_async's return)",
+          "agent_path": false,
+          "limitation": null
+        },
+        {
+          "id": "agent",
+          "label": "Tool result to the model",
+          "capture_api": "strands.models.Model.stream, next call's messages",
+          "capture_object": "the toolResult content block in the Messages the model receives",
+          "agent_path": true,
+          "limitation": "The model is a scripted strands.models.Model; no provider class formatted or serialized the request."
+        }
+      ],
+      "results": [
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "strands",
+            "raw": {
+              "status": "success",
+              "toolUseId": "mcp-mirror-call",
+              "content": [
+                {
+                  "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ],
+              "metadata": {
+                "io.modelcontextprotocol/serverInfo": {
+                  "name": "base-protocol-mcp",
+                  "version": ""
+                }
+              },
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "strands",
+            "raw": {
+              "status": "success",
+              "toolUseId": "mcp-mirror-call",
+              "content": [
+                {
+                  "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ],
+              "metadata": {
+                "io.modelcontextprotocol/serverInfo": {
+                  "name": "base-protocol-mcp",
+                  "version": ""
+                }
+              },
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "strands",
+            "raw": {
+              "status": "success",
+              "toolUseId": "mcp-mirror-call",
+              "content": [
+                {
+                  "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ],
+              "metadata": {
+                "io.modelcontextprotocol/serverInfo": {
+                  "name": "base-protocol-mcp",
+                  "version": ""
+                }
+              },
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "strands",
+            "raw": {
+              "status": "success",
+              "toolUseId": "mcp-mirror-call",
+              "content": [
+                {
+                  "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ],
+              "metadata": {
+                "io.modelcontextprotocol/serverInfo": {
+                  "name": "base-protocol-mcp",
+                  "version": ""
+                }
+              },
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "origin": "strands",
+            "raw": {
+              "status": "success",
+              "toolUseId": "mcp-mirror-call",
+              "content": [
+                {
+                  "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+                }
+              ],
+              "metadata": {
+                "io.modelcontextprotocol/serverInfo": {
+                  "name": "base-protocol-mcp",
+                  "version": ""
+                }
+              },
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "origin": "strands",
+            "raw": {
+              "status": "success",
+              "toolUseId": "mcp-mirror-call",
+              "content": [
+                {
+                  "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+                }
+              ],
+              "metadata": {
+                "io.modelcontextprotocol/serverInfo": {
+                  "name": "base-protocol-mcp",
+                  "version": ""
+                }
+              },
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "Tool execution failed: Elicitation not supported"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": true,
+            "text": "Tool execution failed: Elicitation not supported",
+            "origin": "strands",
+            "raw": {
+              "status": "error",
+              "toolUseId": "mcp-mirror-call",
+              "content": [
+                {
+                  "text": "Tool execution failed: Elicitation not supported"
+                }
+              ]
+            },
+            "error_channel": "flag"
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "Tool execution failed: Elicitation not supported"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": true,
+            "text": "Tool execution failed: Elicitation not supported",
+            "origin": "strands",
+            "raw": {
+              "status": "error",
+              "toolUseId": "mcp-mirror-call",
+              "content": [
+                {
+                  "text": "Tool execution failed: Elicitation not supported"
+                }
+              ]
+            },
+            "error_channel": "flag"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{"format": "mcp-mirror.harness-output/1"}
+{"event": "init", "harness_version": null, "permission_mode": null, "mcp_servers": null, "mcp_tools": null}
+{"event": "tool_use", "tool": "codemode", "input": {"code": "await describeNamespace('mcp__def'); return await tools.read_mcp_resource({server: 'def', uri: 'file:///fixtures/notes.txt'})"}}
+{"event": "tool_use", "tool": "read_mcp_resource", "input": {"server": "def", "uri": "file:///fixtures/notes.txt"}}
+{"event": "tool_result", "is_error": false, "text": "SENTINEL_RESOURCE_TEXT"}
+{"event": "tool_result", "is_error": false, "text": "Script completed\nWall time 0.1 seconds\nOutput:\n{\"server\":\"def\",\"uri\":\"file:///fixtures/notes.txt\",\"contents\":[{\"uri\":\"file:///fixtures/notes.txt\",\"mimeType\":\"text/plain\",\"text\":\"SENTINEL_RESOURCE_TEXT\"}]}"}
+{"event": "text", "text": "done"}
+{"event": "result", "subtype": "stop", "is_error": false, "num_turns": 2, "text": "done"}

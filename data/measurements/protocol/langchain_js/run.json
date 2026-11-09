@@ -1,0 +1,692 @@
+{
+  "schema": "mcp-mirror/protocol-run@1",
+  "captured_at": "2026-10-09T18:37:49Z",
+  "renderer": "langchain_js",
+  "fixture": "fixtures/base_protocol_server.py",
+  "spec_version": "2025-11-25",
+  "versions": {
+    "framework": "2.0.1",
+    "adapter": "@langchain/core 1.2.14, node v24.21.0"
+  },
+  "captures": [
+    "http.jsonl",
+    "stdio-00.jsonl",
+    "stdio-01.jsonl",
+    "stdio-02.jsonl",
+    "stdio-03.jsonl",
+    "stdio-04.jsonl",
+    "stdio-05.jsonl",
+    "stdio-06.jsonl",
+    "stdio-07.jsonl",
+    "stdio-08.jsonl",
+    "stdio-09.jsonl",
+    "stdio-10.jsonl",
+    "stdio-11.jsonl",
+    "stdio-12.jsonl",
+    "stdio-13.jsonl",
+    "stdio-14.jsonl",
+    "stdio-15.jsonl",
+    "stdio-16.jsonl",
+    "stdio-17.jsonl"
+  ],
+  "transports": {
+    "stdio": {
+      "ok": true,
+      "versions": {
+        "framework": "2.0.1",
+        "adapter": "@langchain/core 1.2.14, node v24.21.0"
+      },
+      "tools": [
+        {
+          "name": "src_dialect_2020_12",
+          "params": {
+            "type": "object",
+            "properties": {
+              "point": {
+                "type": "array",
+                "description": "An [x, y] pair.",
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "items": false
+              },
+              "window": {
+                "$ref": "#/$defs/range"
+              },
+              "label": {
+                "type": "string"
+              },
+              "units": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "point"
+            ],
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "$defs": {
+              "range": {
+                "type": "object",
+                "properties": {
+                  "low": {
+                    "type": "number"
+                  },
+                  "high": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "low",
+                  "high"
+                ]
+              }
+            },
+            "dependentRequired": {
+              "label": [
+                "units"
+              ]
+            }
+          }
+        },
+        {
+          "name": "src_dialect_draft_07",
+          "params": {
+            "type": "object",
+            "properties": {
+              "point": {
+                "type": "array",
+                "description": "An [x, y] pair.",
+                "items": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "additionalItems": false
+              },
+              "window": {
+                "$ref": "#/definitions/range"
+              }
+            },
+            "required": [
+              "point"
+            ],
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "definitions": {
+              "range": {
+                "type": "object",
+                "properties": {
+                  "low": {
+                    "type": "number"
+                  },
+                  "high": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "low",
+                  "high"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "name": "src_routed_lookup",
+          "params": {
+            "type": "object",
+            "properties": {
+              "region": {
+                "type": "string",
+                "x-mcp-header": "Region"
+              },
+              "key": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "region",
+              "key"
+            ]
+          }
+        },
+        {
+          "name": "src_bad_header",
+          "params": {
+            "type": "object",
+            "properties": {
+              "filter": {
+                "type": "object",
+                "x-mcp-header": "Filter",
+                "properties": {
+                  "field": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "src_needs_input",
+          "params": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      ],
+      "result_boundaries": [
+        {
+          "id": "agent",
+          "label": "Agent tool invocation (LangGraph ToolNode)",
+          "capture_api": "@langchain/langgraph/prebuilt ToolNode.invoke",
+          "capture_object": "the ToolMessage ToolNode appends for the model's tool call",
+          "agent_path": true,
+          "limitation": "ToolNode runs one AIMessage tool call built by the worker. The ToolMessage's content is what a chat model reads; its artifact stays app-side and is not recorded as rendered. No chat model was bound and no provider request was captured."
+        },
+        {
+          "id": "direct",
+          "label": "Direct tool invocation",
+          "capture_api": "@langchain/core StructuredTool.invoke(args)",
+          "capture_object": "the tool return value, without a ToolCall, so no ToolMessage",
+          "agent_path": false,
+          "limitation": null
+        }
+      ],
+      "results": [
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "langchain_js",
+            "raw": {
+              "type": "tool",
+              "status": "success",
+              "name": "src_dialect_2020_12",
+              "tool_call_id": "mcp-mirror-dialect_2020_12",
+              "content": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+              "artifact": []
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "langchain_js",
+            "raw": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "langchain_js",
+            "raw": {
+              "type": "tool",
+              "status": "success",
+              "name": "src_dialect_draft_07",
+              "tool_call_id": "mcp-mirror-dialect_draft_07",
+              "content": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+              "artifact": []
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "langchain_js",
+            "raw": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "origin": "langchain_js",
+            "raw": {
+              "type": "tool",
+              "status": "success",
+              "name": "src_routed_lookup",
+              "tool_call_id": "mcp-mirror-routed_lookup",
+              "content": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+              "artifact": []
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "origin": "langchain_js",
+            "raw": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS needs_input {}",
+            "origin": "langchain_js",
+            "raw": {
+              "type": "tool",
+              "status": "success",
+              "name": "src_needs_input",
+              "tool_call_id": "mcp-mirror-needs_input",
+              "content": "SENTINEL_ARGUMENTS needs_input {}",
+              "artifact": []
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS needs_input {}",
+            "origin": "langchain_js",
+            "raw": "SENTINEL_ARGUMENTS needs_input {}",
+            "error_channel": null
+          }
+        }
+      ]
+    },
+    "http": {
+      "ok": true,
+      "versions": {
+        "framework": "2.0.1",
+        "adapter": "@langchain/core 1.2.14, node v24.21.0"
+      },
+      "tools": [
+        {
+          "name": "src_dialect_2020_12",
+          "params": {
+            "type": "object",
+            "properties": {
+              "point": {
+                "type": "array",
+                "description": "An [x, y] pair.",
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "items": false
+              },
+              "window": {
+                "$ref": "#/$defs/range"
+              },
+              "label": {
+                "type": "string"
+              },
+              "units": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "point"
+            ],
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "$defs": {
+              "range": {
+                "type": "object",
+                "properties": {
+                  "low": {
+                    "type": "number"
+                  },
+                  "high": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "low",
+                  "high"
+                ]
+              }
+            },
+            "dependentRequired": {
+              "label": [
+                "units"
+              ]
+            }
+          }
+        },
+        {
+          "name": "src_dialect_draft_07",
+          "params": {
+            "type": "object",
+            "properties": {
+              "point": {
+                "type": "array",
+                "description": "An [x, y] pair.",
+                "items": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "additionalItems": false
+              },
+              "window": {
+                "$ref": "#/definitions/range"
+              }
+            },
+            "required": [
+              "point"
+            ],
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "definitions": {
+              "range": {
+                "type": "object",
+                "properties": {
+                  "low": {
+                    "type": "number"
+                  },
+                  "high": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "low",
+                  "high"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "name": "src_routed_lookup",
+          "params": {
+            "type": "object",
+            "properties": {
+              "region": {
+                "type": "string",
+                "x-mcp-header": "Region"
+              },
+              "key": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "region",
+              "key"
+            ]
+          }
+        },
+        {
+          "name": "src_bad_header",
+          "params": {
+            "type": "object",
+            "properties": {
+              "filter": {
+                "type": "object",
+                "x-mcp-header": "Filter",
+                "properties": {
+                  "field": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "src_needs_input",
+          "params": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      ],
+      "result_boundaries": [
+        {
+          "id": "agent",
+          "label": "Agent tool invocation (LangGraph ToolNode)",
+          "capture_api": "@langchain/langgraph/prebuilt ToolNode.invoke",
+          "capture_object": "the ToolMessage ToolNode appends for the model's tool call",
+          "agent_path": true,
+          "limitation": "ToolNode runs one AIMessage tool call built by the worker. The ToolMessage's content is what a chat model reads; its artifact stays app-side and is not recorded as rendered. No chat model was bound and no provider request was captured."
+        },
+        {
+          "id": "direct",
+          "label": "Direct tool invocation",
+          "capture_api": "@langchain/core StructuredTool.invoke(args)",
+          "capture_object": "the tool return value, without a ToolCall, so no ToolMessage",
+          "agent_path": false,
+          "limitation": null
+        }
+      ],
+      "results": [
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "langchain_js",
+            "raw": {
+              "type": "tool",
+              "status": "success",
+              "name": "src_dialect_2020_12",
+              "tool_call_id": "mcp-mirror-dialect_2020_12",
+              "content": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+              "artifact": []
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "langchain_js",
+            "raw": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "langchain_js",
+            "raw": {
+              "type": "tool",
+              "status": "success",
+              "name": "src_dialect_draft_07",
+              "tool_call_id": "mcp-mirror-dialect_draft_07",
+              "content": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+              "artifact": []
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "langchain_js",
+            "raw": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "origin": "langchain_js",
+            "raw": {
+              "type": "tool",
+              "status": "success",
+              "name": "src_routed_lookup",
+              "tool_call_id": "mcp-mirror-routed_lookup",
+              "content": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+              "artifact": []
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "origin": "langchain_js",
+            "raw": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS needs_input {}",
+            "origin": "langchain_js",
+            "raw": {
+              "type": "tool",
+              "status": "success",
+              "name": "src_needs_input",
+              "tool_call_id": "mcp-mirror-needs_input",
+              "content": "SENTINEL_ARGUMENTS needs_input {}",
+              "artifact": []
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS needs_input {}",
+            "origin": "langchain_js",
+            "raw": "SENTINEL_ARGUMENTS needs_input {}",
+            "error_channel": null
+          }
+        }
+      ]
+    }
+  }
+}

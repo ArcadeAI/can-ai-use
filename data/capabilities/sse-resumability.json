@@ -1,0 +1,39 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "sse-resumability",
+  "title": "`Last-Event-ID` resumability",
+  "description": "Stream resumption in which a client reconnects with the last event id it saw and the server redelivers what it missed.",
+  "question": "Does this framework resume a broken stream rather than losing the request?",
+  "spec": "https://modelcontextprotocol.io/specification/2025-11-25",
+  "status": "stable",
+  "categories": [
+    "Transports"
+  ],
+  "keywords": "resumability,Last-Event-ID,SSE,redelivery,reconnect",
+  "why": "Redelivery is the difference between a dropped connection costing nothing and costing an in-flight call. 2026-07-28 removed it, making every broken stream a lost request.",
+  "docs_url": "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports#resumability-and-redelivery",
+  "docs_label": "MCP Docs",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports#resumability-and-redelivery",
+      "title": "MCP Docs"
+    },
+    {
+      "url": "https://github.com/modelcontextprotocol/conformance",
+      "title": "MCP conformance suite"
+    }
+  ],
+  "known_issues": [
+    "Measured with the official MCP conformance suite 0.1.16, whose client scenarios are tagged 2025-11-25.",
+    "The recording proxy cannot answer this row: its SSE events carry no ids, so no stream it serves is resumable. The cell comes from the suite's `sse-retry` scenario alone."
+  ],
+  "notes": {
+    "vercel_ai": "Vercel AI SDK (@ai-sdk/mcp 2.0.73): when the sse-retry scenario closed the SSE stream, the client reconnected (client-sse-graceful-reconnect passed) but sent no Last-Event-ID header (client-sse-last-event-id, a SHOULD), so events sent while it was disconnected are not replayed. The suite also recorded it reconnecting before the server's retry interval, which does not decide this cell, and the tool call then did not return within the renderer's 90-second timeout.",
+    "langchain_js": "LangChain.js (@langchain/mcp-adapters 2.0.1): in the conformance `sse-retry` scenario the Streamable HTTP client reconnects but does not send `Last-Event-ID` and does not honour the server's `retry` timing (1 of 3 checks passed).",
+    "spring_ai": "Spring AI 2.0.1: in the conformance `sse-retry` scenario the client reconnects with GET after a graceful close, but it does not wait the server's `retry` interval (`client-sse-retry-timing` fails) and sends no `Last-Event-ID` (warning).",
+    "google_adk_java": "Google ADK (Java) 1.11.0: `sse-retry`: the MCP Java SDK 2.0.0 client reconnects with GET after a graceful close (pass), but it reconnects without waiting the server's 500 ms `retry` (`client-sse-retry-timing` fails) and sends no `Last-Event-ID` (warning).",
+    "langchain4j": "LangChain4j 1.22.0-beta32: when the server closes a tool call's SSE stream, `StreamableHttpMcpTransport` never reconnects with a `GET` (the conformance `sse-retry` scenario counts 0 reconnections), and the call ends in `There was a timeout executing the tool`.",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): in the conformance `sse-retry` scenario the go-sdk Streamable HTTP client reconnects, but too early (-128 ms against a 500 ms `retry`), and sends no `Last-Event-ID`.",
+    "ms_agent_framework_dotnet": "Microsoft Agent Framework (.NET) 1.24.0 (ModelContextProtocol 2.2.0): in the conformance `sse-retry` scenario `McpClient.CreateAsync` fails before any tool call: it sends `server/discover` first, cannot deserialize the reply as a `DiscoverResult` (`supportedVersions` and `capabilities` missing) and does not fall back to `initialize`, so the GET reconnect is never reached."
+  }
+}

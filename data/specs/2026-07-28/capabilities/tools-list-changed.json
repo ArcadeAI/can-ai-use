@@ -1,0 +1,33 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "tools-list-changed",
+  "title": "`notifications/tools/list_changed`",
+  "description": "The notification a server sends when its tool list changes, delivered on a subscription stream the client opted into with `toolsListChanged`.",
+  "question": "Does the framework refresh its tool list when the server says it changed?",
+  "spec": "https://modelcontextprotocol.io/specification/2026-07-28",
+  "status": "stable",
+  "categories": [
+    "Tool results"
+  ],
+  "keywords": "list_changed,listChanged,tool list,refresh,invalidation",
+  "why": "Adapters cache the tool list at startup. Without this, an agent keeps offering tools the server has withdrawn and never sees the ones it added, and the mismatch only shows up as a failed call much later.",
+  "docs_url": "https://modelcontextprotocol.io/specification/2026-07-28/server/tools#list-changed-notification",
+  "docs_label": "MCP Docs",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/server/tools#list-changed-notification",
+      "title": "MCP Docs"
+    }
+  ],
+  "usage_note": "Not published. Candidate source: count of public MCP servers publishing this. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "known_issues": [],
+  "notes": {
+    "openai-agents": "OpenAI Agents SDK 0.23.1: at 2026-07-28 a change arrives only on a `subscriptions/listen` stream, and `MCPServerStdio` never opens one, so its `message_handler` heard nothing. The next ``list_tools`` still asks the server (the default `cache_tools_list=False` for tools), so the agent sees the change on its next list, not when the server announced it.",
+    "pydantic-ai": "Pydantic AI 2.54.0: `MCPToolset` caches ``list_tools`` and clears the cache only when a list_changed notification arrives. At 2026-07-28 that notification travels only on a `subscriptions/listen` stream, which the toolset never opens, so the cache was never cleared and the next list was stale for the rest of the session.",
+    "vercel_ai": "Vercel AI SDK (@ai-sdk/mcp 2.0.73): MCPClient opens no `subscriptions/listen` stream and registers no notification handler, so the change is never heard. `client.tools()` lists again on every call, so the next call shows the added tool.",
+    "openai_agents_js": "OpenAI Agents SDK (JS) 0.20.0 at 2026-07-28: the fixture publishes the change on `subscriptions/listen`, which the SDK never opens, and there is no notification hook. `cacheToolsList` defaults to false, so the next `listTools` (and the next agent turn) shows the change anyway.",
+    "agno": "Agno 3.1.2: `MCPTools` opens no `subscriptions/listen` stream and registers no handler, so no hook hears the change. `build_tools` lists again, so the next build shows it, but an `Agent` calls it per run only with `refresh_connection=True`.",
+    "dspy": "DSPy 3.4.0: DSPy has no notification hook and no relist. The change shows only when the caller lists again on its session and converts each tool with `from_mcp_tool` again.",
+    "ms_agent_framework_dotnet": "Microsoft Agent Framework (.NET) 1.24.0 (ModelContextProtocol 2.2.0): a handler registered in `McpClientOptions.Handlers.NotificationHandlers` for `notifications/tools/list_changed` heard nothing, because the server publishes the change on `subscriptions/listen`, which the client never opens. The next list request refetches and shows the change."
+  }
+}

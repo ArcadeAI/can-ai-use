@@ -1,0 +1,35 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "numeric-range",
+  "title": "Numeric Ranges",
+  "description": "Bounds on a numeric parameter.",
+  "question": "Is the numeric range constraint present at each capture boundary?",
+  "spec": "https://json-schema.org/draft/2020-12/json-schema-validation",
+  "status": "stable",
+  "categories": [
+    "Parameter contract"
+  ],
+  "keywords": "minimum,maximum,range,bounds,constraint",
+  "usage_perc_y": null,
+  "usage_perc_a": null,
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "links": [
+    {
+      "url": "https://json-schema.org/understanding-json-schema/reference/numeric#range",
+      "title": "JSON Schema Docs"
+    },
+    {
+      "url": "https://platform.openai.com/docs/guides/function-calling",
+      "title": "OpenAI function calling, tool schema"
+    }
+  ],
+  "known_issues": [],
+  "why": "Without bounds a downstream model may request out-of-range values.",
+  "shown": true,
+  "docs_url": "https://json-schema.org/understanding-json-schema/reference/numeric#range",
+  "docs_label": "JSON Schema Docs",
+  "notes": {
+    "copilot_sdk": "GitHub Copilot SDK 1.0.19 (Copilot runtime 1.0.95): `minimum` and `maximum` are removed from the provider schema and appended to the parameter description as text, e.g. `{minimum: 1, maximum: 100}` on `limit`.",
+    "langchain4j": "LangChain4j 1.22.0-beta32: `McpToolProvider` maps each `inputSchema` into LangChain4j's own `JsonSchemaElement` model (`JsonObjectSchema`, `JsonStringSchema`, `JsonIntegerSchema`, ...), and the `ToolSpecification` AiServices hands the `ChatModel` is built from that model. `JsonIntegerSchema` and `JsonNumberSchema` hold a description only, so `minimum` and `maximum` are dropped."
+  }
+}

@@ -1,0 +1,601 @@
+{
+  "schema": "mcp-mirror/conformance@1",
+  "captured_at": "2026-10-09T19:24:14Z",
+  "renderer": "haystack",
+  "versions": {
+    "framework": "3.2.0",
+    "adapter": "1.5.2"
+  },
+  "suite": {
+    "package": "@modelcontextprotocol/conformance",
+    "version": "0.1.16"
+  },
+  "spec_version": "2025-11-25",
+  "spec_note": "Every scenario that ran is tagged 2025-11-25 by the suite (see scenario_tags); the suite has no 2026-07-28 client scenarios.",
+  "scenario_tags": {
+    "auth/basic-cimd": [
+      "2025-11-25"
+    ],
+    "auth/metadata-default": [
+      "2025-11-25"
+    ],
+    "auth/metadata-var1": [
+      "2025-11-25"
+    ],
+    "auth/metadata-var2": [
+      "2025-11-25"
+    ],
+    "auth/metadata-var3": [
+      "2025-11-25"
+    ],
+    "auth/pre-registration": [
+      "2025-11-25"
+    ],
+    "auth/scope-from-scopes-supported": [
+      "2025-11-25"
+    ],
+    "auth/scope-from-www-authenticate": [
+      "2025-11-25"
+    ],
+    "auth/scope-omitted-when-undefined": [
+      "2025-11-25"
+    ],
+    "auth/scope-retry-limit": [
+      "2025-11-25"
+    ],
+    "auth/scope-step-up": [
+      "2025-11-25"
+    ],
+    "auth/token-endpoint-auth-basic": [
+      "2025-06-18",
+      "2025-11-25"
+    ],
+    "auth/token-endpoint-auth-none": [
+      "2025-06-18",
+      "2025-11-25"
+    ],
+    "auth/token-endpoint-auth-post": [
+      "2025-06-18",
+      "2025-11-25"
+    ],
+    "elicitation-sep1034-client-defaults": [
+      "2025-11-25"
+    ],
+    "initialize": [
+      "2025-06-18",
+      "2025-11-25"
+    ],
+    "sse-retry": [
+      "2025-11-25"
+    ],
+    "tools_call": [
+      "2025-06-18",
+      "2025-11-25"
+    ]
+  },
+  "client_command": "python scripts/conformance_client.py haystack <url>",
+  "command": "uv run python scripts/run_conformance.py --renderers haystack",
+  "suites": {
+    "auth": {
+      "exit_code": 1,
+      "scenarios": {
+        "auth/basic-cimd": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "cimd-client-id-used", "status": "FAILURE", "description": "Client did not make an authorization request to test CIMD support"}
+          ],
+          "client": null,
+          "client_stderr_tail": "line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-9xmxl5pz/mcp_mirror/renderers/haystack_renderer.py\", line 186, in render\n    raise RenderError(f\"haystack renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: haystack renderer failed: Failed to connect to MCP server via streamable HTTP. Please check if:\n1. The server URL is correct (attempted: http://localhost:55711/mcp)\n2. The server is running and accessible\n3. Authentication token is correct (if required)"
+        },
+        "auth/metadata-default": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "prm-pathbased-requested", "status": "FAILURE", "description": "Expected Check Missing: prm-pathbased-requested"},
+            {"id": "authorization-server-metadata", "status": "FAILURE", "description": "Expected Check Missing: authorization-server-metadata"},
+            {"id": "client-registration", "status": "FAILURE", "description": "Expected Check Missing: client-registration"},
+            {"id": "authorization-request", "status": "FAILURE", "description": "Expected Check Missing: authorization-request"},
+            {"id": "token-request", "status": "FAILURE", "description": "Expected Check Missing: token-request"}
+          ],
+          "client": null,
+          "client_stderr_tail": "line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-pwlzqqth/mcp_mirror/renderers/haystack_renderer.py\", line 186, in render\n    raise RenderError(f\"haystack renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: haystack renderer failed: Failed to connect to MCP server via streamable HTTP. Please check if:\n1. The server URL is correct (attempted: http://localhost:55703/mcp)\n2. The server is running and accessible\n3. Authentication token is correct (if required)"
+        },
+        "auth/metadata-var1": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "prm-pathbased-requested", "status": "FAILURE", "description": "Expected Check Missing: prm-pathbased-requested"},
+            {"id": "authorization-server-metadata", "status": "FAILURE", "description": "Expected Check Missing: authorization-server-metadata"},
+            {"id": "client-registration", "status": "FAILURE", "description": "Expected Check Missing: client-registration"},
+            {"id": "authorization-request", "status": "FAILURE", "description": "Expected Check Missing: authorization-request"},
+            {"id": "token-request", "status": "FAILURE", "description": "Expected Check Missing: token-request"}
+          ],
+          "client": null,
+          "client_stderr_tail": "line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-3d64wqaa/mcp_mirror/renderers/haystack_renderer.py\", line 186, in render\n    raise RenderError(f\"haystack renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: haystack renderer failed: Failed to connect to MCP server via streamable HTTP. Please check if:\n1. The server URL is correct (attempted: http://localhost:55705/mcp)\n2. The server is running and accessible\n3. Authentication token is correct (if required)"
+        },
+        "auth/metadata-var2": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "authorization-server-metadata", "status": "FAILURE", "description": "Expected Check Missing: authorization-server-metadata"},
+            {"id": "client-registration", "status": "FAILURE", "description": "Expected Check Missing: client-registration"},
+            {"id": "authorization-request", "status": "FAILURE", "description": "Expected Check Missing: authorization-request"},
+            {"id": "token-request", "status": "FAILURE", "description": "Expected Check Missing: token-request"}
+          ],
+          "client": null,
+          "client_stderr_tail": "line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-92gdoezl/mcp_mirror/renderers/haystack_renderer.py\", line 186, in render\n    raise RenderError(f\"haystack renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: haystack renderer failed: Failed to connect to MCP server via streamable HTTP. Please check if:\n1. The server URL is correct (attempted: http://localhost:55709/mcp)\n2. The server is running and accessible\n3. Authentication token is correct (if required)"
+        },
+        "auth/metadata-var3": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "authorization-server-metadata", "status": "FAILURE", "description": "Expected Check Missing: authorization-server-metadata"},
+            {"id": "client-registration", "status": "FAILURE", "description": "Expected Check Missing: client-registration"},
+            {"id": "authorization-request", "status": "FAILURE", "description": "Expected Check Missing: authorization-request"},
+            {"id": "token-request", "status": "FAILURE", "description": "Expected Check Missing: token-request"}
+          ],
+          "client": null,
+          "client_stderr_tail": "line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-8iineknv/mcp_mirror/renderers/haystack_renderer.py\", line 186, in render\n    raise RenderError(f\"haystack renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: haystack renderer failed: Failed to connect to MCP server via streamable HTTP. Please check if:\n1. The server URL is correct (attempted: http://localhost:55707/mcp)\n2. The server is running and accessible\n3. Authentication token is correct (if required)"
+        },
+        "auth/pre-registration": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "pre-registration-auth", "status": "FAILURE", "description": "Client did not make a token request"}
+          ],
+          "client": null,
+          "client_stderr_tail": "line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-uv54n24s/mcp_mirror/renderers/haystack_renderer.py\", line 186, in render\n    raise RenderError(f\"haystack renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: haystack renderer failed: Failed to connect to MCP server via streamable HTTP. Please check if:\n1. The server URL is correct (attempted: http://localhost:55729/mcp)\n2. The server is running and accessible\n3. Authentication token is correct (if required)"
+        },
+        "auth/scope-from-scopes-supported": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "scope-from-scopes-supported", "status": "FAILURE", "description": "Client did not complete authorization flow - scope check could not be performed"}
+          ],
+          "client": null,
+          "client_stderr_tail": "line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-v0pd1fsz/mcp_mirror/renderers/haystack_renderer.py\", line 186, in render\n    raise RenderError(f\"haystack renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: haystack renderer failed: Failed to connect to MCP server via streamable HTTP. Please check if:\n1. The server URL is correct (attempted: http://localhost:55715/mcp)\n2. The server is running and accessible\n3. Authentication token is correct (if required)"
+        },
+        "auth/scope-from-www-authenticate": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "scope-from-www-authenticate", "status": "FAILURE", "description": "Client did not complete authorization flow - scope check could not be performed"}
+          ],
+          "client": null,
+          "client_stderr_tail": "line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-0vdre9wh/mcp_mirror/renderers/haystack_renderer.py\", line 186, in render\n    raise RenderError(f\"haystack renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: haystack renderer failed: Failed to connect to MCP server via streamable HTTP. Please check if:\n1. The server URL is correct (attempted: http://localhost:55713/mcp)\n2. The server is running and accessible\n3. Authentication token is correct (if required)"
+        },
+        "auth/scope-omitted-when-undefined": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "scope-omitted-when-undefined", "status": "FAILURE", "description": "Client did not complete authorization flow - scope check could not be performed"}
+          ],
+          "client": null,
+          "client_stderr_tail": "line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-erj8sx3p/mcp_mirror/renderers/haystack_renderer.py\", line 186, in render\n    raise RenderError(f\"haystack renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: haystack renderer failed: Failed to connect to MCP server via streamable HTTP. Please check if:\n1. The server URL is correct (attempted: http://localhost:55719/mcp)\n2. The server is running and accessible\n3. Authentication token is correct (if required)"
+        },
+        "auth/scope-retry-limit": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 200}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized", "statusCode": 202}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "scope-retry-limit", "status": "FAILURE", "description": "Client did not make any authorization requests"}
+          ],
+          "client": null,
+          "client_stderr_tail": "line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-z20qvjcg/mcp_mirror/renderers/haystack_renderer.py\", line 186, in render\n    raise RenderError(f\"haystack renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: haystack renderer failed: Failed to connect to MCP server via streamable HTTP. Please check if:\n1. The server URL is correct (attempted: http://localhost:55727/mcp)\n2. The server is running and accessible\n3. Authentication token is correct (if required)"
+        },
+        "auth/scope-step-up": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 200}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized", "statusCode": 202}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "scope-step-up-initial", "status": "FAILURE", "description": "Client did not make an initial authorization request"},
+            {"id": "scope-step-up-escalation", "status": "FAILURE", "description": "Client did not make a second authorization request for scope escalation"}
+          ],
+          "client": null,
+          "client_stderr_tail": "line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-0wvpe28f/mcp_mirror/renderers/haystack_renderer.py\", line 186, in render\n    raise RenderError(f\"haystack renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: haystack renderer failed: Failed to connect to MCP server via streamable HTTP. Please check if:\n1. The server URL is correct (attempted: http://localhost:55717/mcp)\n2. The server is running and accessible\n3. Authentication token is correct (if required)"
+        },
+        "auth/token-endpoint-auth-basic": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "token-endpoint-auth-method", "status": "FAILURE", "description": "Client did not make a token request"},
+            {"id": "resource-parameter-in-authorization", "status": "FAILURE", "description": "Client MUST include resource parameter in authorization request per RFC 8707", "details": {"resource": "not provided"}},
+            {"id": "resource-parameter-in-token", "status": "FAILURE", "description": "Client MUST include resource parameter in token request per RFC 8707", "details": {"resource": "not provided"}}
+          ],
+          "client": null,
+          "client_stderr_tail": "line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-pt_4sp6j/mcp_mirror/renderers/haystack_renderer.py\", line 186, in render\n    raise RenderError(f\"haystack renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: haystack renderer failed: Failed to connect to MCP server via streamable HTTP. Please check if:\n1. The server URL is correct (attempted: http://localhost:55723/mcp)\n2. The server is running and accessible\n3. Authentication token is correct (if required)"
+        },
+        "auth/token-endpoint-auth-none": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "token-endpoint-auth-method", "status": "FAILURE", "description": "Client did not make a token request"},
+            {"id": "resource-parameter-in-authorization", "status": "FAILURE", "description": "Client MUST include resource parameter in authorization request per RFC 8707", "details": {"resource": "not provided"}},
+            {"id": "resource-parameter-in-token", "status": "FAILURE", "description": "Client MUST include resource parameter in token request per RFC 8707", "details": {"resource": "not provided"}}
+          ],
+          "client": null,
+          "client_stderr_tail": "line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-maqons52/mcp_mirror/renderers/haystack_renderer.py\", line 186, in render\n    raise RenderError(f\"haystack renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: haystack renderer failed: Failed to connect to MCP server via streamable HTTP. Please check if:\n1. The server URL is correct (attempted: http://localhost:55725/mcp)\n2. The server is running and accessible\n3. Authentication token is correct (if required)"
+        },
+        "auth/token-endpoint-auth-post": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "token-endpoint-auth-method", "status": "FAILURE", "description": "Client did not make a token request"},
+            {"id": "resource-parameter-in-authorization", "status": "FAILURE", "description": "Client MUST include resource parameter in authorization request per RFC 8707", "details": {"resource": "not provided"}},
+            {"id": "resource-parameter-in-token", "status": "FAILURE", "description": "Client MUST include resource parameter in token request per RFC 8707", "details": {"resource": "not provided"}}
+          ],
+          "client": null,
+          "client_stderr_tail": "line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-kcbjrap7/mcp_mirror/renderers/haystack_renderer.py\", line 186, in render\n    raise RenderError(f\"haystack renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: haystack renderer failed: Failed to connect to MCP server via streamable HTTP. Please check if:\n1. The server URL is correct (attempted: http://localhost:55721/mcp)\n2. The server is running and accessible\n3. Authentication token is correct (if required)"
+        }
+      }
+    },
+    "core": {
+      "exit_code": 1,
+      "scenarios": {
+        "auth/basic-cimd": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "cimd-client-id-used", "status": "FAILURE", "description": "Client did not make an authorization request to test CIMD support"}
+          ],
+          "client": null,
+          "client_stderr_tail": "line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-5qxsoq7p/mcp_mirror/renderers/haystack_renderer.py\", line 186, in render\n    raise RenderError(f\"haystack renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: haystack renderer failed: Failed to connect to MCP server via streamable HTTP. Please check if:\n1. The server URL is correct (attempted: http://localhost:55857/mcp)\n2. The server is running and accessible\n3. Authentication token is correct (if required)"
+        },
+        "auth/metadata-default": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "prm-pathbased-requested", "status": "FAILURE", "description": "Expected Check Missing: prm-pathbased-requested"},
+            {"id": "authorization-server-metadata", "status": "FAILURE", "description": "Expected Check Missing: authorization-server-metadata"},
+            {"id": "client-registration", "status": "FAILURE", "description": "Expected Check Missing: client-registration"},
+            {"id": "authorization-request", "status": "FAILURE", "description": "Expected Check Missing: authorization-request"},
+            {"id": "token-request", "status": "FAILURE", "description": "Expected Check Missing: token-request"}
+          ],
+          "client": null,
+          "client_stderr_tail": "line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-x97fn8k4/mcp_mirror/renderers/haystack_renderer.py\", line 186, in render\n    raise RenderError(f\"haystack renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: haystack renderer failed: Failed to connect to MCP server via streamable HTTP. Please check if:\n1. The server URL is correct (attempted: http://localhost:55853/mcp)\n2. The server is running and accessible\n3. Authentication token is correct (if required)"
+        },
+        "auth/metadata-var1": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "prm-pathbased-requested", "status": "FAILURE", "description": "Expected Check Missing: prm-pathbased-requested"},
+            {"id": "authorization-server-metadata", "status": "FAILURE", "description": "Expected Check Missing: authorization-server-metadata"},
+            {"id": "client-registration", "status": "FAILURE", "description": "Expected Check Missing: client-registration"},
+            {"id": "authorization-request", "status": "FAILURE", "description": "Expected Check Missing: authorization-request"},
+            {"id": "token-request", "status": "FAILURE", "description": "Expected Check Missing: token-request"}
+          ],
+          "client": null,
+          "client_stderr_tail": "line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-_3__ypf8/mcp_mirror/renderers/haystack_renderer.py\", line 186, in render\n    raise RenderError(f\"haystack renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: haystack renderer failed: Failed to connect to MCP server via streamable HTTP. Please check if:\n1. The server URL is correct (attempted: http://localhost:55865/mcp)\n2. The server is running and accessible\n3. Authentication token is correct (if required)"
+        },
+        "auth/metadata-var2": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "authorization-server-metadata", "status": "FAILURE", "description": "Expected Check Missing: authorization-server-metadata"},
+            {"id": "client-registration", "status": "FAILURE", "description": "Expected Check Missing: client-registration"},
+            {"id": "authorization-request", "status": "FAILURE", "description": "Expected Check Missing: authorization-request"},
+            {"id": "token-request", "status": "FAILURE", "description": "Expected Check Missing: token-request"}
+          ],
+          "client": null,
+          "client_stderr_tail": "line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-2mzlnes1/mcp_mirror/renderers/haystack_renderer.py\", line 186, in render\n    raise RenderError(f\"haystack renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: haystack renderer failed: Failed to connect to MCP server via streamable HTTP. Please check if:\n1. The server URL is correct (attempted: http://localhost:55859/mcp)\n2. The server is running and accessible\n3. Authentication token is correct (if required)"
+        },
+        "auth/metadata-var3": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "authorization-server-metadata", "status": "FAILURE", "description": "Expected Check Missing: authorization-server-metadata"},
+            {"id": "client-registration", "status": "FAILURE", "description": "Expected Check Missing: client-registration"},
+            {"id": "authorization-request", "status": "FAILURE", "description": "Expected Check Missing: authorization-request"},
+            {"id": "token-request", "status": "FAILURE", "description": "Expected Check Missing: token-request"}
+          ],
+          "client": null,
+          "client_stderr_tail": "line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-x5yomgtf/mcp_mirror/renderers/haystack_renderer.py\", line 186, in render\n    raise RenderError(f\"haystack renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: haystack renderer failed: Failed to connect to MCP server via streamable HTTP. Please check if:\n1. The server URL is correct (attempted: http://localhost:55855/mcp)\n2. The server is running and accessible\n3. Authentication token is correct (if required)"
+        },
+        "auth/pre-registration": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "pre-registration-auth", "status": "FAILURE", "description": "Client did not make a token request"}
+          ],
+          "client": null,
+          "client_stderr_tail": "line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-w5ux04iq/mcp_mirror/renderers/haystack_renderer.py\", line 186, in render\n    raise RenderError(f\"haystack renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: haystack renderer failed: Failed to connect to MCP server via streamable HTTP. Please check if:\n1. The server URL is correct (attempted: http://localhost:55879/mcp)\n2. The server is running and accessible\n3. Authentication token is correct (if required)"
+        },
+        "auth/scope-from-scopes-supported": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "scope-from-scopes-supported", "status": "FAILURE", "description": "Client did not complete authorization flow - scope check could not be performed"}
+          ],
+          "client": null,
+          "client_stderr_tail": "line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-7ukb23lt/mcp_mirror/renderers/haystack_renderer.py\", line 186, in render\n    raise RenderError(f\"haystack renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: haystack renderer failed: Failed to connect to MCP server via streamable HTTP. Please check if:\n1. The server URL is correct (attempted: http://localhost:55869/mcp)\n2. The server is running and accessible\n3. Authentication token is correct (if required)"
+        },
+        "auth/scope-from-www-authenticate": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "scope-from-www-authenticate", "status": "FAILURE", "description": "Client did not complete authorization flow - scope check could not be performed"}
+          ],
+          "client": null,
+          "client_stderr_tail": "line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-hwor_q32/mcp_mirror/renderers/haystack_renderer.py\", line 186, in render\n    raise RenderError(f\"haystack renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: haystack renderer failed: Failed to connect to MCP server via streamable HTTP. Please check if:\n1. The server URL is correct (attempted: http://localhost:55863/mcp)\n2. The server is running and accessible\n3. Authentication token is correct (if required)"
+        },
+        "auth/scope-omitted-when-undefined": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "scope-omitted-when-undefined", "status": "FAILURE", "description": "Client did not complete authorization flow - scope check could not be performed"}
+          ],
+          "client": null,
+          "client_stderr_tail": "line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-zpvgy430/mcp_mirror/renderers/haystack_renderer.py\", line 186, in render\n    raise RenderError(f\"haystack renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: haystack renderer failed: Failed to connect to MCP server via streamable HTTP. Please check if:\n1. The server URL is correct (attempted: http://localhost:55861/mcp)\n2. The server is running and accessible\n3. Authentication token is correct (if required)"
+        },
+        "auth/scope-retry-limit": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 200}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized", "statusCode": 202}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "scope-retry-limit", "status": "FAILURE", "description": "Client did not make any authorization requests"}
+          ],
+          "client": null,
+          "client_stderr_tail": "line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-bp4w0_2l/mcp_mirror/renderers/haystack_renderer.py\", line 186, in render\n    raise RenderError(f\"haystack renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: haystack renderer failed: Failed to connect to MCP server via streamable HTTP. Please check if:\n1. The server URL is correct (attempted: http://localhost:55873/mcp)\n2. The server is running and accessible\n3. Authentication token is correct (if required)"
+        },
+        "auth/scope-step-up": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 200}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized", "statusCode": 202}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "scope-step-up-initial", "status": "FAILURE", "description": "Client did not make an initial authorization request"},
+            {"id": "scope-step-up-escalation", "status": "FAILURE", "description": "Client did not make a second authorization request for scope escalation"}
+          ],
+          "client": null,
+          "client_stderr_tail": "line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-u64vhmgo/mcp_mirror/renderers/haystack_renderer.py\", line 186, in render\n    raise RenderError(f\"haystack renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: haystack renderer failed: Failed to connect to MCP server via streamable HTTP. Please check if:\n1. The server URL is correct (attempted: http://localhost:55867/mcp)\n2. The server is running and accessible\n3. Authentication token is correct (if required)"
+        },
+        "auth/token-endpoint-auth-basic": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "token-endpoint-auth-method", "status": "FAILURE", "description": "Client did not make a token request"},
+            {"id": "resource-parameter-in-authorization", "status": "FAILURE", "description": "Client MUST include resource parameter in authorization request per RFC 8707", "details": {"resource": "not provided"}},
+            {"id": "resource-parameter-in-token", "status": "FAILURE", "description": "Client MUST include resource parameter in token request per RFC 8707", "details": {"resource": "not provided"}}
+          ],
+          "client": null,
+          "client_stderr_tail": "line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-lovade9g/mcp_mirror/renderers/haystack_renderer.py\", line 186, in render\n    raise RenderError(f\"haystack renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: haystack renderer failed: Failed to connect to MCP server via streamable HTTP. Please check if:\n1. The server URL is correct (attempted: http://localhost:55877/mcp)\n2. The server is running and accessible\n3. Authentication token is correct (if required)"
+        },
+        "auth/token-endpoint-auth-none": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "token-endpoint-auth-method", "status": "FAILURE", "description": "Client did not make a token request"},
+            {"id": "resource-parameter-in-authorization", "status": "FAILURE", "description": "Client MUST include resource parameter in authorization request per RFC 8707", "details": {"resource": "not provided"}},
+            {"id": "resource-parameter-in-token", "status": "FAILURE", "description": "Client MUST include resource parameter in token request per RFC 8707", "details": {"resource": "not provided"}}
+          ],
+          "client": null,
+          "client_stderr_tail": "line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-7tky1ami/mcp_mirror/renderers/haystack_renderer.py\", line 186, in render\n    raise RenderError(f\"haystack renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: haystack renderer failed: Failed to connect to MCP server via streamable HTTP. Please check if:\n1. The server URL is correct (attempted: http://localhost:55875/mcp)\n2. The server is running and accessible\n3. Authentication token is correct (if required)"
+        },
+        "auth/token-endpoint-auth-post": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "token-endpoint-auth-method", "status": "FAILURE", "description": "Client did not make a token request"},
+            {"id": "resource-parameter-in-authorization", "status": "FAILURE", "description": "Client MUST include resource parameter in authorization request per RFC 8707", "details": {"resource": "not provided"}},
+            {"id": "resource-parameter-in-token", "status": "FAILURE", "description": "Client MUST include resource parameter in token request per RFC 8707", "details": {"resource": "not provided"}}
+          ],
+          "client": null,
+          "client_stderr_tail": "line 410, in run_in_runner\n    reps = renderer.render(handle)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-o1ow_77j/mcp_mirror/renderers/haystack_renderer.py\", line 186, in render\n    raise RenderError(f\"haystack renderer failed: {exc}\") from exc\nmcp_mirror.renderers.RenderError: haystack renderer failed: Failed to connect to MCP server via streamable HTTP. Please check if:\n1. The server URL is correct (attempted: http://localhost:55871/mcp)\n2. The server is running and accessible\n3. Authentication token is correct (if required)"
+        },
+        "elicitation-sep1034-client-defaults": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 200, "sessionIdIssued": true}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "GET", "path": "/mcp"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized", "statusCode": 202}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list", "statusCode": 200, "sessionIdIssued": true}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "DELETE", "path": "/mcp"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "GET", "path": "/mcp", "statusCode": 200, "sessionIdIssued": true}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "DELETE", "path": "/mcp", "statusCode": 200}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 200, "sessionIdIssued": true}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized", "statusCode": 202}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "GET", "path": "/mcp"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list", "statusCode": 200, "sessionIdIssued": true}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/call"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp"}},
+            {"id": "client-elicitation-sep1034-general", "status": "FAILURE", "description": "Client handles elicitation with defaults", "errorMessage": "Elicitation failed: MCP error -32600: Elicitation not supported"},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "statusCode": 202}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/call", "statusCode": 200, "sessionIdIssued": true}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "DELETE", "path": "/mcp"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "GET", "path": "/mcp", "statusCode": 200, "sessionIdIssued": true}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "DELETE", "path": "/mcp", "statusCode": 200}},
+            {"id": "client-elicitation-sep1034-string-default", "status": "FAILURE", "description": "Server applies default default for elicitation", "details": {"message": "Tool was not called by client"}},
+            {"id": "client-elicitation-sep1034-integer-default", "status": "FAILURE", "description": "Server applies default default for elicitation", "details": {"message": "Tool was not called by client"}},
+            {"id": "client-elicitation-sep1034-number-default", "status": "FAILURE", "description": "Server applies default default for elicitation", "details": {"message": "Tool was not called by client"}},
+            {"id": "client-elicitation-sep1034-enum-default", "status": "FAILURE", "description": "Server applies default default for elicitation", "details": {"message": "Tool was not called by client"}},
+            {"id": "client-elicitation-sep1034-boolean-default", "status": "FAILURE", "description": "Server applies default default for elicitation", "details": {"message": "Tool was not called by client"}}
+          ],
+          "client": {
+            "renderer": "haystack",
+            "versions": {
+              "framework": "3.2.0",
+              "adapter": "1.5.2"
+            },
+            "auth_hook": null,
+            "tools": [
+              "test_client_elicitation_defaults"
+            ],
+            "called": {
+              "tool": "test_client_elicitation_defaults",
+              "arguments": {},
+              "result": {
+                "tool": "test_client_elicitation_defaults",
+                "blocks": [
+                  {
+                    "type": "text",
+                    "text": "{\"_meta\":null,\"content\":[{\"type\":\"text\",\"text\":\"Elicitation error: MCP error -32600: Elicitation not supported\",\"annotations\":null,\"_meta\":null}],\"structuredContent\":null,\"isError\":false,\"resultType\":\"complete\"}"
+                  }
+                ],
+                "block_kinds": [
+                  "text"
+                ],
+                "structured_content": null,
+                "is_error": null,
+                "text": "{\"_meta\":null,\"content\":[{\"type\":\"text\",\"text\":\"Elicitation error: MCP error -32600: Elicitation not supported\",\"annotations\":null,\"_meta\":null}],\"structuredContent\":null,\"isError\":false,\"resultType\":\"complete\"}",
+                "origin": "haystack",
+                "raw": "{\"role\": \"tool\", \"meta\": {}, \"name\": null, \"content\": [{\"tool_call_result\": {\"result\": \"{\\\"_meta\\\":null,\\\"content\\\":[{\\\"type\\\":\\\"text\\\",\\\"text\\\":\\\"Elicitation error: MCP error -32600: Elicitation not supported\\\",\\\"annotations\\\":null,\\\"_meta\\\":null}],\\\"structuredContent\\\":null,\\\"isError\\\":false,\\\"resultType\\\":\\\"complete\\\"}\", \"origin\": {\"tool_name\": \"test_client_elicitation_defaults\", \"arguments\": {}, \"id\": null, \"extra\": null}, \"error\": false}}]}",
+                "error_channel": null
+              }
+            }
+          },
+          "client_stderr_tail": null
+        },
+        "initialize": {
+          "checks": [
+            {"id": "mcp-client-initialization", "status": "SUCCESS", "description": "Validates that MCP client properly initializes with server", "details": {"protocolVersionSent": "2025-11-25", "expectedSpecVersion": "2025-11-25", "versionMatch": true, "clientName": "mcp", "clientVersion": "0.1.0"}},
+            {"id": "server-info", "status": "INFO", "details": {}}
+          ],
+          "client": {
+            "renderer": "haystack",
+            "versions": {
+              "framework": "3.2.0",
+              "adapter": "1.5.2"
+            },
+            "auth_hook": null,
+            "tools": []
+          },
+          "client_stderr_tail": null
+        },
+        "sse-retry": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "GET", "sessionIdIssued": true}},
+            {"id": "outgoing-sse-event", "status": "INFO", "details": {}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "GET", "sessionIdIssued": true}},
+            {"id": "outgoing-sse-event", "status": "INFO", "details": {}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST"}},
+            {"id": "outgoing-sse-event", "status": "INFO", "details": {}},
+            {"id": "outgoing-stream-close", "status": "INFO", "details": {}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "GET", "sessionIdIssued": true}},
+            {"id": "outgoing-sse-event", "status": "INFO", "details": {}},
+            {"id": "outgoing-sse-event", "status": "INFO", "details": {}},
+            {"id": "client-sse-graceful-reconnect", "status": "SUCCESS", "description": "Client reconnects via GET after SSE stream is closed gracefully", "details": {"getConnectionCount": 3}},
+            {"id": "client-sse-retry-timing", "status": "SUCCESS", "description": "Client MUST respect the retry field, waiting the given number of milliseconds before attempting to reconnect", "details": {"expectedRetryMs": 500, "actualDelayMs": 502, "minAcceptableMs": 450, "maxAcceptableMs": 700, "veryLateThresholdMs": 1000, "earlyToleranceMs": 50, "lateToleranceMs": 200, "withinTolerance": true, "tooEarly": false, "slightlyLate": false, "veryLate": false, "getConnectionCount": 3}},
+            {"id": "client-sse-last-event-id", "status": "SUCCESS", "description": "Client SHOULD send Last-Event-ID header on reconnection for resumability", "details": {"hasLastEventId": true, "lastEventIds": ["event-3"], "getConnectionCount": 3}}
+          ],
+          "client": {
+            "renderer": "haystack",
+            "versions": {
+              "framework": "3.2.0",
+              "adapter": "1.5.2"
+            },
+            "auth_hook": null,
+            "tools": [
+              "test_reconnection"
+            ],
+            "called": {
+              "tool": "test_reconnection",
+              "arguments": {},
+              "result": {
+                "tool": "test_reconnection",
+                "blocks": [
+                  {
+                    "type": "text",
+                    "text": "{\"_meta\":null,\"content\":[{\"type\":\"text\",\"text\":\"Reconnection test completed successfully\",\"annotations\":null,\"_meta\":null}],\"structuredContent\":null,\"isError\":false,\"resultType\":\"complete\"}"
+                  }
+                ],
+                "block_kinds": [
+                  "text"
+                ],
+                "structured_content": null,
+                "is_error": null,
+                "text": "{\"_meta\":null,\"content\":[{\"type\":\"text\",\"text\":\"Reconnection test completed successfully\",\"annotations\":null,\"_meta\":null}],\"structuredContent\":null,\"isError\":false,\"resultType\":\"complete\"}",
+                "origin": "haystack",
+                "raw": "{\"role\": \"tool\", \"meta\": {}, \"name\": null, \"content\": [{\"tool_call_result\": {\"result\": \"{\\\"_meta\\\":null,\\\"content\\\":[{\\\"type\\\":\\\"text\\\",\\\"text\\\":\\\"Reconnection test completed successfully\\\",\\\"annotations\\\":null,\\\"_meta\\\":null}],\\\"structuredContent\\\":null,\\\"isError\\\":false,\\\"resultType\\\":\\\"complete\\\"}\", \"origin\": {\"tool_name\": \"test_reconnection\", \"arguments\": {}, \"id\": null, \"extra\": null}, \"error\": false}}]}",
+                "error_channel": null
+              }
+            }
+          },
+          "client_stderr_tail": null
+        },
+        "tools_call": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 200}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized", "statusCode": 202}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list", "statusCode": 200}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 200}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized", "statusCode": 202}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list", "statusCode": 200}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/call"}},
+            {"id": "tool-add-numbers", "status": "SUCCESS", "description": "Validates that the add_numbers tool works correctly", "details": {"a": 1, "b": 1, "result": 2}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/call", "statusCode": 200}}
+          ],
+          "client": {
+            "renderer": "haystack",
+            "versions": {
+              "framework": "3.2.0",
+              "adapter": "1.5.2"
+            },
+            "auth_hook": null,
+            "tools": [
+              "add_numbers"
+            ],
+            "called": {
+              "tool": "add_numbers",
+              "arguments": {
+                "a": 1,
+                "b": 1
+              },
+              "result": {
+                "tool": "add_numbers",
+                "blocks": [
+                  {
+                    "type": "text",
+                    "text": "{\"_meta\":null,\"content\":[{\"type\":\"text\",\"text\":\"The sum of 1 and 1 is 2\",\"annotations\":null,\"_meta\":null}],\"structuredContent\":null,\"isError\":false,\"resultType\":\"complete\"}"
+                  }
+                ],
+                "block_kinds": [
+                  "text"
+                ],
+                "structured_content": null,
+                "is_error": null,
+                "text": "{\"_meta\":null,\"content\":[{\"type\":\"text\",\"text\":\"The sum of 1 and 1 is 2\",\"annotations\":null,\"_meta\":null}],\"structuredContent\":null,\"isError\":false,\"resultType\":\"complete\"}",
+                "origin": "haystack",
+                "raw": "{\"role\": \"tool\", \"meta\": {}, \"name\": null, \"content\": [{\"tool_call_result\": {\"result\": \"{\\\"_meta\\\":null,\\\"content\\\":[{\\\"type\\\":\\\"text\\\",\\\"text\\\":\\\"The sum of 1 and 1 is 2\\\",\\\"annotations\\\":null,\\\"_meta\\\":null}],\\\"structuredContent\\\":null,\\\"isError\\\":false,\\\"resultType\\\":\\\"complete\\\"}\", \"origin\": {\"tool_name\": \"add_numbers\", \"arguments\": {\"a\": 1, \"b\": 1}, \"id\": null, \"extra\": null}, \"error\": false}}]}",
+                "error_channel": null
+              }
+            }
+          },
+          "client_stderr_tail": null
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "tasks-experimental",
+  "title": "Experimental tasks",
+  "description": "The in-core experimental mechanism for long-running work, using a blocking `tasks/result` call and a `tasks/list` enumeration.",
+  "question": "Does this framework drive a task to completion?",
+  "spec": "https://modelcontextprotocol.io/specification/2025-11-25",
+  "status": "draft",
+  "categories": [
+    "Server utilities"
+  ],
+  "keywords": "tasks,long running,tasks/result,tasks/list,experimental",
+  "why": "This is the shape long-running work took before 2026-07-28 moved it into an extension and replaced blocking retrieval with polling.",
+  "docs_url": "https://modelcontextprotocol.io/specification/2025-11-25/server/utilities/tasks",
+  "docs_label": "MCP Docs",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/server/utilities/tasks",
+      "title": "MCP Docs"
+    }
+  ],
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "known_issues": [],
+  "notes": {
+    "crewai": "CrewAI 1.15.26: the client declares no `tasks` capability and calls a tool marked `taskSupport: optional` without asking for a task, so it never reaches `tasks/result`.",
+    "genkit_js": "Genkit (JS) 1.42.0: the SDK `Client` is built with only the `roots` capability, so no `tasks` capability is declared, and `task_capable` was called as a plain `tools/call` without task augmentation.",
+    "langchain": "LangChain MCP Adapters 0.3.2: the client declares no `tasks` capability and calls a tool marked `taskSupport: optional` without asking for a task, so it never reaches `tasks/result`.",
+    "mastra": "Mastra 2.2.0: the client declares no `tasks` capability and calls a tool marked `taskSupport: optional` without asking for a task, so it never reaches `tasks/result`.",
+    "openai-agents": "OpenAI Agents SDK 0.23.1: the client declares no `tasks` capability and calls a tool marked `taskSupport: optional` without asking for a task, so it never reaches `tasks/result`.",
+    "pydantic-ai": "Pydantic AI 2.54.0: the client declares no `tasks` capability and calls a tool marked `taskSupport: optional` without asking for a task, so it never reaches `tasks/result`.",
+    "google_adk": "Google ADK 2.11.0: the client declares no `tasks` capability and calls a tool marked `taskSupport: optional` without asking for a task, so it never reaches `tasks/result`.",
+    "ms_agent_framework": "Microsoft Agent Framework 1.21.0: the client declares no `tasks` capability and calls a tool marked `taskSupport: optional` without asking for a task. `call_tool_as_task` exists, but the adapter uses it only for tools marked `taskSupport: required`.",
+    "autogen": "AutoGen 0.7.5: The workbench declares no tasks capability and calls tools without task augmentation.",
+    "strands": "Strands Agents 1.59.0: Task-augmented calls are opt-in through `MCPClient(tasks_config=...)`. With the defaults an agent gets, the client declares no tasks capability and calls a task-capable tool synchronously.",
+    "vercel_ai": "Vercel AI SDK (@ai-sdk/mcp 2.0.73): the client declares no `tasks` capability and calls `task_capable` without task augmentation. The fixture answers synchronously.",
+    "openai_agents_js": "OpenAI Agents SDK (JS) 0.20.0: the client declares no tasks capability and calls a task-capable tool with a plain `tools/call`. A tool that requires tasks is refused by the SDK with a pointer to the raw client's `experimental.tasks` API, which the SDK does not expose.",
+    "semantic_kernel": "Semantic Kernel 1.45.0: the session declares no tasks capability and `call_tool` sends no task augmentation.",
+    "llamaindex": "LlamaIndex (llama-index-tools-mcp 0.6.0): the client declares no `tasks` capability and calls a tool marked `taskSupport: optional` without asking for a task, so it never reaches `tasks/result`.",
+    "pi": "Pi (@earendil-works/pi-mcp 1.1.0): the client declares no `tasks` capability and calls a tool marked `taskSupport: optional` with a plain `tools/call`, so it never reaches `tasks/result`.",
+    "google_adk_js": "Google ADK (TypeScript) 2.2.1: `MCPSessionManager.createSession` builds `new Client({name: 'MCPClient', version: '1.0.0'})` with no capabilities and no request handlers, and `MCPToolset` takes no client hooks: no `tasks` capability is declared, and the `taskSupport: optional` tool is called without task augmentation.",
+    "agno": "Agno 3.1.2: the fastmcp `Client` `MCPTools` builds declares no tasks capability and calls task-capable tools synchronously, without task augmentation.",
+    "haystack": "Haystack (mcp-haystack 1.5.2): the `ClientSession` `MCPClient` builds declares no `tasks` capability and calls a task-capable tool synchronously, without task augmentation.",
+    "smolagents": "smolagents 1.26.0 (mcpadapt 0.1.20): the client declares no `tasks` capability and calls a tool marked `taskSupport: optional` without asking for a task, so it never reaches `tasks/result`.",
+    "dspy": "DSPy 3.4.0: the caller's client declares no tasks capability, and the `Tool` calls `task_capable` synchronously with no task augmentation.",
+    "langchain_js": "LangChain.js (@langchain/mcp-adapters 2.0.1): the client declares no tasks capability, and the adapter calls the task-capable tool without task augmentation.",
+    "spring_ai": "Spring AI 2.0.1: `SyncMcpToolCallbackProvider` sends a plain `tools/call` with no `task` field, and the fixture reports `task_requested=False`.",
+    "beeai": "BeeAI Framework 0.1.85: the client declares no tasks capability and `MCPTool.run` sends no task augmentation.",
+    "copilot_sdk": "GitHub Copilot SDK 1.0.19 (Copilot runtime 1.0.95): no tasks capability is declared, so `task_capable` was called without task augmentation (`task_requested=False`).",
+    "crewai-native": "CrewAI 1.15.26, native `crewai.mcp` client (`Agent(mcps=[...])`, not the `crewai_tools.MCPServerAdapter` row): the client declares no `tasks` capability and `MCPClient.call_tool` has no task augmentation, so a task-capable tool is called synchronously.",
+    "google_adk_java": "Google ADK (Java) 1.11.0: The client declares no `tasks` capability and calls a `taskSupport: optional` tool as a plain `tools/call`.",
+    "langchain4j": "LangChain4j 1.22.0-beta32: `DefaultMcpClient` declares no `tasks` capability and calls a task-capable tool without task augmentation.",
+    "koog": "Koog 1.3.0-beta: the Kotlin SDK client declares no `tasks` capability, and `McpTool.execute` calls a `taskSupport: optional` tool as a plain `tools/call`.",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): the client declares no `tasks` capability, and `mcpTool.Run` sends `tools/call` with no `task` augmentation.",
+    "ms_agent_framework_dotnet": "Microsoft Agent Framework (.NET) 1.24.0 (ModelContextProtocol 2.2.0): the client declares no `tasks` capability and calls a `taskSupport: optional` tool as a plain `tools/call`."
+  }
+}

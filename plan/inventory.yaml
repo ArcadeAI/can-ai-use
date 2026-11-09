@@ -1,0 +1,1075 @@
+# Every framework and harness considered for coverage, with the facts that decide its
+# tier. Verified 2026-09-29 against official docs, registries, and source. Facts only;
+# "unknown" means the sources were silent. scripts/measure_harness.py reads a harness's
+# row from here.
+#
+# Tiers
+#   1  measure now: first-party MCP client, runs headless, in demand
+#   2  measure after tier 1: first-party client, headless, long tail
+#   3  excluded, with the reason; revisit when the reason changes
+#
+# reach: which protocol revisions the adapter can negotiate, from its SDK pin.
+#   sdk1 = MCP SDK 1.x only -> 2025-11-25 only.  sdk2 = 2.x or both -> both snapshots.
+#   own  = hand-rolled JSON-RPC; reach must be measured, not inferred.
+
+frameworks:
+  # ---- already measured (5) ----
+  - id: crewai
+    name: CrewAI
+    org: crewAIInc
+    lang: python
+    package: crewai-tools[mcp]
+    adapter: crewai_tools.MCPServerAdapter (legacy, via mcpadapt)
+    reach: sdk1
+    tier: 1
+    status: measured
+    note: >-
+      crewai 1.15.23 also ships a native client, crewai.mcp.MCPClient with
+      MCPServerStdio/MCPServerHTTP/MCPServerSSE and Agent(mcps=[...]). Pins mcp~=1.28.1.
+      Exposes prompts (list_prompts, get_prompt), not resources. Task F-crewai-native adds
+      it as a second adapter row: the legacy row stays because it is what most tutorials use.
+  - id: langchain
+    name: LangChain
+    org: langchain-ai
+    lang: python
+    package: langchain-mcp-adapters
+    adapter: MultiServerMCPClient / load_mcp_tools
+    reach: sdk1
+    tier: 1
+    status: measured
+  - id: openai_agents
+    name: OpenAI Agents SDK
+    org: openai
+    lang: python
+    package: openai-agents
+    adapter: agents.mcp.MCPServerStdio / MCPServerStreamableHttp
+    reach: sdk2
+    tier: 1
+    status: measured
+  - id: pydantic_ai
+    name: Pydantic AI
+    org: pydantic
+    lang: python
+    package: pydantic-ai-slim[mcp]
+    adapter: pydantic_ai.mcp.MCPToolset (wraps fastmcp Client)
+    reach: sdk2
+    tier: 1
+    status: measured
+    hooks: [sampling, elicitation, roots]
+  - id: mastra
+    name: Mastra
+    org: mastra-ai
+    lang: typescript
+    package: "@mastra/mcp"
+    adapter: MCPClient
+    reach: sdk2
+    tier: 1
+    status: measured
+    hooks: [elicitation]
+
+  # ---- tier 1: measure now ----
+  - id: vercel_ai
+    name: Vercel AI SDK
+    org: vercel
+    lang: typescript
+    package: "@ai-sdk/mcp"
+    adapter: createMCPClient (stdio via @ai-sdk/mcp/mcp-stdio)
+    version: 2.0.62 (2026-09-28)
+    reach: own
+    tier: 1
+    surfaces: [resources, prompts]
+    hooks: [elicitation]
+    source: https://github.com/vercel/ai/tree/main/packages/mcp/src
+  - id: google_adk
+    name: Google ADK
+    org: google
+    lang: python
+    package: google-adk[mcp]
+    adapter: google.adk.tools.mcp_tool.McpToolset
+    version: 2.10.0 (2026-09-25)
+    reach: sdk2
+    tier: 1
+    surfaces: [resources]
+    hooks: [sampling, elicitation]
+    source: https://github.com/google/adk-python/blob/main/src/google/adk/tools/mcp_tool/mcp_toolset.py
+  - id: ms_agent_framework
+    name: Microsoft Agent Framework
+    org: microsoft
+    lang: python
+    package: agent-framework-core[all]
+    adapter: agent_framework.MCPStdioTool / MCPStreamableHTTPTool
+    version: 1.19.0 (2026-09-18)
+    reach: sdk1
+    tier: 1
+    surfaces: [prompts]
+    hooks: [sampling]
+    source: https://github.com/microsoft/agent-framework/blob/main/python/packages/core/agent_framework/_mcp.py
+  - id: semantic_kernel
+    name: Semantic Kernel
+    org: microsoft
+    lang: python
+    package: semantic-kernel
+    adapter: semantic_kernel.connectors.mcp.MCPStdioPlugin / MCPStreamableHttpPlugin
+    version: 1.44.1 (2026-08-06)
+    reach: sdk1
+    tier: 1
+    surfaces: [prompts]
+    hooks: [sampling]
+    source: https://github.com/microsoft/semantic-kernel/blob/main/python/semantic_kernel/connectors/mcp.py
+  - id: autogen
+    name: AutoGen
+    org: microsoft
+    lang: python
+    package: autogen-ext[mcp]
+    adapter: autogen_ext.tools.mcp.McpWorkbench / mcp_server_tools
+    version: 0.7.5 (2025-09-30, no release in 12 months)
+    reach: sdk2
+    tier: 1
+    surfaces: [resources, prompts]
+    hooks: [sampling, elicitation, roots]
+    source: https://github.com/microsoft/autogen/tree/main/python/packages/autogen-ext/src/autogen_ext/tools/mcp
+  - id: llamaindex
+    name: LlamaIndex
+    org: run-llama
+    lang: python
+    package: llama-index-tools-mcp
+    adapter: McpToolSpec / BasicMCPClient
+    version: 0.6.0 (2026-08-31)
+    reach: sdk2
+    tier: 1
+    surfaces: [resources, prompts]
+    hooks: [sampling]
+    source: https://github.com/run-llama/llama_index/tree/main/llama-index-integrations/tools/llama-index-tools-mcp
+  - id: strands
+    name: AWS Strands Agents
+    org: strands-agents
+    lang: python
+    package: strands-agents
+    adapter: strands.tools.mcp.MCPClient
+    version: 1.57.1 (2026-09-25)
+    reach: sdk2
+    tier: 1
+    surfaces: [resources, prompts]
+    hooks: [elicitation]
+    source: https://github.com/strands-agents/harness-sdk/blob/main/strands-py/src/strands/tools/mcp/mcp_client.py
+  - id: langgraph
+    name: LangGraph
+    org: langchain-ai
+    lang: python
+    package: langchain-mcp-adapters
+    adapter: same package as LangChain; the row exists because people search for it
+    reach: sdk1
+    tier: 1
+    note: >-
+      No adapter of its own. Publish as an alias row that reuses the langchain artifacts
+      with its own notes, so the site answers the question without a second measurement.
+  - id: openai_agents_js
+    name: OpenAI Agents SDK (JS)
+    org: openai
+    lang: typescript
+    package: "@openai/agents"
+    adapter: MCPServerStdio / MCPServerStreamableHttp (agents-core src/mcp.ts)
+    version: 0.18.0 (2026-09-10)
+    reach: sdk2
+    tier: 1
+    surfaces: [resources]
+    source: https://github.com/openai/openai-agents-js/blob/main/packages/agents-core/src/mcp.ts
+  - id: langchain_js
+    name: LangChain.js
+    org: langchain-ai
+    lang: typescript
+    package: "@langchain/mcp-adapters"
+    adapter: MultiServerMCPClient
+    version: 1.1.4 (2026-08-20; main is mid-migration to SDK 2.x)
+    reach: sdk1
+    tier: 1
+    surfaces: [resources]
+    source: https://github.com/langchain-ai/langchainjs/blob/main/libs/langchain-mcp-adapters/package.json
+  - id: google_adk_js
+    name: Google ADK (TypeScript)
+    org: google
+    lang: typescript
+    package: "@google/adk"
+    adapter: "@google/adk/tools/mcp MCPToolset"
+    version: 2.1.0 (2026-09-15)
+    reach: sdk1
+    tier: 1
+    surfaces: [resources]
+    source: https://github.com/google/adk-js/blob/main/core/src/tools/mcp/mcp_toolset.ts
+  - id: spring_ai
+    name: Spring AI
+    org: spring-projects
+    lang: java
+    package: org.springframework.ai:spring-ai-starter-mcp-client
+    adapter: SyncMcpToolCallbackProvider over McpSyncClient
+    version: 2.0.1 (2026-08-21)
+    reach: sdk2
+    tier: 1
+    surfaces: [resources, prompts]
+    hooks: [sampling, elicitation, roots]
+    note: needs a Spring Boot context; the worker is a small Boot app driven from the command line.
+    source: https://docs.spring.io/spring-ai/reference/api/mcp/mcp-client-boot-starter-docs.html
+  - id: agno
+    name: Agno
+    org: agno-agi
+    lang: python
+    package: agno[mcp]
+    adapter: agno.tools.mcp.MCPTools (over fastmcp Client)
+    version: 3.0.11 (2026-09-23)
+    reach: sdk2
+    tier: 1
+    source: https://github.com/agno-agi/agno/blob/main/libs/agno/agno/tools/mcp/mcp.py
+  - id: pi
+    name: Pi
+    org: earendil-works
+    lang: typescript
+    package: "@earendil-works/pi-mcp"
+    adapter: McpClient (own JSON-RPC)
+    version: 0.99.1 (2026-09-29, first MCP release)
+    reach: own
+    tier: 1
+    surfaces: [resources]
+    hooks: [roots]
+    note: also a harness; the framework row measures the client library, the harness row the CLI.
+    source: https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/mcp.md
+
+  # ---- tier 2: long tail, first-party and headless ----
+  - id: "smolagents"
+    name: "smolagents"
+    org: "huggingface"
+    lang: "python"
+    package: "smolagents[mcp]"
+    adapter: "MCPClient (wrapper over third-party mcpadapt)"
+    reach: "own"
+    tier: 2
+    note: "first-party wrapper over an individually maintained client; publish with that caveat in the notes."
+  - id: "haystack"
+    name: "Haystack"
+    org: "deepset"
+    lang: "python"
+    package: "mcp-haystack"
+    adapter: "MCPToolset / MCPTool"
+    version: "1.5.1 (2026-09-01)"
+    reach: "sdk2"
+    tier: 2
+  - id: "dspy"
+    name: "DSPy"
+    org: "stanfordnlp"
+    lang: "python"
+    package: "dspy[mcp]"
+    adapter: "dspy.Tool.from_mcp_tool (per-tool converter over a caller-supplied session)"
+    version: "3.4.0 (2026-09-25)"
+    reach: "sdk2"
+    tier: 2
+    note: "capture stage is the tool conversion; the session is ours."
+  - id: "camel"
+    name: "CAMEL"
+    org: "camel-ai"
+    lang: "python"
+    package: "camel-ai"
+    adapter: "camel.toolkits.MCPToolkit"
+    version: "0.2.90 (2026-03-22)"
+    reach: "sdk1"
+    tier: 3
+    reason: "On request. First-party adapter, runs headless, low demand today; promote by moving it back to tier 2."
+  - id: "mirascope"
+    name: "Mirascope"
+    org: "Mirascope"
+    lang: "python"
+    package: "mirascope[mcp]"
+    adapter: "mirascope.llm.mcp.MCPClient"
+    version: "2.5.0 (2026-06-24)"
+    reach: "sdk1"
+    tier: 3
+    reason: "On request. First-party adapter, runs headless, low demand today; promote by moving it back to tier 2."
+  - id: "atomic_agents"
+    name: "Atomic Agents"
+    org: "Eigenwise"
+    lang: "python"
+    package: "atomic-agents"
+    adapter: "MCPFactory / fetch_mcp_tools"
+    version: "2.10.3 (2026-09-27)"
+    reach: "sdk2"
+    tier: 3
+    reason: "On request. First-party adapter, runs headless, low demand today; promote by moving it back to tier 2."
+    surfaces: [resources, prompts]
+  - id: "griptape"
+    name: "Griptape"
+    org: "griptape-ai"
+    lang: "python"
+    package: "griptape"
+    adapter: "griptape.tools.MCPTool (installs mcp at runtime)"
+    version: "1.13.0 (2026-08-26)"
+    reach: "sdk1"
+    tier: 3
+    reason: "On request. First-party adapter, runs headless, low demand today; promote by moving it back to tier 2."
+  - id: "beeai"
+    name: "BeeAI Framework"
+    org: "i-am-bee (IBM)"
+    lang: "python"
+    package: "beeai-framework"
+    adapter: "beeai_framework.tools.mcp.MCPTool"
+    version: "0.1.85"
+    reach: "sdk1"
+    tier: 2
+  - id: "ag2"
+    name: "AG2"
+    org: "ag2ai"
+    lang: "python"
+    package: "ag2"
+    adapter: "MCPToolkit"
+    version: "1.1.0"
+    reach: "sdk2"
+    tier: 3
+    reason: "On request. First-party adapter, runs headless, low demand today; promote by moving it back to tier 2."
+  - id: "any_agent"
+    name: "Any-Agent"
+    org: "mozilla-ai"
+    lang: "python"
+    package: "any-agent"
+    adapter: "MCPClient"
+    version: "1.18.0"
+    reach: "sdk2"
+    tier: 3
+    reason: "On request. First-party adapter, runs headless, low demand today; promote by moving it back to tier 2."
+  - id: "nemo_agent_toolkit"
+    name: "NVIDIA NeMo Agent Toolkit"
+    org: "NVIDIA"
+    lang: "python"
+    package: "nvidia-nat-mcp"
+    adapter: "MCPStdioClient / MCPStreamableHTTPClient"
+    version: "1.9.0"
+    reach: "sdk1"
+    tier: 3
+    reason: "On request. First-party adapter, runs headless, low demand today; promote by moving it back to tier 2."
+  - id: "agentscope"
+    name: "AgentScope"
+    org: "agentscope-ai (Alibaba)"
+    lang: "python"
+    package: "agentscope"
+    adapter: "agentscope.mcp.MCPClient"
+    version: "2.0.9"
+    reach: "sdk1"
+    tier: 3
+    reason: "On request. First-party adapter, runs headless, low demand today; promote by moving it back to tier 2."
+  - id: "livekit_agents"
+    name: "LiveKit Agents"
+    org: "livekit"
+    lang: "python"
+    package: "livekit-agents[mcp]"
+    adapter: "MCPServerStdio / MCPServerHTTP / MCPToolset"
+    version: "1.8.3"
+    reach: "sdk1"
+    tier: 3
+    reason: "On request. First-party adapter, runs headless, low demand today; promote by moving it back to tier 2."
+  - id: "pipecat"
+    name: "Pipecat"
+    org: "pipecat-ai"
+    lang: "python"
+    package: "pipecat-ai[mcp]"
+    adapter: "MCPClient"
+    version: "1.12.0"
+    reach: "sdk2"
+    tier: 3
+    reason: "On request. First-party adapter, runs headless, low demand today; promote by moving it back to tier 2."
+  - id: "fast_agent"
+    name: "fast-agent"
+    org: "evalstate"
+    lang: "python"
+    package: "fast-agent-mcp"
+    adapter: "MCP-native agent framework"
+    version: "0.10.40"
+    reach: "sdk2"
+    tier: 3
+    reason: "On request. First-party adapter, runs headless, low demand today; promote by moving it back to tier 2."
+  - id: "mcp_agent"
+    name: "mcp-agent"
+    org: "lastmile-ai"
+    lang: "python"
+    package: "mcp-agent"
+    adapter: "MCP-native agent framework"
+    version: "0.2.6"
+    reach: "sdk2"
+    tier: 3
+    reason: "On request. First-party adapter, runs headless, low demand today; promote by moving it back to tier 2."
+  - id: "langroid"
+    name: "Langroid"
+    org: "langroid"
+    lang: "python"
+    package: "langroid"
+    adapter: "FastMCPClient"
+    version: "0.68.1"
+    reach: "sdk2"
+    tier: 3
+    reason: "On request. First-party adapter, runs headless, low demand today; promote by moving it back to tier 2."
+  - id: "marvin"
+    name: "Marvin"
+    org: "PrefectHQ"
+    lang: "python"
+    package: "marvin"
+    adapter: "MCPManager (via fastmcp)"
+    version: "3.2.7"
+    reach: "sdk2"
+    tier: 3
+    reason: "On request. First-party adapter, runs headless, low demand today; promote by moving it back to tier 2."
+  - id: "upsonic"
+    name: "Upsonic"
+    org: "Upsonic"
+    lang: "python"
+    package: "upsonic"
+    adapter: "upsonic.tools.mcp.MCPTool"
+    version: "0.77.3"
+    reach: "sdk2"
+    tier: 3
+    reason: "On request. First-party adapter, runs headless, low demand today; promote by moving it back to tier 2."
+  - id: "swarms"
+    name: "Swarms"
+    org: "kyegomez"
+    lang: "python"
+    package: "swarms"
+    adapter: "MCPManager"
+    version: "15.0.3"
+    reach: "sdk2"
+    tier: 3
+    reason: "On request. First-party adapter, runs headless, low demand today; promote by moving it back to tier 2."
+  - id: "parlant"
+    name: "Parlant"
+    org: "emcie-co"
+    lang: "python"
+    package: "parlant"
+    adapter: "MCPToolClient"
+    version: "3.3.2"
+    reach: "sdk2"
+    tier: 3
+    reason: "On request. First-party adapter, runs headless, low demand today; promote by moving it back to tier 2."
+  - id: "tiny_agents"
+    name: "Hugging Face Tiny Agents"
+    org: "huggingface"
+    lang: "python"
+    package: "huggingface_hub[mcp]"
+    adapter: "huggingface_hub.inference._mcp.MCPClient"
+    version: "2.0.0"
+    reach: "sdk1"
+    tier: 3
+    reason: "On request. First-party adapter, runs headless, low demand today; promote by moving it back to tier 2."
+  - id: "dapr_agents"
+    name: "Dapr Agents"
+    org: "dapr"
+    lang: "python"
+    package: "dapr-agents"
+    adapter: "MCPClient"
+    version: "1.0.6"
+    reach: "sdk1"
+    tier: 3
+    reason: "On request. First-party adapter, runs headless, low demand today; promote by moving it back to tier 2."
+  - id: "praisonai"
+    name: "PraisonAI Agents"
+    org: "MervinPraison"
+    lang: "python"
+    package: "praisonaiagents"
+    adapter: "praisonaiagents.mcp.MCP"
+    version: "1.7.9"
+    reach: "sdk2"
+    tier: 3
+    reason: "On request. First-party adapter, runs headless, low demand today; promote by moving it back to tier 2."
+  - id: "agent_squad"
+    name: "Agent Squad"
+    org: "awslabs"
+    lang: "python"
+    package: "agent-squad[mcp]"
+    adapter: "MCPToolProvider"
+    version: "1.1.4"
+    reach: "sdk2"
+    tier: 3
+    reason: "On request. First-party adapter, runs headless, low demand today; promote by moving it back to tier 2."
+  - id: "google_genai"
+    name: "Google GenAI SDK"
+    org: "googleapis"
+    lang: "python"
+    package: "google-genai"
+    adapter: "accepts an mcp ClientSession directly as a tool"
+    version: "2.25.0"
+    reach: "sdk2"
+    tier: 3
+    reason: "On request. First-party adapter, runs headless, low demand today; promote by moving it back to tier 2."
+  - id: "kagent"
+    name: "kagent ADK"
+    org: "kagent-dev"
+    lang: "python"
+    package: "kagent-adk"
+    adapter: "KAgentMcpToolset (wraps Google ADK)"
+    version: "0.10.2"
+    reach: "sdk2"
+    tier: 3
+    reason: "On request. First-party adapter, runs headless, low demand today; promote by moving it back to tier 2."
+    note: "alias-style row over google_adk unless its wrapper changes the object."
+  - id: "flock"
+    name: "Flock"
+    org: "whiteducksoftware"
+    lang: "python"
+    package: "flock-core"
+    adapter: "FlockMCPClient (mcp==1.23.0 pin)"
+    version: "0.5.610"
+    reach: "sdk1"
+    tier: 3
+    reason: "On request. First-party adapter, runs headless, low demand today; promote by moving it back to tier 2."
+  - id: "agentuniverse"
+    name: "agentUniverse"
+    org: "antgroup"
+    lang: "python"
+    package: "agentuniverse"
+    adapter: "MCPTool (mcp<1.22)"
+    version: "0.0.19.1"
+    reach: "sdk1"
+    tier: 3
+    reason: "On request. First-party adapter, runs headless, low demand today; promote by moving it back to tier 2."
+  - id: "genkit_js"
+    name: "Genkit (JS)"
+    org: "genkit-ai"
+    lang: "typescript"
+    package: "@genkit-ai/mcp"
+    adapter: "createMcpHost / createMcpClient"
+    version: "1.42.0 (2026-09-01)"
+    reach: "sdk1"
+    tier: 2
+    surfaces: [resources, prompts]
+    hooks: [roots]
+  - id: "inngest_agentkit"
+    name: "Inngest AgentKit"
+    org: "inngest"
+    lang: "typescript"
+    package: "@inngest/agent-kit"
+    adapter: "createAgent({mcpServers})"
+    version: "0.13.2 (2025-11-13)"
+    reach: "sdk1"
+    tier: 3
+    reason: "On request. First-party adapter, runs headless, low demand today; promote by moving it back to tier 2."
+  - id: "voltagent"
+    name: "VoltAgent"
+    org: "VoltAgent"
+    lang: "typescript"
+    package: "@voltagent/core"
+    adapter: "MCPConfiguration"
+    version: "2.11.0 (2026-09-28)"
+    reach: "sdk1"
+    tier: 3
+    reason: "On request. First-party adapter, runs headless, low demand today; promote by moving it back to tier 2."
+    hooks: [elicitation]
+  - id: "eliza"
+    name: "Eliza"
+    org: "elizaOS"
+    lang: "typescript"
+    package: "@elizaos/plugin-mcp"
+    adapter: "McpService"
+    version: "1.8.2 (2026-02-04)"
+    reach: "sdk1"
+    tier: 3
+    reason: "On request. First-party adapter, runs headless, low demand today; promote by moving it back to tier 2."
+    surfaces: [resources]
+    note: "headless status unverified."
+  - id: "rivet"
+    name: "Rivet"
+    org: "Ironclad"
+    lang: "typescript"
+    package: "@ironclad/rivet-node"
+    adapter: "NodeMCPProvider (MCPDiscoveryNode et al.)"
+    version: "1.25.0 (2025-06-30, dormant)"
+    reach: "sdk1"
+    tier: 3
+    reason: "On request. First-party adapter, runs headless, low demand today; promote by moving it back to tier 2."
+    surfaces: [prompts]
+  - id: "baml"
+    name: "BAML"
+    org: "BoundaryML"
+    lang: "baml"
+    package: "baml-language"
+    adapter: "ai.mcp.Connection (own newline JSON-RPC, protocol 2025-06-18, stdio only)"
+    version: "0.20.1 (2026-09-20)"
+    reach: "own"
+    tier: 3
+    reason: "On request. First-party adapter, runs headless, low demand today; promote by moving it back to tier 2."
+  - id: "copilot_sdk"
+    name: "GitHub Copilot SDK"
+    org: "github"
+    lang: "typescript"
+    package: "@github/copilot-sdk"
+    adapter: "local/stdio and HTTP server types"
+    version: "1.0.15 (2026-09-28)"
+    reach: "own"
+    tier: 2
+    note: "marked evolving by GitHub."
+  - id: "google_adk_java"
+    name: "Google ADK (Java)"
+    org: "google"
+    lang: "java"
+    package: "com.google.adk:google-adk"
+    adapter: "com.google.adk.tools.mcp.McpToolset"
+    version: "1.10.1 (2026-09-18)"
+    reach: "sdk2"
+    tier: 2
+  - id: "google_adk_go"
+    name: "Google ADK (Go)"
+    org: "google"
+    lang: "go"
+    package: "google.golang.org/adk tool/mcptoolset"
+    adapter: "mcptoolset over modelcontextprotocol/go-sdk"
+    version: "2.4.0 (2026-09-11)"
+    reach: "sdk2"
+    tier: 2
+  - id: "ms_agent_framework_dotnet"
+    name: "Microsoft Agent Framework (.NET)"
+    org: "microsoft"
+    lang: "csharp"
+    package: "Microsoft.Agents.AI + ModelContextProtocol"
+    adapter: "McpClient.CreateAsync -> ListToolsAsync -> AITool"
+    version: "1.23.0 (2026-09-29)"
+    reach: "sdk2"
+    tier: 2
+  - id: "langchain4j"
+    name: "LangChain4j"
+    org: "langchain4j"
+    lang: "java"
+    package: "dev.langchain4j:langchain4j-mcp"
+    adapter: "McpToolProvider (own client)"
+    version: "1.20.2 (2026-09-28)"
+    reach: "own"
+    tier: 2
+  - id: "koog"
+    name: "Koog"
+    org: "JetBrains"
+    lang: "kotlin"
+    package: "ai.koog:agents-mcp"
+    adapter: "McpToolRegistryProvider (kotlin-sdk-client 0.11.1)"
+    version: "1.3.0 (2026-09-24)"
+    reach: "own"
+    tier: 2
+  - id: "genkit_go"
+    name: "Genkit (Go)"
+    org: "firebase"
+    lang: "go"
+    package: "github.com/firebase/genkit/go/plugins/mcp"
+    adapter: "over mark3labs/mcp-go"
+    version: "go/v1.13.1 (2026-09-03)"
+    reach: "own"
+    tier: 3
+    reason: "On request. First-party adapter, runs headless, low demand today; promote by moving it back to tier 2."
+  - id: "eino"
+    name: "Eino"
+    org: "cloudwego"
+    lang: "go"
+    package: "github.com/cloudwego/eino-ext/components/tool/mcp"
+    adapter: "over mark3labs/mcp-go"
+    version: "0.0.9 (2026-08-13)"
+    reach: "own"
+    tier: 3
+    reason: "On request. First-party adapter, runs headless, low demand today; promote by moving it back to tier 2."
+  - id: "rig"
+    name: "rig"
+    org: "0xPlaygrounds"
+    lang: "rust"
+    package: "rig-rmcp"
+    adapter: "over rmcp 2"
+    version: "0.42.0 (2026-08-17)"
+    reach: "own"
+    tier: 3
+    reason: "On request. First-party adapter, runs headless, low demand today; promote by moving it back to tier 2."
+
+  # ---- tier 3: excluded, with the reason ----
+  - id: "llamaindex_ts"
+    name: "LlamaIndex.TS"
+    org: "run-llama"
+    lang: "typescript"
+    package: "@llamaindex/tools"
+    adapter: "mcp() -> MCPClient"
+    version: "0.2.1 (2026-03-09)"
+    reach: "sdk1"
+    tier: 3
+    reason: "Removed 2026-10-07. Every package it runs (@llamaindex/tools, workflow, core, env) is marked deprecated on npm, \"no longer maintained\". Revisit if run-llama ships a maintained TypeScript MCP adapter."
+  - id: "claude_agent_sdk"
+    name: "Claude Agent SDK"
+    org: "anthropics"
+    lang: "python+typescript"
+    tier: 3
+    reason: "The SDK does not connect to MCP servers itself; it serialises the config to the bundled Claude Code CLI, which does. Its behaviour is Claude Code's, so it is measured on the harness page as the headless form of Claude Code. The developer-facing surface exposes no tool definition object to capture."
+  - id: "cloudflare_agents"
+    name: "Cloudflare Agents SDK"
+    org: "cloudflare"
+    lang: "typescript"
+    tier: 3
+    reason: "MCPClientManager lives on a Durable Object and runs only on Workers; no stdio transport. Measurable later through workerd/miniflare with the fixture served over HTTP; a separate task once the recording server exists."
+  - id: "letta"
+    name: "Letta"
+    org: "letta-ai"
+    tier: 3
+    reason: "The MCP client runs server-side inside Letta Code; the Python package has no mcp dependency and exposes tools only through a hosted API."
+  - id: "dify"
+    name: "Dify"
+    org: "langgenius"
+    tier: 3
+    reason: "UI-configured platform; vendored SDK fork; no headless run. A platform, not a framework."
+  - id: "flowise"
+    name: "Flowise"
+    org: "FlowiseAI"
+    tier: 3
+    reason: "No headless run; flows execute through a REST prediction API of a running server. A platform."
+  - id: "n8n"
+    name: "n8n"
+    org: "n8n-io"
+    tier: 3
+    reason: "No stdio; platform product. `n8n execute --id` exists, so measurable later as a platform row if wanted."
+  - id: "langflow"
+    name: "LangFlow"
+    org: "langflow-ai"
+    tier: 3
+    reason: "Partial headless (`lfx run` without the server); MCP registration is UI/DB driven. Revisit."
+  - id: "motia"
+    name: "Motia"
+    org: "MotiaDev"
+    tier: 3
+    reason: "No MCP client or server anywhere in the repository."
+  - id: "semantic_kernel_dotnet"
+    name: "Semantic Kernel (.NET)"
+    org: "microsoft"
+    tier: 3
+    reason: "No first-party package; samples only. Python SK is covered."
+  - id: "phidata"
+    name: "Phidata"
+    org: "agno-agi"
+    tier: 3
+    reason: "Legacy; no MCP adapter. Succeeded by Agno."
+
+harnesses:
+  # A harness is measured on the wire only. Level 1 (startup): what it asks the server
+  # for before any model call. Level 2 (session): what a fixed prompt makes it do, run N
+  # times, needs a model behind it. Both levels use the recording server.
+  #
+  # headless: the exact one-shot invocation. mcp_config: where the server goes.
+  # tier 1 = scriptable end to end. tier 2 = GUI only, needs computer-use. tier 3 = excluded.
+
+  - id: claude_code
+    name: Claude Code
+    vendor: Anthropic
+    tier: 1
+    rank: 1
+    install: npm i -g @anthropic-ai/claude-code
+    registry: npm
+    package: "@anthropic-ai/claude-code"
+    mcp_config: "--mcp-config <file> --strict-mcp-config (also ~/.claude.json, .mcp.json)"
+    headless: 'claude -p "<prompt>" --output-format stream-json --verbose --bare --max-turns 3'
+    unattended: "--allowedTools mcp__<server>__* or --permission-mode bypassPermissions"
+    startup_lists: yes (tools/list, prompts/list, resources/list after connect; waits MCP_TIMEOUT)
+    surfaces: [prompts, resources]
+    annotations: honors _meta anthropic/requiresUserInteraction; readOnly/destructive undocumented
+    protocol: v2 runtime on SDK 2.0, revision 2026-07-28
+  - id: codex
+    name: Codex CLI
+    vendor: OpenAI
+    tier: 1
+    rank: 2
+    install: npm i -g @openai/codex
+    registry: npm
+    package: "@openai/codex"
+    mcp_config: "~/.codex/config.toml [mcp_servers.<name>] or codex mcp add"
+    headless: 'codex exec "<prompt>" --json -o <file> -a never -s workspace-write'
+    unattended: "-a never; default_tools_approval_mode"
+    startup_lists: yes (initial tool catalog, mcp_optional_startup_grace_ms)
+    surfaces: unknown
+    annotations: "writes mode prompts for tools not marked read-only"
+    protocol: rmcp 3.2.0
+  - id: gemini_cli
+    name: Gemini CLI
+    vendor: Google
+    tier: 1
+    rank: 4
+    install: npm i -g @google/gemini-cli
+    registry: npm
+    package: "@google/gemini-cli"
+    mcp_config: "~/.gemini/settings.json mcpServers or gemini mcp add"
+    headless: 'gemini -p "<prompt>" --output-format stream-json --approval-mode yolo'
+    unattended: "--approval-mode yolo (trusted folder), --allowed-mcp-server-names"
+    startup_lists: yes (discovery at start incl. resources/list)
+    surfaces: [prompts, resources]
+    annotations: undocumented
+    protocol: SDK 1.23.0
+  - id: kiro_cli
+    name: Kiro CLI
+    vendor: AWS
+    tier: 1
+    rank: 7
+    install: see kiro.dev/docs/cli
+    mcp_config: ".kiro/settings/mcp.json or kiro-cli mcp add"
+    headless: 'kiro-cli chat --no-interactive "<prompt>" --output-format stream-json --trust-all-tools --require-mcp-startup'
+    unattended: "--trust-all-tools; ask treated as deny in headless"
+    startup_lists: yes (tool specs indexed; exit 3 if MCP startup fails)
+    surfaces: [prompts, resources]
+  - id: openhands
+    name: OpenHands
+    vendor: OpenHands
+    tier: 2
+    later: "Scriptable but low demand; runs after the ranked ten."
+    install: pip install openhands
+    registry: pypi
+    package: "openhands"
+    mcp_config: "~/.openhands/mcp.json or openhands mcp add"
+    headless: 'openhands --headless --json -t "<prompt>"'
+    unattended: "headless forces always-approve"
+    startup_lists: yes
+    surfaces: none documented
+    annotations: skips risk injection when readOnlyHint (source)
+  - id: qwen_code
+    name: Qwen Code
+    vendor: QwenLM
+    tier: 2
+    later: "Scriptable but low demand; runs after the ranked ten."
+    install: npm i -g @qwen-code/qwen-code
+    registry: npm
+    package: "@qwen-code/qwen-code"
+    mcp_config: "~/.qwen/settings.json mcpServers or qwen mcp add"
+    headless: 'qwen -p "<prompt>" --output-format stream-json --approval-mode yolo'
+    startup_lists: "not guaranteed: discovery runs in the background after the UI is ready"
+    surfaces: [prompts, resources]
+    annotations: auto classifier receives readOnlyHint/destructiveHint
+    protocol: "@modelcontextprotocol/client 2.0.0"
+  - id: opencode
+    name: OpenCode
+    vendor: sst
+    tier: 1
+    rank: 5
+    install: npm i -g opencode-ai
+    registry: npm
+    package: "opencode-ai"
+    mcp_config: "opencode.json mcp (write the file; mcp add is interactive)"
+    headless: 'opencode run "<prompt>" --format json --auto'
+    startup_lists: yes (tools fetched at state init, timeout 5000ms)
+    surfaces: on demand (source)
+    protocol: SDK 1.29.0
+    unattended: "--auto"
+  - id: kilo
+    name: Kilo CLI
+    vendor: Kilo-Org
+    tier: 2
+    later: "Scriptable but low demand; runs after the ranked ten."
+    install: npm i -g @kilocode/cli
+    registry: npm
+    package: "@kilocode/cli"
+    mcp_config: "kilo.jsonc mcp or kilo mcp add"
+    headless: 'kilo run --auto "<prompt>" --format json'
+    startup_lists: yes (source)
+    protocol: SDK 1.29.0
+  - id: cursor_agent
+    name: Cursor agent CLI
+    vendor: Anysphere
+    tier: 1
+    rank: 3
+    install: curl https://cursor.com/install -fsS | bash
+    mcp_config: ".cursor/mcp.json (shared with the IDE)"
+    headless: 'agent -p "<prompt>" --output-format stream-json'
+    unattended: "--force --approve-mcps (the API key comes from CURSOR_API_KEY)"
+    startup_lists: unknown
+    surfaces: [prompts, resources]
+  - id: amp
+    name: Amp
+    vendor: Sourcegraph
+    tier: 2
+    later: "Scriptable but low demand; runs after the ranked ten."
+    install: npm i -g @sourcegraph/amp
+    mcp_config: "--mcp-config or amp.mcpServers in settings.json"
+    headless: 'amp -x "<prompt>" --stream-json'
+    unattended: "no approval prompts by default"
+    startup_lists: implied (system/init carries mcp_servers status)
+    surfaces: "none: MCP Apps, resources and prompts explicitly unsupported"
+  - id: pi_cli
+    name: Pi
+    vendor: earendil-works
+    tier: 1
+    rank: 10
+    install: npm i -g @earendil-works/pi-coding-agent
+    registry: npm
+    package: "@earendil-works/pi-coding-agent"
+    mcp_config: ".pi/mcp.json or pi mcp add"
+    headless: 'pi --mode json -p "<prompt>" --no-session'
+    startup_lists: yes (first prompt waits up to 10s for connections)
+    surfaces: [resources]
+    annotations: surfaced to permission extensions (all four hints)
+    protocol: "2025-11-25"
+  - id: continue_cli
+    name: Continue CLI
+    vendor: Continue Dev
+    tier: 1
+    rank: 9
+    install: npm i -g @continuedev/cli
+    registry: npm
+    package: "@continuedev/cli"
+    mcp_config: "config.yaml mcpServers via --config"
+    headless: 'cn -p "<prompt>" --format json --auto'
+    startup_lists: "yes (source: listTools on connect, plus prompts and resources)"
+    surfaces: [prompts, resources]
+    protocol: SDK ^1.25.2
+    unattended: "--auto"
+  - id: goose
+    name: Goose
+    vendor: Agentic AI Foundation
+    tier: 1
+    rank: 6
+    install: brew install goose (or the install script)
+    registry: github
+    package: "aaif-goose/goose"
+    mcp_config: "--with-extension <cmd> / --with-streamable-http-extension <url>"
+    headless: 'goose run -t "<prompt>" --output-format stream-json --no-session --with-extension "<cmd>"'
+    unattended: "GOOSE_MODE=auto is the default"
+    startup_lists: unknown
+    protocol: rmcp 3.4.1
+  - id: cline_cli
+    name: Cline CLI
+    vendor: Cline Bot Inc.
+    tier: 1
+    rank: 8
+    install: "npm install --prefix .mcp-mirror/harnesses/cline_cli cline@3.0.66"
+    registry: npm
+    package: "cline"
+    mcp_config: "<CLINE_DATA_DIR or ~/.cline/data>/settings/cline_mcp_settings.json"
+    headless: 'cline --json "<prompt>"'
+    startup_lists: "tools only"
+    unattended: "--auto-approve true (already the default)"
+    protocol: "2024-11-05"
+    surfaces: [tools]
+  - id: deepseek_harness
+    name: DeepSeek Harness
+    vendor: DeepSeek AI
+    tier: 2
+    later: "Scriptable but low demand; runs after the ranked ten."
+    install: see github.com/deepseek-ai/deepseek-harness (developer preview)
+    mcp_config: "cordis.yml, one @deepseek-ai/dsh-mcp-client entry per server"
+    headless: 'dsh --profile headless "<prompt>" --json'
+    startup_lists: yes (tools appear before the first turn)
+    surfaces: [resources]
+    protocol: "@modelcontextprotocol/client 2.0.0"
+  - id: augment_cli
+    name: Augment CLI
+    vendor: Augment Code
+    tier: 2
+    later: "Scriptable but low demand; runs after the ranked ten."
+    install: npm i -g @augmentcode/auggie
+    mcp_config: "--mcp-config <file>"
+    headless: 'auggie --print "<prompt>" --quiet --output-format json --mcp-config <file>'
+    unattended: "non-interactive use may be contract-gated"
+    startup_lists: implied
+  - id: crush
+    name: Charm Crush
+    vendor: Charmbracelet
+    tier: 2
+    later: "Scriptable but low demand; runs after the ranked ten."
+    install: brew install charmbracelet/tap/crush
+    registry: github
+    package: "charmbracelet/crush"
+    mcp_config: ".crushrc mcp add <name> --type stdio --command <cmd>"
+    headless: 'crush run "<prompt>" --yolo -q'
+    startup_lists: yes (non-interactive runs wait for MCP init)
+    surfaces: "[prompts, resources] (source)"
+    note: text output only; parse the recording, not stdout.
+  - id: junie_cli
+    name: JetBrains Junie CLI
+    vendor: JetBrains
+    tier: 2
+    later: "Scriptable but low demand; runs after the ranked ten."
+    install: see junie.jetbrains.com/docs/junie-headless
+    mcp_config: ".junie/mcp/mcp.json or --mcp-location"
+    headless: 'junie --auth=$KEY --task "<prompt>" --output-format json-stream'
+    unattended: "approval in print mode undocumented; measure level 1 only until known"
+    startup_lists: unknown
+  - id: roo_cli
+    name: Roo Code CLI
+    vendor: Roo Code Inc.
+    tier: 2
+    later: "Scriptable but low demand; runs after the ranked ten."
+    install: see RooCodeInc/Roo-Code apps/cli
+    mcp_config: ".roo/mcp.json (CLI source unstated)"
+    headless: 'roo -p "<prompt>" --output-format json --oneshot'
+    startup_lists: unknown
+  - id: devin_cli
+    name: Devin CLI
+    vendor: Cognition
+    tier: 2
+    later: "Scriptable but low demand; runs after the ranked ten."
+    install: see docs.devin.ai/cli
+    mcp_config: ".devin/mcp_config.json or devin mcp add"
+    headless: 'devin -p "<prompt>" --permission-mode autonomous'
+    startup_lists: "connections warmed at startup; tools/list unstated"
+    surfaces: [prompts]
+    note: no JSON output flag; parse the recording.
+  - id: warp_cli
+    name: Warp Agent CLI
+    vendor: Warp
+    tier: 2
+    later: "Scriptable but low demand; runs after the ranked ten."
+    install: see docs.warp.dev/agents/cli
+    mcp_config: "--mcp <file|json>"
+    headless: 'oz agent run --prompt "<prompt>" --output-format json --mcp <file>'
+    note: oz is deprecated at end of September 2026; re-verify the replacement before dispatch.
+
+  # tier 2: GUI only. Measurable only by driving the app's window, one session script
+  # each. Not part of the unattended graph.
+  - id: "claude_desktop"
+    name: "Claude Desktop"
+    vendor: "Anthropic"
+    tier: 2
+    gui: true
+    rank: 1
+    mcp_config: "claude_desktop_config.json"
+    annotations: "documented: read-only tools run without per-call confirmation, destructive tools always prompt"
+    surfaces: [prompts, resources]
+  - id: "vscode_copilot"
+    name: "VS Code with Copilot agent mode"
+    vendor: "Microsoft"
+    tier: 2
+    gui: true
+    rank: 2
+    mcp_config: ".vscode/mcp.json"
+    annotations: "documented: readOnlyHint honored"
+    surfaces: [prompts, resources]
+  - id: "devin_desktop"
+    name: "Devin Desktop (was Windsurf)"
+    vendor: "Cognition"
+    tier: 3
+    reason: "GUI only and low demand; on request."
+    mcp_config: "~/.config/devin/mcp_config.json"
+    surfaces: [prompts, resources]
+  - id: "zed"
+    name: "Zed"
+    vendor: "Zed Industries"
+    tier: 3
+    reason: "GUI only and low demand; on request."
+    mcp_config: "settings.json context_servers"
+    surfaces: [prompts]
+  - id: "chatgpt"
+    name: "ChatGPT developer mode"
+    vendor: "OpenAI"
+    tier: 2
+    gui: true
+    rank: 3
+    mcp_config: "Settings UI"
+    annotations: "documented: readOnlyHint respected, destructiveHint triggers approval"
+    note: "remote servers only"
+  - id: "cursor_ide"
+    name: "Cursor IDE"
+    vendor: "Anysphere"
+    tier: 2
+    gui: true
+    rank: 4
+    note: "same config as the agent CLI; the CLI row covers the client unless the IDE differs."
+  - id: "replit_agent"
+    name: "Replit Agent"
+    vendor: "Replit"
+    tier: 3
+    reason: "GUI only and low demand; on request."
+    note: "remote HTTPS only, account-level UI"
+
+  # tier 3: excluded
+  - id: "aider"
+    name: "Aider"
+    tier: 3
+    reason: "No MCP client; only third-party bridges."
+  - id: "devin_cloud"
+    name: "Devin (cloud)"
+    tier: 3
+    reason: "MCP servers attach only through the UI; API sessions cannot control them."

@@ -1,0 +1,11 @@
+{
+  "name": "mcp-mirror-vercel-ai-worker",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "description": "Node worker that drives the Vercel AI SDK's real MCP client (@ai-sdk/mcp createMCPClient) so mcp-mirror can capture the tools it hands the model. Run `npm ci` here to enable the vercel_ai renderer.",
+  "dependencies": {
+    "@ai-sdk/mcp": "2.0.73",
+    "zod": "4.6.5"
+  }
+}

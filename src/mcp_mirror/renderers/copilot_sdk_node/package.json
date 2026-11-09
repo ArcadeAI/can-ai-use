@@ -1,0 +1,10 @@
+{
+  "name": "mcp-mirror-copilot-sdk-worker",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "description": "Node worker that drives the real GitHub Copilot SDK (@github/copilot-sdk) and the Copilot runtime it starts, so mcp-mirror can capture the model request its MCP integration builds. Run `npm ci` here to enable the copilot_sdk renderer.",
+  "dependencies": {
+    "@github/copilot-sdk": "1.0.19"
+  }
+}

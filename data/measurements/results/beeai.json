@@ -1,0 +1,1216 @@
+{
+  "schema": "mcp-mirror/result-boundaries@2",
+  "captured_at": "2026-10-01T08:11:05Z",
+  "fixture": "fixtures/results_server.py",
+  "fixture_python": "<checkout>/.mcp-mirror/fixture-2025-11-25/bin/python",
+  "spec_version": "2025-11-25",
+  "calls": [
+    {
+      "tool": "text_content",
+      "arguments": {}
+    },
+    {
+      "tool": "image_content",
+      "arguments": {}
+    },
+    {
+      "tool": "audio_content",
+      "arguments": {}
+    },
+    {
+      "tool": "embedded_resource_content",
+      "arguments": {}
+    },
+    {
+      "tool": "resource_link_content",
+      "arguments": {}
+    },
+    {
+      "tool": "annotated_content",
+      "arguments": {}
+    },
+    {
+      "tool": "mixed_content",
+      "arguments": {}
+    },
+    {
+      "tool": "text_and_structured",
+      "arguments": {}
+    },
+    {
+      "tool": "tool_error",
+      "arguments": {}
+    }
+  ],
+  "source": {
+    "text_content": {
+      "tool": "text_content",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_TEXT_BLOCK"
+        }
+      ],
+      "block_kinds": [
+        "text"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": "SENTINEL_TEXT_BLOCK",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_TEXT_BLOCK",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "image_content": {
+      "tool": "image_content",
+      "blocks": [
+        {
+          "type": "image",
+          "data": "<96 chars>",
+          "mimeType": "image/png"
+        }
+      ],
+      "block_kinds": [
+        "image"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": null,
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "image",
+            "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==",
+            "mimeType": "image/png",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "audio_content": {
+      "tool": "audio_content",
+      "blocks": [
+        {
+          "type": "audio",
+          "data": "<60 chars>",
+          "mimeType": "audio/wav"
+        }
+      ],
+      "block_kinds": [
+        "audio"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": null,
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "audio",
+            "data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
+            "mimeType": "audio/wav",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "embedded_resource_content": {
+      "tool": "embedded_resource_content",
+      "blocks": [
+        {
+          "type": "resource",
+          "resource": {
+            "uri": "file:///fixtures/embedded.txt",
+            "mimeType": "text/plain",
+            "_meta": null,
+            "text": "SENTINEL_EMBEDDED_RESOURCE"
+          }
+        }
+      ],
+      "block_kinds": [
+        "resource"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": null,
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "resource",
+            "resource": {
+              "uri": "file:///fixtures/embedded.txt",
+              "mimeType": "text/plain",
+              "_meta": null,
+              "text": "SENTINEL_EMBEDDED_RESOURCE"
+            },
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "resource_link_content": {
+      "tool": "resource_link_content",
+      "blocks": [
+        {
+          "name": "linked.txt",
+          "uri": "file:///fixtures/linked.txt",
+          "description": "SENTINEL_RESOURCE_LINK",
+          "mimeType": "text/plain",
+          "type": "resource_link"
+        }
+      ],
+      "block_kinds": [
+        "resource_link"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": null,
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "name": "linked.txt",
+            "title": null,
+            "uri": "file:///fixtures/linked.txt",
+            "description": "SENTINEL_RESOURCE_LINK",
+            "mimeType": "text/plain",
+            "size": null,
+            "icons": null,
+            "annotations": null,
+            "_meta": null,
+            "type": "resource_link"
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "annotated_content": {
+      "tool": "annotated_content",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_ANNOTATED_TEXT",
+          "annotations": {
+            "audience": [
+              "user"
+            ],
+            "priority": 0.9
+          }
+        }
+      ],
+      "block_kinds": [
+        "text"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": "SENTINEL_ANNOTATED_TEXT",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_ANNOTATED_TEXT",
+            "annotations": {
+              "audience": [
+                "user"
+              ],
+              "priority": 0.9
+            },
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "mixed_content": {
+      "tool": "mixed_content",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_TEXT_BLOCK",
+          "annotations": {
+            "audience": [
+              "user"
+            ],
+            "priority": 0.9
+          }
+        },
+        {
+          "type": "image",
+          "data": "<96 chars>",
+          "mimeType": "image/png"
+        },
+        {
+          "type": "audio",
+          "data": "<60 chars>",
+          "mimeType": "audio/wav"
+        },
+        {
+          "type": "resource",
+          "resource": {
+            "uri": "file:///fixtures/embedded.txt",
+            "mimeType": "text/plain",
+            "_meta": null,
+            "text": "SENTINEL_EMBEDDED_RESOURCE"
+          }
+        },
+        {
+          "name": "linked.txt",
+          "uri": "file:///fixtures/linked.txt",
+          "description": "SENTINEL_RESOURCE_LINK",
+          "mimeType": "text/plain",
+          "type": "resource_link"
+        }
+      ],
+      "block_kinds": [
+        "text",
+        "image",
+        "audio",
+        "resource",
+        "resource_link"
+      ],
+      "structured_content": {
+        "count": 2,
+        "records": [
+          {
+            "id": "rec_1",
+            "status": "active"
+          },
+          {
+            "id": "rec_2",
+            "status": "archived"
+          }
+        ],
+        "note": "SENTINEL_STRUCTURED_CONTENT"
+      },
+      "is_error": false,
+      "text": "SENTINEL_TEXT_BLOCK",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_TEXT_BLOCK",
+            "annotations": {
+              "audience": [
+                "user"
+              ],
+              "priority": 0.9
+            },
+            "_meta": null
+          },
+          {
+            "type": "image",
+            "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==",
+            "mimeType": "image/png",
+            "annotations": null,
+            "_meta": null
+          },
+          {
+            "type": "audio",
+            "data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
+            "mimeType": "audio/wav",
+            "annotations": null,
+            "_meta": null
+          },
+          {
+            "type": "resource",
+            "resource": {
+              "uri": "file:///fixtures/embedded.txt",
+              "mimeType": "text/plain",
+              "_meta": null,
+              "text": "SENTINEL_EMBEDDED_RESOURCE"
+            },
+            "annotations": null,
+            "_meta": null
+          },
+          {
+            "name": "linked.txt",
+            "title": null,
+            "uri": "file:///fixtures/linked.txt",
+            "description": "SENTINEL_RESOURCE_LINK",
+            "mimeType": "text/plain",
+            "size": null,
+            "icons": null,
+            "annotations": null,
+            "_meta": null,
+            "type": "resource_link"
+          }
+        ],
+        "structuredContent": {
+          "count": 2,
+          "records": [
+            {
+              "id": "rec_1",
+              "status": "active"
+            },
+            {
+              "id": "rec_2",
+              "status": "archived"
+            }
+          ],
+          "note": "SENTINEL_STRUCTURED_CONTENT"
+        },
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "text_and_structured": {
+      "tool": "text_and_structured",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_TEXT_BLOCK"
+        }
+      ],
+      "block_kinds": [
+        "text"
+      ],
+      "structured_content": {
+        "count": 2,
+        "records": [
+          {
+            "id": "rec_1",
+            "status": "active"
+          },
+          {
+            "id": "rec_2",
+            "status": "archived"
+          }
+        ],
+        "note": "SENTINEL_STRUCTURED_CONTENT"
+      },
+      "is_error": false,
+      "text": "SENTINEL_TEXT_BLOCK",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_TEXT_BLOCK",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "count": 2,
+          "records": [
+            {
+              "id": "rec_1",
+              "status": "active"
+            },
+            {
+              "id": "rec_2",
+              "status": "archived"
+            }
+          ],
+          "note": "SENTINEL_STRUCTURED_CONTENT"
+        },
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "tool_error": {
+      "tool": "tool_error",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_TOOL_ERROR: this tool always fails"
+        }
+      ],
+      "block_kinds": [
+        "text"
+      ],
+      "structured_content": null,
+      "is_error": true,
+      "text": "SENTINEL_TOOL_ERROR: this tool always fails",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_TOOL_ERROR: this tool always fails",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": true
+      },
+      "error_channel": null
+    }
+  },
+  "frameworks": {
+    "beeai": {
+      "ok": true,
+      "versions": {
+        "framework": "0.1.85",
+        "adapter": "0.1.85"
+      },
+      "evidence": {
+        "capture_api": "beeai_framework.tools.mcp.MCPTool.from_client handed to beeai_framework.agents.requirement.RequirementAgent; the tools LiteLLMChatModel._transform_input passes litellm.acompletion on the first turn",
+        "capture_object": "function-tool dicts {'type': 'function', 'function': {name, description, parameters, strict}} built from each MCPTool's input_schema, with the ChatModel default use_strict_tool_schema=True",
+        "capture_stage": "provider_format",
+        "provider_request_captured": false,
+        "negotiated_mcp_spec_version": "2025-11-25",
+        "protocol_version_evidence": "protocolVersion instrumented from ClientSession.initialize inside the MCPSessionProvider that MCPTool.from_client starts; BeeAI does not expose it",
+        "limitation": "litellm.acompletion is replaced by a script; no provider request was serialized. Other agents (ReActAgent, ToolCallingAgent) and other ChatModel adapters were not captured."
+      },
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Tool return value",
+          "capture_api": "beeai_framework.tools.mcp.MCPTool.run on a tool MCPTool.from_client returned",
+          "capture_object": "JSONToolOutput.result (structuredContent when present, else each content block with JSON text parsed, one block unwrapped), or the ToolError raised for an isError result",
+          "agent_path": false,
+          "limitation": null
+        },
+        {
+          "id": "agent",
+          "label": "Tool message to the model",
+          "capture_api": "beeai_framework.agents.requirement.RequirementAgent.run; the messages of the next litellm.acompletion call",
+          "capture_object": "the role 'tool' message LiteLLMChatModel._transform_input builds from JSONToolOutput.get_text_content(), or from the tool_error template",
+          "agent_path": true,
+          "limitation": "litellm.acompletion is replaced by a script; no provider request was serialized."
+        }
+      ],
+      "reps": [
+        {
+          "name": "text_content",
+          "description": "Return one text block and nothing else.",
+          "params": {
+            "properties": {},
+            "type": "object",
+            "additionalProperties": false,
+            "required": []
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "beeai",
+          "raw": {
+            "type": "function",
+            "function": {
+              "name": "text_content",
+              "description": "Return one text block and nothing else.",
+              "parameters": {
+                "properties": {},
+                "type": "object",
+                "additionalProperties": false,
+                "required": []
+              },
+              "strict": true
+            }
+          }
+        },
+        {
+          "name": "image_content",
+          "description": "Return one image block and nothing else.",
+          "params": {
+            "properties": {},
+            "type": "object",
+            "additionalProperties": false,
+            "required": []
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "beeai",
+          "raw": {
+            "type": "function",
+            "function": {
+              "name": "image_content",
+              "description": "Return one image block and nothing else.",
+              "parameters": {
+                "properties": {},
+                "type": "object",
+                "additionalProperties": false,
+                "required": []
+              },
+              "strict": true
+            }
+          }
+        },
+        {
+          "name": "audio_content",
+          "description": "Return one audio block and nothing else.",
+          "params": {
+            "properties": {},
+            "type": "object",
+            "additionalProperties": false,
+            "required": []
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "beeai",
+          "raw": {
+            "type": "function",
+            "function": {
+              "name": "audio_content",
+              "description": "Return one audio block and nothing else.",
+              "parameters": {
+                "properties": {},
+                "type": "object",
+                "additionalProperties": false,
+                "required": []
+              },
+              "strict": true
+            }
+          }
+        },
+        {
+          "name": "embedded_resource_content",
+          "description": "Return one embedded resource block and nothing else.",
+          "params": {
+            "properties": {},
+            "type": "object",
+            "additionalProperties": false,
+            "required": []
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "beeai",
+          "raw": {
+            "type": "function",
+            "function": {
+              "name": "embedded_resource_content",
+              "description": "Return one embedded resource block and nothing else.",
+              "parameters": {
+                "properties": {},
+                "type": "object",
+                "additionalProperties": false,
+                "required": []
+              },
+              "strict": true
+            }
+          }
+        },
+        {
+          "name": "resource_link_content",
+          "description": "Return one resource_link block and nothing else.",
+          "params": {
+            "properties": {},
+            "type": "object",
+            "additionalProperties": false,
+            "required": []
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "beeai",
+          "raw": {
+            "type": "function",
+            "function": {
+              "name": "resource_link_content",
+              "description": "Return one resource_link block and nothing else.",
+              "parameters": {
+                "properties": {},
+                "type": "object",
+                "additionalProperties": false,
+                "required": []
+              },
+              "strict": true
+            }
+          }
+        },
+        {
+          "name": "annotated_content",
+          "description": "Return one text block carrying audience and priority annotations.",
+          "params": {
+            "properties": {},
+            "type": "object",
+            "additionalProperties": false,
+            "required": []
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "beeai",
+          "raw": {
+            "type": "function",
+            "function": {
+              "name": "annotated_content",
+              "description": "Return one text block carrying audience and priority annotations.",
+              "parameters": {
+                "properties": {},
+                "type": "object",
+                "additionalProperties": false,
+                "required": []
+              },
+              "strict": true
+            }
+          }
+        },
+        {
+          "name": "mixed_content",
+          "description": "Return one block of every kind plus structuredContent in one result.",
+          "params": {
+            "properties": {},
+            "type": "object",
+            "additionalProperties": false,
+            "required": []
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "beeai",
+          "raw": {
+            "type": "function",
+            "function": {
+              "name": "mixed_content",
+              "description": "Return one block of every kind plus structuredContent in one result.",
+              "parameters": {
+                "properties": {},
+                "type": "object",
+                "additionalProperties": false,
+                "required": []
+              },
+              "strict": true
+            }
+          }
+        },
+        {
+          "name": "text_and_structured",
+          "description": "Return one text block plus structuredContent, with no media.",
+          "params": {
+            "properties": {},
+            "type": "object",
+            "additionalProperties": false,
+            "required": []
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "beeai",
+          "raw": {
+            "type": "function",
+            "function": {
+              "name": "text_and_structured",
+              "description": "Return one text block plus structuredContent, with no media.",
+              "parameters": {
+                "properties": {},
+                "type": "object",
+                "additionalProperties": false,
+                "required": []
+              },
+              "strict": true
+            }
+          }
+        },
+        {
+          "name": "tool_error",
+          "description": "Always fail, reporting the failure through isError rather than a protocol error.",
+          "params": {
+            "properties": {},
+            "type": "object",
+            "additionalProperties": false,
+            "required": []
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "beeai",
+          "raw": {
+            "type": "function",
+            "function": {
+              "name": "tool_error",
+              "description": "Always fail, reporting the failure through isError rather than a protocol error.",
+              "parameters": {
+                "properties": {},
+                "type": "object",
+                "additionalProperties": false,
+                "required": []
+              },
+              "strict": true
+            }
+          }
+        }
+      ],
+      "results": [
+        {
+          "tool": "text_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "text_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TEXT_BLOCK"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_TEXT_BLOCK",
+            "origin": "beeai",
+            "raw": "{\"type\": \"text\", \"text\": \"SENTINEL_TEXT_BLOCK\", \"annotations\": null, \"meta\": null}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "text_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "text_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "{\"type\": \"text\", \"text\": \"SENTINEL_TEXT_BLOCK\", \"annotations\": null, \"meta\": null}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"type\": \"text\", \"text\": \"SENTINEL_TEXT_BLOCK\", \"annotations\": null, \"meta\": null}",
+            "origin": "beeai",
+            "raw": "[{\"tool_call_id\": \"mcp-mirror-call-1\", \"role\": \"tool\", \"name\": \"text_content\", \"content\": \"{\\\"type\\\": \\\"text\\\", \\\"text\\\": \\\"SENTINEL_TEXT_BLOCK\\\", \\\"annotations\\\": null, \\\"meta\\\": null}\"}]",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "image_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "image_content",
+            "blocks": [
+              {
+                "type": "image",
+                "data": "<96 chars>",
+                "mimeType": "image/png"
+              }
+            ],
+            "block_kinds": [
+              "image"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": null,
+            "origin": "beeai",
+            "raw": "{\"type\": \"image\", \"data\": \"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==\", \"mimeType\": \"image/png\", \"annotations\": null, \"meta\": null}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "image_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "image_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "{\"type\": \"image\", \"data\": \"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==\", \"mimeType\": \"image/png\", \"annotations\": null, \"meta\": null}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"type\": \"image\", \"data\": \"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==\", \"mimeType\": \"image/png\", \"annotations\": null, \"meta\": null}",
+            "origin": "beeai",
+            "raw": "[{\"tool_call_id\": \"mcp-mirror-call-1\", \"role\": \"tool\", \"name\": \"image_content\", \"content\": \"{\\\"type\\\": \\\"image\\\", \\\"data\\\": \\\"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==\\\", \\\"mimeType\\\": \\\"image/png\\\", \\\"annotations\\\": null, \\\"meta\\\": null}\"}]",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "audio_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "audio_content",
+            "blocks": [
+              {
+                "type": "audio",
+                "data": "<60 chars>",
+                "mimeType": "audio/wav"
+              }
+            ],
+            "block_kinds": [
+              "audio"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": null,
+            "origin": "beeai",
+            "raw": "{\"type\": \"audio\", \"data\": \"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\", \"mimeType\": \"audio/wav\", \"annotations\": null, \"meta\": null}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "audio_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "audio_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "{\"type\": \"audio\", \"data\": \"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\", \"mimeType\": \"audio/wav\", \"annotations\": null, \"meta\": null}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"type\": \"audio\", \"data\": \"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\", \"mimeType\": \"audio/wav\", \"annotations\": null, \"meta\": null}",
+            "origin": "beeai",
+            "raw": "[{\"tool_call_id\": \"mcp-mirror-call-1\", \"role\": \"tool\", \"name\": \"audio_content\", \"content\": \"{\\\"type\\\": \\\"audio\\\", \\\"data\\\": \\\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\\\", \\\"mimeType\\\": \\\"audio/wav\\\", \\\"annotations\\\": null, \\\"meta\\\": null}\"}]",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "embedded_resource_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "embedded_resource_content",
+            "blocks": [
+              {
+                "type": "resource",
+                "resource": {
+                  "uri": "file:///fixtures/embedded.txt",
+                  "mimeType": "text/plain",
+                  "text": "SENTINEL_EMBEDDED_RESOURCE"
+                }
+              }
+            ],
+            "block_kinds": [
+              "resource"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": null,
+            "origin": "beeai",
+            "raw": "{\"type\": \"resource\", \"resource\": {\"uri\": \"file:///fixtures/embedded.txt\", \"mimeType\": \"text/plain\", \"meta\": null, \"text\": \"SENTINEL_EMBEDDED_RESOURCE\"}, \"annotations\": null, \"meta\": null}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "embedded_resource_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "embedded_resource_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "{\"type\": \"resource\", \"resource\": {\"uri\": \"file:///fixtures/embedded.txt\", \"mimeType\": \"text/plain\", \"meta\": null, \"text\": \"SENTINEL_EMBEDDED_RESOURCE\"}, \"annotations\": null, \"meta\": null}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"type\": \"resource\", \"resource\": {\"uri\": \"file:///fixtures/embedded.txt\", \"mimeType\": \"text/plain\", \"meta\": null, \"text\": \"SENTINEL_EMBEDDED_RESOURCE\"}, \"annotations\": null, \"meta\": null}",
+            "origin": "beeai",
+            "raw": "[{\"tool_call_id\": \"mcp-mirror-call-1\", \"role\": \"tool\", \"name\": \"embedded_resource_content\", \"content\": \"{\\\"type\\\": \\\"resource\\\", \\\"resource\\\": {\\\"uri\\\": \\\"file:///fixtures/embedded.txt\\\", \\\"mimeType\\\": \\\"text/plain\\\", \\\"meta\\\": null, \\\"text\\\": \\\"SENTINEL_EMBEDDED_RESOURCE\\\"}, \\\"annotations\\\": null, \\\"meta\\\": null}\"}]",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "resource_link_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "resource_link_content",
+            "blocks": [
+              {
+                "name": "linked.txt",
+                "uri": "file:///fixtures/linked.txt",
+                "description": "SENTINEL_RESOURCE_LINK",
+                "mimeType": "text/plain",
+                "type": "resource_link"
+              }
+            ],
+            "block_kinds": [
+              "resource_link"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": null,
+            "origin": "beeai",
+            "raw": "{\"name\": \"linked.txt\", \"title\": null, \"uri\": \"file:///fixtures/linked.txt\", \"description\": \"SENTINEL_RESOURCE_LINK\", \"mimeType\": \"text/plain\", \"size\": null, \"icons\": null, \"annotations\": null, \"meta\": null, \"type\": \"resource_link\"}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "resource_link_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "resource_link_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "{\"name\": \"linked.txt\", \"title\": null, \"uri\": \"file:///fixtures/linked.txt\", \"description\": \"SENTINEL_RESOURCE_LINK\", \"mimeType\": \"text/plain\", \"size\": null, \"icons\": null, \"annotations\": null, \"meta\": null, \"type\": \"resource_link\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"name\": \"linked.txt\", \"title\": null, \"uri\": \"file:///fixtures/linked.txt\", \"description\": \"SENTINEL_RESOURCE_LINK\", \"mimeType\": \"text/plain\", \"size\": null, \"icons\": null, \"annotations\": null, \"meta\": null, \"type\": \"resource_link\"}",
+            "origin": "beeai",
+            "raw": "[{\"tool_call_id\": \"mcp-mirror-call-1\", \"role\": \"tool\", \"name\": \"resource_link_content\", \"content\": \"{\\\"name\\\": \\\"linked.txt\\\", \\\"title\\\": null, \\\"uri\\\": \\\"file:///fixtures/linked.txt\\\", \\\"description\\\": \\\"SENTINEL_RESOURCE_LINK\\\", \\\"mimeType\\\": \\\"text/plain\\\", \\\"size\\\": null, \\\"icons\\\": null, \\\"annotations\\\": null, \\\"meta\\\": null, \\\"type\\\": \\\"resource_link\\\"}\"}]",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "annotated_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "annotated_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ANNOTATED_TEXT",
+                "annotations": {
+                  "audience": [
+                    "user"
+                  ],
+                  "priority": 0.9
+                }
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ANNOTATED_TEXT",
+            "origin": "beeai",
+            "raw": "{\"type\": \"text\", \"text\": \"SENTINEL_ANNOTATED_TEXT\", \"annotations\": {\"audience\": [\"user\"], \"priority\": 0.9}, \"meta\": null}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "annotated_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "annotated_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "{\"type\": \"text\", \"text\": \"SENTINEL_ANNOTATED_TEXT\", \"annotations\": {\"audience\": [\"user\"], \"priority\": 0.9}, \"meta\": null}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"type\": \"text\", \"text\": \"SENTINEL_ANNOTATED_TEXT\", \"annotations\": {\"audience\": [\"user\"], \"priority\": 0.9}, \"meta\": null}",
+            "origin": "beeai",
+            "raw": "[{\"tool_call_id\": \"mcp-mirror-call-1\", \"role\": \"tool\", \"name\": \"annotated_content\", \"content\": \"{\\\"type\\\": \\\"text\\\", \\\"text\\\": \\\"SENTINEL_ANNOTATED_TEXT\\\", \\\"annotations\\\": {\\\"audience\\\": [\\\"user\\\"], \\\"priority\\\": 0.9}, \\\"meta\\\": null}\"}]",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "mixed_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "mixed_content",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": {
+              "count": 2,
+              "records": [
+                {
+                  "id": "rec_1",
+                  "status": "active"
+                },
+                {
+                  "id": "rec_2",
+                  "status": "archived"
+                }
+              ],
+              "note": "SENTINEL_STRUCTURED_CONTENT"
+            },
+            "is_error": null,
+            "text": "{\"count\": 2, \"records\": [{\"id\": \"rec_1\", \"status\": \"active\"}, {\"id\": \"rec_2\", \"status\": \"archived\"}], \"note\": \"SENTINEL_STRUCTURED_CONTENT\"}",
+            "origin": "beeai",
+            "raw": "{\"count\": 2, \"records\": [{\"id\": \"rec_1\", \"status\": \"active\"}, {\"id\": \"rec_2\", \"status\": \"archived\"}], \"note\": \"SENTINEL_STRUCTURED_CONTENT\"}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "mixed_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "mixed_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "{\"count\": 2, \"records\": [{\"id\": \"rec_1\", \"status\": \"active\"}, {\"id\": \"rec_2\", \"status\": \"archived\"}], \"note\": \"SENTINEL_STRUCTURED_CONTENT\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"count\": 2, \"records\": [{\"id\": \"rec_1\", \"status\": \"active\"}, {\"id\": \"rec_2\", \"status\": \"archived\"}], \"note\": \"SENTINEL_STRUCTURED_CONTENT\"}",
+            "origin": "beeai",
+            "raw": "[{\"tool_call_id\": \"mcp-mirror-call-1\", \"role\": \"tool\", \"name\": \"mixed_content\", \"content\": \"{\\\"count\\\": 2, \\\"records\\\": [{\\\"id\\\": \\\"rec_1\\\", \\\"status\\\": \\\"active\\\"}, {\\\"id\\\": \\\"rec_2\\\", \\\"status\\\": \\\"archived\\\"}], \\\"note\\\": \\\"SENTINEL_STRUCTURED_CONTENT\\\"}\"}]",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "text_and_structured",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "text_and_structured",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": {
+              "count": 2,
+              "records": [
+                {
+                  "id": "rec_1",
+                  "status": "active"
+                },
+                {
+                  "id": "rec_2",
+                  "status": "archived"
+                }
+              ],
+              "note": "SENTINEL_STRUCTURED_CONTENT"
+            },
+            "is_error": null,
+            "text": "{\"count\": 2, \"records\": [{\"id\": \"rec_1\", \"status\": \"active\"}, {\"id\": \"rec_2\", \"status\": \"archived\"}], \"note\": \"SENTINEL_STRUCTURED_CONTENT\"}",
+            "origin": "beeai",
+            "raw": "{\"count\": 2, \"records\": [{\"id\": \"rec_1\", \"status\": \"active\"}, {\"id\": \"rec_2\", \"status\": \"archived\"}], \"note\": \"SENTINEL_STRUCTURED_CONTENT\"}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "text_and_structured",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "text_and_structured",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "{\"count\": 2, \"records\": [{\"id\": \"rec_1\", \"status\": \"active\"}, {\"id\": \"rec_2\", \"status\": \"archived\"}], \"note\": \"SENTINEL_STRUCTURED_CONTENT\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"count\": 2, \"records\": [{\"id\": \"rec_1\", \"status\": \"active\"}, {\"id\": \"rec_2\", \"status\": \"archived\"}], \"note\": \"SENTINEL_STRUCTURED_CONTENT\"}",
+            "origin": "beeai",
+            "raw": "[{\"tool_call_id\": \"mcp-mirror-call-1\", \"role\": \"tool\", \"name\": \"text_and_structured\", \"content\": \"{\\\"count\\\": 2, \\\"records\\\": [{\\\"id\\\": \\\"rec_1\\\", \\\"status\\\": \\\"active\\\"}, {\\\"id\\\": \\\"rec_2\\\", \\\"status\\\": \\\"archived\\\"}], \\\"note\\\": \\\"SENTINEL_STRUCTURED_CONTENT\\\"}\"}]",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "tool_error",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "tool_error",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "ToolError: {\n    \"type\": \"text\",\n    \"text\": \"SENTINEL_TOOL_ERROR: this tool always fails\",\n    \"annotations\": null,\n    \"meta\": null\n}",
+            "origin": "beeai",
+            "raw": "ToolError('{\\n    \"type\": \"text\",\\n    \"text\": \"SENTINEL_TOOL_ERROR: this tool always fails\",\\n    \"annotations\": null,\\n    \"meta\": null\\n}')",
+            "error_channel": "exception"
+          }
+        },
+        {
+          "tool": "tool_error",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "tool_error",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "The tool has failed; the error log is shown below. If the tool cannot accomplish what you want, use a different tool or explain why you can't use it.\n\nToolError(beeai_framework.tools.errors): {\n    \"type\": \"text\",\n    \"text\": \"SENTINEL_TOOL_ERROR: this tool always fails\",\n    \"annotations\": null,\n    \"meta\": null\n}\nContext: {\"name\": \"tool_error\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": true,
+            "text": "The tool has failed; the error log is shown below. If the tool cannot accomplish what you want, use a different tool or explain why you can't use it.\n\nToolError(beeai_framework.tools.errors): {\n    \"type\": \"text\",\n    \"text\": \"SENTINEL_TOOL_ERROR: this tool always fails\",\n    \"annotations\": null,\n    \"meta\": null\n}\nContext: {\"name\": \"tool_error\"}",
+            "origin": "beeai",
+            "raw": "[{\"tool_call_id\": \"mcp-mirror-call-1\", \"role\": \"tool\", \"name\": \"tool_error\", \"content\": \"The tool has failed; the error log is shown below. If the tool cannot accomplish what you want, use a different tool or explain why you can't use it.\\n\\nToolError(beeai_framework.tools.errors): {\\n    \\\"type\\\": \\\"text\\\",\\n    \\\"text\\\": \\\"SENTINEL_TOOL_ERROR: this tool always fails\\\",\\n    \\\"annotations\\\": null,\\n    \\\"meta\\\": null\\n}\\nContext: {\\\"name\\\": \\\"tool_error\\\"}\"}]",
+            "error_channel": "message"
+          }
+        }
+      ]
+    }
+  }
+}

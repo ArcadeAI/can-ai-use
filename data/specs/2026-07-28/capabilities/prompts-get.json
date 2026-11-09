@@ -1,0 +1,32 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "prompts-get",
+  "title": "`prompts/get`",
+  "description": "Resolves one prompt with arguments into a list of messages, each with a role and a content block.",
+  "question": "Can the agent resolve a prompt into messages it can actually send?",
+  "spec": "https://modelcontextprotocol.io/specification/2026-07-28",
+  "status": "stable",
+  "categories": [
+    "Prompts"
+  ],
+  "keywords": "prompts/get,resolve prompt,messages,role,content",
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/server/prompts#getting-a-prompt",
+      "title": "MCP Docs"
+    }
+  ],
+  "known_issues": [],
+  "why": "A prompt is only useful once it is expanded. This row is where a framework either produces messages in its own conversation format or hands back a structure the caller has to translate by hand.",
+  "shown": true,
+  "docs_url": "https://modelcontextprotocol.io/specification/2026-07-28/server/prompts#getting-a-prompt",
+  "docs_label": "MCP Docs",
+  "notes": {
+    "openai_agents_js": "OpenAI Agents SDK (JS) 0.20.0: the `MCPServer` interface has no prompts method, so there is no route to `prompts/get`.",
+    "agno": "Agno 3.1.2: `MCPTools` lists and calls tools only; it has no resource or prompt API, so `prompts/get` is unreachable.",
+    "dspy": "DSPy 3.4.0: DSPy's MCP support is `dspy.Tool.from_mcp_tool`, which converts one tool. It has no resource or prompt API, so resources and prompts stay on the caller's MCP session.",
+    "langchain_js": "LangChain.js (@langchain/mcp-adapters 2.0.1): `MCPAdapter` has no prompts API (no list, get or loader for prompts), so there is no route to `prompts/get`.",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): `mcptoolset.Toolset` exposes only `Tools()`, and the `*mcp.ClientSession` it opens stays inside its unexported `connectionRefresher`, so the caller has no session to call `GetPrompt` on."
+  }
+}

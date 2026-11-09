@@ -1,0 +1,4 @@
+{"format": "mcp-mirror.harness-output/1"}
+{"event": "tool_use", "tool": "mcp--def--delete_account", "input": {"account_id": "a", "confirm": false}}
+{"event": "tool_result", "is_error": true, "text": "Error:\nSENTINEL_TOOL_ERROR: confirm was not set"}
+{"event": "result", "subtype": "success", "is_error": false, "num_turns": 0, "text": "done"}

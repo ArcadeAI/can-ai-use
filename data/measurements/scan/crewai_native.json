@@ -1,0 +1,1984 @@
+{
+  "schema": "mcp-mirror/report@2",
+  "mcp_server": "python fixtures/tricky_server.py",
+  "mcp_spec_version": "2025-11-25",
+  "mcp_spec_version_evidence": "direct source connection initialize result",
+  "generated_with": "mcp-mirror/0.1.0",
+  "attestation": "local",
+  "provider_profile": null,
+  "provenance": {
+    "generated_at": "2026-10-09T19:40:01.545703Z",
+    "scanner_version": "0.1.0",
+    "scanner_commit": "9d658af7e378399ccabf651f1f078a7f72b54cc0",
+    "python_version": "3.13.14",
+    "platform": "macOS-26.4.1-arm64-arm-64bit-Mach-O",
+    "runner_digest": "1b0ef7439be45d99d3e35c3089199c15d784124fef22306374e4f6eaf8a88959"
+  },
+  "scan": {
+    "transport": "stdio",
+    "frameworks": [
+      "crewai_native"
+    ],
+    "spec_version_assertion": "2025-11-25",
+    "jobs": [],
+    "jtbd": null,
+    "header_names": [],
+    "runner_mode": "managed"
+  },
+  "source_observation": {
+    "stage": "source",
+    "capture_api": "mcp.ClientSession.list_tools",
+    "capture_object": "ListToolsResult.tools",
+    "tools": [
+      {
+        "name": "search_records",
+        "description": "Search records with optional filters. Read-only.",
+        "params": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "Full-text search query."
+            },
+            "status": {
+              "type": "string",
+              "description": "Filter by record status.",
+              "enum": [
+                "active",
+                "archived",
+                "pending",
+                "deleted"
+              ]
+            },
+            "owner_email": {
+              "type": "string",
+              "format": "email",
+              "description": "Restrict to records owned by this email address."
+            },
+            "created_after": {
+              "type": "string",
+              "format": "date-time",
+              "description": "Only records created at or after this RFC 3339 timestamp."
+            },
+            "limit": {
+              "type": "integer",
+              "description": "Maximum number of records to return.",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 20
+            }
+          },
+          "required": [
+            "query"
+          ]
+        },
+        "annotations": {
+          "title": "Search records",
+          "readOnlyHint": true
+        },
+        "icons": [
+          {
+            "src": "https://example.com/icons/search.svg",
+            "mimeType": "image/svg+xml",
+            "sizes": [
+              "any"
+            ]
+          },
+          {
+            "src": "https://example.com/icons/search-32.png",
+            "mimeType": "image/png",
+            "sizes": [
+              "32x32"
+            ]
+          }
+        ],
+        "output_schema": null,
+        "framework_metadata": {},
+        "origin": "source",
+        "raw": {
+          "name": "search_records",
+          "description": "Search records with optional filters. Read-only.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "query": {
+                "type": "string",
+                "description": "Full-text search query."
+              },
+              "status": {
+                "type": "string",
+                "description": "Filter by record status.",
+                "enum": [
+                  "active",
+                  "archived",
+                  "pending",
+                  "deleted"
+                ]
+              },
+              "owner_email": {
+                "type": "string",
+                "format": "email",
+                "description": "Restrict to records owned by this email address."
+              },
+              "created_after": {
+                "type": "string",
+                "format": "date-time",
+                "description": "Only records created at or after this RFC 3339 timestamp."
+              },
+              "limit": {
+                "type": "integer",
+                "description": "Maximum number of records to return.",
+                "minimum": 1,
+                "maximum": 100,
+                "default": 20
+              }
+            },
+            "required": [
+              "query"
+            ]
+          },
+          "annotations": {
+            "title": "Search records",
+            "readOnlyHint": true
+          },
+          "icons": [
+            {
+              "src": "https://example.com/icons/search.svg",
+              "mimeType": "image/svg+xml",
+              "sizes": [
+                "any"
+              ]
+            },
+            {
+              "src": "https://example.com/icons/search-32.png",
+              "mimeType": "image/png",
+              "sizes": [
+                "32x32"
+              ]
+            }
+          ],
+          "outputSchema": null
+        }
+      },
+      {
+        "name": "create_report",
+        "description": "Create a structured report from sections.",
+        "params": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string",
+              "description": "Report title."
+            },
+            "config": {
+              "type": "object",
+              "description": "Rendering configuration.",
+              "properties": {
+                "format": {
+                  "type": "string",
+                  "enum": [
+                    "pdf",
+                    "html",
+                    "csv"
+                  ],
+                  "description": "Output format."
+                },
+                "include_summary": {
+                  "type": "boolean",
+                  "description": "Whether to prepend an executive summary."
+                }
+              },
+              "required": [
+                "format"
+              ]
+            },
+            "sections": {
+              "type": "array",
+              "description": "Ordered report sections.",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "heading": {
+                    "type": "string",
+                    "description": "Section heading."
+                  },
+                  "body": {
+                    "type": "string",
+                    "description": "Section body in markdown."
+                  }
+                },
+                "required": [
+                  "heading"
+                ]
+              }
+            }
+          },
+          "required": [
+            "title",
+            "config"
+          ]
+        },
+        "annotations": {
+          "title": "Create report"
+        },
+        "icons": [],
+        "output_schema": null,
+        "framework_metadata": {},
+        "origin": "source",
+        "raw": {
+          "name": "create_report",
+          "description": "Create a structured report from sections.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string",
+                "description": "Report title."
+              },
+              "config": {
+                "type": "object",
+                "description": "Rendering configuration.",
+                "properties": {
+                  "format": {
+                    "type": "string",
+                    "enum": [
+                      "pdf",
+                      "html",
+                      "csv"
+                    ],
+                    "description": "Output format."
+                  },
+                  "include_summary": {
+                    "type": "boolean",
+                    "description": "Whether to prepend an executive summary."
+                  }
+                },
+                "required": [
+                  "format"
+                ]
+              },
+              "sections": {
+                "type": "array",
+                "description": "Ordered report sections.",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "heading": {
+                      "type": "string",
+                      "description": "Section heading."
+                    },
+                    "body": {
+                      "type": "string",
+                      "description": "Section body in markdown."
+                    }
+                  },
+                  "required": [
+                    "heading"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "title",
+              "config"
+            ]
+          },
+          "annotations": {
+            "title": "Create report"
+          },
+          "icons": [],
+          "outputSchema": null
+        }
+      },
+      {
+        "name": "deliver_payload",
+        "description": "Deliver a payload to a destination.",
+        "params": {
+          "type": "object",
+          "properties": {
+            "destination": {
+              "description": "Where to deliver the payload.",
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "A webhook URL."
+                },
+                {
+                  "type": "object",
+                  "description": "An object-store location.",
+                  "properties": {
+                    "bucket": {
+                      "type": "string"
+                    },
+                    "key": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "bucket",
+                    "key"
+                  ]
+                }
+              ]
+            },
+            "mode": {
+              "description": "Delivery mode.",
+              "oneOf": [
+                {
+                  "const": "sync"
+                },
+                {
+                  "const": "async"
+                }
+              ]
+            }
+          },
+          "required": [
+            "destination"
+          ]
+        },
+        "annotations": {
+          "title": "Deliver payload",
+          "idempotentHint": false
+        },
+        "icons": [],
+        "output_schema": null,
+        "framework_metadata": {},
+        "origin": "source",
+        "raw": {
+          "name": "deliver_payload",
+          "description": "Deliver a payload to a destination.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "destination": {
+                "description": "Where to deliver the payload.",
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "A webhook URL."
+                  },
+                  {
+                    "type": "object",
+                    "description": "An object-store location.",
+                    "properties": {
+                      "bucket": {
+                        "type": "string"
+                      },
+                      "key": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "bucket",
+                      "key"
+                    ]
+                  }
+                ]
+              },
+              "mode": {
+                "description": "Delivery mode.",
+                "oneOf": [
+                  {
+                    "const": "sync"
+                  },
+                  {
+                    "const": "async"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "destination"
+            ]
+          },
+          "annotations": {
+            "title": "Deliver payload",
+            "idempotentHint": false
+          },
+          "icons": [],
+          "outputSchema": null
+        }
+      },
+      {
+        "name": "delete_account",
+        "description": "Permanently deletes a user account and all of its associated data. This action is destructive and irreversible: it cannot be undone, and it requires elevated admin scope (accounts:delete). Use with extreme caution.",
+        "params": {
+          "type": "object",
+          "properties": {
+            "account_id": {
+              "type": "string",
+              "description": "The id of the account to delete."
+            },
+            "confirm": {
+              "type": "boolean",
+              "description": "Must be true to proceed with the deletion."
+            }
+          },
+          "required": [
+            "account_id",
+            "confirm"
+          ]
+        },
+        "annotations": {
+          "title": "Delete account",
+          "readOnlyHint": false,
+          "destructiveHint": true,
+          "idempotentHint": false,
+          "openWorldHint": false
+        },
+        "icons": [],
+        "output_schema": null,
+        "framework_metadata": {},
+        "origin": "source",
+        "raw": {
+          "name": "delete_account",
+          "description": "Permanently deletes a user account and all of its associated data. This action is destructive and irreversible: it cannot be undone, and it requires elevated admin scope (accounts:delete). Use with extreme caution.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "account_id": {
+                "type": "string",
+                "description": "The id of the account to delete."
+              },
+              "confirm": {
+                "type": "boolean",
+                "description": "Must be true to proceed with the deletion."
+              }
+            },
+            "required": [
+              "account_id",
+              "confirm"
+            ]
+          },
+          "annotations": {
+            "title": "Delete account",
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": false
+          },
+          "icons": [],
+          "outputSchema": null
+        }
+      },
+      {
+        "name": "explain_topic",
+        "description": "Explain a topic in depth for a curious reader. This description is deliberately very long (over 1024 characters) so that adapters which truncate tool descriptions to fit a model's function-description limit can be detected by mcp-mirror. It also contains Unicode and special characters to verify they survive the round trip: accented words like caf\u00e9, na\u00efve, r\u00e9sum\u00e9, jalape\u00f1o, and Z\u00fcrich; non-Latin scripts such as \u65e5\u672c\u8a9e (Japanese), \u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac (Greek), and \u041a\u0438\u0440\u0438\u043b\u043b\u0438\u0446\u0430 (Cyrillic); mathematical symbols \u2211 \u222b \u2248 \u2260 \u221e \u2286 \u2295; currency signs \u20ac \u00a3 \u00a5 \u20bf; smart punctuation \u201ccurly quotes\u201d, \u2018single quotes\u2019, an em-dash, an en\u2013dash, and an ellipsis\u2026; plus a few emoji \ud83d\udd10 \ud83d\ude80 \u2705 for good measure. The reader should receive a structured, well-paced explanation that starts from first principles, introduces the key vocabulary, walks through one concrete worked example, names the most common misconceptions, and then points to where to learn more. Keep the tone precise and friendly. Prefer short sentences. Define every term of art the first time it appears, and never assume the reader has seen the topic before. End with a one-paragraph recap that a busy person could read on its own and still come away with the single most important idea. SENTINEL_END_OF_LONG_DESCRIPTION.",
+        "params": {
+          "type": "object",
+          "properties": {
+            "topic": {
+              "type": "string",
+              "description": "The subject to explain (supports Unicode: caf\u00e9, na\u00efve, \u65e5\u672c\u8a9e)."
+            },
+            "max_words": {
+              "type": "integer",
+              "description": "Soft cap on the explanation length.",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "topic"
+          ]
+        },
+        "annotations": {
+          "title": "Explain topic",
+          "readOnlyHint": true
+        },
+        "icons": [],
+        "output_schema": {
+          "type": "object",
+          "description": "Records matching the topic, with a count.",
+          "properties": {
+            "count": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "active",
+                      "archived",
+                      "pending",
+                      "deleted"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "status"
+                ]
+              }
+            },
+            "note": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "count",
+            "records"
+          ]
+        },
+        "framework_metadata": {},
+        "origin": "source",
+        "raw": {
+          "name": "explain_topic",
+          "description": "Explain a topic in depth for a curious reader. This description is deliberately very long (over 1024 characters) so that adapters which truncate tool descriptions to fit a model's function-description limit can be detected by mcp-mirror. It also contains Unicode and special characters to verify they survive the round trip: accented words like caf\u00e9, na\u00efve, r\u00e9sum\u00e9, jalape\u00f1o, and Z\u00fcrich; non-Latin scripts such as \u65e5\u672c\u8a9e (Japanese), \u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac (Greek), and \u041a\u0438\u0440\u0438\u043b\u043b\u0438\u0446\u0430 (Cyrillic); mathematical symbols \u2211 \u222b \u2248 \u2260 \u221e \u2286 \u2295; currency signs \u20ac \u00a3 \u00a5 \u20bf; smart punctuation \u201ccurly quotes\u201d, \u2018single quotes\u2019, an em-dash, an en\u2013dash, and an ellipsis\u2026; plus a few emoji \ud83d\udd10 \ud83d\ude80 \u2705 for good measure. The reader should receive a structured, well-paced explanation that starts from first principles, introduces the key vocabulary, walks through one concrete worked example, names the most common misconceptions, and then points to where to learn more. Keep the tone precise and friendly. Prefer short sentences. Define every term of art the first time it appears, and never assume the reader has seen the topic before. End with a one-paragraph recap that a busy person could read on its own and still come away with the single most important idea. SENTINEL_END_OF_LONG_DESCRIPTION.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "topic": {
+                "type": "string",
+                "description": "The subject to explain (supports Unicode: caf\u00e9, na\u00efve, \u65e5\u672c\u8a9e)."
+              },
+              "max_words": {
+                "type": "integer",
+                "description": "Soft cap on the explanation length.",
+                "minimum": 1
+              }
+            },
+            "required": [
+              "topic"
+            ]
+          },
+          "annotations": {
+            "title": "Explain topic",
+            "readOnlyHint": true
+          },
+          "icons": [],
+          "outputSchema": {
+            "type": "object",
+            "description": "Records matching the topic, with a count.",
+            "properties": {
+              "count": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "records": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "active",
+                        "archived",
+                        "pending",
+                        "deleted"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "status"
+                  ]
+                }
+              },
+              "note": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "count",
+              "records"
+            ]
+          }
+        }
+      }
+    ],
+    "artifact_sha256": "7c6e70a3e5ce6abb4a3787781f6067d4a2b510010c874f4ce5fe9957678d24a8",
+    "artifact": null,
+    "redacted": false,
+    "limitation": null
+  },
+  "tools": [
+    "search_records",
+    "create_report",
+    "deliver_payload",
+    "delete_account",
+    "explain_topic"
+  ],
+  "runs": [
+    {
+      "framework": "crewai_native",
+      "framework_version": "1.15.26",
+      "adapter_version": "1.15.26",
+      "runner_digest": "a801ceb2a73c720f5965e954b57d03470cf72454d11c71881054888ccdaa0633",
+      "status": "measured",
+      "status_detail": null,
+      "evidence": {
+        "capture_api": "crewai.Agent(mcps=[MCPServerStdio|MCPServerHTTP|MCPServerSSE]).get_mcp_tools (crewai.mcp.tool_resolver.MCPToolResolver), then crewai.utilities.agent_utils.convert_tools_to_openai_schema",
+        "capture_object": "function-tool dicts convert_tools_to_openai_schema builds from each crewai.tools.mcp_native_tool.MCPNativeTool",
+        "capture_stage": "provider_format",
+        "provider_request_captured": false,
+        "negotiated_mcp_spec_version": "2025-11-25",
+        "protocol_version_evidence": "protocolVersion instrumented from ClientSession.initialize inside crewai.mcp.MCPClient.connect; the adapter does not expose it",
+        "limitation": "No LLM was bound and no crew was kicked off; no provider client serialized a request. The ReAct text path, used when the LLM does not support function calling, renders tools into the prompt instead and was not captured. Stdio servers are launched with paths under the working directory written relative, because the launch command is part of every tool name."
+      },
+      "observations": [
+        {
+          "stage": "provider_format",
+          "capture_api": "crewai.Agent(mcps=[MCPServerStdio|MCPServerHTTP|MCPServerSSE]).get_mcp_tools (crewai.mcp.tool_resolver.MCPToolResolver), then crewai.utilities.agent_utils.convert_tools_to_openai_schema",
+          "capture_object": "function-tool dicts convert_tools_to_openai_schema builds from each crewai.tools.mcp_native_tool.MCPNativeTool",
+          "tools": [
+            {
+              "name": "python_fixtures_tricky_server_py_search_records",
+              "description": "Search records with optional filters. Read-only.",
+              "params": {
+                "additionalProperties": false,
+                "properties": {
+                  "query": {
+                    "description": "Full-text search query.",
+                    "title": "Query",
+                    "type": "string"
+                  },
+                  "status": {
+                    "anyOf": [
+                      {
+                        "enum": [
+                          "active",
+                          "archived",
+                          "pending",
+                          "deleted"
+                        ],
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "Filter by record status.. Allowed values: ['active', 'archived', 'pending', 'deleted']",
+                    "title": "Status"
+                  },
+                  "owner_email": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "Restrict to records owned by this email address.. Format: email",
+                    "title": "Owner Email"
+                  },
+                  "created_after": {
+                    "anyOf": [
+                      {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "Only records created at or after this RFC 3339 timestamp.. Format: date-time",
+                    "title": "Created After"
+                  },
+                  "limit": {
+                    "anyOf": [
+                      {
+                        "maximum": 100,
+                        "minimum": 1,
+                        "type": "integer"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": 20,
+                    "description": "Maximum number of records to return.. Minimum: 1. Maximum: 100",
+                    "title": "Limit"
+                  }
+                },
+                "required": [
+                  "query",
+                  "status",
+                  "owner_email",
+                  "created_after",
+                  "limit"
+                ],
+                "type": "object"
+              },
+              "annotations": {},
+              "icons": [],
+              "output_schema": null,
+              "framework_metadata": {},
+              "origin": "crewai_native",
+              "raw": {
+                "type": "function",
+                "function": {
+                  "name": "python_fixtures_tricky_server_py_search_records",
+                  "description": "Search records with optional filters. Read-only.",
+                  "parameters": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "query": {
+                        "description": "Full-text search query.",
+                        "title": "Query",
+                        "type": "string"
+                      },
+                      "status": {
+                        "anyOf": [
+                          {
+                            "enum": [
+                              "active",
+                              "archived",
+                              "pending",
+                              "deleted"
+                            ],
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "description": "Filter by record status.. Allowed values: ['active', 'archived', 'pending', 'deleted']",
+                        "title": "Status"
+                      },
+                      "owner_email": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "description": "Restrict to records owned by this email address.. Format: email",
+                        "title": "Owner Email"
+                      },
+                      "created_after": {
+                        "anyOf": [
+                          {
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "description": "Only records created at or after this RFC 3339 timestamp.. Format: date-time",
+                        "title": "Created After"
+                      },
+                      "limit": {
+                        "anyOf": [
+                          {
+                            "maximum": 100,
+                            "minimum": 1,
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": 20,
+                        "description": "Maximum number of records to return.. Minimum: 1. Maximum: 100",
+                        "title": "Limit"
+                      }
+                    },
+                    "required": [
+                      "query",
+                      "status",
+                      "owner_email",
+                      "created_after",
+                      "limit"
+                    ],
+                    "type": "object"
+                  },
+                  "strict": true
+                }
+              }
+            },
+            {
+              "name": "python_fixtures_tricky_server_py_create_report",
+              "description": "Create a structured report from sections.",
+              "params": {
+                "additionalProperties": false,
+                "properties": {
+                  "title": {
+                    "description": "Report title.",
+                    "title": "Title",
+                    "type": "string"
+                  },
+                  "config": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "format": {
+                        "description": "Output format.. Allowed values: ['pdf', 'html', 'csv']",
+                        "enum": [
+                          "pdf",
+                          "html",
+                          "csv"
+                        ],
+                        "title": "Format",
+                        "type": "string"
+                      },
+                      "include_summary": {
+                        "anyOf": [
+                          {
+                            "type": "boolean"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "description": "Whether to prepend an executive summary.",
+                        "title": "Include Summary"
+                      }
+                    },
+                    "required": [
+                      "format",
+                      "include_summary"
+                    ],
+                    "title": "Config",
+                    "type": "object"
+                  },
+                  "sections": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "heading": {
+                              "description": "Section heading.",
+                              "title": "Heading",
+                              "type": "string"
+                            },
+                            "body": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ],
+                              "default": null,
+                              "description": "Section body in markdown.",
+                              "title": "Body"
+                            }
+                          },
+                          "required": [
+                            "heading",
+                            "body"
+                          ],
+                          "title": "Sections",
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "Ordered report sections.",
+                    "title": "Sections"
+                  }
+                },
+                "required": [
+                  "title",
+                  "config",
+                  "sections"
+                ],
+                "type": "object"
+              },
+              "annotations": {},
+              "icons": [],
+              "output_schema": null,
+              "framework_metadata": {},
+              "origin": "crewai_native",
+              "raw": {
+                "type": "function",
+                "function": {
+                  "name": "python_fixtures_tricky_server_py_create_report",
+                  "description": "Create a structured report from sections.",
+                  "parameters": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "title": {
+                        "description": "Report title.",
+                        "title": "Title",
+                        "type": "string"
+                      },
+                      "config": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "format": {
+                            "description": "Output format.. Allowed values: ['pdf', 'html', 'csv']",
+                            "enum": [
+                              "pdf",
+                              "html",
+                              "csv"
+                            ],
+                            "title": "Format",
+                            "type": "string"
+                          },
+                          "include_summary": {
+                            "anyOf": [
+                              {
+                                "type": "boolean"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ],
+                            "default": null,
+                            "description": "Whether to prepend an executive summary.",
+                            "title": "Include Summary"
+                          }
+                        },
+                        "required": [
+                          "format",
+                          "include_summary"
+                        ],
+                        "title": "Config",
+                        "type": "object"
+                      },
+                      "sections": {
+                        "anyOf": [
+                          {
+                            "items": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "heading": {
+                                  "description": "Section heading.",
+                                  "title": "Heading",
+                                  "type": "string"
+                                },
+                                "body": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string"
+                                    },
+                                    {
+                                      "type": "null"
+                                    }
+                                  ],
+                                  "default": null,
+                                  "description": "Section body in markdown.",
+                                  "title": "Body"
+                                }
+                              },
+                              "required": [
+                                "heading",
+                                "body"
+                              ],
+                              "title": "Sections",
+                              "type": "object"
+                            },
+                            "type": "array"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "description": "Ordered report sections.",
+                        "title": "Sections"
+                      }
+                    },
+                    "required": [
+                      "title",
+                      "config",
+                      "sections"
+                    ],
+                    "type": "object"
+                  },
+                  "strict": true
+                }
+              }
+            },
+            {
+              "name": "python_fixtures_tricky_server_py_deliver_payload",
+              "description": "Deliver a payload to a destination.",
+              "params": {
+                "additionalProperties": false,
+                "properties": {
+                  "destination": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "additionalProperties": false,
+                        "properties": {
+                          "bucket": {
+                            "title": "Bucket",
+                            "type": "string"
+                          },
+                          "key": {
+                            "title": "Key",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "bucket",
+                          "key"
+                        ],
+                        "title": "DestinationOption1",
+                        "type": "object"
+                      }
+                    ],
+                    "description": "Where to deliver the payload.",
+                    "title": "Destination"
+                  },
+                  "mode": {
+                    "anyOf": [
+                      {
+                        "const": "sync",
+                        "type": "string"
+                      },
+                      {
+                        "const": "async",
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "Delivery mode.",
+                    "title": "Mode"
+                  }
+                },
+                "required": [
+                  "destination",
+                  "mode"
+                ],
+                "type": "object"
+              },
+              "annotations": {},
+              "icons": [],
+              "output_schema": null,
+              "framework_metadata": {},
+              "origin": "crewai_native",
+              "raw": {
+                "type": "function",
+                "function": {
+                  "name": "python_fixtures_tricky_server_py_deliver_payload",
+                  "description": "Deliver a payload to a destination.",
+                  "parameters": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "destination": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "additionalProperties": false,
+                            "properties": {
+                              "bucket": {
+                                "title": "Bucket",
+                                "type": "string"
+                              },
+                              "key": {
+                                "title": "Key",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "bucket",
+                              "key"
+                            ],
+                            "title": "DestinationOption1",
+                            "type": "object"
+                          }
+                        ],
+                        "description": "Where to deliver the payload.",
+                        "title": "Destination"
+                      },
+                      "mode": {
+                        "anyOf": [
+                          {
+                            "const": "sync",
+                            "type": "string"
+                          },
+                          {
+                            "const": "async",
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "description": "Delivery mode.",
+                        "title": "Mode"
+                      }
+                    },
+                    "required": [
+                      "destination",
+                      "mode"
+                    ],
+                    "type": "object"
+                  },
+                  "strict": true
+                }
+              }
+            },
+            {
+              "name": "python_fixtures_tricky_server_py_delete_account",
+              "description": "Permanently deletes a user account and all of its associated data. This action is destructive and irreversible: it cannot be undone, and it requires elevated admin scope (accounts:delete). Use with extreme caution.",
+              "params": {
+                "additionalProperties": false,
+                "properties": {
+                  "account_id": {
+                    "description": "The id of the account to delete.",
+                    "title": "Account Id",
+                    "type": "string"
+                  },
+                  "confirm": {
+                    "description": "Must be true to proceed with the deletion.",
+                    "title": "Confirm",
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "account_id",
+                  "confirm"
+                ],
+                "type": "object"
+              },
+              "annotations": {},
+              "icons": [],
+              "output_schema": null,
+              "framework_metadata": {},
+              "origin": "crewai_native",
+              "raw": {
+                "type": "function",
+                "function": {
+                  "name": "python_fixtures_tricky_server_py_delete_account",
+                  "description": "Permanently deletes a user account and all of its associated data. This action is destructive and irreversible: it cannot be undone, and it requires elevated admin scope (accounts:delete). Use with extreme caution.",
+                  "parameters": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "account_id": {
+                        "description": "The id of the account to delete.",
+                        "title": "Account Id",
+                        "type": "string"
+                      },
+                      "confirm": {
+                        "description": "Must be true to proceed with the deletion.",
+                        "title": "Confirm",
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "account_id",
+                      "confirm"
+                    ],
+                    "type": "object"
+                  },
+                  "strict": true
+                }
+              }
+            },
+            {
+              "name": "python_fixtures_tricky_server_py_explain_topic",
+              "description": "Explain a topic in depth for a curious reader. This description is deliberately very long (over 1024 characters) so that adapters which truncate tool descriptions to fit a model's function-description limit can be detected by mcp-mirror. It also contains Unicode and special characters to verify they survive the round trip: accented words like caf\u00e9, na\u00efve, r\u00e9sum\u00e9, jalape\u00f1o, and Z\u00fcrich; non-Latin scripts such as \u65e5\u672c\u8a9e (Japanese), \u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac (Greek), and \u041a\u0438\u0440\u0438\u043b\u043b\u0438\u0446\u0430 (Cyrillic); mathematical symbols \u2211 \u222b \u2248 \u2260 \u221e \u2286 \u2295; currency signs \u20ac \u00a3 \u00a5 \u20bf; smart punctuation \u201ccurly quotes\u201d, \u2018single quotes\u2019, an em-dash, an en\u2013dash, and an ellipsis\u2026; plus a few emoji \ud83d\udd10 \ud83d\ude80 \u2705 for good measure. The reader should receive a structured, well-paced explanation that starts from first principles, introduces the key vocabulary, walks through one concrete worked example, names the most common misconceptions, and then points to where to learn more. Keep the tone precise and friendly. Prefer short sentences. Define every term of art the first time it appears, and never assume the reader has seen the topic before. End with a one-paragraph recap that a busy person could read on its own and still come away with the single most important idea. SENTINEL_END_OF_LONG_DESCRIPTION.",
+              "params": {
+                "additionalProperties": false,
+                "properties": {
+                  "topic": {
+                    "description": "The subject to explain (supports Unicode: caf\u00e9, na\u00efve, \u65e5\u672c\u8a9e).",
+                    "title": "Topic",
+                    "type": "string"
+                  },
+                  "max_words": {
+                    "anyOf": [
+                      {
+                        "minimum": 1,
+                        "type": "integer"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "description": "Soft cap on the explanation length.. Minimum: 1",
+                    "title": "Max Words"
+                  }
+                },
+                "required": [
+                  "topic",
+                  "max_words"
+                ],
+                "type": "object"
+              },
+              "annotations": {},
+              "icons": [],
+              "output_schema": null,
+              "framework_metadata": {},
+              "origin": "crewai_native",
+              "raw": {
+                "type": "function",
+                "function": {
+                  "name": "python_fixtures_tricky_server_py_explain_topic",
+                  "description": "Explain a topic in depth for a curious reader. This description is deliberately very long (over 1024 characters) so that adapters which truncate tool descriptions to fit a model's function-description limit can be detected by mcp-mirror. It also contains Unicode and special characters to verify they survive the round trip: accented words like caf\u00e9, na\u00efve, r\u00e9sum\u00e9, jalape\u00f1o, and Z\u00fcrich; non-Latin scripts such as \u65e5\u672c\u8a9e (Japanese), \u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac (Greek), and \u041a\u0438\u0440\u0438\u043b\u043b\u0438\u0446\u0430 (Cyrillic); mathematical symbols \u2211 \u222b \u2248 \u2260 \u221e \u2286 \u2295; currency signs \u20ac \u00a3 \u00a5 \u20bf; smart punctuation \u201ccurly quotes\u201d, \u2018single quotes\u2019, an em-dash, an en\u2013dash, and an ellipsis\u2026; plus a few emoji \ud83d\udd10 \ud83d\ude80 \u2705 for good measure. The reader should receive a structured, well-paced explanation that starts from first principles, introduces the key vocabulary, walks through one concrete worked example, names the most common misconceptions, and then points to where to learn more. Keep the tone precise and friendly. Prefer short sentences. Define every term of art the first time it appears, and never assume the reader has seen the topic before. End with a one-paragraph recap that a busy person could read on its own and still come away with the single most important idea. SENTINEL_END_OF_LONG_DESCRIPTION.",
+                  "parameters": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "topic": {
+                        "description": "The subject to explain (supports Unicode: caf\u00e9, na\u00efve, \u65e5\u672c\u8a9e).",
+                        "title": "Topic",
+                        "type": "string"
+                      },
+                      "max_words": {
+                        "anyOf": [
+                          {
+                            "minimum": 1,
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "description": "Soft cap on the explanation length.. Minimum: 1",
+                        "title": "Max Words"
+                      }
+                    },
+                    "required": [
+                      "topic",
+                      "max_words"
+                    ],
+                    "type": "object"
+                  },
+                  "strict": true
+                }
+              }
+            }
+          ],
+          "artifact_sha256": "45f57089f7b48b28a9ed0a5c9557b15abc0ea30ca93b0f77975629ad3e75a7c1",
+          "artifact": null,
+          "redacted": false,
+          "limitation": "No LLM was bound and no crew was kicked off; no provider client serialized a request. The ReAct text path, used when the LLM does not support function calling, renders tools into the prompt instead and was not captured. Stdio servers are launched with paths under the working directory written relative, because the launch command is part of every tool name."
+        }
+      ],
+      "differences": [
+        {
+          "tool": "search_records",
+          "framework": "crewai_native",
+          "path": "name",
+          "category": "transformative",
+          "dimension": "name",
+          "detail": "tool name namespaced/prefixed: 'search_records' -> 'python_fixtures_tricky_server_py_search_records'",
+          "source_value": "search_records",
+          "rendered_value": "python_fixtures_tricky_server_py_search_records"
+        },
+        {
+          "tool": "search_records",
+          "framework": "crewai_native",
+          "path": "params.additionalProperties",
+          "category": "transformative",
+          "dimension": "constraint",
+          "detail": "additionalProperties behavior changed",
+          "source_value": true,
+          "rendered_value": false
+        },
+        {
+          "tool": "search_records",
+          "framework": "crewai_native",
+          "path": "params.properties.status.null",
+          "category": "additive",
+          "dimension": "param_type",
+          "detail": "rendering additionally accepts null",
+          "source_value": false,
+          "rendered_value": true
+        },
+        {
+          "tool": "search_records",
+          "framework": "crewai_native",
+          "path": "params.properties.owner_email.null",
+          "category": "additive",
+          "dimension": "param_type",
+          "detail": "rendering additionally accepts null",
+          "source_value": false,
+          "rendered_value": true
+        },
+        {
+          "tool": "search_records",
+          "framework": "crewai_native",
+          "path": "params.properties.owner_email.format",
+          "category": "lossy",
+          "dimension": "constraint",
+          "detail": "format constraint lost",
+          "source_value": "email",
+          "rendered_value": null
+        },
+        {
+          "tool": "search_records",
+          "framework": "crewai_native",
+          "path": "params.properties.created_after.null",
+          "category": "additive",
+          "dimension": "param_type",
+          "detail": "rendering additionally accepts null",
+          "source_value": false,
+          "rendered_value": true
+        },
+        {
+          "tool": "search_records",
+          "framework": "crewai_native",
+          "path": "params.properties.limit.null",
+          "category": "additive",
+          "dimension": "param_type",
+          "detail": "rendering additionally accepts null",
+          "source_value": false,
+          "rendered_value": true
+        },
+        {
+          "tool": "search_records",
+          "framework": "crewai_native",
+          "path": "params.required",
+          "category": "transformative",
+          "dimension": "required",
+          "detail": "required set grew; newly required: ['created_after', 'limit', 'owner_email', 'status']",
+          "source_value": [
+            "query"
+          ],
+          "rendered_value": [
+            "created_after",
+            "limit",
+            "owner_email",
+            "query",
+            "status"
+          ]
+        },
+        {
+          "tool": "search_records",
+          "framework": "crewai_native",
+          "path": "annotations.title",
+          "category": "lossy",
+          "dimension": "annotation",
+          "detail": "annotation 'title' destroyed (not retained by the framework)",
+          "source_value": "Search records",
+          "rendered_value": null
+        },
+        {
+          "tool": "search_records",
+          "framework": "crewai_native",
+          "path": "annotations.readOnlyHint",
+          "category": "lossy",
+          "dimension": "annotation",
+          "detail": "annotation 'readOnlyHint' (authorization-relevant) destroyed (not retained by the framework)",
+          "source_value": true,
+          "rendered_value": null
+        },
+        {
+          "tool": "search_records",
+          "framework": "crewai_native",
+          "path": "icons",
+          "category": "lossy",
+          "dimension": "icons",
+          "detail": "icons destroyed (not retained by the framework)",
+          "source_value": [
+            {
+              "src": "https://example.com/icons/search.svg",
+              "mimeType": "image/svg+xml",
+              "sizes": [
+                "any"
+              ]
+            },
+            {
+              "src": "https://example.com/icons/search-32.png",
+              "mimeType": "image/png",
+              "sizes": [
+                "32x32"
+              ]
+            }
+          ],
+          "rendered_value": null
+        },
+        {
+          "tool": "create_report",
+          "framework": "crewai_native",
+          "path": "name",
+          "category": "transformative",
+          "dimension": "name",
+          "detail": "tool name namespaced/prefixed: 'create_report' -> 'python_fixtures_tricky_server_py_create_report'",
+          "source_value": "create_report",
+          "rendered_value": "python_fixtures_tricky_server_py_create_report"
+        },
+        {
+          "tool": "create_report",
+          "framework": "crewai_native",
+          "path": "params.additionalProperties",
+          "category": "transformative",
+          "dimension": "constraint",
+          "detail": "additionalProperties behavior changed",
+          "source_value": true,
+          "rendered_value": false
+        },
+        {
+          "tool": "create_report",
+          "framework": "crewai_native",
+          "path": "params.properties.config.additionalProperties",
+          "category": "transformative",
+          "dimension": "constraint",
+          "detail": "additionalProperties behavior changed",
+          "source_value": true,
+          "rendered_value": false
+        },
+        {
+          "tool": "create_report",
+          "framework": "crewai_native",
+          "path": "params.properties.config.description",
+          "category": "lossy",
+          "dimension": "constraint",
+          "detail": "per-property description lost",
+          "source_value": "Rendering configuration.",
+          "rendered_value": null
+        },
+        {
+          "tool": "create_report",
+          "framework": "crewai_native",
+          "path": "params.properties.config.properties.include_summary.null",
+          "category": "additive",
+          "dimension": "param_type",
+          "detail": "rendering additionally accepts null",
+          "source_value": false,
+          "rendered_value": true
+        },
+        {
+          "tool": "create_report",
+          "framework": "crewai_native",
+          "path": "params.properties.config.required",
+          "category": "transformative",
+          "dimension": "required",
+          "detail": "required set grew; newly required: ['include_summary']",
+          "source_value": [
+            "format"
+          ],
+          "rendered_value": [
+            "format",
+            "include_summary"
+          ]
+        },
+        {
+          "tool": "create_report",
+          "framework": "crewai_native",
+          "path": "params.properties.sections.null",
+          "category": "additive",
+          "dimension": "param_type",
+          "detail": "rendering additionally accepts null",
+          "source_value": false,
+          "rendered_value": true
+        },
+        {
+          "tool": "create_report",
+          "framework": "crewai_native",
+          "path": "params.properties.sections.items.additionalProperties",
+          "category": "transformative",
+          "dimension": "constraint",
+          "detail": "additionalProperties behavior changed",
+          "source_value": true,
+          "rendered_value": false
+        },
+        {
+          "tool": "create_report",
+          "framework": "crewai_native",
+          "path": "params.properties.sections.items.properties.body.null",
+          "category": "additive",
+          "dimension": "param_type",
+          "detail": "rendering additionally accepts null",
+          "source_value": false,
+          "rendered_value": true
+        },
+        {
+          "tool": "create_report",
+          "framework": "crewai_native",
+          "path": "params.properties.sections.items.required",
+          "category": "transformative",
+          "dimension": "required",
+          "detail": "required set grew; newly required: ['body']",
+          "source_value": [
+            "heading"
+          ],
+          "rendered_value": [
+            "body",
+            "heading"
+          ]
+        },
+        {
+          "tool": "create_report",
+          "framework": "crewai_native",
+          "path": "params.required",
+          "category": "transformative",
+          "dimension": "required",
+          "detail": "required set grew; newly required: ['sections']",
+          "source_value": [
+            "config",
+            "title"
+          ],
+          "rendered_value": [
+            "config",
+            "sections",
+            "title"
+          ]
+        },
+        {
+          "tool": "create_report",
+          "framework": "crewai_native",
+          "path": "annotations.title",
+          "category": "lossy",
+          "dimension": "annotation",
+          "detail": "annotation 'title' destroyed (not retained by the framework)",
+          "source_value": "Create report",
+          "rendered_value": null
+        },
+        {
+          "tool": "deliver_payload",
+          "framework": "crewai_native",
+          "path": "name",
+          "category": "transformative",
+          "dimension": "name",
+          "detail": "tool name namespaced/prefixed: 'deliver_payload' -> 'python_fixtures_tricky_server_py_deliver_payload'",
+          "source_value": "deliver_payload",
+          "rendered_value": "python_fixtures_tricky_server_py_deliver_payload"
+        },
+        {
+          "tool": "deliver_payload",
+          "framework": "crewai_native",
+          "path": "params.additionalProperties",
+          "category": "transformative",
+          "dimension": "constraint",
+          "detail": "additionalProperties behavior changed",
+          "source_value": true,
+          "rendered_value": false
+        },
+        {
+          "tool": "deliver_payload",
+          "framework": "crewai_native",
+          "path": "params.properties.destination.anyOf[1].additionalProperties",
+          "category": "transformative",
+          "dimension": "constraint",
+          "detail": "additionalProperties behavior changed",
+          "source_value": true,
+          "rendered_value": false
+        },
+        {
+          "tool": "deliver_payload",
+          "framework": "crewai_native",
+          "path": "params.properties.destination.anyOf[1].description",
+          "category": "lossy",
+          "dimension": "constraint",
+          "detail": "per-property description lost",
+          "source_value": "An object-store location.",
+          "rendered_value": null
+        },
+        {
+          "tool": "deliver_payload",
+          "framework": "crewai_native",
+          "path": "params.properties.destination.anyOf[0].format",
+          "category": "lossy",
+          "dimension": "constraint",
+          "detail": "format constraint lost",
+          "source_value": "uri",
+          "rendered_value": null
+        },
+        {
+          "tool": "deliver_payload",
+          "framework": "crewai_native",
+          "path": "params.properties.destination.anyOf[0].description",
+          "category": "lossy",
+          "dimension": "constraint",
+          "detail": "per-property description lost",
+          "source_value": "A webhook URL.",
+          "rendered_value": null
+        },
+        {
+          "tool": "deliver_payload",
+          "framework": "crewai_native",
+          "path": "params.properties.mode.null",
+          "category": "additive",
+          "dimension": "param_type",
+          "detail": "rendering additionally accepts null",
+          "source_value": false,
+          "rendered_value": true
+        },
+        {
+          "tool": "deliver_payload",
+          "framework": "crewai_native",
+          "path": "params.properties.mode.oneOf",
+          "category": "transformative",
+          "dimension": "structure",
+          "detail": "oneOf collapsed/flattened (JSON Schema 2020-12 construct lost)",
+          "source_value": [
+            {
+              "const": "sync"
+            },
+            {
+              "const": "async"
+            }
+          ],
+          "rendered_value": null
+        },
+        {
+          "tool": "deliver_payload",
+          "framework": "crewai_native",
+          "path": "params.required",
+          "category": "transformative",
+          "dimension": "required",
+          "detail": "required set grew; newly required: ['mode']",
+          "source_value": [
+            "destination"
+          ],
+          "rendered_value": [
+            "destination",
+            "mode"
+          ]
+        },
+        {
+          "tool": "deliver_payload",
+          "framework": "crewai_native",
+          "path": "annotations.title",
+          "category": "lossy",
+          "dimension": "annotation",
+          "detail": "annotation 'title' destroyed (not retained by the framework)",
+          "source_value": "Deliver payload",
+          "rendered_value": null
+        },
+        {
+          "tool": "deliver_payload",
+          "framework": "crewai_native",
+          "path": "annotations.idempotentHint",
+          "category": "lossy",
+          "dimension": "annotation",
+          "detail": "annotation 'idempotentHint' (authorization-relevant) destroyed (not retained by the framework)",
+          "source_value": false,
+          "rendered_value": null
+        },
+        {
+          "tool": "delete_account",
+          "framework": "crewai_native",
+          "path": "name",
+          "category": "transformative",
+          "dimension": "name",
+          "detail": "tool name namespaced/prefixed: 'delete_account' -> 'python_fixtures_tricky_server_py_delete_account'",
+          "source_value": "delete_account",
+          "rendered_value": "python_fixtures_tricky_server_py_delete_account"
+        },
+        {
+          "tool": "delete_account",
+          "framework": "crewai_native",
+          "path": "params.additionalProperties",
+          "category": "transformative",
+          "dimension": "constraint",
+          "detail": "additionalProperties behavior changed",
+          "source_value": true,
+          "rendered_value": false
+        },
+        {
+          "tool": "delete_account",
+          "framework": "crewai_native",
+          "path": "annotations.title",
+          "category": "lossy",
+          "dimension": "annotation",
+          "detail": "annotation 'title' destroyed (not retained by the framework)",
+          "source_value": "Delete account",
+          "rendered_value": null
+        },
+        {
+          "tool": "delete_account",
+          "framework": "crewai_native",
+          "path": "annotations.readOnlyHint",
+          "category": "lossy",
+          "dimension": "annotation",
+          "detail": "annotation 'readOnlyHint' (authorization-relevant) destroyed (not retained by the framework)",
+          "source_value": false,
+          "rendered_value": null
+        },
+        {
+          "tool": "delete_account",
+          "framework": "crewai_native",
+          "path": "annotations.destructiveHint",
+          "category": "lossy",
+          "dimension": "annotation",
+          "detail": "annotation 'destructiveHint' (authorization-relevant) destroyed (not retained by the framework)",
+          "source_value": true,
+          "rendered_value": null
+        },
+        {
+          "tool": "delete_account",
+          "framework": "crewai_native",
+          "path": "annotations.idempotentHint",
+          "category": "lossy",
+          "dimension": "annotation",
+          "detail": "annotation 'idempotentHint' (authorization-relevant) destroyed (not retained by the framework)",
+          "source_value": false,
+          "rendered_value": null
+        },
+        {
+          "tool": "delete_account",
+          "framework": "crewai_native",
+          "path": "annotations.openWorldHint",
+          "category": "lossy",
+          "dimension": "annotation",
+          "detail": "annotation 'openWorldHint' (authorization-relevant) destroyed (not retained by the framework)",
+          "source_value": false,
+          "rendered_value": null
+        },
+        {
+          "tool": "explain_topic",
+          "framework": "crewai_native",
+          "path": "name",
+          "category": "transformative",
+          "dimension": "name",
+          "detail": "tool name namespaced/prefixed: 'explain_topic' -> 'python_fixtures_tricky_server_py_explain_topic'",
+          "source_value": "explain_topic",
+          "rendered_value": "python_fixtures_tricky_server_py_explain_topic"
+        },
+        {
+          "tool": "explain_topic",
+          "framework": "crewai_native",
+          "path": "params.additionalProperties",
+          "category": "transformative",
+          "dimension": "constraint",
+          "detail": "additionalProperties behavior changed",
+          "source_value": true,
+          "rendered_value": false
+        },
+        {
+          "tool": "explain_topic",
+          "framework": "crewai_native",
+          "path": "params.properties.max_words.null",
+          "category": "additive",
+          "dimension": "param_type",
+          "detail": "rendering additionally accepts null",
+          "source_value": false,
+          "rendered_value": true
+        },
+        {
+          "tool": "explain_topic",
+          "framework": "crewai_native",
+          "path": "params.required",
+          "category": "transformative",
+          "dimension": "required",
+          "detail": "required set grew; newly required: ['max_words']",
+          "source_value": [
+            "topic"
+          ],
+          "rendered_value": [
+            "max_words",
+            "topic"
+          ]
+        },
+        {
+          "tool": "explain_topic",
+          "framework": "crewai_native",
+          "path": "annotations.title",
+          "category": "lossy",
+          "dimension": "annotation",
+          "detail": "annotation 'title' destroyed (not retained by the framework)",
+          "source_value": "Explain topic",
+          "rendered_value": null
+        },
+        {
+          "tool": "explain_topic",
+          "framework": "crewai_native",
+          "path": "annotations.readOnlyHint",
+          "category": "lossy",
+          "dimension": "annotation",
+          "detail": "annotation 'readOnlyHint' (authorization-relevant) destroyed (not retained by the framework)",
+          "source_value": true,
+          "rendered_value": null
+        },
+        {
+          "tool": "explain_topic",
+          "framework": "crewai_native",
+          "path": "outputSchema",
+          "category": "lossy",
+          "dimension": "output_schema",
+          "detail": "output schema destroyed (not retained by the framework)",
+          "source_value": {
+            "type": "object",
+            "description": "Records matching the topic, with a count.",
+            "properties": {
+              "count": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "records": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "active",
+                        "archived",
+                        "pending",
+                        "deleted"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "status"
+                  ]
+                }
+              },
+              "note": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "count",
+              "records"
+            ]
+          },
+          "rendered_value": null
+        }
+      ]
+    }
+  ],
+  "job_findings": [],
+  "scorecard": {
+    "jobs": [
+      {
+        "id": "J1",
+        "label": "identity",
+        "title": "When a tool is adapted, its name and full description remain in the captured definition so downstream consumers retain its identity and the author's intent."
+      },
+      {
+        "id": "J2",
+        "label": "params",
+        "title": "When a tool is adapted, its parameter contract (types, required, enums, formats) remains intact at the capture boundary."
+      },
+      {
+        "id": "J3",
+        "label": "struct",
+        "title": "When a tool takes nested or structured input, that structure survives adaptation so complex calls do not silently degrade."
+      },
+      {
+        "id": "J4",
+        "label": "inject",
+        "title": "At the capture boundary, a tool carries nothing the author did not write, so framework-injected text and phantom tools stay visible as changes."
+      },
+      {
+        "id": "J5",
+        "label": "authz",
+        "title": "When a tool is adapted, structured danger and scope signals remain at the declared capture boundary or in explicit retained metadata."
+      }
+    ],
+    "frameworks": {
+      "crewai_native": {
+        "framework_version": "1.15.26",
+        "adapter_version": "1.15.26",
+        "status": "measured",
+        "status_detail": null,
+        "jobs": {
+          "J1": {
+            "verdict": "transformative",
+            "count": 5,
+            "details": [
+              "tool name namespaced/prefixed: 'search_records' -> 'python_fixtures_tricky_server_py_search_records'",
+              "tool name namespaced/prefixed: 'create_report' -> 'python_fixtures_tricky_server_py_create_report'",
+              "tool name namespaced/prefixed: 'deliver_payload' -> 'python_fixtures_tricky_server_py_deliver_payload'",
+              "tool name namespaced/prefixed: 'delete_account' -> 'python_fixtures_tricky_server_py_delete_account'",
+              "tool name namespaced/prefixed: 'explain_topic' -> 'python_fixtures_tricky_server_py_explain_topic'"
+            ]
+          },
+          "J2": {
+            "verdict": "lossy",
+            "count": 28,
+            "details": [
+              "additionalProperties behavior changed",
+              "rendering additionally accepts null",
+              "rendering additionally accepts null",
+              "format constraint lost",
+              "rendering additionally accepts null",
+              "rendering additionally accepts null",
+              "required set grew; newly required: ['created_after', 'limit', 'owner_email', 'status']",
+              "additionalProperties behavior changed",
+              "additionalProperties behavior changed",
+              "per-property description lost",
+              "rendering additionally accepts null",
+              "required set grew; newly required: ['include_summary']",
+              "rendering additionally accepts null",
+              "additionalProperties behavior changed",
+              "rendering additionally accepts null",
+              "required set grew; newly required: ['body']",
+              "required set grew; newly required: ['sections']",
+              "additionalProperties behavior changed",
+              "additionalProperties behavior changed",
+              "per-property description lost",
+              "format constraint lost",
+              "per-property description lost",
+              "rendering additionally accepts null",
+              "required set grew; newly required: ['mode']",
+              "additionalProperties behavior changed",
+              "additionalProperties behavior changed",
+              "rendering additionally accepts null",
+              "required set grew; newly required: ['max_words']"
+            ]
+          },
+          "J3": {
+            "verdict": "transformative",
+            "count": 1,
+            "details": [
+              "oneOf collapsed/flattened (JSON Schema 2020-12 construct lost)"
+            ]
+          },
+          "J4": {
+            "verdict": "faithful",
+            "count": 0,
+            "details": []
+          },
+          "J5": {
+            "verdict": "lossy",
+            "count": 7,
+            "details": [
+              "annotation 'readOnlyHint' (authorization-relevant) destroyed (not retained by the framework)",
+              "annotation 'idempotentHint' (authorization-relevant) destroyed (not retained by the framework)",
+              "annotation 'readOnlyHint' (authorization-relevant) destroyed (not retained by the framework)",
+              "annotation 'destructiveHint' (authorization-relevant) destroyed (not retained by the framework)",
+              "annotation 'idempotentHint' (authorization-relevant) destroyed (not retained by the framework)",
+              "annotation 'openWorldHint' (authorization-relevant) destroyed (not retained by the framework)",
+              "annotation 'readOnlyHint' (authorization-relevant) destroyed (not retained by the framework)"
+            ]
+          }
+        },
+        "total_differences": 48,
+        "authz_flags": [
+          "search_records: annotation 'readOnlyHint' (authorization-relevant) destroyed (not retained by the framework)",
+          "deliver_payload: annotation 'idempotentHint' (authorization-relevant) destroyed (not retained by the framework)",
+          "delete_account: annotation 'readOnlyHint' (authorization-relevant) destroyed (not retained by the framework)",
+          "delete_account: annotation 'destructiveHint' (authorization-relevant) destroyed (not retained by the framework)",
+          "delete_account: annotation 'idempotentHint' (authorization-relevant) destroyed (not retained by the framework)",
+          "delete_account: annotation 'openWorldHint' (authorization-relevant) destroyed (not retained by the framework)",
+          "explain_topic: annotation 'readOnlyHint' (authorization-relevant) destroyed (not retained by the framework)"
+        ]
+      }
+    }
+  }
+}

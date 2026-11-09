@@ -1,0 +1,6 @@
+{"format": "mcp-mirror.harness-output/1"}
+{"event": "init", "harness_version": null, "permission_mode": null, "model": "gemini-2.5-flash", "mcp_servers": null, "mcp_tools": []}
+{"event": "tool_use", "tool": "mcp_def_delete_account", "input": {"account_id": "a", "confirm": true}}
+{"event": "tool_result", "is_error": false, "text": "SENTINEL_TEXT_BLOCK\n[Image: image/png]\n[Audio: audio/wav]\nSENTINEL_EMBEDDED_RESOURCE\n[Link to linked.txt: file:///fixtures/linked.txt]"}
+{"event": "text", "text": "done"}
+{"event": "result", "subtype": "success", "is_error": false, "num_turns": null, "tool_calls": 1, "text": ""}

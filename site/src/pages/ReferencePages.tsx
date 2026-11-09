@@ -1,0 +1,356 @@
+import {Card, Chip, Link} from "@heroui/react";
+
+import {
+  capabilityHref,
+  isMeasured,
+  parseSupport,
+  shortDate,
+  titleCaseRule,
+} from "../lib/data";
+import type {
+  Capability,
+  MirrorDatabase,
+  ResultBoundary,
+  SupportCode,
+} from "../types";
+import {ArrowUpRightIcon, ChevronRightIcon} from "../components/Icons";
+
+/**
+ * Every result boundary a framework was asked at, with the agent's one marked.
+ *
+ * A framework can answer differently depending on whether its tool object is
+ * invoked directly or through its own agent path, so publishing a single result
+ * boundary can describe something no agent does.
+ */
+export function BoundaryList({boundaries}: {boundaries?: ResultBoundary[]}) {
+  if (!boundaries?.length) {
+    return null;
+  }
+  return (
+    <div className="result-boundaries">
+      <p className="result-boundaries-title">
+        Result capture{boundaries.length > 1 ? ` (${boundaries.length} boundaries)` : ""}
+      </p>
+      <ul>
+        {boundaries.map((boundary) => (
+          <li
+            className={boundary.agent_path ? "is-agent-path" : undefined}
+            key={boundary.id}
+          >
+            <span className="result-boundary-label">
+              {boundary.label}
+              {boundary.agent_path ? (
+                <Chip size="sm" variant="soft">agent path</Chip>
+              ) : null}
+            </span>
+            <code>{boundary.capture_api}</code>
+            <small>{boundary.capture_object}</small>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function PageIntro({
+  eyebrow,
+  title,
+  children,
+}: {
+  eyebrow: string;
+  title: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <header className="page-intro">
+      <p className="eyebrow">{eyebrow}</p>
+      <h1>{title}</h1>
+      <p>{children}</p>
+    </header>
+  );
+}
+
+function DistributionBar({
+  counts,
+}: {
+  counts: Record<SupportCode, number>;
+}) {
+  const total = Object.values(counts).reduce((sum, value) => sum + value, 0);
+  return (
+    <div className="support-bar" aria-hidden="true">
+      {(Object.keys(counts) as SupportCode[]).map((code) =>
+        counts[code] ? (
+          <span
+            className={`support-segment support-${code}`}
+            key={code}
+            style={{width: `${(counts[code] / total) * 100}%`}}
+          />
+        ) : null,
+      )}
+    </div>
+  );
+}
+
+export function ChangesPage({
+  database,
+  capabilities,
+}: {
+  database: MirrorDatabase;
+  capabilities: Capability[];
+}) {
+  const byDate = new Map<string, Capability[]>();
+  for (const capability of capabilities) {
+    const date = capability.measured.run_date;
+    if (!isMeasured(capability) || !date) {
+      continue;
+    }
+    byDate.set(date, [...(byDate.get(date) ?? []), capability]);
+  }
+
+  return (
+    <main className="site-shell page-main" id="main-content">
+      <PageIntro eyebrow="Measurement history" title="Changes">
+        Every dated entry is a deterministic adapter run. Git history remains
+        the line-by-line changelog for each capability file.
+      </PageIntro>
+
+      <div className="change-stack">
+        {Array.from(byDate.entries())
+          .sort(([left], [right]) => right.localeCompare(left))
+          .map(([date, entries]) => (
+            <Card className="change-card" key={date}>
+              <Card.Header className="change-card-date">
+                <Card.Title>
+                  <time dateTime={date}>{shortDate(date)}</time>
+                </Card.Title>
+                <Card.Description>
+                  Adapter measurements against MCP {database.mcp_spec}
+                </Card.Description>
+              </Card.Header>
+              <Card.Content className="change-card-content">
+                {entries.map((capability) => (
+                  <Link
+                    className="change-row"
+                    href={capabilityHref(capability.id)}
+                    key={capability.id}
+                  >
+                    <span>
+                      <strong>{capability.title}</strong>
+                      <small>{capability.verdict.headline}</small>
+                    </span>
+                    <ChevronRightIcon />
+                  </Link>
+                ))}
+              </Card.Content>
+            </Card>
+          ))}
+      </div>
+    </main>
+  );
+}
+
+export function FrameworkComparison({
+  database,
+  capabilities,
+  versions,
+}: {
+  database: MirrorDatabase;
+  capabilities: Capability[];
+  versions?: Record<string, string>;
+}) {
+  return (
+    <div className="framework-card-grid">
+      {Object.entries(database.agents).map(([agentId, agent]) => {
+        const counts: Record<SupportCode, number> = {y: 0, a: 0, n: 0, x: 0, u: 0};
+        const version = versions?.[agentId] ?? agent.current_version;
+        const measurementStatus = agent.measurement_status ?? "measured";
+        for (const capability of capabilities) {
+          counts[parseSupport(capability.stats[agentId]?.[version]).code] += 1;
+        }
+        const release = agent.version_list.find(
+          (entry) => entry.version === version,
+        );
+
+        return (
+          <Card className="framework-card" key={agentId}>
+            <Card.Header>
+              <span className={`framework-avatar language-${agent.type}`}>
+                {agent.abbr}
+              </span>
+              <div>
+                <Card.Title>{agent.name}</Card.Title>
+                <Card.Description>
+                  {agent.package} {version}
+                </Card.Description>
+              </div>
+            </Card.Header>
+            <Card.Content>
+              <DistributionBar counts={counts} />
+              <div className="distribution-tally">
+                <span><b>{counts.y}</b> present</span>
+                <span><b>{counts.a}</b> changed/retained</span>
+                <span><b>{counts.n}</b> dropped</span>
+                {counts.u ? <span><b>{counts.u}</b> unmeasured</span> : null}
+              </div>
+              <p className="adapter-name">{agent.adapter}</p>
+              <p className="adapter-name">
+                Definition capture: {agent.capture_boundary.capture_api} →{" "}
+                {agent.capture_boundary.capture_object}
+              </p>
+              <BoundaryList boundaries={agent.result_boundaries} />
+              <p className="adapter-name">
+                Provider request:{" "}
+                {agent.capture_boundary.provider_request_captured
+                  ? "captured"
+                  : "not captured"}{" "}
+                · Adapter-negotiated MCP spec:{" "}
+                {agent.capture_boundary.negotiated_mcp_spec_version ??
+                  "not established"}
+              </p>
+              {measurementStatus !== "measured" ? (
+                <p
+                  className="framework-measurement-note"
+                  data-measurement-status={measurementStatus}
+                >
+                  Not measured for MCP {database.mcp_spec}.{" "}
+                  {agent.measurement_note}
+                </p>
+              ) : null}
+            </Card.Content>
+            <Card.Footer>
+              <Chip size="sm" variant="tertiary">{agent.type}</Chip>
+              <span>
+                {release?.release_date
+                  ? `released ${shortDate(release.release_date)}`
+                  : "release date unavailable"}
+              </span>
+            </Card.Footer>
+          </Card>
+        );
+      })}
+    </div>
+  );
+}
+
+export function ComparePage({
+  database,
+  capabilities,
+}: {
+  database: MirrorDatabase;
+  capabilities: Capability[];
+}) {
+  return (
+    <main className="site-shell page-main" id="main-content">
+      <PageIntro eyebrow="Current tested releases" title="Compare frameworks">
+        A distribution of observed transformations, not a score. Retaining a
+        value out of band and dropping it are shown as different facts.
+      </PageIntro>
+      <FrameworkComparison database={database} capabilities={capabilities} />
+    </main>
+  );
+}
+
+export function MethodPage({database}: {database: MirrorDatabase}) {
+  const methodCards = [
+    {
+      title: "Beta",
+      body:
+        "The site is in beta. Maintainers are still checking the results, frameworks and agents keep shipping releases we have not measured yet, and a cell can change when either happens. Each framework and agent page has a \"Something wrong on this page?\" form for corrections.",
+      variant: "default" as const,
+    },
+    {
+      title: "The measurement",
+      body:
+        "Each cell compares what an MCP server publishes with the tool definition at a declared framework capture boundary. No model is called and no serialized provider request is implied.",
+      variant: "default" as const,
+    },
+    {
+      title: "The data shape",
+      body:
+        "Frameworks carry version lists and release dates. Capabilities carry one support code per tested framework version, plus numbered notes that name the mechanism.",
+      variant: "secondary" as const,
+    },
+    {
+      title: "Protocol versions stay separate",
+      body:
+        "The scan records the version established by its direct source connection through initialize or server/discover. A framework adapter's independently established version is recorded only when the adapter exposes it; unknown is never filled from the source by assumption.",
+      variant: "secondary" as const,
+    },
+    {
+      title: "No percentage without a source",
+      body:
+        "There is no adoption weighting yet. A future weighting must name its corpus, collection period, and method before it appears here.",
+      variant: "secondary" as const,
+    },
+    {
+      title: "Licensing and corrections",
+      body:
+        "Code is MIT. Support data is CC BY 4.0. A framework can reuse its own row, reproduce it, and submit a correction through the same public data files.",
+      variant: "tertiary" as const,
+    },
+  ];
+
+  return (
+    <main className="site-shell page-main" id="main-content">
+      <PageIntro eyebrow="Reproducibility" title="Method and defaults">
+        Most of this site is measured fact. The explicit defaults below are the
+        choices that determine what appears and what earns each status.
+      </PageIntro>
+
+      <div className="method-card-grid">
+        {methodCards.map((item) => (
+          <Card className="method-card" key={item.title} variant={item.variant}>
+            <Card.Header>
+              <Card.Title>{item.title}</Card.Title>
+              <Card.Description>{item.body}</Card.Description>
+            </Card.Header>
+          </Card>
+        ))}
+      </div>
+
+      <section className="defaults-section" aria-labelledby="defaults-title">
+        <div className="section-heading">
+          <p className="eyebrow">Published choices</p>
+          <h2 id="defaults-title">Defaults</h2>
+        </div>
+        <div className="defaults-stack">
+          {Object.entries(database.defaults).map(([name, value], index) => (
+            <Card
+              className="default-card"
+              key={name}
+              variant={index % 2 ? "secondary" : "default"}
+            >
+              <Card.Header>
+                <Chip size="sm" variant="soft">
+                  {String(index + 1).padStart(2, "0")}
+                </Chip>
+                <Card.Title>{titleCaseRule(name)}</Card.Title>
+              </Card.Header>
+              <Card.Content>
+                <p>{value}</p>
+              </Card.Content>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      <Card className="contribute-card">
+        <Card.Header>
+          <Card.Title>Inspect or correct the data</Card.Title>
+          <Card.Description>
+            Every status links back to a capability file and a deterministic
+            reproduction command.
+          </Card.Description>
+        </Card.Header>
+        {database.feedback_url ? (
+          <Card.Footer>
+            <Link href={database.feedback_url} target="_blank" rel="noopener noreferrer">
+              Send a correction
+              <ArrowUpRightIcon width={16} height={16} />
+            </Link>
+          </Card.Footer>
+        ) : null}
+      </Card>
+    </main>
+  );
+}

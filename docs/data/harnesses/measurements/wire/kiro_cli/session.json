@@ -1,0 +1,44 @@
+{
+  "format": "mcp-mirror.harness-session/1",
+  "harness": "kiro_cli",
+  "name": "Kiro CLI",
+  "version": "2.26.0",
+  "captured_at": "2026-09-30T03:49:07+00:00",
+  "command": "uv run python scripts/measure_harness.py kiro_cli",
+  "recorder": "mcp-mirror 0.1.0",
+  "fixture_sdk": "mcp 1.26.0",
+  "fixture_lines": [
+    {
+      "revision": "2025-11-25",
+      "python": "python",
+      "sdk": "mcp 1.26.0"
+    },
+    {
+      "revision": "2026-07-28",
+      "python": ".mcp-mirror/fixture-2026-07-28/bin/python",
+      "sdk": "mcp 2.0.0"
+    }
+  ],
+  "servers": {
+    "def": "fixtures/definitions_server.py",
+    "res": "fixtures/results_server.py",
+    "ntf": "fixtures/notify_server.py",
+    "cf": "fixtures/client_features_server.py",
+    "util": "fixtures/utilities_server.py"
+  },
+  "level_1": {
+    "status": "skipped",
+    "reason": "scripts/harnesses/kiro_cli.py has no STUB_KIND; level 1 needs one",
+    "sessions": []
+  },
+  "level_2": {
+    "status": "skipped",
+    "reason": "scripts/harnesses/kiro_cli.py has no STUB_KIND, so its model API cannot be scripted",
+    "sessions": []
+  },
+  "fresh": {
+    "passed": true,
+    "sessions": 0,
+    "failed": []
+  }
+}

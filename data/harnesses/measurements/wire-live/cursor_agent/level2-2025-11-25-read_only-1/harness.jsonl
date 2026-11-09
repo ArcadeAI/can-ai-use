@@ -1,0 +1,10 @@
+{"format": "mcp-mirror.harness-output/1"}
+{"event": "init", "harness_version": null, "model": "Auto Balance", "permission_mode": "default", "mcp_servers": null, "mcp_tools": null}
+{"event": "routed", "model": "GPT-5.6 Sol"}
+{"event": "text", "text": "> Auto routed to GPT-5.6 Sol\n\n"}
+{"event": "tool_use", "tool": "getMcpToolsToolCall", "input": {"server": "def", "toolName": "search_records", "toolCallId": "call_mk3YvOJBubvfKwBcYfQwa5te\nfc_065f02bbe4728daf016ad2a3748ce087d1933801da83dd2866"}}
+{"event": "tool_result", "is_error": false, "text": "{\"success\": {\"content\": \"{\\n  \\\"tool\\\": \\\"search_records\\\",\\n  \\\"description\\\": \\\"Search records with optional filters. Read-only.\\\",\\n  \\\"inputSchema\\\": {\\n    \\\"type\\\": \\\"object\\\",\\n    \\\"properties\\\": {\\n      \\\"query\\\": {\\n        \\\"type\\\": \\\"string\\\",\\n        \\\"description\\\": \\\"Full-text search query.\\\"\\n      },\\n      \\\"status\\\": {\\n        \\\"type\\\": \\\"string\\\",\\n        \\\"description\\\": \\\"Filter by record status.\\\",\\n        \\\"enum\\\": [\\n          \\\"active\\\",\\n          \\\"archived\\\",\\n ..."}
+{"event": "tool_use", "tool": "mcpToolCall", "input": {"name": "def-search_records", "args": {"query": "x"}, "toolCallId": "call_FgZAdWqwwJHEQV76Xb8b5OjR\nfc_065f02bbe4728daf016ad2a3764f7c87d195b56ace3145f63f", "providerIdentifier": "def", "toolName": "search_records", "smartModeApprovalOnly": false, "skipApproval": false, "serverIdentifier": "def", "symbolicPathArguments": [], "argumentsRepaired": false}}
+{"event": "tool_result", "is_error": true, "text": "{\"rejected\": {\"reason\": \"User rejected MCP: def-search_records\", \"isReadonly\": false}}"}
+{"event": "text", "text": "The tool call was rejected, so I couldn’t retrieve the count."}
+{"event": "result", "subtype": "success", "is_error": false, "num_turns": null, "text": "> Auto routed to GPT-5.6 Sol\n\nThe tool call was rejected, so I couldn’t retrieve the count."}

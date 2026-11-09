@@ -1,0 +1,35 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "transport-http-sse",
+  "title": "HTTP+SSE transport",
+  "description": "The original two-endpoint HTTP transport, superseded by Streamable HTTP and kept only for backwards compatibility.",
+  "question": "Does this framework still connect over the legacy transport?",
+  "spec": "https://modelcontextprotocol.io/specification/2025-11-25",
+  "status": "deprecated",
+  "categories": [
+    "Transports"
+  ],
+  "keywords": "HTTP+SSE,legacy transport,deprecated transport,sse endpoint",
+  "why": "Deprecated since 2025-03-26 but still widely deployed, so whether an adapter can reach an old server is a real migration question.",
+  "docs_url": "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports#backwards-compatibility",
+  "docs_label": "MCP Docs",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports#backwards-compatibility",
+      "title": "MCP Docs"
+    }
+  ],
+  "known_issues": [
+    "Deprecated since MCP 2025-03-26 and removed in 2026-07-28; measured here only for the migration question it answers.",
+    "Served by `python -m mcp_mirror.legacy_sse`, a local bridge that puts the stdio fixture behind `GET /sse` and `POST /messages` and logs the wire in the recorder's format. `scripts/measure_transports.py` asks every renderer for the fixture's tool definitions, resources, prompts and every result call over it; the cell is `y` when both fixtures open a session and every answer matches the one given over stdio."
+  ],
+  "notes": {
+    "genkit_js": "Genkit (JS) 1.42.0: `transportFrom` accepts `{ command }` (stdio), `{ url }` (Streamable HTTP) or a custom `transport`; there is no HTTP+SSE variant.",
+    "mastra": "Mastra 2.2.0: `@mastra/mcp` builds only a `StreamableHTTPClientTransport` for a URL server and has no HTTP+SSE client. Pointed at the legacy `/sse` endpoint it POSTs there, gets 405 Method Not Allowed, and fails to connect instead of falling back to `GET /sse`.",
+    "ms_agent_framework": "Microsoft Agent Framework 1.21.0: the adapter ships `MCPStdioTool`, `MCPStreamableHTTPTool` and `MCPWebsocketTool`; there is no HTTP+SSE client, so a legacy `/sse` server cannot be reached.",
+    "pi": "Pi (@earendil-works/pi-mcp 1.1.0): the package ships `StdioTransport` and `StreamableHttpTransport` only; its README lists legacy HTTP+SSE as outside the core, so no session opens against an HTTP+SSE server.",
+    "google_adk_js": "Google ADK (TypeScript) 2.2.1: `MCPConnectionParams` is `StdioConnectionParams` or `StreamableHTTPConnectionParams`; there is no HTTP+SSE variant.",
+    "crewai-native": "CrewAI 1.15.26, native `crewai.mcp` client (`Agent(mcps=[...])`, not the `crewai_tools.MCPServerAdapter` row): the session opens and calls work, but the tool names change with the transport: over HTTP+SSE each tool is named after the URL's host, port and path (`127_0_0_1_<port>_sse_search_records`), so the name differs from the stdio one and from run to run as the port changes.",
+    "langchain4j": "LangChain4j 1.22.0-beta32: langchain4j-mcp ships stdio, Streamable HTTP and WebSocket transports. The deprecated HTTP+SSE transport is gone, so no session opens."
+  }
+}

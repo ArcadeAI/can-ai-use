@@ -1,0 +1,81 @@
+{
+  "schema": "mcp-mirror/client-probe@1",
+  "captured_at": "2026-10-09T20:58:19Z",
+  "fixture": "fixtures/client_features_server.py",
+  "fixture_python": "<checkout>/.mcp-mirror/fixture-2025-11-25/bin/python",
+  "spec_version": "2025-11-25",
+  "frameworks": {
+    "langchain4j": {
+      "ok": true,
+      "versions": {
+        "framework": "1.22.0-beta32",
+        "adapter": "langchain4j 1.22.0, langchain4j-core 1.22.0, java 21.0.12.1"
+      },
+      "negotiated_mcp_spec_version": "2025-11-25",
+      "client_probe": {
+        "sampling": {
+          "tool": "ask_sampling",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_SAMPLED",
+          "text": "There was a timeout executing the tool",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "sampling.tools": {
+          "tool": "ask_sampling_tools",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_SAMPLED_AFTER_TOOL",
+          "text": "SENTINEL_CLIENT_FEATURE_UNAVAILABLE ask_sampling_tools: McpError: Client does not support sampling tools capability",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "elicitation.form": {
+          "tool": "ask_elicitation_form",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_ELICITED",
+          "text": "There was a timeout executing the tool",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "elicitation.url": {
+          "tool": "ask_elicitation_url",
+          "hook": null,
+          "route": null,
+          "expect": "\"action\": \"accept\"",
+          "text": "There was a timeout executing the tool",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "roots.list": {
+          "tool": "list_client_roots",
+          "hook": "DefaultMcpClient.Builder.roots(List<McpRoot>)",
+          "route": "adapter",
+          "expect": "file:///tmp/mcp-mirror-root",
+          "text": "{\"answered\":\"list_client_roots\",\"response\":{\"roots\":[{\"uri\":\"file:///tmp/mcp-mirror-root\",\"name\":\"mcp-mirror\"}]}}",
+          "is_error": false,
+          "handler_saw": [
+            {
+              "hook": "DefaultMcpClient.Builder.roots",
+              "request": "roots/list"
+            }
+          ]
+        },
+        "roots.list_changed": {
+          "tool": "roots_changes_seen",
+          "hook": "McpClient.setRoots(List<McpRoot>)",
+          "route": "adapter",
+          "expect": "SENTINEL_ROOTS_CHANGES_SEEN",
+          "text": "{\"seen\":1}",
+          "is_error": false,
+          "handler_saw": []
+        },
+        "capabilities": {
+          "text": "{\"roots\":{\"listChanged\":true}}"
+        }
+      }
+    }
+  }
+}

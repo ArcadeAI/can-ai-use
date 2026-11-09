@@ -1,0 +1,88 @@
+{
+  "schema": "mcp-mirror/client-probe@1",
+  "captured_at": "2026-10-09T21:28:22Z",
+  "fixture": "fixtures/client_features_server.py",
+  "fixture_python": "<checkout>/.mcp-mirror/fixture-2026-07-28/bin/python",
+  "spec_version": "2026-07-28",
+  "frameworks": {
+    "mastra": {
+      "ok": true,
+      "versions": {
+        "framework": "2.2.0",
+        "adapter": "node v24.21.0"
+      },
+      "negotiated_mcp_spec_version": "2026-07-28",
+      "client_probe": {
+        "sampling": {
+          "tool": "ask_sampling",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_SAMPLED",
+          "text": "Cannot fulfil input request 'ask_sampling': no handler is registered for 'sampling/createMessage' on this client. Declare the corresponding capability and register a handler, or handle input_required results manually.",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "sampling.tools": {
+          "tool": "ask_sampling_tools",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_SAMPLED_AFTER_TOOL",
+          "text": "Cannot fulfil input request 'ask_sampling_tools': no handler is registered for 'sampling/createMessage' on this client. Declare the corresponding capability and register a handler, or handle input_required results manually.",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "elicitation.form": {
+          "tool": "ask_elicitation_form",
+          "hook": "inputRequests",
+          "route": "adapter",
+          "expect": "SENTINEL_ELICITED",
+          "text": "{\"answered\": \"ask_elicitation_form\", \"response\": {\"action\": \"accept\", \"content\": {\"name\": \"SENTINEL_ELICITED\"}}}",
+          "is_error": null,
+          "handler_saw": [
+            {
+              "hook": "inputRequests",
+              "key": "ask_elicitation_form",
+              "mode": "form"
+            }
+          ]
+        },
+        "elicitation.url": {
+          "tool": "ask_elicitation_url",
+          "hook": "inputRequests",
+          "route": "adapter",
+          "expect": "\"action\": \"accept\"",
+          "text": "{\"answered\": \"ask_elicitation_url\", \"response\": {\"action\": \"accept\"}}",
+          "is_error": null,
+          "handler_saw": [
+            {
+              "hook": "inputRequests",
+              "key": "ask_elicitation_url",
+              "mode": "url"
+            }
+          ]
+        },
+        "roots.list": {
+          "tool": "list_client_roots",
+          "hook": null,
+          "route": null,
+          "expect": "file:///tmp/mcp-mirror-root",
+          "text": "Cannot fulfil input request 'list_client_roots': no handler is registered for 'roots/list' on this client. Declare the corresponding capability and register a handler, or handle input_required results manually.",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "roots.list_changed": {
+          "tool": "roots_changes_seen",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_ROOTS_CHANGES_SEEN",
+          "text": "{\"seen\": 0}",
+          "is_error": null,
+          "handler_saw": []
+        },
+        "capabilities": {
+          "text": "{\"elicitation\": {\"form\": {}, \"url\": {}}, \"extensions\": {\"io.modelcontextprotocol/ui\": {}}}"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,2148 @@
+{
+  "schema": "mcp-mirror/transports@1",
+  "captured_at": "2026-10-09T20:25:06Z",
+  "spec_version": "2025-11-25",
+  "fixtures": {
+    "definitions": "fixtures/tricky_server.py",
+    "results": "fixtures/results_server.py"
+  },
+  "transports": [
+    "stdio",
+    "http",
+    "sse"
+  ],
+  "command": "uv run python scripts/measure_transports.py --spec-version 2025-11-25 --renderers crewai --out data/measurements/transports/crewai.json",
+  "frameworks": {
+    "crewai": {
+      "transports": {
+        "stdio": {
+          "definitions": {
+            "ok": true,
+            "fixture": "fixtures/tricky_server.py",
+            "capture": "wire/crewai-tricky_server-stdio.jsonl",
+            "version": "1.15.26",
+            "answers": {
+              "tools": [
+                {
+                  "name": "search_records",
+                  "description": "Tool Name: search_records\nTool Arguments: {'additionalProperties': False, 'properties': {'query': {'description': 'Full-text search query.', 'title': 'Query', 'type': 'string'}, 'status': {'anyOf': [{'enum': ['active', 'archived', 'pending', 'deleted'], 'type': 'string'}, {'type': 'null'}], 'default': None, 'description': 'Filter by record status.', 'title': 'Status'}, 'owner_email': {'anyOf': [{'format': 'email', 'type': 'string'}, {'type': 'null'}], 'default': None, 'description': 'Restrict to records owned by this email address.', 'title': 'Owner Email'}, 'created_after': {'anyOf': [{'format': 'date-time', 'type': 'string'}, {'type': 'null'}], 'default': None, 'description': 'Only records created at or after this RFC 3339 timestamp.', 'title': 'Created After'}, 'limit': {'anyOf': [{'maximum': 100, 'minimum': 1, 'type': 'integer'}, {'type': 'null'}], 'default': 20, 'description': 'Maximum number of records to return.', 'title': 'Limit'}}, 'required': ['query'], 'title': 'DynamicModel', 'type': 'object'}\nTool Description: Search records with optional filters. Read-only.",
+                  "params": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "query": {
+                        "description": "Full-text search query.",
+                        "title": "Query",
+                        "type": "string"
+                      },
+                      "status": {
+                        "anyOf": [
+                          {
+                            "enum": [
+                              "active",
+                              "archived",
+                              "pending",
+                              "deleted"
+                            ],
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "description": "Filter by record status.",
+                        "title": "Status"
+                      },
+                      "owner_email": {
+                        "anyOf": [
+                          {
+                            "format": "email",
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "description": "Restrict to records owned by this email address.",
+                        "title": "Owner Email"
+                      },
+                      "created_after": {
+                        "anyOf": [
+                          {
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "description": "Only records created at or after this RFC 3339 timestamp.",
+                        "title": "Created After"
+                      },
+                      "limit": {
+                        "anyOf": [
+                          {
+                            "maximum": 100,
+                            "minimum": 1,
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": 20,
+                        "description": "Maximum number of records to return.",
+                        "title": "Limit"
+                      }
+                    },
+                    "required": [
+                      "query"
+                    ],
+                    "title": "DynamicModel",
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "create_report",
+                  "description": "Tool Name: create_report\nTool Arguments: {'additionalProperties': False, 'properties': {'title': {'description': 'Report title.', 'title': 'Title', 'type': 'string'}, 'config': {'$ref': '#/$defs/Config', 'description': 'Rendering configuration.'}, 'sections': {'anyOf': [{'items': {'$ref': '#/$defs/Sections'}, 'type': 'array'}, {'type': 'null'}], 'default': None, 'description': 'Ordered report sections.', 'title': 'Sections'}}, 'required': ['title', 'config'], 'title': 'DynamicModel', 'type': 'object'}\nTool Description: Create a structured report from sections.",
+                  "params": {
+                    "$defs": {
+                      "Config": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "format": {
+                            "description": "Output format.",
+                            "enum": [
+                              "pdf",
+                              "html",
+                              "csv"
+                            ],
+                            "title": "Format",
+                            "type": "string"
+                          },
+                          "include_summary": {
+                            "anyOf": [
+                              {
+                                "type": "boolean"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ],
+                            "default": null,
+                            "description": "Whether to prepend an executive summary.",
+                            "title": "Include Summary"
+                          }
+                        },
+                        "required": [
+                          "format"
+                        ],
+                        "title": "Config",
+                        "type": "object"
+                      },
+                      "Sections": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "heading": {
+                            "description": "Section heading.",
+                            "title": "Heading",
+                            "type": "string"
+                          },
+                          "body": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ],
+                            "default": null,
+                            "description": "Section body in markdown.",
+                            "title": "Body"
+                          }
+                        },
+                        "required": [
+                          "heading"
+                        ],
+                        "title": "Sections",
+                        "type": "object"
+                      }
+                    },
+                    "additionalProperties": false,
+                    "properties": {
+                      "title": {
+                        "description": "Report title.",
+                        "title": "Title",
+                        "type": "string"
+                      },
+                      "config": {
+                        "$ref": "#/$defs/Config",
+                        "description": "Rendering configuration."
+                      },
+                      "sections": {
+                        "anyOf": [
+                          {
+                            "items": {
+                              "$ref": "#/$defs/Sections"
+                            },
+                            "type": "array"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "description": "Ordered report sections.",
+                        "title": "Sections"
+                      }
+                    },
+                    "required": [
+                      "title",
+                      "config"
+                    ],
+                    "title": "DynamicModel",
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "deliver_payload",
+                  "description": "Tool Name: deliver_payload\nTool Arguments: {'additionalProperties': False, 'properties': {'destination': {'anyOf': [{'type': 'string'}, {'$ref': '#/$defs/DestinationOption1'}], 'description': 'Where to deliver the payload.', 'title': 'Destination'}, 'mode': {'anyOf': [{'const': 'sync', 'type': 'string'}, {'const': 'async', 'type': 'string'}, {'type': 'null'}], 'default': None, 'description': 'Delivery mode.', 'title': 'Mode'}}, 'required': ['destination'], 'title': 'DynamicModel', 'type': 'object'}\nTool Description: Deliver a payload to a destination.",
+                  "params": {
+                    "$defs": {
+                      "DestinationOption1": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "bucket": {
+                            "title": "Bucket",
+                            "type": "string"
+                          },
+                          "key": {
+                            "title": "Key",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "bucket",
+                          "key"
+                        ],
+                        "title": "DestinationOption1",
+                        "type": "object"
+                      }
+                    },
+                    "additionalProperties": false,
+                    "properties": {
+                      "destination": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "$ref": "#/$defs/DestinationOption1"
+                          }
+                        ],
+                        "description": "Where to deliver the payload.",
+                        "title": "Destination"
+                      },
+                      "mode": {
+                        "anyOf": [
+                          {
+                            "const": "sync",
+                            "type": "string"
+                          },
+                          {
+                            "const": "async",
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "description": "Delivery mode.",
+                        "title": "Mode"
+                      }
+                    },
+                    "required": [
+                      "destination"
+                    ],
+                    "title": "DynamicModel",
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "delete_account",
+                  "description": "Tool Name: delete_account\nTool Arguments: {'additionalProperties': False, 'properties': {'account_id': {'description': 'The id of the account to delete.', 'title': 'Account Id', 'type': 'string'}, 'confirm': {'description': 'Must be true to proceed with the deletion.', 'title': 'Confirm', 'type': 'boolean'}}, 'required': ['account_id', 'confirm'], 'title': 'DynamicModel', 'type': 'object'}\nTool Description: Permanently deletes a user account and all of its associated data. This action is destructive and irreversible: it cannot be undone, and it requires elevated admin scope (accounts:delete). Use with extreme caution.",
+                  "params": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "account_id": {
+                        "description": "The id of the account to delete.",
+                        "title": "Account Id",
+                        "type": "string"
+                      },
+                      "confirm": {
+                        "description": "Must be true to proceed with the deletion.",
+                        "title": "Confirm",
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "account_id",
+                      "confirm"
+                    ],
+                    "title": "DynamicModel",
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "explain_topic",
+                  "description": "Tool Name: explain_topic\nTool Arguments: {'additionalProperties': False, 'properties': {'topic': {'description': 'The subject to explain (supports Unicode: caf\u00e9, na\u00efve, \u65e5\u672c\u8a9e).', 'title': 'Topic', 'type': 'string'}, 'max_words': {'anyOf': [{'minimum': 1, 'type': 'integer'}, {'type': 'null'}], 'default': None, 'description': 'Soft cap on the explanation length.', 'title': 'Max Words'}}, 'required': ['topic'], 'title': 'DynamicModel', 'type': 'object'}\nTool Description: Explain a topic in depth for a curious reader. This description is deliberately very long (over 1024 characters) so that adapters which truncate tool descriptions to fit a model's function-description limit can be detected by mcp-mirror. It also contains Unicode and special characters to verify they survive the round trip: accented words like caf\u00e9, na\u00efve, r\u00e9sum\u00e9, jalape\u00f1o, and Z\u00fcrich; non-Latin scripts such as \u65e5\u672c\u8a9e (Japanese), \u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac (Greek), and \u041a\u0438\u0440\u0438\u043b\u043b\u0438\u0446\u0430 (Cyrillic); mathematical symbols \u2211 \u222b \u2248 \u2260 \u221e \u2286 \u2295; currency signs \u20ac \u00a3 \u00a5 \u20bf; smart punctuation \u201ccurly quotes\u201d, \u2018single quotes\u2019, an em-dash, an en\u2013dash, and an ellipsis\u2026; plus a few emoji \ud83d\udd10 \ud83d\ude80 \u2705 for good measure. The reader should receive a structured, well-paced explanation that starts from first principles, introduces the key vocabulary, walks through one concrete worked example, names the most common misconceptions, and then points to where to learn more. Keep the tone precise and friendly. Prefer short sentences. Define every term of art the first time it appears, and never assume the reader has seen the topic before. End with a one-paragraph recap that a busy person could read on its own and still come away with the single most important idea. SENTINEL_END_OF_LONG_DESCRIPTION.",
+                  "params": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "topic": {
+                        "description": "The subject to explain (supports Unicode: caf\u00e9, na\u00efve, \u65e5\u672c\u8a9e).",
+                        "title": "Topic",
+                        "type": "string"
+                      },
+                      "max_words": {
+                        "anyOf": [
+                          {
+                            "minimum": 1,
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "description": "Soft cap on the explanation length.",
+                        "title": "Max Words"
+                      }
+                    },
+                    "required": [
+                      "topic"
+                    ],
+                    "title": "DynamicModel",
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                }
+              ],
+              "probe": {
+                "resources.list": {
+                  "ok": false,
+                  "unsupported": "crewai_tools.MCPServerAdapter exposes only `tools`; no resource or prompt API"
+                },
+                "resources.read.text": {
+                  "ok": false,
+                  "unsupported": "crewai_tools.MCPServerAdapter exposes only `tools`; no resource or prompt API"
+                },
+                "resources.read.blob": {
+                  "ok": false,
+                  "unsupported": "crewai_tools.MCPServerAdapter exposes only `tools`; no resource or prompt API"
+                },
+                "resources.templates": {
+                  "ok": false,
+                  "unsupported": "crewai_tools.MCPServerAdapter exposes only `tools`; no resource or prompt API"
+                },
+                "prompts.list": {
+                  "ok": false,
+                  "unsupported": "crewai_tools.MCPServerAdapter exposes only `tools`; no resource or prompt API"
+                },
+                "prompts.get": {
+                  "ok": false,
+                  "unsupported": "crewai_tools.MCPServerAdapter exposes only `tools`; no resource or prompt API"
+                }
+              }
+            }
+          },
+          "results": {
+            "ok": true,
+            "fixture": "fixtures/results_server.py",
+            "capture": "wire/crewai-results_server-stdio.jsonl",
+            "version": "1.15.26",
+            "answers": {
+              "tools": [
+                {
+                  "name": "text_content",
+                  "description": "Tool Name: text_content\nTool Arguments: {'additionalProperties': False, 'properties': {}, 'title': 'DynamicModel', 'type': 'object'}\nTool Description: Return one text block and nothing else.",
+                  "params": {
+                    "additionalProperties": false,
+                    "properties": {},
+                    "title": "DynamicModel",
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "image_content",
+                  "description": "Tool Name: image_content\nTool Arguments: {'additionalProperties': False, 'properties': {}, 'title': 'DynamicModel', 'type': 'object'}\nTool Description: Return one image block and nothing else.",
+                  "params": {
+                    "additionalProperties": false,
+                    "properties": {},
+                    "title": "DynamicModel",
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "audio_content",
+                  "description": "Tool Name: audio_content\nTool Arguments: {'additionalProperties': False, 'properties': {}, 'title': 'DynamicModel', 'type': 'object'}\nTool Description: Return one audio block and nothing else.",
+                  "params": {
+                    "additionalProperties": false,
+                    "properties": {},
+                    "title": "DynamicModel",
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "embedded_resource_content",
+                  "description": "Tool Name: embedded_resource_content\nTool Arguments: {'additionalProperties': False, 'properties': {}, 'title': 'DynamicModel', 'type': 'object'}\nTool Description: Return one embedded resource block and nothing else.",
+                  "params": {
+                    "additionalProperties": false,
+                    "properties": {},
+                    "title": "DynamicModel",
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "resource_link_content",
+                  "description": "Tool Name: resource_link_content\nTool Arguments: {'additionalProperties': False, 'properties': {}, 'title': 'DynamicModel', 'type': 'object'}\nTool Description: Return one resource_link block and nothing else.",
+                  "params": {
+                    "additionalProperties": false,
+                    "properties": {},
+                    "title": "DynamicModel",
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "annotated_content",
+                  "description": "Tool Name: annotated_content\nTool Arguments: {'additionalProperties': False, 'properties': {}, 'title': 'DynamicModel', 'type': 'object'}\nTool Description: Return one text block carrying audience and priority annotations.",
+                  "params": {
+                    "additionalProperties": false,
+                    "properties": {},
+                    "title": "DynamicModel",
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "mixed_content",
+                  "description": "Tool Name: mixed_content\nTool Arguments: {'additionalProperties': False, 'properties': {}, 'title': 'DynamicModel', 'type': 'object'}\nTool Description: Return one block of every kind plus structuredContent in one result.",
+                  "params": {
+                    "additionalProperties": false,
+                    "properties": {},
+                    "title": "DynamicModel",
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "text_and_structured",
+                  "description": "Tool Name: text_and_structured\nTool Arguments: {'additionalProperties': False, 'properties': {}, 'title': 'DynamicModel', 'type': 'object'}\nTool Description: Return one text block plus structuredContent, with no media.",
+                  "params": {
+                    "additionalProperties": false,
+                    "properties": {},
+                    "title": "DynamicModel",
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "tool_error",
+                  "description": "Tool Name: tool_error\nTool Arguments: {'additionalProperties': False, 'properties': {}, 'title': 'DynamicModel', 'type': 'object'}\nTool Description: Always fail, reporting the failure through isError rather than a protocol error.",
+                  "params": {
+                    "additionalProperties": false,
+                    "properties": {},
+                    "title": "DynamicModel",
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                }
+              ],
+              "results": [
+                {
+                  "tool": "text_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "SENTINEL_TEXT_BLOCK",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "text_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "SENTINEL_TEXT_BLOCK",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "image_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "type='image' data='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==' mimeType='image/png' annotations=None meta=None",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "image_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "type='image' data='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==' mimeType='image/png' annotations=None meta=None",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "audio_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "type='audio' data='UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=' mimeType='audio/wav' annotations=None meta=None",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "audio_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "type='audio' data='UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=' mimeType='audio/wav' annotations=None meta=None",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "embedded_resource_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "type='resource' resource=TextResourceContents(uri=AnyUrl('file:///fixtures/embedded.txt'), mimeType='text/plain', meta=None, text='SENTINEL_EMBEDDED_RESOURCE') annotations=None meta=None",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "embedded_resource_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "type='resource' resource=TextResourceContents(uri=AnyUrl('file:///fixtures/embedded.txt'), mimeType='text/plain', meta=None, text='SENTINEL_EMBEDDED_RESOURCE') annotations=None meta=None",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "resource_link_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "name='linked.txt' title=None uri=AnyUrl('file:///fixtures/linked.txt') description='SENTINEL_RESOURCE_LINK' mimeType='text/plain' size=None icons=None annotations=None meta=None type='resource_link'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "resource_link_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "name='linked.txt' title=None uri=AnyUrl('file:///fixtures/linked.txt') description='SENTINEL_RESOURCE_LINK' mimeType='text/plain' size=None icons=None annotations=None meta=None type='resource_link'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "annotated_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "SENTINEL_ANNOTATED_TEXT",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "annotated_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "SENTINEL_ANNOTATED_TEXT",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "mixed_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "['SENTINEL_TEXT_BLOCK']",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "mixed_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "['SENTINEL_TEXT_BLOCK']",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "text_and_structured",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "SENTINEL_TEXT_BLOCK",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "text_and_structured",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "SENTINEL_TEXT_BLOCK",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "tool_error",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "SENTINEL_TOOL_ERROR: this tool always fails",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "tool_error",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "SENTINEL_TOOL_ERROR: this tool always fails",
+                    "error_channel": null
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "http": {
+          "definitions": {
+            "ok": true,
+            "fixture": "fixtures/tricky_server.py",
+            "capture": "wire/crewai-tricky_server-http.jsonl",
+            "version": "1.15.26",
+            "answers": {
+              "tools": [
+                {
+                  "name": "search_records",
+                  "description": "Tool Name: search_records\nTool Arguments: {'additionalProperties': False, 'properties': {'query': {'description': 'Full-text search query.', 'title': 'Query', 'type': 'string'}, 'status': {'anyOf': [{'enum': ['active', 'archived', 'pending', 'deleted'], 'type': 'string'}, {'type': 'null'}], 'default': None, 'description': 'Filter by record status.', 'title': 'Status'}, 'owner_email': {'anyOf': [{'format': 'email', 'type': 'string'}, {'type': 'null'}], 'default': None, 'description': 'Restrict to records owned by this email address.', 'title': 'Owner Email'}, 'created_after': {'anyOf': [{'format': 'date-time', 'type': 'string'}, {'type': 'null'}], 'default': None, 'description': 'Only records created at or after this RFC 3339 timestamp.', 'title': 'Created After'}, 'limit': {'anyOf': [{'maximum': 100, 'minimum': 1, 'type': 'integer'}, {'type': 'null'}], 'default': 20, 'description': 'Maximum number of records to return.', 'title': 'Limit'}}, 'required': ['query'], 'title': 'DynamicModel', 'type': 'object'}\nTool Description: Search records with optional filters. Read-only.",
+                  "params": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "query": {
+                        "description": "Full-text search query.",
+                        "title": "Query",
+                        "type": "string"
+                      },
+                      "status": {
+                        "anyOf": [
+                          {
+                            "enum": [
+                              "active",
+                              "archived",
+                              "pending",
+                              "deleted"
+                            ],
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "description": "Filter by record status.",
+                        "title": "Status"
+                      },
+                      "owner_email": {
+                        "anyOf": [
+                          {
+                            "format": "email",
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "description": "Restrict to records owned by this email address.",
+                        "title": "Owner Email"
+                      },
+                      "created_after": {
+                        "anyOf": [
+                          {
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "description": "Only records created at or after this RFC 3339 timestamp.",
+                        "title": "Created After"
+                      },
+                      "limit": {
+                        "anyOf": [
+                          {
+                            "maximum": 100,
+                            "minimum": 1,
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": 20,
+                        "description": "Maximum number of records to return.",
+                        "title": "Limit"
+                      }
+                    },
+                    "required": [
+                      "query"
+                    ],
+                    "title": "DynamicModel",
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "create_report",
+                  "description": "Tool Name: create_report\nTool Arguments: {'additionalProperties': False, 'properties': {'title': {'description': 'Report title.', 'title': 'Title', 'type': 'string'}, 'config': {'$ref': '#/$defs/Config', 'description': 'Rendering configuration.'}, 'sections': {'anyOf': [{'items': {'$ref': '#/$defs/Sections'}, 'type': 'array'}, {'type': 'null'}], 'default': None, 'description': 'Ordered report sections.', 'title': 'Sections'}}, 'required': ['title', 'config'], 'title': 'DynamicModel', 'type': 'object'}\nTool Description: Create a structured report from sections.",
+                  "params": {
+                    "$defs": {
+                      "Config": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "format": {
+                            "description": "Output format.",
+                            "enum": [
+                              "pdf",
+                              "html",
+                              "csv"
+                            ],
+                            "title": "Format",
+                            "type": "string"
+                          },
+                          "include_summary": {
+                            "anyOf": [
+                              {
+                                "type": "boolean"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ],
+                            "default": null,
+                            "description": "Whether to prepend an executive summary.",
+                            "title": "Include Summary"
+                          }
+                        },
+                        "required": [
+                          "format"
+                        ],
+                        "title": "Config",
+                        "type": "object"
+                      },
+                      "Sections": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "heading": {
+                            "description": "Section heading.",
+                            "title": "Heading",
+                            "type": "string"
+                          },
+                          "body": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ],
+                            "default": null,
+                            "description": "Section body in markdown.",
+                            "title": "Body"
+                          }
+                        },
+                        "required": [
+                          "heading"
+                        ],
+                        "title": "Sections",
+                        "type": "object"
+                      }
+                    },
+                    "additionalProperties": false,
+                    "properties": {
+                      "title": {
+                        "description": "Report title.",
+                        "title": "Title",
+                        "type": "string"
+                      },
+                      "config": {
+                        "$ref": "#/$defs/Config",
+                        "description": "Rendering configuration."
+                      },
+                      "sections": {
+                        "anyOf": [
+                          {
+                            "items": {
+                              "$ref": "#/$defs/Sections"
+                            },
+                            "type": "array"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "description": "Ordered report sections.",
+                        "title": "Sections"
+                      }
+                    },
+                    "required": [
+                      "title",
+                      "config"
+                    ],
+                    "title": "DynamicModel",
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "deliver_payload",
+                  "description": "Tool Name: deliver_payload\nTool Arguments: {'additionalProperties': False, 'properties': {'destination': {'anyOf': [{'type': 'string'}, {'$ref': '#/$defs/DestinationOption1'}], 'description': 'Where to deliver the payload.', 'title': 'Destination'}, 'mode': {'anyOf': [{'const': 'sync', 'type': 'string'}, {'const': 'async', 'type': 'string'}, {'type': 'null'}], 'default': None, 'description': 'Delivery mode.', 'title': 'Mode'}}, 'required': ['destination'], 'title': 'DynamicModel', 'type': 'object'}\nTool Description: Deliver a payload to a destination.",
+                  "params": {
+                    "$defs": {
+                      "DestinationOption1": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "bucket": {
+                            "title": "Bucket",
+                            "type": "string"
+                          },
+                          "key": {
+                            "title": "Key",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "bucket",
+                          "key"
+                        ],
+                        "title": "DestinationOption1",
+                        "type": "object"
+                      }
+                    },
+                    "additionalProperties": false,
+                    "properties": {
+                      "destination": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "$ref": "#/$defs/DestinationOption1"
+                          }
+                        ],
+                        "description": "Where to deliver the payload.",
+                        "title": "Destination"
+                      },
+                      "mode": {
+                        "anyOf": [
+                          {
+                            "const": "sync",
+                            "type": "string"
+                          },
+                          {
+                            "const": "async",
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "description": "Delivery mode.",
+                        "title": "Mode"
+                      }
+                    },
+                    "required": [
+                      "destination"
+                    ],
+                    "title": "DynamicModel",
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "delete_account",
+                  "description": "Tool Name: delete_account\nTool Arguments: {'additionalProperties': False, 'properties': {'account_id': {'description': 'The id of the account to delete.', 'title': 'Account Id', 'type': 'string'}, 'confirm': {'description': 'Must be true to proceed with the deletion.', 'title': 'Confirm', 'type': 'boolean'}}, 'required': ['account_id', 'confirm'], 'title': 'DynamicModel', 'type': 'object'}\nTool Description: Permanently deletes a user account and all of its associated data. This action is destructive and irreversible: it cannot be undone, and it requires elevated admin scope (accounts:delete). Use with extreme caution.",
+                  "params": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "account_id": {
+                        "description": "The id of the account to delete.",
+                        "title": "Account Id",
+                        "type": "string"
+                      },
+                      "confirm": {
+                        "description": "Must be true to proceed with the deletion.",
+                        "title": "Confirm",
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "account_id",
+                      "confirm"
+                    ],
+                    "title": "DynamicModel",
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "explain_topic",
+                  "description": "Tool Name: explain_topic\nTool Arguments: {'additionalProperties': False, 'properties': {'topic': {'description': 'The subject to explain (supports Unicode: caf\u00e9, na\u00efve, \u65e5\u672c\u8a9e).', 'title': 'Topic', 'type': 'string'}, 'max_words': {'anyOf': [{'minimum': 1, 'type': 'integer'}, {'type': 'null'}], 'default': None, 'description': 'Soft cap on the explanation length.', 'title': 'Max Words'}}, 'required': ['topic'], 'title': 'DynamicModel', 'type': 'object'}\nTool Description: Explain a topic in depth for a curious reader. This description is deliberately very long (over 1024 characters) so that adapters which truncate tool descriptions to fit a model's function-description limit can be detected by mcp-mirror. It also contains Unicode and special characters to verify they survive the round trip: accented words like caf\u00e9, na\u00efve, r\u00e9sum\u00e9, jalape\u00f1o, and Z\u00fcrich; non-Latin scripts such as \u65e5\u672c\u8a9e (Japanese), \u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac (Greek), and \u041a\u0438\u0440\u0438\u043b\u043b\u0438\u0446\u0430 (Cyrillic); mathematical symbols \u2211 \u222b \u2248 \u2260 \u221e \u2286 \u2295; currency signs \u20ac \u00a3 \u00a5 \u20bf; smart punctuation \u201ccurly quotes\u201d, \u2018single quotes\u2019, an em-dash, an en\u2013dash, and an ellipsis\u2026; plus a few emoji \ud83d\udd10 \ud83d\ude80 \u2705 for good measure. The reader should receive a structured, well-paced explanation that starts from first principles, introduces the key vocabulary, walks through one concrete worked example, names the most common misconceptions, and then points to where to learn more. Keep the tone precise and friendly. Prefer short sentences. Define every term of art the first time it appears, and never assume the reader has seen the topic before. End with a one-paragraph recap that a busy person could read on its own and still come away with the single most important idea. SENTINEL_END_OF_LONG_DESCRIPTION.",
+                  "params": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "topic": {
+                        "description": "The subject to explain (supports Unicode: caf\u00e9, na\u00efve, \u65e5\u672c\u8a9e).",
+                        "title": "Topic",
+                        "type": "string"
+                      },
+                      "max_words": {
+                        "anyOf": [
+                          {
+                            "minimum": 1,
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "description": "Soft cap on the explanation length.",
+                        "title": "Max Words"
+                      }
+                    },
+                    "required": [
+                      "topic"
+                    ],
+                    "title": "DynamicModel",
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                }
+              ],
+              "probe": {
+                "resources.list": {
+                  "ok": false,
+                  "unsupported": "crewai_tools.MCPServerAdapter exposes only `tools`; no resource or prompt API"
+                },
+                "resources.read.text": {
+                  "ok": false,
+                  "unsupported": "crewai_tools.MCPServerAdapter exposes only `tools`; no resource or prompt API"
+                },
+                "resources.read.blob": {
+                  "ok": false,
+                  "unsupported": "crewai_tools.MCPServerAdapter exposes only `tools`; no resource or prompt API"
+                },
+                "resources.templates": {
+                  "ok": false,
+                  "unsupported": "crewai_tools.MCPServerAdapter exposes only `tools`; no resource or prompt API"
+                },
+                "prompts.list": {
+                  "ok": false,
+                  "unsupported": "crewai_tools.MCPServerAdapter exposes only `tools`; no resource or prompt API"
+                },
+                "prompts.get": {
+                  "ok": false,
+                  "unsupported": "crewai_tools.MCPServerAdapter exposes only `tools`; no resource or prompt API"
+                }
+              }
+            }
+          },
+          "results": {
+            "ok": true,
+            "fixture": "fixtures/results_server.py",
+            "capture": "wire/crewai-results_server-http.jsonl",
+            "version": "1.15.26",
+            "answers": {
+              "tools": [
+                {
+                  "name": "text_content",
+                  "description": "Tool Name: text_content\nTool Arguments: {'additionalProperties': False, 'properties': {}, 'title': 'DynamicModel', 'type': 'object'}\nTool Description: Return one text block and nothing else.",
+                  "params": {
+                    "additionalProperties": false,
+                    "properties": {},
+                    "title": "DynamicModel",
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "image_content",
+                  "description": "Tool Name: image_content\nTool Arguments: {'additionalProperties': False, 'properties': {}, 'title': 'DynamicModel', 'type': 'object'}\nTool Description: Return one image block and nothing else.",
+                  "params": {
+                    "additionalProperties": false,
+                    "properties": {},
+                    "title": "DynamicModel",
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "audio_content",
+                  "description": "Tool Name: audio_content\nTool Arguments: {'additionalProperties': False, 'properties': {}, 'title': 'DynamicModel', 'type': 'object'}\nTool Description: Return one audio block and nothing else.",
+                  "params": {
+                    "additionalProperties": false,
+                    "properties": {},
+                    "title": "DynamicModel",
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "embedded_resource_content",
+                  "description": "Tool Name: embedded_resource_content\nTool Arguments: {'additionalProperties': False, 'properties': {}, 'title': 'DynamicModel', 'type': 'object'}\nTool Description: Return one embedded resource block and nothing else.",
+                  "params": {
+                    "additionalProperties": false,
+                    "properties": {},
+                    "title": "DynamicModel",
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "resource_link_content",
+                  "description": "Tool Name: resource_link_content\nTool Arguments: {'additionalProperties': False, 'properties': {}, 'title': 'DynamicModel', 'type': 'object'}\nTool Description: Return one resource_link block and nothing else.",
+                  "params": {
+                    "additionalProperties": false,
+                    "properties": {},
+                    "title": "DynamicModel",
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "annotated_content",
+                  "description": "Tool Name: annotated_content\nTool Arguments: {'additionalProperties': False, 'properties': {}, 'title': 'DynamicModel', 'type': 'object'}\nTool Description: Return one text block carrying audience and priority annotations.",
+                  "params": {
+                    "additionalProperties": false,
+                    "properties": {},
+                    "title": "DynamicModel",
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "mixed_content",
+                  "description": "Tool Name: mixed_content\nTool Arguments: {'additionalProperties': False, 'properties': {}, 'title': 'DynamicModel', 'type': 'object'}\nTool Description: Return one block of every kind plus structuredContent in one result.",
+                  "params": {
+                    "additionalProperties": false,
+                    "properties": {},
+                    "title": "DynamicModel",
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "text_and_structured",
+                  "description": "Tool Name: text_and_structured\nTool Arguments: {'additionalProperties': False, 'properties': {}, 'title': 'DynamicModel', 'type': 'object'}\nTool Description: Return one text block plus structuredContent, with no media.",
+                  "params": {
+                    "additionalProperties": false,
+                    "properties": {},
+                    "title": "DynamicModel",
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "tool_error",
+                  "description": "Tool Name: tool_error\nTool Arguments: {'additionalProperties': False, 'properties': {}, 'title': 'DynamicModel', 'type': 'object'}\nTool Description: Always fail, reporting the failure through isError rather than a protocol error.",
+                  "params": {
+                    "additionalProperties": false,
+                    "properties": {},
+                    "title": "DynamicModel",
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                }
+              ],
+              "results": [
+                {
+                  "tool": "text_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "SENTINEL_TEXT_BLOCK",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "text_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "SENTINEL_TEXT_BLOCK",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "image_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "type='image' data='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==' mimeType='image/png' annotations=None meta=None",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "image_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "type='image' data='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==' mimeType='image/png' annotations=None meta=None",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "audio_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "type='audio' data='UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=' mimeType='audio/wav' annotations=None meta=None",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "audio_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "type='audio' data='UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=' mimeType='audio/wav' annotations=None meta=None",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "embedded_resource_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "type='resource' resource=TextResourceContents(uri=AnyUrl('file:///fixtures/embedded.txt'), mimeType='text/plain', meta=None, text='SENTINEL_EMBEDDED_RESOURCE') annotations=None meta=None",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "embedded_resource_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "type='resource' resource=TextResourceContents(uri=AnyUrl('file:///fixtures/embedded.txt'), mimeType='text/plain', meta=None, text='SENTINEL_EMBEDDED_RESOURCE') annotations=None meta=None",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "resource_link_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "name='linked.txt' title=None uri=AnyUrl('file:///fixtures/linked.txt') description='SENTINEL_RESOURCE_LINK' mimeType='text/plain' size=None icons=None annotations=None meta=None type='resource_link'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "resource_link_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "name='linked.txt' title=None uri=AnyUrl('file:///fixtures/linked.txt') description='SENTINEL_RESOURCE_LINK' mimeType='text/plain' size=None icons=None annotations=None meta=None type='resource_link'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "annotated_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "SENTINEL_ANNOTATED_TEXT",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "annotated_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "SENTINEL_ANNOTATED_TEXT",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "mixed_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "['SENTINEL_TEXT_BLOCK']",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "mixed_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "['SENTINEL_TEXT_BLOCK']",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "text_and_structured",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "SENTINEL_TEXT_BLOCK",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "text_and_structured",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "SENTINEL_TEXT_BLOCK",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "tool_error",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "SENTINEL_TOOL_ERROR: this tool always fails",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "tool_error",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "SENTINEL_TOOL_ERROR: this tool always fails",
+                    "error_channel": null
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "sse": {
+          "definitions": {
+            "ok": true,
+            "fixture": "fixtures/tricky_server.py",
+            "capture": "wire/crewai-tricky_server-sse.jsonl",
+            "version": "1.15.26",
+            "answers": {
+              "tools": [
+                {
+                  "name": "search_records",
+                  "description": "Tool Name: search_records\nTool Arguments: {'additionalProperties': False, 'properties': {'query': {'description': 'Full-text search query.', 'title': 'Query', 'type': 'string'}, 'status': {'anyOf': [{'enum': ['active', 'archived', 'pending', 'deleted'], 'type': 'string'}, {'type': 'null'}], 'default': None, 'description': 'Filter by record status.', 'title': 'Status'}, 'owner_email': {'anyOf': [{'format': 'email', 'type': 'string'}, {'type': 'null'}], 'default': None, 'description': 'Restrict to records owned by this email address.', 'title': 'Owner Email'}, 'created_after': {'anyOf': [{'format': 'date-time', 'type': 'string'}, {'type': 'null'}], 'default': None, 'description': 'Only records created at or after this RFC 3339 timestamp.', 'title': 'Created After'}, 'limit': {'anyOf': [{'maximum': 100, 'minimum': 1, 'type': 'integer'}, {'type': 'null'}], 'default': 20, 'description': 'Maximum number of records to return.', 'title': 'Limit'}}, 'required': ['query'], 'title': 'DynamicModel', 'type': 'object'}\nTool Description: Search records with optional filters. Read-only.",
+                  "params": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "query": {
+                        "description": "Full-text search query.",
+                        "title": "Query",
+                        "type": "string"
+                      },
+                      "status": {
+                        "anyOf": [
+                          {
+                            "enum": [
+                              "active",
+                              "archived",
+                              "pending",
+                              "deleted"
+                            ],
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "description": "Filter by record status.",
+                        "title": "Status"
+                      },
+                      "owner_email": {
+                        "anyOf": [
+                          {
+                            "format": "email",
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "description": "Restrict to records owned by this email address.",
+                        "title": "Owner Email"
+                      },
+                      "created_after": {
+                        "anyOf": [
+                          {
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "description": "Only records created at or after this RFC 3339 timestamp.",
+                        "title": "Created After"
+                      },
+                      "limit": {
+                        "anyOf": [
+                          {
+                            "maximum": 100,
+                            "minimum": 1,
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": 20,
+                        "description": "Maximum number of records to return.",
+                        "title": "Limit"
+                      }
+                    },
+                    "required": [
+                      "query"
+                    ],
+                    "title": "DynamicModel",
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "create_report",
+                  "description": "Tool Name: create_report\nTool Arguments: {'additionalProperties': False, 'properties': {'title': {'description': 'Report title.', 'title': 'Title', 'type': 'string'}, 'config': {'$ref': '#/$defs/Config', 'description': 'Rendering configuration.'}, 'sections': {'anyOf': [{'items': {'$ref': '#/$defs/Sections'}, 'type': 'array'}, {'type': 'null'}], 'default': None, 'description': 'Ordered report sections.', 'title': 'Sections'}}, 'required': ['title', 'config'], 'title': 'DynamicModel', 'type': 'object'}\nTool Description: Create a structured report from sections.",
+                  "params": {
+                    "$defs": {
+                      "Config": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "format": {
+                            "description": "Output format.",
+                            "enum": [
+                              "pdf",
+                              "html",
+                              "csv"
+                            ],
+                            "title": "Format",
+                            "type": "string"
+                          },
+                          "include_summary": {
+                            "anyOf": [
+                              {
+                                "type": "boolean"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ],
+                            "default": null,
+                            "description": "Whether to prepend an executive summary.",
+                            "title": "Include Summary"
+                          }
+                        },
+                        "required": [
+                          "format"
+                        ],
+                        "title": "Config",
+                        "type": "object"
+                      },
+                      "Sections": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "heading": {
+                            "description": "Section heading.",
+                            "title": "Heading",
+                            "type": "string"
+                          },
+                          "body": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ],
+                            "default": null,
+                            "description": "Section body in markdown.",
+                            "title": "Body"
+                          }
+                        },
+                        "required": [
+                          "heading"
+                        ],
+                        "title": "Sections",
+                        "type": "object"
+                      }
+                    },
+                    "additionalProperties": false,
+                    "properties": {
+                      "title": {
+                        "description": "Report title.",
+                        "title": "Title",
+                        "type": "string"
+                      },
+                      "config": {
+                        "$ref": "#/$defs/Config",
+                        "description": "Rendering configuration."
+                      },
+                      "sections": {
+                        "anyOf": [
+                          {
+                            "items": {
+                              "$ref": "#/$defs/Sections"
+                            },
+                            "type": "array"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "description": "Ordered report sections.",
+                        "title": "Sections"
+                      }
+                    },
+                    "required": [
+                      "title",
+                      "config"
+                    ],
+                    "title": "DynamicModel",
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "deliver_payload",
+                  "description": "Tool Name: deliver_payload\nTool Arguments: {'additionalProperties': False, 'properties': {'destination': {'anyOf': [{'type': 'string'}, {'$ref': '#/$defs/DestinationOption1'}], 'description': 'Where to deliver the payload.', 'title': 'Destination'}, 'mode': {'anyOf': [{'const': 'sync', 'type': 'string'}, {'const': 'async', 'type': 'string'}, {'type': 'null'}], 'default': None, 'description': 'Delivery mode.', 'title': 'Mode'}}, 'required': ['destination'], 'title': 'DynamicModel', 'type': 'object'}\nTool Description: Deliver a payload to a destination.",
+                  "params": {
+                    "$defs": {
+                      "DestinationOption1": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "bucket": {
+                            "title": "Bucket",
+                            "type": "string"
+                          },
+                          "key": {
+                            "title": "Key",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "bucket",
+                          "key"
+                        ],
+                        "title": "DestinationOption1",
+                        "type": "object"
+                      }
+                    },
+                    "additionalProperties": false,
+                    "properties": {
+                      "destination": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "$ref": "#/$defs/DestinationOption1"
+                          }
+                        ],
+                        "description": "Where to deliver the payload.",
+                        "title": "Destination"
+                      },
+                      "mode": {
+                        "anyOf": [
+                          {
+                            "const": "sync",
+                            "type": "string"
+                          },
+                          {
+                            "const": "async",
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "description": "Delivery mode.",
+                        "title": "Mode"
+                      }
+                    },
+                    "required": [
+                      "destination"
+                    ],
+                    "title": "DynamicModel",
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "delete_account",
+                  "description": "Tool Name: delete_account\nTool Arguments: {'additionalProperties': False, 'properties': {'account_id': {'description': 'The id of the account to delete.', 'title': 'Account Id', 'type': 'string'}, 'confirm': {'description': 'Must be true to proceed with the deletion.', 'title': 'Confirm', 'type': 'boolean'}}, 'required': ['account_id', 'confirm'], 'title': 'DynamicModel', 'type': 'object'}\nTool Description: Permanently deletes a user account and all of its associated data. This action is destructive and irreversible: it cannot be undone, and it requires elevated admin scope (accounts:delete). Use with extreme caution.",
+                  "params": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "account_id": {
+                        "description": "The id of the account to delete.",
+                        "title": "Account Id",
+                        "type": "string"
+                      },
+                      "confirm": {
+                        "description": "Must be true to proceed with the deletion.",
+                        "title": "Confirm",
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "account_id",
+                      "confirm"
+                    ],
+                    "title": "DynamicModel",
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "explain_topic",
+                  "description": "Tool Name: explain_topic\nTool Arguments: {'additionalProperties': False, 'properties': {'topic': {'description': 'The subject to explain (supports Unicode: caf\u00e9, na\u00efve, \u65e5\u672c\u8a9e).', 'title': 'Topic', 'type': 'string'}, 'max_words': {'anyOf': [{'minimum': 1, 'type': 'integer'}, {'type': 'null'}], 'default': None, 'description': 'Soft cap on the explanation length.', 'title': 'Max Words'}}, 'required': ['topic'], 'title': 'DynamicModel', 'type': 'object'}\nTool Description: Explain a topic in depth for a curious reader. This description is deliberately very long (over 1024 characters) so that adapters which truncate tool descriptions to fit a model's function-description limit can be detected by mcp-mirror. It also contains Unicode and special characters to verify they survive the round trip: accented words like caf\u00e9, na\u00efve, r\u00e9sum\u00e9, jalape\u00f1o, and Z\u00fcrich; non-Latin scripts such as \u65e5\u672c\u8a9e (Japanese), \u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac (Greek), and \u041a\u0438\u0440\u0438\u043b\u043b\u0438\u0446\u0430 (Cyrillic); mathematical symbols \u2211 \u222b \u2248 \u2260 \u221e \u2286 \u2295; currency signs \u20ac \u00a3 \u00a5 \u20bf; smart punctuation \u201ccurly quotes\u201d, \u2018single quotes\u2019, an em-dash, an en\u2013dash, and an ellipsis\u2026; plus a few emoji \ud83d\udd10 \ud83d\ude80 \u2705 for good measure. The reader should receive a structured, well-paced explanation that starts from first principles, introduces the key vocabulary, walks through one concrete worked example, names the most common misconceptions, and then points to where to learn more. Keep the tone precise and friendly. Prefer short sentences. Define every term of art the first time it appears, and never assume the reader has seen the topic before. End with a one-paragraph recap that a busy person could read on its own and still come away with the single most important idea. SENTINEL_END_OF_LONG_DESCRIPTION.",
+                  "params": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "topic": {
+                        "description": "The subject to explain (supports Unicode: caf\u00e9, na\u00efve, \u65e5\u672c\u8a9e).",
+                        "title": "Topic",
+                        "type": "string"
+                      },
+                      "max_words": {
+                        "anyOf": [
+                          {
+                            "minimum": 1,
+                            "type": "integer"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ],
+                        "default": null,
+                        "description": "Soft cap on the explanation length.",
+                        "title": "Max Words"
+                      }
+                    },
+                    "required": [
+                      "topic"
+                    ],
+                    "title": "DynamicModel",
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                }
+              ],
+              "probe": {
+                "resources.list": {
+                  "ok": false,
+                  "unsupported": "crewai_tools.MCPServerAdapter exposes only `tools`; no resource or prompt API"
+                },
+                "resources.read.text": {
+                  "ok": false,
+                  "unsupported": "crewai_tools.MCPServerAdapter exposes only `tools`; no resource or prompt API"
+                },
+                "resources.read.blob": {
+                  "ok": false,
+                  "unsupported": "crewai_tools.MCPServerAdapter exposes only `tools`; no resource or prompt API"
+                },
+                "resources.templates": {
+                  "ok": false,
+                  "unsupported": "crewai_tools.MCPServerAdapter exposes only `tools`; no resource or prompt API"
+                },
+                "prompts.list": {
+                  "ok": false,
+                  "unsupported": "crewai_tools.MCPServerAdapter exposes only `tools`; no resource or prompt API"
+                },
+                "prompts.get": {
+                  "ok": false,
+                  "unsupported": "crewai_tools.MCPServerAdapter exposes only `tools`; no resource or prompt API"
+                }
+              }
+            }
+          },
+          "results": {
+            "ok": true,
+            "fixture": "fixtures/results_server.py",
+            "capture": "wire/crewai-results_server-sse.jsonl",
+            "version": "1.15.26",
+            "answers": {
+              "tools": [
+                {
+                  "name": "text_content",
+                  "description": "Tool Name: text_content\nTool Arguments: {'additionalProperties': False, 'properties': {}, 'title': 'DynamicModel', 'type': 'object'}\nTool Description: Return one text block and nothing else.",
+                  "params": {
+                    "additionalProperties": false,
+                    "properties": {},
+                    "title": "DynamicModel",
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "image_content",
+                  "description": "Tool Name: image_content\nTool Arguments: {'additionalProperties': False, 'properties': {}, 'title': 'DynamicModel', 'type': 'object'}\nTool Description: Return one image block and nothing else.",
+                  "params": {
+                    "additionalProperties": false,
+                    "properties": {},
+                    "title": "DynamicModel",
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "audio_content",
+                  "description": "Tool Name: audio_content\nTool Arguments: {'additionalProperties': False, 'properties': {}, 'title': 'DynamicModel', 'type': 'object'}\nTool Description: Return one audio block and nothing else.",
+                  "params": {
+                    "additionalProperties": false,
+                    "properties": {},
+                    "title": "DynamicModel",
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "embedded_resource_content",
+                  "description": "Tool Name: embedded_resource_content\nTool Arguments: {'additionalProperties': False, 'properties': {}, 'title': 'DynamicModel', 'type': 'object'}\nTool Description: Return one embedded resource block and nothing else.",
+                  "params": {
+                    "additionalProperties": false,
+                    "properties": {},
+                    "title": "DynamicModel",
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "resource_link_content",
+                  "description": "Tool Name: resource_link_content\nTool Arguments: {'additionalProperties': False, 'properties': {}, 'title': 'DynamicModel', 'type': 'object'}\nTool Description: Return one resource_link block and nothing else.",
+                  "params": {
+                    "additionalProperties": false,
+                    "properties": {},
+                    "title": "DynamicModel",
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "annotated_content",
+                  "description": "Tool Name: annotated_content\nTool Arguments: {'additionalProperties': False, 'properties': {}, 'title': 'DynamicModel', 'type': 'object'}\nTool Description: Return one text block carrying audience and priority annotations.",
+                  "params": {
+                    "additionalProperties": false,
+                    "properties": {},
+                    "title": "DynamicModel",
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "mixed_content",
+                  "description": "Tool Name: mixed_content\nTool Arguments: {'additionalProperties': False, 'properties': {}, 'title': 'DynamicModel', 'type': 'object'}\nTool Description: Return one block of every kind plus structuredContent in one result.",
+                  "params": {
+                    "additionalProperties": false,
+                    "properties": {},
+                    "title": "DynamicModel",
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "text_and_structured",
+                  "description": "Tool Name: text_and_structured\nTool Arguments: {'additionalProperties': False, 'properties': {}, 'title': 'DynamicModel', 'type': 'object'}\nTool Description: Return one text block plus structuredContent, with no media.",
+                  "params": {
+                    "additionalProperties": false,
+                    "properties": {},
+                    "title": "DynamicModel",
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "tool_error",
+                  "description": "Tool Name: tool_error\nTool Arguments: {'additionalProperties': False, 'properties': {}, 'title': 'DynamicModel', 'type': 'object'}\nTool Description: Always fail, reporting the failure through isError rather than a protocol error.",
+                  "params": {
+                    "additionalProperties": false,
+                    "properties": {},
+                    "title": "DynamicModel",
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                }
+              ],
+              "results": [
+                {
+                  "tool": "text_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "SENTINEL_TEXT_BLOCK",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "text_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "SENTINEL_TEXT_BLOCK",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "image_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "type='image' data='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==' mimeType='image/png' annotations=None meta=None",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "image_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "type='image' data='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==' mimeType='image/png' annotations=None meta=None",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "audio_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "type='audio' data='UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=' mimeType='audio/wav' annotations=None meta=None",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "audio_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "type='audio' data='UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=' mimeType='audio/wav' annotations=None meta=None",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "embedded_resource_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "type='resource' resource=TextResourceContents(uri=AnyUrl('file:///fixtures/embedded.txt'), mimeType='text/plain', meta=None, text='SENTINEL_EMBEDDED_RESOURCE') annotations=None meta=None",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "embedded_resource_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "type='resource' resource=TextResourceContents(uri=AnyUrl('file:///fixtures/embedded.txt'), mimeType='text/plain', meta=None, text='SENTINEL_EMBEDDED_RESOURCE') annotations=None meta=None",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "resource_link_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "name='linked.txt' title=None uri=AnyUrl('file:///fixtures/linked.txt') description='SENTINEL_RESOURCE_LINK' mimeType='text/plain' size=None icons=None annotations=None meta=None type='resource_link'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "resource_link_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "name='linked.txt' title=None uri=AnyUrl('file:///fixtures/linked.txt') description='SENTINEL_RESOURCE_LINK' mimeType='text/plain' size=None icons=None annotations=None meta=None type='resource_link'",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "annotated_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "SENTINEL_ANNOTATED_TEXT",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "annotated_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "SENTINEL_ANNOTATED_TEXT",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "mixed_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "['SENTINEL_TEXT_BLOCK']",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "mixed_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "['SENTINEL_TEXT_BLOCK']",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "text_and_structured",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "SENTINEL_TEXT_BLOCK",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "text_and_structured",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "SENTINEL_TEXT_BLOCK",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "tool_error",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "SENTINEL_TOOL_ERROR: this tool always fails",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "tool_error",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "SENTINEL_TOOL_ERROR: this tool always fails",
+                    "error_channel": null
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

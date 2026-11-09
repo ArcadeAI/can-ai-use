@@ -1,0 +1,134 @@
+{
+  "schema": "mcp-mirror/notify-probe@1",
+  "captured_at": "2026-10-09T18:48:29Z",
+  "fixture": "fixtures/notify_server.py",
+  "fixture_python": "<checkout>/.mcp-mirror/fixture-2025-11-25/bin/python",
+  "spec_version": "2025-11-25",
+  "source": {
+    "negotiated": "2025-11-25",
+    "tools.list_changed": {
+      "ok": true,
+      "hook": "message_handler",
+      "notified": true,
+      "before": [
+        "add_prompt",
+        "add_resource",
+        "add_tool",
+        "remove_tool",
+        "update_resource"
+      ],
+      "after": [
+        "SENTINEL_ADDED_TOOL",
+        "add_prompt",
+        "add_resource",
+        "add_tool",
+        "remove_tool",
+        "update_resource"
+      ],
+      "sentinel": "SENTINEL_ADDED_TOOL",
+      "server_said": "SENTINEL_MUTATED add_tool: sent on the session"
+    },
+    "resources.list_changed": {
+      "ok": true,
+      "hook": "message_handler",
+      "notified": true,
+      "before": [
+        "file:///fixtures/watched.txt"
+      ],
+      "after": [
+        "file:///fixtures/added-1.txt",
+        "file:///fixtures/watched.txt"
+      ],
+      "sentinel": "fixtures/added-",
+      "server_said": "SENTINEL_MUTATED add_resource: sent on the session"
+    },
+    "prompts.list_changed": {
+      "ok": true,
+      "hook": "message_handler",
+      "notified": true,
+      "before": [],
+      "after": [
+        "SENTINEL_ADDED_PROMPT_0"
+      ],
+      "sentinel": "SENTINEL_ADDED_PROMPT",
+      "server_said": "SENTINEL_MUTATED add_prompt: sent on the session"
+    },
+    "resources.subscribe": {
+      "ok": true,
+      "route": "session",
+      "api": "ClientSession.subscribe_resource / unsubscribe_resource",
+      "subscribed": true,
+      "subscribe_error": null,
+      "notified": true,
+      "unsubscribed": true,
+      "unsubscribe_error": null,
+      "notified_after_unsubscribe": false,
+      "server_said": [
+        "SENTINEL_MUTATED update_resource: sent on the session",
+        "SENTINEL_MUTATED update_resource: not sent: the client has not subscribed to this uri"
+      ]
+    }
+  },
+  "frameworks": {
+    "pi": {
+      "ok": true,
+      "versions": {
+        "framework": "1.1.0",
+        "adapter": "@earendil-works/pi-mcp 1.1.0, node v24.21.0"
+      },
+      "notify": {
+        "negotiated": "2025-11-25",
+        "tools.list_changed": {
+          "ok": true,
+          "hook": "McpClient.onNotification('notifications/tools/list_changed')",
+          "notified": true,
+          "before": [
+            "add_prompt",
+            "add_resource",
+            "add_tool",
+            "remove_tool",
+            "update_resource"
+          ],
+          "after": [
+            "SENTINEL_ADDED_TOOL",
+            "add_prompt",
+            "add_resource",
+            "add_tool",
+            "remove_tool",
+            "update_resource"
+          ],
+          "sentinel": "SENTINEL_ADDED_TOOL",
+          "server_said": "SENTINEL_MUTATED add_tool: sent on the session"
+        },
+        "resources.list_changed": {
+          "ok": true,
+          "hook": "McpClient.onNotification('notifications/resources/list_changed')",
+          "notified": true,
+          "before": [
+            "file:///fixtures/watched.txt"
+          ],
+          "after": [
+            "file:///fixtures/added-1.txt",
+            "file:///fixtures/watched.txt"
+          ],
+          "sentinel": "fixtures/added-",
+          "server_said": "SENTINEL_MUTATED add_resource: sent on the session"
+        },
+        "prompts.list_changed": {
+          "ok": false,
+          "unsupported": "McpClient has no prompts method to list the change with"
+        },
+        "resources.subscribe": {
+          "ok": true,
+          "route": "manual",
+          "api": "McpClient.request('resources/subscribe' | 'resources/unsubscribe') + onNotification('notifications/resources/updated'); McpClient has no subscribe method",
+          "subscribed": true,
+          "notified": true,
+          "unsubscribed": true,
+          "notified_after_unsubscribe": false,
+          "server_said": "SENTINEL_MUTATED update_resource: sent on the session"
+        }
+      }
+    }
+  }
+}

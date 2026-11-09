@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# Virtual env / tooling
+.venv/
+# Fixture interpreters built on demand by scripts/measure_results.py
+.mcp-mirror/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Node (run `npm install` to restore dependencies)
+node_modules/
+
+# Java worker build output (`mvn package`)
+src/mcp_mirror/renderers/spring_ai_java/target/
+src/mcp_mirror/renderers/google_adk_java/target/
+src/mcp_mirror/renderers/langchain4j_java/target/
+src/mcp_mirror/renderers/koog_kotlin/target/
+
+# .NET worker build output (`dotnet publish`)
+src/mcp_mirror/renderers/ms_agent_framework_dotnet/bin/
+src/mcp_mirror/renderers/ms_agent_framework_dotnet/obj/
+
+# Go worker build output (`go build -o worker`)
+src/mcp_mirror/renderers/google_adk_go/worker
+
+# Generated compatibility-site output (`npm run build`)
+# docs/ is published to GitHub Pages
+
+# mcp-mirror run artifacts
+baseline.json
+report.json
+# Published snapshot evidence, not a scratch run. The bare rule above matched it by
+# name and kept it out of the repository, so a fresh clone was missing the report
+# tests/test_spec_snapshots.py reads.
+!data/specs/*/report.json
+
+# Level-2 harness credentials: 1Password secret references only, created once by the operator.
+.env.harness
+# Live-model runs are scratch for a harness that has a stub. A harness with no stub is
+# measured live and published from here (scripts/measure_harness.py, --live).
+data/harnesses/measurements/wire-live/*
+!data/harnesses/measurements/wire-live/cursor_agent/
+
+# wrangler dev state
+.wrangler/

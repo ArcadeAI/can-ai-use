@@ -1,0 +1,776 @@
+{
+  "schema": "mcp-mirror/protocol-run@1",
+  "captured_at": "2026-10-09T20:37:20Z",
+  "renderer": "google_adk_js",
+  "fixture": "fixtures/base_protocol_server.py",
+  "spec_version": "2025-11-25",
+  "versions": {
+    "framework": "2.2.1",
+    "adapter": "@google/adk/tools/mcp 2.2.1, @modelcontextprotocol/sdk 1.30.0, node v24.21.0"
+  },
+  "captures": [
+    "http.jsonl",
+    "stdio-00.jsonl",
+    "stdio-01.jsonl",
+    "stdio-02.jsonl",
+    "stdio-03.jsonl",
+    "stdio-04.jsonl",
+    "stdio-05.jsonl",
+    "stdio-06.jsonl",
+    "stdio-07.jsonl",
+    "stdio-08.jsonl",
+    "stdio-09.jsonl",
+    "stdio-10.jsonl",
+    "stdio-11.jsonl",
+    "stdio-12.jsonl",
+    "stdio-13.jsonl",
+    "stdio-14.jsonl",
+    "stdio-15.jsonl",
+    "stdio-16.jsonl",
+    "stdio-17.jsonl",
+    "stdio-18.jsonl",
+    "stdio-19.jsonl",
+    "stdio-20.jsonl",
+    "stdio-21.jsonl",
+    "stdio-22.jsonl",
+    "stdio-23.jsonl",
+    "stdio-24.jsonl",
+    "stdio-25.jsonl",
+    "stdio-26.jsonl",
+    "stdio-27.jsonl",
+    "stdio-28.jsonl",
+    "stdio-29.jsonl",
+    "stdio-30.jsonl",
+    "stdio-31.jsonl",
+    "stdio-32.jsonl",
+    "stdio-33.jsonl",
+    "stdio-34.jsonl",
+    "stdio-35.jsonl",
+    "stdio-36.jsonl",
+    "stdio-37.jsonl",
+    "stdio-38.jsonl",
+    "stdio-39.jsonl",
+    "stdio-40.jsonl",
+    "stdio-41.jsonl",
+    "stdio-42.jsonl",
+    "stdio-43.jsonl",
+    "stdio-44.jsonl",
+    "stdio-45.jsonl",
+    "stdio-46.jsonl",
+    "stdio-47.jsonl",
+    "stdio-48.jsonl",
+    "stdio-49.jsonl",
+    "stdio-50.jsonl",
+    "stdio-51.jsonl",
+    "stdio-52.jsonl",
+    "stdio-53.jsonl",
+    "stdio-54.jsonl",
+    "stdio-55.jsonl",
+    "stdio-56.jsonl",
+    "stdio-57.jsonl"
+  ],
+  "transports": {
+    "stdio": {
+      "ok": true,
+      "versions": {
+        "framework": "2.2.1",
+        "adapter": "@google/adk/tools/mcp 2.2.1, @modelcontextprotocol/sdk 1.30.0, node v24.21.0"
+      },
+      "tools": [
+        {
+          "name": "dialect_2020_12",
+          "params": {
+            "properties": {
+              "point": {
+                "description": "An [x, y] pair.",
+                "type": "array"
+              },
+              "window": {
+                "properties": {},
+                "type": "object"
+              },
+              "label": {
+                "type": "string"
+              },
+              "units": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "point"
+            ],
+            "type": "object"
+          }
+        },
+        {
+          "name": "dialect_draft_07",
+          "params": {
+            "properties": {
+              "point": {
+                "description": "An [x, y] pair.",
+                "items": {},
+                "type": "array"
+              },
+              "window": {
+                "properties": {},
+                "type": "object"
+              }
+            },
+            "required": [
+              "point"
+            ],
+            "type": "object"
+          }
+        },
+        {
+          "name": "routed_lookup",
+          "params": {
+            "properties": {
+              "region": {
+                "type": "string"
+              },
+              "key": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "region",
+              "key"
+            ],
+            "type": "object"
+          }
+        },
+        {
+          "name": "bad_header",
+          "params": {
+            "properties": {
+              "filter": {
+                "properties": {
+                  "field": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "type": "object"
+          }
+        },
+        {
+          "name": "needs_input",
+          "params": {
+            "properties": {},
+            "type": "object"
+          }
+        }
+      ],
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Tool return value",
+          "capture_api": "@google/adk LlmAgent afterToolCallback ({ response })",
+          "capture_object": "the value MCPTool.runAsync returned, before ADK wraps it",
+          "agent_path": false,
+          "limitation": null
+        },
+        {
+          "id": "agent",
+          "label": "Function response to the model",
+          "capture_api": "@google/adk InMemoryRunner.runAsync, next LlmRequest.contents",
+          "capture_object": "the functionResponse part in the LlmRequest the model receives",
+          "agent_path": true,
+          "limitation": "The model is a scripted BaseLlm; no @google/genai client serialized the request."
+        }
+      ],
+      "results": [
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "google_adk_js",
+            "raw": {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ],
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": false,
+            "text": "{\"content\": [{\"text\": \"SENTINEL_ARGUMENTS dialect_2020_12 {\\\"point\\\": [1, 2], \\\"window\\\": {\\\"high\\\": 5, \\\"low\\\": 0}}\", \"type\": \"text\"}], \"isError\": false}",
+            "origin": "google_adk_js",
+            "raw": {
+              "id": "mcp-mirror-call",
+              "name": "dialect_2020_12",
+              "response": {
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                  }
+                ],
+                "isError": false
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "google_adk_js",
+            "raw": {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ],
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": false,
+            "text": "{\"content\": [{\"text\": \"SENTINEL_ARGUMENTS dialect_draft_07 {\\\"point\\\": [1, 2], \\\"window\\\": {\\\"high\\\": 5, \\\"low\\\": 0}}\", \"type\": \"text\"}], \"isError\": false}",
+            "origin": "google_adk_js",
+            "raw": {
+              "id": "mcp-mirror-call",
+              "name": "dialect_draft_07",
+              "response": {
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                  }
+                ],
+                "isError": false
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "origin": "google_adk_js",
+            "raw": {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+                }
+              ],
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": false,
+            "text": "{\"content\": [{\"text\": \"SENTINEL_ARGUMENTS routed_lookup {\\\"key\\\": \\\"k1\\\", \\\"region\\\": \\\"eu-west-1\\\"}\", \"type\": \"text\"}], \"isError\": false}",
+            "origin": "google_adk_js",
+            "raw": {
+              "id": "mcp-mirror-call",
+              "name": "routed_lookup",
+              "response": {
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+                  }
+                ],
+                "isError": false
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS needs_input {}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS needs_input {}",
+            "origin": "google_adk_js",
+            "raw": {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS needs_input {}"
+                }
+              ],
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": false,
+            "text": "{\"content\": [{\"text\": \"SENTINEL_ARGUMENTS needs_input {}\", \"type\": \"text\"}], \"isError\": false}",
+            "origin": "google_adk_js",
+            "raw": {
+              "id": "mcp-mirror-call",
+              "name": "needs_input",
+              "response": {
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "SENTINEL_ARGUMENTS needs_input {}"
+                  }
+                ],
+                "isError": false
+              }
+            },
+            "error_channel": null
+          }
+        }
+      ]
+    },
+    "http": {
+      "ok": true,
+      "versions": {
+        "framework": "2.2.1",
+        "adapter": "@google/adk/tools/mcp 2.2.1, @modelcontextprotocol/sdk 1.30.0, node v24.21.0"
+      },
+      "tools": [
+        {
+          "name": "dialect_2020_12",
+          "params": {
+            "properties": {
+              "point": {
+                "description": "An [x, y] pair.",
+                "type": "array"
+              },
+              "window": {
+                "properties": {},
+                "type": "object"
+              },
+              "label": {
+                "type": "string"
+              },
+              "units": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "point"
+            ],
+            "type": "object"
+          }
+        },
+        {
+          "name": "dialect_draft_07",
+          "params": {
+            "properties": {
+              "point": {
+                "description": "An [x, y] pair.",
+                "items": {},
+                "type": "array"
+              },
+              "window": {
+                "properties": {},
+                "type": "object"
+              }
+            },
+            "required": [
+              "point"
+            ],
+            "type": "object"
+          }
+        },
+        {
+          "name": "routed_lookup",
+          "params": {
+            "properties": {
+              "region": {
+                "type": "string"
+              },
+              "key": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "region",
+              "key"
+            ],
+            "type": "object"
+          }
+        },
+        {
+          "name": "bad_header",
+          "params": {
+            "properties": {
+              "filter": {
+                "properties": {
+                  "field": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "type": "object"
+          }
+        },
+        {
+          "name": "needs_input",
+          "params": {
+            "properties": {},
+            "type": "object"
+          }
+        }
+      ],
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Tool return value",
+          "capture_api": "@google/adk LlmAgent afterToolCallback ({ response })",
+          "capture_object": "the value MCPTool.runAsync returned, before ADK wraps it",
+          "agent_path": false,
+          "limitation": null
+        },
+        {
+          "id": "agent",
+          "label": "Function response to the model",
+          "capture_api": "@google/adk InMemoryRunner.runAsync, next LlmRequest.contents",
+          "capture_object": "the functionResponse part in the LlmRequest the model receives",
+          "agent_path": true,
+          "limitation": "The model is a scripted BaseLlm; no @google/genai client serialized the request."
+        }
+      ],
+      "results": [
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "google_adk_js",
+            "raw": {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ],
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": false,
+            "text": "{\"content\": [{\"text\": \"SENTINEL_ARGUMENTS dialect_2020_12 {\\\"point\\\": [1, 2], \\\"window\\\": {\\\"high\\\": 5, \\\"low\\\": 0}}\", \"type\": \"text\"}], \"isError\": false}",
+            "origin": "google_adk_js",
+            "raw": {
+              "id": "mcp-mirror-call",
+              "name": "dialect_2020_12",
+              "response": {
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                  }
+                ],
+                "isError": false
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "google_adk_js",
+            "raw": {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ],
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": false,
+            "text": "{\"content\": [{\"text\": \"SENTINEL_ARGUMENTS dialect_draft_07 {\\\"point\\\": [1, 2], \\\"window\\\": {\\\"high\\\": 5, \\\"low\\\": 0}}\", \"type\": \"text\"}], \"isError\": false}",
+            "origin": "google_adk_js",
+            "raw": {
+              "id": "mcp-mirror-call",
+              "name": "dialect_draft_07",
+              "response": {
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                  }
+                ],
+                "isError": false
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "origin": "google_adk_js",
+            "raw": {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+                }
+              ],
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": false,
+            "text": "{\"content\": [{\"text\": \"SENTINEL_ARGUMENTS routed_lookup {\\\"key\\\": \\\"k1\\\", \\\"region\\\": \\\"eu-west-1\\\"}\", \"type\": \"text\"}], \"isError\": false}",
+            "origin": "google_adk_js",
+            "raw": {
+              "id": "mcp-mirror-call",
+              "name": "routed_lookup",
+              "response": {
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+                  }
+                ],
+                "isError": false
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS needs_input {}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS needs_input {}",
+            "origin": "google_adk_js",
+            "raw": {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS needs_input {}"
+                }
+              ],
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": false,
+            "text": "{\"content\": [{\"text\": \"SENTINEL_ARGUMENTS needs_input {}\", \"type\": \"text\"}], \"isError\": false}",
+            "origin": "google_adk_js",
+            "raw": {
+              "id": "mcp-mirror-call",
+              "name": "needs_input",
+              "response": {
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "SENTINEL_ARGUMENTS needs_input {}"
+                  }
+                ],
+                "isError": false
+              }
+            },
+            "error_channel": null
+          }
+        }
+      ]
+    }
+  }
+}

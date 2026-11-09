@@ -1,0 +1,44 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "prompts-list",
+  "title": "`prompts/list`",
+  "description": "Lists the prompt templates a server exposes, with their names, titles, descriptions and argument definitions.",
+  "question": "Can the agent discover the server's prompts?",
+  "spec": "https://modelcontextprotocol.io/specification/2025-11-25",
+  "status": "stable",
+  "categories": [
+    "Prompts"
+  ],
+  "keywords": "prompts/list,prompts,templates,slash commands,user-controlled",
+  "why": "Prompts are the user-controlled primitive: the slash commands and menu entries a server contributes to the host. A framework that ignores them silently discards a third of what the server publishes, and the omission is invisible because nothing errors.",
+  "docs_url": "https://modelcontextprotocol.io/specification/2025-11-25/server/prompts#listing-prompts",
+  "docs_label": "MCP Docs",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/server/prompts#listing-prompts",
+      "title": "MCP Docs"
+    }
+  ],
+  "usage_note": "Not published. Candidate source: count of public MCP servers publishing this. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "known_issues": [],
+  "notes": {
+    "crewai": "CrewAI 1.15.26: `crewai_tools.MCPServerAdapter` exposes only `tools`. It has no resource or prompt API, so an agent built on it cannot reach this at all.",
+    "genkit_js": "Genkit (JS) 1.42.0: `getActivePrompts` returns an `ExecutablePrompt` per MCP prompt whose `ref.metadata` keeps `description` and `arguments`; `title` is not kept.",
+    "langchain": "LangChain MCP Adapters 0.3.2: the package has no API for listing prompts. `load_mcp_prompt` can expand a prompt the caller already knows by name, but nothing tells the agent which prompts exist or what arguments they take.",
+    "google_adk": "Google ADK 2.11.0: `McpToolset` has no prompt methods; `prompts/list` is never sent.",
+    "ms_agent_framework": "Microsoft Agent Framework 1.21.0: prompts are listed only as the `FunctionTool`s `load_prompts` builds, one per prompt, which the model can call like tools. Name, description and arguments survive; the prompt's `title` does not.",
+    "openai_agents_js": "OpenAI Agents SDK (JS) 0.20.0: the `MCPServer` interface (agents-core `src/mcp.ts`) has tools and resources methods but no prompts method.",
+    "semantic_kernel": "Semantic Kernel 1.45.0: prompts become KernelFunctions (`load_prompts`); a prompt's name, description and arguments survive, its title does not.",
+    "pi": "Pi (@earendil-works/pi-mcp 1.1.0): `McpClient` has no prompts method; `prompts/list` is reachable only by hand through the generic `request()`.",
+    "google_adk_js": "Google ADK (TypeScript) 2.2.1: `MCPToolset` has no prompt API (`listPrompts`), and ADK adds none elsewhere.",
+    "agno": "Agno 3.1.2: `MCPTools` lists and calls tools only; it has no resource or prompt API, so `prompts/list` is unreachable.",
+    "haystack": "Haystack (mcp-haystack 1.5.2): `MCPToolset` wraps tools as Haystack `Tool`s and has no resource or prompt API, and the `ClientSession` it opens is private to `MCPToolset._worker._client`, so there is no route to `prompts/list`.",
+    "smolagents": "smolagents 1.26.0 (mcpadapt 0.1.20): `smolagents.MCPClient` exposes only `get_tools()`, and the `ClientSession` lives on the private `MCPClient._adapter`. It has no resource or prompt API, so an agent built on it cannot reach this at all.",
+    "dspy": "DSPy 3.4.0: DSPy's MCP support is `dspy.Tool.from_mcp_tool`, which converts one tool. It has no resource or prompt API, so resources and prompts stay on the caller's MCP session.",
+    "langchain_js": "LangChain.js (@langchain/mcp-adapters 2.0.1): `MCPAdapter` has no prompts API (no list, get or loader for prompts), so there is no route to `prompts/list`.",
+    "beeai": "BeeAI Framework 0.1.85: `beeai_framework.tools.mcp` has `MCPTool` only. `MCPTool.from_client` lists and wraps tools, and BeeAI has no MCP resource or prompt API.",
+    "crewai-native": "CrewAI 1.15.26, native `crewai.mcp` client (`Agent(mcps=[...])`, not the `crewai_tools.MCPServerAdapter` row): `MCPClient.list_prompts` returns each prompt as `name`, `description` and `arguments` only, so the prompt's `title` is dropped. The agent itself is not handed prompts; they are reachable only by calling `MCPClient` directly.",
+    "langchain4j": "LangChain4j 1.22.0-beta32: `McpPrompt` holds `name`, `description` and `arguments`; `prompts/list` loses each prompt's `title`.",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): `mcptoolset.Toolset` exposes only `Tools()`, and the `*mcp.ClientSession` it opens stays inside its unexported `connectionRefresher`, so the caller has no session to call `ListPrompts` on."
+  }
+}

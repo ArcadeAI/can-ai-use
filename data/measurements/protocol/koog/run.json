@@ -1,0 +1,425 @@
+{
+  "schema": "mcp-mirror/protocol-run@1",
+  "captured_at": "2026-10-01T18:09:21Z",
+  "renderer": "koog",
+  "fixture": "fixtures/base_protocol_server.py",
+  "spec_version": "2025-11-25",
+  "versions": {
+    "framework": "1.3.0-beta",
+    "adapter": "ai.koog:agents-mcp 1.3.0-beta, io.modelcontextprotocol:kotlin-sdk-client 0.11.1, kotlin 2.3.10, java 21.0.12.1"
+  },
+  "captures": [
+    "http.jsonl",
+    "stdio-00.jsonl",
+    "stdio-01.jsonl",
+    "stdio-02.jsonl",
+    "stdio-03.jsonl",
+    "stdio-04.jsonl",
+    "stdio-05.jsonl",
+    "stdio-06.jsonl",
+    "stdio-07.jsonl",
+    "stdio-08.jsonl"
+  ],
+  "transports": {
+    "stdio": {
+      "ok": true,
+      "versions": {
+        "framework": "1.3.0-beta",
+        "adapter": "ai.koog:agents-mcp 1.3.0-beta, io.modelcontextprotocol:kotlin-sdk-client 0.11.1, kotlin 2.3.10, java 21.0.12.1"
+      },
+      "tools": [
+        {
+          "name": "routed_lookup",
+          "params": {
+            "type": "object",
+            "properties": {
+              "region": {
+                "description": "",
+                "type": "string"
+              },
+              "key": {
+                "description": "",
+                "type": "string"
+              }
+            },
+            "required": [
+              "region",
+              "key"
+            ]
+          }
+        },
+        {
+          "name": "bad_header",
+          "params": {
+            "type": "object",
+            "properties": {
+              "filter": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "field": {
+                    "type": "string",
+                    "description": ""
+                  }
+                }
+              }
+            },
+            "required": []
+          }
+        },
+        {
+          "name": "needs_input",
+          "params": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          }
+        }
+      ],
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Tool return value",
+          "capture_api": "ai.koog EventHandler.onToolCallCompleted (event.toolResult)",
+          "capture_object": "the CallToolResult McpTool.execute returned, as JSON",
+          "agent_path": false,
+          "limitation": null
+        },
+        {
+          "id": "agent",
+          "label": "Tool message to the model",
+          "capture_api": "ai.koog OpenAILLMClient, the next POST /v1/chat/completions",
+          "capture_object": "the content of the role=tool message (McpTool.encodeResultToString)",
+          "agent_path": true,
+          "limitation": "The provider is a local fake; no OpenAI model answered the request."
+        }
+      ],
+      "results": [
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "direct",
+          "ok": false,
+          "error": "RenderError: koog renderer found no tool named 'dialect_2020_12'"
+        },
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "agent",
+          "ok": false,
+          "error": "RenderError: koog renderer found no tool named 'dialect_2020_12'"
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "direct",
+          "ok": false,
+          "error": "RenderError: koog renderer found no tool named 'dialect_draft_07'"
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "agent",
+          "ok": false,
+          "error": "RenderError: koog renderer found no tool named 'dialect_draft_07'"
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [
+              {
+                "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+                "type": "text"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "origin": "koog",
+            "raw": {
+              "content": [
+                {
+                  "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+                  "type": "text"
+                }
+              ],
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"content\": [{\"text\": \"SENTINEL_ARGUMENTS routed_lookup {\\\"key\\\": \\\"k1\\\", \\\"region\\\": \\\"eu-west-1\\\"}\", \"type\": \"text\"}], \"isError\": false}",
+            "origin": "koog",
+            "raw": {
+              "role": "tool",
+              "content": "{\"content\": [{\"text\": \"SENTINEL_ARGUMENTS routed_lookup {\\\"key\\\": \\\"k1\\\", \\\"region\\\": \\\"eu-west-1\\\"}\", \"type\": \"text\"}], \"isError\": false}"
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [
+              {
+                "text": "SENTINEL_ARGUMENTS needs_input {}",
+                "type": "text"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS needs_input {}",
+            "origin": "koog",
+            "raw": {
+              "content": [
+                {
+                  "text": "SENTINEL_ARGUMENTS needs_input {}",
+                  "type": "text"
+                }
+              ],
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"content\": [{\"text\": \"SENTINEL_ARGUMENTS needs_input {}\", \"type\": \"text\"}], \"isError\": false}",
+            "origin": "koog",
+            "raw": {
+              "role": "tool",
+              "content": "{\"content\": [{\"text\": \"SENTINEL_ARGUMENTS needs_input {}\", \"type\": \"text\"}], \"isError\": false}"
+            },
+            "error_channel": null
+          }
+        }
+      ]
+    },
+    "http": {
+      "ok": true,
+      "versions": {
+        "framework": "1.3.0-beta",
+        "adapter": "ai.koog:agents-mcp 1.3.0-beta, io.modelcontextprotocol:kotlin-sdk-client 0.11.1, kotlin 2.3.10, java 21.0.12.1"
+      },
+      "tools": [
+        {
+          "name": "routed_lookup",
+          "params": {
+            "type": "object",
+            "properties": {
+              "region": {
+                "description": "",
+                "type": "string"
+              },
+              "key": {
+                "description": "",
+                "type": "string"
+              }
+            },
+            "required": [
+              "region",
+              "key"
+            ]
+          }
+        },
+        {
+          "name": "bad_header",
+          "params": {
+            "type": "object",
+            "properties": {
+              "filter": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "field": {
+                    "type": "string",
+                    "description": ""
+                  }
+                }
+              }
+            },
+            "required": []
+          }
+        },
+        {
+          "name": "needs_input",
+          "params": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          }
+        }
+      ],
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Tool return value",
+          "capture_api": "ai.koog EventHandler.onToolCallCompleted (event.toolResult)",
+          "capture_object": "the CallToolResult McpTool.execute returned, as JSON",
+          "agent_path": false,
+          "limitation": null
+        },
+        {
+          "id": "agent",
+          "label": "Tool message to the model",
+          "capture_api": "ai.koog OpenAILLMClient, the next POST /v1/chat/completions",
+          "capture_object": "the content of the role=tool message (McpTool.encodeResultToString)",
+          "agent_path": true,
+          "limitation": "The provider is a local fake; no OpenAI model answered the request."
+        }
+      ],
+      "results": [
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "direct",
+          "ok": false,
+          "error": "RenderError: koog renderer found no tool named 'dialect_2020_12'"
+        },
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "agent",
+          "ok": false,
+          "error": "RenderError: koog renderer found no tool named 'dialect_2020_12'"
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "direct",
+          "ok": false,
+          "error": "RenderError: koog renderer found no tool named 'dialect_draft_07'"
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "agent",
+          "ok": false,
+          "error": "RenderError: koog renderer found no tool named 'dialect_draft_07'"
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [
+              {
+                "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+                "type": "text"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "origin": "koog",
+            "raw": {
+              "content": [
+                {
+                  "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+                  "type": "text"
+                }
+              ],
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"content\": [{\"text\": \"SENTINEL_ARGUMENTS routed_lookup {\\\"key\\\": \\\"k1\\\", \\\"region\\\": \\\"eu-west-1\\\"}\", \"type\": \"text\"}], \"isError\": false}",
+            "origin": "koog",
+            "raw": {
+              "role": "tool",
+              "content": "{\"content\": [{\"text\": \"SENTINEL_ARGUMENTS routed_lookup {\\\"key\\\": \\\"k1\\\", \\\"region\\\": \\\"eu-west-1\\\"}\", \"type\": \"text\"}], \"isError\": false}"
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [
+              {
+                "text": "SENTINEL_ARGUMENTS needs_input {}",
+                "type": "text"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS needs_input {}",
+            "origin": "koog",
+            "raw": {
+              "content": [
+                {
+                  "text": "SENTINEL_ARGUMENTS needs_input {}",
+                  "type": "text"
+                }
+              ],
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"content\": [{\"text\": \"SENTINEL_ARGUMENTS needs_input {}\", \"type\": \"text\"}], \"isError\": false}",
+            "origin": "koog",
+            "raw": {
+              "role": "tool",
+              "content": "{\"content\": [{\"text\": \"SENTINEL_ARGUMENTS needs_input {}\", \"type\": \"text\"}], \"isError\": false}"
+            },
+            "error_channel": null
+          }
+        }
+      ]
+    }
+  }
+}

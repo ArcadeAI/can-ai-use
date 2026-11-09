@@ -1,0 +1,40 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "prompt-arguments",
+  "title": "Prompt `arguments`",
+  "description": "The declared arguments of a prompt, each with a name, description and required flag.",
+  "question": "Does the argument contract of a prompt survive to the agent?",
+  "spec": "https://modelcontextprotocol.io/specification/2025-11-25",
+  "status": "stable",
+  "categories": [
+    "Prompts"
+  ],
+  "keywords": "prompt arguments,required,argument description,completion",
+  "why": "Without the argument list a host cannot build a form, cannot validate before calling, and cannot offer completion. The prompt degrades from a parameterised template to a fixed string.",
+  "docs_url": "https://modelcontextprotocol.io/specification/2025-11-25/server/prompts#prompt",
+  "docs_label": "MCP Docs",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/server/prompts#prompt",
+      "title": "MCP Docs"
+    }
+  ],
+  "usage_note": "Not published. Candidate source: count of public MCP servers publishing this. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "known_issues": [],
+  "notes": {
+    "crewai": "CrewAI 1.15.26: `crewai_tools.MCPServerAdapter` exposes only `tools`. It has no resource or prompt API, so an agent built on it cannot reach this at all.",
+    "langchain": "LangChain MCP Adapters 0.3.2: the package has no API for listing prompts. `load_mcp_prompt` can expand a prompt the caller already knows by name, but nothing tells the agent which prompts exist or what arguments they take.",
+    "google_adk": "Google ADK 2.11.0: `McpToolset` has no prompt methods, so prompt arguments never reach the agent.",
+    "openai_agents_js": "OpenAI Agents SDK (JS) 0.20.0: the `MCPServer` interface has no prompts method, so prompt arguments never reach the caller.",
+    "semantic_kernel": "Semantic Kernel 1.45.0: `_get_parameter_dict_from_mcp_prompt` sets `is_required: True` for every argument, so an optional argument (the fixture's `tone`) becomes required. The same holds in the model's tools array.",
+    "pi": "Pi (@earendil-works/pi-mcp 1.1.0): `McpClient` has no prompts method; prompts are reachable only by hand through the generic `request()`.",
+    "google_adk_js": "Google ADK (TypeScript) 2.2.1: with no prompt listing there are no prompt arguments to read.",
+    "agno": "Agno 3.1.2: `MCPTools` lists and calls tools only; it has no resource or prompt API, so prompt arguments are unreachable.",
+    "haystack": "Haystack (mcp-haystack 1.5.2): `MCPToolset` wraps tools as Haystack `Tool`s and has no resource or prompt API, and the `ClientSession` it opens is private to `MCPToolset._worker._client`, so prompt arguments are never read.",
+    "smolagents": "smolagents 1.26.0 (mcpadapt 0.1.20): `smolagents.MCPClient` exposes only `get_tools()`, and the `ClientSession` lives on the private `MCPClient._adapter`. It has no resource or prompt API, so an agent built on it cannot reach this at all.",
+    "dspy": "DSPy 3.4.0: DSPy's MCP support is `dspy.Tool.from_mcp_tool`, which converts one tool. It has no resource or prompt API, so resources and prompts stay on the caller's MCP session.",
+    "langchain_js": "LangChain.js (@langchain/mcp-adapters 2.0.1): `MCPAdapter` has no prompts API (no list, get or loader for prompts), so there is no route to `prompt arguments`.",
+    "beeai": "BeeAI Framework 0.1.85: `beeai_framework.tools.mcp` has `MCPTool` only. `MCPTool.from_client` lists and wraps tools, and BeeAI has no MCP resource or prompt API.",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): `mcptoolset.Toolset` exposes only `Tools()`, and the `*mcp.ClientSession` it opens stays inside its unexported `connectionRefresher`, so the caller has no session to call `ListPrompts` on."
+  }
+}

@@ -1,0 +1,14 @@
+{"format": "mcp-mirror.harness-output/1"}
+{"event": "init", "harness_version": null, "model": "Auto Balance", "permission_mode": "default", "mcp_servers": null, "mcp_tools": null}
+{"event": "routed", "model": "GPT-5.6 Sol"}
+{"event": "text", "text": "> Auto routed to GPT-5.6 Sol\n\n"}
+{"event": "tool_use", "tool": "getMcpToolsToolCall", "input": {"server": "cursor", "toolName": "FetchMcpResource", "toolCallId": "call_HwV7Wm0ATjSWWXfKzoKBR6im\nfc_0a41ae7fe87aa8a3016ad2a4fdaa2887d1aae65be670f99ec8"}}
+{"event": "tool_result", "is_error": false, "text": "{\"success\": {\"content\": \"{\\n  \\\"tool\\\": \\\"FetchMcpResource\\\",\\n  \\\"description\\\": \\\"Reads a specific resource from an MCP server, identified by server name and resource URI. Optionally, set downloadPath (relative to the workspace) to save the resource to disk; when set, the resource will be downloaded and not returned to the model.\\\",\\n  \\\"inputSchema\\\": {\\n    \\\"type\\\": \\\"object\\\",\\n    \\\"properties\\\": {\\n      \\\"server\\\": {\\n        \\\"type\\\": \\\"string\\\",\\n        \\\"description\\\": \\\"The MCP ser..."}
+{"event": "tool_use", "tool": "readMcpResourceToolCall", "input": {"server": "res", "uri": "file:///fixtures/notes.txt", "toolCallId": "call_J8yuOMsoDFLHqUV8kIPiFr3b\nfc_0a41ae7fe87aa8a3016ad2a502577887d1b7d67986324c23f3"}}
+{"event": "tool_result", "is_error": true, "text": "{\"error\": {\"uri\": \"\", \"error\": \"Failed to read MCP resource: MCP error -32601: Method not found\"}}"}
+{"event": "tool_use", "tool": "readMcpResourceToolCall", "input": {"server": "cf", "uri": "file:///fixtures/notes.txt", "toolCallId": "call_j989b3smGc82VGnSOnlBCKJO\nfc_0a41ae7fe87aa8a3016ad2a506ef9c87d18f303450d8ce2d82"}}
+{"event": "tool_result", "is_error": true, "text": "{\"error\": {\"uri\": \"\", \"error\": \"Failed to read MCP resource: MCP error -32601: Method not found\"}}"}
+{"event": "tool_use", "tool": "readMcpResourceToolCall", "input": {"server": "ntf", "uri": "file:///fixtures/notes.txt", "toolCallId": "call_LhFbktmqOdgGlj2qsj53EaTQ\nfc_0a41ae7fe87aa8a3016ad2a50943c087d18b491eb3ed421fb1"}}
+{"event": "tool_result", "is_error": false, "text": "{\"success\": {\"uri\": \"file:///fixtures/notes.txt\", \"mimeType\": \"text/plain\", \"text\": \"SENTINEL_ADDED\", \"annotations\": {}}}"}
+{"event": "text", "text": "SENTINEL_ADDED"}
+{"event": "result", "subtype": "success", "is_error": false, "num_turns": null, "text": "> Auto routed to GPT-5.6 Sol\n\nSENTINEL_ADDED"}

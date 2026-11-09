@@ -1,0 +1,31 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "result-type",
+  "title": "`resultType`",
+  "description": "The discriminator now required on every result, distinguishing a completed result from one that needs more input.",
+  "question": "Does the framework read the result discriminator before using a result?",
+  "spec": "https://modelcontextprotocol.io/specification/2026-07-28",
+  "status": "stable",
+  "categories": [
+    "Base protocol"
+  ],
+  "keywords": "resultType,complete,input_required,discriminator,results",
+  "why": "A client that ignores `resultType` will treat an `input_required` result as a finished one and hand the agent a half-finished answer. Results from older servers that omit the field must be read as complete, so tolerant parsing is part of the requirement.",
+  "docs_url": "https://modelcontextprotocol.io/specification/2026-07-28/basic#result-responses",
+  "docs_label": "MCP Docs",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic#result-responses",
+      "title": "MCP Docs"
+    }
+  ],
+  "known_issues": [
+    "Measured by scripts/measure_protocol.py: each adapter runs against fixtures/base_protocol_server.py behind the wire recorder, and the cell is read from the captures."
+  ],
+  "notes": {
+    "openai_agents_js": "OpenAI Agents SDK (JS) 0.20.0: an `input_required` result is refused as unfinished by `MCPServer.callTool` (the client throws `Cannot fulfil input request`), but on the agent path the tool's default error function turns that throw into ordinary output, so the model receives \"An error occurred while running the tool...\" as a completed result.",
+    "agno": "Agno 3.1.2: an `input_required` result is not surfaced as one: with no elicitation handler the call fails, and the Function hands the agent the text `MCP tool 'needs_input' failed: Elicitation not supported...` as an ordinary result.",
+    "dspy": "DSPy 3.4.0: depends on the boundary. With no elicitation handler on the session, `Tool.acall` raises `MCPError: Elicitation not supported` and the call is refused as unfinished. `dspy.ReAct` turns that into an `Execution error in needs_input:` traceback the model reads as a completed observation.",
+    "copilot_sdk": "GitHub Copilot SDK 1.0.19 (Copilot runtime 1.0.95): depends on the boundary, measured with no elicitation handler set. `session.rpc.tools.execute` refuses an `input_required` result as unfinished (\"tools/call requested elicitation input but no elicitation responder is wired\"). On the agent path the same failure reaches the provider as an ordinary `tool` message, which the model reads as a completed result."
+  }
+}

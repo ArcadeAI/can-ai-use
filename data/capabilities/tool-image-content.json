@@ -1,0 +1,51 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "tool-image-content",
+  "title": "Image content",
+  "description": "The `image` content block, carrying base64-encoded data and its MIME type.",
+  "question": "Does an image result survive adaptation, or is it dropped or flattened to text?",
+  "spec": "https://modelcontextprotocol.io/specification/2025-11-25",
+  "status": "stable",
+  "categories": [
+    "Tool results"
+  ],
+  "keywords": "image content,ImageContent,base64,mimeType,multimodal",
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/server/tools#image-content",
+      "title": "MCP Docs"
+    }
+  ],
+  "known_issues": [],
+  "why": "A dropped image block is a silent failure: the call succeeds, the result arrives, and the payload the tool existed to return is simply gone.",
+  "shown": true,
+  "docs_url": "https://modelcontextprotocol.io/specification/2025-11-25/server/tools#image-content",
+  "docs_label": "MCP Docs",
+  "notes": {
+    "crewai": "CrewAI 1.15.26: returned on its own, the image comes back as the stringified content model, `type='image' data='...' mimeType='image/png'`, so the bytes and MIME type survive only as characters. Beside other content kinds it is dropped and only the text reaches the agent.",
+    "genkit_js": "Genkit (JS) 1.42.0: `processResult` returns `{ error }` for `isError`, `structuredContent` when the server sent one, the joined text (JSON-parsed when it looks like JSON) when every block is text, the lone block when there is one, and otherwise the whole `CallToolResult`. A lone image block is returned as the block itself, so it survives; in `mixed_content` the server also sent `structuredContent`, which is returned alone, and the image is gone. With `createMcpHost({ multipart: true })`, a non-default option, images become `media` parts beside the output.",
+    "mastra": "Mastra 2.2.0: a result without `structuredContent` comes back unchanged, image block intact with its data and mimeType. When the result carries `structuredContent`, that value is returned in place of the whole result and the image is gone.",
+    "google_adk": "Google ADK 2.11.0: the tool's return value (`after_tool_callback`) is the dumped `CallToolResult`, with this block intact in `content`. The model receives that dict as `FunctionResponse.response`, a JSON value: the block survives as JSON text, and no media is lifted into `FunctionResponse.parts`.",
+    "ms_agent_framework": "Microsoft Agent Framework 1.21.0: a lone image becomes a `data` `Content` with a data URI and media type, which a provider client can send as an image. Beside `structuredContent` it is dropped, because the default `tool_result_content=\"structured_first\"` hands the model only the structured JSON.",
+    "autogen": "AutoGen 0.7.5: Boundary-dependent. `McpWorkbench.call_tool` returns an `ImageResultContent` (a decoded PIL image, MIME type gone), but the `AssistantAgent` hands the model `ToolResult.to_text()`, where the image is the text `[Image: <base64>]`. In a mixed result the workbench raises on the audio block and drops everything.",
+    "openai_agents_js": "OpenAI Agents SDK (JS) 0.20.0: a lone image block reaches the model as an `input_image` item. When a result has several blocks the SDK stringifies the whole content array into one text item, so an image beside other kinds arrives as JSON text.",
+    "semantic_kernel": "Semantic Kernel 1.45.0: boundary-dependent. `Kernel.invoke` returns ImageContent. The model's tool message is the Python repr of that object, with the base64 inside a string; no image part is sent.",
+    "llamaindex": "LlamaIndex (llama-index-tools-mcp 0.6.0): `FunctionTool._parse_tool_output` has no case for `CallToolResult`, so the `ToolOutput`, and the `ChatMessage(role=\"tool\")` a `FunctionAgent` sends the model, hold one text block: the result's Python repr. The image survives only as characters (`ImageContent(type='image', data='...', mime_type='image/png')`); the model gets no image part.",
+    "google_adk_js": "Google ADK (TypeScript) 2.2.1: boundary-dependent. `MCPTool.runAsync` returns the `CallToolResult` unchanged (`afterToolCallback` sees it with every block intact), and ADK puts that object in the `functionResponse` of the next `LlmRequest`. At `direct` the image block keeps its data and mimeType. At `agent` it is a JSON value inside `functionResponse.response`, and no media is lifted into an `inlineData` part, so the model gets no image.",
+    "haystack": "Haystack (mcp-haystack 1.5.2): boundary-dependent. The direct `Tool.invoke` return is that JSON string, which the adapter's docstring says to read with `json.loads`; parsed, it keeps every block. The `ChatMessage` an `Agent` hands the next generator turn carries the Tool's return value as one text: the `CallToolResult` JSON from `model_dump_json`. The image arrives as base64 inside that text, not as an image block.",
+    "smolagents": "smolagents 1.26.0 (mcpadapt 0.1.20): depends on the boundary. Called directly, the tool returns a `PIL.Image` decoded from the image block, so the image survives. In a `ToolCallingAgent` run the image is stored in agent memory and the next model turn carries only the text `Observation:\\nStored 'image.png' in memory.`, with no image part. Beside other content kinds it is dropped at both, because `MCPAdaptTool.forward` reads only `content[0]` and logs a warning when there are more.",
+    "dspy": "DSPy 3.4.0: with the default `result_mode=\"text\"`, `Tool.acall` returns the image block as the MCP content object when the result has no text (direct: `y`). In a `dspy.ReAct` run the observation the model reads is that object's Python repr, `«type='image' data='...' mime_type='image/png' ...»` (react: `a`). When a result carries any text block, `_convert_mcp_tool_result` returns the text alone and drops the image block at both boundaries.",
+    "spring_ai": "Spring AI 2.0.1: the tool result reaches the agent and a direct `ToolCallback.call` as one string: the JSON of the result's content list with each block's `type` field dropped, e.g. `[{\"data\":\"iVBOR...\",\"mimeType\":\"image/png\"}]`. The base64 survives as characters in a string; no image reaches a chat model as an image.",
+    "beeai": "BeeAI Framework 0.1.85: `MCPTool.run` returns the `ImageContent` object (direct: `y`), but drops it next to `structuredContent`. The model gets it as one JSON string with the base64 data inline, not as an image (agent: `a`).",
+    "crewai-native": "CrewAI 1.15.26, native `crewai.mcp` client (`Agent(mcps=[...])`, not the `crewai_tools.MCPServerAdapter` row): `MCPClient._call_tool_impl` keeps only `content[0]`, returning its `text` when it has one and `str(content[0])` otherwise. Returned on its own, the image comes back as the stringified content model ({shape}), so {kept} survive only as characters, at `BaseTool.run` and in the tool message the agent loop builds. Beside other content kinds it is dropped and only the leading text reaches the agent.",
+    "google_adk_java": "Google ADK (Java) 1.11.0: `AbstractMcpTool.wrapCallResult` turns a result that holds any block other than text into `{\"error\": \"Tool '<name>' returned content that is not TextContent.\", \"content_details\": ...}` when no text block is present, and drops the non-text blocks when one is (`mixed_content` returns only the text). Both boundaries see the same map.",
+    "langchain4j": "LangChain4j 1.22.0-beta32: The default `McpToolExecutor` result converter accepts text blocks only. Any `image` block makes it throw `Unsupported content type: \"image\"`: the direct executor raises it as a `RuntimeException`, and AiServices turns it into an error tool result the model reads in place of the block. A result with `structuredContent` never reads its blocks at all.",
+    "koog": "Koog 1.3.0-beta: boundary-dependent. At `direct` the image block keeps its data and mimeType. `AIAgent` sends the tool's result to the model as one `role: tool` message whose content is `McpTool.encodeResultToString`: the JSON of the whole `CallToolResult` (`content`, `isError`, `structuredContent`), or `Error: <text>` when `isError` is set. At `agent` the base64 data is a string inside that JSON; no image part reaches the model.",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): `mcpTool.Run` returns `{\"output\": text}`, where `formatMCPContent` replaces the block with a placeholder line (`[MCP image: mimeType=\"image/png\", size=70 bytes]`, with no image data), and the model receives that map as `FunctionResponse.response`. When the result also has `structuredContent`, as in the mixed result, `Run` returns `{\"output\": structuredContent}` and the block is dropped.",
+    "ms_agent_framework_dotnet": "Microsoft Agent Framework (.NET) 1.24.0 (ModelContextProtocol 2.2.0): a lone image block becomes a `DataContent` with its bytes and MIME type at both boundaries. Beside `structuredContent` (`mixed_content`) `McpClientTool` returns the `CallToolResult` as JSON, so the image reaches the model as base64 characters inside a text result, not as an image."
+  },
+  "verdict": {
+    "detail": "A tool that returns a chart or a screenshot is only useful if the image reaches a model that can see it."
+  }
+}

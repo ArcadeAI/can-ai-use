@@ -1,0 +1,52 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "tool-output-schema",
+  "title": "`outputSchema`",
+  "description": "An optional JSON Schema on the tool definition describing the shape of the tool's structured result.",
+  "question": "Does the output schema survive to the agent's tool definition?",
+  "spec": "https://modelcontextprotocol.io/specification/2025-11-25",
+  "status": "stable",
+  "categories": [
+    "Tool results"
+  ],
+  "keywords": "outputSchema,output schema,result schema,typed results,validation",
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/server/tools#output-schema",
+      "title": "MCP Docs"
+    }
+  ],
+  "known_issues": [],
+  "why": "Without it a caller cannot validate a tool result or generate types for it, and the model is given no advance description of what the tool returns. The spec asks clients to validate structured results against this schema; a client that never received it cannot.",
+  "shown": true,
+  "docs_url": "https://modelcontextprotocol.io/specification/2025-11-25/server/tools#output-schema",
+  "docs_label": "MCP Docs",
+  "notes": {
+    "crewai": "CrewAI 1.15.26: neither `crewai_tools` nor `crewai` reads an MCP tool's `outputSchema`, so the adapted tool has none.",
+    "genkit_js": "Genkit (JS) 1.42.0: the MCP `outputSchema` is dropped: `createDynamicTool` declares `outputSchema: z.any()`, so the `ToolDefinition` carries `{\"$schema\": \"http://json-schema.org/draft-07/schema#\"}` in its place, a schema that accepts anything.",
+    "langchain": "LangChain: `langchain_mcp_adapters` 0.3.2 contains no reference to `outputSchema`. `StructuredTool` keeps the input schema and, in `metadata`, the annotations.",
+    "openai-agents": "OpenAI Agents SDK 0.23.1: the `agents` package never reads a tool's `outputSchema`; `FunctionTool` carries an input schema only.",
+    "pydantic-ai": "Pydantic AI 2.54.0: `MCPToolset.get_tools` copies `outputSchema` onto `ToolDefinition.return_schema`, but the definition is sent to a model without it unless `include_return_schema=True` or the `IncludeToolReturnSchemas` capability is set. Neither is the default.",
+    "mastra": "Mastra 2.2.0: the tool action declares `outputSchema` beside `inputSchema`, every keyword intact with a `$schema` dialect (JSON Schema 2020-12) added, and checks `structuredContent` against it.",
+    "google_adk": "Google ADK 2.11.0: with JSON_SCHEMA_FOR_FUNC_DECL on, the default, `McpTool._get_declaration` sends the MCP `outputSchema` to the model as `FunctionDeclaration.response_json_schema`. Every keyword survives; the top-level description is wrapped in `<<<BEGIN_UNTRUSTED_TOOL_DESCRIPTION>>>` fences (data/measurements/scan/google_adk.json).",
+    "ms_agent_framework": "Microsoft Agent Framework 1.21.0: `load_tools` reads only the inputSchema; the tool's `outputSchema` is not on the `FunctionTool` or in `to_json_schema_spec()`.",
+    "autogen": "AutoGen 0.7.5: `ToolSchema` has no output schema field and `McpWorkbench` keeps no copy of `outputSchema`.",
+    "openai_agents_js": "OpenAI Agents SDK (JS) 0.20.0: `mcpToFunctionTool` builds the `FunctionTool` from the MCP tool's name, description and inputSchema only. The tool's `outputSchema` is not on the tool the model is handed and is not kept anywhere beside it.",
+    "semantic_kernel": "Semantic Kernel 1.45.0: `load_tools` ignores `outputSchema`; the KernelFunction declares no return schema and the request carries none.",
+    "llamaindex": "LlamaIndex (llama-index-tools-mcp 0.6.0): `ToolMetadata` carries `fn_schema` for input only; the MCP `outputSchema` is not kept and never reaches the model.",
+    "google_adk_js": "Google ADK (TypeScript) 2.2.1: `_getDeclaration` converts `outputSchema` with `toGeminiSchema` and sends it as the declaration's `response` schema, so it reaches the model in the genai dialect, minus what that drops (`count.minimum` on the fixture).",
+    "agno": "Agno 3.1.2: `MCPTools.build_tools` registers each tool as `Function(name, description, parameters=inputSchema)`; the tool's annotations, title, icons and `outputSchema` are not carried, so `outputSchema` is discarded; no output contract reaches the model.",
+    "haystack": "Haystack (mcp-haystack 1.5.2): `MCPToolset` builds each `haystack.tools.Tool` from the tool's name, description and `inputSchema` only, so `outputSchema` does not reach the tool definition.",
+    "smolagents": "smolagents 1.26.0 (mcpadapt 0.1.20): with `structured_output` left at its default (`False`), mcpadapt does not read the MCP tool's `outputSchema`, and the function-tool dict smolagents builds has no output field, so it never reaches the model. `structured_output=True` resolves it onto the tool; that opt-in was not measured.",
+    "dspy": "DSPy 3.4.0: `Tool.from_mcp_tool` builds a `dspy.Tool` from the MCP tool's name, description and `inputSchema` properties only; the tool's annotations, title, icons and `outputSchema` are on no `Tool` field and in no dict the LM is handed, so `outputSchema` is discarded.",
+    "langchain_js": "LangChain.js (@langchain/mcp-adapters 2.0.1): `outputSchema` is used only to validate a modern in-band elicitation round; it is not on the `DynamicStructuredTool`, its metadata or the provider tool.",
+    "spring_ai": "Spring AI 2.0.1: `SyncMcpToolCallbackProvider` builds a `ToolDefinition`, which holds only a name, a description and the input schema, so `outputSchema` is dropped.",
+    "beeai": "BeeAI Framework 0.1.85: `outputSchema` is dropped; the MCP `Tool` survives only on the private `MCPTool._tool`, and `JSONToolOutput` is not validated against it.",
+    "copilot_sdk": "GitHub Copilot SDK 1.0.19 (Copilot runtime 1.0.95): `outputSchema` is not on the provider tool and is not kept anywhere the session exposes.",
+    "crewai-native": "CrewAI 1.15.26, native `crewai.mcp` client (`Agent(mcps=[...])`, not the `crewai_tools.MCPServerAdapter` row): `MCPClient._list_tools_impl` keeps only the name, description and `inputSchema` of each tool, so `outputSchema` is gone before the tool is built.",
+    "langchain4j": "LangChain4j 1.22.0-beta32: `outputSchema` reaches `ToolSpecification.metadata()` only; the model is never shown it.",
+    "koog": "Koog 1.3.0-beta: `outputSchema` is dropped. The `ToolDescriptor` describes inputs only, and the chat-completions function has no output schema field.",
+    "vercel_ai": "Vercel AI SDK (@ai-sdk/mcp 2.0.73): in the default `schemas: \"automatic\"` mode, `mcpClient.tools()` builds each tool with `dynamicTool` from the MCP `inputSchema` only, so the server's `outputSchema` is on neither the tool the model is handed nor anything beside it. An `outputSchema` is used only when the application passes its own `schemas` entry for the tool."
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "tool-text-content",
+  "title": "Text content",
+  "description": "The `text` content block, the baseline result type that every tool result may carry.",
+  "question": "Does text content reach the agent unchanged?",
+  "spec": "https://modelcontextprotocol.io/specification/2026-07-28",
+  "status": "stable",
+  "categories": [
+    "Tool results"
+  ],
+  "keywords": "text content,TextContent,result text,content block",
+  "usage_perc_y": null,
+  "usage_perc_a": null,
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/server/tools#text-content",
+      "title": "MCP Docs"
+    }
+  ],
+  "known_issues": [],
+  "why": "This is the content type a framework is expected to handle, so it is the control row: the other content types can only be read as losses against a text block that survives.",
+  "shown": true,
+  "docs_url": "https://modelcontextprotocol.io/specification/2026-07-28/server/tools#text-content",
+  "docs_label": "MCP Docs",
+  "notes": {
+    "mastra": "Mastra 2.2.0: a result without `structuredContent` comes back unchanged, text block intact. For a result that carries `structuredContent`, every content block is dropped, text included; only the structured value reaches the agent.",
+    "pydantic-ai": "Pydantic AI 2.54.0: text beside media blocks arrives as a plain string, byte-identical. When every content part is text and the result carries `structuredContent`, the typed value is returned in place of the text, so the text block is gone.",
+    "langchain4j": "LangChain4j 1.22.0-beta32: a text-only result reaches both boundaries unchanged. When the result also carries `structuredContent`, the executor returns the structured value's JSON in place of the text blocks, so the server's own text is lost (direct `mixed_content` and `text_and_structured`: `n`).",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): a plain text result reaches the model intact as `{\"output\": text}`. When the result also has `structuredContent`, `mcpTool.Run` returns `{\"output\": structuredContent}` alone and the text blocks are dropped."
+  }
+}

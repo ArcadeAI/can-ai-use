@@ -1,0 +1,35 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "null-acceptance",
+  "title": "Null Acceptance",
+  "description": "Distinguishes an optional parameter that may be omitted from a parameter that explicitly accepts null.",
+  "question": "Does adaptation preserve whether each parameter accepts null?",
+  "spec": "https://json-schema.org/draft/2020-12/json-schema-validation",
+  "status": "stable",
+  "categories": [
+    "Parameter contract"
+  ],
+  "keywords": "null,nullable,optional,anyOf,type union,parameter",
+  "usage_perc_y": null,
+  "usage_perc_a": null,
+  "usage_note": "Not published. Candidate source: count of public MCP tool schemas distinguishing omission from null.",
+  "links": [
+    {
+      "url": "https://json-schema.org/understanding-json-schema/reference/null",
+      "title": "JSON Schema Docs"
+    }
+  ],
+  "known_issues": [
+    "A server may reject explicit null even when omission is valid, creating avoidable validation failures."
+  ],
+  "why": "Optional and nullable are different contracts. Conflating them lets a downstream caller express values the source never accepted.",
+  "shown": true,
+  "docs_url": "https://json-schema.org/understanding-json-schema/reference/null",
+  "docs_label": "JSON Schema Docs",
+  "notes": {
+    "crewai": "CrewAI: optional fields are emitted through nullable anyOf wrappers, broadening the accepted values beyond omission alone.",
+    "llamaindex": "LlamaIndex (llama-index-tools-mcp 0.6.0): `McpToolSpec` rebuilds each `inputSchema` as a Pydantic model (`create_model_from_json_schema`), and the model's JSON schema is what `ToolMetadata.to_openai_tool` hands the LLM. Every optional field becomes `Optional[...] = None`, so its schema gains an `anyOf` branch of `null` the server never declared.",
+    "crewai-native": "CrewAI 1.15.26, native `crewai.mcp` client (`Agent(mcps=[...])`, not the `crewai_tools.MCPServerAdapter` row): `convert_tools_to_openai_schema` emits the strict OpenAI function schema from the Pydantic `args_schema`, which wraps each optional property in `anyOf: [..., {type: null}]`, so the model is offered `null` where the source only allowed omission. `MCPClient._clean_tool_arguments` then drops every `None` argument (and every dict left empty) before `tools/call`, so a null the model sends never reaches the server."
+  },
+  "summary": "Wrapping an optional field in a union that accepts null changes the source nullability."
+}

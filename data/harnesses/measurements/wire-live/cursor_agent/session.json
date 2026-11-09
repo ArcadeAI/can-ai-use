@@ -1,0 +1,3454 @@
+{
+  "format": "mcp-mirror.harness-session/1",
+  "harness": "cursor_agent",
+  "name": "Cursor agent CLI",
+  "version": "2026.10.12-d47ca18",
+  "captured_at": "2026-10-16T22:17:04+00:00",
+  "command": "uv run python scripts/measure_harness.py cursor_agent --live",
+  "recorder": "mcp-mirror 0.1.0",
+  "fixture_sdk": "mcp 1.28.1",
+  "fixture_lines": [
+    {
+      "revision": "2025-11-25",
+      "python": "python",
+      "sdk": "mcp 1.28.1"
+    },
+    {
+      "revision": "2026-07-28",
+      "python": ".mcp-mirror/fixture-2026-07-28/bin/python",
+      "sdk": "mcp 2.0.0"
+    }
+  ],
+  "servers": {
+    "def": "fixtures/definitions_server.py",
+    "res": "fixtures/results_server.py",
+    "ntf": "fixtures/notify_server.py",
+    "cf": "fixtures/client_features_server.py",
+    "util": "fixtures/utilities_server.py"
+  },
+  "level_1": {
+    "status": "ran",
+    "model": "live, under op run --env-file .env.harness",
+    "revisions": [
+      "2025-11-25",
+      "2026-07-28"
+    ],
+    "sessions": [
+      {
+        "id": "stdio",
+        "level": 1,
+        "revision": "2025-11-25",
+        "transport": "stdio",
+        "prompt": "Reply with the single word ready.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Reply with the single word ready.",
+          "--output-format",
+          "stream-json",
+          "--trust"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 8.51,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {},
+        "output": "level1-2025-11-25-stdio/harness.jsonl",
+        "fresh": "level1-2025-11-25-stdio/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "stdio-unattended",
+        "level": 1,
+        "revision": "2025-11-25",
+        "mode": "unattended",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Reply with the single word ready.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Reply with the single word ready.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 9.32,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level1-2025-11-25-stdio-unattended/def.jsonl",
+          "res": "level1-2025-11-25-stdio-unattended/res.jsonl",
+          "ntf": "level1-2025-11-25-stdio-unattended/ntf.jsonl",
+          "cf": "level1-2025-11-25-stdio-unattended/cf.jsonl",
+          "util": "level1-2025-11-25-stdio-unattended/util.jsonl"
+        },
+        "output": "level1-2025-11-25-stdio-unattended/harness.jsonl",
+        "fresh": "level1-2025-11-25-stdio-unattended/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "http",
+        "level": 1,
+        "revision": "2025-11-25",
+        "transport": "http",
+        "prompt": "Reply with the single word ready.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Reply with the single word ready.",
+          "--output-format",
+          "stream-json",
+          "--trust"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 8.16,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level1-2025-11-25-http/def.jsonl",
+          "res": "level1-2025-11-25-http/res.jsonl",
+          "ntf": "level1-2025-11-25-http/ntf.jsonl",
+          "cf": "level1-2025-11-25-http/cf.jsonl",
+          "util": "level1-2025-11-25-http/util.jsonl"
+        },
+        "output": "level1-2025-11-25-http/harness.jsonl",
+        "fresh": "level1-2025-11-25-http/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "http-unattended",
+        "level": 1,
+        "revision": "2025-11-25",
+        "mode": "unattended",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "http",
+        "prompt": "Reply with the single word ready.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Reply with the single word ready.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 9.27,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level1-2025-11-25-http-unattended/def.jsonl",
+          "res": "level1-2025-11-25-http-unattended/res.jsonl",
+          "ntf": "level1-2025-11-25-http-unattended/ntf.jsonl",
+          "cf": "level1-2025-11-25-http-unattended/cf.jsonl",
+          "util": "level1-2025-11-25-http-unattended/util.jsonl"
+        },
+        "output": "level1-2025-11-25-http-unattended/harness.jsonl",
+        "fresh": "level1-2025-11-25-http-unattended/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "slow-start",
+        "level": 1,
+        "revision": "2025-11-25",
+        "transport": "stdio",
+        "prompt": "Reply with the single word ready.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Reply with the single word ready.",
+          "--output-format",
+          "stream-json",
+          "--trust"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 7.06,
+        "delay_s": {
+          "util": 8
+        },
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "sh -c 'sleep 8; exec python fixtures/utilities_server.py'"
+        },
+        "captures": {},
+        "output": "level1-2025-11-25-slow-start/harness.jsonl",
+        "fresh": "level1-2025-11-25-slow-start/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "slow-start-unattended",
+        "level": 1,
+        "revision": "2025-11-25",
+        "mode": "unattended",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Reply with the single word ready.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Reply with the single word ready.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 16.0,
+        "delay_s": {
+          "util": 8
+        },
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "sh -c 'sleep 8; exec python fixtures/utilities_server.py'"
+        },
+        "captures": {
+          "def": "level1-2025-11-25-slow-start-unattended/def.jsonl",
+          "res": "level1-2025-11-25-slow-start-unattended/res.jsonl",
+          "ntf": "level1-2025-11-25-slow-start-unattended/ntf.jsonl",
+          "cf": "level1-2025-11-25-slow-start-unattended/cf.jsonl",
+          "util": "level1-2025-11-25-slow-start-unattended/util.jsonl"
+        },
+        "output": "level1-2025-11-25-slow-start-unattended/harness.jsonl",
+        "fresh": "level1-2025-11-25-slow-start-unattended/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "stdio",
+        "level": 1,
+        "revision": "2026-07-28",
+        "transport": "stdio",
+        "prompt": "Reply with the single word ready.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Reply with the single word ready.",
+          "--output-format",
+          "stream-json",
+          "--trust"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 7.1,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {},
+        "output": "level1-2026-07-28-stdio/harness.jsonl",
+        "fresh": "level1-2026-07-28-stdio/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "stdio-unattended",
+        "level": 1,
+        "revision": "2026-07-28",
+        "mode": "unattended",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Reply with the single word ready.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Reply with the single word ready.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 15.28,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level1-2026-07-28-stdio-unattended/def.jsonl",
+          "res": "level1-2026-07-28-stdio-unattended/res.jsonl",
+          "ntf": "level1-2026-07-28-stdio-unattended/ntf.jsonl",
+          "cf": "level1-2026-07-28-stdio-unattended/cf.jsonl",
+          "util": "level1-2026-07-28-stdio-unattended/util.jsonl"
+        },
+        "output": "level1-2026-07-28-stdio-unattended/harness.jsonl",
+        "fresh": "level1-2026-07-28-stdio-unattended/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "http",
+        "level": 1,
+        "revision": "2026-07-28",
+        "transport": "http",
+        "prompt": "Reply with the single word ready.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Reply with the single word ready.",
+          "--output-format",
+          "stream-json",
+          "--trust"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 9.09,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level1-2026-07-28-http/def.jsonl",
+          "res": "level1-2026-07-28-http/res.jsonl",
+          "ntf": "level1-2026-07-28-http/ntf.jsonl",
+          "cf": "level1-2026-07-28-http/cf.jsonl",
+          "util": "level1-2026-07-28-http/util.jsonl"
+        },
+        "output": "level1-2026-07-28-http/harness.jsonl",
+        "fresh": "level1-2026-07-28-http/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "http-unattended",
+        "level": 1,
+        "revision": "2026-07-28",
+        "mode": "unattended",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "http",
+        "prompt": "Reply with the single word ready.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Reply with the single word ready.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 12.26,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level1-2026-07-28-http-unattended/def.jsonl",
+          "res": "level1-2026-07-28-http-unattended/res.jsonl",
+          "ntf": "level1-2026-07-28-http-unattended/ntf.jsonl",
+          "cf": "level1-2026-07-28-http-unattended/cf.jsonl",
+          "util": "level1-2026-07-28-http-unattended/util.jsonl"
+        },
+        "output": "level1-2026-07-28-http-unattended/harness.jsonl",
+        "fresh": "level1-2026-07-28-http-unattended/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "slow-start",
+        "level": 1,
+        "revision": "2026-07-28",
+        "transport": "stdio",
+        "prompt": "Reply with the single word ready.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Reply with the single word ready.",
+          "--output-format",
+          "stream-json",
+          "--trust"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 7.26,
+        "delay_s": {
+          "util": 8
+        },
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": "sh -c 'sleep 8; exec .mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py'"
+        },
+        "captures": {},
+        "output": "level1-2026-07-28-slow-start/harness.jsonl",
+        "fresh": "level1-2026-07-28-slow-start/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "slow-start-unattended",
+        "level": 1,
+        "revision": "2026-07-28",
+        "mode": "unattended",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Reply with the single word ready.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Reply with the single word ready.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 18.67,
+        "delay_s": {
+          "util": 8
+        },
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": "sh -c 'sleep 8; exec .mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py'"
+        },
+        "captures": {
+          "def": "level1-2026-07-28-slow-start-unattended/def.jsonl",
+          "res": "level1-2026-07-28-slow-start-unattended/res.jsonl",
+          "ntf": "level1-2026-07-28-slow-start-unattended/ntf.jsonl",
+          "cf": "level1-2026-07-28-slow-start-unattended/cf.jsonl",
+          "util": "level1-2026-07-28-slow-start-unattended/util.jsonl"
+        },
+        "output": "level1-2026-07-28-slow-start-unattended/harness.jsonl",
+        "fresh": "level1-2026-07-28-slow-start-unattended/fresh.json",
+        "stderr_tail": []
+      }
+    ],
+    "unattended": "--approve-mcps, the documented switch that approves project MCP servers headless; the default run starts none"
+  },
+  "level_2": {
+    "status": "ran",
+    "model": "live, under op run --env-file .env.harness",
+    "runs": 3,
+    "revisions": [
+      "2025-11-25",
+      "2026-07-28"
+    ],
+    "sessions": [
+      {
+        "id": "read_only",
+        "level": 2,
+        "run": 1,
+        "mode": "default",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the search_records tool with query 'x' and tell me the count it returns.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the search_records tool with query 'x' and tell me the count it returns.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 15.28,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-read_only-1/def.jsonl",
+          "res": "level2-2025-11-25-read_only-1/res.jsonl",
+          "ntf": "level2-2025-11-25-read_only-1/ntf.jsonl",
+          "cf": "level2-2025-11-25-read_only-1/cf.jsonl",
+          "util": "level2-2025-11-25-read_only-1/util.jsonl"
+        },
+        "output": "level2-2025-11-25-read_only-1/harness.jsonl",
+        "fresh": "level2-2025-11-25-read_only-1/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "read_only",
+        "level": 2,
+        "run": 2,
+        "mode": "default",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the search_records tool with query 'x' and tell me the count it returns.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the search_records tool with query 'x' and tell me the count it returns.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 18.19,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-read_only-2/def.jsonl",
+          "res": "level2-2025-11-25-read_only-2/res.jsonl",
+          "ntf": "level2-2025-11-25-read_only-2/ntf.jsonl",
+          "cf": "level2-2025-11-25-read_only-2/cf.jsonl",
+          "util": "level2-2025-11-25-read_only-2/util.jsonl"
+        },
+        "output": "level2-2025-11-25-read_only-2/harness.jsonl",
+        "fresh": "level2-2025-11-25-read_only-2/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "read_only",
+        "level": 2,
+        "run": 3,
+        "mode": "default",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the search_records tool with query 'x' and tell me the count it returns.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the search_records tool with query 'x' and tell me the count it returns.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 16.93,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-read_only-3/def.jsonl",
+          "res": "level2-2025-11-25-read_only-3/res.jsonl",
+          "ntf": "level2-2025-11-25-read_only-3/ntf.jsonl",
+          "cf": "level2-2025-11-25-read_only-3/cf.jsonl",
+          "util": "level2-2025-11-25-read_only-3/util.jsonl"
+        },
+        "output": "level2-2025-11-25-read_only-3/harness.jsonl",
+        "fresh": "level2-2025-11-25-read_only-3/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "read_only-unattended",
+        "level": 2,
+        "run": 1,
+        "mode": "unattended",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the search_records tool with query 'x' and tell me the count it returns.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the search_records tool with query 'x' and tell me the count it returns.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 29.07,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-read_only-unattended-1/def.jsonl",
+          "res": "level2-2025-11-25-read_only-unattended-1/res.jsonl",
+          "ntf": "level2-2025-11-25-read_only-unattended-1/ntf.jsonl",
+          "cf": "level2-2025-11-25-read_only-unattended-1/cf.jsonl",
+          "util": "level2-2025-11-25-read_only-unattended-1/util.jsonl"
+        },
+        "output": "level2-2025-11-25-read_only-unattended-1/harness.jsonl",
+        "fresh": "level2-2025-11-25-read_only-unattended-1/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "read_only-unattended",
+        "level": 2,
+        "run": 2,
+        "mode": "unattended",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the search_records tool with query 'x' and tell me the count it returns.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the search_records tool with query 'x' and tell me the count it returns.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 58.68,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-read_only-unattended-2/def.jsonl",
+          "res": "level2-2025-11-25-read_only-unattended-2/res.jsonl",
+          "ntf": "level2-2025-11-25-read_only-unattended-2/ntf.jsonl",
+          "cf": "level2-2025-11-25-read_only-unattended-2/cf.jsonl",
+          "util": "level2-2025-11-25-read_only-unattended-2/util.jsonl"
+        },
+        "output": "level2-2025-11-25-read_only-unattended-2/harness.jsonl",
+        "fresh": "level2-2025-11-25-read_only-unattended-2/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "read_only-unattended",
+        "level": 2,
+        "run": 3,
+        "mode": "unattended",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the search_records tool with query 'x' and tell me the count it returns.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the search_records tool with query 'x' and tell me the count it returns.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 16.73,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-read_only-unattended-3/def.jsonl",
+          "res": "level2-2025-11-25-read_only-unattended-3/res.jsonl",
+          "ntf": "level2-2025-11-25-read_only-unattended-3/ntf.jsonl",
+          "cf": "level2-2025-11-25-read_only-unattended-3/cf.jsonl",
+          "util": "level2-2025-11-25-read_only-unattended-3/util.jsonl"
+        },
+        "output": "level2-2025-11-25-read_only-unattended-3/harness.jsonl",
+        "fresh": "level2-2025-11-25-read_only-unattended-3/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "destructive",
+        "level": 2,
+        "run": 1,
+        "mode": "default",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the delete_account tool with account_id 'a' and confirm true.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the delete_account tool with account_id 'a' and confirm true.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 15.77,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-destructive-1/def.jsonl",
+          "res": "level2-2025-11-25-destructive-1/res.jsonl",
+          "ntf": "level2-2025-11-25-destructive-1/ntf.jsonl",
+          "cf": "level2-2025-11-25-destructive-1/cf.jsonl",
+          "util": "level2-2025-11-25-destructive-1/util.jsonl"
+        },
+        "output": "level2-2025-11-25-destructive-1/harness.jsonl",
+        "fresh": "level2-2025-11-25-destructive-1/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "destructive",
+        "level": 2,
+        "run": 2,
+        "mode": "default",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the delete_account tool with account_id 'a' and confirm true.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the delete_account tool with account_id 'a' and confirm true.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 14.84,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-destructive-2/def.jsonl",
+          "res": "level2-2025-11-25-destructive-2/res.jsonl",
+          "ntf": "level2-2025-11-25-destructive-2/ntf.jsonl",
+          "cf": "level2-2025-11-25-destructive-2/cf.jsonl",
+          "util": "level2-2025-11-25-destructive-2/util.jsonl"
+        },
+        "output": "level2-2025-11-25-destructive-2/harness.jsonl",
+        "fresh": "level2-2025-11-25-destructive-2/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "destructive",
+        "level": 2,
+        "run": 3,
+        "mode": "default",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the delete_account tool with account_id 'a' and confirm true.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the delete_account tool with account_id 'a' and confirm true.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 17.92,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-destructive-3/def.jsonl",
+          "res": "level2-2025-11-25-destructive-3/res.jsonl",
+          "ntf": "level2-2025-11-25-destructive-3/ntf.jsonl",
+          "cf": "level2-2025-11-25-destructive-3/cf.jsonl",
+          "util": "level2-2025-11-25-destructive-3/util.jsonl"
+        },
+        "output": "level2-2025-11-25-destructive-3/harness.jsonl",
+        "fresh": "level2-2025-11-25-destructive-3/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "destructive-unattended",
+        "level": 2,
+        "run": 1,
+        "mode": "unattended",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the delete_account tool with account_id 'a' and confirm true.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the delete_account tool with account_id 'a' and confirm true.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 16.3,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-destructive-unattended-1/def.jsonl",
+          "res": "level2-2025-11-25-destructive-unattended-1/res.jsonl",
+          "ntf": "level2-2025-11-25-destructive-unattended-1/ntf.jsonl",
+          "cf": "level2-2025-11-25-destructive-unattended-1/cf.jsonl",
+          "util": "level2-2025-11-25-destructive-unattended-1/util.jsonl"
+        },
+        "output": "level2-2025-11-25-destructive-unattended-1/harness.jsonl",
+        "fresh": "level2-2025-11-25-destructive-unattended-1/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "destructive-unattended",
+        "level": 2,
+        "run": 2,
+        "mode": "unattended",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the delete_account tool with account_id 'a' and confirm true.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the delete_account tool with account_id 'a' and confirm true.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 16.55,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-destructive-unattended-2/def.jsonl",
+          "res": "level2-2025-11-25-destructive-unattended-2/res.jsonl",
+          "ntf": "level2-2025-11-25-destructive-unattended-2/ntf.jsonl",
+          "cf": "level2-2025-11-25-destructive-unattended-2/cf.jsonl",
+          "util": "level2-2025-11-25-destructive-unattended-2/util.jsonl"
+        },
+        "output": "level2-2025-11-25-destructive-unattended-2/harness.jsonl",
+        "fresh": "level2-2025-11-25-destructive-unattended-2/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "destructive-unattended",
+        "level": 2,
+        "run": 3,
+        "mode": "unattended",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the delete_account tool with account_id 'a' and confirm true.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the delete_account tool with account_id 'a' and confirm true.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 16.65,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-destructive-unattended-3/def.jsonl",
+          "res": "level2-2025-11-25-destructive-unattended-3/res.jsonl",
+          "ntf": "level2-2025-11-25-destructive-unattended-3/ntf.jsonl",
+          "cf": "level2-2025-11-25-destructive-unattended-3/cf.jsonl",
+          "util": "level2-2025-11-25-destructive-unattended-3/util.jsonl"
+        },
+        "output": "level2-2025-11-25-destructive-unattended-3/harness.jsonl",
+        "fresh": "level2-2025-11-25-destructive-unattended-3/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "resource",
+        "level": 2,
+        "run": 1,
+        "mode": "default",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Read the resource at file:///fixtures/notes.txt and quote it exactly.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Read the resource at file:///fixtures/notes.txt and quote it exactly.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 23.88,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-resource-1/def.jsonl",
+          "res": "level2-2025-11-25-resource-1/res.jsonl",
+          "ntf": "level2-2025-11-25-resource-1/ntf.jsonl",
+          "cf": "level2-2025-11-25-resource-1/cf.jsonl",
+          "util": "level2-2025-11-25-resource-1/util.jsonl"
+        },
+        "output": "level2-2025-11-25-resource-1/harness.jsonl",
+        "fresh": "level2-2025-11-25-resource-1/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "resource",
+        "level": 2,
+        "run": 2,
+        "mode": "default",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Read the resource at file:///fixtures/notes.txt and quote it exactly.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Read the resource at file:///fixtures/notes.txt and quote it exactly.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 21.68,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-resource-2/def.jsonl",
+          "res": "level2-2025-11-25-resource-2/res.jsonl",
+          "ntf": "level2-2025-11-25-resource-2/ntf.jsonl",
+          "cf": "level2-2025-11-25-resource-2/cf.jsonl",
+          "util": "level2-2025-11-25-resource-2/util.jsonl"
+        },
+        "output": "level2-2025-11-25-resource-2/harness.jsonl",
+        "fresh": "level2-2025-11-25-resource-2/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "resource",
+        "level": 2,
+        "run": 3,
+        "mode": "default",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Read the resource at file:///fixtures/notes.txt and quote it exactly.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Read the resource at file:///fixtures/notes.txt and quote it exactly.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 20.64,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-resource-3/def.jsonl",
+          "res": "level2-2025-11-25-resource-3/res.jsonl",
+          "ntf": "level2-2025-11-25-resource-3/ntf.jsonl",
+          "cf": "level2-2025-11-25-resource-3/cf.jsonl",
+          "util": "level2-2025-11-25-resource-3/util.jsonl"
+        },
+        "output": "level2-2025-11-25-resource-3/harness.jsonl",
+        "fresh": "level2-2025-11-25-resource-3/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "prompt",
+        "level": 2,
+        "run": 1,
+        "mode": "default",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the summarize_records prompt with status 'active' and follow it.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the summarize_records prompt with status 'active' and follow it.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 186.61,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-prompt-1/def.jsonl",
+          "res": "level2-2025-11-25-prompt-1/res.jsonl",
+          "ntf": "level2-2025-11-25-prompt-1/ntf.jsonl",
+          "cf": "level2-2025-11-25-prompt-1/cf.jsonl",
+          "util": "level2-2025-11-25-prompt-1/util.jsonl"
+        },
+        "output": "level2-2025-11-25-prompt-1/harness.jsonl",
+        "fresh": "level2-2025-11-25-prompt-1/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "prompt",
+        "level": 2,
+        "run": 2,
+        "mode": "default",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the summarize_records prompt with status 'active' and follow it.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the summarize_records prompt with status 'active' and follow it.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--approve-mcps"
+        ],
+        "exit_code": 143,
+        "timed_out": true,
+        "duration_s": 300.09,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-prompt-2/def.jsonl",
+          "res": "level2-2025-11-25-prompt-2/res.jsonl",
+          "ntf": "level2-2025-11-25-prompt-2/ntf.jsonl",
+          "cf": "level2-2025-11-25-prompt-2/cf.jsonl",
+          "util": "level2-2025-11-25-prompt-2/util.jsonl"
+        },
+        "output": "level2-2025-11-25-prompt-2/harness.jsonl",
+        "fresh": "level2-2025-11-25-prompt-2/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "prompt",
+        "level": 2,
+        "run": 3,
+        "mode": "default",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the summarize_records prompt with status 'active' and follow it.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the summarize_records prompt with status 'active' and follow it.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 44.12,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-prompt-3/def.jsonl",
+          "res": "level2-2025-11-25-prompt-3/res.jsonl",
+          "ntf": "level2-2025-11-25-prompt-3/ntf.jsonl",
+          "cf": "level2-2025-11-25-prompt-3/cf.jsonl",
+          "util": "level2-2025-11-25-prompt-3/util.jsonl"
+        },
+        "output": "level2-2025-11-25-prompt-3/harness.jsonl",
+        "fresh": "level2-2025-11-25-prompt-3/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "elicit",
+        "level": 2,
+        "run": 1,
+        "mode": "unattended",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the ask_elicitation_form tool and answer whatever it asks with 'x'.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the ask_elicitation_form tool and answer whatever it asks with 'x'.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 29.87,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-elicit-1/def.jsonl",
+          "res": "level2-2025-11-25-elicit-1/res.jsonl",
+          "ntf": "level2-2025-11-25-elicit-1/ntf.jsonl",
+          "cf": "level2-2025-11-25-elicit-1/cf.jsonl",
+          "util": "level2-2025-11-25-elicit-1/util.jsonl"
+        },
+        "output": "level2-2025-11-25-elicit-1/harness.jsonl",
+        "fresh": "level2-2025-11-25-elicit-1/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "elicit",
+        "level": 2,
+        "run": 2,
+        "mode": "unattended",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the ask_elicitation_form tool and answer whatever it asks with 'x'.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the ask_elicitation_form tool and answer whatever it asks with 'x'.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 19.45,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-elicit-2/def.jsonl",
+          "res": "level2-2025-11-25-elicit-2/res.jsonl",
+          "ntf": "level2-2025-11-25-elicit-2/ntf.jsonl",
+          "cf": "level2-2025-11-25-elicit-2/cf.jsonl",
+          "util": "level2-2025-11-25-elicit-2/util.jsonl"
+        },
+        "output": "level2-2025-11-25-elicit-2/harness.jsonl",
+        "fresh": "level2-2025-11-25-elicit-2/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "elicit",
+        "level": 2,
+        "run": 3,
+        "mode": "unattended",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the ask_elicitation_form tool and answer whatever it asks with 'x'.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the ask_elicitation_form tool and answer whatever it asks with 'x'.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 21.55,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-elicit-3/def.jsonl",
+          "res": "level2-2025-11-25-elicit-3/res.jsonl",
+          "ntf": "level2-2025-11-25-elicit-3/ntf.jsonl",
+          "cf": "level2-2025-11-25-elicit-3/cf.jsonl",
+          "util": "level2-2025-11-25-elicit-3/util.jsonl"
+        },
+        "output": "level2-2025-11-25-elicit-3/harness.jsonl",
+        "fresh": "level2-2025-11-25-elicit-3/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "sampling",
+        "level": 2,
+        "run": 1,
+        "mode": "unattended",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the ask_sampling tool and tell me what it returns.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the ask_sampling tool and tell me what it returns.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 15.34,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-sampling-1/def.jsonl",
+          "res": "level2-2025-11-25-sampling-1/res.jsonl",
+          "ntf": "level2-2025-11-25-sampling-1/ntf.jsonl",
+          "cf": "level2-2025-11-25-sampling-1/cf.jsonl",
+          "util": "level2-2025-11-25-sampling-1/util.jsonl"
+        },
+        "output": "level2-2025-11-25-sampling-1/harness.jsonl",
+        "fresh": "level2-2025-11-25-sampling-1/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "sampling",
+        "level": 2,
+        "run": 2,
+        "mode": "unattended",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the ask_sampling tool and tell me what it returns.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the ask_sampling tool and tell me what it returns.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 12.84,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-sampling-2/def.jsonl",
+          "res": "level2-2025-11-25-sampling-2/res.jsonl",
+          "ntf": "level2-2025-11-25-sampling-2/ntf.jsonl",
+          "cf": "level2-2025-11-25-sampling-2/cf.jsonl",
+          "util": "level2-2025-11-25-sampling-2/util.jsonl"
+        },
+        "output": "level2-2025-11-25-sampling-2/harness.jsonl",
+        "fresh": "level2-2025-11-25-sampling-2/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "sampling",
+        "level": 2,
+        "run": 3,
+        "mode": "unattended",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the ask_sampling tool and tell me what it returns.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the ask_sampling tool and tell me what it returns.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 9.97,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-sampling-3/def.jsonl",
+          "res": "level2-2025-11-25-sampling-3/res.jsonl",
+          "ntf": "level2-2025-11-25-sampling-3/ntf.jsonl",
+          "cf": "level2-2025-11-25-sampling-3/cf.jsonl",
+          "util": "level2-2025-11-25-sampling-3/util.jsonl"
+        },
+        "output": "level2-2025-11-25-sampling-3/harness.jsonl",
+        "fresh": "level2-2025-11-25-sampling-3/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "slow",
+        "level": 2,
+        "run": 1,
+        "mode": "unattended",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the slow_with_progress tool and wait for it to finish.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the slow_with_progress tool and wait for it to finish.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 13.94,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-slow-1/def.jsonl",
+          "res": "level2-2025-11-25-slow-1/res.jsonl",
+          "ntf": "level2-2025-11-25-slow-1/ntf.jsonl",
+          "cf": "level2-2025-11-25-slow-1/cf.jsonl",
+          "util": "level2-2025-11-25-slow-1/util.jsonl"
+        },
+        "output": "level2-2025-11-25-slow-1/harness.jsonl",
+        "fresh": "level2-2025-11-25-slow-1/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "slow",
+        "level": 2,
+        "run": 2,
+        "mode": "unattended",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the slow_with_progress tool and wait for it to finish.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the slow_with_progress tool and wait for it to finish.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 12.64,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-slow-2/def.jsonl",
+          "res": "level2-2025-11-25-slow-2/res.jsonl",
+          "ntf": "level2-2025-11-25-slow-2/ntf.jsonl",
+          "cf": "level2-2025-11-25-slow-2/cf.jsonl",
+          "util": "level2-2025-11-25-slow-2/util.jsonl"
+        },
+        "output": "level2-2025-11-25-slow-2/harness.jsonl",
+        "fresh": "level2-2025-11-25-slow-2/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "slow",
+        "level": 2,
+        "run": 3,
+        "mode": "unattended",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the slow_with_progress tool and wait for it to finish.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the slow_with_progress tool and wait for it to finish.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 11.43,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-slow-3/def.jsonl",
+          "res": "level2-2025-11-25-slow-3/res.jsonl",
+          "ntf": "level2-2025-11-25-slow-3/ntf.jsonl",
+          "cf": "level2-2025-11-25-slow-3/cf.jsonl",
+          "util": "level2-2025-11-25-slow-3/util.jsonl"
+        },
+        "output": "level2-2025-11-25-slow-3/harness.jsonl",
+        "fresh": "level2-2025-11-25-slow-3/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "error",
+        "level": 2,
+        "run": 1,
+        "mode": "unattended",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the delete_account tool with account_id 'a' and confirm false.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the delete_account tool with account_id 'a' and confirm false.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 14.19,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-error-1/def.jsonl",
+          "res": "level2-2025-11-25-error-1/res.jsonl",
+          "ntf": "level2-2025-11-25-error-1/ntf.jsonl",
+          "cf": "level2-2025-11-25-error-1/cf.jsonl",
+          "util": "level2-2025-11-25-error-1/util.jsonl"
+        },
+        "output": "level2-2025-11-25-error-1/harness.jsonl",
+        "fresh": "level2-2025-11-25-error-1/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "error",
+        "level": 2,
+        "run": 2,
+        "mode": "unattended",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the delete_account tool with account_id 'a' and confirm false.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the delete_account tool with account_id 'a' and confirm false.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 13.85,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-error-2/def.jsonl",
+          "res": "level2-2025-11-25-error-2/res.jsonl",
+          "ntf": "level2-2025-11-25-error-2/ntf.jsonl",
+          "cf": "level2-2025-11-25-error-2/cf.jsonl",
+          "util": "level2-2025-11-25-error-2/util.jsonl"
+        },
+        "output": "level2-2025-11-25-error-2/harness.jsonl",
+        "fresh": "level2-2025-11-25-error-2/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "error",
+        "level": 2,
+        "run": 3,
+        "mode": "unattended",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the delete_account tool with account_id 'a' and confirm false.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the delete_account tool with account_id 'a' and confirm false.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 12.31,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-error-3/def.jsonl",
+          "res": "level2-2025-11-25-error-3/res.jsonl",
+          "ntf": "level2-2025-11-25-error-3/ntf.jsonl",
+          "cf": "level2-2025-11-25-error-3/cf.jsonl",
+          "util": "level2-2025-11-25-error-3/util.jsonl"
+        },
+        "output": "level2-2025-11-25-error-3/harness.jsonl",
+        "fresh": "level2-2025-11-25-error-3/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "relist",
+        "level": 2,
+        "run": 1,
+        "mode": "unattended",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the add_tool tool, then use the tool it added.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the add_tool tool, then use the tool it added.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 101.75,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-relist-1/def.jsonl",
+          "res": "level2-2025-11-25-relist-1/res.jsonl",
+          "ntf": "level2-2025-11-25-relist-1/ntf.jsonl",
+          "cf": "level2-2025-11-25-relist-1/cf.jsonl",
+          "util": "level2-2025-11-25-relist-1/util.jsonl"
+        },
+        "output": "level2-2025-11-25-relist-1/harness.jsonl",
+        "fresh": "level2-2025-11-25-relist-1/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "relist",
+        "level": 2,
+        "run": 2,
+        "mode": "unattended",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the add_tool tool, then use the tool it added.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the add_tool tool, then use the tool it added.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 97.03,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-relist-2/def.jsonl",
+          "res": "level2-2025-11-25-relist-2/res.jsonl",
+          "ntf": "level2-2025-11-25-relist-2/ntf.jsonl",
+          "cf": "level2-2025-11-25-relist-2/cf.jsonl",
+          "util": "level2-2025-11-25-relist-2/util.jsonl"
+        },
+        "output": "level2-2025-11-25-relist-2/harness.jsonl",
+        "fresh": "level2-2025-11-25-relist-2/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "relist",
+        "level": 2,
+        "run": 3,
+        "mode": "unattended",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the add_tool tool, then use the tool it added.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the add_tool tool, then use the tool it added.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 78.63,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-relist-3/def.jsonl",
+          "res": "level2-2025-11-25-relist-3/res.jsonl",
+          "ntf": "level2-2025-11-25-relist-3/ntf.jsonl",
+          "cf": "level2-2025-11-25-relist-3/cf.jsonl",
+          "util": "level2-2025-11-25-relist-3/util.jsonl"
+        },
+        "output": "level2-2025-11-25-relist-3/harness.jsonl",
+        "fresh": "level2-2025-11-25-relist-3/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "read_only",
+        "level": 2,
+        "run": 1,
+        "mode": "default",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the search_records tool with query 'x' and tell me the count it returns.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the search_records tool with query 'x' and tell me the count it returns.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 13.09,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-read_only-1/def.jsonl",
+          "res": "level2-2026-07-28-read_only-1/res.jsonl",
+          "ntf": "level2-2026-07-28-read_only-1/ntf.jsonl",
+          "cf": "level2-2026-07-28-read_only-1/cf.jsonl",
+          "util": "level2-2026-07-28-read_only-1/util.jsonl"
+        },
+        "output": "level2-2026-07-28-read_only-1/harness.jsonl",
+        "fresh": "level2-2026-07-28-read_only-1/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "read_only",
+        "level": 2,
+        "run": 2,
+        "mode": "default",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the search_records tool with query 'x' and tell me the count it returns.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the search_records tool with query 'x' and tell me the count it returns.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 13.44,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-read_only-2/def.jsonl",
+          "res": "level2-2026-07-28-read_only-2/res.jsonl",
+          "ntf": "level2-2026-07-28-read_only-2/ntf.jsonl",
+          "cf": "level2-2026-07-28-read_only-2/cf.jsonl",
+          "util": "level2-2026-07-28-read_only-2/util.jsonl"
+        },
+        "output": "level2-2026-07-28-read_only-2/harness.jsonl",
+        "fresh": "level2-2026-07-28-read_only-2/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "read_only",
+        "level": 2,
+        "run": 3,
+        "mode": "default",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the search_records tool with query 'x' and tell me the count it returns.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the search_records tool with query 'x' and tell me the count it returns.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 15.25,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-read_only-3/def.jsonl",
+          "res": "level2-2026-07-28-read_only-3/res.jsonl",
+          "ntf": "level2-2026-07-28-read_only-3/ntf.jsonl",
+          "cf": "level2-2026-07-28-read_only-3/cf.jsonl",
+          "util": "level2-2026-07-28-read_only-3/util.jsonl"
+        },
+        "output": "level2-2026-07-28-read_only-3/harness.jsonl",
+        "fresh": "level2-2026-07-28-read_only-3/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "read_only-unattended",
+        "level": 2,
+        "run": 1,
+        "mode": "unattended",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the search_records tool with query 'x' and tell me the count it returns.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the search_records tool with query 'x' and tell me the count it returns.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 16.13,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-read_only-unattended-1/def.jsonl",
+          "res": "level2-2026-07-28-read_only-unattended-1/res.jsonl",
+          "ntf": "level2-2026-07-28-read_only-unattended-1/ntf.jsonl",
+          "cf": "level2-2026-07-28-read_only-unattended-1/cf.jsonl",
+          "util": "level2-2026-07-28-read_only-unattended-1/util.jsonl"
+        },
+        "output": "level2-2026-07-28-read_only-unattended-1/harness.jsonl",
+        "fresh": "level2-2026-07-28-read_only-unattended-1/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "read_only-unattended",
+        "level": 2,
+        "run": 2,
+        "mode": "unattended",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the search_records tool with query 'x' and tell me the count it returns.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the search_records tool with query 'x' and tell me the count it returns.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 21.35,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-read_only-unattended-2/def.jsonl",
+          "res": "level2-2026-07-28-read_only-unattended-2/res.jsonl",
+          "ntf": "level2-2026-07-28-read_only-unattended-2/ntf.jsonl",
+          "cf": "level2-2026-07-28-read_only-unattended-2/cf.jsonl",
+          "util": "level2-2026-07-28-read_only-unattended-2/util.jsonl"
+        },
+        "output": "level2-2026-07-28-read_only-unattended-2/harness.jsonl",
+        "fresh": "level2-2026-07-28-read_only-unattended-2/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "read_only-unattended",
+        "level": 2,
+        "run": 3,
+        "mode": "unattended",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the search_records tool with query 'x' and tell me the count it returns.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the search_records tool with query 'x' and tell me the count it returns.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 18.84,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-read_only-unattended-3/def.jsonl",
+          "res": "level2-2026-07-28-read_only-unattended-3/res.jsonl",
+          "ntf": "level2-2026-07-28-read_only-unattended-3/ntf.jsonl",
+          "cf": "level2-2026-07-28-read_only-unattended-3/cf.jsonl",
+          "util": "level2-2026-07-28-read_only-unattended-3/util.jsonl"
+        },
+        "output": "level2-2026-07-28-read_only-unattended-3/harness.jsonl",
+        "fresh": "level2-2026-07-28-read_only-unattended-3/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "destructive",
+        "level": 2,
+        "run": 1,
+        "mode": "default",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the delete_account tool with account_id 'a' and confirm true.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the delete_account tool with account_id 'a' and confirm true.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 12.98,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-destructive-1/def.jsonl",
+          "res": "level2-2026-07-28-destructive-1/res.jsonl",
+          "ntf": "level2-2026-07-28-destructive-1/ntf.jsonl",
+          "cf": "level2-2026-07-28-destructive-1/cf.jsonl",
+          "util": "level2-2026-07-28-destructive-1/util.jsonl"
+        },
+        "output": "level2-2026-07-28-destructive-1/harness.jsonl",
+        "fresh": "level2-2026-07-28-destructive-1/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "destructive",
+        "level": 2,
+        "run": 2,
+        "mode": "default",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the delete_account tool with account_id 'a' and confirm true.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the delete_account tool with account_id 'a' and confirm true.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 13.13,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-destructive-2/def.jsonl",
+          "res": "level2-2026-07-28-destructive-2/res.jsonl",
+          "ntf": "level2-2026-07-28-destructive-2/ntf.jsonl",
+          "cf": "level2-2026-07-28-destructive-2/cf.jsonl",
+          "util": "level2-2026-07-28-destructive-2/util.jsonl"
+        },
+        "output": "level2-2026-07-28-destructive-2/harness.jsonl",
+        "fresh": "level2-2026-07-28-destructive-2/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "destructive",
+        "level": 2,
+        "run": 3,
+        "mode": "default",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the delete_account tool with account_id 'a' and confirm true.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the delete_account tool with account_id 'a' and confirm true.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 12.35,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-destructive-3/def.jsonl",
+          "res": "level2-2026-07-28-destructive-3/res.jsonl",
+          "ntf": "level2-2026-07-28-destructive-3/ntf.jsonl",
+          "cf": "level2-2026-07-28-destructive-3/cf.jsonl",
+          "util": "level2-2026-07-28-destructive-3/util.jsonl"
+        },
+        "output": "level2-2026-07-28-destructive-3/harness.jsonl",
+        "fresh": "level2-2026-07-28-destructive-3/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "destructive-unattended",
+        "level": 2,
+        "run": 1,
+        "mode": "unattended",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the delete_account tool with account_id 'a' and confirm true.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the delete_account tool with account_id 'a' and confirm true.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 17.36,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-destructive-unattended-1/def.jsonl",
+          "res": "level2-2026-07-28-destructive-unattended-1/res.jsonl",
+          "ntf": "level2-2026-07-28-destructive-unattended-1/ntf.jsonl",
+          "cf": "level2-2026-07-28-destructive-unattended-1/cf.jsonl",
+          "util": "level2-2026-07-28-destructive-unattended-1/util.jsonl"
+        },
+        "output": "level2-2026-07-28-destructive-unattended-1/harness.jsonl",
+        "fresh": "level2-2026-07-28-destructive-unattended-1/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "destructive-unattended",
+        "level": 2,
+        "run": 2,
+        "mode": "unattended",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the delete_account tool with account_id 'a' and confirm true.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the delete_account tool with account_id 'a' and confirm true.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 18.82,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-destructive-unattended-2/def.jsonl",
+          "res": "level2-2026-07-28-destructive-unattended-2/res.jsonl",
+          "ntf": "level2-2026-07-28-destructive-unattended-2/ntf.jsonl",
+          "cf": "level2-2026-07-28-destructive-unattended-2/cf.jsonl",
+          "util": "level2-2026-07-28-destructive-unattended-2/util.jsonl"
+        },
+        "output": "level2-2026-07-28-destructive-unattended-2/harness.jsonl",
+        "fresh": "level2-2026-07-28-destructive-unattended-2/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "destructive-unattended",
+        "level": 2,
+        "run": 3,
+        "mode": "unattended",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the delete_account tool with account_id 'a' and confirm true.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the delete_account tool with account_id 'a' and confirm true.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 16.96,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-destructive-unattended-3/def.jsonl",
+          "res": "level2-2026-07-28-destructive-unattended-3/res.jsonl",
+          "ntf": "level2-2026-07-28-destructive-unattended-3/ntf.jsonl",
+          "cf": "level2-2026-07-28-destructive-unattended-3/cf.jsonl",
+          "util": "level2-2026-07-28-destructive-unattended-3/util.jsonl"
+        },
+        "output": "level2-2026-07-28-destructive-unattended-3/harness.jsonl",
+        "fresh": "level2-2026-07-28-destructive-unattended-3/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "resource",
+        "level": 2,
+        "run": 1,
+        "mode": "default",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Read the resource at file:///fixtures/notes.txt and quote it exactly.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Read the resource at file:///fixtures/notes.txt and quote it exactly.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 55.26,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-resource-1/def.jsonl",
+          "res": "level2-2026-07-28-resource-1/res.jsonl",
+          "ntf": "level2-2026-07-28-resource-1/ntf.jsonl",
+          "cf": "level2-2026-07-28-resource-1/cf.jsonl",
+          "util": "level2-2026-07-28-resource-1/util.jsonl"
+        },
+        "output": "level2-2026-07-28-resource-1/harness.jsonl",
+        "fresh": "level2-2026-07-28-resource-1/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "resource",
+        "level": 2,
+        "run": 2,
+        "mode": "default",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Read the resource at file:///fixtures/notes.txt and quote it exactly.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Read the resource at file:///fixtures/notes.txt and quote it exactly.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 23.58,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-resource-2/def.jsonl",
+          "res": "level2-2026-07-28-resource-2/res.jsonl",
+          "ntf": "level2-2026-07-28-resource-2/ntf.jsonl",
+          "cf": "level2-2026-07-28-resource-2/cf.jsonl",
+          "util": "level2-2026-07-28-resource-2/util.jsonl"
+        },
+        "output": "level2-2026-07-28-resource-2/harness.jsonl",
+        "fresh": "level2-2026-07-28-resource-2/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "resource",
+        "level": 2,
+        "run": 3,
+        "mode": "default",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Read the resource at file:///fixtures/notes.txt and quote it exactly.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Read the resource at file:///fixtures/notes.txt and quote it exactly.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 47.29,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-resource-3/def.jsonl",
+          "res": "level2-2026-07-28-resource-3/res.jsonl",
+          "ntf": "level2-2026-07-28-resource-3/ntf.jsonl",
+          "cf": "level2-2026-07-28-resource-3/cf.jsonl",
+          "util": "level2-2026-07-28-resource-3/util.jsonl"
+        },
+        "output": "level2-2026-07-28-resource-3/harness.jsonl",
+        "fresh": "level2-2026-07-28-resource-3/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "prompt",
+        "level": 2,
+        "run": 1,
+        "mode": "default",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the summarize_records prompt with status 'active' and follow it.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the summarize_records prompt with status 'active' and follow it.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--approve-mcps"
+        ],
+        "exit_code": 143,
+        "timed_out": true,
+        "duration_s": 300.13,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-prompt-1/def.jsonl",
+          "res": "level2-2026-07-28-prompt-1/res.jsonl",
+          "ntf": "level2-2026-07-28-prompt-1/ntf.jsonl",
+          "cf": "level2-2026-07-28-prompt-1/cf.jsonl",
+          "util": "level2-2026-07-28-prompt-1/util.jsonl"
+        },
+        "output": "level2-2026-07-28-prompt-1/harness.jsonl",
+        "fresh": "level2-2026-07-28-prompt-1/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "prompt",
+        "level": 2,
+        "run": 2,
+        "mode": "default",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the summarize_records prompt with status 'active' and follow it.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the summarize_records prompt with status 'active' and follow it.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--approve-mcps"
+        ],
+        "exit_code": 143,
+        "timed_out": true,
+        "duration_s": 300.08,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-prompt-2/def.jsonl",
+          "res": "level2-2026-07-28-prompt-2/res.jsonl",
+          "ntf": "level2-2026-07-28-prompt-2/ntf.jsonl",
+          "cf": "level2-2026-07-28-prompt-2/cf.jsonl",
+          "util": "level2-2026-07-28-prompt-2/util.jsonl"
+        },
+        "output": "level2-2026-07-28-prompt-2/harness.jsonl",
+        "fresh": "level2-2026-07-28-prompt-2/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "prompt",
+        "level": 2,
+        "run": 3,
+        "mode": "default",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the summarize_records prompt with status 'active' and follow it.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the summarize_records prompt with status 'active' and follow it.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--approve-mcps"
+        ],
+        "exit_code": 143,
+        "timed_out": true,
+        "duration_s": 300.09,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-prompt-3/def.jsonl",
+          "res": "level2-2026-07-28-prompt-3/res.jsonl",
+          "ntf": "level2-2026-07-28-prompt-3/ntf.jsonl",
+          "cf": "level2-2026-07-28-prompt-3/cf.jsonl",
+          "util": "level2-2026-07-28-prompt-3/util.jsonl"
+        },
+        "output": "level2-2026-07-28-prompt-3/harness.jsonl",
+        "fresh": "level2-2026-07-28-prompt-3/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "elicit",
+        "level": 2,
+        "run": 1,
+        "mode": "unattended",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the ask_elicitation_form tool and answer whatever it asks with 'x'.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the ask_elicitation_form tool and answer whatever it asks with 'x'.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 16.88,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-elicit-1/def.jsonl",
+          "res": "level2-2026-07-28-elicit-1/res.jsonl",
+          "ntf": "level2-2026-07-28-elicit-1/ntf.jsonl",
+          "cf": "level2-2026-07-28-elicit-1/cf.jsonl",
+          "util": "level2-2026-07-28-elicit-1/util.jsonl"
+        },
+        "output": "level2-2026-07-28-elicit-1/harness.jsonl",
+        "fresh": "level2-2026-07-28-elicit-1/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "elicit",
+        "level": 2,
+        "run": 2,
+        "mode": "unattended",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the ask_elicitation_form tool and answer whatever it asks with 'x'.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the ask_elicitation_form tool and answer whatever it asks with 'x'.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 15.31,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-elicit-2/def.jsonl",
+          "res": "level2-2026-07-28-elicit-2/res.jsonl",
+          "ntf": "level2-2026-07-28-elicit-2/ntf.jsonl",
+          "cf": "level2-2026-07-28-elicit-2/cf.jsonl",
+          "util": "level2-2026-07-28-elicit-2/util.jsonl"
+        },
+        "output": "level2-2026-07-28-elicit-2/harness.jsonl",
+        "fresh": "level2-2026-07-28-elicit-2/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "elicit",
+        "level": 2,
+        "run": 3,
+        "mode": "unattended",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the ask_elicitation_form tool and answer whatever it asks with 'x'.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the ask_elicitation_form tool and answer whatever it asks with 'x'.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 17.64,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-elicit-3/def.jsonl",
+          "res": "level2-2026-07-28-elicit-3/res.jsonl",
+          "ntf": "level2-2026-07-28-elicit-3/ntf.jsonl",
+          "cf": "level2-2026-07-28-elicit-3/cf.jsonl",
+          "util": "level2-2026-07-28-elicit-3/util.jsonl"
+        },
+        "output": "level2-2026-07-28-elicit-3/harness.jsonl",
+        "fresh": "level2-2026-07-28-elicit-3/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "sampling",
+        "level": 2,
+        "run": 1,
+        "mode": "unattended",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the ask_sampling tool and tell me what it returns.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the ask_sampling tool and tell me what it returns.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 16.65,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-sampling-1/def.jsonl",
+          "res": "level2-2026-07-28-sampling-1/res.jsonl",
+          "ntf": "level2-2026-07-28-sampling-1/ntf.jsonl",
+          "cf": "level2-2026-07-28-sampling-1/cf.jsonl",
+          "util": "level2-2026-07-28-sampling-1/util.jsonl"
+        },
+        "output": "level2-2026-07-28-sampling-1/harness.jsonl",
+        "fresh": "level2-2026-07-28-sampling-1/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "sampling",
+        "level": 2,
+        "run": 2,
+        "mode": "unattended",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the ask_sampling tool and tell me what it returns.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the ask_sampling tool and tell me what it returns.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 41.09,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-sampling-2/def.jsonl",
+          "res": "level2-2026-07-28-sampling-2/res.jsonl",
+          "ntf": "level2-2026-07-28-sampling-2/ntf.jsonl",
+          "cf": "level2-2026-07-28-sampling-2/cf.jsonl",
+          "util": "level2-2026-07-28-sampling-2/util.jsonl"
+        },
+        "output": "level2-2026-07-28-sampling-2/harness.jsonl",
+        "fresh": "level2-2026-07-28-sampling-2/fresh.json",
+        "stderr_tail": []
+      },
+      {
+        "id": "sampling",
+        "level": 2,
+        "run": 3,
+        "mode": "unattended",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the ask_sampling tool and tell me what it returns.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the ask_sampling tool and tell me what it returns.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 1,
+        "timed_out": false,
+        "duration_s": 32.09,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {},
+        "output": "level2-2026-07-28-sampling-3/harness.jsonl",
+        "fresh": "level2-2026-07-28-sampling-3/fresh.json",
+        "stderr_tail": [
+          "Error: [aborted] read ECONNRESET"
+        ]
+      },
+      {
+        "id": "slow",
+        "level": 2,
+        "run": 1,
+        "mode": "unattended",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the slow_with_progress tool and wait for it to finish.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the slow_with_progress tool and wait for it to finish.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 1,
+        "timed_out": false,
+        "duration_s": 0.36,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {},
+        "output": "level2-2026-07-28-slow-1/harness.jsonl",
+        "fresh": "level2-2026-07-28-slow-1/fresh.json",
+        "stderr_tail": [
+          "\u001b[31m✗ Failed to reach the Cursor API. Check that your proxy (http://127.0.0.1:58143/) is reachable.\u001b[0m"
+        ]
+      },
+      {
+        "id": "slow",
+        "level": 2,
+        "run": 2,
+        "mode": "unattended",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the slow_with_progress tool and wait for it to finish.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the slow_with_progress tool and wait for it to finish.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 1,
+        "timed_out": false,
+        "duration_s": 0.37,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {},
+        "output": "level2-2026-07-28-slow-2/harness.jsonl",
+        "fresh": "level2-2026-07-28-slow-2/fresh.json",
+        "stderr_tail": [
+          "\u001b[31m✗ Failed to reach the Cursor API. Check that your proxy (http://127.0.0.1:58155/) is reachable.\u001b[0m"
+        ]
+      },
+      {
+        "id": "slow",
+        "level": 2,
+        "run": 3,
+        "mode": "unattended",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the slow_with_progress tool and wait for it to finish.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the slow_with_progress tool and wait for it to finish.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 1,
+        "timed_out": false,
+        "duration_s": 1.11,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {},
+        "output": "level2-2026-07-28-slow-3/harness.jsonl",
+        "fresh": "level2-2026-07-28-slow-3/fresh.json",
+        "stderr_tail": [
+          "\u001b[31m✗ Failed to reach the Cursor API. Check that your proxy (http://127.0.0.1:58165/) is reachable.\u001b[0m"
+        ]
+      },
+      {
+        "id": "error",
+        "level": 2,
+        "run": 1,
+        "mode": "unattended",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the delete_account tool with account_id 'a' and confirm false.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the delete_account tool with account_id 'a' and confirm false.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 1,
+        "timed_out": false,
+        "duration_s": 0.49,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {},
+        "output": "level2-2026-07-28-error-1/harness.jsonl",
+        "fresh": "level2-2026-07-28-error-1/fresh.json",
+        "stderr_tail": [
+          "\u001b[31m✗ Failed to reach the Cursor API. Check that your proxy (http://127.0.0.1:58176/) is reachable.\u001b[0m"
+        ]
+      },
+      {
+        "id": "error",
+        "level": 2,
+        "run": 2,
+        "mode": "unattended",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the delete_account tool with account_id 'a' and confirm false.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the delete_account tool with account_id 'a' and confirm false.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 1,
+        "timed_out": false,
+        "duration_s": 0.73,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {},
+        "output": "level2-2026-07-28-error-2/harness.jsonl",
+        "fresh": "level2-2026-07-28-error-2/fresh.json",
+        "stderr_tail": [
+          "\u001b[31m✗ Failed to reach the Cursor API. Check that your proxy (http://127.0.0.1:58187/) is reachable.\u001b[0m"
+        ]
+      },
+      {
+        "id": "error",
+        "level": 2,
+        "run": 3,
+        "mode": "unattended",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the delete_account tool with account_id 'a' and confirm false.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the delete_account tool with account_id 'a' and confirm false.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 1,
+        "timed_out": false,
+        "duration_s": 0.38,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {},
+        "output": "level2-2026-07-28-error-3/harness.jsonl",
+        "fresh": "level2-2026-07-28-error-3/fresh.json",
+        "stderr_tail": [
+          "\u001b[31m✗ Failed to reach the Cursor API. Check that your proxy (http://127.0.0.1:58199/) is reachable.\u001b[0m"
+        ]
+      },
+      {
+        "id": "relist",
+        "level": 2,
+        "run": 1,
+        "mode": "unattended",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the add_tool tool, then use the tool it added.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the add_tool tool, then use the tool it added.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 1,
+        "timed_out": false,
+        "duration_s": 1.14,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {},
+        "output": "level2-2026-07-28-relist-1/harness.jsonl",
+        "fresh": "level2-2026-07-28-relist-1/fresh.json",
+        "stderr_tail": [
+          "\u001b[31m✗ Failed to reach the Cursor API. Check that your proxy (http://127.0.0.1:58210/) is reachable.\u001b[0m"
+        ]
+      },
+      {
+        "id": "relist",
+        "level": 2,
+        "run": 2,
+        "mode": "unattended",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the add_tool tool, then use the tool it added.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the add_tool tool, then use the tool it added.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 1,
+        "timed_out": false,
+        "duration_s": 0.54,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {},
+        "output": "level2-2026-07-28-relist-2/harness.jsonl",
+        "fresh": "level2-2026-07-28-relist-2/fresh.json",
+        "stderr_tail": [
+          "\u001b[31m✗ Failed to reach the Cursor API. Check that your proxy (http://127.0.0.1:58220/) is reachable.\u001b[0m"
+        ]
+      },
+      {
+        "id": "relist",
+        "level": 2,
+        "run": 3,
+        "mode": "unattended",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [
+          "--force",
+          "--approve-mcps"
+        ],
+        "transport": "stdio",
+        "prompt": "Use the add_tool tool, then use the tool it added.",
+        "argv": [
+          ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18/cursor-agent",
+          "-p",
+          "Use the add_tool tool, then use the tool it added.",
+          "--output-format",
+          "stream-json",
+          "--trust",
+          "--force",
+          "--approve-mcps"
+        ],
+        "exit_code": 1,
+        "timed_out": false,
+        "duration_s": 0.67,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {},
+        "output": "level2-2026-07-28-relist-3/harness.jsonl",
+        "fresh": "level2-2026-07-28-relist-3/fresh.json",
+        "stderr_tail": [
+          "\u001b[31m✗ Failed to reach the Cursor API. Check that your proxy (http://127.0.0.1:58230/) is reachable.\u001b[0m"
+        ]
+      }
+    ]
+  },
+  "fresh": {
+    "passed": true,
+    "sessions": 78,
+    "failed": []
+  },
+  "live": {
+    "env_file": ".env.harness",
+    "egress_allowed": {
+      "api2.cursor.sh": "Cursor's agent service: the API key exchange and every model call go here",
+      "agentn.us.api5.cursor.sh": "Cursor's agent service for the account's region: the CLI opened it beside api2 in the first live run, where the sink refused it"
+    },
+    "egress_attempted": [
+      {
+        "host": "agentn.us.api5.cursor.sh",
+        "port": 443,
+        "method": "CONNECT",
+        "count": 68,
+        "forwarded": true,
+        "sessions": 68
+      },
+      {
+        "host": "api2.cursor.sh",
+        "port": 443,
+        "method": "CONNECT",
+        "count": 2254,
+        "forwarded": true,
+        "sessions": 78
+      },
+      {
+        "host": "downloads.cursor.com",
+        "port": 443,
+        "method": "CONNECT",
+        "count": 68,
+        "forwarded": false,
+        "sessions": 68
+      },
+      {
+        "host": "o4504648565915648.ingest.us.sentry.io",
+        "port": 443,
+        "method": "CONNECT",
+        "count": 3,
+        "forwarded": false,
+        "sessions": 1
+      }
+    ],
+    "models": [
+      "Auto Balance",
+      "routed to Claude Opus 5.5",
+      "routed to GPT-5.6 Sol",
+      "routed to Grok 4.7"
+    ],
+    "secrets_absent": {
+      "passed": true,
+      "variables": [
+        "CURSOR_API_KEY"
+      ],
+      "paths": [
+        "data/harnesses/measurements/wire-live/cursor_agent",
+        "data/harnesses/harnesses.json"
+      ],
+      "matches": []
+    }
+  }
+}

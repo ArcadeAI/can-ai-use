@@ -1,0 +1,286 @@
+{
+  "schema": "mcp-mirror/usage@1",
+  "fetched": "2026-10-07",
+  "metric": "last-month downloads of the package that carries the framework's MCP support",
+  "frameworks": {
+    "agno": {
+      "package": "agno",
+      "runner": "agno",
+      "runtime": "python",
+      "source": "pypistats.org",
+      "monthly_downloads": 1779568,
+      "reason": null,
+      "fetched": "2026-10-07"
+    },
+    "autogen": {
+      "package": "autogen-ext",
+      "runner": "autogen",
+      "runtime": "python",
+      "source": "pypistats.org",
+      "monthly_downloads": 313073,
+      "reason": null,
+      "fetched": "2026-10-07"
+    },
+    "beeai": {
+      "package": "beeai-framework",
+      "runner": "beeai",
+      "runtime": "python",
+      "source": "pypistats.org",
+      "monthly_downloads": 27773,
+      "reason": null,
+      "fetched": "2026-10-07"
+    },
+    "copilot_sdk": {
+      "package": "@github/copilot-sdk",
+      "runner": "copilot_sdk",
+      "runtime": "node",
+      "source": "api.npmjs.org",
+      "monthly_downloads": 7836909,
+      "reason": null,
+      "fetched": "2026-10-07"
+    },
+    "crewai": {
+      "package": "crewai-tools",
+      "runner": "crewai",
+      "runtime": "python",
+      "source": "pypistats.org",
+      "monthly_downloads": 1826243,
+      "reason": null,
+      "fetched": "2026-10-07"
+    },
+    "crewai-native": {
+      "package": "crewai",
+      "runner": "crewai_native",
+      "runtime": "python",
+      "source": "pypistats.org",
+      "monthly_downloads": 2442764,
+      "reason": null,
+      "fetched": "2026-10-07"
+    },
+    "dspy": {
+      "package": "dspy",
+      "runner": "dspy",
+      "runtime": "python",
+      "source": "pypistats.org",
+      "monthly_downloads": 5312050,
+      "reason": null,
+      "fetched": "2026-10-07"
+    },
+    "genkit_js": {
+      "package": "@genkit-ai/mcp",
+      "runner": "genkit_js",
+      "runtime": "node",
+      "source": "api.npmjs.org",
+      "monthly_downloads": 29821,
+      "reason": null,
+      "fetched": "2026-10-07"
+    },
+    "google_adk": {
+      "package": "google-adk",
+      "runner": "google_adk",
+      "runtime": "python",
+      "source": "pypistats.org",
+      "monthly_downloads": 10109331,
+      "reason": null,
+      "fetched": "2026-10-07"
+    },
+    "google_adk_go": {
+      "package": "google.golang.org/adk/v2",
+      "runner": "google_adk_go",
+      "runtime": "go",
+      "source": null,
+      "monthly_downloads": null,
+      "reason": "The Go module proxy publishes no download counts",
+      "fetched": "2026-10-07"
+    },
+    "google_adk_java": {
+      "package": "com.google.adk:google-adk",
+      "runner": "google_adk_java",
+      "runtime": "java",
+      "source": null,
+      "monthly_downloads": null,
+      "reason": "Maven Central publishes no per-artifact monthly download count",
+      "fetched": "2026-10-07"
+    },
+    "google_adk_js": {
+      "package": "@google/adk",
+      "runner": "google_adk_js",
+      "runtime": "node",
+      "source": "api.npmjs.org",
+      "monthly_downloads": 1033480,
+      "reason": null,
+      "fetched": "2026-10-07"
+    },
+    "haystack": {
+      "package": "mcp-haystack",
+      "runner": "haystack",
+      "runtime": "python",
+      "source": "pypistats.org",
+      "monthly_downloads": 10573,
+      "reason": null,
+      "fetched": "2026-10-07"
+    },
+    "koog": {
+      "package": "ai.koog:agents-mcp-jvm",
+      "runner": "koog",
+      "runtime": "java",
+      "source": null,
+      "monthly_downloads": null,
+      "reason": "Maven Central publishes no per-artifact monthly download count",
+      "fetched": "2026-10-07"
+    },
+    "langchain": {
+      "package": "langchain-mcp-adapters",
+      "runner": "langchain",
+      "runtime": "python",
+      "source": "pypistats.org",
+      "monthly_downloads": 6162506,
+      "reason": null,
+      "fetched": "2026-10-07"
+    },
+    "langchain4j": {
+      "package": "dev.langchain4j:langchain4j-mcp",
+      "runner": "langchain4j",
+      "runtime": "java",
+      "source": null,
+      "monthly_downloads": null,
+      "reason": "Maven Central publishes no per-artifact monthly download count",
+      "fetched": "2026-10-07"
+    },
+    "langchain_js": {
+      "package": "@langchain/mcp-adapters",
+      "runner": "langchain_js",
+      "runtime": "node",
+      "source": "api.npmjs.org",
+      "monthly_downloads": 1112969,
+      "reason": null,
+      "fetched": "2026-10-07"
+    },
+    "langgraph": {
+      "package": "langchain-mcp-adapters",
+      "runner": "langchain",
+      "runtime": "python",
+      "source": "pypistats.org",
+      "monthly_downloads": 6162506,
+      "reason": null,
+      "fetched": "2026-10-07"
+    },
+    "llamaindex": {
+      "package": "llama-index-tools-mcp",
+      "runner": "llamaindex",
+      "runtime": "python",
+      "source": "pypistats.org",
+      "monthly_downloads": 65431,
+      "reason": null,
+      "fetched": "2026-10-07"
+    },
+    "mastra": {
+      "package": "@mastra/mcp",
+      "runner": "mastra",
+      "runtime": "node",
+      "source": "api.npmjs.org",
+      "monthly_downloads": 2202460,
+      "reason": null,
+      "fetched": "2026-10-07"
+    },
+    "ms_agent_framework": {
+      "package": "agent-framework-core",
+      "runner": "ms_agent_framework",
+      "runtime": "python",
+      "source": "pypistats.org",
+      "monthly_downloads": 1005851,
+      "reason": null,
+      "fetched": "2026-10-07"
+    },
+    "ms_agent_framework_dotnet": {
+      "package": "Microsoft.Agents.AI",
+      "runner": "ms_agent_framework_dotnet",
+      "runtime": "dotnet",
+      "source": null,
+      "monthly_downloads": null,
+      "reason": "NuGet publishes all-time totals only, not a monthly count",
+      "fetched": "2026-10-07"
+    },
+    "openai-agents": {
+      "package": "openai-agents",
+      "runner": "openai_agents",
+      "runtime": "python",
+      "source": "pypistats.org",
+      "monthly_downloads": 12449784,
+      "reason": null,
+      "fetched": "2026-10-07"
+    },
+    "openai_agents_js": {
+      "package": "@openai/agents",
+      "runner": "openai_agents_js",
+      "runtime": "node",
+      "source": "api.npmjs.org",
+      "monthly_downloads": 7862025,
+      "reason": null,
+      "fetched": "2026-10-07"
+    },
+    "pi": {
+      "package": "@earendil-works/pi-mcp",
+      "runner": "pi",
+      "runtime": "node",
+      "source": "api.npmjs.org",
+      "monthly_downloads": 1395111,
+      "reason": null,
+      "fetched": "2026-10-07"
+    },
+    "pydantic-ai": {
+      "package": "pydantic-ai-slim",
+      "runner": "pydantic_ai",
+      "runtime": "python",
+      "source": "pypistats.org",
+      "monthly_downloads": 23908854,
+      "reason": null,
+      "fetched": "2026-10-07"
+    },
+    "semantic_kernel": {
+      "package": "semantic-kernel",
+      "runner": "semantic_kernel",
+      "runtime": "python",
+      "source": "pypistats.org",
+      "monthly_downloads": 300767,
+      "reason": null,
+      "fetched": "2026-10-07"
+    },
+    "smolagents": {
+      "package": "smolagents",
+      "runner": "smolagents",
+      "runtime": "python",
+      "source": "pypistats.org",
+      "monthly_downloads": 425605,
+      "reason": null,
+      "fetched": "2026-10-07"
+    },
+    "spring_ai": {
+      "package": "org.springframework.ai:spring-ai-starter-mcp-client",
+      "runner": "spring_ai",
+      "runtime": "java",
+      "source": null,
+      "monthly_downloads": null,
+      "reason": "Maven Central publishes no per-artifact monthly download count",
+      "fetched": "2026-10-07"
+    },
+    "strands": {
+      "package": "strands-agents",
+      "runner": "strands",
+      "runtime": "python",
+      "source": "pypistats.org",
+      "monthly_downloads": 37112498,
+      "reason": null,
+      "fetched": "2026-10-07"
+    },
+    "vercel_ai": {
+      "package": "@ai-sdk/mcp",
+      "runner": "vercel_ai",
+      "runtime": "node",
+      "source": "api.npmjs.org",
+      "monthly_downloads": 17561592,
+      "reason": null,
+      "fetched": "2026-10-07"
+    }
+  }
+}

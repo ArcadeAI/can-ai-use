@@ -1,0 +1,88 @@
+{
+  "schema": "mcp-mirror/client-probe@1",
+  "captured_at": "2026-10-09T18:45:32Z",
+  "fixture": "fixtures/client_features_server.py",
+  "fixture_python": "<checkout>/.mcp-mirror/fixture-2025-11-25/bin/python",
+  "spec_version": "2025-11-25",
+  "frameworks": {
+    "mastra": {
+      "ok": true,
+      "versions": {
+        "framework": "2.2.0",
+        "adapter": "node v24.21.0"
+      },
+      "negotiated_mcp_spec_version": "2025-11-25",
+      "client_probe": {
+        "sampling": {
+          "tool": "ask_sampling",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_SAMPLED",
+          "text": "SENTINEL_CLIENT_FEATURE_UNAVAILABLE ask_sampling: McpError: Method not found",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "sampling.tools": {
+          "tool": "ask_sampling_tools",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_SAMPLED_AFTER_TOOL",
+          "text": "SENTINEL_CLIENT_FEATURE_UNAVAILABLE ask_sampling_tools: McpError: Client does not support sampling tools capability",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "elicitation.form": {
+          "tool": "ask_elicitation_form",
+          "hook": "inputRequests",
+          "route": "adapter",
+          "expect": "SENTINEL_ELICITED",
+          "text": "{\"answered\": \"ask_elicitation_form\", \"response\": {\"action\": \"accept\", \"content\": {\"name\": \"SENTINEL_ELICITED\"}}}",
+          "is_error": null,
+          "handler_saw": [
+            {
+              "hook": "inputRequests",
+              "key": "0",
+              "mode": "form"
+            }
+          ]
+        },
+        "elicitation.url": {
+          "tool": "ask_elicitation_url",
+          "hook": "inputRequests",
+          "route": "adapter",
+          "expect": "\"action\": \"accept\"",
+          "text": "{\"answered\": \"ask_elicitation_url\", \"response\": {\"action\": \"accept\"}}",
+          "is_error": null,
+          "handler_saw": [
+            {
+              "hook": "inputRequests",
+              "key": "0",
+              "mode": "url"
+            }
+          ]
+        },
+        "roots.list": {
+          "tool": "list_client_roots",
+          "hook": null,
+          "route": null,
+          "expect": "file:///tmp/mcp-mirror-root",
+          "text": "SENTINEL_CLIENT_FEATURE_UNAVAILABLE list_client_roots: McpError: Method not found",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "roots.list_changed": {
+          "tool": "roots_changes_seen",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_ROOTS_CHANGES_SEEN",
+          "text": "{\"seen\": 0}",
+          "is_error": null,
+          "handler_saw": []
+        },
+        "capabilities": {
+          "text": "{\"elicitation\": {\"form\": {}, \"url\": {}}, \"extensions\": {\"io.modelcontextprotocol/ui\": {}}}"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+# canaiuse.com: the built site (docs/) served as Workers static assets, plus the
+# read-only MCP endpoint at /mcp and the private feedback form at /feedback (worker/index.ts). `npm run build && npx wrangler deploy`
+# publishes it; the custom_domain route makes Cloudflare create the DNS record and
+# certificate for the zone in the Arcade account.
+name = "canaiuse"
+main = "worker/index.ts"
+compatibility_date = "2026-09-01"
+
+[assets]
+directory = "./docs"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+# Only these run the Worker before the asset lookup; every other URL serves as before.
+run_worker_first = ["/mcp", "/mcp/", "/feedback", "/harnesses", "/harnesses/"]
+
+[[routes]]
+pattern = "canaiuse.com"
+custom_domain = true
+
+[[routes]]
+pattern = "www.canaiuse.com"
+custom_domain = true
+
+# Reader feedback, stored privately and never published. Apply the schema with
+# `npx wrangler d1 migrations apply canaiuse-feedback --remote`; read it with
+# `npx wrangler d1 execute canaiuse-feedback --remote --command "SELECT * FROM feedback"`.
+[[d1_databases]]
+binding = "FEEDBACK"
+database_name = "canaiuse-feedback"
+database_id = "18c93650-dde8-4d0b-af21-49168b9b109a"
+migrations_dir = "worker/migrations"

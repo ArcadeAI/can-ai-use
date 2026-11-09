@@ -1,0 +1,39 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "extension-tasks",
+  "title": "MCP Tasks",
+  "description": "The official extension for long-running work, where a server returns a durable task handle instead of blocking and the client polls for the outcome.",
+  "question": "Can the agent start work that outlives the request that began it?",
+  "spec": "https://modelcontextprotocol.io/extensions/tasks/overview",
+  "status": "extension",
+  "categories": [
+    "Extensions"
+  ],
+  "keywords": "tasks,long running,durable handle,polling,taskId,pollIntervalMs",
+  "why": "Tasks moved out of the core protocol into an official extension in this revision, and the API was redesigned around polling. Without it, any operation longer than a request timeout has to be faked with a handle passed through tool arguments.",
+  "docs_url": "https://modelcontextprotocol.io/extensions/tasks/overview",
+  "docs_label": "MCP Extensions",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/extensions/tasks/overview",
+      "title": "MCP Extensions"
+    }
+  ],
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "known_issues": [],
+  "notes": {
+    "mastra": "Mastra 2.2.0: the client declares no Tasks extension (`io.modelcontextprotocol/tasks`) and calls a task-capable tool without asking for a task, so it never polls for one.",
+    "openai-agents": "OpenAI Agents SDK 0.23.1: the client declares no Tasks extension (`io.modelcontextprotocol/tasks`) and calls a task-capable tool without asking for a task, so it never polls for one.",
+    "pydantic-ai": "Pydantic AI 2.54.0: the client declares no Tasks extension (`io.modelcontextprotocol/tasks`) and calls a task-capable tool without asking for a task, so it never polls for one.",
+    "strands": "Strands Agents 1.59.0: The Tasks extension is opt-in through `MCPClient(tasks_config=...)`. With the defaults an agent gets, the client declares no Tasks extension and calls a task-capable tool without task augmentation.",
+    "vercel_ai": "Vercel AI SDK (@ai-sdk/mcp 2.0.73): the client declares no Tasks extension and calls `task_capable` without task augmentation. The fixture answers synchronously.",
+    "openai_agents_js": "OpenAI Agents SDK (JS) 0.20.0: the client declares no Tasks extension and calls a task-capable tool with a plain `tools/call`; a tool that requires tasks is refused by the SDK.",
+    "agno": "Agno 3.1.2: the fastmcp `Client` `MCPTools` builds declares no Tasks extension and calls task-capable tools synchronously, without task augmentation.",
+    "dspy": "DSPy 3.4.0: the caller's client declares no Tasks extension, and the `Tool` calls `task_capable` synchronously with no task augmentation.",
+    "langchain_js": "LangChain.js (@langchain/mcp-adapters 2.0.1): the client declares no Tasks extension, and the adapter calls the task-capable tool without task augmentation.",
+    "copilot_sdk": "GitHub Copilot SDK 1.0.19 (Copilot runtime 1.0.95): no Tasks extension is declared, so `task_capable` was called without task augmentation (`task_requested=False`).",
+    "langchain4j": "LangChain4j 1.22.0-beta32: `DefaultMcpClient` declares no Tasks extension and calls a task-capable tool without task augmentation.",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): the client declares no Tasks extension, and `mcpTool.Run` sends `tools/call` with no task augmentation.",
+    "ms_agent_framework_dotnet": "Microsoft Agent Framework (.NET) 1.24.0 (ModelContextProtocol 2.2.0): no Tasks extension is declared, so `task_capable` was called without task augmentation."
+  }
+}

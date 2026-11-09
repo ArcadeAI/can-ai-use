@@ -1,0 +1,12 @@
+{
+  "name": "mcp-mirror-openai-agents-js-worker",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "description": "Node worker that drives the OpenAI Agents SDK's real MCP servers (MCPServerStdio, MCPServerStreamableHttp) so mcp-mirror can capture what the SDK hands the model. Run `npm ci` here to enable the openai_agents_js renderer.",
+  "dependencies": {
+    "@openai/agents": "0.20.0",
+    "@modelcontextprotocol/client": "2.0.0",
+    "zod": "4.6.5"
+  }
+}

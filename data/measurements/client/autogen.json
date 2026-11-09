@@ -1,0 +1,82 @@
+{
+  "schema": "mcp-mirror/client-probe@1",
+  "captured_at": "2026-09-30T22:14:00Z",
+  "fixture": "fixtures/client_features_server.py",
+  "fixture_python": "<checkout>/.mcp-mirror/fixture-2025-11-25/bin/python",
+  "spec_version": "2025-11-25",
+  "frameworks": {
+    "autogen": {
+      "ok": true,
+      "versions": {
+        "framework": "0.7.5",
+        "adapter": "0.7.5"
+      },
+      "negotiated_mcp_spec_version": "2025-11-25",
+      "client_probe": {
+        "sampling": {
+          "tool": "ask_sampling",
+          "hook": "McpWorkbench(model_client=...)",
+          "route": "adapter",
+          "expect": "SENTINEL_SAMPLED",
+          "text": "SENTINEL_CLIENT_ANSWERED ask_sampling: {\"content\": {\"text\": \"SENTINEL_SAMPLED\", \"type\": \"text\"}, \"model\": \"unknown\", \"role\": \"assistant\", \"stopReason\": \"stop\"}",
+          "is_error": false,
+          "handler_saw": [
+            {
+              "hook": "model_client.create",
+              "tools": false,
+              "replied": "endTurn"
+            }
+          ]
+        },
+        "sampling.tools": {
+          "tool": "ask_sampling_tools",
+          "hook": "McpWorkbench(model_client=...)",
+          "route": "adapter",
+          "expect": "SENTINEL_SAMPLED_AFTER_TOOL",
+          "text": "SENTINEL_CLIENT_FEATURE_UNAVAILABLE ask_sampling_tools: McpError: Client does not support sampling tools capability",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "elicitation.form": {
+          "tool": "ask_elicitation_form",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_ELICITED",
+          "text": "SENTINEL_CLIENT_FEATURE_UNAVAILABLE ask_elicitation_form: McpError: Elicitation not supported",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "elicitation.url": {
+          "tool": "ask_elicitation_url",
+          "hook": null,
+          "route": null,
+          "expect": "\"action\": \"accept\"",
+          "text": "SENTINEL_CLIENT_FEATURE_UNAVAILABLE ask_elicitation_url: McpError: Elicitation not supported",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "roots.list": {
+          "tool": "list_client_roots",
+          "hook": null,
+          "route": null,
+          "expect": "file:///tmp/mcp-mirror-root",
+          "text": "SENTINEL_CLIENT_FEATURE_UNAVAILABLE list_client_roots: McpError: List roots not supported",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "roots.list_changed": {
+          "tool": "roots_changes_seen",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_ROOTS_CHANGES_SEEN",
+          "text": "SENTINEL_ROOTS_CHANGES_SEEN 0",
+          "is_error": false,
+          "handler_saw": []
+        },
+        "capabilities": {
+          "text": "SENTINEL_CLIENT_CAPABILITIES {\"sampling\": {}}"
+        }
+      }
+    }
+  }
+}

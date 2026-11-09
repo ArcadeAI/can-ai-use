@@ -1,0 +1,1491 @@
+{
+  "schema": "mcp-mirror/result-boundaries@2",
+  "captured_at": "2026-10-09T18:34:26Z",
+  "fixture": "fixtures/results_server.py",
+  "fixture_python": "<checkout>/.mcp-mirror/fixture-2025-11-25/bin/python",
+  "spec_version": "2025-11-25",
+  "calls": [
+    {
+      "tool": "text_content",
+      "arguments": {}
+    },
+    {
+      "tool": "image_content",
+      "arguments": {}
+    },
+    {
+      "tool": "audio_content",
+      "arguments": {}
+    },
+    {
+      "tool": "embedded_resource_content",
+      "arguments": {}
+    },
+    {
+      "tool": "resource_link_content",
+      "arguments": {}
+    },
+    {
+      "tool": "annotated_content",
+      "arguments": {}
+    },
+    {
+      "tool": "mixed_content",
+      "arguments": {}
+    },
+    {
+      "tool": "text_and_structured",
+      "arguments": {}
+    },
+    {
+      "tool": "tool_error",
+      "arguments": {}
+    }
+  ],
+  "source": {
+    "text_content": {
+      "tool": "text_content",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_TEXT_BLOCK"
+        }
+      ],
+      "block_kinds": [
+        "text"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": "SENTINEL_TEXT_BLOCK",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_TEXT_BLOCK",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "image_content": {
+      "tool": "image_content",
+      "blocks": [
+        {
+          "type": "image",
+          "data": "<96 chars>",
+          "mimeType": "image/png"
+        }
+      ],
+      "block_kinds": [
+        "image"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": null,
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "image",
+            "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==",
+            "mimeType": "image/png",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "audio_content": {
+      "tool": "audio_content",
+      "blocks": [
+        {
+          "type": "audio",
+          "data": "<60 chars>",
+          "mimeType": "audio/wav"
+        }
+      ],
+      "block_kinds": [
+        "audio"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": null,
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "audio",
+            "data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
+            "mimeType": "audio/wav",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "embedded_resource_content": {
+      "tool": "embedded_resource_content",
+      "blocks": [
+        {
+          "type": "resource",
+          "resource": {
+            "uri": "file:///fixtures/embedded.txt",
+            "mimeType": "text/plain",
+            "_meta": null,
+            "text": "SENTINEL_EMBEDDED_RESOURCE"
+          }
+        }
+      ],
+      "block_kinds": [
+        "resource"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": null,
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "resource",
+            "resource": {
+              "uri": "file:///fixtures/embedded.txt",
+              "mimeType": "text/plain",
+              "_meta": null,
+              "text": "SENTINEL_EMBEDDED_RESOURCE"
+            },
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "resource_link_content": {
+      "tool": "resource_link_content",
+      "blocks": [
+        {
+          "name": "linked.txt",
+          "uri": "file:///fixtures/linked.txt",
+          "description": "SENTINEL_RESOURCE_LINK",
+          "mimeType": "text/plain",
+          "type": "resource_link"
+        }
+      ],
+      "block_kinds": [
+        "resource_link"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": null,
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "name": "linked.txt",
+            "title": null,
+            "uri": "file:///fixtures/linked.txt",
+            "description": "SENTINEL_RESOURCE_LINK",
+            "mimeType": "text/plain",
+            "size": null,
+            "icons": null,
+            "annotations": null,
+            "_meta": null,
+            "type": "resource_link"
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "annotated_content": {
+      "tool": "annotated_content",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_ANNOTATED_TEXT",
+          "annotations": {
+            "audience": [
+              "user"
+            ],
+            "priority": 0.9
+          }
+        }
+      ],
+      "block_kinds": [
+        "text"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": "SENTINEL_ANNOTATED_TEXT",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_ANNOTATED_TEXT",
+            "annotations": {
+              "audience": [
+                "user"
+              ],
+              "priority": 0.9
+            },
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "mixed_content": {
+      "tool": "mixed_content",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_TEXT_BLOCK",
+          "annotations": {
+            "audience": [
+              "user"
+            ],
+            "priority": 0.9
+          }
+        },
+        {
+          "type": "image",
+          "data": "<96 chars>",
+          "mimeType": "image/png"
+        },
+        {
+          "type": "audio",
+          "data": "<60 chars>",
+          "mimeType": "audio/wav"
+        },
+        {
+          "type": "resource",
+          "resource": {
+            "uri": "file:///fixtures/embedded.txt",
+            "mimeType": "text/plain",
+            "_meta": null,
+            "text": "SENTINEL_EMBEDDED_RESOURCE"
+          }
+        },
+        {
+          "name": "linked.txt",
+          "uri": "file:///fixtures/linked.txt",
+          "description": "SENTINEL_RESOURCE_LINK",
+          "mimeType": "text/plain",
+          "type": "resource_link"
+        }
+      ],
+      "block_kinds": [
+        "text",
+        "image",
+        "audio",
+        "resource",
+        "resource_link"
+      ],
+      "structured_content": {
+        "count": 2,
+        "records": [
+          {
+            "id": "rec_1",
+            "status": "active"
+          },
+          {
+            "id": "rec_2",
+            "status": "archived"
+          }
+        ],
+        "note": "SENTINEL_STRUCTURED_CONTENT"
+      },
+      "is_error": false,
+      "text": "SENTINEL_TEXT_BLOCK",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_TEXT_BLOCK",
+            "annotations": {
+              "audience": [
+                "user"
+              ],
+              "priority": 0.9
+            },
+            "_meta": null
+          },
+          {
+            "type": "image",
+            "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==",
+            "mimeType": "image/png",
+            "annotations": null,
+            "_meta": null
+          },
+          {
+            "type": "audio",
+            "data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
+            "mimeType": "audio/wav",
+            "annotations": null,
+            "_meta": null
+          },
+          {
+            "type": "resource",
+            "resource": {
+              "uri": "file:///fixtures/embedded.txt",
+              "mimeType": "text/plain",
+              "_meta": null,
+              "text": "SENTINEL_EMBEDDED_RESOURCE"
+            },
+            "annotations": null,
+            "_meta": null
+          },
+          {
+            "name": "linked.txt",
+            "title": null,
+            "uri": "file:///fixtures/linked.txt",
+            "description": "SENTINEL_RESOURCE_LINK",
+            "mimeType": "text/plain",
+            "size": null,
+            "icons": null,
+            "annotations": null,
+            "_meta": null,
+            "type": "resource_link"
+          }
+        ],
+        "structuredContent": {
+          "count": 2,
+          "records": [
+            {
+              "id": "rec_1",
+              "status": "active"
+            },
+            {
+              "id": "rec_2",
+              "status": "archived"
+            }
+          ],
+          "note": "SENTINEL_STRUCTURED_CONTENT"
+        },
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "text_and_structured": {
+      "tool": "text_and_structured",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_TEXT_BLOCK"
+        }
+      ],
+      "block_kinds": [
+        "text"
+      ],
+      "structured_content": {
+        "count": 2,
+        "records": [
+          {
+            "id": "rec_1",
+            "status": "active"
+          },
+          {
+            "id": "rec_2",
+            "status": "archived"
+          }
+        ],
+        "note": "SENTINEL_STRUCTURED_CONTENT"
+      },
+      "is_error": false,
+      "text": "SENTINEL_TEXT_BLOCK",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_TEXT_BLOCK",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "count": 2,
+          "records": [
+            {
+              "id": "rec_1",
+              "status": "active"
+            },
+            {
+              "id": "rec_2",
+              "status": "archived"
+            }
+          ],
+          "note": "SENTINEL_STRUCTURED_CONTENT"
+        },
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "tool_error": {
+      "tool": "tool_error",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_TOOL_ERROR: this tool always fails"
+        }
+      ],
+      "block_kinds": [
+        "text"
+      ],
+      "structured_content": null,
+      "is_error": true,
+      "text": "SENTINEL_TOOL_ERROR: this tool always fails",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_TOOL_ERROR: this tool always fails",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": true
+      },
+      "error_channel": null
+    }
+  },
+  "frameworks": {
+    "google_adk_js": {
+      "ok": true,
+      "versions": {
+        "framework": "2.2.1",
+        "adapter": "@google/adk/tools/mcp 2.2.1, @modelcontextprotocol/sdk 1.30.0, node v24.21.0"
+      },
+      "evidence": {
+        "capture_api": "@google/adk InMemoryRunner.runAsync with LlmAgent({ tools: [MCPToolset] }), tools loaded by MCPToolset.getTools (@google/adk/tools/mcp)",
+        "capture_object": "FunctionDeclaration in the LlmRequest.config.tools handed to BaseLlm.generateContentAsync",
+        "capture_stage": "provider_format",
+        "provider_request_captured": false,
+        "negotiated_mcp_spec_version": "2025-11-25",
+        "protocol_version_evidence": "protocolVersion of the initialize result each @modelcontextprotocol/sdk Client.connect receives, observed on Client.prototype.request in the node worker; MCPSessionManager opens one Client per operation and neither ADK nor the Client exposes the version",
+        "limitation": "The model is a scripted BaseLlm; the LlmRequest is captured before any @google/genai client serializes it, so no provider request body was captured. Parameter schemas are read back from the genai Schema dialect (type enum spelling and nullable) for comparison."
+      },
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Tool return value",
+          "capture_api": "@google/adk LlmAgent afterToolCallback ({ response })",
+          "capture_object": "the value MCPTool.runAsync returned, before ADK wraps it",
+          "agent_path": false,
+          "limitation": null
+        },
+        {
+          "id": "agent",
+          "label": "Function response to the model",
+          "capture_api": "@google/adk InMemoryRunner.runAsync, next LlmRequest.contents",
+          "capture_object": "the functionResponse part in the LlmRequest the model receives",
+          "agent_path": true,
+          "limitation": "The model is a scripted BaseLlm; no @google/genai client serialized the request."
+        }
+      ],
+      "reps": [
+        {
+          "name": "text_content",
+          "description": "Return one text block and nothing else.",
+          "params": {
+            "properties": {},
+            "type": "object"
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "google_adk_js",
+          "raw": {
+            "name": "text_content",
+            "description": "Return one text block and nothing else.",
+            "parameters": {
+              "type": "OBJECT",
+              "properties": {}
+            }
+          }
+        },
+        {
+          "name": "image_content",
+          "description": "Return one image block and nothing else.",
+          "params": {
+            "properties": {},
+            "type": "object"
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "google_adk_js",
+          "raw": {
+            "name": "image_content",
+            "description": "Return one image block and nothing else.",
+            "parameters": {
+              "type": "OBJECT",
+              "properties": {}
+            }
+          }
+        },
+        {
+          "name": "audio_content",
+          "description": "Return one audio block and nothing else.",
+          "params": {
+            "properties": {},
+            "type": "object"
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "google_adk_js",
+          "raw": {
+            "name": "audio_content",
+            "description": "Return one audio block and nothing else.",
+            "parameters": {
+              "type": "OBJECT",
+              "properties": {}
+            }
+          }
+        },
+        {
+          "name": "embedded_resource_content",
+          "description": "Return one embedded resource block and nothing else.",
+          "params": {
+            "properties": {},
+            "type": "object"
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "google_adk_js",
+          "raw": {
+            "name": "embedded_resource_content",
+            "description": "Return one embedded resource block and nothing else.",
+            "parameters": {
+              "type": "OBJECT",
+              "properties": {}
+            }
+          }
+        },
+        {
+          "name": "resource_link_content",
+          "description": "Return one resource_link block and nothing else.",
+          "params": {
+            "properties": {},
+            "type": "object"
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "google_adk_js",
+          "raw": {
+            "name": "resource_link_content",
+            "description": "Return one resource_link block and nothing else.",
+            "parameters": {
+              "type": "OBJECT",
+              "properties": {}
+            }
+          }
+        },
+        {
+          "name": "annotated_content",
+          "description": "Return one text block carrying audience and priority annotations.",
+          "params": {
+            "properties": {},
+            "type": "object"
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "google_adk_js",
+          "raw": {
+            "name": "annotated_content",
+            "description": "Return one text block carrying audience and priority annotations.",
+            "parameters": {
+              "type": "OBJECT",
+              "properties": {}
+            }
+          }
+        },
+        {
+          "name": "mixed_content",
+          "description": "Return one block of every kind plus structuredContent in one result.",
+          "params": {
+            "properties": {},
+            "type": "object"
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "google_adk_js",
+          "raw": {
+            "name": "mixed_content",
+            "description": "Return one block of every kind plus structuredContent in one result.",
+            "parameters": {
+              "type": "OBJECT",
+              "properties": {}
+            }
+          }
+        },
+        {
+          "name": "text_and_structured",
+          "description": "Return one text block plus structuredContent, with no media.",
+          "params": {
+            "properties": {},
+            "type": "object"
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "google_adk_js",
+          "raw": {
+            "name": "text_and_structured",
+            "description": "Return one text block plus structuredContent, with no media.",
+            "parameters": {
+              "type": "OBJECT",
+              "properties": {}
+            }
+          }
+        },
+        {
+          "name": "tool_error",
+          "description": "Always fail, reporting the failure through isError rather than a protocol error.",
+          "params": {
+            "properties": {},
+            "type": "object"
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "google_adk_js",
+          "raw": {
+            "name": "tool_error",
+            "description": "Always fail, reporting the failure through isError rather than a protocol error.",
+            "parameters": {
+              "type": "OBJECT",
+              "properties": {}
+            }
+          }
+        }
+      ],
+      "results": [
+        {
+          "tool": "text_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "text_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TEXT_BLOCK"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_TEXT_BLOCK",
+            "origin": "google_adk_js",
+            "raw": {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_TEXT_BLOCK"
+                }
+              ],
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "text_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "text_content",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": false,
+            "text": "{\"content\": [{\"text\": \"SENTINEL_TEXT_BLOCK\", \"type\": \"text\"}], \"isError\": false}",
+            "origin": "google_adk_js",
+            "raw": {
+              "id": "mcp-mirror-call",
+              "name": "text_content",
+              "response": {
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "SENTINEL_TEXT_BLOCK"
+                  }
+                ],
+                "isError": false
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "image_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "image_content",
+            "blocks": [
+              {
+                "type": "image",
+                "data": "<96 chars>",
+                "mimeType": "image/png"
+              }
+            ],
+            "block_kinds": [
+              "image"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": null,
+            "origin": "google_adk_js",
+            "raw": {
+              "content": [
+                {
+                  "type": "image",
+                  "data": "<96 chars>",
+                  "mimeType": "image/png"
+                }
+              ],
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "image_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "image_content",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": false,
+            "text": "{\"content\": [{\"data\": \"<96 chars>\", \"mimeType\": \"image/png\", \"type\": \"image\"}], \"isError\": false}",
+            "origin": "google_adk_js",
+            "raw": {
+              "id": "mcp-mirror-call",
+              "name": "image_content",
+              "response": {
+                "content": [
+                  {
+                    "type": "image",
+                    "data": "<96 chars>",
+                    "mimeType": "image/png"
+                  }
+                ],
+                "isError": false
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "audio_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "audio_content",
+            "blocks": [
+              {
+                "type": "audio",
+                "data": "<60 chars>",
+                "mimeType": "audio/wav"
+              }
+            ],
+            "block_kinds": [
+              "audio"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": null,
+            "origin": "google_adk_js",
+            "raw": {
+              "content": [
+                {
+                  "type": "audio",
+                  "data": "<60 chars>",
+                  "mimeType": "audio/wav"
+                }
+              ],
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "audio_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "audio_content",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": false,
+            "text": "{\"content\": [{\"data\": \"<60 chars>\", \"mimeType\": \"audio/wav\", \"type\": \"audio\"}], \"isError\": false}",
+            "origin": "google_adk_js",
+            "raw": {
+              "id": "mcp-mirror-call",
+              "name": "audio_content",
+              "response": {
+                "content": [
+                  {
+                    "type": "audio",
+                    "data": "<60 chars>",
+                    "mimeType": "audio/wav"
+                  }
+                ],
+                "isError": false
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "embedded_resource_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "embedded_resource_content",
+            "blocks": [
+              {
+                "type": "resource",
+                "resource": {
+                  "uri": "file:///fixtures/embedded.txt",
+                  "mimeType": "text/plain",
+                  "text": "SENTINEL_EMBEDDED_RESOURCE"
+                }
+              }
+            ],
+            "block_kinds": [
+              "resource"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": null,
+            "origin": "google_adk_js",
+            "raw": {
+              "content": [
+                {
+                  "type": "resource",
+                  "resource": {
+                    "uri": "file:///fixtures/embedded.txt",
+                    "mimeType": "text/plain",
+                    "text": "SENTINEL_EMBEDDED_RESOURCE"
+                  }
+                }
+              ],
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "embedded_resource_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "embedded_resource_content",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": false,
+            "text": "{\"content\": [{\"resource\": {\"mimeType\": \"text/plain\", \"text\": \"SENTINEL_EMBEDDED_RESOURCE\", \"uri\": \"file:///fixtures/embedded.txt\"}, \"type\": \"resource\"}], \"isError\": false}",
+            "origin": "google_adk_js",
+            "raw": {
+              "id": "mcp-mirror-call",
+              "name": "embedded_resource_content",
+              "response": {
+                "content": [
+                  {
+                    "type": "resource",
+                    "resource": {
+                      "uri": "file:///fixtures/embedded.txt",
+                      "mimeType": "text/plain",
+                      "text": "SENTINEL_EMBEDDED_RESOURCE"
+                    }
+                  }
+                ],
+                "isError": false
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "resource_link_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "resource_link_content",
+            "blocks": [
+              {
+                "name": "linked.txt",
+                "uri": "file:///fixtures/linked.txt",
+                "description": "SENTINEL_RESOURCE_LINK",
+                "mimeType": "text/plain",
+                "type": "resource_link"
+              }
+            ],
+            "block_kinds": [
+              "resource_link"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": null,
+            "origin": "google_adk_js",
+            "raw": {
+              "content": [
+                {
+                  "name": "linked.txt",
+                  "uri": "file:///fixtures/linked.txt",
+                  "description": "SENTINEL_RESOURCE_LINK",
+                  "mimeType": "text/plain",
+                  "type": "resource_link"
+                }
+              ],
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "resource_link_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "resource_link_content",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": false,
+            "text": "{\"content\": [{\"description\": \"SENTINEL_RESOURCE_LINK\", \"mimeType\": \"text/plain\", \"name\": \"linked.txt\", \"type\": \"resource_link\", \"uri\": \"file:///fixtures/linked.txt\"}], \"isError\": false}",
+            "origin": "google_adk_js",
+            "raw": {
+              "id": "mcp-mirror-call",
+              "name": "resource_link_content",
+              "response": {
+                "content": [
+                  {
+                    "name": "linked.txt",
+                    "uri": "file:///fixtures/linked.txt",
+                    "description": "SENTINEL_RESOURCE_LINK",
+                    "mimeType": "text/plain",
+                    "type": "resource_link"
+                  }
+                ],
+                "isError": false
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "annotated_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "annotated_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ANNOTATED_TEXT",
+                "annotations": {
+                  "audience": [
+                    "user"
+                  ],
+                  "priority": 0.9
+                }
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ANNOTATED_TEXT",
+            "origin": "google_adk_js",
+            "raw": {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_ANNOTATED_TEXT",
+                  "annotations": {
+                    "audience": [
+                      "user"
+                    ],
+                    "priority": 0.9
+                  }
+                }
+              ],
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "annotated_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "annotated_content",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": false,
+            "text": "{\"content\": [{\"annotations\": {\"audience\": [\"user\"], \"priority\": 0.9}, \"text\": \"SENTINEL_ANNOTATED_TEXT\", \"type\": \"text\"}], \"isError\": false}",
+            "origin": "google_adk_js",
+            "raw": {
+              "id": "mcp-mirror-call",
+              "name": "annotated_content",
+              "response": {
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "SENTINEL_ANNOTATED_TEXT",
+                    "annotations": {
+                      "audience": [
+                        "user"
+                      ],
+                      "priority": 0.9
+                    }
+                  }
+                ],
+                "isError": false
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "mixed_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "mixed_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TEXT_BLOCK",
+                "annotations": {
+                  "audience": [
+                    "user"
+                  ],
+                  "priority": 0.9
+                }
+              },
+              {
+                "type": "image",
+                "data": "<96 chars>",
+                "mimeType": "image/png"
+              },
+              {
+                "type": "audio",
+                "data": "<60 chars>",
+                "mimeType": "audio/wav"
+              },
+              {
+                "type": "resource",
+                "resource": {
+                  "uri": "file:///fixtures/embedded.txt",
+                  "mimeType": "text/plain",
+                  "text": "SENTINEL_EMBEDDED_RESOURCE"
+                }
+              },
+              {
+                "name": "linked.txt",
+                "uri": "file:///fixtures/linked.txt",
+                "description": "SENTINEL_RESOURCE_LINK",
+                "mimeType": "text/plain",
+                "type": "resource_link"
+              }
+            ],
+            "block_kinds": [
+              "text",
+              "image",
+              "audio",
+              "resource",
+              "resource_link"
+            ],
+            "structured_content": {
+              "count": 2,
+              "records": [
+                {
+                  "id": "rec_1",
+                  "status": "active"
+                },
+                {
+                  "id": "rec_2",
+                  "status": "archived"
+                }
+              ],
+              "note": "SENTINEL_STRUCTURED_CONTENT"
+            },
+            "is_error": false,
+            "text": "SENTINEL_TEXT_BLOCK",
+            "origin": "google_adk_js",
+            "raw": {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_TEXT_BLOCK",
+                  "annotations": {
+                    "audience": [
+                      "user"
+                    ],
+                    "priority": 0.9
+                  }
+                },
+                {
+                  "type": "image",
+                  "data": "<96 chars>",
+                  "mimeType": "image/png"
+                },
+                {
+                  "type": "audio",
+                  "data": "<60 chars>",
+                  "mimeType": "audio/wav"
+                },
+                {
+                  "type": "resource",
+                  "resource": {
+                    "uri": "file:///fixtures/embedded.txt",
+                    "mimeType": "text/plain",
+                    "text": "SENTINEL_EMBEDDED_RESOURCE"
+                  }
+                },
+                {
+                  "name": "linked.txt",
+                  "uri": "file:///fixtures/linked.txt",
+                  "description": "SENTINEL_RESOURCE_LINK",
+                  "mimeType": "text/plain",
+                  "type": "resource_link"
+                }
+              ],
+              "structuredContent": {
+                "count": 2,
+                "records": [
+                  {
+                    "id": "rec_1",
+                    "status": "active"
+                  },
+                  {
+                    "id": "rec_2",
+                    "status": "archived"
+                  }
+                ],
+                "note": "SENTINEL_STRUCTURED_CONTENT"
+              },
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "mixed_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "mixed_content",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": {
+              "count": 2,
+              "records": [
+                {
+                  "id": "rec_1",
+                  "status": "active"
+                },
+                {
+                  "id": "rec_2",
+                  "status": "archived"
+                }
+              ],
+              "note": "SENTINEL_STRUCTURED_CONTENT"
+            },
+            "is_error": false,
+            "text": "{\"content\": [{\"annotations\": {\"audience\": [\"user\"], \"priority\": 0.9}, \"text\": \"SENTINEL_TEXT_BLOCK\", \"type\": \"text\"}, {\"data\": \"<96 chars>\", \"mimeType\": \"image/png\", \"type\": \"image\"}, {\"data\": \"<60 chars>\", \"mimeType\": \"audio/wav\", \"type\": \"audio\"}, {\"resource\": {\"mimeType\": \"text/plain\", \"text\": \"SENTINEL_EMBEDDED_RESOURCE\", \"uri\": \"file:///fixtures/embedded.txt\"}, \"type\": \"resource\"}, {\"description\": \"SENTINEL_RESOURCE_LINK\", \"mimeType\": \"text/plain\", \"name\": \"linked.txt\", \"type\": \"resource_link\", \"uri\": \"file:///fixtures/linked.txt\"}], \"isError\": false, \"structuredContent\": {\"count\": 2, \"note\": \"SENTINEL_STRUCTURED_CONTENT\", \"records\": [{\"id\": \"rec_1\", \"status\": \"active\"}, {\"id\": \"rec_2\", \"status\": \"archived\"}]}}",
+            "origin": "google_adk_js",
+            "raw": {
+              "id": "mcp-mirror-call",
+              "name": "mixed_content",
+              "response": {
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "SENTINEL_TEXT_BLOCK",
+                    "annotations": {
+                      "audience": [
+                        "user"
+                      ],
+                      "priority": 0.9
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "data": "<96 chars>",
+                    "mimeType": "image/png"
+                  },
+                  {
+                    "type": "audio",
+                    "data": "<60 chars>",
+                    "mimeType": "audio/wav"
+                  },
+                  {
+                    "type": "resource",
+                    "resource": {
+                      "uri": "file:///fixtures/embedded.txt",
+                      "mimeType": "text/plain",
+                      "text": "SENTINEL_EMBEDDED_RESOURCE"
+                    }
+                  },
+                  {
+                    "name": "linked.txt",
+                    "uri": "file:///fixtures/linked.txt",
+                    "description": "SENTINEL_RESOURCE_LINK",
+                    "mimeType": "text/plain",
+                    "type": "resource_link"
+                  }
+                ],
+                "structuredContent": {
+                  "count": 2,
+                  "records": [
+                    {
+                      "id": "rec_1",
+                      "status": "active"
+                    },
+                    {
+                      "id": "rec_2",
+                      "status": "archived"
+                    }
+                  ],
+                  "note": "SENTINEL_STRUCTURED_CONTENT"
+                },
+                "isError": false
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "text_and_structured",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "text_and_structured",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TEXT_BLOCK"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": {
+              "count": 2,
+              "records": [
+                {
+                  "id": "rec_1",
+                  "status": "active"
+                },
+                {
+                  "id": "rec_2",
+                  "status": "archived"
+                }
+              ],
+              "note": "SENTINEL_STRUCTURED_CONTENT"
+            },
+            "is_error": false,
+            "text": "SENTINEL_TEXT_BLOCK",
+            "origin": "google_adk_js",
+            "raw": {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_TEXT_BLOCK"
+                }
+              ],
+              "structuredContent": {
+                "count": 2,
+                "records": [
+                  {
+                    "id": "rec_1",
+                    "status": "active"
+                  },
+                  {
+                    "id": "rec_2",
+                    "status": "archived"
+                  }
+                ],
+                "note": "SENTINEL_STRUCTURED_CONTENT"
+              },
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "text_and_structured",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "text_and_structured",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": {
+              "count": 2,
+              "records": [
+                {
+                  "id": "rec_1",
+                  "status": "active"
+                },
+                {
+                  "id": "rec_2",
+                  "status": "archived"
+                }
+              ],
+              "note": "SENTINEL_STRUCTURED_CONTENT"
+            },
+            "is_error": false,
+            "text": "{\"content\": [{\"text\": \"SENTINEL_TEXT_BLOCK\", \"type\": \"text\"}], \"isError\": false, \"structuredContent\": {\"count\": 2, \"note\": \"SENTINEL_STRUCTURED_CONTENT\", \"records\": [{\"id\": \"rec_1\", \"status\": \"active\"}, {\"id\": \"rec_2\", \"status\": \"archived\"}]}}",
+            "origin": "google_adk_js",
+            "raw": {
+              "id": "mcp-mirror-call",
+              "name": "text_and_structured",
+              "response": {
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "SENTINEL_TEXT_BLOCK"
+                  }
+                ],
+                "structuredContent": {
+                  "count": 2,
+                  "records": [
+                    {
+                      "id": "rec_1",
+                      "status": "active"
+                    },
+                    {
+                      "id": "rec_2",
+                      "status": "archived"
+                    }
+                  ],
+                  "note": "SENTINEL_STRUCTURED_CONTENT"
+                },
+                "isError": false
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "tool_error",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "tool_error",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TOOL_ERROR: this tool always fails"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": true,
+            "text": "SENTINEL_TOOL_ERROR: this tool always fails",
+            "origin": "google_adk_js",
+            "raw": {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_TOOL_ERROR: this tool always fails"
+                }
+              ],
+              "isError": true
+            },
+            "error_channel": "flag"
+          }
+        },
+        {
+          "tool": "tool_error",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "tool_error",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "{\"content\": [{\"text\": \"SENTINEL_TOOL_ERROR: this tool always fails\", \"type\": \"text\"}], \"isError\": true}",
+            "origin": "google_adk_js",
+            "raw": {
+              "id": "mcp-mirror-call",
+              "name": "tool_error",
+              "response": {
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "SENTINEL_TOOL_ERROR: this tool always fails"
+                  }
+                ],
+                "isError": true
+              }
+            },
+            "error_channel": "flag"
+          }
+        }
+      ]
+    }
+  }
+}

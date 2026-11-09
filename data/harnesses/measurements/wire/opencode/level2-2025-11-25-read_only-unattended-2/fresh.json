@@ -1,0 +1,76 @@
+{
+  "format": "mcp-mirror.harness-fresh/1",
+  "passed": true,
+  "checks": {
+    "home": {
+      "passed": true,
+      "isolated": [
+        "CLAUDE_CONFIG_DIR",
+        "CODEX_HOME",
+        "GEMINI_CLI_HOME",
+        "HOME",
+        "XDG_CACHE_HOME",
+        "XDG_CONFIG_HOME",
+        "XDG_DATA_HOME",
+        "XDG_STATE_HOME"
+      ],
+      "copied": [],
+      "refused": []
+    },
+    "load": {
+      "passed": true,
+      "fixture_initialize_seconds": 0.36,
+      "limit_seconds": 2.0,
+      "load_1m_per_core": 0.79,
+      "cores": 10,
+      "waited_seconds": 0.0
+    },
+    "servers_listed": {
+      "passed": true,
+      "status": "listed",
+      "expected": [
+        "cf",
+        "def",
+        "ntf",
+        "res",
+        "util"
+      ],
+      "listed": [
+        "cf",
+        "def",
+        "ntf",
+        "res",
+        "util"
+      ],
+      "unexpected": [],
+      "missing": []
+    },
+    "tools_offered": {
+      "passed": true,
+      "source": "model.jsonl",
+      "mcp_tools": 86,
+      "servers": [
+        "cf",
+        "def",
+        "ntf",
+        "res",
+        "util"
+      ],
+      "foreign_tools": [],
+      "foreign_servers": []
+    },
+    "egress": {
+      "passed": true,
+      "attempts": [
+        {
+          "host": "registry.npmjs.org",
+          "port": 443,
+          "method": "CONNECT",
+          "allowed": "background install of @opencode-ai/plugin into the config dir on start; no documented off switch, and a refusal only logs a warning",
+          "count": 3
+        }
+      ],
+      "not_allowed": []
+    }
+  }
+}

@@ -1,0 +1,1370 @@
+{
+  "schema": "mcp-mirror/report@2",
+  "mcp_server": "python fixtures/tricky_server.py",
+  "mcp_spec_version": "2026-07-28",
+  "mcp_spec_version_evidence": "direct source connection server/discover result",
+  "generated_with": "mcp-mirror/0.1.0",
+  "attestation": "local",
+  "provider_profile": null,
+  "provenance": {
+    "generated_at": "2026-10-09T21:09:35.213637Z",
+    "scanner_version": "0.1.0",
+    "scanner_commit": "4fafc8e4a03b68d724fce8ace778863dabb518f0",
+    "python_version": "3.13.14",
+    "platform": "macOS-26.4.1-arm64-arm-64bit-Mach-O",
+    "runner_digest": "6e857eba931a71be39cb6e6a7098ca1b6973c3761b27cb2640c9cc308bc7eff8"
+  },
+  "scan": {
+    "transport": "stdio",
+    "frameworks": [
+      "google_adk_go"
+    ],
+    "spec_version_assertion": "2026-07-28",
+    "jobs": [],
+    "jtbd": null,
+    "header_names": [],
+    "runner_mode": "managed"
+  },
+  "source_observation": {
+    "stage": "source",
+    "capture_api": "mcp.Client.list_tools",
+    "capture_object": "ListToolsResult.tools",
+    "tools": [
+      {
+        "name": "search_records",
+        "description": "Search records with optional filters. Read-only.",
+        "params": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "Full-text search query."
+            },
+            "status": {
+              "type": "string",
+              "description": "Filter by record status.",
+              "enum": [
+                "active",
+                "archived",
+                "pending",
+                "deleted"
+              ]
+            },
+            "owner_email": {
+              "type": "string",
+              "format": "email",
+              "description": "Restrict to records owned by this email address."
+            },
+            "created_after": {
+              "type": "string",
+              "format": "date-time",
+              "description": "Only records created at or after this RFC 3339 timestamp."
+            },
+            "limit": {
+              "type": "integer",
+              "description": "Maximum number of records to return.",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 20
+            }
+          },
+          "required": [
+            "query"
+          ]
+        },
+        "annotations": {
+          "title": "Search records",
+          "readOnlyHint": true
+        },
+        "icons": [
+          {
+            "src": "https://example.com/icons/search.svg",
+            "mimeType": "image/svg+xml",
+            "sizes": [
+              "any"
+            ]
+          },
+          {
+            "src": "https://example.com/icons/search-32.png",
+            "mimeType": "image/png",
+            "sizes": [
+              "32x32"
+            ]
+          }
+        ],
+        "output_schema": null,
+        "framework_metadata": {},
+        "origin": "source",
+        "raw": {
+          "name": "search_records",
+          "description": "Search records with optional filters. Read-only.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "query": {
+                "type": "string",
+                "description": "Full-text search query."
+              },
+              "status": {
+                "type": "string",
+                "description": "Filter by record status.",
+                "enum": [
+                  "active",
+                  "archived",
+                  "pending",
+                  "deleted"
+                ]
+              },
+              "owner_email": {
+                "type": "string",
+                "format": "email",
+                "description": "Restrict to records owned by this email address."
+              },
+              "created_after": {
+                "type": "string",
+                "format": "date-time",
+                "description": "Only records created at or after this RFC 3339 timestamp."
+              },
+              "limit": {
+                "type": "integer",
+                "description": "Maximum number of records to return.",
+                "minimum": 1,
+                "maximum": 100,
+                "default": 20
+              }
+            },
+            "required": [
+              "query"
+            ]
+          },
+          "annotations": {
+            "title": "Search records",
+            "readOnlyHint": true
+          },
+          "icons": [
+            {
+              "src": "https://example.com/icons/search.svg",
+              "mimeType": "image/svg+xml",
+              "sizes": [
+                "any"
+              ]
+            },
+            {
+              "src": "https://example.com/icons/search-32.png",
+              "mimeType": "image/png",
+              "sizes": [
+                "32x32"
+              ]
+            }
+          ],
+          "outputSchema": null
+        }
+      },
+      {
+        "name": "create_report",
+        "description": "Create a structured report from sections.",
+        "params": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string",
+              "description": "Report title."
+            },
+            "config": {
+              "type": "object",
+              "description": "Rendering configuration.",
+              "properties": {
+                "format": {
+                  "type": "string",
+                  "enum": [
+                    "pdf",
+                    "html",
+                    "csv"
+                  ],
+                  "description": "Output format."
+                },
+                "include_summary": {
+                  "type": "boolean",
+                  "description": "Whether to prepend an executive summary."
+                }
+              },
+              "required": [
+                "format"
+              ]
+            },
+            "sections": {
+              "type": "array",
+              "description": "Ordered report sections.",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "heading": {
+                    "type": "string",
+                    "description": "Section heading."
+                  },
+                  "body": {
+                    "type": "string",
+                    "description": "Section body in markdown."
+                  }
+                },
+                "required": [
+                  "heading"
+                ]
+              }
+            }
+          },
+          "required": [
+            "title",
+            "config"
+          ]
+        },
+        "annotations": {
+          "title": "Create report"
+        },
+        "icons": [],
+        "output_schema": null,
+        "framework_metadata": {},
+        "origin": "source",
+        "raw": {
+          "name": "create_report",
+          "description": "Create a structured report from sections.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string",
+                "description": "Report title."
+              },
+              "config": {
+                "type": "object",
+                "description": "Rendering configuration.",
+                "properties": {
+                  "format": {
+                    "type": "string",
+                    "enum": [
+                      "pdf",
+                      "html",
+                      "csv"
+                    ],
+                    "description": "Output format."
+                  },
+                  "include_summary": {
+                    "type": "boolean",
+                    "description": "Whether to prepend an executive summary."
+                  }
+                },
+                "required": [
+                  "format"
+                ]
+              },
+              "sections": {
+                "type": "array",
+                "description": "Ordered report sections.",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "heading": {
+                      "type": "string",
+                      "description": "Section heading."
+                    },
+                    "body": {
+                      "type": "string",
+                      "description": "Section body in markdown."
+                    }
+                  },
+                  "required": [
+                    "heading"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "title",
+              "config"
+            ]
+          },
+          "annotations": {
+            "title": "Create report"
+          },
+          "icons": [],
+          "outputSchema": null
+        }
+      },
+      {
+        "name": "deliver_payload",
+        "description": "Deliver a payload to a destination.",
+        "params": {
+          "type": "object",
+          "properties": {
+            "destination": {
+              "description": "Where to deliver the payload.",
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "A webhook URL."
+                },
+                {
+                  "type": "object",
+                  "description": "An object-store location.",
+                  "properties": {
+                    "bucket": {
+                      "type": "string"
+                    },
+                    "key": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "bucket",
+                    "key"
+                  ]
+                }
+              ]
+            },
+            "mode": {
+              "description": "Delivery mode.",
+              "oneOf": [
+                {
+                  "const": "sync"
+                },
+                {
+                  "const": "async"
+                }
+              ]
+            }
+          },
+          "required": [
+            "destination"
+          ]
+        },
+        "annotations": {
+          "title": "Deliver payload",
+          "idempotentHint": false
+        },
+        "icons": [],
+        "output_schema": null,
+        "framework_metadata": {},
+        "origin": "source",
+        "raw": {
+          "name": "deliver_payload",
+          "description": "Deliver a payload to a destination.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "destination": {
+                "description": "Where to deliver the payload.",
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "A webhook URL."
+                  },
+                  {
+                    "type": "object",
+                    "description": "An object-store location.",
+                    "properties": {
+                      "bucket": {
+                        "type": "string"
+                      },
+                      "key": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "bucket",
+                      "key"
+                    ]
+                  }
+                ]
+              },
+              "mode": {
+                "description": "Delivery mode.",
+                "oneOf": [
+                  {
+                    "const": "sync"
+                  },
+                  {
+                    "const": "async"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "destination"
+            ]
+          },
+          "annotations": {
+            "title": "Deliver payload",
+            "idempotentHint": false
+          },
+          "icons": [],
+          "outputSchema": null
+        }
+      },
+      {
+        "name": "delete_account",
+        "description": "Permanently deletes a user account and all of its associated data. This action is destructive and irreversible: it cannot be undone, and it requires elevated admin scope (accounts:delete). Use with extreme caution.",
+        "params": {
+          "type": "object",
+          "properties": {
+            "account_id": {
+              "type": "string",
+              "description": "The id of the account to delete."
+            },
+            "confirm": {
+              "type": "boolean",
+              "description": "Must be true to proceed with the deletion."
+            }
+          },
+          "required": [
+            "account_id",
+            "confirm"
+          ]
+        },
+        "annotations": {
+          "title": "Delete account",
+          "readOnlyHint": false,
+          "destructiveHint": true,
+          "idempotentHint": false,
+          "openWorldHint": false
+        },
+        "icons": [],
+        "output_schema": null,
+        "framework_metadata": {},
+        "origin": "source",
+        "raw": {
+          "name": "delete_account",
+          "description": "Permanently deletes a user account and all of its associated data. This action is destructive and irreversible: it cannot be undone, and it requires elevated admin scope (accounts:delete). Use with extreme caution.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "account_id": {
+                "type": "string",
+                "description": "The id of the account to delete."
+              },
+              "confirm": {
+                "type": "boolean",
+                "description": "Must be true to proceed with the deletion."
+              }
+            },
+            "required": [
+              "account_id",
+              "confirm"
+            ]
+          },
+          "annotations": {
+            "title": "Delete account",
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": false
+          },
+          "icons": [],
+          "outputSchema": null
+        }
+      },
+      {
+        "name": "explain_topic",
+        "description": "Explain a topic in depth for a curious reader. This description is deliberately very long (over 1024 characters) so that adapters which truncate tool descriptions to fit a model's function-description limit can be detected by mcp-mirror. It also contains Unicode and special characters to verify they survive the round trip: accented words like caf\u00e9, na\u00efve, r\u00e9sum\u00e9, jalape\u00f1o, and Z\u00fcrich; non-Latin scripts such as \u65e5\u672c\u8a9e (Japanese), \u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac (Greek), and \u041a\u0438\u0440\u0438\u043b\u043b\u0438\u0446\u0430 (Cyrillic); mathematical symbols \u2211 \u222b \u2248 \u2260 \u221e \u2286 \u2295; currency signs \u20ac \u00a3 \u00a5 \u20bf; smart punctuation \u201ccurly quotes\u201d, \u2018single quotes\u2019, an em-dash, an en\u2013dash, and an ellipsis\u2026; plus a few emoji \ud83d\udd10 \ud83d\ude80 \u2705 for good measure. The reader should receive a structured, well-paced explanation that starts from first principles, introduces the key vocabulary, walks through one concrete worked example, names the most common misconceptions, and then points to where to learn more. Keep the tone precise and friendly. Prefer short sentences. Define every term of art the first time it appears, and never assume the reader has seen the topic before. End with a one-paragraph recap that a busy person could read on its own and still come away with the single most important idea. SENTINEL_END_OF_LONG_DESCRIPTION.",
+        "params": {
+          "type": "object",
+          "properties": {
+            "topic": {
+              "type": "string",
+              "description": "The subject to explain (supports Unicode: caf\u00e9, na\u00efve, \u65e5\u672c\u8a9e)."
+            },
+            "max_words": {
+              "type": "integer",
+              "description": "Soft cap on the explanation length.",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "topic"
+          ]
+        },
+        "annotations": {
+          "title": "Explain topic",
+          "readOnlyHint": true
+        },
+        "icons": [],
+        "output_schema": {
+          "type": "object",
+          "description": "Records matching the topic, with a count.",
+          "properties": {
+            "count": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "active",
+                      "archived",
+                      "pending",
+                      "deleted"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "status"
+                ]
+              }
+            },
+            "note": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "count",
+            "records"
+          ]
+        },
+        "framework_metadata": {},
+        "origin": "source",
+        "raw": {
+          "name": "explain_topic",
+          "description": "Explain a topic in depth for a curious reader. This description is deliberately very long (over 1024 characters) so that adapters which truncate tool descriptions to fit a model's function-description limit can be detected by mcp-mirror. It also contains Unicode and special characters to verify they survive the round trip: accented words like caf\u00e9, na\u00efve, r\u00e9sum\u00e9, jalape\u00f1o, and Z\u00fcrich; non-Latin scripts such as \u65e5\u672c\u8a9e (Japanese), \u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac (Greek), and \u041a\u0438\u0440\u0438\u043b\u043b\u0438\u0446\u0430 (Cyrillic); mathematical symbols \u2211 \u222b \u2248 \u2260 \u221e \u2286 \u2295; currency signs \u20ac \u00a3 \u00a5 \u20bf; smart punctuation \u201ccurly quotes\u201d, \u2018single quotes\u2019, an em-dash, an en\u2013dash, and an ellipsis\u2026; plus a few emoji \ud83d\udd10 \ud83d\ude80 \u2705 for good measure. The reader should receive a structured, well-paced explanation that starts from first principles, introduces the key vocabulary, walks through one concrete worked example, names the most common misconceptions, and then points to where to learn more. Keep the tone precise and friendly. Prefer short sentences. Define every term of art the first time it appears, and never assume the reader has seen the topic before. End with a one-paragraph recap that a busy person could read on its own and still come away with the single most important idea. SENTINEL_END_OF_LONG_DESCRIPTION.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "topic": {
+                "type": "string",
+                "description": "The subject to explain (supports Unicode: caf\u00e9, na\u00efve, \u65e5\u672c\u8a9e)."
+              },
+              "max_words": {
+                "type": "integer",
+                "description": "Soft cap on the explanation length.",
+                "minimum": 1
+              }
+            },
+            "required": [
+              "topic"
+            ]
+          },
+          "annotations": {
+            "title": "Explain topic",
+            "readOnlyHint": true
+          },
+          "icons": [],
+          "outputSchema": {
+            "type": "object",
+            "description": "Records matching the topic, with a count.",
+            "properties": {
+              "count": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "records": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "active",
+                        "archived",
+                        "pending",
+                        "deleted"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "status"
+                  ]
+                }
+              },
+              "note": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "count",
+              "records"
+            ]
+          }
+        }
+      }
+    ],
+    "artifact_sha256": "7c6e70a3e5ce6abb4a3787781f6067d4a2b510010c874f4ce5fe9957678d24a8",
+    "artifact": null,
+    "redacted": false,
+    "limitation": null
+  },
+  "tools": [
+    "search_records",
+    "create_report",
+    "deliver_payload",
+    "delete_account",
+    "explain_topic"
+  ],
+  "runs": [
+    {
+      "framework": "google_adk_go",
+      "framework_version": "2.5.0",
+      "adapter_version": "google.golang.org/adk/v2/tool/mcptoolset 2.5.0, github.com/modelcontextprotocol/go-sdk 1.8.0, google.golang.org/genai 1.71.0, go1.27.1",
+      "runner_digest": "5bcaef00abb7650125e44f7d02dbbcf9c0b0a918ad73fadaff919a4778b6cb4d",
+      "status": "measured",
+      "status_detail": null,
+      "evidence": {
+        "capture_api": "google.golang.org/adk/v2 llmagent.New(llmagent.Config{Toolsets: mcptoolset.New(...)}) run by runner.NewInMemory Runner.Run; a scripted model.LLM.GenerateContent receives the LLMRequest",
+        "capture_object": "genai.FunctionDeclaration in LLMRequest.Config.Tools (name, description, parametersJsonSchema, responseJsonSchema)",
+        "capture_stage": "provider_format",
+        "provider_request_captured": false,
+        "negotiated_mcp_spec_version": "2026-07-28",
+        "protocol_version_evidence": "mcp.ClientSession.InitializeResult().ProtocolVersion, read from the session a sending middleware on the *mcp.Client passed as mcptoolset.Config.Client sees",
+        "limitation": "The model is a scripted model.LLM; no genai client serialized the request."
+      },
+      "observations": [
+        {
+          "stage": "provider_format",
+          "capture_api": "google.golang.org/adk/v2 llmagent.New(llmagent.Config{Toolsets: mcptoolset.New(...)}) run by runner.NewInMemory Runner.Run; a scripted model.LLM.GenerateContent receives the LLMRequest",
+          "capture_object": "genai.FunctionDeclaration in LLMRequest.Config.Tools (name, description, parametersJsonSchema, responseJsonSchema)",
+          "tools": [
+            {
+              "name": "search_records",
+              "description": "Search records with optional filters. Read-only.",
+              "params": {
+                "properties": {
+                  "created_after": {
+                    "description": "Only records created at or after this RFC 3339 timestamp.",
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  "limit": {
+                    "default": 20,
+                    "description": "Maximum number of records to return.",
+                    "maximum": 100,
+                    "minimum": 1,
+                    "type": "integer"
+                  },
+                  "owner_email": {
+                    "description": "Restrict to records owned by this email address.",
+                    "format": "email",
+                    "type": "string"
+                  },
+                  "query": {
+                    "description": "Full-text search query.",
+                    "type": "string"
+                  },
+                  "status": {
+                    "description": "Filter by record status.",
+                    "enum": [
+                      "active",
+                      "archived",
+                      "pending",
+                      "deleted"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "query"
+                ],
+                "type": "object"
+              },
+              "annotations": {},
+              "icons": [],
+              "output_schema": null,
+              "framework_metadata": {},
+              "origin": "google_adk_go",
+              "raw": {
+                "description": "Search records with optional filters. Read-only.",
+                "name": "search_records",
+                "parametersJsonSchema": {
+                  "properties": {
+                    "created_after": {
+                      "description": "Only records created at or after this RFC 3339 timestamp.",
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "limit": {
+                      "default": 20,
+                      "description": "Maximum number of records to return.",
+                      "maximum": 100,
+                      "minimum": 1,
+                      "type": "integer"
+                    },
+                    "owner_email": {
+                      "description": "Restrict to records owned by this email address.",
+                      "format": "email",
+                      "type": "string"
+                    },
+                    "query": {
+                      "description": "Full-text search query.",
+                      "type": "string"
+                    },
+                    "status": {
+                      "description": "Filter by record status.",
+                      "enum": [
+                        "active",
+                        "archived",
+                        "pending",
+                        "deleted"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "query"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            {
+              "name": "create_report",
+              "description": "Create a structured report from sections.",
+              "params": {
+                "properties": {
+                  "config": {
+                    "description": "Rendering configuration.",
+                    "properties": {
+                      "format": {
+                        "description": "Output format.",
+                        "enum": [
+                          "pdf",
+                          "html",
+                          "csv"
+                        ],
+                        "type": "string"
+                      },
+                      "include_summary": {
+                        "description": "Whether to prepend an executive summary.",
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "format"
+                    ],
+                    "type": "object"
+                  },
+                  "sections": {
+                    "description": "Ordered report sections.",
+                    "items": {
+                      "properties": {
+                        "body": {
+                          "description": "Section body in markdown.",
+                          "type": "string"
+                        },
+                        "heading": {
+                          "description": "Section heading.",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "heading"
+                      ],
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "title": {
+                    "description": "Report title.",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "title",
+                  "config"
+                ],
+                "type": "object"
+              },
+              "annotations": {},
+              "icons": [],
+              "output_schema": null,
+              "framework_metadata": {},
+              "origin": "google_adk_go",
+              "raw": {
+                "description": "Create a structured report from sections.",
+                "name": "create_report",
+                "parametersJsonSchema": {
+                  "properties": {
+                    "config": {
+                      "description": "Rendering configuration.",
+                      "properties": {
+                        "format": {
+                          "description": "Output format.",
+                          "enum": [
+                            "pdf",
+                            "html",
+                            "csv"
+                          ],
+                          "type": "string"
+                        },
+                        "include_summary": {
+                          "description": "Whether to prepend an executive summary.",
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "format"
+                      ],
+                      "type": "object"
+                    },
+                    "sections": {
+                      "description": "Ordered report sections.",
+                      "items": {
+                        "properties": {
+                          "body": {
+                            "description": "Section body in markdown.",
+                            "type": "string"
+                          },
+                          "heading": {
+                            "description": "Section heading.",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "heading"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "title": {
+                      "description": "Report title.",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "title",
+                    "config"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            {
+              "name": "deliver_payload",
+              "description": "Deliver a payload to a destination.",
+              "params": {
+                "properties": {
+                  "destination": {
+                    "anyOf": [
+                      {
+                        "description": "A webhook URL.",
+                        "format": "uri",
+                        "type": "string"
+                      },
+                      {
+                        "description": "An object-store location.",
+                        "properties": {
+                          "bucket": {
+                            "type": "string"
+                          },
+                          "key": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "bucket",
+                          "key"
+                        ],
+                        "type": "object"
+                      }
+                    ],
+                    "description": "Where to deliver the payload."
+                  },
+                  "mode": {
+                    "description": "Delivery mode.",
+                    "oneOf": [
+                      {
+                        "const": "sync"
+                      },
+                      {
+                        "const": "async"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "destination"
+                ],
+                "type": "object"
+              },
+              "annotations": {},
+              "icons": [],
+              "output_schema": null,
+              "framework_metadata": {},
+              "origin": "google_adk_go",
+              "raw": {
+                "description": "Deliver a payload to a destination.",
+                "name": "deliver_payload",
+                "parametersJsonSchema": {
+                  "properties": {
+                    "destination": {
+                      "anyOf": [
+                        {
+                          "description": "A webhook URL.",
+                          "format": "uri",
+                          "type": "string"
+                        },
+                        {
+                          "description": "An object-store location.",
+                          "properties": {
+                            "bucket": {
+                              "type": "string"
+                            },
+                            "key": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "bucket",
+                            "key"
+                          ],
+                          "type": "object"
+                        }
+                      ],
+                      "description": "Where to deliver the payload."
+                    },
+                    "mode": {
+                      "description": "Delivery mode.",
+                      "oneOf": [
+                        {
+                          "const": "sync"
+                        },
+                        {
+                          "const": "async"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "destination"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            {
+              "name": "delete_account",
+              "description": "Permanently deletes a user account and all of its associated data. This action is destructive and irreversible: it cannot be undone, and it requires elevated admin scope (accounts:delete). Use with extreme caution.",
+              "params": {
+                "properties": {
+                  "account_id": {
+                    "description": "The id of the account to delete.",
+                    "type": "string"
+                  },
+                  "confirm": {
+                    "description": "Must be true to proceed with the deletion.",
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "account_id",
+                  "confirm"
+                ],
+                "type": "object"
+              },
+              "annotations": {},
+              "icons": [],
+              "output_schema": null,
+              "framework_metadata": {},
+              "origin": "google_adk_go",
+              "raw": {
+                "description": "Permanently deletes a user account and all of its associated data. This action is destructive and irreversible: it cannot be undone, and it requires elevated admin scope (accounts:delete). Use with extreme caution.",
+                "name": "delete_account",
+                "parametersJsonSchema": {
+                  "properties": {
+                    "account_id": {
+                      "description": "The id of the account to delete.",
+                      "type": "string"
+                    },
+                    "confirm": {
+                      "description": "Must be true to proceed with the deletion.",
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "account_id",
+                    "confirm"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            {
+              "name": "explain_topic",
+              "description": "Explain a topic in depth for a curious reader. This description is deliberately very long (over 1024 characters) so that adapters which truncate tool descriptions to fit a model's function-description limit can be detected by mcp-mirror. It also contains Unicode and special characters to verify they survive the round trip: accented words like caf\u00e9, na\u00efve, r\u00e9sum\u00e9, jalape\u00f1o, and Z\u00fcrich; non-Latin scripts such as \u65e5\u672c\u8a9e (Japanese), \u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac (Greek), and \u041a\u0438\u0440\u0438\u043b\u043b\u0438\u0446\u0430 (Cyrillic); mathematical symbols \u2211 \u222b \u2248 \u2260 \u221e \u2286 \u2295; currency signs \u20ac \u00a3 \u00a5 \u20bf; smart punctuation \u201ccurly quotes\u201d, \u2018single quotes\u2019, an em-dash, an en\u2013dash, and an ellipsis\u2026; plus a few emoji \ud83d\udd10 \ud83d\ude80 \u2705 for good measure. The reader should receive a structured, well-paced explanation that starts from first principles, introduces the key vocabulary, walks through one concrete worked example, names the most common misconceptions, and then points to where to learn more. Keep the tone precise and friendly. Prefer short sentences. Define every term of art the first time it appears, and never assume the reader has seen the topic before. End with a one-paragraph recap that a busy person could read on its own and still come away with the single most important idea. SENTINEL_END_OF_LONG_DESCRIPTION.",
+              "params": {
+                "properties": {
+                  "max_words": {
+                    "description": "Soft cap on the explanation length.",
+                    "minimum": 1,
+                    "type": "integer"
+                  },
+                  "topic": {
+                    "description": "The subject to explain (supports Unicode: caf\u00e9, na\u00efve, \u65e5\u672c\u8a9e).",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "topic"
+                ],
+                "type": "object"
+              },
+              "annotations": {},
+              "icons": [],
+              "output_schema": {
+                "description": "Records matching the topic, with a count.",
+                "properties": {
+                  "count": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "note": {
+                    "type": "string"
+                  },
+                  "records": {
+                    "items": {
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "enum": [
+                            "active",
+                            "archived",
+                            "pending",
+                            "deleted"
+                          ],
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "status"
+                      ],
+                      "type": "object"
+                    },
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "count",
+                  "records"
+                ],
+                "type": "object"
+              },
+              "framework_metadata": {},
+              "origin": "google_adk_go",
+              "raw": {
+                "description": "Explain a topic in depth for a curious reader. This description is deliberately very long (over 1024 characters) so that adapters which truncate tool descriptions to fit a model's function-description limit can be detected by mcp-mirror. It also contains Unicode and special characters to verify they survive the round trip: accented words like caf\u00e9, na\u00efve, r\u00e9sum\u00e9, jalape\u00f1o, and Z\u00fcrich; non-Latin scripts such as \u65e5\u672c\u8a9e (Japanese), \u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac (Greek), and \u041a\u0438\u0440\u0438\u043b\u043b\u0438\u0446\u0430 (Cyrillic); mathematical symbols \u2211 \u222b \u2248 \u2260 \u221e \u2286 \u2295; currency signs \u20ac \u00a3 \u00a5 \u20bf; smart punctuation \u201ccurly quotes\u201d, \u2018single quotes\u2019, an em-dash, an en\u2013dash, and an ellipsis\u2026; plus a few emoji \ud83d\udd10 \ud83d\ude80 \u2705 for good measure. The reader should receive a structured, well-paced explanation that starts from first principles, introduces the key vocabulary, walks through one concrete worked example, names the most common misconceptions, and then points to where to learn more. Keep the tone precise and friendly. Prefer short sentences. Define every term of art the first time it appears, and never assume the reader has seen the topic before. End with a one-paragraph recap that a busy person could read on its own and still come away with the single most important idea. SENTINEL_END_OF_LONG_DESCRIPTION.",
+                "name": "explain_topic",
+                "parametersJsonSchema": {
+                  "properties": {
+                    "max_words": {
+                      "description": "Soft cap on the explanation length.",
+                      "minimum": 1,
+                      "type": "integer"
+                    },
+                    "topic": {
+                      "description": "The subject to explain (supports Unicode: caf\u00e9, na\u00efve, \u65e5\u672c\u8a9e).",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "topic"
+                  ],
+                  "type": "object"
+                },
+                "responseJsonSchema": {
+                  "description": "Records matching the topic, with a count.",
+                  "properties": {
+                    "count": {
+                      "minimum": 0,
+                      "type": "integer"
+                    },
+                    "note": {
+                      "type": "string"
+                    },
+                    "records": {
+                      "items": {
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "enum": [
+                              "active",
+                              "archived",
+                              "pending",
+                              "deleted"
+                            ],
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "status"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "count",
+                    "records"
+                  ],
+                  "type": "object"
+                }
+              }
+            }
+          ],
+          "artifact_sha256": "af9fb8580b2d42ea08e47bb07b035f9847cc3f05f402f99d12ef2b6e47e9be4a",
+          "artifact": null,
+          "redacted": false,
+          "limitation": "The model is a scripted model.LLM; no genai client serialized the request."
+        }
+      ],
+      "differences": [
+        {
+          "tool": "search_records",
+          "framework": "google_adk_go",
+          "path": "annotations.title",
+          "category": "lossy",
+          "dimension": "annotation",
+          "detail": "annotation 'title' destroyed (not retained by the framework)",
+          "source_value": "Search records",
+          "rendered_value": null
+        },
+        {
+          "tool": "search_records",
+          "framework": "google_adk_go",
+          "path": "annotations.readOnlyHint",
+          "category": "lossy",
+          "dimension": "annotation",
+          "detail": "annotation 'readOnlyHint' (authorization-relevant) destroyed (not retained by the framework)",
+          "source_value": true,
+          "rendered_value": null
+        },
+        {
+          "tool": "search_records",
+          "framework": "google_adk_go",
+          "path": "icons",
+          "category": "lossy",
+          "dimension": "icons",
+          "detail": "icons destroyed (not retained by the framework)",
+          "source_value": [
+            {
+              "src": "https://example.com/icons/search.svg",
+              "mimeType": "image/svg+xml",
+              "sizes": [
+                "any"
+              ]
+            },
+            {
+              "src": "https://example.com/icons/search-32.png",
+              "mimeType": "image/png",
+              "sizes": [
+                "32x32"
+              ]
+            }
+          ],
+          "rendered_value": null
+        },
+        {
+          "tool": "create_report",
+          "framework": "google_adk_go",
+          "path": "annotations.title",
+          "category": "lossy",
+          "dimension": "annotation",
+          "detail": "annotation 'title' destroyed (not retained by the framework)",
+          "source_value": "Create report",
+          "rendered_value": null
+        },
+        {
+          "tool": "deliver_payload",
+          "framework": "google_adk_go",
+          "path": "annotations.title",
+          "category": "lossy",
+          "dimension": "annotation",
+          "detail": "annotation 'title' destroyed (not retained by the framework)",
+          "source_value": "Deliver payload",
+          "rendered_value": null
+        },
+        {
+          "tool": "deliver_payload",
+          "framework": "google_adk_go",
+          "path": "annotations.idempotentHint",
+          "category": "lossy",
+          "dimension": "annotation",
+          "detail": "annotation 'idempotentHint' (authorization-relevant) destroyed (not retained by the framework)",
+          "source_value": false,
+          "rendered_value": null
+        },
+        {
+          "tool": "delete_account",
+          "framework": "google_adk_go",
+          "path": "annotations.title",
+          "category": "lossy",
+          "dimension": "annotation",
+          "detail": "annotation 'title' destroyed (not retained by the framework)",
+          "source_value": "Delete account",
+          "rendered_value": null
+        },
+        {
+          "tool": "delete_account",
+          "framework": "google_adk_go",
+          "path": "annotations.readOnlyHint",
+          "category": "lossy",
+          "dimension": "annotation",
+          "detail": "annotation 'readOnlyHint' (authorization-relevant) destroyed (not retained by the framework)",
+          "source_value": false,
+          "rendered_value": null
+        },
+        {
+          "tool": "delete_account",
+          "framework": "google_adk_go",
+          "path": "annotations.destructiveHint",
+          "category": "lossy",
+          "dimension": "annotation",
+          "detail": "annotation 'destructiveHint' (authorization-relevant) destroyed (not retained by the framework)",
+          "source_value": true,
+          "rendered_value": null
+        },
+        {
+          "tool": "delete_account",
+          "framework": "google_adk_go",
+          "path": "annotations.idempotentHint",
+          "category": "lossy",
+          "dimension": "annotation",
+          "detail": "annotation 'idempotentHint' (authorization-relevant) destroyed (not retained by the framework)",
+          "source_value": false,
+          "rendered_value": null
+        },
+        {
+          "tool": "delete_account",
+          "framework": "google_adk_go",
+          "path": "annotations.openWorldHint",
+          "category": "lossy",
+          "dimension": "annotation",
+          "detail": "annotation 'openWorldHint' (authorization-relevant) destroyed (not retained by the framework)",
+          "source_value": false,
+          "rendered_value": null
+        },
+        {
+          "tool": "explain_topic",
+          "framework": "google_adk_go",
+          "path": "annotations.title",
+          "category": "lossy",
+          "dimension": "annotation",
+          "detail": "annotation 'title' destroyed (not retained by the framework)",
+          "source_value": "Explain topic",
+          "rendered_value": null
+        },
+        {
+          "tool": "explain_topic",
+          "framework": "google_adk_go",
+          "path": "annotations.readOnlyHint",
+          "category": "lossy",
+          "dimension": "annotation",
+          "detail": "annotation 'readOnlyHint' (authorization-relevant) destroyed (not retained by the framework)",
+          "source_value": true,
+          "rendered_value": null
+        }
+      ]
+    }
+  ],
+  "job_findings": [],
+  "scorecard": {
+    "jobs": [
+      {
+        "id": "J1",
+        "label": "identity",
+        "title": "When a tool is adapted, its name and full description remain in the captured definition so downstream consumers retain its identity and the author's intent."
+      },
+      {
+        "id": "J2",
+        "label": "params",
+        "title": "When a tool is adapted, its parameter contract (types, required, enums, formats) remains intact at the capture boundary."
+      },
+      {
+        "id": "J3",
+        "label": "struct",
+        "title": "When a tool takes nested or structured input, that structure survives adaptation so complex calls do not silently degrade."
+      },
+      {
+        "id": "J4",
+        "label": "inject",
+        "title": "At the capture boundary, a tool carries nothing the author did not write, so framework-injected text and phantom tools stay visible as changes."
+      },
+      {
+        "id": "J5",
+        "label": "authz",
+        "title": "When a tool is adapted, structured danger and scope signals remain at the declared capture boundary or in explicit retained metadata."
+      }
+    ],
+    "frameworks": {
+      "google_adk_go": {
+        "framework_version": "2.5.0",
+        "adapter_version": "google.golang.org/adk/v2/tool/mcptoolset 2.5.0, github.com/modelcontextprotocol/go-sdk 1.8.0, google.golang.org/genai 1.71.0, go1.27.1",
+        "status": "measured",
+        "status_detail": null,
+        "jobs": {
+          "J1": {
+            "verdict": "faithful",
+            "count": 0,
+            "details": []
+          },
+          "J2": {
+            "verdict": "faithful",
+            "count": 0,
+            "details": []
+          },
+          "J3": {
+            "verdict": "faithful",
+            "count": 0,
+            "details": []
+          },
+          "J4": {
+            "verdict": "faithful",
+            "count": 0,
+            "details": []
+          },
+          "J5": {
+            "verdict": "lossy",
+            "count": 7,
+            "details": [
+              "annotation 'readOnlyHint' (authorization-relevant) destroyed (not retained by the framework)",
+              "annotation 'idempotentHint' (authorization-relevant) destroyed (not retained by the framework)",
+              "annotation 'readOnlyHint' (authorization-relevant) destroyed (not retained by the framework)",
+              "annotation 'destructiveHint' (authorization-relevant) destroyed (not retained by the framework)",
+              "annotation 'idempotentHint' (authorization-relevant) destroyed (not retained by the framework)",
+              "annotation 'openWorldHint' (authorization-relevant) destroyed (not retained by the framework)",
+              "annotation 'readOnlyHint' (authorization-relevant) destroyed (not retained by the framework)"
+            ]
+          }
+        },
+        "total_differences": 13,
+        "authz_flags": [
+          "search_records: annotation 'readOnlyHint' (authorization-relevant) destroyed (not retained by the framework)",
+          "deliver_payload: annotation 'idempotentHint' (authorization-relevant) destroyed (not retained by the framework)",
+          "delete_account: annotation 'readOnlyHint' (authorization-relevant) destroyed (not retained by the framework)",
+          "delete_account: annotation 'destructiveHint' (authorization-relevant) destroyed (not retained by the framework)",
+          "delete_account: annotation 'idempotentHint' (authorization-relevant) destroyed (not retained by the framework)",
+          "delete_account: annotation 'openWorldHint' (authorization-relevant) destroyed (not retained by the framework)",
+          "explain_topic: annotation 'readOnlyHint' (authorization-relevant) destroyed (not retained by the framework)"
+        ]
+      }
+    }
+  }
+}

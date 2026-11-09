@@ -1,0 +1,33 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "additional-properties",
+  "title": "`additionalProperties`",
+  "description": "Controls whether an object accepts keys that are not declared in its properties map.",
+  "question": "Is each object's additional-properties policy preserved at the capture boundary?",
+  "spec": "https://json-schema.org/draft/2020-12/json-schema-validation",
+  "status": "stable",
+  "categories": [
+    "Parameter contract",
+    "Structure"
+  ],
+  "keywords": "additionalProperties,additional properties,unknown keys,closed object,object schema",
+  "usage_perc_y": null,
+  "usage_perc_a": null,
+  "usage_note": "Not published. Candidate source: count of public MCP tool schemas declaring additionalProperties.",
+  "links": [
+    {
+      "url": "https://json-schema.org/understanding-json-schema/reference/object#additionalproperties",
+      "title": "JSON Schema Docs"
+    }
+  ],
+  "known_issues": [
+    "Two framework adapters could not be measured against 2026-07-28, so missing evidence is not a support result."
+  ],
+  "why": "Object openness is part of the parameter contract. Changing it can alter which calls validate before they reach the server.",
+  "shown": true,
+  "docs_url": "https://json-schema.org/understanding-json-schema/reference/object#additionalproperties",
+  "docs_label": "JSON Schema Docs",
+  "notes": {
+    "vercel_ai": "Vercel AI SDK (@ai-sdk/mcp 2.0.73): toolsFromDefinitions wraps each inputSchema as jsonSchema({...inputSchema, properties: inputSchema.properties ?? {}, additionalProperties: false}), so every tool's root object is closed to undeclared keys although the server set no policy there. Nested objects keep the server's policy."
+  }
+}

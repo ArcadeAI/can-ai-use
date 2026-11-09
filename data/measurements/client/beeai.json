@@ -1,0 +1,107 @@
+{
+  "schema": "mcp-mirror/client-probe@1",
+  "captured_at": "2026-10-01T08:11:45Z",
+  "fixture": "fixtures/client_features_server.py",
+  "fixture_python": "<checkout>/.mcp-mirror/fixture-2025-11-25/bin/python",
+  "spec_version": "2025-11-25",
+  "frameworks": {
+    "beeai": {
+      "ok": true,
+      "versions": {
+        "framework": "0.1.85",
+        "adapter": "0.1.85"
+      },
+      "negotiated_mcp_spec_version": "2025-11-25",
+      "client_probe": {
+        "sampling": {
+          "tool": "ask_sampling",
+          "hook": "ClientSession(sampling_callback=...) on a caller-built mcp.ClientSession handed to MCPTool.from_client, which BeeAI uses as given",
+          "route": "underlying",
+          "expect": "SENTINEL_SAMPLED",
+          "text": "{\"answered\": \"ask_sampling\", \"response\": {\"content\": {\"text\": \"SENTINEL_SAMPLED\", \"type\": \"text\"}, \"model\": \"mcp-mirror-stub\", \"role\": \"assistant\", \"stopReason\": \"endTurn\"}}",
+          "is_error": null,
+          "handler_saw": [
+            {
+              "hook": "sampling_callback",
+              "tools": false,
+              "replied": "endTurn"
+            }
+          ]
+        },
+        "sampling.tools": {
+          "tool": "ask_sampling_tools",
+          "hook": "ClientSession(sampling_callback=..., sampling_capabilities=...) on a caller-built mcp.ClientSession handed to MCPTool.from_client, which BeeAI uses as given",
+          "route": "underlying",
+          "expect": "SENTINEL_SAMPLED_AFTER_TOOL",
+          "text": "{\"answered\": \"ask_sampling_tools\", \"response\": {\"rounds\": [{\"content\": [{\"id\": \"SENTINEL_TOOL_USE_ID\", \"input\": {\"word\": \"mirror\"}, \"name\": \"sentinel_lookup\", \"type\": \"tool_use\"}], \"model\": \"mcp-mirror-stub\", \"role\": \"assistant\", \"stopReason\": \"toolUse\"}, {\"content\": {\"text\": \"SENTINEL_SAMPLED_AFTER_TOOL\", \"type\": \"text\"}, \"model\": \"mcp-mirror-stub\", \"role\": \"assistant\", \"stopReason\": \"endTurn\"}]}}",
+          "is_error": null,
+          "handler_saw": [
+            {
+              "hook": "sampling_callback",
+              "tools": true,
+              "replied": "toolUse"
+            },
+            {
+              "hook": "sampling_callback",
+              "tools": true,
+              "replied": "endTurn"
+            }
+          ]
+        },
+        "elicitation.form": {
+          "tool": "ask_elicitation_form",
+          "hook": "ClientSession(elicitation_callback=...) on a caller-built mcp.ClientSession handed to MCPTool.from_client, which BeeAI uses as given",
+          "route": "underlying",
+          "expect": "SENTINEL_ELICITED",
+          "text": "{\"answered\": \"ask_elicitation_form\", \"response\": {\"action\": \"accept\", \"content\": {\"name\": \"SENTINEL_ELICITED\"}}}",
+          "is_error": null,
+          "handler_saw": [
+            {
+              "hook": "elicitation_callback",
+              "mode": "form"
+            }
+          ]
+        },
+        "elicitation.url": {
+          "tool": "ask_elicitation_url",
+          "hook": "ClientSession(elicitation_callback=...) on a caller-built mcp.ClientSession handed to MCPTool.from_client, which BeeAI uses as given",
+          "route": "underlying",
+          "expect": "\"action\": \"accept\"",
+          "text": "{\"answered\": \"ask_elicitation_url\", \"response\": {\"action\": \"accept\"}}",
+          "is_error": null,
+          "handler_saw": [
+            {
+              "hook": "elicitation_callback",
+              "mode": "url"
+            }
+          ]
+        },
+        "roots.list": {
+          "tool": "list_client_roots",
+          "hook": "ClientSession(list_roots_callback=...) on a caller-built mcp.ClientSession handed to MCPTool.from_client, which BeeAI uses as given",
+          "route": "underlying",
+          "expect": "file:///tmp/mcp-mirror-root",
+          "text": "{\"answered\": \"list_client_roots\", \"response\": {\"roots\": [{\"name\": \"mcp-mirror\", \"uri\": \"file:///tmp/mcp-mirror-root\"}]}}",
+          "is_error": null,
+          "handler_saw": [
+            {
+              "hook": "list_roots_callback"
+            }
+          ]
+        },
+        "roots.list_changed": {
+          "tool": "roots_changes_seen",
+          "hook": "ClientSession(list_roots_callback=...).send_roots_list_changed() on a caller-built mcp.ClientSession handed to MCPTool.from_client, which BeeAI uses as given",
+          "route": "underlying",
+          "expect": "SENTINEL_ROOTS_CHANGES_SEEN",
+          "text": "{\"seen\": 1}",
+          "is_error": null,
+          "handler_saw": []
+        },
+        "capabilities": {
+          "text": "{\"elicitation\": {\"form\": {}, \"url\": {}}, \"roots\": {\"listChanged\": true}, \"sampling\": {\"tools\": {}}}"
+        }
+      }
+    }
+  }
+}

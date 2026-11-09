@@ -1,0 +1,626 @@
+{
+  "schema": "mcp-mirror/harnesses@1",
+  "updated": "2026-10-16",
+  "_shape": "Frameworks-shaped, for harnesses measured on the wire. Rows are written by scripts/measure_harness.py from plan/inventory.yaml and the version the binary reports; cells are derived by cells.py from measurements/wire/<harness>/session.json. Never merged with the framework table.",
+  "support_codes": {
+    "y": "yes: the answer to the row's question in every judged run (for a which or how-many row: the value was observed)",
+    "a": "yes in some runs or on some servers, not all",
+    "n": "no, in every judged run; the word in the cell says what happened instead",
+    "u": "not measured; the note says why"
+  },
+  "vocabulary": [
+    "requested",
+    "negotiated",
+    "never called",
+    "blocked by prompt"
+  ],
+  "agents": {
+    "claude_code": {
+      "name": "Claude Code",
+      "abbr": "Claude Code",
+      "vendor": "Anthropic",
+      "type": "harness",
+      "tier": 1,
+      "install": "npm i -g @anthropic-ai/claude-code",
+      "registry": "npm",
+      "package": "@anthropic-ai/claude-code",
+      "headless": "claude -p \"<prompt>\" --output-format stream-json --verbose --bare --max-turns 3",
+      "mcp_config": "--mcp-config <file> --strict-mcp-config (also ~/.claude.json, .mcp.json)",
+      "unattended": "--allowedTools mcp__<server>__* or --permission-mode bypassPermissions",
+      "capture": "measurements/wire/claude_code/session.json",
+      "measurement_status": "measured",
+      "current_version": "2.1.296",
+      "stable_version": "2.1.303",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "2.1.296",
+          "era": 0,
+          "release_date": "2026-10-09T16:58:10Z"
+        },
+        {
+          "version": "2.1.299",
+          "release_date": "2026-10-14T00:23:19Z",
+          "era": 1
+        },
+        {
+          "version": "2.1.300",
+          "release_date": "2026-10-14T14:27:26Z",
+          "era": 2
+        },
+        {
+          "version": "2.1.301",
+          "release_date": "2026-10-15T14:34:23Z",
+          "era": 3
+        },
+        {
+          "version": "2.1.302",
+          "release_date": "2026-10-16T16:48:28Z",
+          "era": 4
+        },
+        {
+          "version": "2.1.303",
+          "release_date": "2026-10-18T21:15:23Z",
+          "era": 5
+        }
+      ]
+    },
+    "cursor_agent": {
+      "name": "Cursor agent CLI",
+      "abbr": "Cursor agent CLI",
+      "vendor": "Anysphere",
+      "type": "harness",
+      "tier": 1,
+      "install": "curl https://cursor.com/install -fsS | bash",
+      "headless": "agent -p \"<prompt>\" --output-format stream-json",
+      "mcp_config": ".cursor/mcp.json (shared with the IDE)",
+      "unattended": "--force --approve-mcps (the API key comes from CURSOR_API_KEY)",
+      "capture": "measurements/wire-live/cursor_agent/session.json",
+      "measurement_status": "measured",
+      "measured_live": true,
+      "live_service": "Cursor",
+      "model": "Auto Balance, routed to Claude Opus 5.5, routed to GPT-5.6 Sol, routed to Grok 4.7",
+      "current_version": "2026.10.12-d47ca18",
+      "stable_version": "2026.10.12-d47ca18",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "2026.10.12-d47ca18",
+          "era": 0,
+          "release_date": null
+        }
+      ],
+      "cell_notes": {
+        "h-transport-stdio": "every session ran with AGENT_CLI_CREDENTIAL_STORE=memory, a switch read in the bundle's src/utils/credential-store.ts at build 2026.10.12 and not in the docs or --help; it keeps the key out of the keychain, where the CLI's default store persists it at every start",
+        "h-transport-streamable-http": "every session ran with AGENT_CLI_CREDENTIAL_STORE=memory, a switch read in the bundle's src/utils/credential-store.ts at build 2026.10.12 and not in the docs or --help; it keeps the key out of the keychain, where the CLI's default store persists it at every start",
+        "h-lists-tools-at-startup": "headless Cursor starts no project MCP server without --approve-mcps: the level-1 default session, run with no switch, opened 0 of 5 fixtures, so every level-1 cell reads the stdio-unattended, http-unattended and slow-start-unattended sessions (--force --approve-mcps) and level 2's default mode runs with --approve-mcps alone, which keeps the tool-call approval at its documented default"
+      }
+    },
+    "kiro_cli": {
+      "name": "Kiro CLI",
+      "abbr": "Kiro CLI",
+      "vendor": "AWS",
+      "type": "harness",
+      "tier": 1,
+      "install": "see kiro.dev/docs/cli",
+      "headless": "kiro-cli chat --no-interactive \"<prompt>\" --output-format stream-json --trust-all-tools --require-mcp-startup",
+      "mcp_config": ".kiro/settings/mcp.json or kiro-cli mcp add",
+      "unattended": "--trust-all-tools; ask treated as deny in headless",
+      "capture": "measurements/wire/kiro_cli/session.json",
+      "measurement_status": "measured",
+      "current_version": "2.26.0",
+      "stable_version": "2.26.0",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "2.26.0",
+          "era": 0,
+          "release_date": null
+        }
+      ]
+    },
+    "continue_cli": {
+      "name": "Continue CLI",
+      "abbr": "Continue CLI",
+      "vendor": "Continue Dev",
+      "type": "harness",
+      "tier": 1,
+      "install": "npm i -g @continuedev/cli",
+      "registry": "npm",
+      "package": "@continuedev/cli",
+      "headless": "cn -p \"<prompt>\" --format json --auto",
+      "mcp_config": "config.yaml mcpServers via --config",
+      "unattended": "--auto",
+      "capture": "measurements/wire/continue_cli/session.json",
+      "measurement_status": "measured",
+      "current_version": "1.5.47",
+      "stable_version": "1.5.47",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "1.5.47",
+          "era": 0,
+          "release_date": "2026-06-18T21:40:36Z"
+        }
+      ],
+      "cell_notes": {
+        "h-destructive-blocked-by-default": "measured headless (cn -p). Headless cn allows every MCP tool ({tool: \"*\", permission: \"allow\"} in src/permissions/defaultPolicies.ts); the TUI asks instead, which this run does not measure.",
+        "h-expands-prompt": "measured headless (cn -p). Slash commands, and so prompts/get, are handled only in the TUI (src/ui/hooks/useChat.ts); -p passes a slash command to the model as text. The TUI path is not measured here."
+      }
+    },
+    "pi_cli": {
+      "name": "Pi",
+      "abbr": "Pi",
+      "vendor": "earendil-works",
+      "type": "harness",
+      "tier": 1,
+      "install": "npm i -g @earendil-works/pi-coding-agent",
+      "registry": "npm",
+      "package": "@earendil-works/pi-coding-agent",
+      "headless": "pi --mode json -p \"<prompt>\" --no-session",
+      "mcp_config": ".pi/mcp.json or pi mcp add",
+      "unattended": "",
+      "capture": "measurements/wire/pi_cli/session.json",
+      "measurement_status": "measured",
+      "current_version": "1.2.0",
+      "stable_version": "1.3.0",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "1.2.0",
+          "era": 0,
+          "release_date": "2026-10-12T23:03:25Z"
+        },
+        {
+          "version": "1.3.0",
+          "release_date": "2026-10-15T19:13:30Z",
+          "era": 1
+        }
+      ],
+      "cell_notes": {
+        "h-lists-resources-at-startup": "changed from y at 0.99.1. Since 1.2.0 Pi no longer lists resources when a server connects: /mcp and `pi mcp list` show that a server offers resources instead of counting them (CHANGELOG 1.2.0, https://github.com/earendil-works/pi/issues/10526). Resources are still reachable through the resource tools (h-reads-resource).",
+        "h-startup-timeout": "level 1 held the stub's reply 10 s, which matches Pi's documented first-prompt wait (\"waits up to 10 seconds\", docs/mcp.md \"Startup\" in the package). Since 0.99.2 that wait covers only servers with `direct` tools; codemode servers connect in the background (https://github.com/earendil-works/pi/issues/10212). With the stub answering at once the turn ended about 1 s in, before any server had answered initialize; at 5 s it ended before util, held 8 s, answered. So Pi no longer blocks the first prompt on a slow codemode server, and lists it once it connects.",
+        "h-reads-resource": "the Pi resource script in plan/harness_sessions.yaml names the server first (`await describeNamespace('mcp__def')`) before calling `tools.read_mcp_resource`, exactly as docs/mcp.md \"Startup\" describes: \"a codemode script waits for the servers it names (`mcp__<server>`)\". Pi's script only. Since 1.2.0 the resource tools are registered only once a server with resources has connected, and the call 0.1 s into the turn without that line fails with \"tools.read_mcp_resource does not exist\" (0/3 at 1.2.0 with the 0.99.1 script)."
+      }
+    },
+    "gemini_cli": {
+      "name": "Gemini CLI",
+      "abbr": "Gemini CLI",
+      "vendor": "Google",
+      "type": "harness",
+      "tier": 1,
+      "install": "npm i -g @google/gemini-cli",
+      "registry": "npm",
+      "package": "@google/gemini-cli",
+      "headless": "gemini -p \"<prompt>\" --output-format stream-json --approval-mode yolo",
+      "mcp_config": "~/.gemini/settings.json mcpServers or gemini mcp add",
+      "unattended": "--approval-mode yolo (trusted folder), --allowed-mcp-server-names",
+      "capture": "measurements/wire/gemini_cli/session.json",
+      "measurement_status": "measured",
+      "current_version": "0.63.0",
+      "stable_version": "0.64.0",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "0.63.0",
+          "era": 0,
+          "release_date": "2026-10-06T20:58:43Z"
+        },
+        {
+          "version": "0.64.0",
+          "release_date": "2026-10-13T20:48:24Z",
+          "era": 1
+        }
+      ],
+      "cell_notes": {
+        "h-tools-offered-to-model": "measured headless in default approval mode. Non-interactive Gemini CLI withholds any tool that would ask, so no MCP tool reaches the model (https://geminicli.com/docs/reference/policy-engine); with --approval-mode yolo all 46 that reached the registry are offered, which is every fixture tool but util's unfetched pages (level2-*-read_only-unattended-*/model.jsonl). Interactive mode asks instead of withholding, which this run does not measure.",
+        "h-destructive-blocked-by-default": "measured headless in default approval mode, where the tool is withheld from the model rather than held at a prompt (https://geminicli.com/docs/reference/policy-engine). Interactive mode prompts, which this run does not measure.",
+        "h-read-only-runs-without-prompt": "measured headless in default approval mode, where search_records is withheld from the model despite readOnlyHint (https://geminicli.com/docs/reference/policy-engine). Interactive mode prompts, which this run does not measure."
+      },
+      "lifecycle": {
+        "status": "transitioning",
+        "since": "2026-05-19",
+        "note": "Google is moving Gemini CLI users to Antigravity CLI; since June 18, 2026 Gemini CLI serves Code Assist Standard and Enterprise users.",
+        "source": "https://github.com/google-gemini/gemini-cli/discussions/27274"
+      }
+    },
+    "opencode": {
+      "name": "OpenCode",
+      "abbr": "OpenCode",
+      "vendor": "sst",
+      "type": "harness",
+      "tier": 1,
+      "install": "npm i -g opencode-ai",
+      "registry": "npm",
+      "package": "opencode-ai",
+      "headless": "opencode run \"<prompt>\" --format json --auto",
+      "mcp_config": "opencode.json mcp (write the file; mcp add is interactive)",
+      "unattended": "--auto",
+      "capture": "measurements/wire/opencode/session.json",
+      "measurement_status": "measured",
+      "current_version": "1.19.0",
+      "stable_version": "1.19.3",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "1.19.0",
+          "era": 0,
+          "release_date": "2026-10-11T01:38:53Z"
+        },
+        {
+          "version": "1.19.1",
+          "release_date": "2026-10-15T19:20:16Z",
+          "era": 1
+        },
+        {
+          "version": "1.19.2",
+          "release_date": "2026-10-16T02:29:31Z",
+          "era": 2
+        },
+        {
+          "version": "1.19.3",
+          "release_date": "2026-10-16T12:32:00Z",
+          "era": 3
+        }
+      ],
+      "cell_notes": {
+        "h-expands-prompt": "prompts/get is issued, but with the literal template placeholders {\"status\": \"$1\", \"tone\": \"$2\"} instead of the user's arguments, which OpenCode substitutes after the server returns (https://github.com/anomalyco/opencode/issues/33564). A server that branches on an argument sees $1; still so at 1.19.0 although the issue was closed on 2026-10-01."
+      }
+    },
+    "goose": {
+      "name": "Goose",
+      "abbr": "Goose",
+      "vendor": "Agentic AI Foundation",
+      "type": "harness",
+      "tier": 1,
+      "install": "brew install goose (or the install script)",
+      "registry": "github",
+      "package": "aaif-goose/goose",
+      "headless": "goose run -t \"<prompt>\" --output-format stream-json --no-session --with-extension \"<cmd>\"",
+      "mcp_config": "--with-extension <cmd> / --with-streamable-http-extension <url>",
+      "unattended": "GOOSE_MODE=auto is the default",
+      "capture": "measurements/wire/goose/session.json",
+      "measurement_status": "measured",
+      "current_version": "1.54.0",
+      "stable_version": "1.55.0",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "1.54.0",
+          "era": 0,
+          "release_date": "2026-10-08T18:44:54Z"
+        },
+        {
+          "version": "1.55.0",
+          "release_date": "2026-10-16T16:58:21Z",
+          "era": 1
+        }
+      ],
+      "cell_notes": {
+        "h-answers-elicitation": "measured headless (goose run). With no interactive terminal Goose cancels the elicitation and exits: session.json stderr_tail of the level2-2025-11-25-elicit sessions reads \"Error: Elicitation requested but no interactive terminal is available to collect user input\" (https://github.com/aaif-goose/goose/issues/11194). Interactive Goose supports form-mode elicitation (https://goose-docs.ai/docs/guides/mcp-elicitation), which this run does not measure.",
+        "h-answers-sampling": "correct for the measured release, 1.52.0. Sampling support was removed on Goose main in https://github.com/aaif-goose/goose/pull/12193 (merged 2026-09-22), so this cell is expected to change with the first release after it; re-measure then."
+      }
+    },
+    "cline_cli": {
+      "name": "Cline CLI",
+      "abbr": "Cline CLI",
+      "vendor": "Cline Bot Inc.",
+      "type": "harness",
+      "tier": 1,
+      "install": "npm i -g cline",
+      "registry": "npm",
+      "package": "cline",
+      "headless": "cline --json \"<prompt>\"",
+      "mcp_config": "<CLINE_DATA_DIR or ~/.cline/data>/settings/cline_mcp_settings.json",
+      "unattended": "--auto-approve true (already the default)",
+      "capture": "measurements/wire/cline_cli/session.json",
+      "measurement_status": "measured",
+      "current_version": "3.0.71",
+      "stable_version": "3.0.73",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "3.0.71",
+          "era": 0,
+          "release_date": "2026-10-13T08:57:00Z"
+        },
+        {
+          "version": "3.0.72",
+          "release_date": "2026-10-16T05:36:37Z",
+          "era": 1
+        },
+        {
+          "version": "3.0.73",
+          "release_date": "2026-10-17T03:59:46Z",
+          "era": 2
+        }
+      ]
+    },
+    "codex": {
+      "name": "Codex CLI",
+      "abbr": "Codex CLI",
+      "vendor": "OpenAI",
+      "type": "harness",
+      "tier": 1,
+      "install": "npm i -g @openai/codex",
+      "registry": "npm",
+      "package": "@openai/codex",
+      "headless": "codex exec \"<prompt>\" --json -o <file> -a never -s workspace-write",
+      "mcp_config": "~/.codex/config.toml [mcp_servers.<name>] or codex mcp add",
+      "unattended": "-a never; default_tools_approval_mode",
+      "capture": "measurements/wire/codex/session.json",
+      "measurement_status": "measured",
+      "current_version": "0.162.1",
+      "stable_version": "0.163.0",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "0.162.1",
+          "era": 0,
+          "release_date": "2026-10-09T19:50:30Z"
+        },
+        {
+          "version": "0.163.0",
+          "release_date": "2026-10-15T21:37:11Z",
+          "era": 1
+        }
+      ],
+      "cell_notes": {
+        "h-startup-timeout": "measured with Codex's default mcp_optional_startup_grace_ms, 1000 ms: a server that has not answered by then is left out of the first tool catalog (https://learn.chatgpt.com/docs/config-file/config-reference). Level 2 sets 30000 and util's tools are then offered (level2-*-slow-*/model.jsonl).",
+        "h-follows-pagination": "0.159.2 stopped after the first tools/list page; 0.162.0 started following nextCursor in legacy protocol mode (openai/codex#50035), so this cell and h-tool-count-limit moved with the 0.162.1 re-measure (level1-*-stdio/util.jsonl seq 6, 9, 11).",
+        "h-lists-resources-at-startup": "Codex lists resources only when the model calls its built-in list_mcp_resources or list_mcp_resource_templates tool; read_mcp_resource reads a URI without a prior list (level2-*-resource-*/def.jsonl: resources/read with no resources/list).",
+        "h-tools-offered-to-model": "the 4 changed schemas lose JSON Schema keywords: format, minimum, maximum and default are dropped, and oneOf of const values becomes enum (def/search_records, def/explain_topic, def/deliver_payload, util/cancellable_wait; level2-*/model.jsonl fixture_tools against def.jsonl tools/list).",
+        "h-calls-read-only-tool": "the call is sent and answered, but Codex 0.162.1 still fails the result with \"Unexpected response type\" because search_records returns a text block with audience and priority annotations; any result carrying that block fails the same way (res/annotated_content, res/mixed_content), and unannotated blocks of every type pass (level2-*-read_only-*/harness.jsonl).",
+        "h-destructive-blocked-by-default": "measured headless: codex exec's default approval policy is never, so a call that needs approval fails with \"MCP tool call requires approval, but approval policy is never\" instead of prompting. Interactive Codex prompts, which this run does not measure (level2-*-destructive-*/harness.jsonl)."
+      }
+    },
+    "crush": {
+      "name": "Charm Crush",
+      "abbr": "Charm Crush",
+      "vendor": "Charmbracelet",
+      "type": "harness",
+      "tier": 2,
+      "install": "brew install charmbracelet/tap/crush",
+      "registry": "github",
+      "package": "charmbracelet/crush",
+      "headless": "crush run \"<prompt>\" --yolo -q",
+      "mcp_config": ".crushrc mcp add <name> --type stdio --command <cmd>",
+      "unattended": "",
+      "capture": "measurements/wire/crush/session.json",
+      "measurement_status": "measured",
+      "current_version": "0.98.1",
+      "stable_version": "0.98.1",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "0.98.1",
+          "era": 0,
+          "release_date": "2026-10-09T12:16:09Z"
+        }
+      ],
+      "cell_notes": {
+        "h-destructive-blocked-by-default": "measured headless (crush run), which approves every permission request of its own session (RunNonInteractive calls AutoApproveSession, https://github.com/charmbracelet/crush/blob/v0.98.1/internal/app/app.go) and has no flag to ask instead; --yolo exists only on the root command. The TUI asks for permission, which this run does not measure.",
+        "h-expands-prompt": "measured headless (crush run). MCP prompts are commands in Crush's TUI (https://github.com/charmbracelet/crush/blob/v0.98.1/internal/commands/commands.go); crush run sends its text to the model as is, so prompts/get is never reached. The TUI path is not measured here.",
+        "h-relist-next-turn": "measured headless (crush run), which builds its tool palette once per run (\"Non-interactive runs get a single shot at the tool palette\", https://github.com/charmbracelet/crush/blob/v0.98.1/internal/agent/coordinator.go). The TUI refreshes tools on list_changed, which this run does not measure.",
+        "h-tools-offered-to-model": "the 41 changed schemas differ only by an added \"required\": [] where the server omitted required: Crush rebuilds each input schema from properties and required alone (Tool.Info, https://github.com/charmbracelet/crush/blob/v0.98.1/internal/agent/tools/mcp-tools.go), so any other top-level keyword would be dropped (level1-*-stdio/model.jsonl fixture_tools against tools/list)."
+      }
+    },
+    "qwen_code": {
+      "name": "Qwen Code",
+      "abbr": "Qwen Code",
+      "vendor": "QwenLM",
+      "type": "harness",
+      "tier": 2,
+      "install": "npm i -g @qwen-code/qwen-code",
+      "registry": "npm",
+      "package": "@qwen-code/qwen-code",
+      "headless": "qwen -p \"<prompt>\" --output-format stream-json --approval-mode yolo",
+      "mcp_config": "~/.qwen/settings.json mcpServers or qwen mcp add",
+      "unattended": "",
+      "capture": "measurements/wire/qwen_code/session.json",
+      "measurement_status": "measured",
+      "current_version": "0.25.1",
+      "stable_version": "0.25.3",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "0.25.1",
+          "era": 0,
+          "release_date": "2026-10-11T10:29:32Z"
+        },
+        {
+          "version": "0.25.2",
+          "release_date": "2026-10-15T15:46:50Z",
+          "era": 1
+        },
+        {
+          "version": "0.25.3",
+          "release_date": "2026-10-19T06:14:11Z",
+          "era": 2
+        }
+      ],
+      "cell_notes": {
+        "h-reacts-to-list-changed": "the headless process exits 0.25 to 0.52 s after fixture ntf sends notifications/tools/list_changed, so a re-list deferred past that could not be seen. In that window no second tools/list is sent, 6/6 (level2-*-relist-*/ntf.jsonl, notification at seq 14, capture end at seq 16).",
+        "h-tools-offered-to-model": "Qwen Code defers MCP tools by default (tools.toolSearch.enabled, default true): none is declared to the model, which looks one up with the built-in tool_search (\"select:<name>\") and invokes it through tool_call (level1-*-stdio/model.jsonl request 1 offers both and no fixture tool). Every level-2 call in this capture goes through that pair.",
+        "h-destructive-blocked-by-default": "measured headless with --approval-mode default, pinned because the flagless start mode is auto, whose LLM classifier a stub cannot answer (the exception to \"default means shipped default\" in plan/harness_sessions.yaml). Headless, a call that needs approval is declined with \"non-interactive mode cannot prompt for confirmation\" and listed in permission_denials. Interactive mode prompts, which this run does not measure (level2-*-destructive-[123]/harness.jsonl).",
+        "h-read-only-runs-without-prompt": "measured headless with --approval-mode default (pinned as for h-destructive-blocked-by-default). search_records carries readOnlyHint: true and is declined exactly like delete_account (level2-*-read_only-[123]/harness.jsonl permission_denied).",
+        "h-reads-resource": "the built-in read_mcp_resource needs approval in default mode and is declined headless (level2-*-resource-*/harness.jsonl permission_denied); no resources/read reaches def. Qwen Code's documented user-side route, @server:uri in the prompt, is not exercised by this session.",
+        "h-relist-next-turn": "after add_tool fires list_changed, the model's next tool_search for SENTINEL_ADDED_TOOL returns \"1 missing\" and tool_call refuses it as not registered (level2-*-relist-*/harness.jsonl), 6/6.",
+        "h-lists-resources-at-startup": "resources/list is sent at startup in 6/6 level-1 sessions; resources/templates/list is sent in none (level1-*/def.jsonl).",
+        "h-answers-elicitation": "the client declares no elicitation capability and answers the fixture's elicitation/create with -32601 Method not found (level2-*-elicit-*/cf.jsonl seq 15), 6/6.",
+        "h-answers-sampling": "the client declares no sampling capability and answers the fixture's sampling/createMessage with -32601 Method not found (level2-*-sampling-*/cf.jsonl seq 15), 6/6."
+      }
+    },
+    "kilo": {
+      "name": "Kilo CLI",
+      "abbr": "Kilo CLI",
+      "vendor": "Kilo-Org",
+      "type": "harness",
+      "tier": 2,
+      "install": "npm i -g @kilocode/cli",
+      "registry": "npm",
+      "package": "@kilocode/cli",
+      "headless": "kilo run --auto \"<prompt>\" --format json",
+      "mcp_config": "kilo.jsonc mcp or kilo mcp add",
+      "unattended": "",
+      "capture": "measurements/wire/kilo/session.json",
+      "measurement_status": "measured",
+      "current_version": "7.8.8",
+      "stable_version": "7.8.14",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "7.8.8",
+          "era": 0,
+          "release_date": "2026-10-07T11:02:05Z"
+        },
+        {
+          "version": "7.8.9",
+          "release_date": "2026-10-13T00:18:16Z",
+          "era": 1
+        },
+        {
+          "version": "7.8.10",
+          "release_date": "2026-10-14T22:00:55Z",
+          "era": 2
+        },
+        {
+          "version": "7.8.12",
+          "release_date": "2026-10-15T09:11:11Z",
+          "era": 3
+        },
+        {
+          "version": "7.8.13",
+          "release_date": "2026-10-16T18:52:52Z",
+          "era": 4
+        },
+        {
+          "version": "7.8.14",
+          "release_date": "2026-10-16T21:14:37Z",
+          "era": 5
+        }
+      ],
+      "cell_notes": {
+        "h-lists-prompts-at-startup": "Kilo fetches prompts on demand, not at startup: the prompt session shows prompts/list on def just before prompts/get, when kilo run --command builds its command list (level2-*-prompt-*/def.jsonl). n means not at startup, not unsupported.",
+        "h-lists-resources-at-startup": "Kilo lists no resources at startup; its built-in list_mcp_resources and read_mcp_resource tools fetch them when the model calls them (https://kilo.ai/docs/automate/mcp/using-in-kilo-code). read_mcp_resource reads a URI without a prior list (level2-*-resource-*/def.jsonl).",
+        "h-tools-offered-to-model": "the schema change only adds keys: every input schema gains \"additionalProperties\": false, and \"properties\": {} where it has none. Descriptions are unchanged, and no annotation reaches the model (level1-*-stdio/model.jsonl).",
+        "h-destructive-blocked-by-default": "measured headless (kilo run without --auto). Kilo's docs say a non-interactive run auto-rejects any permission request (https://kilo.ai/docs/code-with-ai/platforms/cli), but no request was raised: delete_account (destructiveHint: true) reached the server with no permission event in 6/6 runs (level2-*-destructive-[123]/harness.jsonl). The approval prompt the MCP docs describe (https://kilo.ai/docs/automate/mcp/using-in-kilo-code) is not raised for MCP tools under kilo run's default config.",
+        "h-expands-prompt": "prompts/get is issued, but with the literal template placeholders {\"status\": \"$1\", \"tone\": \"$2\"} instead of the user's arguments in 6/6 runs, the behaviour Kilo inherits from OpenCode (https://github.com/anomalyco/opencode/issues/33564). A server that branches on an argument sees $1.",
+        "h-answers-elicitation": "Kilo declares only roots and answers elicitation/create with -32601 Method not found on both lines; it requests 2025-11-25 on both, so MRTR is not exercised (level2-*-elicit-*/cf.jsonl).",
+        "h-answers-sampling": "Kilo declares only roots and answers sampling/createMessage with -32601 Method not found on both lines; it requests 2025-11-25 on both, so MRTR is not exercised (level2-*-sampling-*/cf.jsonl).",
+        "h-tolerates-progress": "the five progress notifications arrive and the result reaches the model; about 0.1 s after the response Kilo sends notifications/cancelled for the answered request (reason \"AbortError: The operation was aborted.\") in 6/6 runs (level2-*-slow-*/util.jsonl). The cancel is harmless here."
+      }
+    },
+    "openhands": {
+      "name": "OpenHands",
+      "abbr": "OpenHands",
+      "vendor": "OpenHands",
+      "type": "harness",
+      "tier": 2,
+      "install": "pip install openhands",
+      "registry": "pypi",
+      "package": "openhands",
+      "headless": "openhands --headless --json -t \"<prompt>\"",
+      "mcp_config": "~/.openhands/mcp.json or openhands mcp add",
+      "unattended": "headless forces always-approve",
+      "capture": "measurements/wire/openhands/session.json",
+      "measurement_status": "measured",
+      "current_version": "1.16.0",
+      "stable_version": "1.16.0",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "1.16.0",
+          "era": 0,
+          "release_date": "2026-05-08T15:48:33Z"
+        }
+      ],
+      "cell_notes": {
+        "h-destructive-blocked-by-default": "measured headless (openhands --headless). \"Headless mode always runs in always-approve mode\" and that cannot be changed (https://docs.openhands.dev/openhands/usage/cli/headless), so default and unattended are the same state; security_risk HIGH changes nothing there. The interactive CLI confirms actions, which this run does not measure.",
+        "h-tools-offered-to-model": "every schema gains a required security_risk and a summary property, readOnlyHint tools included: with mcp 2.2.0 the SDK reads annotations back as defaults (openhands/sdk/mcp/tool.py MCPToolDefinition.create). The schemas also lose enum, format, minimum, maximum and default, nested object properties (def/create_report config) and anyOf/oneOf (def/deliver_payload destination) (level1-*-stdio/model.jsonl fixture_tools against def.jsonl tools/list).",
+        "h-answers-elicitation": "OpenHands declares the elicitation capability and then answers elicitation/create with -32603 \"Elicitation not supported\" (level2-2025-11-25-elicit-*/cf.jsonl); that text is the mcp library's default callback (mcp/client/session.py), so no handler stands behind the declared capability.",
+        "h-answers-sampling": "OpenHands declares the sampling capability and then answers sampling/createMessage with -32603 \"Sampling not supported\" (level2-2025-11-25-sampling-*/cf.jsonl); that text is the mcp library's default callback (mcp/client/session.py), so no handler stands behind the declared capability."
+      }
+    },
+    "deepseek_harness": {
+      "name": "DeepSeek Harness",
+      "abbr": "DeepSeek Harness",
+      "vendor": "DeepSeek AI",
+      "type": "harness",
+      "tier": 2,
+      "install": "see github.com/deepseek-ai/deepseek-harness (developer preview)",
+      "headless": "dsh --profile headless \"<prompt>\" --json",
+      "mcp_config": "cordis.yml, one @deepseek-ai/dsh-mcp-client entry per server",
+      "unattended": "",
+      "capture": "measurements/wire/deepseek_harness/session.json",
+      "measurement_status": "measured",
+      "current_version": "0.2.0-rc.2",
+      "stable_version": "0.2.0-rc.2",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "0.2.0-rc.2",
+          "era": 0,
+          "release_date": null
+        }
+      ],
+      "cell_notes": {
+        "h-lists-prompts-at-startup": "no prompts/list in 6/6 level-1 sessions (level1-*/def.jsonl). \"MCP prompt templates are unsupported\" (dsh-mcp-client README, https://github.com/deepseek-ai/deepseek-harness/tree/dsh-v0.2.0-rc.2/packages/mcp/mcp-client).",
+        "h-lists-resources-at-startup": "no resources/list or resources/templates/list in 6/6 level-1 sessions (level1-*/res.jsonl). Resources are read on demand through the shipped mcp-resources tools the model calls (dsh-mcp-client README, \"Resources are read on demand\"); that path needs a model-driven call, which level 2 would measure and does not here.",
+        "h-reacts-to-list-changed": "u because ntf fires notifications/tools/list_changed only after a tool call, and level 1 makes none. On 2026-07-28 dsh does open subscriptions/listen on ntf and gets notifications/subscriptions/acknowledged (level1-2026-07-28-*/ntf.jsonl), and its docs say a list change queues a re-sync (dsh-mcp-client README, \"Lifecycle and sync\"); neither is a measured reaction.",
+        "h-calls-read-only-tool": "level 2 not measured: dsh 0.2.0-rc.2 documents no switch that approves held tool calls headless. The headless profile mounts no approval answerer, so an ask resolves unavailable and fails closed, and DSH_PERMISSION_MODE=danger-full-access pins the policy to never, which rejects every request (https://github.com/deepseek-ai/deepseek-harness/tree/dsh-v0.2.0-rc.2, dsh-user-approval README; scripts/harnesses/deepseek_harness.py, mode_args).",
+        "h-destructive-blocked-by-default": "level 2 not measured: dsh 0.2.0-rc.2 documents no switch that approves held tool calls headless. The headless profile mounts no approval answerer, so an ask resolves unavailable and fails closed, and DSH_PERMISSION_MODE=danger-full-access pins the policy to never, which rejects every request (https://github.com/deepseek-ai/deepseek-harness/tree/dsh-v0.2.0-rc.2, dsh-user-approval README; scripts/harnesses/deepseek_harness.py, mode_args).",
+        "h-read-only-runs-without-prompt": "level 2 not measured: dsh 0.2.0-rc.2 documents no switch that approves held tool calls headless. The headless profile mounts no approval answerer, so an ask resolves unavailable and fails closed, and DSH_PERMISSION_MODE=danger-full-access pins the policy to never, which rejects every request (https://github.com/deepseek-ai/deepseek-harness/tree/dsh-v0.2.0-rc.2, dsh-user-approval README; scripts/harnesses/deepseek_harness.py, mode_args).",
+        "h-destructive-runs-unattended": "level 2 not measured: dsh 0.2.0-rc.2 documents no switch that approves held tool calls headless. The headless profile mounts no approval answerer, so an ask resolves unavailable and fails closed, and DSH_PERMISSION_MODE=danger-full-access pins the policy to never, which rejects every request (https://github.com/deepseek-ai/deepseek-harness/tree/dsh-v0.2.0-rc.2, dsh-user-approval README; scripts/harnesses/deepseek_harness.py, mode_args).",
+        "h-reads-resource": "level 2 not measured: dsh 0.2.0-rc.2 documents no switch that approves held tool calls headless. The headless profile mounts no approval answerer, so an ask resolves unavailable and fails closed, and DSH_PERMISSION_MODE=danger-full-access pins the policy to never, which rejects every request (https://github.com/deepseek-ai/deepseek-harness/tree/dsh-v0.2.0-rc.2, dsh-user-approval README; scripts/harnesses/deepseek_harness.py, mode_args).",
+        "h-answers-elicitation": "level 2 not measured: dsh 0.2.0-rc.2 documents no switch that approves held tool calls headless. The headless profile mounts no approval answerer, so an ask resolves unavailable and fails closed, and DSH_PERMISSION_MODE=danger-full-access pins the policy to never, which rejects every request (https://github.com/deepseek-ai/deepseek-harness/tree/dsh-v0.2.0-rc.2, dsh-user-approval README; scripts/harnesses/deepseek_harness.py, mode_args).",
+        "h-answers-sampling": "level 2 not measured: dsh 0.2.0-rc.2 documents no switch that approves held tool calls headless. The headless profile mounts no approval answerer, so an ask resolves unavailable and fails closed, and DSH_PERMISSION_MODE=danger-full-access pins the policy to never, which rejects every request (https://github.com/deepseek-ai/deepseek-harness/tree/dsh-v0.2.0-rc.2, dsh-user-approval README; scripts/harnesses/deepseek_harness.py, mode_args).",
+        "h-tolerates-progress": "level 2 not measured: dsh 0.2.0-rc.2 documents no switch that approves held tool calls headless. The headless profile mounts no approval answerer, so an ask resolves unavailable and fails closed, and DSH_PERMISSION_MODE=danger-full-access pins the policy to never, which rejects every request (https://github.com/deepseek-ai/deepseek-harness/tree/dsh-v0.2.0-rc.2, dsh-user-approval README; scripts/harnesses/deepseek_harness.py, mode_args).",
+        "h-relist-next-turn": "level 2 not measured: dsh 0.2.0-rc.2 documents no switch that approves held tool calls headless. The headless profile mounts no approval answerer, so an ask resolves unavailable and fails closed, and DSH_PERMISSION_MODE=danger-full-access pins the policy to never, which rejects every request (https://github.com/deepseek-ai/deepseek-harness/tree/dsh-v0.2.0-rc.2, dsh-user-approval README; scripts/harnesses/deepseek_harness.py, mode_args).",
+        "h-error-surfaced": "level 2 not measured: dsh 0.2.0-rc.2 documents no switch that approves held tool calls headless. The headless profile mounts no approval answerer, so an ask resolves unavailable and fails closed, and DSH_PERMISSION_MODE=danger-full-access pins the policy to never, which rejects every request (https://github.com/deepseek-ai/deepseek-harness/tree/dsh-v0.2.0-rc.2, dsh-user-approval README; scripts/harnesses/deepseek_harness.py, mode_args).",
+        "h-expands-prompt": "level 2 not measured: dsh 0.2.0-rc.2 documents no switch that approves held tool calls headless. The headless profile mounts no approval answerer, so an ask resolves unavailable and fails closed, and DSH_PERMISSION_MODE=danger-full-access pins the policy to never, which rejects every request (https://github.com/deepseek-ai/deepseek-harness/tree/dsh-v0.2.0-rc.2, dsh-user-approval README; scripts/harnesses/deepseek_harness.py, mode_args). Prompt templates are unsupported in any case (dsh-mcp-client README)."
+      }
+    },
+    "roo_cli": {
+      "name": "Roo Code CLI",
+      "abbr": "Roo Code CLI",
+      "vendor": "Roo Code Inc.",
+      "type": "harness",
+      "tier": 2,
+      "install": "see RooCodeInc/Roo-Code apps/cli",
+      "headless": "roo -p \"<prompt>\" --output-format json --oneshot",
+      "mcp_config": ".roo/mcp.json (CLI source unstated)",
+      "unattended": "",
+      "capture": "measurements/wire/roo_cli/session.json",
+      "measurement_status": "measured",
+      "current_version": "0.1.17",
+      "stable_version": "0.1.17",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "0.1.17",
+          "era": 0,
+          "release_date": null
+        }
+      ],
+      "cell_notes": {
+        "h-lists-prompts-at-startup": "Roo never sends prompts/list, at startup or later, in any of the 72 sessions. McpHub fetches only tools, resources and resource templates (fetchToolsList, fetchResourcesList and fetchResourceTemplatesList in src/services/mcp/McpHub.ts); the SDK's listPrompts is never called (level1-*/def.jsonl).",
+        "h-follows-pagination": "Roo sends one tools/list with no cursor and ignores nextCursor (fetchToolsList), so util's first page of 20 is all the model sees and 40 of its 60 tools are never offered (level1-*/util.jsonl).",
+        "h-reacts-to-list-changed": "ntf sends notifications/tools/list_changed after add_tool, and Roo registers no handler for it: ntf is listed once, at startup, in 6/6 runs (level2-*-relist-*/ntf.jsonl).",
+        "h-tools-offered-to-model": "46/46 listed tools are offered as mcp--<server>--<tool> with descriptions unchanged; every schema gains \"additionalProperties\": false, format is dropped inside anyOf (deliver_payload's \"format\": \"uri\"), and no annotation reaches the model (level2-*-read_only-unattended-*/model.jsonl).",
+        "h-read-only-runs-without-prompt": "measured headless (roo -p, no --require-approval). Roo auto-approves an MCP tool only if it is in its server's alwaysAllow list (https://docs.roocode.com/features/mcp/using-mcp-in-roo), whatever its annotations, so read-only search_records is held like delete_account. In print mode the CLI never answers the ask, and the run hangs until it is killed at 300 s, in 6/6 runs (level2-*-read_only-[123]/harness.jsonl).",
+        "h-expands-prompt": "Roo has no MCP prompt surface: it never lists prompts and no command or tool expands one, so no prompts/get reached def in 6/6 runs (level2-*-prompt-*/def.jsonl).",
+        "h-answers-elicitation": "Roo declares no client capabilities and answers elicitation/create with -32601 Method not found on both lines; it requests 2025-03-26 on both (level2-*-elicit-*/cf.jsonl).",
+        "h-answers-sampling": "Roo declares no client capabilities and answers sampling/createMessage with -32601 Method not found on both lines (level2-*-sampling-*/cf.jsonl).",
+        "h-relist-next-turn": "Roo never re-lists ntf after notifications/tools/list_changed, so SENTINEL_ADDED_TOOL is never offered in 6/6 runs; the session then runs to its 300 s timeout (level2-*-relist-*/model.jsonl)."
+      },
+      "lifecycle": {
+        "status": "discontinued",
+        "since": "2026-05-15",
+        "note": "Roo Code was shut down on May 15, 2026 and its repository is archived. This measurement is of its last CLI release.",
+        "source": "https://github.com/RooCodeInc/Roo-Code"
+      }
+    }
+  },
+  "feedback_url": null
+}

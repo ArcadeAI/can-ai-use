@@ -1,0 +1,5 @@
+{"format": "mcp-mirror.harness-output/1"}
+{"event": "tool_use", "tool": "cf_ask_elicitation_form", "input": {}}
+{"event": "tool_result", "is_error": true, "text": "SENTINEL_CLIENT_FEATURE_UNAVAILABLE ask_elicitation_form: McpError: Method not found"}
+{"event": "text", "text": "done"}
+{"event": "result", "subtype": "stop", "is_error": false, "num_turns": 2, "text": "done"}

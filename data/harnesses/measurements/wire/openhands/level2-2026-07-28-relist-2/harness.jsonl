@@ -1,0 +1,5 @@
+{"format": "mcp-mirror.harness-output/1"}
+{"event": "tool_use", "tool": "ntf_add_tool", "input": {"security_risk": "LOW"}}
+{"event": "tool_result", "is_error": false, "text": "[Tool 'ntf_add_tool' executed.] SENTINEL_MUTATED add_tool: published to subscriptions/listen"}
+{"event": "text", "text": "ntf SENTINEL_ADDED_TOOL is not among the tools offered"}
+{"event": "result", "subtype": "success", "is_error": false, "num_turns": 2, "text": "ntf SENTINEL_ADDED_TOOL is not among the tools offered"}

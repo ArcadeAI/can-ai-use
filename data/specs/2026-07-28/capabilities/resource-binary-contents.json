@@ -1,0 +1,32 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "resource-binary-contents",
+  "title": "`blob` contents",
+  "description": "The base64 `blob` form of resource contents, used for anything that is not text.",
+  "question": "Can the agent read a binary resource without corrupting it?",
+  "spec": "https://modelcontextprotocol.io/specification/2026-07-28",
+  "status": "stable",
+  "categories": [
+    "Resources"
+  ],
+  "keywords": "blob,binary,base64,resource contents,mimeType",
+  "usage_perc_y": null,
+  "usage_perc_a": null,
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/server/resources#binary-content",
+      "title": "MCP Docs"
+    }
+  ],
+  "known_issues": [],
+  "why": "Text and binary contents are different fields, not different encodings of one field. A framework that assumes `text` either drops binary resources or turns them into mojibake, and both failures look like a successful read.",
+  "shown": true,
+  "docs_url": "https://modelcontextprotocol.io/specification/2026-07-28/server/resources#binary-content",
+  "docs_label": "MCP Docs",
+  "notes": {
+    "agno": "Agno 3.1.2: `MCPTools` lists and calls tools only; it has no resource or prompt API, so no resource contents, text or binary, reach the agent.",
+    "dspy": "DSPy 3.4.0: DSPy's MCP support is `dspy.Tool.from_mcp_tool`, which converts one tool. It has no resource or prompt API, so resources and prompts stay on the caller's MCP session.",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): `mcptoolset.Toolset` exposes only `Tools()`, and the `*mcp.ClientSession` it opens stays inside its unexported `connectionRefresher`, so the caller has no session to call `ReadResource` on."
+  }
+}

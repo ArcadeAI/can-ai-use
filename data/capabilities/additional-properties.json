@@ -1,0 +1,38 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "additional-properties",
+  "title": "`additionalProperties`",
+  "description": "Controls whether an object accepts keys that are not declared in its properties map.",
+  "question": "Is each object's additional-properties policy preserved at the capture boundary?",
+  "spec": "https://json-schema.org/draft/2020-12/json-schema-validation",
+  "status": "stable",
+  "categories": [
+    "Parameter contract",
+    "Structure"
+  ],
+  "keywords": "additionalProperties,additional properties,unknown keys,closed object,object schema",
+  "usage_perc_y": null,
+  "usage_perc_a": null,
+  "usage_note": "Not published. Candidate source: count of public MCP tool schemas declaring additionalProperties.",
+  "links": [
+    {
+      "url": "https://json-schema.org/understanding-json-schema/reference/object#additionalproperties",
+      "title": "JSON Schema Docs"
+    }
+  ],
+  "known_issues": [
+    "A changed policy can make a downstream caller reject valid extension keys or send keys the server rejects."
+  ],
+  "why": "Object openness is part of the parameter contract. Changing it can alter which calls validate before they reach the server.",
+  "shown": true,
+  "docs_url": "https://json-schema.org/understanding-json-schema/reference/object#additionalproperties",
+  "docs_label": "JSON Schema Docs",
+  "notes": {
+    "crewai": "CrewAI: Pydantic model generation rewrites additionalProperties on several object boundaries, changing whether undeclared keys are accepted.",
+    "vercel_ai": "Vercel AI SDK (@ai-sdk/mcp 2.0.73): toolsFromDefinitions wraps each inputSchema as jsonSchema({...inputSchema, properties: inputSchema.properties ?? {}, additionalProperties: false}), so every tool's root object is closed to undeclared keys although the server set no policy there. Nested objects keep the server's policy.",
+    "autogen": "AutoGen 0.7.5: `McpWorkbench.list_tools` rebuilds each schema as `ParametersSchema(properties, required, additionalProperties)` and defaults `additionalProperties` to `false` when the server omits it, so every tool gains a top-level `additionalProperties: false`.",
+    "beeai": "BeeAI Framework 0.1.85: the ChatModel default `use_strict_tool_schema=True` runs `to_strict_json_schema` on the rebuilt input model, which adds `additionalProperties: false` to every object, including `create_report`, its `config` and each `sections` item, where the server set nothing.",
+    "crewai-native": "CrewAI 1.15.26, native `crewai.mcp` client (`Agent(mcps=[...])`, not the `crewai_tools.MCPServerAdapter` row): `convert_tools_to_openai_schema` emits the strict OpenAI function schema from the Pydantic `args_schema`, which sets `additionalProperties: false` on every object, including the ones the source left open."
+  },
+  "summary": "A framework that regenerates the input schema from its own model class can change additionalProperties on the root and nested object schemas."
+}

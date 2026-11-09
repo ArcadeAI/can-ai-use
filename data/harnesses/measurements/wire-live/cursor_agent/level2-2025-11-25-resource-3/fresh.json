@@ -1,0 +1,237 @@
+{
+  "format": "mcp-mirror.harness-fresh/1",
+  "passed": true,
+  "checks": {
+    "home": {
+      "passed": true,
+      "isolated": [
+        "CLAUDE_CONFIG_DIR",
+        "CODEX_HOME",
+        "GEMINI_CLI_HOME",
+        "HOME",
+        "XDG_CACHE_HOME",
+        "XDG_CONFIG_HOME",
+        "XDG_DATA_HOME",
+        "XDG_STATE_HOME"
+      ],
+      "copied": [],
+      "refused": []
+    },
+    "load": {
+      "passed": true,
+      "fixture_initialize_seconds": 0.54,
+      "limit_seconds": 2.0,
+      "load_1m_per_core": 1.58,
+      "cores": 10,
+      "waited_seconds": 0.0
+    },
+    "servers_listed": {
+      "passed": true,
+      "status": "listed",
+      "expected": [
+        "cf",
+        "def",
+        "ntf",
+        "res",
+        "util"
+      ],
+      "listed": [
+        "cf",
+        "def",
+        "ntf",
+        "res",
+        "util"
+      ],
+      "unexpected": [],
+      "missing": []
+    },
+    "sandbox": {
+      "passed": true,
+      "route": "sandbox-exec",
+      "profile_sha256": "53d7df375068fc56bb9bc5a9d79184abc8c40fcbc7373ae292f3e3ccbfa75a60",
+      "profile": "LIVE_SANDBOX_PROFILE in scripts/measure_harness.py, hashed before the paths go in",
+      "read": [
+        "fixtures",
+        "src",
+        ".venv",
+        "~/.local/share/uv/python/cpython-3.13.14-macos-aarch64-none",
+        ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18"
+      ],
+      "write": [
+        "<session home>",
+        "data/harnesses/measurements/wire-live/cursor_agent/level2-2025-11-25-resource-3"
+      ],
+      "exec": [
+        ".venv",
+        "~/.local/share/uv/python/cpython-3.13.14-macos-aarch64-none",
+        ".mcp-mirror/harnesses/cursor_agent/2026.10.12-d47ca18",
+        "<session home>"
+      ],
+      "root_names_only": ".",
+      "system": [
+        "/usr",
+        "/bin",
+        "/sbin",
+        "/System",
+        "/Library",
+        "/private/etc",
+        "/dev",
+        "/private/var/db",
+        "/private/var/select",
+        "/private/var/run"
+      ],
+      "system_exec": [
+        "/usr/bin",
+        "/usr/sbin",
+        "/usr/lib",
+        "/usr/libexec",
+        "/bin",
+        "/sbin",
+        "/System"
+      ],
+      "desktop_exec_denied": [
+        "/usr/bin/open",
+        "/usr/bin/osascript",
+        "/usr/bin/security",
+        "/usr/bin/pbcopy",
+        "/usr/bin/pbpaste",
+        "/usr/bin/defaults",
+        "/usr/sbin/screencapture"
+      ],
+      "unix_sockets": "<session home>",
+      "mach_lookup_allowed": [],
+      "appleevent_send": "denied",
+      "user_preferences": "denied",
+      "loopback_ports": [
+        50495
+      ],
+      "signals": "<session processes>",
+      "process_info": "<session processes>",
+      "probe": {
+        "read_outside": "EPERM",
+        "list_outside": "EPERM",
+        "write_outside": "EPERM",
+        "exec_outside": "EPERM",
+        "read_inside": "read",
+        "write_inside": "written",
+        "tcp_outside": "EPERM",
+        "tcp_sink": "connected",
+        "tcp_other_local": "EPERM",
+        "unix_outside": "EPERM",
+        "signal_outside": "EPERM",
+        "signal_child": "killed",
+        "argv_outside": "denied",
+        "argv_self": "read",
+        "pidinfo_outside": "denied",
+        "pidinfo_self": "read",
+        "unix_inside": "connected",
+        "exec_open": "EPERM",
+        "exec_osascript": "EPERM",
+        "exec_security": "EPERM",
+        "exec_pbcopy": "EPERM",
+        "exec_pbpaste": "EPERM",
+        "exec_defaults": "EPERM",
+        "exec_screencapture": "EPERM",
+        "mach_pasteboard": "denied",
+        "prefs_read": "denied"
+      },
+      "expected": {
+        "read_outside": "EPERM",
+        "list_outside": "EPERM",
+        "write_outside": "EPERM",
+        "exec_outside": "EPERM",
+        "read_inside": "read",
+        "write_inside": "written",
+        "tcp_outside": "EPERM",
+        "tcp_sink": "connected",
+        "tcp_other_local": "EPERM",
+        "unix_outside": "EPERM",
+        "unix_inside": "connected",
+        "signal_outside": "EPERM",
+        "signal_child": "killed",
+        "argv_outside": "denied",
+        "argv_self": "read",
+        "pidinfo_outside": "denied",
+        "pidinfo_self": "read",
+        "exec_open": "EPERM",
+        "exec_osascript": "EPERM",
+        "exec_security": "EPERM",
+        "exec_pbcopy": "EPERM",
+        "exec_pbpaste": "EPERM",
+        "exec_defaults": "EPERM",
+        "exec_screencapture": "EPERM",
+        "mach_pasteboard": "denied",
+        "prefs_read": "denied"
+      }
+    },
+    "recorders": {
+      "passed": true,
+      "waited_seconds": 0.229,
+      "still_running": []
+    },
+    "process_group": {
+      "passed": true,
+      "timed_out": false,
+      "outlived": [
+        {
+          "pid": 84139,
+          "command": "node"
+        }
+      ],
+      "still_alive": [],
+      "rederived": "2026-10-16: passed recomputed under the reaped-within-group rule; after_exit_s and the escape scan were not measured by this run"
+    },
+    "tools_offered": {
+      "passed": true,
+      "source": "harness.jsonl",
+      "mcp_tools": 0,
+      "servers": [],
+      "foreign_tools": [],
+      "foreign_servers": []
+    },
+    "egress": {
+      "passed": true,
+      "attempts": [
+        {
+          "host": "agentn.us.api5.cursor.sh",
+          "port": 443,
+          "method": "CONNECT",
+          "forwarded": true,
+          "allowed": "Cursor's agent service for the account's region: the CLI opened it beside api2 in the first live run, where the sink refused it",
+          "count": 1
+        },
+        {
+          "host": "api2.cursor.sh",
+          "port": 443,
+          "method": "CONNECT",
+          "forwarded": true,
+          "allowed": "Cursor's agent service: the API key exchange and every model call go here",
+          "count": 31
+        },
+        {
+          "host": "downloads.cursor.com",
+          "port": 443,
+          "method": "CONNECT",
+          "allowed": "the CLI's update check; refused, so the measured build stays the pinned one",
+          "count": 1
+        }
+      ],
+      "not_allowed": [],
+      "forwarded": [
+        "agentn.us.api5.cursor.sh",
+        "api2.cursor.sh"
+      ]
+    },
+    "secrets": {
+      "passed": true,
+      "variables": [
+        "CURSOR_API_KEY"
+      ],
+      "paths": [
+        "data/harnesses/measurements/wire-live/cursor_agent/level2-2025-11-25-resource-3",
+        "<session home>"
+      ],
+      "matches": []
+    }
+  }
+}

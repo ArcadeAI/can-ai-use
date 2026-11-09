@@ -1,0 +1,40 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "extension-negotiation",
+  "title": "`extensions` negotiation",
+  "description": "The opt-in mechanism for everything outside the core protocol, keyed by a vendor-prefixed extension name and declared by both sides.",
+  "question": "Can the framework negotiate an extension at all?",
+  "spec": "https://modelcontextprotocol.io/extensions/overview",
+  "status": "extension",
+  "categories": [
+    "Extensions"
+  ],
+  "keywords": "extensions,negotiation,opt-in,vendor prefix,capabilities",
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/extensions/overview",
+      "title": "MCP Extensions"
+    }
+  ],
+  "known_issues": [],
+  "why": "Extensions are disabled by default and require explicit support from both sides. This row is the gate in front of every other extension: without it, Tasks and Apps are unreachable regardless of what the framework implements internally.",
+  "shown": true,
+  "docs_url": "https://modelcontextprotocol.io/extensions/overview",
+  "docs_label": "MCP Extensions",
+  "notes": {
+    "openai-agents": "OpenAI Agents SDK 0.23.1: the client sends no `extensions` in its capabilities, and nothing in `agents.mcp` accepts one to pass through, so the fixture's offer of `io.modelcontextprotocol/ui` goes unanswered.",
+    "pydantic-ai": "Pydantic AI 2.54.0: the default `MCPToolset` sends no `extensions` in its capabilities. FastMCP 4 folds in client extensions that are registered, and Pydantic AI registers only the optional `fastmcp_tasks` package, which the pinned install does not include.",
+    "mastra": "Mastra 2.2.0: every `MCPClient` session declares `io.modelcontextprotocol/ui` under `extensions`, merged with any configured through `capabilities.extensions`. Measured as the declaration on the wire; what Mastra does with the server's reply is not.",
+    "vercel_ai": "Vercel AI SDK (@ai-sdk/mcp 2.0.73): the default client sends no `extensions` in its capabilities, so nothing was negotiated with a server offering `io.modelcontextprotocol/ui`. Extensions can be declared through the `capabilities` option (the package exports `mcpAppClientCapabilities` for MCP Apps); that path was not measured.",
+    "strands": "Strands Agents 1.59.0: The client declares no extensions, so the `io.modelcontextprotocol/ui` extension the fixture offers is never negotiated.",
+    "agno": "Agno 3.1.2: the fastmcp `Client` `MCPTools` builds declares no extensions, so the `io.modelcontextprotocol/ui` extension the fixture offers is never negotiated.",
+    "dspy": "DSPy 3.4.0: neither DSPy nor the caller's `mcp.Client` declares extensions, so the fixture's offered `io.modelcontextprotocol/ui` is never negotiated.",
+    "langchain_js": "LangChain.js (@langchain/mcp-adapters 2.0.1): the client opens with its first request (no `server/discover`) and sends empty capabilities with no `extensions`, so the fixture's offer of `io.modelcontextprotocol/ui` goes unanswered.",
+    "copilot_sdk": "GitHub Copilot SDK 1.0.19 (Copilot runtime 1.0.95): the client declares no `extensions`, so the fixture's `io.modelcontextprotocol/ui` was not negotiated.",
+    "langchain4j": "LangChain4j 1.22.0-beta32: `DefaultMcpClient` declares no extensions and ignores the ones the server offers.",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): the client declares no `extensions`, so the fixture's `io.modelcontextprotocol/ui` was not negotiated.",
+    "ms_agent_framework_dotnet": "Microsoft Agent Framework (.NET) 1.24.0 (ModelContextProtocol 2.2.0): the client declares no `extensions`, so the fixture's `io.modelcontextprotocol/ui` was not negotiated.",
+    "openai_agents_js": "OpenAI Agents SDK (JS) 0.20.0: the client opens with its first request (no `server/discover`) and sends empty capabilities with no `extensions`, so the fixture's offer of `io.modelcontextprotocol/ui` goes unanswered."
+  }
+}

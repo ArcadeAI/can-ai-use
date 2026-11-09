@@ -1,0 +1,36 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "mrtr-input-required",
+  "title": "`InputRequiredResult`",
+  "description": "The multi round-trip mechanism by which a server asks for more input mid-request, answered by the client retrying with `inputResponses` and the server's `requestState` under a new request id.",
+  "question": "Can the framework complete a request that needs a second round trip?",
+  "spec": "https://modelcontextprotocol.io/specification/2026-07-28",
+  "status": "stable",
+  "categories": [
+    "Base protocol",
+    "Client features"
+  ],
+  "keywords": "MRTR,multi round-trip,input_required,inputRequests,inputResponses,requestState",
+  "why": "New in 2026-07-28, and it is now the only way a server can ask the client for anything: server-initiated requests were removed outright. Elicitation, sampling and roots all arrive through this envelope, so a framework that cannot retry with `inputResponses` cannot use any of them, no matter what it declares.",
+  "docs_url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/patterns/mrtr#inputrequiredresult",
+  "docs_label": "MCP Docs",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/patterns/mrtr#inputrequiredresult",
+      "title": "MCP Docs"
+    }
+  ],
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "known_issues": [],
+  "notes": {
+    "openai-agents": "OpenAI Agents SDK 0.23.1 calls tools through the MCP SDK's default `call_tool`, which raises on an `InputRequiredResult` instead of retrying, and the adapter exposes neither `allow_input_required` nor an input handler. No embedded request, elicitation or otherwise, is answered.",
+    "vercel_ai": "Vercel AI SDK (@ai-sdk/mcp 2.0.73): the client throws on any `resultType: \"input_required\"` result (\"Server requested additional input, but multi round-trip requests are not supported yet\") and never retries, so no embedded request is answered, even with `onElicitationRequest` registered.",
+    "openai_agents_js": "OpenAI Agents SDK (JS) 0.20.0: every `input_required` result goes unanswered. The client's automatic fulfilment needs a handler registered on the MCP client, and the SDK neither registers one nor lets the caller register one.",
+    "agno": "Agno 3.1.2: `MCPTools` has no elicitation handler, so an `input_required` result is never answered; the call fails with `Elicitation not supported`.",
+    "dspy": "DSPy 3.4.0: DSPy answers no `input_required` itself. The round trip completes only because the caller's `mcp.Client` carries an `elicitation_callback`, which DSPy never configures.",
+    "copilot_sdk": "GitHub Copilot SDK 1.0.19 (Copilot runtime 1.0.95): the runtime retries an `input_required` result for a form-mode elicitation, answered through `SessionConfig.onElicitationRequest`. A URL-mode request fails to parse and the call fails (see elicitation-url-mode). Sampling requests get the same cancelled answer as at 2025-11-25. `roots/list` fails the call with \"requested unsupported input method: roots/list\".",
+    "langchain4j": "LangChain4j 1.22.0-beta32: at 2026-07-28 `DefaultMcpClient` reads an `InputRequiredResult` and throws `Server sent inputRequests that the client cannot handle`, whatever is embedded. No hook answers it, so the tool call fails.",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): go-sdk retries an `input_required` result through the handlers set on the caller's `*mcp.Client` (`mcptoolset.Config.Client`): sampling and form- and URL-mode elicitation are answered. An embedded `roots/list` fails to decode (see roots-list). mcptoolset itself has no input option."
+  },
+  "verdict": {}
+}

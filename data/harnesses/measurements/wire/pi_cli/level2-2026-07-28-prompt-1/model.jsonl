@@ -1,0 +1,2 @@
+{"format": "mcp-mirror.harness-model-requests/1", "stub": "anthropic", "script": []}
+{"api": "anthropic-messages", "path": "/v1/messages", "model": "claude-sonnet-4-5", "stream": true, "tool_results_seen": 0, "last_tool_result": null, "hint_keys_in_request": [], "reply": {"text": "done"}, "request": 1, "offered": ["read", "bash", "edit", "write", "codemode"], "fixture_tools": []}

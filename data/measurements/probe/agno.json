@@ -1,0 +1,150 @@
+{
+  "schema": "mcp-mirror/surface-probe@1",
+  "captured_at": "2026-10-09T18:28:29Z",
+  "fixture": "fixtures/tricky_server.py",
+  "fixture_python": "<checkout>/.mcp-mirror/fixture-2025-11-25/bin/python",
+  "spec_version": "2025-11-25",
+  "source": {
+    "resources.list": {
+      "ok": true,
+      "entries": [
+        {
+          "uri": "file:///fixtures/notes.txt",
+          "name": "notes.txt",
+          "title": "Release notes",
+          "description": "SENTINEL_RESOURCE_DESCRIPTION",
+          "mimeType": "text/plain"
+        },
+        {
+          "uri": "file:///fixtures/logo.png",
+          "name": "logo.png",
+          "title": null,
+          "description": "A binary resource, to check base64 survives the round trip.",
+          "mimeType": "image/png"
+        }
+      ]
+    },
+    "resources.read.text": {
+      "ok": true,
+      "uri": "file:///fixtures/notes.txt",
+      "mimeType": "text/plain",
+      "text": "SENTINEL_RESOURCE_TEXT"
+    },
+    "resources.read.blob": {
+      "ok": true,
+      "uri": "file:///fixtures/logo.png",
+      "mimeType": "image/png",
+      "blob_sha256": "c414cd0e204de974f73753c7e28d7638e7b3691bb8b1a2bab6b25bb7fed7ce77",
+      "blob_bytes": 70
+    },
+    "resources.templates": {
+      "ok": true,
+      "entries": [
+        {
+          "uriTemplate": "file:///fixtures/records/{record_id}",
+          "name": "record",
+          "description": "SENTINEL_TEMPLATE_DESCRIPTION",
+          "mimeType": "application/json"
+        }
+      ]
+    },
+    "prompts.list": {
+      "ok": true,
+      "entries": [
+        {
+          "name": "summarize_records",
+          "title": "Summarize records",
+          "description": "SENTINEL_PROMPT_DESCRIPTION",
+          "arguments": [
+            {
+              "name": "status",
+              "description": "SENTINEL_ARGUMENT_DESCRIPTION",
+              "required": true
+            },
+            {
+              "name": "tone",
+              "description": "Optional writing tone.",
+              "required": false
+            }
+          ]
+        }
+      ]
+    },
+    "prompts.get": {
+      "ok": true,
+      "description": "SENTINEL_PROMPT_DESCRIPTION",
+      "messages": [
+        {
+          "role": "user",
+          "type": "text",
+          "text": "SENTINEL_PROMPT_MESSAGE status=x"
+        }
+      ]
+    }
+  },
+  "frameworks": {
+    "agno": {
+      "ok": true,
+      "versions": {
+        "framework": "3.1.2",
+        "adapter": "3.1.2"
+      },
+      "probe": {
+        "resources.list": {
+          "ok": false,
+          "unsupported": "agno.tools.mcp.MCPTools registers tools as Functions and has no resource or prompt API"
+        },
+        "resources.read.text": {
+          "ok": false,
+          "unsupported": "agno.tools.mcp.MCPTools registers tools as Functions and has no resource or prompt API"
+        },
+        "resources.read.blob": {
+          "ok": false,
+          "unsupported": "agno.tools.mcp.MCPTools registers tools as Functions and has no resource or prompt API"
+        },
+        "resources.templates": {
+          "ok": false,
+          "unsupported": "agno.tools.mcp.MCPTools registers tools as Functions and has no resource or prompt API"
+        },
+        "prompts.list": {
+          "ok": false,
+          "unsupported": "agno.tools.mcp.MCPTools registers tools as Functions and has no resource or prompt API"
+        },
+        "prompts.get": {
+          "ok": false,
+          "unsupported": "agno.tools.mcp.MCPTools registers tools as Functions and has no resource or prompt API"
+        }
+      },
+      "wire": {
+        "negotiations": [
+          {
+            "via": "server/discover",
+            "requested_revision": "2026-07-28",
+            "negotiated_revision": null,
+            "client_capabilities": {},
+            "server_capabilities": null
+          },
+          {
+            "via": "initialize",
+            "requested_revision": "2025-11-25",
+            "negotiated_revision": "2025-11-25",
+            "client_capabilities": {},
+            "server_capabilities": {
+              "experimental": {},
+              "prompts": {
+                "listChanged": false
+              },
+              "resources": {
+                "subscribe": false,
+                "listChanged": false
+              },
+              "tools": {
+                "listChanged": false
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

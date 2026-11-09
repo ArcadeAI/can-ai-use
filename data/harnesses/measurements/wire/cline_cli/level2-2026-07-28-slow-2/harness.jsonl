@@ -1,0 +1,5 @@
+{"format": "mcp-mirror.harness-output/1"}
+{"event": "tool_use", "tool": "util__slow_with_progress", "input": {}}
+{"event": "tool_result", "is_error": false, "text": "{\"content\": [{\"text\": \"SENTINEL_SLOW_DONE progress_sent=0\", \"type\": \"text\"}], \"isError\": false}"}
+{"event": "text", "text": "done"}
+{"event": "result", "subtype": "completed", "is_error": false, "num_turns": 2, "text": "done"}

@@ -1,0 +1,53 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "roots-list",
+  "title": "`roots/list`",
+  "description": "A server request for the client's filesystem roots, offered as informational guidance rather than as access control.",
+  "question": "Can a server learn which directories the client is working in?",
+  "spec": "https://modelcontextprotocol.io/specification/2025-11-25",
+  "status": "stable",
+  "categories": [
+    "Client features"
+  ],
+  "keywords": "roots,roots/list,file uri,workspace,boundaries",
+  "why": "Roots tell a server where to look without it guessing paths.",
+  "docs_url": "https://modelcontextprotocol.io/specification/2025-11-25/client/roots#listing-roots",
+  "docs_label": "MCP Docs",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/client/roots#listing-roots",
+      "title": "MCP Docs"
+    }
+  ],
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "known_issues": [],
+  "notes": {
+    "crewai": "CrewAI 1.15.26: `crewai_tools.MCPServerAdapter` takes only server parameters, and mcpadapt opens its `ClientSession` with no callbacks, so the client declares no roots capability and the server's `roots/list` is refused (`List roots not supported`).",
+    "langchain": "LangChain MCP Adapters 0.3.2: the adapter has no roots API. A `list_roots_callback` put in the connection's `session_kwargs` is forwarded unread to the MCP SDK's `ClientSession` and answers `roots/list`.",
+    "openai-agents": "OpenAI Agents SDK 0.23.1: `MCPServerStdio` forwards only `message_handler` to its `ClientSession`, which sees notifications, not requests. With no roots hook the client declares no roots capability and the server's `roots/list` is refused (`List roots not supported`).",
+    "mastra": "Mastra 2.2.0: `@mastra/mcp` documents the deprecated roots capability as unsupported and registers no handler, so `roots/list` gets `Method not found`.",
+    "google_adk": "Google ADK 2.11.0: `McpToolset` has no roots parameter, and the `ClientSession` its `MCPSessionManager` builds gets no `list_roots_callback`, so the client declares no roots capability and the server's `roots/list` is refused (`List roots not supported`).",
+    "ms_agent_framework": "Microsoft Agent Framework 1.21.0: The `ClientSession` that `MCPTool.connect` builds gets only `message_handler`, `logging_callback` and `sampling_callback`, and `MCPTool` has no parameter for this, so the SDK answers the server with an error.",
+    "autogen": "AutoGen 0.7.5: `McpWorkbench` opens its `ClientSession` with no roots callback and takes none, so `roots/list` is refused.",
+    "strands": "Strands Agents 1.59.0: `MCPClient` passes its `ClientSession` an `elicitation_callback` only. There is no roots parameter, so the client declares no roots capability and the server's `roots/list` is refused.",
+    "vercel_ai": "Vercel AI SDK (@ai-sdk/mcp 2.0.73): the client answers every server request except `ping` and `elicitation/create` with -32601 \"Unsupported request method\", so `roots/list` gets no roots. There is no roots option.",
+    "openai_agents_js": "OpenAI Agents SDK (JS) 0.20.0: the `MCPServerStdio` / `MCPServerStreamableHttp` options take no sampling, elicitation or roots handler, and the SDK registers none on the MCP client it builds, so the server's `roots/list` request is answered with Method not found.",
+    "semantic_kernel": "Semantic Kernel 1.45.0: `MCPPluginBase` opens its ClientSession with no `list_roots_callback` and takes none.",
+    "llamaindex": "LlamaIndex (llama-index-tools-mcp 0.6.0): `BasicMCPClient` has no roots parameter, so the client declares no roots capability and the server's `roots/list` is refused (`List roots not supported`).",
+    "google_adk_js": "Google ADK (TypeScript) 2.2.1: `MCPSessionManager.createSession` builds `new Client({name: 'MCPClient', version: '1.0.0'})` with no capabilities and no request handlers, and `MCPToolset` takes no client hooks. `roots/list` is refused (`Method not found`).",
+    "agno": "Agno 3.1.2: `MCPTools` builds its fastmcp `Client` with no roots and exposes no hook to set them, so `roots/list` is refused.",
+    "haystack": "Haystack (mcp-haystack 1.5.2): `MCPClient` builds its `ClientSession(read, write)` with no sampling, elicitation, roots or message callback, and neither the server info nor `MCPToolset` takes one, so the client declares no `roots` capability and the server's `roots/list` got no answer.",
+    "smolagents": "smolagents 1.26.0 (mcpadapt 0.1.20): `smolagents.MCPClient` takes server parameters, `adapter_kwargs` and `structured_output` only, and mcpadapt opens its `ClientSession` with no callbacks, so the client declares no roots capability and the server's `roots/list` is refused (`List roots not supported`).",
+    "dspy": "DSPy 3.4.0: DSPy takes no roots handler. The server's request is answered only by a `list_roots_callback` registered on the caller's own `mcp.Client`, which DSPy is handed by `Tool.from_mcp_tool` and never configures. DSPy itself offers no route.",
+    "langchain_js": "LangChain.js (@langchain/mcp-adapters 2.0.1): the adapter declares no roots and offers no option for them. A legacy `roots/list` gets Method not found; a modern tool call that asks for roots fails with \"asked for input this adapter cannot answer\".",
+    "spring_ai": "Spring AI 2.0.1: the starter has no roots annotation. Roots set on the MCP SDK builder through an `McpClientCustomizer<McpClient.SyncSpec>` bean answer `roots/list`, and the capabilities have to be rebuilt in the same customizer to declare `roots`.",
+    "beeai": "BeeAI Framework 0.1.85: no roots handler. roots/list is answered only on a `ClientSession` the caller builds and hands `MCPTool.from_client`, which BeeAI uses as given; the session BeeAI opens itself for a transport has no callbacks.",
+    "copilot_sdk": "GitHub Copilot SDK 1.0.19 (Copilot runtime 1.0.95): the runtime answers `roots/list` itself with `{\"roots\": []}`. There is no session option to declare roots, so the configured root never reaches the server.",
+    "crewai-native": "CrewAI 1.15.26, native `crewai.mcp` client (`Agent(mcps=[...])`, not the `crewai_tools.MCPServerAdapter` row): `MCPClient.connect` builds its `ClientSession` from the transport streams alone, with no `list_roots_callback`, and `MCPServerStdio`/`MCPServerHTTP`/`MCPServerSSE` take no hook for it, so the client does not declare the capability and the server's request is refused.",
+    "google_adk_java": "Google ADK (Java) 1.11.0: `McpSessionManager` builds the `McpSyncClient` with empty client capabilities and no roots, and neither `McpToolset` nor `McpTool` takes one, so `roots/list` fails with `Roots not supported`.",
+    "koog": "Koog 1.3.0-beta: no Koog API. Roots added with `Client.addRoot` on the Kotlin SDK `Client` before `fromClient` answer `roots/list`.",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): mcptoolset has no roots option. A `mcp.Client.AddRoots` set on the `*mcp.Client` the caller passes as `mcptoolset.Config.Client` answers the server's request, so it works, but only by configuring go-sdk rather than the toolset."
+  },
+  "verdict": {},
+  "summary": "The cell asks whether the adapter answers it through its own API."
+}

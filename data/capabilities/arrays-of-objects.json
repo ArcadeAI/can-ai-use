@@ -1,0 +1,34 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "arrays-of-objects",
+  "title": "Arrays of Objects",
+  "description": "A list parameter whose items are structured objects.",
+  "question": "Do arrays of structured items survive to each capture boundary?",
+  "spec": "https://json-schema.org/draft/2020-12/json-schema-validation",
+  "status": "stable",
+  "categories": [
+    "Structure"
+  ],
+  "keywords": "array,items,list,structure",
+  "usage_perc_y": null,
+  "usage_perc_a": null,
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "links": [
+    {
+      "url": "https://json-schema.org/understanding-json-schema/reference/array#items",
+      "title": "JSON Schema Docs"
+    },
+    {
+      "url": "https://platform.openai.com/docs/guides/function-calling",
+      "title": "OpenAI function calling, tool schema"
+    }
+  ],
+  "known_issues": [],
+  "why": "Item schema loss can let a downstream model produce malformed list entries.",
+  "shown": true,
+  "docs_url": "https://json-schema.org/understanding-json-schema/reference/array#items",
+  "docs_label": "JSON Schema Docs",
+  "notes": {
+    "llamaindex": "LlamaIndex (llama-index-tools-mcp 0.6.0): `McpToolSpec` rebuilds each `inputSchema` as a Pydantic model (`create_model_from_json_schema`), and the model's JSON schema is what `ToolMetadata.to_openai_tool` hands the LLM. An array of objects keeps its item type but the item's `properties` and `required` collapse to a free-form `object` with `additionalProperties: true`."
+  }
+}

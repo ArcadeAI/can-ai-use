@@ -1,0 +1,41 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "tool-text-content",
+  "title": "Text content",
+  "description": "The `text` content block, the baseline result type that every tool result may carry.",
+  "question": "Does text content reach the agent unchanged?",
+  "spec": "https://modelcontextprotocol.io/specification/2025-11-25",
+  "status": "stable",
+  "categories": [
+    "Tool results"
+  ],
+  "keywords": "text content,TextContent,result text,content block",
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/server/tools#text-content",
+      "title": "MCP Docs"
+    }
+  ],
+  "known_issues": [],
+  "why": "This is the content type a framework is expected to handle, so it is the control row: the other content types can only be read as losses against a text block that survives.",
+  "shown": true,
+  "docs_url": "https://modelcontextprotocol.io/specification/2025-11-25/server/tools#text-content",
+  "docs_label": "MCP Docs",
+  "notes": {
+    "crewai": "CrewAI: the text arrives stringified inside a Python list repr, as \"['SENTINEL_TEXT_BLOCK']\" rather than the block's text.",
+    "genkit_js": "Genkit (JS) 1.42.0: `processResult` returns `{ error }` for `isError`, `structuredContent` when the server sent one, the joined text (JSON-parsed when it looks like JSON) when every block is text, the lone block when there is one, and otherwise the whole `CallToolResult`. A text block reaches the model as text at every boundary, but beside `structuredContent` (`mixed_content`) only the structured value is returned and the text block is gone.",
+    "mastra": "Mastra 2.2.0: a result without `structuredContent` comes back unchanged, text block intact. When the result carries `structuredContent`, that value is returned in place of the whole result, so every content block, text included, is gone.",
+    "pydantic-ai": "Pydantic AI 2.54.0: text beside media blocks arrives as a plain string, byte-identical. When every content part is text and the result carries `structuredContent`, the typed value is returned in place of the text, so the text block is gone.",
+    "google_adk": "Google ADK 2.11.0: the tool's return value keeps each text block in `content`. The model receives the whole dumped `CallToolResult` as `FunctionResponse.response`, so the text arrives wrapped in JSON rather than as plain text.",
+    "autogen": "AutoGen 0.7.5: Text survives at every boundary on its own, but a result that also carries an audio or resource-link block makes `McpWorkbench.call_tool` raise, so the text in that result reaches the agent only as the error message.",
+    "semantic_kernel": "Semantic Kernel 1.45.0: boundary-dependent. `Kernel.invoke` returns a TextContent per block. The model's tool message is `str()` of that list, the Python repr of SK's content objects, so the text is inside a repr string.",
+    "google_adk_js": "Google ADK (TypeScript) 2.2.1: boundary-dependent. `MCPTool.runAsync` returns the `CallToolResult` unchanged (`afterToolCallback` sees it with every block intact), and ADK puts that object in the `functionResponse` of the next `LlmRequest`. At `direct` the text block is a text block. At `agent` the model reads it inside one JSON object, `{\"content\": [{\"type\": \"text\", \"text\": ...}], ...}`, never as a plain text part.",
+    "spring_ai": "Spring AI 2.0.1: the tool result reaches the agent and a direct `ToolCallback.call` as one string: the JSON of the result's content list with each block's `type` field dropped, e.g. `[{\"text\":\"SENTINEL_TEXT_BLOCK\"}]`. The text survives inside that JSON, not as a text block.",
+    "beeai": "BeeAI Framework 0.1.85: a text block survives on its own, but next to `structuredContent` it is dropped: `MCPTool._run` returns the structured value alone. The model gets the block as the JSON of the `TextContent` object, wrapper keys included, not its bare text.",
+    "google_adk_java": "Google ADK (Java) 1.11.0: `AbstractMcpTool.wrapCallResult` returns `{\"text_output\": [...]}`, with each text block parsed as JSON or wrapped as `{\"text\": ...}`. The model's `functionResponse` and the `afterToolCallback` both see that map, so the text survives but not as plain text.",
+    "langchain4j": "LangChain4j 1.22.0-beta32: a text-only result reaches both boundaries unchanged. When the result also carries `structuredContent`, the executor returns the structured value's JSON in place of the text blocks, so the server's own text is lost (direct `mixed_content` and `text_and_structured`: `n`).",
+    "koog": "Koog 1.3.0-beta: boundary-dependent. At `direct` (`EventHandler.onToolCallCompleted`) the `CallToolResult` is intact. `AIAgent` sends the tool's result to the model as one `role: tool` message whose content is `McpTool.encodeResultToString`: the JSON of the whole `CallToolResult` (`content`, `isError`, `structuredContent`), or `Error: <text>` when `isError` is set. At `agent` the text arrives inside that JSON, for example `{\"content\": [{\"text\": \"SENTINEL_TEXT_BLOCK\", \"type\": \"text\"}], \"isError\": false}`, not as bare text.",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): a plain text result reaches the model intact as `{\"output\": text}`. When the result also has `structuredContent`, `mcpTool.Run` returns `{\"output\": structuredContent}` alone and the text blocks are dropped."
+  }
+}

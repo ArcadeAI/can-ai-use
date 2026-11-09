@@ -1,0 +1,1393 @@
+{
+  "schema": "mcp-mirror/result-boundaries@2",
+  "captured_at": "2026-10-22T21:31:56Z",
+  "fixture": "fixtures/results_server.py",
+  "fixture_python": "<checkout>/.mcp-mirror/fixture-2025-11-25/bin/python",
+  "spec_version": "2025-11-25",
+  "calls": [
+    {
+      "tool": "text_content",
+      "arguments": {}
+    },
+    {
+      "tool": "image_content",
+      "arguments": {}
+    },
+    {
+      "tool": "audio_content",
+      "arguments": {}
+    },
+    {
+      "tool": "embedded_resource_content",
+      "arguments": {}
+    },
+    {
+      "tool": "resource_link_content",
+      "arguments": {}
+    },
+    {
+      "tool": "annotated_content",
+      "arguments": {}
+    },
+    {
+      "tool": "mixed_content",
+      "arguments": {}
+    },
+    {
+      "tool": "text_and_structured",
+      "arguments": {}
+    },
+    {
+      "tool": "tool_error",
+      "arguments": {}
+    }
+  ],
+  "source": {
+    "text_content": {
+      "tool": "text_content",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_TEXT_BLOCK"
+        }
+      ],
+      "block_kinds": [
+        "text"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": "SENTINEL_TEXT_BLOCK",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_TEXT_BLOCK",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "image_content": {
+      "tool": "image_content",
+      "blocks": [
+        {
+          "type": "image",
+          "data": "<96 chars>",
+          "mimeType": "image/png"
+        }
+      ],
+      "block_kinds": [
+        "image"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": null,
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "image",
+            "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==",
+            "mimeType": "image/png",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "audio_content": {
+      "tool": "audio_content",
+      "blocks": [
+        {
+          "type": "audio",
+          "data": "<60 chars>",
+          "mimeType": "audio/wav"
+        }
+      ],
+      "block_kinds": [
+        "audio"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": null,
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "audio",
+            "data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
+            "mimeType": "audio/wav",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "embedded_resource_content": {
+      "tool": "embedded_resource_content",
+      "blocks": [
+        {
+          "type": "resource",
+          "resource": {
+            "uri": "file:///fixtures/embedded.txt",
+            "mimeType": "text/plain",
+            "_meta": null,
+            "text": "SENTINEL_EMBEDDED_RESOURCE"
+          }
+        }
+      ],
+      "block_kinds": [
+        "resource"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": null,
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "resource",
+            "resource": {
+              "uri": "file:///fixtures/embedded.txt",
+              "mimeType": "text/plain",
+              "_meta": null,
+              "text": "SENTINEL_EMBEDDED_RESOURCE"
+            },
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "resource_link_content": {
+      "tool": "resource_link_content",
+      "blocks": [
+        {
+          "name": "linked.txt",
+          "uri": "file:///fixtures/linked.txt",
+          "description": "SENTINEL_RESOURCE_LINK",
+          "mimeType": "text/plain",
+          "type": "resource_link"
+        }
+      ],
+      "block_kinds": [
+        "resource_link"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": null,
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "name": "linked.txt",
+            "title": null,
+            "uri": "file:///fixtures/linked.txt",
+            "description": "SENTINEL_RESOURCE_LINK",
+            "mimeType": "text/plain",
+            "size": null,
+            "icons": null,
+            "annotations": null,
+            "_meta": null,
+            "type": "resource_link"
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "annotated_content": {
+      "tool": "annotated_content",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_ANNOTATED_TEXT",
+          "annotations": {
+            "audience": [
+              "user"
+            ],
+            "priority": 0.9
+          }
+        }
+      ],
+      "block_kinds": [
+        "text"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": "SENTINEL_ANNOTATED_TEXT",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_ANNOTATED_TEXT",
+            "annotations": {
+              "audience": [
+                "user"
+              ],
+              "priority": 0.9
+            },
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "mixed_content": {
+      "tool": "mixed_content",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_TEXT_BLOCK",
+          "annotations": {
+            "audience": [
+              "user"
+            ],
+            "priority": 0.9
+          }
+        },
+        {
+          "type": "image",
+          "data": "<96 chars>",
+          "mimeType": "image/png"
+        },
+        {
+          "type": "audio",
+          "data": "<60 chars>",
+          "mimeType": "audio/wav"
+        },
+        {
+          "type": "resource",
+          "resource": {
+            "uri": "file:///fixtures/embedded.txt",
+            "mimeType": "text/plain",
+            "_meta": null,
+            "text": "SENTINEL_EMBEDDED_RESOURCE"
+          }
+        },
+        {
+          "name": "linked.txt",
+          "uri": "file:///fixtures/linked.txt",
+          "description": "SENTINEL_RESOURCE_LINK",
+          "mimeType": "text/plain",
+          "type": "resource_link"
+        }
+      ],
+      "block_kinds": [
+        "text",
+        "image",
+        "audio",
+        "resource",
+        "resource_link"
+      ],
+      "structured_content": {
+        "count": 2,
+        "records": [
+          {
+            "id": "rec_1",
+            "status": "active"
+          },
+          {
+            "id": "rec_2",
+            "status": "archived"
+          }
+        ],
+        "note": "SENTINEL_STRUCTURED_CONTENT"
+      },
+      "is_error": false,
+      "text": "SENTINEL_TEXT_BLOCK",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_TEXT_BLOCK",
+            "annotations": {
+              "audience": [
+                "user"
+              ],
+              "priority": 0.9
+            },
+            "_meta": null
+          },
+          {
+            "type": "image",
+            "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==",
+            "mimeType": "image/png",
+            "annotations": null,
+            "_meta": null
+          },
+          {
+            "type": "audio",
+            "data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
+            "mimeType": "audio/wav",
+            "annotations": null,
+            "_meta": null
+          },
+          {
+            "type": "resource",
+            "resource": {
+              "uri": "file:///fixtures/embedded.txt",
+              "mimeType": "text/plain",
+              "_meta": null,
+              "text": "SENTINEL_EMBEDDED_RESOURCE"
+            },
+            "annotations": null,
+            "_meta": null
+          },
+          {
+            "name": "linked.txt",
+            "title": null,
+            "uri": "file:///fixtures/linked.txt",
+            "description": "SENTINEL_RESOURCE_LINK",
+            "mimeType": "text/plain",
+            "size": null,
+            "icons": null,
+            "annotations": null,
+            "_meta": null,
+            "type": "resource_link"
+          }
+        ],
+        "structuredContent": {
+          "count": 2,
+          "records": [
+            {
+              "id": "rec_1",
+              "status": "active"
+            },
+            {
+              "id": "rec_2",
+              "status": "archived"
+            }
+          ],
+          "note": "SENTINEL_STRUCTURED_CONTENT"
+        },
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "text_and_structured": {
+      "tool": "text_and_structured",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_TEXT_BLOCK"
+        }
+      ],
+      "block_kinds": [
+        "text"
+      ],
+      "structured_content": {
+        "count": 2,
+        "records": [
+          {
+            "id": "rec_1",
+            "status": "active"
+          },
+          {
+            "id": "rec_2",
+            "status": "archived"
+          }
+        ],
+        "note": "SENTINEL_STRUCTURED_CONTENT"
+      },
+      "is_error": false,
+      "text": "SENTINEL_TEXT_BLOCK",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_TEXT_BLOCK",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "count": 2,
+          "records": [
+            {
+              "id": "rec_1",
+              "status": "active"
+            },
+            {
+              "id": "rec_2",
+              "status": "archived"
+            }
+          ],
+          "note": "SENTINEL_STRUCTURED_CONTENT"
+        },
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "tool_error": {
+      "tool": "tool_error",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_TOOL_ERROR: this tool always fails"
+        }
+      ],
+      "block_kinds": [
+        "text"
+      ],
+      "structured_content": null,
+      "is_error": true,
+      "text": "SENTINEL_TOOL_ERROR: this tool always fails",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_TOOL_ERROR: this tool always fails",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": true
+      },
+      "error_channel": null
+    }
+  },
+  "frameworks": {
+    "openai_agents": {
+      "ok": true,
+      "versions": {
+        "framework": "0.23.1",
+        "adapter": "0.23.1"
+      },
+      "evidence": {
+        "capture_api": "agents.mcp.util.MCPUtil.to_function_tool",
+        "capture_object": "agents.tool.FunctionTool",
+        "capture_stage": "framework_tool_definition",
+        "provider_request_captured": false,
+        "negotiated_mcp_spec_version": "2025-11-25",
+        "protocol_version_evidence": "protocolVersion exposed by MCPServer.server_initialize_result",
+        "limitation": "No Agents SDK model implementation or serialized provider request was captured."
+      },
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Adapter invocation helper",
+          "capture_api": "agents.mcp.util.MCPUtil.invoke_mcp_tool",
+          "capture_object": "the Agents SDK ToolOutput",
+          "agent_path": false,
+          "limitation": null
+        },
+        {
+          "id": "agent",
+          "label": "Agent tool invocation",
+          "capture_api": "agents.tool.FunctionTool.on_invoke_tool",
+          "capture_object": "the ToolOutput the agent loop feeds back to the model",
+          "agent_path": true,
+          "limitation": "The FunctionTool callable is driven directly. No model implementation was bound and no provider request was captured."
+        },
+        {
+          "id": "agent_custom_data_extractor",
+          "label": "Agent tool invocation, custom_data_extractor reading is_error",
+          "capture_api": "agents.tool.FunctionTool.on_invoke_tool, server built with custom_data_extractor=lambda ctx: {'is_error': ctx.is_error}",
+          "capture_object": "the ToolOutput plus the custom_data the run attaches to its ToolCallOutputItem",
+          "agent_path": false,
+          "limitation": "This is a documented non-default server option, not the behaviour a caller gets without configuring it. The flag reaches ToolCallOutputItem.custom_data only; the model and on_tool_end hooks still receive the unflagged output."
+        }
+      ],
+      "reps": [
+        {
+          "name": "text_content",
+          "description": "Return one text block and nothing else.",
+          "params": {
+            "type": "object",
+            "properties": {}
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "openai_agents",
+          "raw": {
+            "name": "text_content",
+            "description": "Return one text block and nothing else.",
+            "parameters": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        {
+          "name": "image_content",
+          "description": "Return one image block and nothing else.",
+          "params": {
+            "type": "object",
+            "properties": {}
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "openai_agents",
+          "raw": {
+            "name": "image_content",
+            "description": "Return one image block and nothing else.",
+            "parameters": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        {
+          "name": "audio_content",
+          "description": "Return one audio block and nothing else.",
+          "params": {
+            "type": "object",
+            "properties": {}
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "openai_agents",
+          "raw": {
+            "name": "audio_content",
+            "description": "Return one audio block and nothing else.",
+            "parameters": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        {
+          "name": "embedded_resource_content",
+          "description": "Return one embedded resource block and nothing else.",
+          "params": {
+            "type": "object",
+            "properties": {}
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "openai_agents",
+          "raw": {
+            "name": "embedded_resource_content",
+            "description": "Return one embedded resource block and nothing else.",
+            "parameters": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        {
+          "name": "resource_link_content",
+          "description": "Return one resource_link block and nothing else.",
+          "params": {
+            "type": "object",
+            "properties": {}
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "openai_agents",
+          "raw": {
+            "name": "resource_link_content",
+            "description": "Return one resource_link block and nothing else.",
+            "parameters": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        {
+          "name": "annotated_content",
+          "description": "Return one text block carrying audience and priority annotations.",
+          "params": {
+            "type": "object",
+            "properties": {}
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "openai_agents",
+          "raw": {
+            "name": "annotated_content",
+            "description": "Return one text block carrying audience and priority annotations.",
+            "parameters": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        {
+          "name": "mixed_content",
+          "description": "Return one block of every kind plus structuredContent in one result.",
+          "params": {
+            "type": "object",
+            "properties": {}
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "openai_agents",
+          "raw": {
+            "name": "mixed_content",
+            "description": "Return one block of every kind plus structuredContent in one result.",
+            "parameters": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        {
+          "name": "text_and_structured",
+          "description": "Return one text block plus structuredContent, with no media.",
+          "params": {
+            "type": "object",
+            "properties": {}
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "openai_agents",
+          "raw": {
+            "name": "text_and_structured",
+            "description": "Return one text block plus structuredContent, with no media.",
+            "parameters": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        {
+          "name": "tool_error",
+          "description": "Always fail, reporting the failure through isError rather than a protocol error.",
+          "params": {
+            "type": "object",
+            "properties": {}
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "openai_agents",
+          "raw": {
+            "name": "tool_error",
+            "description": "Always fail, reporting the failure through isError rather than a protocol error.",
+            "parameters": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        }
+      ],
+      "results": [
+        {
+          "tool": "text_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "text_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TEXT_BLOCK"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_TEXT_BLOCK",
+            "origin": "openai_agents",
+            "raw": "{'type': 'text', 'text': 'SENTINEL_TEXT_BLOCK'}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "text_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "text_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TEXT_BLOCK"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_TEXT_BLOCK",
+            "origin": "openai_agents",
+            "raw": "{'type': 'text', 'text': 'SENTINEL_TEXT_BLOCK'}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "text_content",
+          "boundary": "agent_custom_data_extractor",
+          "ok": true,
+          "rep": {
+            "tool": "text_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TEXT_BLOCK"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_TEXT_BLOCK",
+            "origin": "openai_agents",
+            "raw": "{'type': 'text', 'text': 'SENTINEL_TEXT_BLOCK'}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "image_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "image_content",
+            "blocks": [
+              {
+                "type": "image"
+              }
+            ],
+            "block_kinds": [
+              "image"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": null,
+            "origin": "openai_agents",
+            "raw": "{'type': 'image', 'image_url': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=='}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "image_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "image_content",
+            "blocks": [
+              {
+                "type": "image"
+              }
+            ],
+            "block_kinds": [
+              "image"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": null,
+            "origin": "openai_agents",
+            "raw": "{'type': 'image', 'image_url': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=='}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "image_content",
+          "boundary": "agent_custom_data_extractor",
+          "ok": true,
+          "rep": {
+            "tool": "image_content",
+            "blocks": [
+              {
+                "type": "image"
+              }
+            ],
+            "block_kinds": [
+              "image"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": null,
+            "origin": "openai_agents",
+            "raw": "{'type': 'image', 'image_url': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=='}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "audio_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "audio_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "{\"type\":\"audio\",\"data\":\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\",\"mime_type\":\"audio/wav\",\"annotations\":null,\"meta\":null}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"type\":\"audio\",\"data\":\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\",\"mime_type\":\"audio/wav\",\"annotations\":null,\"meta\":null}",
+            "origin": "openai_agents",
+            "raw": "{'type': 'text', 'text': '{\"type\":\"audio\",\"data\":\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\",\"mime_type\":\"audio/wav\",\"annotations\":null,\"meta\":null}'}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "audio_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "audio_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "{\"type\":\"audio\",\"data\":\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\",\"mime_type\":\"audio/wav\",\"annotations\":null,\"meta\":null}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"type\":\"audio\",\"data\":\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\",\"mime_type\":\"audio/wav\",\"annotations\":null,\"meta\":null}",
+            "origin": "openai_agents",
+            "raw": "{'type': 'text', 'text': '{\"type\":\"audio\",\"data\":\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\",\"mime_type\":\"audio/wav\",\"annotations\":null,\"meta\":null}'}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "audio_content",
+          "boundary": "agent_custom_data_extractor",
+          "ok": true,
+          "rep": {
+            "tool": "audio_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "{\"type\":\"audio\",\"data\":\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\",\"mime_type\":\"audio/wav\",\"annotations\":null,\"meta\":null}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "{\"type\":\"audio\",\"data\":\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\",\"mime_type\":\"audio/wav\",\"annotations\":null,\"meta\":null}",
+            "origin": "openai_agents",
+            "raw": "{'type': 'text', 'text': '{\"type\":\"audio\",\"data\":\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\",\"mime_type\":\"audio/wav\",\"annotations\":null,\"meta\":null}'}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "embedded_resource_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "embedded_resource_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "{\"type\":\"resource\",\"resource\":{\"uri\":\"file:///fixtures/embedded.txt\",\"mime_type\":\"text/plain\",\"meta\":null,\"text\":\"SENTINEL_EMBEDDED_RESOURCE\"},\"annotations\":null,\"meta\":null}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"type\":\"resource\",\"resource\":{\"uri\":\"file:///fixtures/embedded.txt\",\"mime_type\":\"text/plain\",\"meta\":null,\"text\":\"SENTINEL_EMBEDDED_RESOURCE\"},\"annotations\":null,\"meta\":null}",
+            "origin": "openai_agents",
+            "raw": "{'type': 'text', 'text': '{\"type\":\"resource\",\"resource\":{\"uri\":\"file:///fixtures/embedded.txt\",\"mime_type\":\"text/plain\",\"meta\":null,\"text\":\"SENTINEL_EMBEDDED_RESOURCE\"},\"annotations\":null,\"meta\":null}'}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "embedded_resource_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "embedded_resource_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "{\"type\":\"resource\",\"resource\":{\"uri\":\"file:///fixtures/embedded.txt\",\"mime_type\":\"text/plain\",\"meta\":null,\"text\":\"SENTINEL_EMBEDDED_RESOURCE\"},\"annotations\":null,\"meta\":null}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"type\":\"resource\",\"resource\":{\"uri\":\"file:///fixtures/embedded.txt\",\"mime_type\":\"text/plain\",\"meta\":null,\"text\":\"SENTINEL_EMBEDDED_RESOURCE\"},\"annotations\":null,\"meta\":null}",
+            "origin": "openai_agents",
+            "raw": "{'type': 'text', 'text': '{\"type\":\"resource\",\"resource\":{\"uri\":\"file:///fixtures/embedded.txt\",\"mime_type\":\"text/plain\",\"meta\":null,\"text\":\"SENTINEL_EMBEDDED_RESOURCE\"},\"annotations\":null,\"meta\":null}'}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "embedded_resource_content",
+          "boundary": "agent_custom_data_extractor",
+          "ok": true,
+          "rep": {
+            "tool": "embedded_resource_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "{\"type\":\"resource\",\"resource\":{\"uri\":\"file:///fixtures/embedded.txt\",\"mime_type\":\"text/plain\",\"meta\":null,\"text\":\"SENTINEL_EMBEDDED_RESOURCE\"},\"annotations\":null,\"meta\":null}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "{\"type\":\"resource\",\"resource\":{\"uri\":\"file:///fixtures/embedded.txt\",\"mime_type\":\"text/plain\",\"meta\":null,\"text\":\"SENTINEL_EMBEDDED_RESOURCE\"},\"annotations\":null,\"meta\":null}",
+            "origin": "openai_agents",
+            "raw": "{'type': 'text', 'text': '{\"type\":\"resource\",\"resource\":{\"uri\":\"file:///fixtures/embedded.txt\",\"mime_type\":\"text/plain\",\"meta\":null,\"text\":\"SENTINEL_EMBEDDED_RESOURCE\"},\"annotations\":null,\"meta\":null}'}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "resource_link_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "resource_link_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "{\"name\":\"linked.txt\",\"title\":null,\"uri\":\"file:///fixtures/linked.txt\",\"description\":\"SENTINEL_RESOURCE_LINK\",\"mime_type\":\"text/plain\",\"size\":null,\"icons\":null,\"annotations\":null,\"meta\":null,\"type\":\"resource_link\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"name\":\"linked.txt\",\"title\":null,\"uri\":\"file:///fixtures/linked.txt\",\"description\":\"SENTINEL_RESOURCE_LINK\",\"mime_type\":\"text/plain\",\"size\":null,\"icons\":null,\"annotations\":null,\"meta\":null,\"type\":\"resource_link\"}",
+            "origin": "openai_agents",
+            "raw": "{'type': 'text', 'text': '{\"name\":\"linked.txt\",\"title\":null,\"uri\":\"file:///fixtures/linked.txt\",\"description\":\"SENTINEL_RESOURCE_LINK\",\"mime_type\":\"text/plain\",\"size\":null,\"icons\":null,\"annotations\":null,\"meta\":null,\"type\":\"resource_link\"}'}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "resource_link_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "resource_link_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "{\"name\":\"linked.txt\",\"title\":null,\"uri\":\"file:///fixtures/linked.txt\",\"description\":\"SENTINEL_RESOURCE_LINK\",\"mime_type\":\"text/plain\",\"size\":null,\"icons\":null,\"annotations\":null,\"meta\":null,\"type\":\"resource_link\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"name\":\"linked.txt\",\"title\":null,\"uri\":\"file:///fixtures/linked.txt\",\"description\":\"SENTINEL_RESOURCE_LINK\",\"mime_type\":\"text/plain\",\"size\":null,\"icons\":null,\"annotations\":null,\"meta\":null,\"type\":\"resource_link\"}",
+            "origin": "openai_agents",
+            "raw": "{'type': 'text', 'text': '{\"name\":\"linked.txt\",\"title\":null,\"uri\":\"file:///fixtures/linked.txt\",\"description\":\"SENTINEL_RESOURCE_LINK\",\"mime_type\":\"text/plain\",\"size\":null,\"icons\":null,\"annotations\":null,\"meta\":null,\"type\":\"resource_link\"}'}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "resource_link_content",
+          "boundary": "agent_custom_data_extractor",
+          "ok": true,
+          "rep": {
+            "tool": "resource_link_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "{\"name\":\"linked.txt\",\"title\":null,\"uri\":\"file:///fixtures/linked.txt\",\"description\":\"SENTINEL_RESOURCE_LINK\",\"mime_type\":\"text/plain\",\"size\":null,\"icons\":null,\"annotations\":null,\"meta\":null,\"type\":\"resource_link\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "{\"name\":\"linked.txt\",\"title\":null,\"uri\":\"file:///fixtures/linked.txt\",\"description\":\"SENTINEL_RESOURCE_LINK\",\"mime_type\":\"text/plain\",\"size\":null,\"icons\":null,\"annotations\":null,\"meta\":null,\"type\":\"resource_link\"}",
+            "origin": "openai_agents",
+            "raw": "{'type': 'text', 'text': '{\"name\":\"linked.txt\",\"title\":null,\"uri\":\"file:///fixtures/linked.txt\",\"description\":\"SENTINEL_RESOURCE_LINK\",\"mime_type\":\"text/plain\",\"size\":null,\"icons\":null,\"annotations\":null,\"meta\":null,\"type\":\"resource_link\"}'}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "annotated_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "annotated_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ANNOTATED_TEXT"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ANNOTATED_TEXT",
+            "origin": "openai_agents",
+            "raw": "{'type': 'text', 'text': 'SENTINEL_ANNOTATED_TEXT'}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "annotated_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "annotated_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ANNOTATED_TEXT"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ANNOTATED_TEXT",
+            "origin": "openai_agents",
+            "raw": "{'type': 'text', 'text': 'SENTINEL_ANNOTATED_TEXT'}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "annotated_content",
+          "boundary": "agent_custom_data_extractor",
+          "ok": true,
+          "rep": {
+            "tool": "annotated_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ANNOTATED_TEXT"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ANNOTATED_TEXT",
+            "origin": "openai_agents",
+            "raw": "{'type': 'text', 'text': 'SENTINEL_ANNOTATED_TEXT'}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "mixed_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "mixed_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TEXT_BLOCK"
+              },
+              {
+                "type": "image"
+              },
+              {
+                "type": "text",
+                "text": "{\"type\":\"audio\",\"data\":\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\",\"mime_type\":\"audio/wav\",\"annotations\":null,\"meta\":null}"
+              },
+              {
+                "type": "text",
+                "text": "{\"type\":\"resource\",\"resource\":{\"uri\":\"file:///fixtures/embedded.txt\",\"mime_type\":\"text/plain\",\"meta\":null,\"text\":\"SENTINEL_EMBEDDED_RESOURCE\"},\"annotations\":null,\"meta\":null}"
+              },
+              {
+                "type": "text",
+                "text": "{\"name\":\"linked.txt\",\"title\":null,\"uri\":\"file:///fixtures/linked.txt\",\"description\":\"SENTINEL_RESOURCE_LINK\",\"mime_type\":\"text/plain\",\"size\":null,\"icons\":null,\"annotations\":null,\"meta\":null,\"type\":\"resource_link\"}"
+              }
+            ],
+            "block_kinds": [
+              "text",
+              "image",
+              "text",
+              "text",
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_TEXT_BLOCK\n{\"type\":\"audio\",\"data\":\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\",\"mime_type\":\"audio/wav\",\"annotations\":null,\"meta\":null}\n{\"type\":\"resource\",\"resource\":{\"uri\":\"file:///fixtures/embedded.txt\",\"mime_type\":\"text/plain\",\"meta\":null,\"text\":\"SENTINEL_EMBEDDED_RESOURCE\"},\"annotations\":null,\"meta\":null}\n{\"name\":\"linked.txt\",\"title\":null,\"uri\":\"file:///fixtures/linked.txt\",\"description\":\"SENTINEL_RESOURCE_LINK\",\"mime_type\":\"text/plain\",\"size\":null,\"icons\":null,\"annotations\":null,\"meta\":null,\"type\":\"resource_link\"}",
+            "origin": "openai_agents",
+            "raw": "[{'type': 'text', 'text': 'SENTINEL_TEXT_BLOCK'}, {'type': 'image', 'image_url': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=='}, {'type': 'text', 'text': '{\"type\":\"audio\",\"data\":\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\",\"mime_type\":\"audio/wav\",\"annotations\":null,\"meta\":null}'}, {'type': 'text', 'text': '{\"type\":\"resource\",\"resource\":{\"uri\":\"file:///fixtures/embedded.txt\",\"mime_type\":\"text/plain\",\"meta\":null,\"text\":\"SENTINEL_EMBEDDED_RESOURCE\"},\"annotations\":null,\"meta\":null}'}, {'type': 'text', 'text': '{\"name\":\"linked.txt\",\"title\":null,\"uri\":\"file:///fixtures/linked.txt\",\"description\":\"SENTINEL_RESOURCE_LINK\",\"mime_type\":\"text/plain\",\"size\":null,\"icons\":null,\"annotations\":null,\"meta\":null,\"type\":\"resource_link\"}'}]",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "mixed_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "mixed_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TEXT_BLOCK"
+              },
+              {
+                "type": "image"
+              },
+              {
+                "type": "text",
+                "text": "{\"type\":\"audio\",\"data\":\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\",\"mime_type\":\"audio/wav\",\"annotations\":null,\"meta\":null}"
+              },
+              {
+                "type": "text",
+                "text": "{\"type\":\"resource\",\"resource\":{\"uri\":\"file:///fixtures/embedded.txt\",\"mime_type\":\"text/plain\",\"meta\":null,\"text\":\"SENTINEL_EMBEDDED_RESOURCE\"},\"annotations\":null,\"meta\":null}"
+              },
+              {
+                "type": "text",
+                "text": "{\"name\":\"linked.txt\",\"title\":null,\"uri\":\"file:///fixtures/linked.txt\",\"description\":\"SENTINEL_RESOURCE_LINK\",\"mime_type\":\"text/plain\",\"size\":null,\"icons\":null,\"annotations\":null,\"meta\":null,\"type\":\"resource_link\"}"
+              }
+            ],
+            "block_kinds": [
+              "text",
+              "image",
+              "text",
+              "text",
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_TEXT_BLOCK\n{\"type\":\"audio\",\"data\":\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\",\"mime_type\":\"audio/wav\",\"annotations\":null,\"meta\":null}\n{\"type\":\"resource\",\"resource\":{\"uri\":\"file:///fixtures/embedded.txt\",\"mime_type\":\"text/plain\",\"meta\":null,\"text\":\"SENTINEL_EMBEDDED_RESOURCE\"},\"annotations\":null,\"meta\":null}\n{\"name\":\"linked.txt\",\"title\":null,\"uri\":\"file:///fixtures/linked.txt\",\"description\":\"SENTINEL_RESOURCE_LINK\",\"mime_type\":\"text/plain\",\"size\":null,\"icons\":null,\"annotations\":null,\"meta\":null,\"type\":\"resource_link\"}",
+            "origin": "openai_agents",
+            "raw": "[{'type': 'text', 'text': 'SENTINEL_TEXT_BLOCK'}, {'type': 'image', 'image_url': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=='}, {'type': 'text', 'text': '{\"type\":\"audio\",\"data\":\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\",\"mime_type\":\"audio/wav\",\"annotations\":null,\"meta\":null}'}, {'type': 'text', 'text': '{\"type\":\"resource\",\"resource\":{\"uri\":\"file:///fixtures/embedded.txt\",\"mime_type\":\"text/plain\",\"meta\":null,\"text\":\"SENTINEL_EMBEDDED_RESOURCE\"},\"annotations\":null,\"meta\":null}'}, {'type': 'text', 'text': '{\"name\":\"linked.txt\",\"title\":null,\"uri\":\"file:///fixtures/linked.txt\",\"description\":\"SENTINEL_RESOURCE_LINK\",\"mime_type\":\"text/plain\",\"size\":null,\"icons\":null,\"annotations\":null,\"meta\":null,\"type\":\"resource_link\"}'}]",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "mixed_content",
+          "boundary": "agent_custom_data_extractor",
+          "ok": true,
+          "rep": {
+            "tool": "mixed_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TEXT_BLOCK"
+              },
+              {
+                "type": "image"
+              },
+              {
+                "type": "text",
+                "text": "{\"type\":\"audio\",\"data\":\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\",\"mime_type\":\"audio/wav\",\"annotations\":null,\"meta\":null}"
+              },
+              {
+                "type": "text",
+                "text": "{\"type\":\"resource\",\"resource\":{\"uri\":\"file:///fixtures/embedded.txt\",\"mime_type\":\"text/plain\",\"meta\":null,\"text\":\"SENTINEL_EMBEDDED_RESOURCE\"},\"annotations\":null,\"meta\":null}"
+              },
+              {
+                "type": "text",
+                "text": "{\"name\":\"linked.txt\",\"title\":null,\"uri\":\"file:///fixtures/linked.txt\",\"description\":\"SENTINEL_RESOURCE_LINK\",\"mime_type\":\"text/plain\",\"size\":null,\"icons\":null,\"annotations\":null,\"meta\":null,\"type\":\"resource_link\"}"
+              }
+            ],
+            "block_kinds": [
+              "text",
+              "image",
+              "text",
+              "text",
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_TEXT_BLOCK\n{\"type\":\"audio\",\"data\":\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\",\"mime_type\":\"audio/wav\",\"annotations\":null,\"meta\":null}\n{\"type\":\"resource\",\"resource\":{\"uri\":\"file:///fixtures/embedded.txt\",\"mime_type\":\"text/plain\",\"meta\":null,\"text\":\"SENTINEL_EMBEDDED_RESOURCE\"},\"annotations\":null,\"meta\":null}\n{\"name\":\"linked.txt\",\"title\":null,\"uri\":\"file:///fixtures/linked.txt\",\"description\":\"SENTINEL_RESOURCE_LINK\",\"mime_type\":\"text/plain\",\"size\":null,\"icons\":null,\"annotations\":null,\"meta\":null,\"type\":\"resource_link\"}",
+            "origin": "openai_agents",
+            "raw": "[{'type': 'text', 'text': 'SENTINEL_TEXT_BLOCK'}, {'type': 'image', 'image_url': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=='}, {'type': 'text', 'text': '{\"type\":\"audio\",\"data\":\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\",\"mime_type\":\"audio/wav\",\"annotations\":null,\"meta\":null}'}, {'type': 'text', 'text': '{\"type\":\"resource\",\"resource\":{\"uri\":\"file:///fixtures/embedded.txt\",\"mime_type\":\"text/plain\",\"meta\":null,\"text\":\"SENTINEL_EMBEDDED_RESOURCE\"},\"annotations\":null,\"meta\":null}'}, {'type': 'text', 'text': '{\"name\":\"linked.txt\",\"title\":null,\"uri\":\"file:///fixtures/linked.txt\",\"description\":\"SENTINEL_RESOURCE_LINK\",\"mime_type\":\"text/plain\",\"size\":null,\"icons\":null,\"annotations\":null,\"meta\":null,\"type\":\"resource_link\"}'}]",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "text_and_structured",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "text_and_structured",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TEXT_BLOCK"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_TEXT_BLOCK",
+            "origin": "openai_agents",
+            "raw": "{'type': 'text', 'text': 'SENTINEL_TEXT_BLOCK'}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "text_and_structured",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "text_and_structured",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TEXT_BLOCK"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_TEXT_BLOCK",
+            "origin": "openai_agents",
+            "raw": "{'type': 'text', 'text': 'SENTINEL_TEXT_BLOCK'}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "text_and_structured",
+          "boundary": "agent_custom_data_extractor",
+          "ok": true,
+          "rep": {
+            "tool": "text_and_structured",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TEXT_BLOCK"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_TEXT_BLOCK",
+            "origin": "openai_agents",
+            "raw": "{'type': 'text', 'text': 'SENTINEL_TEXT_BLOCK'}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "tool_error",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "tool_error",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TOOL_ERROR: this tool always fails"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_TOOL_ERROR: this tool always fails",
+            "origin": "openai_agents",
+            "raw": "{'type': 'text', 'text': 'SENTINEL_TOOL_ERROR: this tool always fails'}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "tool_error",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "tool_error",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TOOL_ERROR: this tool always fails"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_TOOL_ERROR: this tool always fails",
+            "origin": "openai_agents",
+            "raw": "{'type': 'text', 'text': 'SENTINEL_TOOL_ERROR: this tool always fails'}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "tool_error",
+          "boundary": "agent_custom_data_extractor",
+          "ok": true,
+          "rep": {
+            "tool": "tool_error",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TOOL_ERROR: this tool always fails"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": true,
+            "text": "SENTINEL_TOOL_ERROR: this tool always fails",
+            "origin": "openai_agents",
+            "raw": "{'type': 'text', 'text': 'SENTINEL_TOOL_ERROR: this tool always fails'}",
+            "error_channel": "custom_data"
+          }
+        }
+      ]
+    }
+  }
+}

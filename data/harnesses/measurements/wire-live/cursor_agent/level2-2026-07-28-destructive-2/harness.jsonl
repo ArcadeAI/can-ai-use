@@ -1,0 +1,10 @@
+{"format": "mcp-mirror.harness-output/1"}
+{"event": "init", "harness_version": null, "model": "Auto Balance", "permission_mode": "default", "mcp_servers": null, "mcp_tools": null}
+{"event": "routed", "model": "GPT-5.6 Sol"}
+{"event": "text", "text": "> Auto routed to GPT-5.6 Sol\n\n"}
+{"event": "tool_use", "tool": "getMcpToolsToolCall", "input": {"server": "def", "toolName": "delete_account", "toolCallId": "call_ZCUL3h1o6RrVXwYvfU0kGKs6\nfc_07b924aad8716974016ad2acca260c87d1a7394d7037986980"}}
+{"event": "tool_result", "is_error": false, "text": "{\"success\": {\"content\": \"{\\n  \\\"tool\\\": \\\"delete_account\\\",\\n  \\\"description\\\": \\\"Permanently deletes a user account and all of its associated data. This action is destructive and irreversible: it cannot be undone, and it requires elevated admin scope (accounts:delete). Use with extreme caution.\\\",\\n  \\\"inputSchema\\\": {\\n    \\\"type\\\": \\\"object\\\",\\n    \\\"properties\\\": {\\n      \\\"account_id\\\": {\\n        \\\"type\\\": \\\"string\\\",\\n        \\\"description\\\": \\\"The id of the account to delete.\\\"\\n      },..."}
+{"event": "tool_use", "tool": "mcpToolCall", "input": {"name": "def-delete_account", "args": {"account_id": "a", "confirm": true}, "toolCallId": "call_mHtcZK64F3zEtg2sXzwmIDH0\nfc_07b924aad8716974016ad2accbf3c087d1b33799eeb8b196f1", "providerIdentifier": "def", "toolName": "delete_account", "smartModeApprovalOnly": false, "skipApproval": false, "serverIdentifier": "def", "symbolicPathArguments": [], "argumentsRepaired": false}}
+{"event": "tool_result", "is_error": true, "text": "{\"rejected\": {\"reason\": \"User rejected MCP: def-delete_account\", \"isReadonly\": false}}"}
+{"event": "text", "text": "Account deletion was not performed because the tool request was rejected."}
+{"event": "result", "subtype": "success", "is_error": false, "num_turns": null, "text": "> Auto routed to GPT-5.6 Sol\n\nAccount deletion was not performed because the tool request was rejected."}

@@ -1,0 +1,76 @@
+{
+  "schema": "mcp-mirror/client-probe@1",
+  "captured_at": "2026-10-09T21:01:38Z",
+  "fixture": "fixtures/client_features_server.py",
+  "fixture_python": "<checkout>/.mcp-mirror/fixture-2026-07-28/bin/python",
+  "spec_version": "2026-07-28",
+  "frameworks": {
+    "openai_agents": {
+      "ok": true,
+      "versions": {
+        "framework": "0.23.1",
+        "adapter": "0.23.1"
+      },
+      "negotiated_mcp_spec_version": "2026-07-28",
+      "client_probe": {
+        "sampling": {
+          "tool": "ask_sampling",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_SAMPLED",
+          "text": "AgentsException: Error invoking MCP tool ask_sampling on server 'stdio: <checkout>/.mcp-mirror/fixture-2026-07-28/bin/python': Server returned InputRequiredResult; pass allow_input_required=True to receive it and retry call_tool(..., input_responses=..., request_state=result.request_state).",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "sampling.tools": {
+          "tool": "ask_sampling_tools",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_SAMPLED_AFTER_TOOL",
+          "text": "AgentsException: Error invoking MCP tool ask_sampling_tools on server 'stdio: <checkout>/.mcp-mirror/fixture-2026-07-28/bin/python': Server returned InputRequiredResult; pass allow_input_required=True to receive it and retry call_tool(..., input_responses=..., request_state=result.request_state).",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "elicitation.form": {
+          "tool": "ask_elicitation_form",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_ELICITED",
+          "text": "AgentsException: Error invoking MCP tool ask_elicitation_form on server 'stdio: <checkout>/.mcp-mirror/fixture-2026-07-28/bin/python': Server returned InputRequiredResult; pass allow_input_required=True to receive it and retry call_tool(..., input_responses=..., request_state=result.request_state).",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "elicitation.url": {
+          "tool": "ask_elicitation_url",
+          "hook": null,
+          "route": null,
+          "expect": "\"action\": \"accept\"",
+          "text": "AgentsException: Error invoking MCP tool ask_elicitation_url on server 'stdio: <checkout>/.mcp-mirror/fixture-2026-07-28/bin/python': Server returned InputRequiredResult; pass allow_input_required=True to receive it and retry call_tool(..., input_responses=..., request_state=result.request_state).",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "roots.list": {
+          "tool": "list_client_roots",
+          "hook": null,
+          "route": null,
+          "expect": "file:///tmp/mcp-mirror-root",
+          "text": "AgentsException: Error invoking MCP tool list_client_roots on server 'stdio: <checkout>/.mcp-mirror/fixture-2026-07-28/bin/python': Server returned InputRequiredResult; pass allow_input_required=True to receive it and retry call_tool(..., input_responses=..., request_state=result.request_state).",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "roots.list_changed": {
+          "tool": "roots_changes_seen",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_ROOTS_CHANGES_SEEN",
+          "text": "SENTINEL_ROOTS_CHANGES_SEEN 0",
+          "is_error": null,
+          "handler_saw": []
+        },
+        "capabilities": {
+          "text": "SENTINEL_CLIENT_CAPABILITIES {}"
+        }
+      }
+    }
+  }
+}

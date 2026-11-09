@@ -1,0 +1,76 @@
+{
+  "schema": "mcp-mirror/client-probe@1",
+  "captured_at": "2026-10-09T19:46:45Z",
+  "fixture": "fixtures/client_features_server.py",
+  "fixture_python": "<checkout>/.mcp-mirror/fixture-2026-07-28/bin/python",
+  "spec_version": "2026-07-28",
+  "frameworks": {
+    "vercel_ai": {
+      "ok": true,
+      "versions": {
+        "framework": "2.0.73",
+        "adapter": "node v24.21.0"
+      },
+      "negotiated_mcp_spec_version": "2026-07-28",
+      "client_probe": {
+        "sampling": {
+          "tool": "ask_sampling",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_SAMPLED",
+          "text": "Server requested additional input, but multi round-trip requests are not supported yet",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "sampling.tools": {
+          "tool": "ask_sampling_tools",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_SAMPLED_AFTER_TOOL",
+          "text": "Server requested additional input, but multi round-trip requests are not supported yet",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "elicitation.form": {
+          "tool": "ask_elicitation_form",
+          "hook": "onElicitationRequest",
+          "route": "adapter",
+          "expect": "SENTINEL_ELICITED",
+          "text": "Server requested additional input, but multi round-trip requests are not supported yet",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "elicitation.url": {
+          "tool": "ask_elicitation_url",
+          "hook": "onElicitationRequest",
+          "route": "adapter",
+          "expect": "\"action\": \"accept\"",
+          "text": "Server requested additional input, but multi round-trip requests are not supported yet",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "roots.list": {
+          "tool": "list_client_roots",
+          "hook": null,
+          "route": null,
+          "expect": "file:///tmp/mcp-mirror-root",
+          "text": "Server requested additional input, but multi round-trip requests are not supported yet",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "roots.list_changed": {
+          "tool": "roots_changes_seen",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_ROOTS_CHANGES_SEEN",
+          "text": "SENTINEL_ROOTS_CHANGES_SEEN 0\n{\"seen\": 0}",
+          "is_error": false,
+          "handler_saw": []
+        },
+        "capabilities": {
+          "text": "SENTINEL_CLIENT_CAPABILITIES {\"elicitation\": {\"form\": {}, \"url\": {}}}\n{\"elicitation\": {\"form\": {}, \"url\": {}}}"
+        }
+      }
+    }
+  }
+}

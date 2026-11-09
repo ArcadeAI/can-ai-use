@@ -1,0 +1,91 @@
+{
+  "schema": "mcp-mirror/client-probe@1",
+  "captured_at": "2026-10-01T18:08:44Z",
+  "fixture": "fixtures/client_features_server.py",
+  "fixture_python": "<checkout>/.mcp-mirror/fixture-2025-11-25/bin/python",
+  "spec_version": "2025-11-25",
+  "frameworks": {
+    "koog": {
+      "ok": true,
+      "versions": {
+        "framework": "1.3.0-beta",
+        "adapter": "ai.koog:agents-mcp 1.3.0-beta, io.modelcontextprotocol:kotlin-sdk-client 0.11.1, kotlin 2.3.10, java 21.0.12.1"
+      },
+      "negotiated_mcp_spec_version": "2025-11-25",
+      "client_probe": {
+        "sampling": {
+          "tool": "ask_sampling",
+          "hook": "Client.setRequestHandler<CreateMessageRequest> before fromClient",
+          "route": "underlying",
+          "expect": "SENTINEL_SAMPLED",
+          "text": "{\"answered\": \"ask_sampling\", \"response\": {\"content\": {\"text\": \"SENTINEL_SAMPLED\", \"type\": \"text\"}, \"model\": \"mcp-mirror-stub\", \"role\": \"assistant\", \"stopReason\": \"endTurn\"}}",
+          "is_error": null,
+          "handler_saw": [
+            {
+              "hook": "Client.setRequestHandler<CreateMessageRequest>",
+              "messages": 1
+            }
+          ]
+        },
+        "sampling.tools": {
+          "tool": "ask_sampling_tools",
+          "hook": "Client.setRequestHandler<CreateMessageRequest> before fromClient",
+          "route": "underlying",
+          "expect": "SENTINEL_SAMPLED_AFTER_TOOL",
+          "text": "Error: SENTINEL_CLIENT_FEATURE_UNAVAILABLE ask_sampling_tools: McpError: Client does not support sampling tools capability",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "elicitation.form": {
+          "tool": "ask_elicitation_form",
+          "hook": "Client.setElicitationHandler before fromClient",
+          "route": "underlying",
+          "expect": "SENTINEL_ELICITED",
+          "text": "{\"answered\": \"ask_elicitation_form\", \"response\": {\"action\": \"accept\", \"content\": {\"name\": \"SENTINEL_ELICITED\"}}}",
+          "is_error": null,
+          "handler_saw": [
+            {
+              "hook": "Client.setElicitationHandler",
+              "mode": "form"
+            }
+          ]
+        },
+        "elicitation.url": {
+          "tool": "ask_elicitation_url",
+          "hook": "Client.setElicitationHandler before fromClient",
+          "route": "underlying",
+          "expect": "\"action\": \"accept\"",
+          "text": "{\"answered\": \"ask_elicitation_url\", \"response\": {\"action\": \"accept\"}}",
+          "is_error": null,
+          "handler_saw": [
+            {
+              "hook": "Client.setElicitationHandler",
+              "mode": "url"
+            }
+          ]
+        },
+        "roots.list": {
+          "tool": "list_client_roots",
+          "hook": "Client.addRoot before fromClient",
+          "route": "underlying",
+          "expect": "file:///tmp/mcp-mirror-root",
+          "text": "{\"answered\": \"list_client_roots\", \"response\": {\"roots\": [{\"name\": \"mcp-mirror\", \"uri\": \"file:///tmp/mcp-mirror-root\"}]}}",
+          "is_error": null,
+          "handler_saw": []
+        },
+        "roots.list_changed": {
+          "tool": "roots_changes_seen",
+          "hook": "Client.removeRoot / addRoot / sendRootsListChanged",
+          "route": "underlying",
+          "expect": "SENTINEL_ROOTS_CHANGES_SEEN",
+          "text": "{\"seen\": 1}",
+          "is_error": null,
+          "handler_saw": []
+        },
+        "capabilities": {
+          "text": "{\"elicitation\": {\"form\": {}, \"url\": {}}, \"roots\": {\"listChanged\": true}, \"sampling\": {}}"
+        }
+      }
+    }
+  }
+}

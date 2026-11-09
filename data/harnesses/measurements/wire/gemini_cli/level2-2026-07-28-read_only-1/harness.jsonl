@@ -1,0 +1,4 @@
+{"format": "mcp-mirror.harness-output/1"}
+{"event": "init", "harness_version": null, "permission_mode": null, "model": "gemini-2.5-flash", "mcp_servers": null, "mcp_tools": []}
+{"event": "text", "text": "def search_records is not among the tools offered"}
+{"event": "result", "subtype": "success", "is_error": false, "num_turns": null, "tool_calls": 0, "text": ""}

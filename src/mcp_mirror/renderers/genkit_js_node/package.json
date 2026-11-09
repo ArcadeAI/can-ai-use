@@ -1,0 +1,12 @@
+{
+  "name": "mcp-mirror-genkit-js-worker",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "description": "Node worker that drives Genkit's real MCP adapter (@genkit-ai/mcp createMcpHost / createMcpClient) so mcp-mirror can capture what Genkit hands the model. Run `npm ci` here to enable the genkit_js renderer.",
+  "dependencies": {
+    "@genkit-ai/mcp": "1.42.0",
+    "@modelcontextprotocol/sdk": "1.30.0",
+    "genkit": "1.42.0"
+  }
+}

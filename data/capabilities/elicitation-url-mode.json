@@ -1,0 +1,49 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "elicitation-url-mode",
+  "title": "`elicitation/create` (URL)",
+  "description": "A server request that sends the user out of band to a URL, for interactions such as sign-in that must not pass through the client.",
+  "question": "Can the framework hand a user off to an external URL and resume?",
+  "spec": "https://modelcontextprotocol.io/specification/2025-11-25",
+  "status": "stable",
+  "categories": [
+    "Client features"
+  ],
+  "keywords": "elicitation,url mode,out of band,oauth,sensitive data,consent",
+  "why": "Form mode is explicitly forbidden from collecting credentials, so URL mode is the sanctioned path for sign-in flows. A framework that implements only form mode leaves servers with no compliant way to authenticate a user mid-task.",
+  "docs_url": "https://modelcontextprotocol.io/specification/2025-11-25/client/elicitation#url-mode-elicitation-requests",
+  "docs_label": "MCP Docs",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/client/elicitation#url-mode-elicitation-requests",
+      "title": "MCP Docs"
+    }
+  ],
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "known_issues": [],
+  "notes": {
+    "crewai": "CrewAI 1.15.26: `crewai_tools.MCPServerAdapter` takes only server parameters, and mcpadapt opens its `ClientSession` with no callbacks, so the client declares no elicitation capability and the server's `elicitation/create` is refused (`Elicitation not supported`).",
+    "genkit_js": "Genkit (JS) 1.42.0: `GenkitMcpClient` builds its SDK `Client` with only the `roots` capability and handler, so a URL-mode `elicitation/create` gets `Method not found` and there is no option to add a handler.",
+    "openai-agents": "OpenAI Agents SDK 0.23.1: `MCPServerStdio` forwards only `message_handler` to its `ClientSession`, which sees notifications, not requests. With no elicitation hook the client declares no elicitation capability and the server's `elicitation/create` is refused (`Elicitation not supported`).",
+    "ms_agent_framework": "Microsoft Agent Framework 1.21.0: The `ClientSession` that `MCPTool.connect` builds gets only `message_handler`, `logging_callback` and `sampling_callback`, and `MCPTool` has no parameter for this, so the SDK answers the server with an error.",
+    "autogen": "AutoGen 0.7.5: `McpWorkbench` opens its `ClientSession` with no elicitation callback and takes none, so the server's request is refused.",
+    "vercel_ai": "Vercel AI SDK (@ai-sdk/mcp 2.0.73): `onElicitationRequest` accepts only `ElicitationRequestSchema`, which requires `params.requestedSchema`. A URL-mode request carries none, so the client answers -32602 \"Invalid elicitation request\" before the registered handler sees it, even with `capabilities.elicitation.url` declared.",
+    "openai_agents_js": "OpenAI Agents SDK (JS) 0.20.0: the `MCPServerStdio` / `MCPServerStreamableHttp` options take no sampling, elicitation or roots handler, and the SDK registers none on the MCP client it builds, so the server's URL-mode `elicitation/create` request is answered with Method not found.",
+    "semantic_kernel": "Semantic Kernel 1.45.0: `MCPPluginBase` opens its ClientSession with no `elicitation_callback` and takes none.",
+    "llamaindex": "LlamaIndex (llama-index-tools-mcp 0.6.0): `BasicMCPClient` takes a `sampling_callback` and nothing for elicitation, so the client declares no elicitation capability and the server's URL-mode `elicitation/create` is refused (`Elicitation not supported`).",
+    "pi": "Pi (@earendil-works/pi-mcp 1.1.0): `McpClient` takes no elicitation handler and registers none, so an `elicitation/create` request is answered with Method not found. A caller could hand-register one with `setRequestHandler` and declare the capability through the `capabilities` option, which is protocol work rather than a client feature.",
+    "google_adk_js": "Google ADK (TypeScript) 2.2.1: `MCPSessionManager.createSession` builds `new Client({name: 'MCPClient', version: '1.0.0'})` with no capabilities and no request handlers, and `MCPToolset` takes no client hooks. URL-mode `elicitation/create` is refused (`Method not found`).",
+    "agno": "Agno 3.1.2: `MCPTools` builds its fastmcp `Client` with no elicitation handler and exposes no hook to add one, so URL elicitation is refused.",
+    "haystack": "Haystack (mcp-haystack 1.5.2): `MCPClient` builds its `ClientSession(read, write)` with no sampling, elicitation, roots or message callback, and neither the server info nor `MCPToolset` takes one, so the server's URL-mode `elicitation/create` got no answer and the tool call failed.",
+    "smolagents": "smolagents 1.26.0 (mcpadapt 0.1.20): `smolagents.MCPClient` takes server parameters, `adapter_kwargs` and `structured_output` only, and mcpadapt opens its `ClientSession` with no callbacks, so the client declares no elicitation capability and the server's URL-mode `elicitation/create` is refused (`Elicitation not supported`).",
+    "dspy": "DSPy 3.4.0: DSPy takes no elicitation handler. The server's request is answered only by a `elicitation_callback` registered on the caller's own `mcp.Client`, which DSPy is handed by `Tool.from_mcp_tool` and never configures. DSPy itself offers no route.",
+    "spring_ai": "Spring AI 2.0.1: `@McpElicitation` handles form mode only. URL mode needs `spec.urlElicitation(...)` in an `McpClientCustomizer<McpClient.SyncSpec>` bean, which hands the request to the MCP SDK's builder unchanged, plus rebuilt capabilities declaring `elicitation.url`.",
+    "beeai": "BeeAI Framework 0.1.85: no elicitation handler. URL elicitation works only on a `ClientSession` the caller builds and hands `MCPTool.from_client`, which BeeAI uses as given; the session BeeAI opens itself for a transport has no callbacks.",
+    "crewai-native": "CrewAI 1.15.26, native `crewai.mcp` client (`Agent(mcps=[...])`, not the `crewai_tools.MCPServerAdapter` row): `MCPClient.connect` builds its `ClientSession` from the transport streams alone, with no `elicitation_callback`, and `MCPServerStdio`/`MCPServerHTTP`/`MCPServerSSE` take no hook for it, so the client does not declare the capability and the server's request is refused.",
+    "google_adk_java": "Google ADK (Java) 1.11.0: `McpSessionManager` builds the `McpSyncClient` with empty client capabilities and no elicitation handler, and neither `McpToolset` nor `McpTool` takes one, so `elicitation/create` is answered `Method not found`.",
+    "langchain4j": "LangChain4j 1.22.0-beta32: `DefaultMcpClient` registers no elicitation handler at 2025-11-25 and never answers an `elicitation/create` request. The tool call waits until `toolExecutionTimeout` and fails with `There was a timeout executing the tool`.",
+    "koog": "Koog 1.3.0-beta: no Koog API. `Client.setElicitationHandler` on the Kotlin SDK `Client` before `fromClient` answers URL-mode `elicitation/create`.",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): mcptoolset has no elicitation option. A `mcp.ClientOptions.ElicitationHandler` with `Capabilities.Elicitation.URL` set on the `*mcp.Client` the caller passes as `mcptoolset.Config.Client` answers the server's request, so it works, but only by configuring go-sdk rather than the toolset."
+  },
+  "verdict": {}
+}

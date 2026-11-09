@@ -1,0 +1,69 @@
+{
+  "format": "mcp-mirror.harness-fresh/1",
+  "passed": true,
+  "checks": {
+    "home": {
+      "passed": true,
+      "isolated": [
+        "CLAUDE_CONFIG_DIR",
+        "CODEX_HOME",
+        "GEMINI_CLI_HOME",
+        "HOME",
+        "XDG_CACHE_HOME",
+        "XDG_CONFIG_HOME",
+        "XDG_DATA_HOME",
+        "XDG_STATE_HOME"
+      ],
+      "copied": [],
+      "refused": []
+    },
+    "load": {
+      "passed": true,
+      "fixture_initialize_seconds": 0.23,
+      "limit_seconds": 2.0,
+      "load_1m_per_core": 0.54,
+      "cores": 10,
+      "waited_seconds": 0.0
+    },
+    "servers_listed": {
+      "passed": true,
+      "status": "listed",
+      "expected": [
+        "cf",
+        "def",
+        "ntf",
+        "res",
+        "util"
+      ],
+      "listed": [
+        "cf",
+        "def",
+        "ntf",
+        "res",
+        "util"
+      ],
+      "unexpected": [],
+      "missing": []
+    },
+    "tools_offered": {
+      "passed": true,
+      "source": "model.jsonl",
+      "mcp_tools": 0,
+      "servers": [],
+      "foreign_tools": [],
+      "foreign_servers": []
+    },
+    "egress": {
+      "passed": true,
+      "attempts": [],
+      "not_allowed": [],
+      "route": "sandbox",
+      "proxy_env": "withheld on this transport: Gemini CLI 0.62.0 stops the Streamable HTTP handshake after initialize whenever NO_PROXY is set",
+      "sandbox": {
+        "profile": "sandbox-exec: outbound to loopback only, system resolver denied",
+        "probe": "connect 192.0.2.1:443 -> EPERM; resolve example.com -> failed"
+      },
+      "tradeoff": "The proxy variables were withheld on this transport, so the egress sink could not see what the harness tried to reach. Egress was held instead by a sandbox-exec profile allowing outbound connections to loopback only, with the system resolver denied, and verified by a probe in the same profile. Nothing could leave the machine, but refused attempts are not listed by host."
+    }
+  }
+}

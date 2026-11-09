@@ -1,0 +1,29 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "null-acceptance",
+  "title": "Null Acceptance",
+  "description": "Distinguishes an optional parameter that may be omitted from a parameter that explicitly accepts null.",
+  "question": "Does adaptation preserve whether each parameter accepts null?",
+  "spec": "https://json-schema.org/draft/2020-12/json-schema-validation",
+  "status": "stable",
+  "categories": [
+    "Parameter contract"
+  ],
+  "keywords": "null,nullable,optional,anyOf,type union,parameter",
+  "usage_perc_y": null,
+  "usage_perc_a": null,
+  "usage_note": "Not published. Candidate source: count of public MCP tool schemas distinguishing omission from null.",
+  "links": [
+    {
+      "url": "https://json-schema.org/understanding-json-schema/reference/null",
+      "title": "JSON Schema Docs"
+    }
+  ],
+  "known_issues": [
+    "Two framework adapters could not be measured against 2026-07-28, so missing evidence is not a support result."
+  ],
+  "why": "Optional and nullable are different contracts. Conflating them lets a downstream caller express values the source never accepted.",
+  "shown": true,
+  "docs_url": "https://json-schema.org/understanding-json-schema/reference/null",
+  "docs_label": "JSON Schema Docs"
+}

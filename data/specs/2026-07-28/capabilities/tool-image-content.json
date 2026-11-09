@@ -1,0 +1,35 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "tool-image-content",
+  "title": "Image content",
+  "description": "The `image` content block, carrying base64-encoded data and its MIME type.",
+  "question": "Does an image result survive adaptation, or is it dropped or flattened to text?",
+  "spec": "https://modelcontextprotocol.io/specification/2026-07-28",
+  "status": "stable",
+  "categories": [
+    "Tool results"
+  ],
+  "keywords": "image content,ImageContent,base64,mimeType,multimodal",
+  "usage_perc_y": null,
+  "usage_perc_a": null,
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/server/tools#image-content",
+      "title": "MCP Docs"
+    }
+  ],
+  "known_issues": [],
+  "why": "A dropped image block is a silent failure: the call succeeds, the result arrives, and the payload the tool existed to return is simply gone.",
+  "shown": true,
+  "docs_url": "https://modelcontextprotocol.io/specification/2026-07-28/server/tools#image-content",
+  "docs_label": "MCP Docs",
+  "notes": {
+    "mastra": "Mastra 2.2.0: a result without `structuredContent` comes back unchanged, image block intact. For a result that carries `structuredContent`, every content block is dropped, images included; only the structured value reaches the agent.",
+    "openai_agents_js": "OpenAI Agents SDK (JS) 0.20.0: a lone image block reaches the model as an `input_image` item. When a result has several blocks the SDK stringifies the whole content array into one text item, so an image beside other kinds arrives as JSON text.",
+    "dspy": "DSPy 3.4.0: with the default `result_mode=\"text\"`, `Tool.acall` returns the image block as the MCP content object when the result has no text (direct: `y`). In a `dspy.ReAct` run the observation the model reads is that object's Python repr, `«type='image' data='...' mime_type='image/png' ...»` (react: `a`). When a result carries any text block, `_convert_mcp_tool_result` returns the text alone and drops the image block at both boundaries.",
+    "langchain4j": "LangChain4j 1.22.0-beta32: The default `McpToolExecutor` result converter accepts text blocks only. Any `image` block makes it throw `Unsupported content type: \"image\"`: the direct executor raises it as a `RuntimeException`, and AiServices turns it into an error tool result the model reads in place of the block. A result with `structuredContent` never reads its blocks at all.",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): `mcpTool.Run` returns `{\"output\": text}`, where `formatMCPContent` replaces the block with a placeholder line (`[MCP image: mimeType=\"image/png\", size=70 bytes]`, with no image data), and the model receives that map as `FunctionResponse.response`. When the result also has `structuredContent`, as in the mixed result, `Run` returns `{\"output\": structuredContent}` and the block is dropped.",
+    "ms_agent_framework_dotnet": "Microsoft Agent Framework (.NET) 1.24.0 (ModelContextProtocol 2.2.0): a lone image block becomes a `DataContent` with its bytes and MIME type at both boundaries. Beside `structuredContent` (`mixed_content`) `McpClientTool` returns the `CallToolResult` as JSON, so the image reaches the model as base64 characters inside a text result, not as an image."
+  }
+}

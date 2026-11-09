@@ -1,0 +1,1197 @@
+{
+  "schema": "mcp-mirror/result-boundaries@2",
+  "captured_at": "2026-10-09T19:17:13Z",
+  "fixture": "fixtures/results_server.py",
+  "fixture_python": "<checkout>/.mcp-mirror/fixture-2025-11-25/bin/python",
+  "spec_version": "2025-11-25",
+  "calls": [
+    {
+      "tool": "text_content",
+      "arguments": {}
+    },
+    {
+      "tool": "image_content",
+      "arguments": {}
+    },
+    {
+      "tool": "audio_content",
+      "arguments": {}
+    },
+    {
+      "tool": "embedded_resource_content",
+      "arguments": {}
+    },
+    {
+      "tool": "resource_link_content",
+      "arguments": {}
+    },
+    {
+      "tool": "annotated_content",
+      "arguments": {}
+    },
+    {
+      "tool": "mixed_content",
+      "arguments": {}
+    },
+    {
+      "tool": "text_and_structured",
+      "arguments": {}
+    },
+    {
+      "tool": "tool_error",
+      "arguments": {}
+    }
+  ],
+  "source": {
+    "text_content": {
+      "tool": "text_content",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_TEXT_BLOCK"
+        }
+      ],
+      "block_kinds": [
+        "text"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": "SENTINEL_TEXT_BLOCK",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_TEXT_BLOCK",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "image_content": {
+      "tool": "image_content",
+      "blocks": [
+        {
+          "type": "image",
+          "data": "<96 chars>",
+          "mimeType": "image/png"
+        }
+      ],
+      "block_kinds": [
+        "image"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": null,
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "image",
+            "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==",
+            "mimeType": "image/png",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "audio_content": {
+      "tool": "audio_content",
+      "blocks": [
+        {
+          "type": "audio",
+          "data": "<60 chars>",
+          "mimeType": "audio/wav"
+        }
+      ],
+      "block_kinds": [
+        "audio"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": null,
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "audio",
+            "data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
+            "mimeType": "audio/wav",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "embedded_resource_content": {
+      "tool": "embedded_resource_content",
+      "blocks": [
+        {
+          "type": "resource",
+          "resource": {
+            "uri": "file:///fixtures/embedded.txt",
+            "mimeType": "text/plain",
+            "_meta": null,
+            "text": "SENTINEL_EMBEDDED_RESOURCE"
+          }
+        }
+      ],
+      "block_kinds": [
+        "resource"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": null,
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "resource",
+            "resource": {
+              "uri": "file:///fixtures/embedded.txt",
+              "mimeType": "text/plain",
+              "_meta": null,
+              "text": "SENTINEL_EMBEDDED_RESOURCE"
+            },
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "resource_link_content": {
+      "tool": "resource_link_content",
+      "blocks": [
+        {
+          "name": "linked.txt",
+          "uri": "file:///fixtures/linked.txt",
+          "description": "SENTINEL_RESOURCE_LINK",
+          "mimeType": "text/plain",
+          "type": "resource_link"
+        }
+      ],
+      "block_kinds": [
+        "resource_link"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": null,
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "name": "linked.txt",
+            "title": null,
+            "uri": "file:///fixtures/linked.txt",
+            "description": "SENTINEL_RESOURCE_LINK",
+            "mimeType": "text/plain",
+            "size": null,
+            "icons": null,
+            "annotations": null,
+            "_meta": null,
+            "type": "resource_link"
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "annotated_content": {
+      "tool": "annotated_content",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_ANNOTATED_TEXT",
+          "annotations": {
+            "audience": [
+              "user"
+            ],
+            "priority": 0.9
+          }
+        }
+      ],
+      "block_kinds": [
+        "text"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": "SENTINEL_ANNOTATED_TEXT",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_ANNOTATED_TEXT",
+            "annotations": {
+              "audience": [
+                "user"
+              ],
+              "priority": 0.9
+            },
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "mixed_content": {
+      "tool": "mixed_content",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_TEXT_BLOCK",
+          "annotations": {
+            "audience": [
+              "user"
+            ],
+            "priority": 0.9
+          }
+        },
+        {
+          "type": "image",
+          "data": "<96 chars>",
+          "mimeType": "image/png"
+        },
+        {
+          "type": "audio",
+          "data": "<60 chars>",
+          "mimeType": "audio/wav"
+        },
+        {
+          "type": "resource",
+          "resource": {
+            "uri": "file:///fixtures/embedded.txt",
+            "mimeType": "text/plain",
+            "_meta": null,
+            "text": "SENTINEL_EMBEDDED_RESOURCE"
+          }
+        },
+        {
+          "name": "linked.txt",
+          "uri": "file:///fixtures/linked.txt",
+          "description": "SENTINEL_RESOURCE_LINK",
+          "mimeType": "text/plain",
+          "type": "resource_link"
+        }
+      ],
+      "block_kinds": [
+        "text",
+        "image",
+        "audio",
+        "resource",
+        "resource_link"
+      ],
+      "structured_content": {
+        "count": 2,
+        "records": [
+          {
+            "id": "rec_1",
+            "status": "active"
+          },
+          {
+            "id": "rec_2",
+            "status": "archived"
+          }
+        ],
+        "note": "SENTINEL_STRUCTURED_CONTENT"
+      },
+      "is_error": false,
+      "text": "SENTINEL_TEXT_BLOCK",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_TEXT_BLOCK",
+            "annotations": {
+              "audience": [
+                "user"
+              ],
+              "priority": 0.9
+            },
+            "_meta": null
+          },
+          {
+            "type": "image",
+            "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==",
+            "mimeType": "image/png",
+            "annotations": null,
+            "_meta": null
+          },
+          {
+            "type": "audio",
+            "data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
+            "mimeType": "audio/wav",
+            "annotations": null,
+            "_meta": null
+          },
+          {
+            "type": "resource",
+            "resource": {
+              "uri": "file:///fixtures/embedded.txt",
+              "mimeType": "text/plain",
+              "_meta": null,
+              "text": "SENTINEL_EMBEDDED_RESOURCE"
+            },
+            "annotations": null,
+            "_meta": null
+          },
+          {
+            "name": "linked.txt",
+            "title": null,
+            "uri": "file:///fixtures/linked.txt",
+            "description": "SENTINEL_RESOURCE_LINK",
+            "mimeType": "text/plain",
+            "size": null,
+            "icons": null,
+            "annotations": null,
+            "_meta": null,
+            "type": "resource_link"
+          }
+        ],
+        "structuredContent": {
+          "count": 2,
+          "records": [
+            {
+              "id": "rec_1",
+              "status": "active"
+            },
+            {
+              "id": "rec_2",
+              "status": "archived"
+            }
+          ],
+          "note": "SENTINEL_STRUCTURED_CONTENT"
+        },
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "text_and_structured": {
+      "tool": "text_and_structured",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_TEXT_BLOCK"
+        }
+      ],
+      "block_kinds": [
+        "text"
+      ],
+      "structured_content": {
+        "count": 2,
+        "records": [
+          {
+            "id": "rec_1",
+            "status": "active"
+          },
+          {
+            "id": "rec_2",
+            "status": "archived"
+          }
+        ],
+        "note": "SENTINEL_STRUCTURED_CONTENT"
+      },
+      "is_error": false,
+      "text": "SENTINEL_TEXT_BLOCK",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_TEXT_BLOCK",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "count": 2,
+          "records": [
+            {
+              "id": "rec_1",
+              "status": "active"
+            },
+            {
+              "id": "rec_2",
+              "status": "archived"
+            }
+          ],
+          "note": "SENTINEL_STRUCTURED_CONTENT"
+        },
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "tool_error": {
+      "tool": "tool_error",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_TOOL_ERROR: this tool always fails"
+        }
+      ],
+      "block_kinds": [
+        "text"
+      ],
+      "structured_content": null,
+      "is_error": true,
+      "text": "SENTINEL_TOOL_ERROR: this tool always fails",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_TOOL_ERROR: this tool always fails",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": true
+      },
+      "error_channel": null
+    }
+  },
+  "frameworks": {
+    "haystack": {
+      "ok": true,
+      "versions": {
+        "framework": "3.2.0",
+        "adapter": "1.5.2"
+      },
+      "evidence": {
+        "capture_api": "haystack_integrations.tools.mcp.MCPToolset handed to haystack.components.agents.Agent; the tools argument of the chat generator's run on the first turn",
+        "capture_object": "haystack.tools.Tool.tool_spec ({name, description, parameters}) for each Tool MCPToolset.warm_up builds",
+        "capture_stage": "framework_tool_definition",
+        "provider_request_captured": false,
+        "negotiated_mcp_spec_version": "2025-11-25",
+        "protocol_version_evidence": "protocol version returned by the ClientSession.initialize that MCPClient._initialize_session_with_transport calls; the adapter keeps no record of it",
+        "limitation": "The chat generator is haystack's MockChatGenerator; no provider chat generator serialized a request."
+      },
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Tool return value",
+          "capture_api": "haystack.tools.Tool.invoke on a Tool MCPToolset.warm_up builds",
+          "capture_object": "the JSON string MCPClient.call_tool returns (CallToolResult.model_dump_json), or the ToolInvocationError Tool.invoke raises around the MCPInvocationError for an isError result",
+          "agent_path": false,
+          "limitation": null
+        },
+        {
+          "id": "agent",
+          "label": "Tool message to the model",
+          "capture_api": "haystack.components.agents.Agent.run, the messages of the next chat generator run",
+          "capture_object": "the ChatMessage carrying a ToolCallResult that the next generator turn receives",
+          "agent_path": true,
+          "limitation": "The chat generator is haystack's MockChatGenerator; no provider chat generator serialized the message."
+        }
+      ],
+      "reps": [
+        {
+          "name": "text_content",
+          "description": "Return one text block and nothing else.",
+          "params": {
+            "type": "object",
+            "properties": {}
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "haystack",
+          "raw": {
+            "name": "text_content",
+            "description": "Return one text block and nothing else.",
+            "parameters": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        {
+          "name": "image_content",
+          "description": "Return one image block and nothing else.",
+          "params": {
+            "type": "object",
+            "properties": {}
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "haystack",
+          "raw": {
+            "name": "image_content",
+            "description": "Return one image block and nothing else.",
+            "parameters": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        {
+          "name": "audio_content",
+          "description": "Return one audio block and nothing else.",
+          "params": {
+            "type": "object",
+            "properties": {}
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "haystack",
+          "raw": {
+            "name": "audio_content",
+            "description": "Return one audio block and nothing else.",
+            "parameters": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        {
+          "name": "embedded_resource_content",
+          "description": "Return one embedded resource block and nothing else.",
+          "params": {
+            "type": "object",
+            "properties": {}
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "haystack",
+          "raw": {
+            "name": "embedded_resource_content",
+            "description": "Return one embedded resource block and nothing else.",
+            "parameters": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        {
+          "name": "resource_link_content",
+          "description": "Return one resource_link block and nothing else.",
+          "params": {
+            "type": "object",
+            "properties": {}
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "haystack",
+          "raw": {
+            "name": "resource_link_content",
+            "description": "Return one resource_link block and nothing else.",
+            "parameters": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        {
+          "name": "annotated_content",
+          "description": "Return one text block carrying audience and priority annotations.",
+          "params": {
+            "type": "object",
+            "properties": {}
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "haystack",
+          "raw": {
+            "name": "annotated_content",
+            "description": "Return one text block carrying audience and priority annotations.",
+            "parameters": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        {
+          "name": "mixed_content",
+          "description": "Return one block of every kind plus structuredContent in one result.",
+          "params": {
+            "type": "object",
+            "properties": {}
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "haystack",
+          "raw": {
+            "name": "mixed_content",
+            "description": "Return one block of every kind plus structuredContent in one result.",
+            "parameters": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        {
+          "name": "text_and_structured",
+          "description": "Return one text block plus structuredContent, with no media.",
+          "params": {
+            "type": "object",
+            "properties": {}
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "haystack",
+          "raw": {
+            "name": "text_and_structured",
+            "description": "Return one text block plus structuredContent, with no media.",
+            "parameters": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        {
+          "name": "tool_error",
+          "description": "Always fail, reporting the failure through isError rather than a protocol error.",
+          "params": {
+            "type": "object",
+            "properties": {}
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "haystack",
+          "raw": {
+            "name": "tool_error",
+            "description": "Always fail, reporting the failure through isError rather than a protocol error.",
+            "parameters": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        }
+      ],
+      "results": [
+        {
+          "tool": "text_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "text_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TEXT_BLOCK"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_TEXT_BLOCK",
+            "origin": "haystack",
+            "raw": "{\"_meta\":null,\"content\":[{\"type\":\"text\",\"text\":\"SENTINEL_TEXT_BLOCK\",\"annotations\":null,\"_meta\":null}],\"structuredContent\":null,\"isError\":false,\"resultType\":\"complete\"}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "text_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "text_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "{\"_meta\":null,\"content\":[{\"type\":\"text\",\"text\":\"SENTINEL_TEXT_BLOCK\",\"annotations\":null,\"_meta\":null}],\"structuredContent\":null,\"isError\":false,\"resultType\":\"complete\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"_meta\":null,\"content\":[{\"type\":\"text\",\"text\":\"SENTINEL_TEXT_BLOCK\",\"annotations\":null,\"_meta\":null}],\"structuredContent\":null,\"isError\":false,\"resultType\":\"complete\"}",
+            "origin": "haystack",
+            "raw": "{\"role\": \"tool\", \"meta\": {}, \"name\": null, \"content\": [{\"tool_call_result\": {\"result\": \"{\\\"_meta\\\":null,\\\"content\\\":[{\\\"type\\\":\\\"text\\\",\\\"text\\\":\\\"SENTINEL_TEXT_BLOCK\\\",\\\"annotations\\\":null,\\\"_meta\\\":null}],\\\"structuredContent\\\":null,\\\"isError\\\":false,\\\"resultType\\\":\\\"complete\\\"}\", \"origin\": {\"tool_name\": \"text_content\", \"arguments\": {}, \"id\": null, \"extra\": null}, \"error\": false}}]}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "image_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "image_content",
+            "blocks": [
+              {
+                "type": "image",
+                "data": "<96 chars>",
+                "mimeType": "image/png"
+              }
+            ],
+            "block_kinds": [
+              "image"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": null,
+            "origin": "haystack",
+            "raw": "{\"_meta\":null,\"content\":[{\"type\":\"image\",\"data\":\"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==\",\"mimeType\":\"image/png\",\"annotations\":null,\"_meta\":null}],\"structuredContent\":null,\"isError\":false,\"resultType\":\"complete\"}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "image_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "image_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "{\"_meta\":null,\"content\":[{\"type\":\"image\",\"data\":\"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==\",\"mimeType\":\"image/png\",\"annotations\":null,\"_meta\":null}],\"structuredContent\":null,\"isError\":false,\"resultType\":\"complete\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"_meta\":null,\"content\":[{\"type\":\"image\",\"data\":\"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==\",\"mimeType\":\"image/png\",\"annotations\":null,\"_meta\":null}],\"structuredContent\":null,\"isError\":false,\"resultType\":\"complete\"}",
+            "origin": "haystack",
+            "raw": "{\"role\": \"tool\", \"meta\": {}, \"name\": null, \"content\": [{\"tool_call_result\": {\"result\": \"{\\\"_meta\\\":null,\\\"content\\\":[{\\\"type\\\":\\\"image\\\",\\\"data\\\":\\\"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==\\\",\\\"mimeType\\\":\\\"image/png\\\",\\\"annotations\\\":null,\\\"_meta\\\":null}],\\\"structuredContent\\\":null,\\\"isError\\\":false,\\\"resultType\\\":\\\"complete\\\"}\", \"origin\": {\"tool_name\": \"image_content\", \"arguments\": {}, \"id\": null, \"extra\": null}, \"error\": false}}]}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "audio_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "audio_content",
+            "blocks": [
+              {
+                "type": "audio",
+                "data": "<60 chars>",
+                "mimeType": "audio/wav"
+              }
+            ],
+            "block_kinds": [
+              "audio"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": null,
+            "origin": "haystack",
+            "raw": "{\"_meta\":null,\"content\":[{\"type\":\"audio\",\"data\":\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\",\"mimeType\":\"audio/wav\",\"annotations\":null,\"_meta\":null}],\"structuredContent\":null,\"isError\":false,\"resultType\":\"complete\"}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "audio_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "audio_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "{\"_meta\":null,\"content\":[{\"type\":\"audio\",\"data\":\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\",\"mimeType\":\"audio/wav\",\"annotations\":null,\"_meta\":null}],\"structuredContent\":null,\"isError\":false,\"resultType\":\"complete\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"_meta\":null,\"content\":[{\"type\":\"audio\",\"data\":\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\",\"mimeType\":\"audio/wav\",\"annotations\":null,\"_meta\":null}],\"structuredContent\":null,\"isError\":false,\"resultType\":\"complete\"}",
+            "origin": "haystack",
+            "raw": "{\"role\": \"tool\", \"meta\": {}, \"name\": null, \"content\": [{\"tool_call_result\": {\"result\": \"{\\\"_meta\\\":null,\\\"content\\\":[{\\\"type\\\":\\\"audio\\\",\\\"data\\\":\\\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\\\",\\\"mimeType\\\":\\\"audio/wav\\\",\\\"annotations\\\":null,\\\"_meta\\\":null}],\\\"structuredContent\\\":null,\\\"isError\\\":false,\\\"resultType\\\":\\\"complete\\\"}\", \"origin\": {\"tool_name\": \"audio_content\", \"arguments\": {}, \"id\": null, \"extra\": null}, \"error\": false}}]}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "embedded_resource_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "embedded_resource_content",
+            "blocks": [
+              {
+                "type": "resource",
+                "resource": {
+                  "uri": "file:///fixtures/embedded.txt",
+                  "mimeType": "text/plain",
+                  "_meta": null,
+                  "text": "SENTINEL_EMBEDDED_RESOURCE"
+                }
+              }
+            ],
+            "block_kinds": [
+              "resource"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": null,
+            "origin": "haystack",
+            "raw": "{\"_meta\":null,\"content\":[{\"type\":\"resource\",\"resource\":{\"uri\":\"file:///fixtures/embedded.txt\",\"mimeType\":\"text/plain\",\"_meta\":null,\"text\":\"SENTINEL_EMBEDDED_RESOURCE\"},\"annotations\":null,\"_meta\":null}],\"structuredContent\":null,\"isError\":false,\"resultType\":\"complete\"}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "embedded_resource_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "embedded_resource_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "{\"_meta\":null,\"content\":[{\"type\":\"resource\",\"resource\":{\"uri\":\"file:///fixtures/embedded.txt\",\"mimeType\":\"text/plain\",\"_meta\":null,\"text\":\"SENTINEL_EMBEDDED_RESOURCE\"},\"annotations\":null,\"_meta\":null}],\"structuredContent\":null,\"isError\":false,\"resultType\":\"complete\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"_meta\":null,\"content\":[{\"type\":\"resource\",\"resource\":{\"uri\":\"file:///fixtures/embedded.txt\",\"mimeType\":\"text/plain\",\"_meta\":null,\"text\":\"SENTINEL_EMBEDDED_RESOURCE\"},\"annotations\":null,\"_meta\":null}],\"structuredContent\":null,\"isError\":false,\"resultType\":\"complete\"}",
+            "origin": "haystack",
+            "raw": "{\"role\": \"tool\", \"meta\": {}, \"name\": null, \"content\": [{\"tool_call_result\": {\"result\": \"{\\\"_meta\\\":null,\\\"content\\\":[{\\\"type\\\":\\\"resource\\\",\\\"resource\\\":{\\\"uri\\\":\\\"file:///fixtures/embedded.txt\\\",\\\"mimeType\\\":\\\"text/plain\\\",\\\"_meta\\\":null,\\\"text\\\":\\\"SENTINEL_EMBEDDED_RESOURCE\\\"},\\\"annotations\\\":null,\\\"_meta\\\":null}],\\\"structuredContent\\\":null,\\\"isError\\\":false,\\\"resultType\\\":\\\"complete\\\"}\", \"origin\": {\"tool_name\": \"embedded_resource_content\", \"arguments\": {}, \"id\": null, \"extra\": null}, \"error\": false}}]}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "resource_link_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "resource_link_content",
+            "blocks": [
+              {
+                "name": "linked.txt",
+                "uri": "file:///fixtures/linked.txt",
+                "description": "SENTINEL_RESOURCE_LINK",
+                "mimeType": "text/plain",
+                "type": "resource_link"
+              }
+            ],
+            "block_kinds": [
+              "resource_link"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": null,
+            "origin": "haystack",
+            "raw": "{\"_meta\":null,\"content\":[{\"name\":\"linked.txt\",\"title\":null,\"uri\":\"file:///fixtures/linked.txt\",\"description\":\"SENTINEL_RESOURCE_LINK\",\"mimeType\":\"text/plain\",\"size\":null,\"icons\":null,\"annotations\":null,\"_meta\":null,\"type\":\"resource_link\"}],\"structuredContent\":null,\"isError\":false,\"resultType\":\"complete\"}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "resource_link_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "resource_link_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "{\"_meta\":null,\"content\":[{\"name\":\"linked.txt\",\"title\":null,\"uri\":\"file:///fixtures/linked.txt\",\"description\":\"SENTINEL_RESOURCE_LINK\",\"mimeType\":\"text/plain\",\"size\":null,\"icons\":null,\"annotations\":null,\"_meta\":null,\"type\":\"resource_link\"}],\"structuredContent\":null,\"isError\":false,\"resultType\":\"complete\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"_meta\":null,\"content\":[{\"name\":\"linked.txt\",\"title\":null,\"uri\":\"file:///fixtures/linked.txt\",\"description\":\"SENTINEL_RESOURCE_LINK\",\"mimeType\":\"text/plain\",\"size\":null,\"icons\":null,\"annotations\":null,\"_meta\":null,\"type\":\"resource_link\"}],\"structuredContent\":null,\"isError\":false,\"resultType\":\"complete\"}",
+            "origin": "haystack",
+            "raw": "{\"role\": \"tool\", \"meta\": {}, \"name\": null, \"content\": [{\"tool_call_result\": {\"result\": \"{\\\"_meta\\\":null,\\\"content\\\":[{\\\"name\\\":\\\"linked.txt\\\",\\\"title\\\":null,\\\"uri\\\":\\\"file:///fixtures/linked.txt\\\",\\\"description\\\":\\\"SENTINEL_RESOURCE_LINK\\\",\\\"mimeType\\\":\\\"text/plain\\\",\\\"size\\\":null,\\\"icons\\\":null,\\\"annotations\\\":null,\\\"_meta\\\":null,\\\"type\\\":\\\"resource_link\\\"}],\\\"structuredContent\\\":null,\\\"isError\\\":false,\\\"resultType\\\":\\\"complete\\\"}\", \"origin\": {\"tool_name\": \"resource_link_content\", \"arguments\": {}, \"id\": null, \"extra\": null}, \"error\": false}}]}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "annotated_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "annotated_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ANNOTATED_TEXT",
+                "annotations": {
+                  "audience": [
+                    "user"
+                  ],
+                  "priority": 0.9,
+                  "lastModified": null
+                }
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ANNOTATED_TEXT",
+            "origin": "haystack",
+            "raw": "{\"_meta\":null,\"content\":[{\"type\":\"text\",\"text\":\"SENTINEL_ANNOTATED_TEXT\",\"annotations\":{\"audience\":[\"user\"],\"priority\":0.9,\"lastModified\":null},\"_meta\":null}],\"structuredContent\":null,\"isError\":false,\"resultType\":\"complete\"}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "annotated_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "annotated_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "{\"_meta\":null,\"content\":[{\"type\":\"text\",\"text\":\"SENTINEL_ANNOTATED_TEXT\",\"annotations\":{\"audience\":[\"user\"],\"priority\":0.9,\"lastModified\":null},\"_meta\":null}],\"structuredContent\":null,\"isError\":false,\"resultType\":\"complete\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"_meta\":null,\"content\":[{\"type\":\"text\",\"text\":\"SENTINEL_ANNOTATED_TEXT\",\"annotations\":{\"audience\":[\"user\"],\"priority\":0.9,\"lastModified\":null},\"_meta\":null}],\"structuredContent\":null,\"isError\":false,\"resultType\":\"complete\"}",
+            "origin": "haystack",
+            "raw": "{\"role\": \"tool\", \"meta\": {}, \"name\": null, \"content\": [{\"tool_call_result\": {\"result\": \"{\\\"_meta\\\":null,\\\"content\\\":[{\\\"type\\\":\\\"text\\\",\\\"text\\\":\\\"SENTINEL_ANNOTATED_TEXT\\\",\\\"annotations\\\":{\\\"audience\\\":[\\\"user\\\"],\\\"priority\\\":0.9,\\\"lastModified\\\":null},\\\"_meta\\\":null}],\\\"structuredContent\\\":null,\\\"isError\\\":false,\\\"resultType\\\":\\\"complete\\\"}\", \"origin\": {\"tool_name\": \"annotated_content\", \"arguments\": {}, \"id\": null, \"extra\": null}, \"error\": false}}]}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "mixed_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "mixed_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TEXT_BLOCK",
+                "annotations": {
+                  "audience": [
+                    "user"
+                  ],
+                  "priority": 0.9,
+                  "lastModified": null
+                }
+              },
+              {
+                "type": "image",
+                "data": "<96 chars>",
+                "mimeType": "image/png"
+              },
+              {
+                "type": "audio",
+                "data": "<60 chars>",
+                "mimeType": "audio/wav"
+              },
+              {
+                "type": "resource",
+                "resource": {
+                  "uri": "file:///fixtures/embedded.txt",
+                  "mimeType": "text/plain",
+                  "_meta": null,
+                  "text": "SENTINEL_EMBEDDED_RESOURCE"
+                }
+              },
+              {
+                "name": "linked.txt",
+                "uri": "file:///fixtures/linked.txt",
+                "description": "SENTINEL_RESOURCE_LINK",
+                "mimeType": "text/plain",
+                "type": "resource_link"
+              }
+            ],
+            "block_kinds": [
+              "text",
+              "image",
+              "audio",
+              "resource",
+              "resource_link"
+            ],
+            "structured_content": {
+              "count": 2,
+              "records": [
+                {
+                  "id": "rec_1",
+                  "status": "active"
+                },
+                {
+                  "id": "rec_2",
+                  "status": "archived"
+                }
+              ],
+              "note": "SENTINEL_STRUCTURED_CONTENT"
+            },
+            "is_error": false,
+            "text": "SENTINEL_TEXT_BLOCK",
+            "origin": "haystack",
+            "raw": "{\"_meta\":null,\"content\":[{\"type\":\"text\",\"text\":\"SENTINEL_TEXT_BLOCK\",\"annotations\":{\"audience\":[\"user\"],\"priority\":0.9,\"lastModified\":null},\"_meta\":null},{\"type\":\"image\",\"data\":\"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==\",\"mimeType\":\"image/png\",\"annotations\":null,\"_meta\":null},{\"type\":\"audio\",\"data\":\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\",\"mimeType\":\"audio/wav\",\"annotations\":null,\"_meta\":null},{\"type\":\"resource\",\"resource\":{\"uri\":\"file:///fixtures/embedded.txt\",\"mimeType\":\"text/plain\",\"_meta\":null,\"text\":\"SENTINEL_EMBEDDED_RESOURCE\"},\"annotations\":null,\"_meta\":null},{\"name\":\"linked.txt\",\"title\":null,\"uri\":\"file:///fixtures/linked.txt\",\"description\":\"SENTINEL_RESOURCE_LINK\",\"mimeType\":\"text/plain\",\"size\":null,\"icons\":null,\"annotations\":null,\"_meta\":null,\"type\":\"resource_link\"}],\"structuredContent\":{\"count\":2,\"records\":[{\"id\":\"rec_1\",\"status\":\"active\"},{\"id\":\"rec_2\",\"status\":\"archived\"}],\"note\":\"SENTINEL_STRUCTURED_CONTENT\"},\"isError\":false,\"resultType\":\"complete\"}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "mixed_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "mixed_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "{\"_meta\":null,\"content\":[{\"type\":\"text\",\"text\":\"SENTINEL_TEXT_BLOCK\",\"annotations\":{\"audience\":[\"user\"],\"priority\":0.9,\"lastModified\":null},\"_meta\":null},{\"type\":\"image\",\"data\":\"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==\",\"mimeType\":\"image/png\",\"annotations\":null,\"_meta\":null},{\"type\":\"audio\",\"data\":\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\",\"mimeType\":\"audio/wav\",\"annotations\":null,\"_meta\":null},{\"type\":\"resource\",\"resource\":{\"uri\":\"file:///fixtures/embedded.txt\",\"mimeType\":\"text/plain\",\"_meta\":null,\"text\":\"SENTINEL_EMBEDDED_RESOURCE\"},\"annotations\":null,\"_meta\":null},{\"name\":\"linked.txt\",\"title\":null,\"uri\":\"file:///fixtures/linked.txt\",\"description\":\"SENTINEL_RESOURCE_LINK\",\"mimeType\":\"text/plain\",\"size\":null,\"icons\":null,\"annotations\":null,\"_meta\":null,\"type\":\"resource_link\"}],\"structuredContent\":{\"count\":2,\"records\":[{\"id\":\"rec_1\",\"status\":\"active\"},{\"id\":\"rec_2\",\"status\":\"archived\"}],\"note\":\"SENTINEL_STRUCTURED_CONTENT\"},\"isError\":false,\"resultType\":\"complete\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"_meta\":null,\"content\":[{\"type\":\"text\",\"text\":\"SENTINEL_TEXT_BLOCK\",\"annotations\":{\"audience\":[\"user\"],\"priority\":0.9,\"lastModified\":null},\"_meta\":null},{\"type\":\"image\",\"data\":\"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==\",\"mimeType\":\"image/png\",\"annotations\":null,\"_meta\":null},{\"type\":\"audio\",\"data\":\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\",\"mimeType\":\"audio/wav\",\"annotations\":null,\"_meta\":null},{\"type\":\"resource\",\"resource\":{\"uri\":\"file:///fixtures/embedded.txt\",\"mimeType\":\"text/plain\",\"_meta\":null,\"text\":\"SENTINEL_EMBEDDED_RESOURCE\"},\"annotations\":null,\"_meta\":null},{\"name\":\"linked.txt\",\"title\":null,\"uri\":\"file:///fixtures/linked.txt\",\"description\":\"SENTINEL_RESOURCE_LINK\",\"mimeType\":\"text/plain\",\"size\":null,\"icons\":null,\"annotations\":null,\"_meta\":null,\"type\":\"resource_link\"}],\"structuredContent\":{\"count\":2,\"records\":[{\"id\":\"rec_1\",\"status\":\"active\"},{\"id\":\"rec_2\",\"status\":\"archived\"}],\"note\":\"SENTINEL_STRUCTURED_CONTENT\"},\"isError\":false,\"resultType\":\"complete\"}",
+            "origin": "haystack",
+            "raw": "{\"role\": \"tool\", \"meta\": {}, \"name\": null, \"content\": [{\"tool_call_result\": {\"result\": \"{\\\"_meta\\\":null,\\\"content\\\":[{\\\"type\\\":\\\"text\\\",\\\"text\\\":\\\"SENTINEL_TEXT_BLOCK\\\",\\\"annotations\\\":{\\\"audience\\\":[\\\"user\\\"],\\\"priority\\\":0.9,\\\"lastModified\\\":null},\\\"_meta\\\":null},{\\\"type\\\":\\\"image\\\",\\\"data\\\":\\\"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==\\\",\\\"mimeType\\\":\\\"image/png\\\",\\\"annotations\\\":null,\\\"_meta\\\":null},{\\\"type\\\":\\\"audio\\\",\\\"data\\\":\\\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\\\",\\\"mimeType\\\":\\\"audio/wav\\\",\\\"annotations\\\":null,\\\"_meta\\\":null},{\\\"type\\\":\\\"resource\\\",\\\"resource\\\":{\\\"uri\\\":\\\"file:///fixtures/embedded.txt\\\",\\\"mimeType\\\":\\\"text/plain\\\",\\\"_meta\\\":null,\\\"text\\\":\\\"SENTINEL_EMBEDDED_RESOURCE\\\"},\\\"annotations\\\":null,\\\"_meta\\\":null},{\\\"name\\\":\\\"linked.txt\\\",\\\"title\\\":null,\\\"uri\\\":\\\"file:///fixtures/linked.txt\\\",\\\"description\\\":\\\"SENTINEL_RESOURCE_LINK\\\",\\\"mimeType\\\":\\\"text/plain\\\",\\\"size\\\":null,\\\"icons\\\":null,\\\"annotations\\\":null,\\\"_meta\\\":null,\\\"type\\\":\\\"resource_link\\\"}],\\\"structuredContent\\\":{\\\"count\\\":2,\\\"records\\\":[{\\\"id\\\":\\\"rec_1\\\",\\\"status\\\":\\\"active\\\"},{\\\"id\\\":\\\"rec_2\\\",\\\"status\\\":\\\"archived\\\"}],\\\"note\\\":\\\"SENTINEL_STRUCTURED_CONTENT\\\"},\\\"isError\\\":false,\\\"resultType\\\":\\\"complete\\\"}\", \"origin\": {\"tool_name\": \"mixed_content\", \"arguments\": {}, \"id\": null, \"extra\": null}, \"error\": false}}]}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "text_and_structured",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "text_and_structured",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TEXT_BLOCK"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": {
+              "count": 2,
+              "records": [
+                {
+                  "id": "rec_1",
+                  "status": "active"
+                },
+                {
+                  "id": "rec_2",
+                  "status": "archived"
+                }
+              ],
+              "note": "SENTINEL_STRUCTURED_CONTENT"
+            },
+            "is_error": false,
+            "text": "SENTINEL_TEXT_BLOCK",
+            "origin": "haystack",
+            "raw": "{\"_meta\":null,\"content\":[{\"type\":\"text\",\"text\":\"SENTINEL_TEXT_BLOCK\",\"annotations\":null,\"_meta\":null}],\"structuredContent\":{\"count\":2,\"records\":[{\"id\":\"rec_1\",\"status\":\"active\"},{\"id\":\"rec_2\",\"status\":\"archived\"}],\"note\":\"SENTINEL_STRUCTURED_CONTENT\"},\"isError\":false,\"resultType\":\"complete\"}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "text_and_structured",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "text_and_structured",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "{\"_meta\":null,\"content\":[{\"type\":\"text\",\"text\":\"SENTINEL_TEXT_BLOCK\",\"annotations\":null,\"_meta\":null}],\"structuredContent\":{\"count\":2,\"records\":[{\"id\":\"rec_1\",\"status\":\"active\"},{\"id\":\"rec_2\",\"status\":\"archived\"}],\"note\":\"SENTINEL_STRUCTURED_CONTENT\"},\"isError\":false,\"resultType\":\"complete\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"_meta\":null,\"content\":[{\"type\":\"text\",\"text\":\"SENTINEL_TEXT_BLOCK\",\"annotations\":null,\"_meta\":null}],\"structuredContent\":{\"count\":2,\"records\":[{\"id\":\"rec_1\",\"status\":\"active\"},{\"id\":\"rec_2\",\"status\":\"archived\"}],\"note\":\"SENTINEL_STRUCTURED_CONTENT\"},\"isError\":false,\"resultType\":\"complete\"}",
+            "origin": "haystack",
+            "raw": "{\"role\": \"tool\", \"meta\": {}, \"name\": null, \"content\": [{\"tool_call_result\": {\"result\": \"{\\\"_meta\\\":null,\\\"content\\\":[{\\\"type\\\":\\\"text\\\",\\\"text\\\":\\\"SENTINEL_TEXT_BLOCK\\\",\\\"annotations\\\":null,\\\"_meta\\\":null}],\\\"structuredContent\\\":{\\\"count\\\":2,\\\"records\\\":[{\\\"id\\\":\\\"rec_1\\\",\\\"status\\\":\\\"active\\\"},{\\\"id\\\":\\\"rec_2\\\",\\\"status\\\":\\\"archived\\\"}],\\\"note\\\":\\\"SENTINEL_STRUCTURED_CONTENT\\\"},\\\"isError\\\":false,\\\"resultType\\\":\\\"complete\\\"}\", \"origin\": {\"tool_name\": \"text_and_structured\", \"arguments\": {}, \"id\": null, \"extra\": null}, \"error\": false}}]}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "tool_error",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "tool_error",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "ToolInvocationError: Failed to invoke Tool `tool_error` with parameters {}. Error: Failed to invoke tool 'tool_error' with args: {}, got error: Tool 'tool_error' returned an error: [TextContent(type='text', text='SENTINEL_TOOL_ERROR: this tool always fails', annotations=None, meta=None)]",
+            "origin": "haystack",
+            "raw": "ToolInvocationError(\"Failed to invoke Tool `tool_error` with parameters {}. Error: Failed to invoke tool 'tool_error' with args: {}, got error: Tool 'tool_error' returned an error: [TextContent(type='text', text='SENTINEL_TOOL_ERROR: this tool always fails', annotations=None, meta=None)]\")",
+            "error_channel": "exception"
+          }
+        },
+        {
+          "tool": "tool_error",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "tool_error",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "Failed to invoke Tool `tool_error` with parameters {}. Error: Failed to invoke tool 'tool_error' with args: {}, got error: Tool 'tool_error' returned an error: [TextContent(type='text', text='SENTINEL_TOOL_ERROR: this tool always fails', annotations=None, meta=None)]"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": true,
+            "text": "Failed to invoke Tool `tool_error` with parameters {}. Error: Failed to invoke tool 'tool_error' with args: {}, got error: Tool 'tool_error' returned an error: [TextContent(type='text', text='SENTINEL_TOOL_ERROR: this tool always fails', annotations=None, meta=None)]",
+            "origin": "haystack",
+            "raw": "{\"role\": \"tool\", \"meta\": {}, \"name\": null, \"content\": [{\"tool_call_result\": {\"result\": \"Failed to invoke Tool `tool_error` with parameters {}. Error: Failed to invoke tool 'tool_error' with args: {}, got error: Tool 'tool_error' returned an error: [TextContent(type='text', text='SENTINEL_TOOL_ERROR: this tool always fails', annotations=None, meta=None)]\", \"origin\": {\"tool_name\": \"tool_error\", \"arguments\": {}, \"id\": null, \"extra\": null}, \"error\": true}}]}",
+            "error_channel": "flag"
+          }
+        }
+      ]
+    }
+  }
+}

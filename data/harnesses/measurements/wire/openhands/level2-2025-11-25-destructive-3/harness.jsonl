@@ -1,0 +1,5 @@
+{"format": "mcp-mirror.harness-output/1"}
+{"event": "tool_use", "tool": "def_delete_account", "input": {"account_id": "a", "confirm": true, "security_risk": "HIGH"}}
+{"event": "tool_result", "is_error": false, "text": "[Tool 'def_delete_account' executed.] SENTINEL_TEXT_BLOCK"}
+{"event": "text", "text": "done"}
+{"event": "result", "subtype": "success", "is_error": false, "num_turns": 2, "text": "done"}

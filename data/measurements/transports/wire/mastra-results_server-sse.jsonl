@@ -1,0 +1,4 @@
+{"type":"capture","seq":0,"t":"2026-10-09T21:27:12.421832+00:00","elapsed":0.000214,"format":"mcp-mirror.wire/1","recorder":"mcp-mirror 0.1.0","fixture":".mcp-mirror/fixture-2025-11-25/bin/python fixtures/results_server.py","transport":"sse","url":"http://127.0.0.1:54775/sse"}
+{"type":"http","seq":1,"t":"2026-10-09T21:27:12.937899+00:00","elapsed":0.516081,"session":null,"event":"post_to_sse","status":405,"headers":{"mcp-protocol-version":"2026-07-28","mcp-method":"server/discover","content-type":"application/json","accept":"application/json, text/event-stream"}}
+{"type":"http","seq":2,"t":"2026-10-09T21:27:12.950864+00:00","elapsed":0.529044,"session":null,"event":"post_to_sse","status":405,"headers":{"content-type":"application/json","accept":"application/json, text/event-stream"}}
+{"type":"end","seq":3,"t":"2026-10-09T21:27:13.194238+00:00","elapsed":0.772417,"messages":0,"sessions":0}

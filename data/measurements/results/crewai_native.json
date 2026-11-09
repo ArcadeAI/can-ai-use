@@ -1,0 +1,1205 @@
+{
+  "schema": "mcp-mirror/result-boundaries@2",
+  "captured_at": "2026-10-09T18:31:14Z",
+  "fixture": "fixtures/results_server.py",
+  "fixture_python": "<checkout>/.mcp-mirror/fixture-2025-11-25/bin/python",
+  "spec_version": "2025-11-25",
+  "calls": [
+    {
+      "tool": "text_content",
+      "arguments": {}
+    },
+    {
+      "tool": "image_content",
+      "arguments": {}
+    },
+    {
+      "tool": "audio_content",
+      "arguments": {}
+    },
+    {
+      "tool": "embedded_resource_content",
+      "arguments": {}
+    },
+    {
+      "tool": "resource_link_content",
+      "arguments": {}
+    },
+    {
+      "tool": "annotated_content",
+      "arguments": {}
+    },
+    {
+      "tool": "mixed_content",
+      "arguments": {}
+    },
+    {
+      "tool": "text_and_structured",
+      "arguments": {}
+    },
+    {
+      "tool": "tool_error",
+      "arguments": {}
+    }
+  ],
+  "source": {
+    "text_content": {
+      "tool": "text_content",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_TEXT_BLOCK"
+        }
+      ],
+      "block_kinds": [
+        "text"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": "SENTINEL_TEXT_BLOCK",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_TEXT_BLOCK",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "image_content": {
+      "tool": "image_content",
+      "blocks": [
+        {
+          "type": "image",
+          "data": "<96 chars>",
+          "mimeType": "image/png"
+        }
+      ],
+      "block_kinds": [
+        "image"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": null,
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "image",
+            "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==",
+            "mimeType": "image/png",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "audio_content": {
+      "tool": "audio_content",
+      "blocks": [
+        {
+          "type": "audio",
+          "data": "<60 chars>",
+          "mimeType": "audio/wav"
+        }
+      ],
+      "block_kinds": [
+        "audio"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": null,
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "audio",
+            "data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
+            "mimeType": "audio/wav",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "embedded_resource_content": {
+      "tool": "embedded_resource_content",
+      "blocks": [
+        {
+          "type": "resource",
+          "resource": {
+            "uri": "file:///fixtures/embedded.txt",
+            "mimeType": "text/plain",
+            "_meta": null,
+            "text": "SENTINEL_EMBEDDED_RESOURCE"
+          }
+        }
+      ],
+      "block_kinds": [
+        "resource"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": null,
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "resource",
+            "resource": {
+              "uri": "file:///fixtures/embedded.txt",
+              "mimeType": "text/plain",
+              "_meta": null,
+              "text": "SENTINEL_EMBEDDED_RESOURCE"
+            },
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "resource_link_content": {
+      "tool": "resource_link_content",
+      "blocks": [
+        {
+          "name": "linked.txt",
+          "uri": "file:///fixtures/linked.txt",
+          "description": "SENTINEL_RESOURCE_LINK",
+          "mimeType": "text/plain",
+          "type": "resource_link"
+        }
+      ],
+      "block_kinds": [
+        "resource_link"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": null,
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "name": "linked.txt",
+            "title": null,
+            "uri": "file:///fixtures/linked.txt",
+            "description": "SENTINEL_RESOURCE_LINK",
+            "mimeType": "text/plain",
+            "size": null,
+            "icons": null,
+            "annotations": null,
+            "_meta": null,
+            "type": "resource_link"
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "annotated_content": {
+      "tool": "annotated_content",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_ANNOTATED_TEXT",
+          "annotations": {
+            "audience": [
+              "user"
+            ],
+            "priority": 0.9
+          }
+        }
+      ],
+      "block_kinds": [
+        "text"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": "SENTINEL_ANNOTATED_TEXT",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_ANNOTATED_TEXT",
+            "annotations": {
+              "audience": [
+                "user"
+              ],
+              "priority": 0.9
+            },
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "mixed_content": {
+      "tool": "mixed_content",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_TEXT_BLOCK",
+          "annotations": {
+            "audience": [
+              "user"
+            ],
+            "priority": 0.9
+          }
+        },
+        {
+          "type": "image",
+          "data": "<96 chars>",
+          "mimeType": "image/png"
+        },
+        {
+          "type": "audio",
+          "data": "<60 chars>",
+          "mimeType": "audio/wav"
+        },
+        {
+          "type": "resource",
+          "resource": {
+            "uri": "file:///fixtures/embedded.txt",
+            "mimeType": "text/plain",
+            "_meta": null,
+            "text": "SENTINEL_EMBEDDED_RESOURCE"
+          }
+        },
+        {
+          "name": "linked.txt",
+          "uri": "file:///fixtures/linked.txt",
+          "description": "SENTINEL_RESOURCE_LINK",
+          "mimeType": "text/plain",
+          "type": "resource_link"
+        }
+      ],
+      "block_kinds": [
+        "text",
+        "image",
+        "audio",
+        "resource",
+        "resource_link"
+      ],
+      "structured_content": {
+        "count": 2,
+        "records": [
+          {
+            "id": "rec_1",
+            "status": "active"
+          },
+          {
+            "id": "rec_2",
+            "status": "archived"
+          }
+        ],
+        "note": "SENTINEL_STRUCTURED_CONTENT"
+      },
+      "is_error": false,
+      "text": "SENTINEL_TEXT_BLOCK",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_TEXT_BLOCK",
+            "annotations": {
+              "audience": [
+                "user"
+              ],
+              "priority": 0.9
+            },
+            "_meta": null
+          },
+          {
+            "type": "image",
+            "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==",
+            "mimeType": "image/png",
+            "annotations": null,
+            "_meta": null
+          },
+          {
+            "type": "audio",
+            "data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
+            "mimeType": "audio/wav",
+            "annotations": null,
+            "_meta": null
+          },
+          {
+            "type": "resource",
+            "resource": {
+              "uri": "file:///fixtures/embedded.txt",
+              "mimeType": "text/plain",
+              "_meta": null,
+              "text": "SENTINEL_EMBEDDED_RESOURCE"
+            },
+            "annotations": null,
+            "_meta": null
+          },
+          {
+            "name": "linked.txt",
+            "title": null,
+            "uri": "file:///fixtures/linked.txt",
+            "description": "SENTINEL_RESOURCE_LINK",
+            "mimeType": "text/plain",
+            "size": null,
+            "icons": null,
+            "annotations": null,
+            "_meta": null,
+            "type": "resource_link"
+          }
+        ],
+        "structuredContent": {
+          "count": 2,
+          "records": [
+            {
+              "id": "rec_1",
+              "status": "active"
+            },
+            {
+              "id": "rec_2",
+              "status": "archived"
+            }
+          ],
+          "note": "SENTINEL_STRUCTURED_CONTENT"
+        },
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "text_and_structured": {
+      "tool": "text_and_structured",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_TEXT_BLOCK"
+        }
+      ],
+      "block_kinds": [
+        "text"
+      ],
+      "structured_content": {
+        "count": 2,
+        "records": [
+          {
+            "id": "rec_1",
+            "status": "active"
+          },
+          {
+            "id": "rec_2",
+            "status": "archived"
+          }
+        ],
+        "note": "SENTINEL_STRUCTURED_CONTENT"
+      },
+      "is_error": false,
+      "text": "SENTINEL_TEXT_BLOCK",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_TEXT_BLOCK",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "count": 2,
+          "records": [
+            {
+              "id": "rec_1",
+              "status": "active"
+            },
+            {
+              "id": "rec_2",
+              "status": "archived"
+            }
+          ],
+          "note": "SENTINEL_STRUCTURED_CONTENT"
+        },
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "tool_error": {
+      "tool": "tool_error",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_TOOL_ERROR: this tool always fails"
+        }
+      ],
+      "block_kinds": [
+        "text"
+      ],
+      "structured_content": null,
+      "is_error": true,
+      "text": "SENTINEL_TOOL_ERROR: this tool always fails",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_TOOL_ERROR: this tool always fails",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": true
+      },
+      "error_channel": null
+    }
+  },
+  "frameworks": {
+    "crewai_native": {
+      "ok": true,
+      "versions": {
+        "framework": "1.15.26",
+        "adapter": "1.15.26"
+      },
+      "evidence": {
+        "capture_api": "crewai.Agent(mcps=[MCPServerStdio|MCPServerHTTP|MCPServerSSE]).get_mcp_tools (crewai.mcp.tool_resolver.MCPToolResolver), then crewai.utilities.agent_utils.convert_tools_to_openai_schema",
+        "capture_object": "function-tool dicts convert_tools_to_openai_schema builds from each crewai.tools.mcp_native_tool.MCPNativeTool",
+        "capture_stage": "provider_format",
+        "provider_request_captured": false,
+        "negotiated_mcp_spec_version": "2025-11-25",
+        "protocol_version_evidence": "protocolVersion instrumented from ClientSession.initialize inside crewai.mcp.MCPClient.connect; the adapter does not expose it",
+        "limitation": "No LLM was bound and no crew was kicked off; no provider client serialized a request. The ReAct text path, used when the LLM does not support function calling, renders tools into the prompt instead and was not captured. Stdio servers are launched with paths under the working directory written relative, because the launch command is part of every tool name."
+      },
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Direct tool invocation",
+          "capture_api": "crewai.tools.BaseTool.run on the MCPNativeTool Agent.get_mcp_tools returns",
+          "capture_object": "the tool return value: the first content block's text, or a ToolFailure when isError is set",
+          "agent_path": false,
+          "limitation": null
+        },
+        {
+          "id": "agent",
+          "label": "Native tool call result",
+          "capture_api": "crewai.utilities.agent_utils.execute_single_native_tool_call",
+          "capture_object": "NativeToolCallResult.result, the tool message content the next model turn receives",
+          "agent_path": true,
+          "limitation": "The executor step is driven with a scripted OpenAI-style tool call. No LLM was bound and no crew was kicked off."
+        }
+      ],
+      "reps": [
+        {
+          "name": "mcp_mirror_fixture_2025_11_25_bin_python_fixtures_resul_49e6a38d",
+          "description": "Return one text block and nothing else.",
+          "params": {
+            "additionalProperties": false,
+            "properties": {},
+            "type": "object",
+            "required": []
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "crewai_native",
+          "raw": {
+            "type": "function",
+            "function": {
+              "name": "mcp_mirror_fixture_2025_11_25_bin_python_fixtures_resul_49e6a38d",
+              "description": "Return one text block and nothing else.",
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {},
+                "type": "object",
+                "required": []
+              },
+              "strict": true
+            }
+          }
+        },
+        {
+          "name": "mcp_mirror_fixture_2025_11_25_bin_python_fixtures_resul_1799af73",
+          "description": "Return one image block and nothing else.",
+          "params": {
+            "additionalProperties": false,
+            "properties": {},
+            "type": "object",
+            "required": []
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "crewai_native",
+          "raw": {
+            "type": "function",
+            "function": {
+              "name": "mcp_mirror_fixture_2025_11_25_bin_python_fixtures_resul_1799af73",
+              "description": "Return one image block and nothing else.",
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {},
+                "type": "object",
+                "required": []
+              },
+              "strict": true
+            }
+          }
+        },
+        {
+          "name": "mcp_mirror_fixture_2025_11_25_bin_python_fixtures_resul_bb6fc979",
+          "description": "Return one audio block and nothing else.",
+          "params": {
+            "additionalProperties": false,
+            "properties": {},
+            "type": "object",
+            "required": []
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "crewai_native",
+          "raw": {
+            "type": "function",
+            "function": {
+              "name": "mcp_mirror_fixture_2025_11_25_bin_python_fixtures_resul_bb6fc979",
+              "description": "Return one audio block and nothing else.",
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {},
+                "type": "object",
+                "required": []
+              },
+              "strict": true
+            }
+          }
+        },
+        {
+          "name": "mcp_mirror_fixture_2025_11_25_bin_python_fixtures_resul_b43735cf",
+          "description": "Return one embedded resource block and nothing else.",
+          "params": {
+            "additionalProperties": false,
+            "properties": {},
+            "type": "object",
+            "required": []
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "crewai_native",
+          "raw": {
+            "type": "function",
+            "function": {
+              "name": "mcp_mirror_fixture_2025_11_25_bin_python_fixtures_resul_b43735cf",
+              "description": "Return one embedded resource block and nothing else.",
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {},
+                "type": "object",
+                "required": []
+              },
+              "strict": true
+            }
+          }
+        },
+        {
+          "name": "mcp_mirror_fixture_2025_11_25_bin_python_fixtures_resul_9403161b",
+          "description": "Return one resource_link block and nothing else.",
+          "params": {
+            "additionalProperties": false,
+            "properties": {},
+            "type": "object",
+            "required": []
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "crewai_native",
+          "raw": {
+            "type": "function",
+            "function": {
+              "name": "mcp_mirror_fixture_2025_11_25_bin_python_fixtures_resul_9403161b",
+              "description": "Return one resource_link block and nothing else.",
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {},
+                "type": "object",
+                "required": []
+              },
+              "strict": true
+            }
+          }
+        },
+        {
+          "name": "mcp_mirror_fixture_2025_11_25_bin_python_fixtures_resul_da6608a9",
+          "description": "Return one text block carrying audience and priority annotations.",
+          "params": {
+            "additionalProperties": false,
+            "properties": {},
+            "type": "object",
+            "required": []
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "crewai_native",
+          "raw": {
+            "type": "function",
+            "function": {
+              "name": "mcp_mirror_fixture_2025_11_25_bin_python_fixtures_resul_da6608a9",
+              "description": "Return one text block carrying audience and priority annotations.",
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {},
+                "type": "object",
+                "required": []
+              },
+              "strict": true
+            }
+          }
+        },
+        {
+          "name": "mcp_mirror_fixture_2025_11_25_bin_python_fixtures_resul_4be7eb15",
+          "description": "Return one block of every kind plus structuredContent in one result.",
+          "params": {
+            "additionalProperties": false,
+            "properties": {},
+            "type": "object",
+            "required": []
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "crewai_native",
+          "raw": {
+            "type": "function",
+            "function": {
+              "name": "mcp_mirror_fixture_2025_11_25_bin_python_fixtures_resul_4be7eb15",
+              "description": "Return one block of every kind plus structuredContent in one result.",
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {},
+                "type": "object",
+                "required": []
+              },
+              "strict": true
+            }
+          }
+        },
+        {
+          "name": "mcp_mirror_fixture_2025_11_25_bin_python_fixtures_resul_e123299f",
+          "description": "Return one text block plus structuredContent, with no media.",
+          "params": {
+            "additionalProperties": false,
+            "properties": {},
+            "type": "object",
+            "required": []
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "crewai_native",
+          "raw": {
+            "type": "function",
+            "function": {
+              "name": "mcp_mirror_fixture_2025_11_25_bin_python_fixtures_resul_e123299f",
+              "description": "Return one text block plus structuredContent, with no media.",
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {},
+                "type": "object",
+                "required": []
+              },
+              "strict": true
+            }
+          }
+        },
+        {
+          "name": "mcp_mirror_fixture_2025_11_25_bin_python_fixtures_resul_bcb78839",
+          "description": "Always fail, reporting the failure through isError rather than a protocol error.",
+          "params": {
+            "additionalProperties": false,
+            "properties": {},
+            "type": "object",
+            "required": []
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "crewai_native",
+          "raw": {
+            "type": "function",
+            "function": {
+              "name": "mcp_mirror_fixture_2025_11_25_bin_python_fixtures_resul_bcb78839",
+              "description": "Always fail, reporting the failure through isError rather than a protocol error.",
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {},
+                "type": "object",
+                "required": []
+              },
+              "strict": true
+            }
+          }
+        }
+      ],
+      "results": [
+        {
+          "tool": "text_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "text_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TEXT_BLOCK"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_TEXT_BLOCK",
+            "origin": "crewai_native",
+            "raw": "SENTINEL_TEXT_BLOCK",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "text_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "text_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TEXT_BLOCK"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_TEXT_BLOCK",
+            "origin": "crewai_native",
+            "raw": "{\"role\": \"tool\", \"tool_call_id\": \"mcp-mirror-call\", \"name\": \"mcp_mirror_fixture_2025_11_25_bin_python_fixtures_resul_49e6a38d\", \"content\": \"SENTINEL_TEXT_BLOCK\"}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "image_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "image_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "type='image' data='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==' mimeType='image/png' annotations=None meta=None"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "type='image' data='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==' mimeType='image/png' annotations=None meta=None",
+            "origin": "crewai_native",
+            "raw": "type='image' data='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==' mimeType='image/png' annotations=None meta=None",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "image_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "image_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "type='image' data='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==' mimeType='image/png' annotations=None meta=None"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "type='image' data='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==' mimeType='image/png' annotations=None meta=None",
+            "origin": "crewai_native",
+            "raw": "{\"role\": \"tool\", \"tool_call_id\": \"mcp-mirror-call\", \"name\": \"mcp_mirror_fixture_2025_11_25_bin_python_fixtures_resul_1799af73\", \"content\": \"type='image' data='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==' mimeType='image/png' annotations=None meta=None\"}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "audio_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "audio_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "type='audio' data='UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=' mimeType='audio/wav' annotations=None meta=None"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "type='audio' data='UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=' mimeType='audio/wav' annotations=None meta=None",
+            "origin": "crewai_native",
+            "raw": "type='audio' data='UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=' mimeType='audio/wav' annotations=None meta=None",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "audio_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "audio_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "type='audio' data='UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=' mimeType='audio/wav' annotations=None meta=None"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "type='audio' data='UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=' mimeType='audio/wav' annotations=None meta=None",
+            "origin": "crewai_native",
+            "raw": "{\"role\": \"tool\", \"tool_call_id\": \"mcp-mirror-call\", \"name\": \"mcp_mirror_fixture_2025_11_25_bin_python_fixtures_resul_bb6fc979\", \"content\": \"type='audio' data='UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=' mimeType='audio/wav' annotations=None meta=None\"}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "embedded_resource_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "embedded_resource_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "type='resource' resource=TextResourceContents(uri=AnyUrl('file:///fixtures/embedded.txt'), mimeType='text/plain', meta=None, text='SENTINEL_EMBEDDED_RESOURCE') annotations=None meta=None"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "type='resource' resource=TextResourceContents(uri=AnyUrl('file:///fixtures/embedded.txt'), mimeType='text/plain', meta=None, text='SENTINEL_EMBEDDED_RESOURCE') annotations=None meta=None",
+            "origin": "crewai_native",
+            "raw": "type='resource' resource=TextResourceContents(uri=AnyUrl('file:///fixtures/embedded.txt'), mimeType='text/plain', meta=None, text='SENTINEL_EMBEDDED_RESOURCE') annotations=None meta=None",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "embedded_resource_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "embedded_resource_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "type='resource' resource=TextResourceContents(uri=AnyUrl('file:///fixtures/embedded.txt'), mimeType='text/plain', meta=None, text='SENTINEL_EMBEDDED_RESOURCE') annotations=None meta=None"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "type='resource' resource=TextResourceContents(uri=AnyUrl('file:///fixtures/embedded.txt'), mimeType='text/plain', meta=None, text='SENTINEL_EMBEDDED_RESOURCE') annotations=None meta=None",
+            "origin": "crewai_native",
+            "raw": "{\"role\": \"tool\", \"tool_call_id\": \"mcp-mirror-call\", \"name\": \"mcp_mirror_fixture_2025_11_25_bin_python_fixtures_resul_b43735cf\", \"content\": \"type='resource' resource=TextResourceContents(uri=AnyUrl('file:///fixtures/embedded.txt'), mimeType='text/plain', meta=None, text='SENTINEL_EMBEDDED_RESOURCE') annotations=None meta=None\"}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "resource_link_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "resource_link_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "name='linked.txt' title=None uri=AnyUrl('file:///fixtures/linked.txt') description='SENTINEL_RESOURCE_LINK' mimeType='text/plain' size=None icons=None annotations=None meta=None type='resource_link'"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "name='linked.txt' title=None uri=AnyUrl('file:///fixtures/linked.txt') description='SENTINEL_RESOURCE_LINK' mimeType='text/plain' size=None icons=None annotations=None meta=None type='resource_link'",
+            "origin": "crewai_native",
+            "raw": "name='linked.txt' title=None uri=AnyUrl('file:///fixtures/linked.txt') description='SENTINEL_RESOURCE_LINK' mimeType='text/plain' size=None icons=None annotations=None meta=None type='resource_link'",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "resource_link_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "resource_link_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "name='linked.txt' title=None uri=AnyUrl('file:///fixtures/linked.txt') description='SENTINEL_RESOURCE_LINK' mimeType='text/plain' size=None icons=None annotations=None meta=None type='resource_link'"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "name='linked.txt' title=None uri=AnyUrl('file:///fixtures/linked.txt') description='SENTINEL_RESOURCE_LINK' mimeType='text/plain' size=None icons=None annotations=None meta=None type='resource_link'",
+            "origin": "crewai_native",
+            "raw": "{\"role\": \"tool\", \"tool_call_id\": \"mcp-mirror-call\", \"name\": \"mcp_mirror_fixture_2025_11_25_bin_python_fixtures_resul_9403161b\", \"content\": \"name='linked.txt' title=None uri=AnyUrl('file:///fixtures/linked.txt') description='SENTINEL_RESOURCE_LINK' mimeType='text/plain' size=None icons=None annotations=None meta=None type='resource_link'\"}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "annotated_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "annotated_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ANNOTATED_TEXT"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ANNOTATED_TEXT",
+            "origin": "crewai_native",
+            "raw": "SENTINEL_ANNOTATED_TEXT",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "annotated_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "annotated_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ANNOTATED_TEXT"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ANNOTATED_TEXT",
+            "origin": "crewai_native",
+            "raw": "{\"role\": \"tool\", \"tool_call_id\": \"mcp-mirror-call\", \"name\": \"mcp_mirror_fixture_2025_11_25_bin_python_fixtures_resul_da6608a9\", \"content\": \"SENTINEL_ANNOTATED_TEXT\"}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "mixed_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "mixed_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TEXT_BLOCK"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_TEXT_BLOCK",
+            "origin": "crewai_native",
+            "raw": "SENTINEL_TEXT_BLOCK",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "mixed_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "mixed_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TEXT_BLOCK"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_TEXT_BLOCK",
+            "origin": "crewai_native",
+            "raw": "{\"role\": \"tool\", \"tool_call_id\": \"mcp-mirror-call\", \"name\": \"mcp_mirror_fixture_2025_11_25_bin_python_fixtures_resul_4be7eb15\", \"content\": \"SENTINEL_TEXT_BLOCK\"}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "text_and_structured",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "text_and_structured",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TEXT_BLOCK"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_TEXT_BLOCK",
+            "origin": "crewai_native",
+            "raw": "SENTINEL_TEXT_BLOCK",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "text_and_structured",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "text_and_structured",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TEXT_BLOCK"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_TEXT_BLOCK",
+            "origin": "crewai_native",
+            "raw": "{\"role\": \"tool\", \"tool_call_id\": \"mcp-mirror-call\", \"name\": \"mcp_mirror_fixture_2025_11_25_bin_python_fixtures_resul_e123299f\", \"content\": \"SENTINEL_TEXT_BLOCK\"}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "tool_error",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "tool_error",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TOOL_ERROR: this tool always fails"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": true,
+            "text": "SENTINEL_TOOL_ERROR: this tool always fails",
+            "origin": "crewai_native",
+            "raw": {
+              "message": "SENTINEL_TOOL_ERROR: this tool always fails",
+              "reason": "mcp_error",
+              "code": null,
+              "retryable": false,
+              "details": {
+                "server": ".mcp-mirror/fixture-2025-11-25/bin/python_fixtures/results_server.py",
+                "tool": "tool_error"
+              }
+            },
+            "error_channel": "error_field"
+          }
+        },
+        {
+          "tool": "tool_error",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "tool_error",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TOOL_ERROR: this tool always fails"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_TOOL_ERROR: this tool always fails",
+            "origin": "crewai_native",
+            "raw": "{\"role\": \"tool\", \"tool_call_id\": \"mcp-mirror-call\", \"name\": \"mcp_mirror_fixture_2025_11_25_bin_python_fixtures_resul_bcb78839\", \"content\": \"SENTINEL_TOOL_ERROR: this tool always fails\"}",
+            "error_channel": null
+          }
+        }
+      ]
+    }
+  }
+}

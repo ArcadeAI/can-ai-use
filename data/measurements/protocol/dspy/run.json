@@ -1,0 +1,873 @@
+{
+  "schema": "mcp-mirror/protocol-run@1",
+  "captured_at": "2026-10-01T07:14:51Z",
+  "renderer": "dspy",
+  "fixture": "fixtures/base_protocol_server.py",
+  "spec_version": "2025-11-25",
+  "versions": {
+    "framework": "3.4.0",
+    "adapter": "3.4.0"
+  },
+  "captures": [
+    "http.jsonl",
+    "stdio-00.jsonl",
+    "stdio-01.jsonl",
+    "stdio-02.jsonl",
+    "stdio-03.jsonl",
+    "stdio-04.jsonl",
+    "stdio-05.jsonl",
+    "stdio-06.jsonl",
+    "stdio-07.jsonl",
+    "stdio-08.jsonl",
+    "stdio-09.jsonl",
+    "stdio-10.jsonl",
+    "stdio-11.jsonl",
+    "stdio-12.jsonl"
+  ],
+  "transports": {
+    "stdio": {
+      "ok": true,
+      "versions": {
+        "framework": "3.4.0",
+        "adapter": "3.4.0"
+      },
+      "tools": [
+        {
+          "name": "dialect_2020_12",
+          "params": {
+            "type": "object",
+            "properties": {
+              "point": {
+                "type": "array",
+                "description": "An [x, y] pair.",
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "items": false
+              },
+              "window": {
+                "type": "object",
+                "properties": {
+                  "low": {
+                    "type": "number"
+                  },
+                  "high": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "low",
+                  "high"
+                ]
+              },
+              "label": {
+                "type": "string"
+              },
+              "units": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "point",
+              "window",
+              "label",
+              "units"
+            ]
+          }
+        },
+        {
+          "name": "dialect_draft_07",
+          "params": {
+            "type": "object",
+            "properties": {
+              "point": {
+                "type": "array",
+                "description": "An [x, y] pair.",
+                "items": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "additionalItems": false
+              },
+              "window": {
+                "$ref": "#/definitions/range"
+              }
+            },
+            "required": [
+              "point",
+              "window"
+            ]
+          }
+        },
+        {
+          "name": "routed_lookup",
+          "params": {
+            "type": "object",
+            "properties": {
+              "region": {
+                "type": "string",
+                "x-mcp-header": "Region"
+              },
+              "key": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "region",
+              "key"
+            ]
+          }
+        },
+        {
+          "name": "bad_header",
+          "params": {
+            "type": "object",
+            "properties": {
+              "filter": {
+                "type": "object",
+                "x-mcp-header": "Filter",
+                "properties": {
+                  "field": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "required": [
+              "filter"
+            ]
+          }
+        },
+        {
+          "name": "needs_input",
+          "params": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          }
+        }
+      ],
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Tool return value",
+          "capture_api": "dspy.Tool.acall on the Tool from_mcp_tool built (result_mode='text', the default)",
+          "capture_object": "what acall returns: a str, a list of str, or the non-text MCP content objects, or the RuntimeError it raises for an isError result",
+          "agent_path": false,
+          "limitation": null
+        },
+        {
+          "id": "react",
+          "label": "ReAct observation to the model",
+          "capture_api": "dspy.ReAct(...).acall with the Tool; the messages of the next LM call",
+          "capture_object": "the observation_0 field ChatAdapter prints into the next turn's prompt",
+          "agent_path": true,
+          "limitation": "The LM is dspy.utils.dummies.DummyLM; no provider LM serialized the prompt."
+        },
+        {
+          "id": "structured",
+          "label": "Tool return value, result_mode='structured'",
+          "capture_api": "dspy.Tool.from_mcp_tool(..., result_mode='structured') then Tool.acall",
+          "capture_object": "what acall returns: the structuredContent when the result has one, else as result_mode='text'",
+          "agent_path": false,
+          "limitation": "A documented non-default option of from_mcp_tool."
+        }
+      ],
+      "results": [
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "dspy",
+            "raw": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "react",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "dspy",
+            "raw": "{\"observation_0\": \"SENTINEL_ARGUMENTS dialect_2020_12 {\\\"point\\\": [1, 2], \\\"window\\\": {\\\"high\\\": 5, \\\"low\\\": 0}}\"}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "structured",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "dspy",
+            "raw": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "SchemaError: [{'type': 'number'}, {'type': 'number'}] is not of type 'object', 'boolean'\n\nFailed validating 'type' in metaschema['allOf'][1]['properties']['items']['$dynamicRef']['allOf'][0]:\n    {'$schema': 'https://json-schema.org/draft/2020-12/schema',\n     '$id': 'https://json-schema.org/draft/2020-12/meta/core',\n     '$vocabulary': {'https://json-schema.org/draft/2020-12/vocab/core': True},\n     '$dynamicAnchor': 'meta',\n     'title': 'Core vocabulary meta-schema',\n     'type': ['object', 'boolean'],\n     'properties': {'$id': {'$ref': '#/$defs/uriReferenceString',\n                            '$comment': 'Non-empty fragments not allowed.',\n                            'pattern': '^[^#]*#?$'},\n                    '$schema': {'$ref': '#/$defs/uriString'},\n                    '$ref': {'$ref': '#/$defs/uriReferenceString'},\n                    '$anchor': {'$ref': '#/$defs/anchorString'},\n                    '$dynamicRef': {'$ref': '#/$defs/uriReferenceString'},\n                    '$dynamicAnchor': {'$ref': '#/$defs/anchorString'},\n                    '$vocabulary': {'type': 'object',\n                                    'propertyNames': {'$ref': '#/$defs/uriString'},\n                                    'additionalProperties': {'type': 'boolean'}},\n                    '$comment': {'type': 'string'},\n                    '$defs': {'type': 'object',\n                              'additionalProperties': {'$dynamicRef': '#meta'}}},\n     '$defs': {'anchorString': {'type': 'string',\n                                'pattern': '^[A-Za-z_][-A-Za-z0-9._]*$'},\n               'uriString': {'type': 'string', 'format': 'uri'},\n               'uriReferenceString': {'type': 'string',\n                                      'format': 'uri-reference'}}}\n\nOn schema['items']:\n    [{'type': 'number'}, {'type': 'number'}]",
+            "origin": "dspy",
+            "raw": "<SchemaError: \"[{'type': 'number'}, {'type': 'number'}] is not of type 'object', 'boolean'\">",
+            "error_channel": "exception"
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "react",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "Execution error in dialect_draft_07: \nTraceback (most recent call last):\n  File \"~/.cache/uv/archive-v0/i7BoixZAgGN0nhjR/lib/python3.11/site-packages/dspy/predict/react.py\", line 141, in aforward\n    trajectory[f\"observation_{idx}\"] = await self.tools[pred.next_tool_name].acall(**pred.next_tool_args)\n                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"~/.cache/uv/archive-v0/i7BoixZAgGN0nhjR/lib/python3.11/site-packages/dspy/utils/callback.py\", line 347, in async_wrapper\n    return await fn(instance, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"~/.cache/uv/archive-v0/i7BoixZAgGN0nhjR/lib/python3.11/site-packages/dspy/adapters/types/tool.py\", line 204, in acall\n    parsed_kwargs = self._validate_and_parse_args(**kwargs)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"~/.cache/uv/archive-v0/i7BoixZAgGN0nhjR/lib/python3.11/site-packages/dspy/adapters/types/tool.py\", line 136, in _validate_and_parse_args\n    validate(instance=instance, schema=self.args[k])\n  File \"~/.cache/uv/archive-v0/i7BoixZAgGN0nhjR/lib/python3.11/site-packages/jsonschema/validators.py\", line 1328, in validate\n    cls.check_schema(schema)\njsonschema.exceptions.SchemaError: [{'type': 'number'}, {'type': 'number'}] is not of type 'object', 'boolean'\n\nFailed validating 'type' in metaschema['allOf'][1]['properties']['items']['$dynamicRef']['allOf'][0]:\n    {'$schema': 'https://json-schema.org/draft/2020-12/schema',\n     '$id': 'https://json-schema.org/draft/2020-12/meta/core',\n     '$vocabulary': {'https://json-schema.org/draft/2020-12/vocab/core': True},\n     '$dynamicAnchor': 'meta',\n     'title': 'Core vocabulary meta-schema',\n     'type': ['object', 'boolean'],\n     'properties': {'$id': {'$ref': '#/$defs/uriReferenceString',\n                            '$comment': 'Non-empty fragments not allowed.',\n                            'pattern': '^[^#]*#?$'},\n                    '$schema': {'$ref': '#/$defs/uriString'},\n                    '$ref': {'$ref': '#/$defs/uriReferenceString'},\n                    '$anchor': {'$ref': '#/$defs/anchorString'},\n                    '$dynamicRef': {'$ref': '#/$defs/uriReferenceString'},\n                    '$dynamicAnchor': {'$ref': '#/$defs/anchorString'},\n                    '$vocabulary': {'type': 'object',\n                                    'propertyNames': {'$ref': '#/$defs/uriString'},\n                                    'additionalProperties': {'type': 'boolean'}},\n                    '$comment': {'type': 'string'},\n                    '$defs': {'type': 'object',\n                              'additionalProperties': {'$dynamicRef': '#meta'}}},\n     '$defs': {'anchorString': {'type': 'string',\n                                'pattern': '^[A-Za-z_][-A-Za-z0-9._]*$'},\n               'uriString': {'type': 'string', 'format': 'uri'},\n               'uriReferenceString': {'type': 'string',\n                                      'format': 'uri-reference'}}}\n\nOn schema['items']:\n    [{'type': 'number'}, {'type': 'number'}]"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "Execution error in dialect_draft_07: \nTraceback (most recent call last):\n  File \"~/.cache/uv/archive-v0/i7BoixZAgGN0nhjR/lib/python3.11/site-packages/dspy/predict/react.py\", line 141, in aforward\n    trajectory[f\"observation_{idx}\"] = await self.tools[pred.next_tool_name].acall(**pred.next_tool_args)\n                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"~/.cache/uv/archive-v0/i7BoixZAgGN0nhjR/lib/python3.11/site-packages/dspy/utils/callback.py\", line 347, in async_wrapper\n    return await fn(instance, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"~/.cache/uv/archive-v0/i7BoixZAgGN0nhjR/lib/python3.11/site-packages/dspy/adapters/types/tool.py\", line 204, in acall\n    parsed_kwargs = self._validate_and_parse_args(**kwargs)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"~/.cache/uv/archive-v0/i7BoixZAgGN0nhjR/lib/python3.11/site-packages/dspy/adapters/types/tool.py\", line 136, in _validate_and_parse_args\n    validate(instance=instance, schema=self.args[k])\n  File \"~/.cache/uv/archive-v0/i7BoixZAgGN0nhjR/lib/python3.11/site-packages/jsonschema/validators.py\", line 1328, in validate\n    cls.check_schema(schema)\njsonschema.exceptions.SchemaError: [{'type': 'number'}, {'type': 'number'}] is not of type 'object', 'boolean'\n\nFailed validating 'type' in metaschema['allOf'][1]['properties']['items']['$dynamicRef']['allOf'][0]:\n    {'$schema': 'https://json-schema.org/draft/2020-12/schema',\n     '$id': 'https://json-schema.org/draft/2020-12/meta/core',\n     '$vocabulary': {'https://json-schema.org/draft/2020-12/vocab/core': True},\n     '$dynamicAnchor': 'meta',\n     'title': 'Core vocabulary meta-schema',\n     'type': ['object', 'boolean'],\n     'properties': {'$id': {'$ref': '#/$defs/uriReferenceString',\n                            '$comment': 'Non-empty fragments not allowed.',\n                            'pattern': '^[^#]*#?$'},\n                    '$schema': {'$ref': '#/$defs/uriString'},\n                    '$ref': {'$ref': '#/$defs/uriReferenceString'},\n                    '$anchor': {'$ref': '#/$defs/anchorString'},\n                    '$dynamicRef': {'$ref': '#/$defs/uriReferenceString'},\n                    '$dynamicAnchor': {'$ref': '#/$defs/anchorString'},\n                    '$vocabulary': {'type': 'object',\n                                    'propertyNames': {'$ref': '#/$defs/uriString'},\n                                    'additionalProperties': {'type': 'boolean'}},\n                    '$comment': {'type': 'string'},\n                    '$defs': {'type': 'object',\n                              'additionalProperties': {'$dynamicRef': '#meta'}}},\n     '$defs': {'anchorString': {'type': 'string',\n                                'pattern': '^[A-Za-z_][-A-Za-z0-9._]*$'},\n               'uriString': {'type': 'string', 'format': 'uri'},\n               'uriReferenceString': {'type': 'string',\n                                      'format': 'uri-reference'}}}\n\nOn schema['items']:\n    [{'type': 'number'}, {'type': 'number'}]",
+            "origin": "dspy",
+            "raw": "{\"observation_0\": \"Execution error in dialect_draft_07: \\nTraceback (most recent call last):\\n  File \\\"~/.cache/uv/archive-v0/i7BoixZAgGN0nhjR/lib/python3.11/site-packages/dspy/predict/react.py\\\", line 141, in aforward\\n    trajectory[f\\\"observation_{idx}\\\"] = await self.tools[pred.next_tool_name].acall(**pred.next_tool_args)\\n                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"~/.cache/uv/archive-v0/i7BoixZAgGN0nhjR/lib/python3.11/site-packages/dspy/utils/callback.py\\\", line 347, in async_wrapper\\n    return await fn(instance, *args, **kwargs)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"~/.cache/uv/archive-v0/i7BoixZAgGN0nhjR/lib/python3.11/site-packages/dspy/adapters/types/tool.py\\\", line 204, in acall\\n    parsed_kwargs = self._validate_and_parse_args(**kwargs)\\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"~/.cache/uv/archive-v0/i7BoixZAgGN0nhjR/lib/python3.11/site-packages/dspy/adapters/types/tool.py\\\", line 136, in _validate_and_parse_args\\n    validate(instance=instance, schema=self.args[k])\\n  File \\\"~/.cache/uv/archive-v0/i7BoixZAgGN0nhjR/lib/python3.11/site-packages/jsonschema/validators.py\\\", line 1328, in validate\\n    cls.check_schema(schema)\\njsonschema.exceptions.SchemaError: [{'type': 'number'}, {'type': 'number'}] is not of type 'object', 'boolean'\\n\\nFailed validating 'type' in metaschema['allOf'][1]['properties']['items']['$dynamicRef']['allOf'][0]:\\n    {'$schema': 'https://json-schema.org/draft/2020-12/schema',\\n     '$id': 'https://json-schema.org/draft/2020-12/meta/core',\\n     '$vocabulary': {'https://json-schema.org/draft/2020-12/vocab/core': True},\\n     '$dynamicAnchor': 'meta',\\n     'title': 'Core vocabulary meta-schema',\\n     'type': ['object', 'boolean'],\\n     'properties': {'$id': {'$ref': '#/$defs/uriReferenceString',\\n                            '$comment': 'Non-empty fragments not allowed.',\"}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "structured",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "SchemaError: [{'type': 'number'}, {'type': 'number'}] is not of type 'object', 'boolean'\n\nFailed validating 'type' in metaschema['allOf'][1]['properties']['items']['$dynamicRef']['allOf'][0]:\n    {'$schema': 'https://json-schema.org/draft/2020-12/schema',\n     '$id': 'https://json-schema.org/draft/2020-12/meta/core',\n     '$vocabulary': {'https://json-schema.org/draft/2020-12/vocab/core': True},\n     '$dynamicAnchor': 'meta',\n     'title': 'Core vocabulary meta-schema',\n     'type': ['object', 'boolean'],\n     'properties': {'$id': {'$ref': '#/$defs/uriReferenceString',\n                            '$comment': 'Non-empty fragments not allowed.',\n                            'pattern': '^[^#]*#?$'},\n                    '$schema': {'$ref': '#/$defs/uriString'},\n                    '$ref': {'$ref': '#/$defs/uriReferenceString'},\n                    '$anchor': {'$ref': '#/$defs/anchorString'},\n                    '$dynamicRef': {'$ref': '#/$defs/uriReferenceString'},\n                    '$dynamicAnchor': {'$ref': '#/$defs/anchorString'},\n                    '$vocabulary': {'type': 'object',\n                                    'propertyNames': {'$ref': '#/$defs/uriString'},\n                                    'additionalProperties': {'type': 'boolean'}},\n                    '$comment': {'type': 'string'},\n                    '$defs': {'type': 'object',\n                              'additionalProperties': {'$dynamicRef': '#meta'}}},\n     '$defs': {'anchorString': {'type': 'string',\n                                'pattern': '^[A-Za-z_][-A-Za-z0-9._]*$'},\n               'uriString': {'type': 'string', 'format': 'uri'},\n               'uriReferenceString': {'type': 'string',\n                                      'format': 'uri-reference'}}}\n\nOn schema['items']:\n    [{'type': 'number'}, {'type': 'number'}]",
+            "origin": "dspy",
+            "raw": "<SchemaError: \"[{'type': 'number'}, {'type': 'number'}] is not of type 'object', 'boolean'\">",
+            "error_channel": "exception"
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "origin": "dspy",
+            "raw": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "react",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "origin": "dspy",
+            "raw": "{\"observation_0\": \"SENTINEL_ARGUMENTS routed_lookup {\\\"key\\\": \\\"k1\\\", \\\"region\\\": \\\"eu-west-1\\\"}\"}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "structured",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "origin": "dspy",
+            "raw": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS needs_input {}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS needs_input {}",
+            "origin": "dspy",
+            "raw": "SENTINEL_ARGUMENTS needs_input {}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "react",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS needs_input {}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS needs_input {}",
+            "origin": "dspy",
+            "raw": "{\"observation_0\": \"SENTINEL_ARGUMENTS needs_input {}\"}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "structured",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS needs_input {}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS needs_input {}",
+            "origin": "dspy",
+            "raw": "SENTINEL_ARGUMENTS needs_input {}",
+            "error_channel": null
+          }
+        }
+      ]
+    },
+    "http": {
+      "ok": true,
+      "versions": {
+        "framework": "3.4.0",
+        "adapter": "3.4.0"
+      },
+      "tools": [
+        {
+          "name": "dialect_2020_12",
+          "params": {
+            "type": "object",
+            "properties": {
+              "point": {
+                "type": "array",
+                "description": "An [x, y] pair.",
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "items": false
+              },
+              "window": {
+                "type": "object",
+                "properties": {
+                  "low": {
+                    "type": "number"
+                  },
+                  "high": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "low",
+                  "high"
+                ]
+              },
+              "label": {
+                "type": "string"
+              },
+              "units": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "point",
+              "window",
+              "label",
+              "units"
+            ]
+          }
+        },
+        {
+          "name": "dialect_draft_07",
+          "params": {
+            "type": "object",
+            "properties": {
+              "point": {
+                "type": "array",
+                "description": "An [x, y] pair.",
+                "items": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "additionalItems": false
+              },
+              "window": {
+                "$ref": "#/definitions/range"
+              }
+            },
+            "required": [
+              "point",
+              "window"
+            ]
+          }
+        },
+        {
+          "name": "routed_lookup",
+          "params": {
+            "type": "object",
+            "properties": {
+              "region": {
+                "type": "string",
+                "x-mcp-header": "Region"
+              },
+              "key": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "region",
+              "key"
+            ]
+          }
+        },
+        {
+          "name": "bad_header",
+          "params": {
+            "type": "object",
+            "properties": {
+              "filter": {
+                "type": "object",
+                "x-mcp-header": "Filter",
+                "properties": {
+                  "field": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "required": [
+              "filter"
+            ]
+          }
+        },
+        {
+          "name": "needs_input",
+          "params": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          }
+        }
+      ],
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Tool return value",
+          "capture_api": "dspy.Tool.acall on the Tool from_mcp_tool built (result_mode='text', the default)",
+          "capture_object": "what acall returns: a str, a list of str, or the non-text MCP content objects, or the RuntimeError it raises for an isError result",
+          "agent_path": false,
+          "limitation": null
+        },
+        {
+          "id": "react",
+          "label": "ReAct observation to the model",
+          "capture_api": "dspy.ReAct(...).acall with the Tool; the messages of the next LM call",
+          "capture_object": "the observation_0 field ChatAdapter prints into the next turn's prompt",
+          "agent_path": true,
+          "limitation": "The LM is dspy.utils.dummies.DummyLM; no provider LM serialized the prompt."
+        },
+        {
+          "id": "structured",
+          "label": "Tool return value, result_mode='structured'",
+          "capture_api": "dspy.Tool.from_mcp_tool(..., result_mode='structured') then Tool.acall",
+          "capture_object": "what acall returns: the structuredContent when the result has one, else as result_mode='text'",
+          "agent_path": false,
+          "limitation": "A documented non-default option of from_mcp_tool."
+        }
+      ],
+      "results": [
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "dspy",
+            "raw": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "react",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "dspy",
+            "raw": "{\"observation_0\": \"SENTINEL_ARGUMENTS dialect_2020_12 {\\\"point\\\": [1, 2], \\\"window\\\": {\\\"high\\\": 5, \\\"low\\\": 0}}\"}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "structured",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "dspy",
+            "raw": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "SchemaError: [{'type': 'number'}, {'type': 'number'}] is not of type 'object', 'boolean'\n\nFailed validating 'type' in metaschema['allOf'][1]['properties']['items']['$dynamicRef']['allOf'][0]:\n    {'$schema': 'https://json-schema.org/draft/2020-12/schema',\n     '$id': 'https://json-schema.org/draft/2020-12/meta/core',\n     '$vocabulary': {'https://json-schema.org/draft/2020-12/vocab/core': True},\n     '$dynamicAnchor': 'meta',\n     'title': 'Core vocabulary meta-schema',\n     'type': ['object', 'boolean'],\n     'properties': {'$id': {'$ref': '#/$defs/uriReferenceString',\n                            '$comment': 'Non-empty fragments not allowed.',\n                            'pattern': '^[^#]*#?$'},\n                    '$schema': {'$ref': '#/$defs/uriString'},\n                    '$ref': {'$ref': '#/$defs/uriReferenceString'},\n                    '$anchor': {'$ref': '#/$defs/anchorString'},\n                    '$dynamicRef': {'$ref': '#/$defs/uriReferenceString'},\n                    '$dynamicAnchor': {'$ref': '#/$defs/anchorString'},\n                    '$vocabulary': {'type': 'object',\n                                    'propertyNames': {'$ref': '#/$defs/uriString'},\n                                    'additionalProperties': {'type': 'boolean'}},\n                    '$comment': {'type': 'string'},\n                    '$defs': {'type': 'object',\n                              'additionalProperties': {'$dynamicRef': '#meta'}}},\n     '$defs': {'anchorString': {'type': 'string',\n                                'pattern': '^[A-Za-z_][-A-Za-z0-9._]*$'},\n               'uriString': {'type': 'string', 'format': 'uri'},\n               'uriReferenceString': {'type': 'string',\n                                      'format': 'uri-reference'}}}\n\nOn schema['items']:\n    [{'type': 'number'}, {'type': 'number'}]",
+            "origin": "dspy",
+            "raw": "<SchemaError: \"[{'type': 'number'}, {'type': 'number'}] is not of type 'object', 'boolean'\">",
+            "error_channel": "exception"
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "react",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "Execution error in dialect_draft_07: \nTraceback (most recent call last):\n  File \"~/.cache/uv/archive-v0/i7BoixZAgGN0nhjR/lib/python3.11/site-packages/dspy/predict/react.py\", line 141, in aforward\n    trajectory[f\"observation_{idx}\"] = await self.tools[pred.next_tool_name].acall(**pred.next_tool_args)\n                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"~/.cache/uv/archive-v0/i7BoixZAgGN0nhjR/lib/python3.11/site-packages/dspy/utils/callback.py\", line 347, in async_wrapper\n    return await fn(instance, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"~/.cache/uv/archive-v0/i7BoixZAgGN0nhjR/lib/python3.11/site-packages/dspy/adapters/types/tool.py\", line 204, in acall\n    parsed_kwargs = self._validate_and_parse_args(**kwargs)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"~/.cache/uv/archive-v0/i7BoixZAgGN0nhjR/lib/python3.11/site-packages/dspy/adapters/types/tool.py\", line 136, in _validate_and_parse_args\n    validate(instance=instance, schema=self.args[k])\n  File \"~/.cache/uv/archive-v0/i7BoixZAgGN0nhjR/lib/python3.11/site-packages/jsonschema/validators.py\", line 1328, in validate\n    cls.check_schema(schema)\njsonschema.exceptions.SchemaError: [{'type': 'number'}, {'type': 'number'}] is not of type 'object', 'boolean'\n\nFailed validating 'type' in metaschema['allOf'][1]['properties']['items']['$dynamicRef']['allOf'][0]:\n    {'$schema': 'https://json-schema.org/draft/2020-12/schema',\n     '$id': 'https://json-schema.org/draft/2020-12/meta/core',\n     '$vocabulary': {'https://json-schema.org/draft/2020-12/vocab/core': True},\n     '$dynamicAnchor': 'meta',\n     'title': 'Core vocabulary meta-schema',\n     'type': ['object', 'boolean'],\n     'properties': {'$id': {'$ref': '#/$defs/uriReferenceString',\n                            '$comment': 'Non-empty fragments not allowed.',\n                            'pattern': '^[^#]*#?$'},\n                    '$schema': {'$ref': '#/$defs/uriString'},\n                    '$ref': {'$ref': '#/$defs/uriReferenceString'},\n                    '$anchor': {'$ref': '#/$defs/anchorString'},\n                    '$dynamicRef': {'$ref': '#/$defs/uriReferenceString'},\n                    '$dynamicAnchor': {'$ref': '#/$defs/anchorString'},\n                    '$vocabulary': {'type': 'object',\n                                    'propertyNames': {'$ref': '#/$defs/uriString'},\n                                    'additionalProperties': {'type': 'boolean'}},\n                    '$comment': {'type': 'string'},\n                    '$defs': {'type': 'object',\n                              'additionalProperties': {'$dynamicRef': '#meta'}}},\n     '$defs': {'anchorString': {'type': 'string',\n                                'pattern': '^[A-Za-z_][-A-Za-z0-9._]*$'},\n               'uriString': {'type': 'string', 'format': 'uri'},\n               'uriReferenceString': {'type': 'string',\n                                      'format': 'uri-reference'}}}\n\nOn schema['items']:\n    [{'type': 'number'}, {'type': 'number'}]"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "Execution error in dialect_draft_07: \nTraceback (most recent call last):\n  File \"~/.cache/uv/archive-v0/i7BoixZAgGN0nhjR/lib/python3.11/site-packages/dspy/predict/react.py\", line 141, in aforward\n    trajectory[f\"observation_{idx}\"] = await self.tools[pred.next_tool_name].acall(**pred.next_tool_args)\n                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"~/.cache/uv/archive-v0/i7BoixZAgGN0nhjR/lib/python3.11/site-packages/dspy/utils/callback.py\", line 347, in async_wrapper\n    return await fn(instance, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"~/.cache/uv/archive-v0/i7BoixZAgGN0nhjR/lib/python3.11/site-packages/dspy/adapters/types/tool.py\", line 204, in acall\n    parsed_kwargs = self._validate_and_parse_args(**kwargs)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"~/.cache/uv/archive-v0/i7BoixZAgGN0nhjR/lib/python3.11/site-packages/dspy/adapters/types/tool.py\", line 136, in _validate_and_parse_args\n    validate(instance=instance, schema=self.args[k])\n  File \"~/.cache/uv/archive-v0/i7BoixZAgGN0nhjR/lib/python3.11/site-packages/jsonschema/validators.py\", line 1328, in validate\n    cls.check_schema(schema)\njsonschema.exceptions.SchemaError: [{'type': 'number'}, {'type': 'number'}] is not of type 'object', 'boolean'\n\nFailed validating 'type' in metaschema['allOf'][1]['properties']['items']['$dynamicRef']['allOf'][0]:\n    {'$schema': 'https://json-schema.org/draft/2020-12/schema',\n     '$id': 'https://json-schema.org/draft/2020-12/meta/core',\n     '$vocabulary': {'https://json-schema.org/draft/2020-12/vocab/core': True},\n     '$dynamicAnchor': 'meta',\n     'title': 'Core vocabulary meta-schema',\n     'type': ['object', 'boolean'],\n     'properties': {'$id': {'$ref': '#/$defs/uriReferenceString',\n                            '$comment': 'Non-empty fragments not allowed.',\n                            'pattern': '^[^#]*#?$'},\n                    '$schema': {'$ref': '#/$defs/uriString'},\n                    '$ref': {'$ref': '#/$defs/uriReferenceString'},\n                    '$anchor': {'$ref': '#/$defs/anchorString'},\n                    '$dynamicRef': {'$ref': '#/$defs/uriReferenceString'},\n                    '$dynamicAnchor': {'$ref': '#/$defs/anchorString'},\n                    '$vocabulary': {'type': 'object',\n                                    'propertyNames': {'$ref': '#/$defs/uriString'},\n                                    'additionalProperties': {'type': 'boolean'}},\n                    '$comment': {'type': 'string'},\n                    '$defs': {'type': 'object',\n                              'additionalProperties': {'$dynamicRef': '#meta'}}},\n     '$defs': {'anchorString': {'type': 'string',\n                                'pattern': '^[A-Za-z_][-A-Za-z0-9._]*$'},\n               'uriString': {'type': 'string', 'format': 'uri'},\n               'uriReferenceString': {'type': 'string',\n                                      'format': 'uri-reference'}}}\n\nOn schema['items']:\n    [{'type': 'number'}, {'type': 'number'}]",
+            "origin": "dspy",
+            "raw": "{\"observation_0\": \"Execution error in dialect_draft_07: \\nTraceback (most recent call last):\\n  File \\\"~/.cache/uv/archive-v0/i7BoixZAgGN0nhjR/lib/python3.11/site-packages/dspy/predict/react.py\\\", line 141, in aforward\\n    trajectory[f\\\"observation_{idx}\\\"] = await self.tools[pred.next_tool_name].acall(**pred.next_tool_args)\\n                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"~/.cache/uv/archive-v0/i7BoixZAgGN0nhjR/lib/python3.11/site-packages/dspy/utils/callback.py\\\", line 347, in async_wrapper\\n    return await fn(instance, *args, **kwargs)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"~/.cache/uv/archive-v0/i7BoixZAgGN0nhjR/lib/python3.11/site-packages/dspy/adapters/types/tool.py\\\", line 204, in acall\\n    parsed_kwargs = self._validate_and_parse_args(**kwargs)\\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"~/.cache/uv/archive-v0/i7BoixZAgGN0nhjR/lib/python3.11/site-packages/dspy/adapters/types/tool.py\\\", line 136, in _validate_and_parse_args\\n    validate(instance=instance, schema=self.args[k])\\n  File \\\"~/.cache/uv/archive-v0/i7BoixZAgGN0nhjR/lib/python3.11/site-packages/jsonschema/validators.py\\\", line 1328, in validate\\n    cls.check_schema(schema)\\njsonschema.exceptions.SchemaError: [{'type': 'number'}, {'type': 'number'}] is not of type 'object', 'boolean'\\n\\nFailed validating 'type' in metaschema['allOf'][1]['properties']['items']['$dynamicRef']['allOf'][0]:\\n    {'$schema': 'https://json-schema.org/draft/2020-12/schema',\\n     '$id': 'https://json-schema.org/draft/2020-12/meta/core',\\n     '$vocabulary': {'https://json-schema.org/draft/2020-12/vocab/core': True},\\n     '$dynamicAnchor': 'meta',\\n     'title': 'Core vocabulary meta-schema',\\n     'type': ['object', 'boolean'],\\n     'properties': {'$id': {'$ref': '#/$defs/uriReferenceString',\\n                            '$comment': 'Non-empty fragments not allowed.',\"}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "structured",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "SchemaError: [{'type': 'number'}, {'type': 'number'}] is not of type 'object', 'boolean'\n\nFailed validating 'type' in metaschema['allOf'][1]['properties']['items']['$dynamicRef']['allOf'][0]:\n    {'$schema': 'https://json-schema.org/draft/2020-12/schema',\n     '$id': 'https://json-schema.org/draft/2020-12/meta/core',\n     '$vocabulary': {'https://json-schema.org/draft/2020-12/vocab/core': True},\n     '$dynamicAnchor': 'meta',\n     'title': 'Core vocabulary meta-schema',\n     'type': ['object', 'boolean'],\n     'properties': {'$id': {'$ref': '#/$defs/uriReferenceString',\n                            '$comment': 'Non-empty fragments not allowed.',\n                            'pattern': '^[^#]*#?$'},\n                    '$schema': {'$ref': '#/$defs/uriString'},\n                    '$ref': {'$ref': '#/$defs/uriReferenceString'},\n                    '$anchor': {'$ref': '#/$defs/anchorString'},\n                    '$dynamicRef': {'$ref': '#/$defs/uriReferenceString'},\n                    '$dynamicAnchor': {'$ref': '#/$defs/anchorString'},\n                    '$vocabulary': {'type': 'object',\n                                    'propertyNames': {'$ref': '#/$defs/uriString'},\n                                    'additionalProperties': {'type': 'boolean'}},\n                    '$comment': {'type': 'string'},\n                    '$defs': {'type': 'object',\n                              'additionalProperties': {'$dynamicRef': '#meta'}}},\n     '$defs': {'anchorString': {'type': 'string',\n                                'pattern': '^[A-Za-z_][-A-Za-z0-9._]*$'},\n               'uriString': {'type': 'string', 'format': 'uri'},\n               'uriReferenceString': {'type': 'string',\n                                      'format': 'uri-reference'}}}\n\nOn schema['items']:\n    [{'type': 'number'}, {'type': 'number'}]",
+            "origin": "dspy",
+            "raw": "<SchemaError: \"[{'type': 'number'}, {'type': 'number'}] is not of type 'object', 'boolean'\">",
+            "error_channel": "exception"
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "origin": "dspy",
+            "raw": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "react",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "origin": "dspy",
+            "raw": "{\"observation_0\": \"SENTINEL_ARGUMENTS routed_lookup {\\\"key\\\": \\\"k1\\\", \\\"region\\\": \\\"eu-west-1\\\"}\"}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "structured",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "origin": "dspy",
+            "raw": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS needs_input {}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS needs_input {}",
+            "origin": "dspy",
+            "raw": "SENTINEL_ARGUMENTS needs_input {}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "react",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS needs_input {}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS needs_input {}",
+            "origin": "dspy",
+            "raw": "{\"observation_0\": \"SENTINEL_ARGUMENTS needs_input {}\"}",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "structured",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS needs_input {}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS needs_input {}",
+            "origin": "dspy",
+            "raw": "SENTINEL_ARGUMENTS needs_input {}",
+            "error_channel": null
+          }
+        }
+      ]
+    }
+  }
+}

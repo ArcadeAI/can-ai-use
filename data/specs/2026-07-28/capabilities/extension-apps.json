@@ -1,0 +1,40 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "extension-apps",
+  "title": "MCP Apps",
+  "description": "The official extension for interactive UI elements, such as charts and forms, rendered inline in a conversation.",
+  "question": "Can a server contribute interactive UI through this framework?",
+  "spec": "https://modelcontextprotocol.io/extensions/overview",
+  "status": "extension",
+  "categories": [
+    "Extensions"
+  ],
+  "keywords": "apps,ui,interactive,html,charts,forms,inline",
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/extensions/overview",
+      "title": "MCP Extensions"
+    }
+  ],
+  "known_issues": [],
+  "why": "Apps is the part of MCP that produces something a user manipulates rather than reads. An agent framework without a surface to render it into can only answer with absence; cataloguing it records that rather than leaving it unasked.",
+  "shown": true,
+  "docs_url": "https://modelcontextprotocol.io/extensions/overview",
+  "docs_label": "MCP Extensions",
+  "notes": {
+    "openai-agents": "OpenAI Agents SDK 0.23.1: does not declare `io.modelcontextprotocol/ui`, so a server cannot offer it UI.",
+    "pydantic-ai": "Pydantic AI 2.54.0: does not declare `io.modelcontextprotocol/ui`, so a server cannot offer it UI.",
+    "mastra": "Mastra 2.2.0: declares `io.modelcontextprotocol/ui` on every session, unconditionally. This row measures that declaration only, not whether an app resource is rendered as anything an agent or user can use.",
+    "vercel_ai": "Vercel AI SDK (@ai-sdk/mcp 2.0.73): createMCPClient declares no `extensions` by default, so the fixture's `io.modelcontextprotocol/ui` offer goes unanswered. The package exports `mcpAppClientCapabilities` for a caller to pass as `capabilities` to declare MCP Apps support; that opt-in was not measured.",
+    "strands": "Strands Agents 1.59.0: `MCPClient` declares no extensions, `io.modelcontextprotocol/ui` included, so a server cannot offer it UI.",
+    "openai_agents_js": "OpenAI Agents SDK (JS) 0.20.0: the client declares no extensions, so it never negotiates MCP Apps; the SDK has no option to declare one.",
+    "agno": "Agno 3.1.2: the fastmcp `Client` `MCPTools` builds declares no extensions, so the `io.modelcontextprotocol/ui` extension the fixture offers is never used.",
+    "dspy": "DSPy 3.4.0: neither DSPy nor the caller's `mcp.Client` declares extensions, so `io.modelcontextprotocol/ui` is never negotiated.",
+    "langchain_js": "LangChain.js (@langchain/mcp-adapters 2.0.1): the client declares no `extensions`, and no `MCPAdapter` option passes one through, so the fixture's `io.modelcontextprotocol/ui` offer goes unanswered.",
+    "copilot_sdk": "GitHub Copilot SDK 1.0.19 (Copilot runtime 1.0.95): the client declares no `extensions`, and no session option passes one through. The fixture offered `io.modelcontextprotocol/ui`.",
+    "langchain4j": "LangChain4j 1.22.0-beta32: `DefaultMcpClient` declares no extensions, so the fixture's `io.modelcontextprotocol/ui` extension is never negotiated.",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): the client declares no `extensions`. mcptoolset has no extension option, and the only route is `ClientCapabilities.Extensions` in the go-sdk `ClientOptions` of the caller's `*mcp.Client`.",
+    "ms_agent_framework_dotnet": "Microsoft Agent Framework (.NET) 1.24.0 (ModelContextProtocol 2.2.0): the client declares no `extensions`, and `McpClientOptions` passed through no option for one. The fixture offered `io.modelcontextprotocol/ui`."
+  }
+}

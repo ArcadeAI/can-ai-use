@@ -1,0 +1,75 @@
+{
+  "format": "mcp-mirror.harness-fresh/1",
+  "passed": true,
+  "checks": {
+    "home": {
+      "passed": true,
+      "isolated": [
+        "CLAUDE_CONFIG_DIR",
+        "CODEX_HOME",
+        "CRUSH_GLOBAL_CONFIG",
+        "CRUSH_GLOBAL_DATA",
+        "GEMINI_CLI_HOME",
+        "HOME",
+        "XDG_CACHE_HOME",
+        "XDG_CONFIG_HOME",
+        "XDG_DATA_HOME",
+        "XDG_STATE_HOME"
+      ],
+      "copied": [],
+      "refused": []
+    },
+    "load": {
+      "passed": true,
+      "fixture_initialize_seconds": 0.32,
+      "limit_seconds": 2.0,
+      "load_1m_per_core": 0.48,
+      "cores": 10,
+      "waited_seconds": 0.0
+    },
+    "servers_listed": {
+      "passed": true,
+      "status": "not available",
+      "expected": [
+        "cf",
+        "def",
+        "ntf",
+        "res",
+        "util"
+      ],
+      "listed": null
+    },
+    "recorders": {
+      "passed": true,
+      "waited_seconds": 0.158,
+      "still_running": []
+    },
+    "tools_offered": {
+      "passed": true,
+      "source": "model.jsonl",
+      "mcp_tools": 46,
+      "servers": [
+        "cf",
+        "def",
+        "ntf",
+        "res",
+        "util"
+      ],
+      "foreign_tools": [],
+      "foreign_servers": []
+    },
+    "egress": {
+      "passed": true,
+      "attempts": [
+        {
+          "host": "api.github.com",
+          "port": 443,
+          "method": "CONNECT",
+          "allowed": "the release check (GET /repos/charmbracelet/crush/releases/latest) on every start; no documented off switch, and a refusal is silently ignored",
+          "count": 1
+        }
+      ],
+      "not_allowed": []
+    }
+  }
+}

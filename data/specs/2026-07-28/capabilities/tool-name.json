@@ -1,0 +1,38 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "tool-name",
+  "title": "`name`",
+  "description": "The identifier a downstream consumer uses to invoke the tool.",
+  "question": "Is the tool name unchanged at each capture boundary?",
+  "spec": "https://modelcontextprotocol.io/specification",
+  "status": "stable",
+  "categories": [
+    "Identity and text"
+  ],
+  "keywords": "name,tool name,namespace,prefix,identifier",
+  "usage_perc_y": null,
+  "usage_perc_a": null,
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/server/tools#tool-names",
+      "title": "MCP Docs"
+    },
+    {
+      "url": "https://platform.openai.com/docs/guides/function-calling",
+      "title": "OpenAI function calling, tool schema"
+    }
+  ],
+  "known_issues": [
+    "A prefixed name changes between server configurations, so a hard coded allowlist can silently stop matching."
+  ],
+  "why": "Name based routing, allowlists, and eval fixtures that match exact tool names break under prefixing.",
+  "shown": true,
+  "docs_url": "https://modelcontextprotocol.io/specification/2026-07-28/server/tools#tool-names",
+  "docs_label": "MCP Docs",
+  "notes": {
+    "mastra": "Mastra 2.2.0: MCPClient.listTools namespaces every tool action as `<serverKey>_<toolName>`, so `delete_account` is handed to the agent as `src_delete_account`.",
+    "langchain_js": "LangChain.js (@langchain/mcp-adapters 2.0.1): `MCPAdapter` names every tool `<server>_<tool>` (one underscore since 2.0.1, two before), so the model sees `src_search_records` for the server's `search_records`. The prefix is the server key in `servers` and is on by default; the per-server `prefixToolNameWithServerName: false` option, which was not measured, removes it.",
+    "copilot_sdk": "GitHub Copilot SDK 1.0.19 (Copilot runtime 1.0.95): tools reach the model as `<server>-<tool>`, here `src-search_records`. The prefix is the key the host gives the server in `SessionConfig.mcpServers`."
+  }
+}

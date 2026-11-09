@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  The Koog worker: a small command-line app that drives the real
+  ai.koog.agents.mcp.McpToolRegistryProvider inside an AIAgent run and prints what it
+  captured as JSON. The versions below are overridden from src/mcp_mirror/runner-manifests.json
+  on every managed build, so the manifest is the one place a version is written; the
+  defaults here only serve a local `mvn package`.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>dev.mcpmirror</groupId>
+  <artifactId>koog-worker</artifactId>
+  <version>0</version>
+  <packaging>jar</packaging>
+
+  <properties>
+    <agents-mcp-jvm.version>1.3.0-beta</agents-mcp-jvm.version>
+    <kotlin-sdk-client-jvm.version>0.11.1</kotlin-sdk-client-jvm.version>
+    <kotlin-stdlib.version>2.3.10</kotlin-stdlib.version>
+    <maven.compiler.release>21</maven.compiler.release>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>ai.koog</groupId>
+      <artifactId>agents-mcp-jvm</artifactId>
+      <version>${agents-mcp-jvm.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.modelcontextprotocol</groupId>
+      <artifactId>kotlin-sdk-client-jvm</artifactId>
+      <version>${kotlin-sdk-client-jvm.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jetbrains.kotlin</groupId>
+      <artifactId>kotlin-stdlib</artifactId>
+      <version>${kotlin-stdlib.version}</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <finalName>koog-worker</finalName>
+    <sourceDirectory>src/main/kotlin</sourceDirectory>
+    <!-- Koog and the Kotlin SDK are Gradle builds and ship no pom.properties, so the
+         versions this jar was built against are written into it here. -->
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <groupId>org.jetbrains.kotlin</groupId>
+        <artifactId>kotlin-maven-plugin</artifactId>
+        <version>${kotlin-stdlib.version}</version>
+        <configuration>
+          <jvmTarget>21</jvmTarget>
+        </configuration>
+        <executions>
+          <execution>
+            <id>compile</id>
+            <goals>
+              <goal>compile</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.6.0</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+            <configuration>
+              <shadedArtifactAttached>true</shadedArtifactAttached>
+              <shadedClassifierName>exec</shadedClassifierName>
+              <outputFile>${project.build.directory}/koog-worker-exec.jar</outputFile>
+              <createDependencyReducedPom>false</createDependencyReducedPom>
+              <filters>
+                <filter>
+                  <artifact>*:*</artifact>
+                  <excludes>
+                    <exclude>META-INF/*.SF</exclude>
+                    <exclude>META-INF/*.DSA</exclude>
+                    <exclude>META-INF/*.RSA</exclude>
+                  </excludes>
+                </filter>
+              </filters>
+              <transformers>
+                <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                  <mainClass>dev.mcpmirror.koog.WorkerKt</mainClass>
+                  <manifestEntries>
+                    <Multi-Release>true</Multi-Release>
+                  </manifestEntries>
+                </transformer>
+              </transformers>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>

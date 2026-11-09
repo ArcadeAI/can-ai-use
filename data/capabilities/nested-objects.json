@@ -1,0 +1,36 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "nested-objects",
+  "title": "Nested Objects",
+  "description": "An object typed parameter carrying its own nested properties.",
+  "question": "Does nested structure survive to each capture boundary?",
+  "spec": "https://json-schema.org/draft/2020-12/json-schema-validation",
+  "status": "stable",
+  "categories": [
+    "Structure"
+  ],
+  "keywords": "nested,object,structure,schema",
+  "usage_perc_y": null,
+  "usage_perc_a": null,
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "links": [
+    {
+      "url": "https://json-schema.org/understanding-json-schema/reference/object#properties",
+      "title": "JSON Schema Docs"
+    },
+    {
+      "url": "https://platform.openai.com/docs/guides/function-calling",
+      "title": "OpenAI function calling, tool schema"
+    }
+  ],
+  "known_issues": [],
+  "why": "If nested structure were flattened or dropped, complex calls would silently degrade.",
+  "shown": true,
+  "docs_url": "https://json-schema.org/understanding-json-schema/reference/object#properties",
+  "docs_label": "JSON Schema Docs",
+  "notes": {
+    "crewai": "CrewAI: nested types are re expressed via `$defs` and `$ref`. Semantically equivalent, so mcp-mirror resolves the reference before comparing rather than reporting it as flattening.",
+    "llamaindex": "LlamaIndex (llama-index-tools-mcp 0.6.0): `McpToolSpec` rebuilds each `inputSchema` as a Pydantic model (`create_model_from_json_schema`), and the model's JSON schema is what `ToolMetadata.to_openai_tool` hands the LLM. A nested object's `properties` and `required` collapse to a free-form `object` with `additionalProperties: true`, so the model no longer sees the fields it must fill."
+  },
+  "summary": "A reference based encoding is an equivalent representation, not a loss."
+}

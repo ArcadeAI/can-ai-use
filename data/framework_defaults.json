@@ -1,0 +1,15 @@
+{
+  "schema": "mcp-mirror/framework-defaults@1",
+  "note": "What the site shows before a reader picks anything. default_spec is the MCP revision pages open on (every framework reaches 2025-11-25; many cannot reach a newer one). default_frameworks are the frameworks the default (Filtered) view shows, in no particular order; All shows every published row. Chosen by the maintainer: the five MCP adapters with the most monthly downloads in data/usage.json, plus LangChain and Mastra.",
+  "rule": "The five MCP adapters with the most downloads last month, plus LangChain and Mastra.",
+  "default_spec": "2025-11-25",
+  "default_frameworks": [
+    "strands",
+    "pydantic-ai",
+    "vercel_ai",
+    "openai-agents",
+    "google_adk",
+    "langchain",
+    "mastra"
+  ]
+}

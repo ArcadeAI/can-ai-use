@@ -1,0 +1,5 @@
+{"format": "mcp-mirror.harness-output/1"}
+{"event": "tool_use", "tool": "def_search_records", "input": {"query": "x", "security_risk": "LOW"}}
+{"event": "tool_result", "is_error": false, "text": "[Tool 'def_search_records' executed.] SENTINEL_TEXT_BLOCK"}
+{"event": "text", "text": "done"}
+{"event": "result", "subtype": "success", "is_error": false, "num_turns": 2, "text": "done"}

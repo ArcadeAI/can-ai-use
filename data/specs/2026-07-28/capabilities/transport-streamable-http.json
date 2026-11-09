@@ -1,0 +1,29 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "transport-streamable-http",
+  "title": "Streamable HTTP transport",
+  "description": "One HTTP POST per message to a single endpoint, answered with a JSON object or a request-scoped SSE stream, and carrying the required `Mcp-Method` and `Mcp-Name` headers.",
+  "question": "Can the framework talk to a remote server on this revision's terms?",
+  "spec": "https://modelcontextprotocol.io/specification/2026-07-28",
+  "status": "stable",
+  "categories": [
+    "Transports"
+  ],
+  "keywords": "streamable http,POST,SSE,Mcp-Method,Mcp-Name,remote server",
+  "why": "Every remote MCP server uses this transport, and 2026-07-28 changed it substantially: sessions and the `Mcp-Session-Id` header are gone, SSE resumability is gone, and two new headers are required. An adapter written for the old shape may connect and still be non-conformant.",
+  "docs_url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/transports/streamable-http",
+  "docs_label": "MCP Docs",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/transports/streamable-http",
+      "title": "MCP Docs"
+    }
+  ],
+  "usage_perc_y": null,
+  "usage_perc_a": null,
+  "usage_note": null,
+  "known_issues": [
+    "Measured by `scripts/measure_transports.py`: every renderer is asked for the fixture's tool definitions, resources, prompts and every result call over stdio, Streamable HTTP, with the fixture behind the recording proxy so the wire is logged on each. A transport is `y` when both fixtures open a session over it and, for an HTTP transport, every answer matches the stdio one.",
+    "At 2026-07-28 the row also reads the recorder's log of each POST: a request without `Mcp-Method`, or a `tools/call`, `prompts/get` or `resources/read` without `Mcp-Name`, marks the cell down."
+  ]
+}

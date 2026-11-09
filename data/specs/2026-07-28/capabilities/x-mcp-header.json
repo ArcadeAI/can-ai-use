@@ -1,0 +1,32 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "x-mcp-header",
+  "title": "`x-mcp-header`",
+  "description": "A JSON Schema annotation that mirrors a primitive tool parameter into an `Mcp-Param-{name}` HTTP header when the tool is called over Streamable HTTP.",
+  "question": "Does the client mirror annotated parameters into request headers, and reject tools that violate the constraints?",
+  "spec": "https://modelcontextprotocol.io/specification/2026-07-28",
+  "status": "stable",
+  "categories": [
+    "Tool definition"
+  ],
+  "keywords": "x-mcp-header,Mcp-Param,custom headers,routing,intermediaries,streamable http",
+  "why": "Servers use this so load balancers and proxies can route on a parameter without parsing the body. The spec requires Streamable HTTP clients to emit the header and to exclude tools whose annotation is malformed; a client that ignores the annotation breaks routing silently, with no error anyone can see.",
+  "docs_url": "https://modelcontextprotocol.io/specification/2026-07-28/server/tools#x-mcp-header",
+  "docs_label": "MCP Docs",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/server/tools#x-mcp-header",
+      "title": "MCP Docs"
+    }
+  ],
+  "usage_perc_y": null,
+  "usage_perc_a": null,
+  "usage_note": null,
+  "known_issues": [
+    "Measured by scripts/measure_protocol.py: each adapter runs against fixtures/base_protocol_server.py behind the wire recorder, and the cell is read from the captures."
+  ],
+  "notes": {
+    "pydantic-ai": "Pydantic AI: a direct `call_tool` sends `tools/call` before any `tools/list` in that request sequence, so it has not seen the `x-mcp-header` annotation and sends no `Mcp-Param-Region` header; the agent's call lists tools first and mirrors the parameter. The object-typed `bad_header` tool is excluded on both paths.",
+    "copilot_sdk": "GitHub Copilot SDK 1.0.19 (Copilot runtime 1.0.95): on Streamable HTTP the runtime mirrors an `x-mcp-header` parameter: the `routed_lookup` call sent `Mcp-Param-Region: eu-west-1`. The `bad_header` tool, which puts `x-mcp-header` on an object-typed parameter, is not excluded; it is offered to the model with the annotation still in its schema."
+  }
+}

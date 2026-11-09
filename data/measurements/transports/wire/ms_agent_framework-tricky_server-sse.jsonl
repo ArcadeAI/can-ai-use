@@ -1,0 +1,2 @@
+{"type":"capture","seq":0,"t":"2026-10-09T21:05:39.014260+00:00","elapsed":0.000159,"format":"mcp-mirror.wire/1","recorder":"mcp-mirror 0.1.0","fixture":".mcp-mirror/fixture-2025-11-25/bin/python fixtures/tricky_server.py","transport":"sse","url":"http://127.0.0.1:49163/sse"}
+{"type":"end","seq":1,"t":"2026-10-09T21:05:39.363953+00:00","elapsed":0.349704,"messages":0,"sessions":0}

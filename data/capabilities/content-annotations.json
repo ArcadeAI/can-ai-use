@@ -1,0 +1,62 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "content-annotations",
+  "title": "Content `annotations`",
+  "description": "The `audience`, `priority` and `lastModified` hints that content blocks, resources and prompt messages may carry.",
+  "question": "Do content annotations survive to the agent?",
+  "spec": "https://modelcontextprotocol.io/specification/2025-11-25",
+  "status": "stable",
+  "categories": [
+    "Tool results",
+    "Resources"
+  ],
+  "keywords": "annotations,audience,priority,lastModified,context filtering",
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/server/resources#annotations",
+      "title": "MCP Docs"
+    }
+  ],
+  "known_issues": [],
+  "why": "Annotations are how a server says who a piece of content is for and how much it matters. A client that drops them cannot filter assistant-only content out of a user view, cannot prioritise what to keep when context runs short, and cannot sort by recency.",
+  "shown": true,
+  "docs_url": "https://modelcontextprotocol.io/specification/2025-11-25/server/resources#annotations",
+  "docs_label": "MCP Docs",
+  "notes": {
+    "crewai": "CrewAI: every content block is dropped, annotations with them.",
+    "genkit_js": "Genkit (JS) 1.42.0: `processResult` returns `{ error }` for `isError`, `structuredContent` when the server sent one, the joined text (JSON-parsed when it looks like JSON) when every block is text, the lone block when there is one, and otherwise the whole `CallToolResult`. An all-text result becomes one joined string, so block annotations (`annotated_content`) never reach the caller or the model, and in `mixed_content` only `structuredContent` is returned.",
+    "openai-agents": "OpenAI Agents: the text block survives; its annotations do not.",
+    "pydantic-ai": "Pydantic AI: the text block survives; its annotations do not.",
+    "mastra": "Mastra 2.2.0: a result without `structuredContent` comes back unchanged, annotations intact on the block. When the result carries `structuredContent`, that value is returned in place of the whole result, and the blocks and their annotations are gone.",
+    "langchain": "LangChain: at both result boundaries the text block survives as a LangChain text block; its audience and priority annotations do not.",
+    "google_adk": "Google ADK 2.11.0: block annotations are intact in the tool's return value. At the model they are only keys inside the JSON `FunctionResponse.response`; no content block carries them.",
+    "vercel_ai": "Vercel AI SDK (@ai-sdk/mcp 2.0.73): execute resolves with the CallToolResult, block annotations intact. The adapter's toModelOutput converter keeps only a text block's text and an image's data and MIME type, so annotations never reach the model. Boundary-dependent: kept at execute, dropped at model_output.",
+    "ms_agent_framework": "Microsoft Agent Framework 1.21.0: MCP content becomes `agent_framework.Content`, which has no field for block annotations; the text survives and its `audience`/`priority` do not.",
+    "autogen": "AutoGen 0.7.5: Boundary-dependent. `McpWorkbench.call_tool` and the `AssistantAgent` path keep only the text of a block, dropping `annotations`; the `mcp_server_tools` adapter's `run_json` returns the MCP content blocks with their annotations.",
+    "strands": "Strands Agents 1.59.0: `MCPClient.map_mcp_content_to_tool_result_content` maps a text block to `{\"text\": ...}` and nothing else, so the `audience` and `priority` annotations never reach the tool result the agent or the model receives.",
+    "openai_agents_js": "OpenAI Agents SDK (JS) 0.20.0: block annotations survive `MCPServer.callTool` but not the agent path: a lone text block reaches the model as an `input_text` item with no annotations, and a mixed result only as stringified JSON.",
+    "semantic_kernel": "Semantic Kernel 1.45.0: block annotations are dropped for text, image and audio blocks. Only an embedded resource copies them into `metadata`, and that call is not the one the fixture annotates.",
+    "llamaindex": "LlamaIndex (llama-index-tools-mcp 0.6.0): `FunctionTool._parse_tool_output` has no case for `CallToolResult`, so the `ToolOutput`, and the `ChatMessage(role=\"tool\")` a `FunctionAgent` sends the model, hold one text block: the result's Python repr. The block's `annotations` appear in that text but no structured block carries them.",
+    "pi": "Pi (@earendil-works/pi-mcp 1.1.0): `McpClient.callTool` returns each block with its `annotations`. `toLlmContent`, the package's conversion for a model, rebuilds every block as `{ type, text }` or `{ type, data, mimeType }`, so audience and priority never reach the model.",
+    "google_adk_js": "Google ADK (TypeScript) 2.2.1: boundary-dependent. `MCPTool.runAsync` returns the `CallToolResult` unchanged (`afterToolCallback` sees it with every block intact), and ADK puts that object in the `functionResponse` of the next `LlmRequest`. At `direct` each block keeps its annotations. At `agent` they are fields inside the JSON object and no block carries them.",
+    "agno": "Agno 3.1.2: `MCPTools` keeps each block's text or media only; content annotations (`audience`, `priority`) are dropped at both boundaries.",
+    "haystack": "Haystack (mcp-haystack 1.5.2): boundary-dependent. The direct `Tool.invoke` return is that JSON string, which the adapter's docstring says to read with `json.loads`; parsed, it keeps every block. The `ChatMessage` an `Agent` hands the next generator turn carries the Tool's return value as one text: the `CallToolResult` JSON from `model_dump_json`. The block `annotations` appear in that text, but no block the model receives carries them.",
+    "smolagents": "smolagents 1.26.0 (mcpadapt 0.1.20): `MCPAdaptTool.forward` reads only `content[0]` and logs a warning when there are more, and returns a text block as a bare `str`, so a block's `annotations` are gone at the tool return value and at the `Observation:` message a `ToolCallingAgent` sends the model.",
+    "dspy": "DSPy 3.4.0: text blocks come back as plain `str`, so block `annotations` are dropped at both the direct and the ReAct boundary.",
+    "langchain_js": "LangChain.js (@langchain/mcp-adapters 2.0.1): a text block reaches the model as a plain string. Its `annotations` survive only in the app-side artifact (`mcp_content`), never in the `ToolMessage` content.",
+    "spring_ai": "Spring AI 2.0.1: the tool result reaches the agent and a direct `ToolCallback.call` as one string: the JSON of the result's content list with each block's `type` field dropped, so a block's `audience` and `priority` survive only as keys inside that JSON text, `[{\"annotations\":{\"audience\":[\"user\"],\"priority\":0.9},\"text\":\"SENTINEL_ANNOTATED_TEXT\"}]`; no content block carries them.",
+    "beeai": "BeeAI Framework 0.1.85: block annotations survive on the content objects `MCPTool.run` returns, but not next to `structuredContent`, and the tool message carries them only inside the serialized JSON string (agent: `n`).",
+    "copilot_sdk": "GitHub Copilot SDK 1.0.19 (Copilot runtime 1.0.95): depends on the boundary. `agent`: the runtime flattens text blocks into the plain-string `content` of the `tool` message it sends the provider, so a block's `audience` and `priority` are gone. `direct`: `session.rpc.tools.execute` returns the server's `contents` with the annotations intact.",
+    "crewai-native": "CrewAI 1.15.26, native `crewai.mcp` client (`Agent(mcps=[...])`, not the `crewai_tools.MCPServerAdapter` row): `MCPClient._call_tool_impl` keeps only `content[0]`, returning its `text` when it has one and `str(content[0])` otherwise, and a text block is returned as its bare `text`, so a block's `annotations` are gone at `BaseTool.run` and in the agent's tool message.",
+    "google_adk_java": "Google ADK (Java) 1.11.0: `wrapCallResult` keeps only each text block's text; `audience` and `priority` are dropped at both boundaries.",
+    "langchain4j": "LangChain4j 1.22.0-beta32: the converter keeps only each text block's `text`. Block `annotations` are dropped at both boundaries, and an annotated non-text block makes the call fail with `Unsupported content type`.",
+    "koog": "Koog 1.3.0-beta: boundary-dependent. At `direct` each block keeps its `annotations`. `AIAgent` sends the tool's result to the model as one `role: tool` message whose content is `McpTool.encodeResultToString`: the JSON of the whole `CallToolResult` (`content`, `isError`, `structuredContent`), or `Error: <text>` when `isError` is set. At `agent` `audience` and `priority` are only keys inside that text; nothing reads them.",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): `formatMCPContent` keeps a text block's text and drops its `annotations`, at both the `Run` return value and the `FunctionResponse` the model receives.",
+    "ms_agent_framework_dotnet": "Microsoft Agent Framework (.NET) 1.24.0 (ModelContextProtocol 2.2.0): a result holding only content blocks becomes `AIContent`; a text block becomes a `TextContent` with its text alone, so a lone annotated block loses `audience` and `priority` at both boundaries. A result that also carries `structuredContent` (`mixed_content`) comes back as the `CallToolResult` JSON, which keeps the annotations."
+  },
+  "verdict": {
+    "detail": "audience and priority are the server's only way to say 'this part is for the model, this part is for the user'. Nothing downstream can recover them."
+  },
+  "summary": "Annotations say who a block is for and how much it matters."
+}

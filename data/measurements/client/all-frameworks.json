@@ -1,0 +1,107 @@
+{
+  "schema": "mcp-mirror/client-probe@1",
+  "captured_at": "2026-09-30T18:26:13Z",
+  "fixture": "fixtures/client_features_server.py",
+  "fixture_python": "<checkout>/.mcp-mirror/fixture-2025-11-25/bin/python",
+  "spec_version": "2025-11-25",
+  "frameworks": {
+    "langchain": {
+      "ok": true,
+      "versions": {
+        "framework": "0.3.2",
+        "adapter": "1.6.6"
+      },
+      "negotiated_mcp_spec_version": "2025-11-25",
+      "client_probe": {
+        "sampling": {
+          "tool": "ask_sampling",
+          "hook": "session_kwargs.sampling_callback",
+          "route": "passthrough",
+          "expect": "SENTINEL_SAMPLED",
+          "text": "SENTINEL_CLIENT_ANSWERED ask_sampling: {\"content\": {\"text\": \"SENTINEL_SAMPLED\", \"type\": \"text\"}, \"model\": \"mcp-mirror-stub\", \"role\": \"assistant\", \"stopReason\": \"endTurn\"}",
+          "is_error": null,
+          "handler_saw": [
+            {
+              "hook": "sampling_callback",
+              "tools": false,
+              "replied": "endTurn"
+            }
+          ]
+        },
+        "sampling.tools": {
+          "tool": "ask_sampling_tools",
+          "hook": "session_kwargs.sampling_callback + sampling_capabilities",
+          "route": "passthrough",
+          "expect": "SENTINEL_SAMPLED_AFTER_TOOL",
+          "text": "SENTINEL_CLIENT_ANSWERED ask_sampling_tools: {\"rounds\": [{\"content\": [{\"id\": \"SENTINEL_TOOL_USE_ID\", \"input\": {\"word\": \"mirror\"}, \"name\": \"sentinel_lookup\", \"type\": \"tool_use\"}], \"model\": \"mcp-mirror-stub\", \"role\": \"assistant\", \"stopReason\": \"toolUse\"}, {\"content\": {\"text\": \"SENTINEL_SAMPLED_AFTER_TOOL\", \"type\": \"text\"}, \"model\": \"mcp-mirror-stub\", \"role\": \"assistant\", \"stopReason\": \"endTurn\"}]}",
+          "is_error": null,
+          "handler_saw": [
+            {
+              "hook": "sampling_callback",
+              "tools": true,
+              "replied": "toolUse"
+            },
+            {
+              "hook": "sampling_callback",
+              "tools": true,
+              "replied": "endTurn"
+            }
+          ]
+        },
+        "elicitation.form": {
+          "tool": "ask_elicitation_form",
+          "hook": "Callbacks.on_elicitation",
+          "route": "adapter",
+          "expect": "SENTINEL_ELICITED",
+          "text": "SENTINEL_CLIENT_ANSWERED ask_elicitation_form: {\"action\": \"accept\", \"content\": {\"name\": \"SENTINEL_ELICITED\"}}",
+          "is_error": null,
+          "handler_saw": [
+            {
+              "hook": "elicitation_callback",
+              "mode": "form"
+            }
+          ]
+        },
+        "elicitation.url": {
+          "tool": "ask_elicitation_url",
+          "hook": "Callbacks.on_elicitation",
+          "route": "adapter",
+          "expect": "\"action\": \"accept\"",
+          "text": "SENTINEL_CLIENT_ANSWERED ask_elicitation_url: {\"action\": \"accept\"}",
+          "is_error": null,
+          "handler_saw": [
+            {
+              "hook": "elicitation_callback",
+              "mode": "url"
+            }
+          ]
+        },
+        "roots.list": {
+          "tool": "list_client_roots",
+          "hook": "session_kwargs.list_roots_callback",
+          "route": "passthrough",
+          "expect": "file:///tmp/mcp-mirror-root",
+          "text": "SENTINEL_CLIENT_ANSWERED list_client_roots: {\"roots\": [{\"name\": \"mcp-mirror\", \"uri\": \"file:///tmp/mcp-mirror-root\"}]}",
+          "is_error": null,
+          "handler_saw": [
+            {
+              "hook": "list_roots_callback"
+            }
+          ]
+        },
+        "roots.list_changed": {
+          "tool": "roots_changes_seen",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_ROOTS_CHANGES_SEEN",
+          "text": "SENTINEL_ROOTS_CHANGES_SEEN 0",
+          "is_error": null,
+          "handler_saw": []
+        },
+        "capabilities": {
+          "text": "SENTINEL_CLIENT_CAPABILITIES {\"elicitation\": {\"form\": {}, \"url\": {}}, \"roots\": {\"listChanged\": true}, \"sampling\": {\"tools\": {}}}"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "open-world-hint",
+  "title": "`openWorldHint`",
+  "description": "Marks a tool as touching the open world: external, non deterministic effects.",
+  "question": "Is the openWorldHint annotation present at each capture boundary?",
+  "spec": "https://modelcontextprotocol.io/specification",
+  "status": "stable",
+  "categories": [
+    "Tool annotations"
+  ],
+  "keywords": "openWorldHint,open world hint,annotations,safety,authorization",
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/schema#toolannotations",
+      "title": "MCP Docs"
+    },
+    {
+      "url": "https://platform.openai.com/docs/guides/function-calling",
+      "title": "OpenAI function calling, tool schema"
+    }
+  ],
+  "known_issues": [
+    "Mastra and Pydantic AI retain the annotation outside their declared tool-definition capture objects; OpenAI Agents SDK does not.",
+    "Two framework adapters could not be measured against 2026-07-28, so missing evidence is not a support result."
+  ],
+  "why": "A policy that reads the tool definition at the capture boundary can only tell that a call escapes the local system if the hint survives to that point. Where it is dropped, an external side effect looks the same as a local lookup.",
+  "shown": true,
+  "docs_url": "https://modelcontextprotocol.io/specification/2026-07-28/schema#toolannotations",
+  "docs_label": "MCP Docs",
+  "notes": {
+    "openai-agents": "OpenAI Agents SDK: FunctionTool retains the MCP title only; the behavioral hint is not carried.",
+    "pydantic-ai": "Pydantic AI: retained in ToolDefinition.metadata['annotations']; not part of parameters_json_schema.",
+    "mastra": "Mastra 2.2.0: retained on the tool action's `mcp.annotations`; not part of the id, description or inputSchema the agent is handed.",
+    "vercel_ai": "Vercel AI SDK (@ai-sdk/mcp 2.0.73): toolsFromDefinitions copies the server's openWorldHint onto the tool's app-side `metadata.annotations`, not into the description or inputSchema a provider adapter serializes. An app can read it; the model is not shown it.",
+    "openai_agents_js": "OpenAI Agents SDK (JS) 0.20.0: `mcpToFunctionTool` builds the `FunctionTool` from the MCP tool's name, description and inputSchema only. The `openWorldHint` annotation is not on the tool the model is handed and is not kept anywhere beside it.",
+    "agno": "Agno 3.1.2: `MCPTools.build_tools` registers each tool as `Function(name, description, parameters=inputSchema)`; the tool's annotations, title, icons and `outputSchema` are not carried, so `openWorldHint` reaches neither the model nor the agent.",
+    "dspy": "DSPy 3.4.0: `Tool.from_mcp_tool` builds a `dspy.Tool` from the MCP tool's name, description and `inputSchema` properties only; the tool's annotations, title, icons and `outputSchema` are on no `Tool` field and in no dict the LM is handed, so `openWorldHint` is lost.",
+    "langchain_js": "LangChain.js (@langchain/mcp-adapters 2.0.1): `MCPAdapter.listTools` keeps the server's annotations on the tool's app-side `metadata.annotations`, but the function tool `convertToOpenAITool` builds for the provider carries name, description and parameters only, so the model never sees `openWorldHint`.",
+    "copilot_sdk": "GitHub Copilot SDK 1.0.19 (Copilot runtime 1.0.95): the provider tool carries name, description and parameters only, and the runtime's permission request names title and `readOnly`. `openWorldHint` is not kept anywhere.",
+    "langchain4j": "LangChain4j 1.22.0-beta32: MCP tool annotations reach `ToolSpecification.metadata()` only; the `ToolSpecification` AiServices hands the `ChatModel` carries name, description and parameters, so the model never sees `openWorldHint`.",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): `convertTool` builds the `FunctionDeclaration` from the tool's name, description, `inputSchema` and `outputSchema` only, and `mcpTool` keeps no other field of the `*mcp.Tool`, so `annotations.openWorldHint` is gone after listing.",
+    "ms_agent_framework_dotnet": "Microsoft Agent Framework (.NET) 1.24.0 (ModelContextProtocol 2.2.0): `McpClientTool` passes the model only the MCP tool's name, description, `inputSchema` (as `JsonSchema`) and `outputSchema` (as `ReturnJsonSchema`). It keeps the MCP `Tool` it was built from as the public `ProtocolTool` property, so `openWorldHint` is retained in framework metadata but never reaches the model."
+  }
+}

@@ -1,0 +1,2273 @@
+{
+  "schema": "mcp-mirror/agents@1",
+  "updated": "2026-10-19",
+  "mcp_spec": "2025-11-25",
+  "_shape": "Mirrors the caniuse data model. Agents (their browsers) carry a version_list with an era index and a release date, and capability files carry stats as a version to support-code map. Era 0 is the release we measured, negative is older, positive is newer. Versions with no entry in a capability's stats render as not yet measured.",
+  "statuses": {
+    "stable": {
+      "short": "MCP 2025-11-25",
+      "label": "Defined in the released MCP specification"
+    },
+    "draft": {
+      "short": "MCP draft",
+      "label": "Defined only in a draft revision of the MCP specification"
+    },
+    "proposed": {
+      "short": "proposed",
+      "label": "Proposed, not yet in any published specification"
+    },
+    "deprecated": {
+      "short": "deprecated",
+      "label": "Defined in the released MCP specification but deprecated in this revision, and scheduled for removal in a later one"
+    }
+  },
+  "support_codes": {
+    "y": "present at the declared capture boundary",
+    "a": "changed at the boundary or retained elsewhere",
+    "n": "dropped during adaptation",
+    "u": "not yet measured"
+  },
+  "defaults": {
+    "inclusion_rule": "A framework is listed if it ships a first-party or officially documented MCP adapter. Nothing is excluded on quality grounds.",
+    "order_rule": "Alphabetical within language group. No ranking is implied or computed.",
+    "version_policy": "Era 0 is the release actually measured. Surrounding releases come from the package registry (PyPI, npm) and are shown as not yet measured until a scan covers them.",
+    "green_rule": "A cell is 'y' only if the value is present in the tool definition at that framework's declared capture boundary. Nothing else counts.",
+    "partial_rule": "'a' means the capability is not present unchanged: the note must say whether it was transformed at the boundary, only partly preserved, or retained elsewhere by the framework.",
+    "note_rule": "Every 'a' and 'n' cell must carry a #n note reference naming the exact mechanism, so a status can be checked rather than trusted.",
+    "usage_rule": "No adoption weighting is published. We have no defensible source yet, and an invented percentage would be the least trustworthy number on the page."
+  },
+  "agents": {
+    "agno": {
+      "name": "Agno",
+      "abbr": "Agn",
+      "type": "python",
+      "package": "agno",
+      "registry": "pypi",
+      "adapter": "agno.tools.mcp.MCPTools",
+      "renderer": "src/mcp_mirror/renderers/agno_renderer.py",
+      "capture_boundary": {
+        "capture_api": "agno.tools.mcp.MCPTools(protocol_mode='auto') handed to agno.agent.Agent; the tools argument of the model's ainvoke on the first turn",
+        "capture_object": "function-tool dicts Model._format_tools builds from each Function: {'type': 'function', 'function': Function.to_dict()}",
+        "capture_stage": "provider_format",
+        "provider_request_captured": false,
+        "negotiated_mcp_spec_version": "2025-11-25",
+        "protocol_version_evidence": "fastmcp.Client.protocol_version on MCPTools.session after the toolkit connected; protocol_mode='auto' negotiates the newest era, the default 'legacy' keeps 2025-11-25"
+      },
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Tool return value",
+          "capture_api": "the agno.tools.Function entrypoint MCPTools.build_tools registers",
+          "capture_object": "the agno.tools.function.ToolResult (content, images, audios, metadata) built from the CallToolResult",
+          "agent_path": false
+        },
+        {
+          "id": "agent",
+          "label": "Tool message to the model",
+          "capture_api": "agno.agent.Agent.arun, the messages of the next model ainvoke",
+          "capture_object": "the agno.models.message.Message(role='tool') the next model turn receives",
+          "agent_path": true,
+          "limitation": "The model is a scripted agno.models.base.Model subclass; no provider model class serialized the message."
+        }
+      ],
+      "current_version": "3.1.2",
+      "stable_version": "3.1.6",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "3.0.7",
+          "era": -5,
+          "release_date": "2026-09-08T10:37:37Z"
+        },
+        {
+          "version": "3.0.8",
+          "era": -4,
+          "release_date": "2026-09-08T15:45:49Z"
+        },
+        {
+          "version": "3.0.9",
+          "era": -3,
+          "release_date": "2026-09-08T22:54:46Z"
+        },
+        {
+          "version": "3.0.10",
+          "era": -2,
+          "release_date": "2026-09-16T17:42:13Z"
+        },
+        {
+          "version": "3.0.11",
+          "era": -1,
+          "release_date": "2026-09-23T13:15:37Z"
+        },
+        {
+          "version": "3.1.2",
+          "era": 0,
+          "release_date": "2026-10-08T19:53:30Z"
+        },
+        {
+          "version": "3.1.3",
+          "release_date": "2026-10-12T11:23:20Z",
+          "era": 1
+        },
+        {
+          "version": "3.1.4",
+          "release_date": "2026-10-16T13:36:06Z",
+          "era": 2
+        },
+        {
+          "version": "3.1.5",
+          "release_date": "2026-10-19T11:54:19Z",
+          "era": 3
+        },
+        {
+          "version": "3.1.6",
+          "release_date": "2026-10-19T13:45:22Z",
+          "era": 4
+        }
+      ]
+    },
+    "beeai": {
+      "name": "BeeAI Framework",
+      "abbr": "Bee",
+      "type": "python",
+      "package": "beeai-framework",
+      "registry": "pypi",
+      "adapter": "beeai_framework.tools.mcp.MCPTool",
+      "renderer": "src/mcp_mirror/renderers/beeai_renderer.py",
+      "capture_boundary": {
+        "capture_api": "beeai_framework.tools.mcp.MCPTool.from_client handed to beeai_framework.agents.requirement.RequirementAgent; the tools LiteLLMChatModel._transform_input passes litellm.acompletion on the first turn",
+        "capture_object": "function-tool dicts {'type': 'function', 'function': {name, description, parameters, strict}} built from each MCPTool's input_schema, with the ChatModel default use_strict_tool_schema=True",
+        "capture_stage": "provider_format",
+        "provider_request_captured": false,
+        "negotiated_mcp_spec_version": "2025-11-25",
+        "protocol_version_evidence": "protocolVersion instrumented from ClientSession.initialize inside the MCPSessionProvider that MCPTool.from_client starts; BeeAI does not expose it"
+      },
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Tool return value",
+          "capture_api": "beeai_framework.tools.mcp.MCPTool.run on a tool MCPTool.from_client returned",
+          "capture_object": "JSONToolOutput.result (structuredContent when present, else each content block with JSON text parsed, one block unwrapped), or the ToolError raised for an isError result",
+          "agent_path": false
+        },
+        {
+          "id": "agent",
+          "label": "Tool message to the model",
+          "capture_api": "beeai_framework.agents.requirement.RequirementAgent.run; the messages of the next litellm.acompletion call",
+          "capture_object": "the role 'tool' message LiteLLMChatModel._transform_input builds from JSONToolOutput.get_text_content(), or from the tool_error template",
+          "agent_path": true,
+          "limitation": "litellm.acompletion is replaced by a script; no provider request was serialized."
+        }
+      ],
+      "current_version": "0.1.85",
+      "stable_version": "0.1.85",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "0.1.81",
+          "era": -4,
+          "release_date": "2026-05-28T09:05:29Z"
+        },
+        {
+          "version": "0.1.82",
+          "era": -3,
+          "release_date": "2026-07-24T09:19:54Z"
+        },
+        {
+          "version": "0.1.83",
+          "era": -2,
+          "release_date": "2026-08-19T15:44:12Z"
+        },
+        {
+          "version": "0.1.84",
+          "era": -1,
+          "release_date": "2026-09-15T17:55:12Z"
+        },
+        {
+          "version": "0.1.85",
+          "era": 0,
+          "release_date": "2026-09-28T18:41:13Z"
+        }
+      ]
+    },
+    "autogen": {
+      "name": "AutoGen",
+      "abbr": "AG",
+      "type": "python",
+      "package": "autogen-ext",
+      "registry": "pypi",
+      "adapter": "autogen_ext.tools.mcp.McpWorkbench",
+      "renderer": "src/mcp_mirror/renderers/autogen_renderer.py",
+      "capture_boundary": {
+        "capture_api": "autogen_ext.tools.mcp.McpWorkbench.list_tools, as called by autogen_agentchat.agents.AssistantAgent(workbench=...) for one turn",
+        "capture_object": "autogen_core.tools.ToolSchema in the tools argument AssistantAgent passes to ChatCompletionClient.create",
+        "capture_stage": "framework_tool_definition",
+        "provider_request_captured": false,
+        "negotiated_mcp_spec_version": "2025-11-25",
+        "protocol_version_evidence": "protocolVersion from McpWorkbench.initialize_result"
+      },
+      "result_boundaries": [
+        {
+          "id": "workbench",
+          "label": "Workbench tool result",
+          "capture_api": "autogen_ext.tools.mcp.McpWorkbench.call_tool",
+          "capture_object": "the autogen_core.tools.ToolResult it returns",
+          "agent_path": false
+        },
+        {
+          "id": "agent",
+          "label": "Function result to the model",
+          "capture_api": "autogen_agentchat.agents.AssistantAgent(workbench=McpWorkbench), next ChatCompletionClient.create messages",
+          "capture_object": "the FunctionExecutionResult in the FunctionExecutionResultMessage the model client receives",
+          "agent_path": true,
+          "limitation": "The model client is ReplayChatCompletionClient; no provider client serialized the request."
+        },
+        {
+          "id": "tool_adapter",
+          "label": "mcp_server_tools adapter result",
+          "capture_api": "autogen_ext.tools.mcp.mcp_server_tools, then McpToolAdapter.run_json",
+          "capture_object": "the list of MCP content blocks run_json returns, or the exception it raises",
+          "agent_path": false
+        }
+      ],
+      "current_version": "0.7.5",
+      "stable_version": "0.7.5",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "0.7.1",
+          "era": -4,
+          "release_date": "2025-07-28T08:41:23Z"
+        },
+        {
+          "version": "0.7.2",
+          "era": -3,
+          "release_date": "2025-08-07T00:27:31Z"
+        },
+        {
+          "version": "0.7.3",
+          "era": -2,
+          "release_date": "2025-08-19T08:06:21Z"
+        },
+        {
+          "version": "0.7.4",
+          "era": -1,
+          "release_date": "2025-08-19T18:49:48Z"
+        },
+        {
+          "version": "0.7.5",
+          "era": 0,
+          "release_date": "2025-09-30T06:16:22Z"
+        }
+      ],
+      "lifecycle": {
+        "status": "archived",
+        "note": "Microsoft marks AutoGen archived and no longer maintained; Microsoft Agent Framework is its successor.",
+        "source": "https://github.com/microsoft/autogen"
+      }
+    },
+    "crewai": {
+      "name": "CrewAI",
+      "abbr": "Crew",
+      "type": "python",
+      "package": "crewai-tools",
+      "registry": "pypi",
+      "adapter": "crewai_tools.MCPServerAdapter",
+      "renderer": "src/mcp_mirror/renderers/crewai_renderer.py",
+      "capture_boundary": {
+        "capture_api": "crewai_tools.MCPServerAdapter",
+        "capture_object": "CrewAI BaseTool name, description, and args_schema",
+        "capture_stage": "framework_tool_definition",
+        "provider_request_captured": false,
+        "negotiated_mcp_spec_version": "2025-11-25",
+        "protocol_version_evidence": "protocolVersion instrumented from ClientSession.initialize inside MCPServerAdapter"
+      },
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Direct tool invocation",
+          "capture_api": "crewai.tools.BaseTool.run",
+          "capture_object": "the tool return value",
+          "agent_path": false
+        },
+        {
+          "id": "agent",
+          "label": "Agent tool invocation",
+          "capture_api": "crewai.tools.structured_tool.CrewStructuredTool.invoke",
+          "capture_object": "the value ToolUsage hands back during a crew run",
+          "agent_path": true,
+          "limitation": "CrewStructuredTool.invoke is driven directly. No LLM was bound and no crew was kicked off."
+        }
+      ],
+      "current_version": "1.15.26",
+      "stable_version": "1.15.28",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "1.14.6",
+          "era": -5,
+          "release_date": "2026-05-28T17:05:44Z"
+        },
+        {
+          "version": "1.14.7",
+          "era": -4,
+          "release_date": "2026-06-11T17:14:49Z"
+        },
+        {
+          "version": "1.15.0",
+          "era": -3,
+          "release_date": "2026-06-25T23:18:37Z"
+        },
+        {
+          "version": "1.15.1",
+          "era": -2,
+          "release_date": "2026-06-27T06:51:32Z"
+        },
+        {
+          "version": "1.15.23",
+          "era": -1,
+          "release_date": "2026-09-28T21:15:47Z"
+        },
+        {
+          "version": "1.15.26",
+          "era": 0,
+          "release_date": "2026-10-08T21:46:31Z"
+        },
+        {
+          "version": "1.15.27",
+          "release_date": "2026-10-09T22:34:43Z",
+          "era": 1
+        },
+        {
+          "version": "1.15.28",
+          "release_date": "2026-10-14T04:47:48Z",
+          "era": 2
+        }
+      ]
+    },
+    "crewai-native": {
+      "name": "CrewAI (native MCP)",
+      "abbr": "CrN",
+      "type": "python",
+      "package": "crewai",
+      "registry": "pypi",
+      "adapter": "crewai.Agent(mcps=[MCPServerStdio | MCPServerHTTP | MCPServerSSE]) (crewai.mcp)",
+      "renderer": "src/mcp_mirror/renderers/crewai_native_renderer.py",
+      "capture_boundary": {
+        "capture_api": "crewai.Agent(mcps=[MCPServerStdio|MCPServerHTTP|MCPServerSSE]).get_mcp_tools (crewai.mcp.tool_resolver.MCPToolResolver), then crewai.utilities.agent_utils.convert_tools_to_openai_schema",
+        "capture_object": "function-tool dicts convert_tools_to_openai_schema builds from each crewai.tools.mcp_native_tool.MCPNativeTool",
+        "capture_stage": "provider_format",
+        "provider_request_captured": false,
+        "negotiated_mcp_spec_version": "2025-11-25",
+        "protocol_version_evidence": "protocolVersion instrumented from ClientSession.initialize inside crewai.mcp.MCPClient.connect; the adapter does not expose it"
+      },
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Direct tool invocation",
+          "capture_api": "crewai.tools.BaseTool.run on the MCPNativeTool Agent.get_mcp_tools returns",
+          "capture_object": "the tool return value: the first content block's text, or a ToolFailure when isError is set",
+          "agent_path": false
+        },
+        {
+          "id": "agent",
+          "label": "Native tool call result",
+          "capture_api": "crewai.utilities.agent_utils.execute_single_native_tool_call",
+          "capture_object": "NativeToolCallResult.result, the tool message content the next model turn receives",
+          "agent_path": true,
+          "limitation": "The executor step is driven with a scripted OpenAI-style tool call. No LLM was bound and no crew was kicked off."
+        }
+      ],
+      "current_version": "1.15.26",
+      "stable_version": "1.15.28",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "1.14.6",
+          "era": -5,
+          "release_date": "2026-05-28T17:05:31Z"
+        },
+        {
+          "version": "1.14.7",
+          "era": -4,
+          "release_date": "2026-06-11T17:14:39Z"
+        },
+        {
+          "version": "1.15.0",
+          "era": -3,
+          "release_date": "2026-06-25T23:18:27Z"
+        },
+        {
+          "version": "1.15.1",
+          "era": -2,
+          "release_date": "2026-06-27T06:51:21Z"
+        },
+        {
+          "version": "1.15.23",
+          "era": -1,
+          "release_date": "2026-09-28T21:15:33Z"
+        },
+        {
+          "version": "1.15.26",
+          "era": 0,
+          "release_date": "2026-10-08T21:46:20Z"
+        },
+        {
+          "version": "1.15.27",
+          "release_date": "2026-10-09T22:34:28Z",
+          "era": 1
+        },
+        {
+          "version": "1.15.28",
+          "release_date": "2026-10-14T04:47:37Z",
+          "era": 2
+        }
+      ]
+    },
+    "dspy": {
+      "name": "DSPy",
+      "abbr": "DSP",
+      "type": "python",
+      "package": "dspy",
+      "registry": "pypi",
+      "adapter": "dspy.Tool.from_mcp_tool",
+      "renderer": "src/mcp_mirror/renderers/dspy_renderer.py",
+      "capture_boundary": {
+        "capture_api": "dspy.Tool.from_mcp_tool(session, tool) over a caller-supplied mcp.Client; dspy.Tool.format_as_litellm_function_call()",
+        "capture_object": "the {'type': 'function', 'function': {name, description, parameters}} dict dspy.Tool.format_as_litellm_function_call returns, which dspy adapters pass the LM as tools= under native function calling",
+        "capture_stage": "provider_format",
+        "provider_request_captured": false,
+        "negotiated_mcp_spec_version": "2025-11-25",
+        "protocol_version_evidence": "mcp.Client.protocol_version of the caller's session; DSPy opens no connection and negotiates nothing itself, so this is the MCP SDK default (mode='auto') the caller chose"
+      },
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Tool return value",
+          "capture_api": "dspy.Tool.acall on the Tool from_mcp_tool built (result_mode='text', the default)",
+          "capture_object": "what acall returns: a str, a list of str, or the non-text MCP content objects, or the RuntimeError it raises for an isError result",
+          "agent_path": false
+        },
+        {
+          "id": "react",
+          "label": "ReAct observation to the model",
+          "capture_api": "dspy.ReAct(...).acall with the Tool; the messages of the next LM call",
+          "capture_object": "the observation_0 field ChatAdapter prints into the next turn's prompt",
+          "agent_path": true,
+          "limitation": "The LM is dspy.utils.dummies.DummyLM; no provider LM serialized the prompt."
+        },
+        {
+          "id": "structured",
+          "label": "Tool return value, result_mode='structured'",
+          "capture_api": "dspy.Tool.from_mcp_tool(..., result_mode='structured') then Tool.acall",
+          "capture_object": "what acall returns: the structuredContent when the result has one, else as result_mode='text'",
+          "agent_path": false,
+          "limitation": "A documented non-default option of from_mcp_tool."
+        }
+      ],
+      "current_version": "3.4.0",
+      "stable_version": "3.4.1",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "3.2.0",
+          "era": -4,
+          "release_date": "2026-04-21T17:15:48Z"
+        },
+        {
+          "version": "3.2.1",
+          "era": -3,
+          "release_date": "2026-05-05T19:35:05Z"
+        },
+        {
+          "version": "3.3.0",
+          "era": -2,
+          "release_date": "2026-08-03T19:54:44Z"
+        },
+        {
+          "version": "3.3.1",
+          "era": -1,
+          "release_date": "2026-08-21T23:06:12Z"
+        },
+        {
+          "version": "3.4.0",
+          "era": 0,
+          "release_date": "2026-09-25T04:04:23Z"
+        },
+        {
+          "version": "3.4.1",
+          "release_date": "2026-10-12T23:07:23Z",
+          "era": 1
+        }
+      ]
+    },
+    "google_adk": {
+      "name": "Google ADK",
+      "abbr": "ADK",
+      "type": "python",
+      "package": "google-adk",
+      "registry": "pypi",
+      "adapter": "google.adk.tools.mcp_tool.McpToolset",
+      "renderer": "src/mcp_mirror/renderers/google_adk_renderer.py",
+      "capture_boundary": {
+        "capture_api": "google.adk.tools.mcp_tool.McpToolset.get_tools, then McpTool.process_llm_request inside an LlmAgent run",
+        "capture_object": "google.genai.types.FunctionDeclaration in the LlmRequest.config.tools handed to BaseLlm.generate_content_async",
+        "capture_stage": "provider_format",
+        "provider_request_captured": false,
+        "negotiated_mcp_spec_version": "2025-11-25",
+        "protocol_version_evidence": "protocol version the session adopted through initialize: read from ClientSession.adopt (mcp 2.x), which both the initialize handshake McpToolset's MCPSessionManager runs by default and the SDK's negotiate_auto (ADK_ENABLE_MCP_MODERN_PROTOCOL=1, server/discover) end in; from the ClientSession.initialize result on mcp 1.x"
+      },
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Tool return value",
+          "capture_api": "google.adk.agents.LlmAgent after_tool_callback (tool_response)",
+          "capture_object": "the dict McpTool.run_async returned, before ADK wraps it",
+          "agent_path": false
+        },
+        {
+          "id": "agent",
+          "label": "Function response to the model",
+          "capture_api": "google.adk.flows.llm_flows BaseLlmFlow, next LlmRequest.contents",
+          "capture_object": "the google.genai.types.FunctionResponse in the LlmRequest the model receives",
+          "agent_path": true,
+          "limitation": "The model is a scripted BaseLlm; no google-genai client serialized the request."
+        }
+      ],
+      "current_version": "2.11.0",
+      "stable_version": "2.12.0",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "2.8.0",
+          "era": -5,
+          "release_date": "2026-08-26T23:26:17Z"
+        },
+        {
+          "version": "2.9.0",
+          "era": -4,
+          "release_date": "2026-09-10T22:11:11Z"
+        },
+        {
+          "version": "2.9.1",
+          "era": -3,
+          "release_date": "2026-09-15T18:05:48Z"
+        },
+        {
+          "version": "2.9.2",
+          "era": -2,
+          "release_date": "2026-09-18T18:10:43Z"
+        },
+        {
+          "version": "2.10.0",
+          "era": -1,
+          "release_date": "2026-09-25T19:02:04Z"
+        },
+        {
+          "version": "2.11.0",
+          "era": 0,
+          "release_date": "2026-10-02T00:46:23Z"
+        },
+        {
+          "version": "2.12.0",
+          "release_date": "2026-10-13T16:42:55Z",
+          "era": 1
+        }
+      ]
+    },
+    "haystack": {
+      "name": "Haystack",
+      "abbr": "Hay",
+      "type": "python",
+      "package": "mcp-haystack",
+      "registry": "pypi",
+      "adapter": "haystack_integrations.tools.mcp.MCPToolset",
+      "renderer": "src/mcp_mirror/renderers/haystack_renderer.py",
+      "capture_boundary": {
+        "capture_api": "haystack_integrations.tools.mcp.MCPToolset handed to haystack.components.agents.Agent; the tools argument of the chat generator's run on the first turn",
+        "capture_object": "haystack.tools.Tool.tool_spec ({name, description, parameters}) for each Tool MCPToolset.warm_up builds",
+        "capture_stage": "framework_tool_definition",
+        "provider_request_captured": false,
+        "negotiated_mcp_spec_version": "2025-11-25",
+        "protocol_version_evidence": "protocol version returned by the ClientSession.initialize that MCPClient._initialize_session_with_transport calls; the adapter keeps no record of it"
+      },
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Tool return value",
+          "capture_api": "haystack.tools.Tool.invoke on a Tool MCPToolset.warm_up builds",
+          "capture_object": "the JSON string MCPClient.call_tool returns (CallToolResult.model_dump_json), or the ToolInvocationError Tool.invoke raises around the MCPInvocationError for an isError result",
+          "agent_path": false
+        },
+        {
+          "id": "agent",
+          "label": "Tool message to the model",
+          "capture_api": "haystack.components.agents.Agent.run, the messages of the next chat generator run",
+          "capture_object": "the ChatMessage carrying a ToolCallResult that the next generator turn receives",
+          "agent_path": true,
+          "limitation": "The chat generator is haystack's MockChatGenerator; no provider chat generator serialized the message."
+        }
+      ],
+      "current_version": "1.5.2",
+      "stable_version": "2.0.0",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "1.3.0",
+          "era": -5,
+          "release_date": "2026-03-24T10:02:39Z"
+        },
+        {
+          "version": "1.4.0",
+          "era": -4,
+          "release_date": "2026-06-22T09:12:25Z"
+        },
+        {
+          "version": "1.4.1",
+          "era": -3,
+          "release_date": "2026-07-29T08:12:18Z"
+        },
+        {
+          "version": "1.5.0",
+          "era": -2,
+          "release_date": "2026-09-01T08:27:24Z"
+        },
+        {
+          "version": "1.5.1",
+          "era": -1,
+          "release_date": "2026-09-01T08:38:56Z"
+        },
+        {
+          "version": "1.5.2",
+          "era": 0,
+          "release_date": "2026-10-07T13:00:34Z"
+        },
+        {
+          "version": "2.0.0",
+          "release_date": "2026-10-19T07:26:50Z",
+          "era": 1
+        }
+      ]
+    },
+    "langchain": {
+      "name": "LangChain",
+      "abbr": "LC",
+      "type": "python",
+      "package": "langchain-mcp-adapters",
+      "registry": "pypi",
+      "adapter": "langchain_mcp_adapters with convert_to_openai_tool",
+      "renderer": "src/mcp_mirror/renderers/langchain_renderer.py",
+      "capture_boundary": {
+        "capture_api": "langchain_core.utils.function_calling.convert_to_openai_tool",
+        "capture_object": "OpenAI-compatible function-tool dictionary",
+        "capture_stage": "provider_format",
+        "provider_request_captured": false,
+        "negotiated_mcp_spec_version": "2025-11-25",
+        "protocol_version_evidence": "protocolVersion returned by ClientSession.initialize inside the langchain-mcp-adapters session"
+      },
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Direct tool invocation",
+          "capture_api": "langchain_core.tools.StructuredTool.ainvoke(dict)",
+          "capture_object": "the tool return value, before any ToolMessage is built",
+          "agent_path": false
+        },
+        {
+          "id": "agent",
+          "label": "Agent tool invocation",
+          "capture_api": "langchain_core.tools.StructuredTool.ainvoke(ToolCall)",
+          "capture_object": "the ToolMessage an agent or ToolNode puts in the message list",
+          "agent_path": true,
+          "limitation": "The ToolMessage is built by langchain_core from the same call a ToolNode makes. No chat model was bound and no provider request was captured."
+        }
+      ],
+      "current_version": "0.3.2",
+      "stable_version": "0.3.2",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "0.2.2",
+          "release_date": "2026-03-16T17:13:29Z",
+          "era": -3
+        },
+        {
+          "version": "0.3.0",
+          "release_date": "2026-06-10T01:10:27Z",
+          "era": -2
+        },
+        {
+          "version": "0.3.1",
+          "release_date": "2026-07-27T18:36:44Z",
+          "era": -1
+        },
+        {
+          "version": "0.3.2",
+          "release_date": "2026-08-06T06:15:02Z",
+          "era": 0
+        }
+      ]
+    },
+    "langgraph": {
+      "name": "LangGraph",
+      "abbr": "LG",
+      "aliases_of": "langchain",
+      "alias_note": "LangGraph has no MCP adapter of its own. Its documented path loads MCP tools with langchain-mcp-adapters and runs them through ToolNode, which is the LangChain row's agent boundary, so this row publishes that row's cells."
+    },
+    "llamaindex": {
+      "name": "LlamaIndex",
+      "abbr": "LI",
+      "type": "python",
+      "package": "llama-index-tools-mcp",
+      "registry": "pypi",
+      "adapter": "llama_index.tools.mcp.McpToolSpec",
+      "renderer": "src/mcp_mirror/renderers/llamaindex_renderer.py",
+      "capture_boundary": {
+        "capture_api": "llama_index.tools.mcp.McpToolSpec.to_tool_list_async, then ToolMetadata.to_openai_tool(skip_length_check=True)",
+        "capture_object": "OpenAI-compatible function-tool dict built from the FunctionTool's ToolMetadata (the call llama-index-llms-openai makes)",
+        "capture_stage": "provider_format",
+        "provider_request_captured": false,
+        "negotiated_mcp_spec_version": "2025-11-25",
+        "protocol_version_evidence": "protocol version returned by ClientSession.initialize, which BasicMCPClient._run_session calls for every method call"
+      },
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Tool return value",
+          "capture_api": "llama_index.core.tools.FunctionTool.acall",
+          "capture_object": "the ToolOutput (blocks and is_error) FunctionTool builds from the CallToolResult",
+          "agent_path": false
+        },
+        {
+          "id": "agent",
+          "label": "Tool message to the model",
+          "capture_api": "llama_index.core.agent.workflow.FunctionAgent.handle_tool_call_results, next LLM turn",
+          "capture_object": "the ChatMessage(role='tool') in the chat history the next model call receives",
+          "agent_path": true,
+          "limitation": "The model is core's MockFunctionCallingLLM with a scripted response; no LLM integration serialized the message."
+        }
+      ],
+      "current_version": "0.6.0",
+      "stable_version": "0.6.0",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "0.4.8",
+          "era": -3,
+          "release_date": "2026-02-24T11:50:10Z"
+        },
+        {
+          "version": "0.5.0",
+          "era": -2,
+          "release_date": "2026-08-11T15:00:13Z"
+        },
+        {
+          "version": "0.5.1",
+          "era": -1,
+          "release_date": "2026-08-27T04:04:07Z"
+        },
+        {
+          "version": "0.6.0",
+          "era": 0,
+          "release_date": "2026-08-31T16:10:09Z"
+        }
+      ]
+    },
+    "ms_agent_framework": {
+      "name": "Microsoft Agent Framework",
+      "abbr": "MAF",
+      "type": "python",
+      "package": "agent-framework-core",
+      "registry": "pypi",
+      "adapter": "agent_framework.MCPStdioTool / agent_framework.MCPStreamableHTTPTool",
+      "renderer": "src/mcp_mirror/renderers/ms_agent_framework_renderer.py",
+      "capture_boundary": {
+        "capture_api": "agent_framework.MCPStdioTool / MCPStreamableHTTPTool.load_tools, then FunctionTool.to_json_schema_spec inside an Agent run",
+        "capture_object": "agent_framework.FunctionTool in the options['tools'] an Agent hands its chat client",
+        "capture_stage": "framework_tool_definition",
+        "provider_request_captured": false,
+        "negotiated_mcp_spec_version": "2025-11-25",
+        "protocol_version_evidence": "protocolVersion returned by ClientSession.initialize, which MCPTool.connect calls for every session"
+      },
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Tool return value",
+          "capture_api": "agent_framework.MCPTool.call_tool",
+          "capture_object": "the list[agent_framework.Content] call_tool returns",
+          "agent_path": false
+        },
+        {
+          "id": "agent",
+          "label": "Function result to the model",
+          "capture_api": "agent_framework.Agent.run, next chat-client request messages",
+          "capture_object": "the function_result Content in the tool message the chat client receives",
+          "agent_path": true,
+          "limitation": "The chat client is scripted; no provider client serialized the request."
+        }
+      ],
+      "current_version": "1.21.0",
+      "stable_version": "1.22.0",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "1.15.0",
+          "era": -5,
+          "release_date": "2026-08-21T23:22:33Z"
+        },
+        {
+          "version": "1.16.0",
+          "era": -4,
+          "release_date": "2026-08-28T01:10:29Z"
+        },
+        {
+          "version": "1.17.0",
+          "era": -3,
+          "release_date": "2026-09-03T09:53:33Z"
+        },
+        {
+          "version": "1.18.0",
+          "era": -2,
+          "release_date": "2026-09-10T09:28:54Z"
+        },
+        {
+          "version": "1.19.0",
+          "era": -1,
+          "release_date": "2026-09-18T10:57:40Z"
+        },
+        {
+          "version": "1.21.0",
+          "era": 0,
+          "release_date": "2026-10-08T10:40:38Z"
+        },
+        {
+          "version": "1.22.0",
+          "release_date": "2026-10-15T09:55:16Z",
+          "era": 1
+        }
+      ]
+    },
+    "openai-agents": {
+      "name": "OpenAI Agents SDK",
+      "abbr": "OAI",
+      "type": "python",
+      "package": "openai-agents",
+      "registry": "pypi",
+      "adapter": "agents.mcp.util.MCPUtil.to_function_tool",
+      "renderer": "src/mcp_mirror/renderers/openai_agents_renderer.py",
+      "capture_boundary": {
+        "capture_api": "agents.mcp.util.MCPUtil.to_function_tool",
+        "capture_object": "agents.tool.FunctionTool",
+        "capture_stage": "framework_tool_definition",
+        "provider_request_captured": false,
+        "negotiated_mcp_spec_version": "2025-11-25",
+        "protocol_version_evidence": "protocolVersion exposed by MCPServer.server_initialize_result"
+      },
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Adapter invocation helper",
+          "capture_api": "agents.mcp.util.MCPUtil.invoke_mcp_tool",
+          "capture_object": "the Agents SDK ToolOutput",
+          "agent_path": false
+        },
+        {
+          "id": "agent",
+          "label": "Agent tool invocation",
+          "capture_api": "agents.tool.FunctionTool.on_invoke_tool",
+          "capture_object": "the ToolOutput the agent loop feeds back to the model",
+          "agent_path": true,
+          "limitation": "The FunctionTool callable is driven directly. No model implementation was bound and no provider request was captured."
+        },
+        {
+          "id": "agent_custom_data_extractor",
+          "label": "Agent tool invocation, custom_data_extractor reading is_error",
+          "capture_api": "agents.tool.FunctionTool.on_invoke_tool, server built with custom_data_extractor=lambda ctx: {'is_error': ctx.is_error}",
+          "capture_object": "the ToolOutput plus the custom_data the run attaches to its ToolCallOutputItem",
+          "agent_path": false,
+          "limitation": "This is a documented non-default server option, not the behaviour a caller gets without configuring it. The flag reaches ToolCallOutputItem.custom_data only; the model and on_tool_end hooks still receive the unflagged output."
+        }
+      ],
+      "current_version": "0.23.1",
+      "stable_version": "0.24.0",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "0.20.0",
+          "era": -5,
+          "release_date": "2026-08-11T03:12:47Z"
+        },
+        {
+          "version": "0.21.0",
+          "era": -4,
+          "release_date": "2026-08-15T02:50:08Z"
+        },
+        {
+          "version": "0.21.1",
+          "era": -3,
+          "release_date": "2026-08-16T22:29:33Z"
+        },
+        {
+          "version": "0.22.0",
+          "era": -2,
+          "release_date": "2026-08-19T13:45:19Z"
+        },
+        {
+          "version": "0.22.3",
+          "era": -1,
+          "release_date": "2026-09-17T22:20:42Z"
+        },
+        {
+          "version": "0.23.1",
+          "era": 0,
+          "release_date": "2026-10-02T15:42:03Z"
+        },
+        {
+          "version": "0.24.0",
+          "release_date": "2026-10-15T02:38:18Z",
+          "era": 1
+        }
+      ]
+    },
+    "pydantic-ai": {
+      "name": "Pydantic AI",
+      "abbr": "PAI",
+      "type": "python",
+      "package": "pydantic-ai-slim",
+      "registry": "pypi",
+      "adapter": "pydantic_ai.mcp toolset ToolDefinition",
+      "renderer": "src/mcp_mirror/renderers/pydantic_ai_renderer.py",
+      "capture_boundary": {
+        "capture_api": "pydantic_ai.mcp.MCPToolset.get_tools",
+        "capture_object": "pydantic_ai.tools.ToolDefinition",
+        "capture_stage": "framework_tool_definition",
+        "provider_request_captured": false,
+        "negotiated_mcp_spec_version": "2025-11-25",
+        "protocol_version_evidence": "protocolVersion exposed by MCPToolset.client.initialize_result"
+      },
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Direct toolset call",
+          "capture_api": "pydantic_ai.mcp.MCPToolset.direct_call_tool",
+          "capture_object": "the mapped toolset result, or the exception it raises",
+          "agent_path": false
+        },
+        {
+          "id": "agent",
+          "label": "Agent toolset call",
+          "capture_api": "pydantic_ai.mcp.MCPToolset.call_tool",
+          "capture_object": "the value the agent's tool executor receives",
+          "agent_path": true,
+          "limitation": "The toolset method is driven directly. The agent's own conversion of a raised ModelRetry into a RetryPromptPart happens above this boundary and is not captured here."
+        }
+      ],
+      "current_version": "2.54.0",
+      "stable_version": "2.57.0",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "2.37.0",
+          "era": -5,
+          "release_date": "2026-09-01T02:07:31Z"
+        },
+        {
+          "version": "2.38.0",
+          "era": -4,
+          "release_date": "2026-09-03T07:57:21Z"
+        },
+        {
+          "version": "2.39.0",
+          "era": -3,
+          "release_date": "2026-09-04T04:30:14Z"
+        },
+        {
+          "version": "2.40.0",
+          "era": -2,
+          "release_date": "2026-09-05T00:19:00Z"
+        },
+        {
+          "version": "2.51.0",
+          "era": -1,
+          "release_date": "2026-09-25T23:32:20Z"
+        },
+        {
+          "version": "2.54.0",
+          "era": 0,
+          "release_date": "2026-10-03T03:38:39Z"
+        },
+        {
+          "version": "2.55.0",
+          "release_date": "2026-10-09T19:40:38Z",
+          "era": 1
+        },
+        {
+          "version": "2.56.0",
+          "release_date": "2026-10-13T23:50:00Z",
+          "era": 2
+        },
+        {
+          "version": "2.57.0",
+          "release_date": "2026-10-16T03:50:59Z",
+          "era": 3
+        }
+      ]
+    },
+    "semantic_kernel": {
+      "name": "Semantic Kernel",
+      "abbr": "SK",
+      "type": "python",
+      "package": "semantic-kernel",
+      "registry": "pypi",
+      "adapter": "semantic_kernel.connectors.mcp.MCPStdioPlugin / MCPStreamableHttpPlugin",
+      "renderer": "src/mcp_mirror/renderers/semantic_kernel_renderer.py",
+      "capture_boundary": {
+        "capture_api": "semantic_kernel.connectors.mcp.MCPStdioPlugin / MCPStreamableHttpPlugin / MCPSsePlugin added to a Kernel, then OpenAIChatCompletion.get_chat_message_content with FunctionChoiceBehavior.Auto()",
+        "capture_object": "the tools array of the serialized chat.completions request body the AsyncOpenAI client sends (intercepted by an httpx.MockTransport)",
+        "capture_stage": "provider_request",
+        "provider_request_captured": true,
+        "negotiated_mcp_spec_version": "2025-11-25",
+        "protocol_version_evidence": "protocolVersion returned by ClientSession.initialize, which the plugin's _inner_connect calls once per connection"
+      },
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Kernel function return value",
+          "capture_api": "semantic_kernel.Kernel.invoke on the plugin's KernelFunction",
+          "capture_object": "FunctionResult.value: the list of TextContent / ImageContent / AudioContent / BinaryContent that MCPPluginBase.call_tool returned",
+          "agent_path": false
+        },
+        {
+          "id": "agent",
+          "label": "Tool message to the model",
+          "capture_api": "OpenAIChatCompletion auto function calling, next serialized chat.completions request",
+          "capture_object": "the role=tool message in the request body the model receives",
+          "agent_path": true,
+          "limitation": "The scripted endpoint answers instead of a model."
+        }
+      ],
+      "current_version": "1.45.0",
+      "stable_version": "1.45.0",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "1.41.2",
+          "era": -5,
+          "release_date": "2026-04-08T06:00:26Z"
+        },
+        {
+          "version": "1.42.0",
+          "era": -4,
+          "release_date": "2026-05-14T02:11:45Z"
+        },
+        {
+          "version": "1.43.0",
+          "era": -3,
+          "release_date": "2026-06-03T22:41:25Z"
+        },
+        {
+          "version": "1.44.0",
+          "era": -2,
+          "release_date": "2026-07-07T09:02:06Z"
+        },
+        {
+          "version": "1.44.1",
+          "era": -1,
+          "release_date": "2026-08-06T09:56:42Z"
+        },
+        {
+          "version": "1.45.0",
+          "era": 0,
+          "release_date": "2026-10-06T13:02:42Z"
+        }
+      ]
+    },
+    "smolagents": {
+      "name": "smolagents",
+      "abbr": "Smol",
+      "type": "python",
+      "package": "smolagents",
+      "registry": "pypi",
+      "adapter": "smolagents.MCPClient",
+      "renderer": "src/mcp_mirror/renderers/smolagents_renderer.py",
+      "capture_boundary": {
+        "capture_api": "smolagents.MCPClient.get_tools handed to smolagents.ToolCallingAgent; the tools Model._prepare_completion_kwargs builds on the first turn",
+        "capture_object": "function-tool dicts smolagents.models.get_tool_json_schema builds from each mcpadapt MCPAdaptTool",
+        "capture_stage": "provider_format",
+        "provider_request_captured": false,
+        "negotiated_mcp_spec_version": "2025-11-25",
+        "protocol_version_evidence": "protocolVersion instrumented from ClientSession.initialize inside the mcpadapt MCPAdapt that MCPClient builds; the adapter does not expose it"
+      },
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Tool return value",
+          "capture_api": "calling the smolagents.Tool (mcpadapt MCPAdaptTool) MCPClient.get_tools returns",
+          "capture_object": "the value MCPAdaptTool.forward builds from the CallToolResult",
+          "agent_path": false
+        },
+        {
+          "id": "agent",
+          "label": "Observation to the model",
+          "capture_api": "smolagents.ToolCallingAgent.run, the messages of the next model turn",
+          "capture_object": "the observation message (role tool-response, sent as user) the next turn's completion kwargs carry",
+          "agent_path": true,
+          "limitation": "The model is a scripted smolagents.models.Model subclass; no provider client serialized the message."
+        }
+      ],
+      "current_version": "1.26.0",
+      "stable_version": "1.26.0",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "1.22.0",
+          "era": -4,
+          "release_date": "2025-09-25T08:42:54Z"
+        },
+        {
+          "version": "1.23.0",
+          "era": -3,
+          "release_date": "2025-11-17T14:20:26Z"
+        },
+        {
+          "version": "1.24.0",
+          "era": -2,
+          "release_date": "2026-01-16T05:37:02Z"
+        },
+        {
+          "version": "1.25.0",
+          "era": -1,
+          "release_date": "2026-05-14T11:36:16Z"
+        },
+        {
+          "version": "1.26.0",
+          "era": 0,
+          "release_date": "2026-05-29T05:08:43Z"
+        }
+      ]
+    },
+    "strands": {
+      "name": "Strands Agents",
+      "abbr": "SA",
+      "type": "python",
+      "package": "strands-agents",
+      "registry": "pypi",
+      "adapter": "strands.tools.mcp.MCPClient",
+      "renderer": "src/mcp_mirror/renderers/strands_renderer.py",
+      "capture_boundary": {
+        "capture_api": "strands.tools.mcp.MCPClient.load_tools, then ToolRegistry.get_all_tool_specs inside a strands.Agent run",
+        "capture_object": "strands.types.tools.ToolSpec in the tool_specs handed to Model.stream",
+        "capture_stage": "framework_tool_definition",
+        "provider_request_captured": false,
+        "negotiated_mcp_spec_version": "2025-11-25",
+        "protocol_version_evidence": "protocol_version of the ClientSession MCPClient keeps on its background thread (_background_thread_session), or the ClientSession.initialize result on the mcp 1.x line; MCPClient exposes no public protocol version"
+      },
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Tool return value",
+          "capture_api": "strands.hooks.AfterToolCallEvent.result",
+          "capture_object": "the ToolResult MCPAgentTool yielded (MCPClient.call_tool_async's return)",
+          "agent_path": false
+        },
+        {
+          "id": "agent",
+          "label": "Tool result to the model",
+          "capture_api": "strands.models.Model.stream, next call's messages",
+          "capture_object": "the toolResult content block in the Messages the model receives",
+          "agent_path": true,
+          "limitation": "The model is a scripted strands.models.Model; no provider class formatted or serialized the request."
+        }
+      ],
+      "current_version": "1.59.0",
+      "stable_version": "1.61.1",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "1.55.0",
+          "era": -5,
+          "release_date": "2026-09-08T16:55:22Z"
+        },
+        {
+          "version": "1.55.1",
+          "era": -4,
+          "release_date": "2026-09-09T21:24:35Z"
+        },
+        {
+          "version": "1.56.0",
+          "era": -3,
+          "release_date": "2026-09-15T19:54:37Z"
+        },
+        {
+          "version": "1.57.0",
+          "era": -2,
+          "release_date": "2026-09-22T19:23:03Z"
+        },
+        {
+          "version": "1.57.1",
+          "era": -1,
+          "release_date": "2026-09-25T20:12:33Z"
+        },
+        {
+          "version": "1.59.0",
+          "era": 0,
+          "release_date": "2026-10-08T13:40:22Z"
+        },
+        {
+          "version": "1.60.0",
+          "release_date": "2026-10-12T19:37:45Z",
+          "era": 1
+        },
+        {
+          "version": "1.61.0",
+          "release_date": "2026-10-14T20:15:03Z",
+          "era": 2
+        },
+        {
+          "version": "1.61.1",
+          "release_date": "2026-10-15T20:26:08Z",
+          "era": 3
+        }
+      ]
+    },
+    "genkit_js": {
+      "name": "Genkit (JS)",
+      "abbr": "GK",
+      "type": "typescript",
+      "package": "@genkit-ai/mcp",
+      "registry": "npm",
+      "adapter": "@genkit-ai/mcp createMcpHost / createMcpClient",
+      "renderer": "src/mcp_mirror/renderers/genkit_js_renderer.py",
+      "capture_boundary": {
+        "capture_api": "genkit ai.generate({ tools: await createMcpHost(...).getActiveTools(ai) }) (@genkit-ai/mcp GenkitMcpHost)",
+        "capture_object": "ToolDefinition in the GenerateRequest.tools handed to the model action",
+        "capture_stage": "framework_tool_definition",
+        "provider_request_captured": false,
+        "negotiated_mcp_spec_version": "2025-11-25",
+        "protocol_version_evidence": "protocolVersion of the initialize result the @modelcontextprotocol/sdk Client.connect inside GenkitMcpClient receives, observed on Client.prototype.request in the node worker; neither Genkit nor the Client exposes the version"
+      },
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Tool action return value",
+          "capture_api": "@genkit-ai/mcp ToolAction from GenkitMcpHost.getActiveTools(ai), called with the arguments",
+          "capture_object": "the value createDynamicTool's processResult returned",
+          "agent_path": false
+        },
+        {
+          "id": "agent",
+          "label": "Tool response to the model",
+          "capture_api": "genkit ai.generate, next GenerateRequest.messages",
+          "capture_object": "the toolResponse part in the GenerateRequest the model action receives",
+          "agent_path": true,
+          "limitation": "The model is a scripted ai.defineModel action; no provider plugin serialized the request."
+        },
+        {
+          "id": "multipart",
+          "label": "Tool response to the model, createMcpHost({ multipart: true })",
+          "capture_api": "genkit ai.generate with createMcpHost({ multipart: true }), next GenerateRequest.messages",
+          "capture_object": "the toolResponse part (output and content) in the GenerateRequest the model action receives",
+          "agent_path": false,
+          "limitation": "This is a documented non-default host option, not the behaviour a caller gets without configuring it."
+        }
+      ],
+      "current_version": "1.42.0",
+      "stable_version": "1.42.0",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "1.39.0",
+          "era": -4,
+          "release_date": "2026-06-26T19:30:52Z"
+        },
+        {
+          "version": "1.40.0",
+          "era": -3,
+          "release_date": "2026-07-17T00:27:49Z"
+        },
+        {
+          "version": "1.40.1",
+          "era": -2,
+          "release_date": "2026-07-21T19:43:29Z"
+        },
+        {
+          "version": "1.41.0",
+          "era": -1,
+          "release_date": "2026-08-11T00:52:10Z"
+        },
+        {
+          "version": "1.42.0",
+          "era": 0,
+          "release_date": "2026-09-01T19:48:33Z"
+        }
+      ]
+    },
+    "copilot_sdk": {
+      "name": "GitHub Copilot SDK",
+      "abbr": "GHC",
+      "type": "typescript",
+      "package": "@github/copilot-sdk",
+      "registry": "npm",
+      "adapter": "@github/copilot-sdk CopilotClient session mcpServers (the Copilot runtime's MCP client)",
+      "renderer": "src/mcp_mirror/renderers/copilot_sdk_renderer.py",
+      "capture_boundary": {
+        "capture_api": "CopilotRequestHandler.sendRequest (CopilotClientOptions.requestHandler)",
+        "capture_object": "the function entries named src-<tool> in the tools array of the chat/completions request body the Copilot runtime sent the session's BYOK provider",
+        "capture_stage": "provider_request",
+        "provider_request_captured": true,
+        "negotiated_mcp_spec_version": "2025-11-25",
+        "protocol_version_evidence": "the initialize result, or the revision stamped on each request after a successful server/discover, in the JSON-RPC frames session.rpc.diagnostics.read returns at trace level"
+      },
+      "result_boundaries": [
+        {
+          "id": "agent",
+          "label": "Agent tool loop (next provider request)",
+          "capture_api": "CopilotRequestHandler.sendRequest",
+          "capture_object": "the tool message, and any message the runtime adds for the same result, in the chat/completions request that follows the model's tool call",
+          "agent_path": true,
+          "limitation": "The stub model asks for one tool call. The chat/completions wire format has no tool-error flag, so an error reaches the model as text only. The model is declared vision-capable (SessionConfig.modelCapabilities), as gpt-4.1 is; images ride a user message the runtime appends, whose framing text is not recorded."
+        },
+        {
+          "id": "direct",
+          "label": "Direct tool invocation",
+          "capture_api": "CopilotSession.rpc.tools.execute",
+          "capture_object": "the ToolResult the runtime returns, outside a model turn",
+          "agent_path": false
+        }
+      ],
+      "current_version": "1.0.19",
+      "stable_version": "1.0.22",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "1.0.8",
+          "era": -6,
+          "release_date": "2026-07-22T23:15:02Z"
+        },
+        {
+          "version": "1.0.9",
+          "era": -5,
+          "release_date": "2026-08-06T00:44:16Z"
+        },
+        {
+          "version": "1.0.11",
+          "era": -4,
+          "release_date": "2026-08-14T16:14:33Z"
+        },
+        {
+          "version": "1.0.13",
+          "era": -3,
+          "release_date": "2026-09-04T21:36:22Z"
+        },
+        {
+          "version": "1.0.14",
+          "era": -2,
+          "release_date": "2026-09-16T05:17:56Z"
+        },
+        {
+          "version": "1.0.15",
+          "era": -1,
+          "release_date": "2026-09-28T19:40:01Z"
+        },
+        {
+          "version": "1.0.19",
+          "era": 0,
+          "release_date": "2026-10-09T16:18:32Z"
+        },
+        {
+          "version": "1.0.20",
+          "release_date": "2026-10-12T19:08:07Z",
+          "era": 1
+        },
+        {
+          "version": "1.0.21",
+          "release_date": "2026-10-13T18:50:59Z",
+          "era": 2
+        },
+        {
+          "version": "1.0.22",
+          "release_date": "2026-10-14T20:08:06Z",
+          "era": 3
+        }
+      ]
+    },
+    "google_adk_js": {
+      "name": "Google ADK (TypeScript)",
+      "abbr": "GAJ",
+      "type": "typescript",
+      "package": "@google/adk",
+      "registry": "npm",
+      "adapter": "@google/adk/tools/mcp MCPToolset",
+      "renderer": "src/mcp_mirror/renderers/google_adk_js_renderer.py",
+      "capture_boundary": {
+        "capture_api": "@google/adk InMemoryRunner.runAsync with LlmAgent({ tools: [MCPToolset] }), tools loaded by MCPToolset.getTools (@google/adk/tools/mcp)",
+        "capture_object": "FunctionDeclaration in the LlmRequest.config.tools handed to BaseLlm.generateContentAsync",
+        "capture_stage": "provider_format",
+        "provider_request_captured": false,
+        "negotiated_mcp_spec_version": "2025-11-25",
+        "protocol_version_evidence": "protocolVersion of the initialize result each @modelcontextprotocol/sdk Client.connect receives, observed on Client.prototype.request in the node worker; MCPSessionManager opens one Client per operation and neither ADK nor the Client exposes the version"
+      },
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Tool return value",
+          "capture_api": "@google/adk LlmAgent afterToolCallback ({ response })",
+          "capture_object": "the value MCPTool.runAsync returned, before ADK wraps it",
+          "agent_path": false
+        },
+        {
+          "id": "agent",
+          "label": "Function response to the model",
+          "capture_api": "@google/adk InMemoryRunner.runAsync, next LlmRequest.contents",
+          "capture_object": "the functionResponse part in the LlmRequest the model receives",
+          "agent_path": true,
+          "limitation": "The model is a scripted BaseLlm; no @google/genai client serialized the request."
+        }
+      ],
+      "current_version": "2.2.1",
+      "stable_version": "2.3.0",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "1.4.0",
+          "era": -5,
+          "release_date": "2026-07-21T01:19:53Z"
+        },
+        {
+          "version": "1.5.0",
+          "era": -4,
+          "release_date": "2026-07-30T21:10:54Z"
+        },
+        {
+          "version": "1.6.0",
+          "era": -3,
+          "release_date": "2026-08-06T00:49:35Z"
+        },
+        {
+          "version": "2.0.0",
+          "era": -2,
+          "release_date": "2026-08-21T14:44:52Z"
+        },
+        {
+          "version": "2.1.0",
+          "era": -1,
+          "release_date": "2026-09-15T19:13:40Z"
+        },
+        {
+          "version": "2.2.1",
+          "era": 0,
+          "release_date": "2026-10-06T22:21:48Z"
+        },
+        {
+          "version": "2.3.0",
+          "release_date": "2026-10-13T20:13:50Z",
+          "era": 1
+        }
+      ]
+    },
+    "mastra": {
+      "name": "Mastra",
+      "abbr": "Mas",
+      "type": "typescript",
+      "package": "@mastra/mcp",
+      "registry": "npm",
+      "adapter": "@mastra/mcp MCPClient.listTools",
+      "renderer": "src/mcp_mirror/renderers/mastra_renderer.py",
+      "capture_boundary": {
+        "capture_api": "@mastra/mcp MCPClient.listTools",
+        "capture_object": "Mastra Tool action returned by listTools",
+        "capture_stage": "framework_tool_definition",
+        "provider_request_captured": false,
+        "negotiated_mcp_spec_version": "2025-11-25",
+        "protocol_version_evidence": "protocolVersion from MCPClient.getServerProtocolVersions, public API since @mastra/mcp 2.x"
+      },
+      "result_boundaries": [
+        {
+          "id": "agent",
+          "label": "Agent tool invocation, onToolError: 'throw' (default)",
+          "capture_api": "@mastra/mcp tool action execute",
+          "capture_object": "the tool action return value, or the MastraError it throws",
+          "agent_path": true,
+          "limitation": "The tool action is executed directly. No AI SDK provider was bound and no provider request was captured."
+        },
+        {
+          "id": "agent_on_tool_error_return",
+          "label": "Agent tool invocation, onToolError: 'return'",
+          "capture_api": "@mastra/mcp tool action execute, server configured onToolError: 'return'",
+          "capture_object": "the CallToolResult envelope the action resolves with",
+          "agent_path": false,
+          "limitation": "This is a documented non-default server option, not the behaviour a caller gets without configuring it."
+        }
+      ],
+      "current_version": "2.2.0",
+      "stable_version": "2.4.1",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "1.17.0",
+          "era": -5,
+          "release_date": "2026-08-19T04:09:11Z"
+        },
+        {
+          "version": "1.17.1",
+          "era": -4,
+          "release_date": "2026-08-21T01:17:44Z"
+        },
+        {
+          "version": "1.17.2",
+          "era": -3,
+          "release_date": "2026-08-26T10:55:03Z"
+        },
+        {
+          "version": "1.17.3",
+          "era": -2,
+          "release_date": "2026-09-03T04:14:30Z"
+        },
+        {
+          "version": "2.1.0",
+          "era": -1,
+          "release_date": "2026-09-24T13:04:11Z"
+        },
+        {
+          "version": "2.2.0",
+          "era": 0,
+          "release_date": "2026-10-07T08:49:53Z"
+        },
+        {
+          "version": "2.3.0",
+          "release_date": "2026-10-11T17:10:59Z",
+          "era": 1
+        },
+        {
+          "version": "2.4.0",
+          "release_date": "2026-10-14T05:29:34Z",
+          "era": 2
+        },
+        {
+          "version": "2.4.1",
+          "release_date": "2026-10-15T21:45:47Z",
+          "era": 3
+        }
+      ]
+    },
+    "openai_agents_js": {
+      "name": "OpenAI Agents SDK (JS)",
+      "abbr": "OAJ",
+      "type": "typescript",
+      "package": "@openai/agents",
+      "registry": "npm",
+      "adapter": "@openai/agents MCPServerStdio / MCPServerStreamableHttp / MCPServerSSE",
+      "renderer": "src/mcp_mirror/renderers/openai_agents_js_renderer.py",
+      "capture_boundary": {
+        "capture_api": "@openai/agents Runner.run with Agent({ mcpServers: [MCPServerStdio | MCPServerStreamableHttp | MCPServerSSE] }), tools loaded by getAllMcpTools",
+        "capture_object": "SerializedFunctionTool in the ModelRequest.tools handed to Model.getResponse",
+        "capture_stage": "framework_tool_definition",
+        "provider_request_captured": false,
+        "negotiated_mcp_spec_version": "2025-11-25",
+        "protocol_version_evidence": "Client.getNegotiatedProtocolVersion on the @modelcontextprotocol/client Client the node shim keeps in its protected session field; the SDK has no public accessor"
+      },
+      "result_boundaries": [
+        {
+          "id": "agent",
+          "label": "Function call result to the model",
+          "capture_api": "@openai/agents Runner.run, next ModelRequest.input",
+          "capture_object": "the function_call_result item the scripted Model receives",
+          "agent_path": true,
+          "limitation": "The Model is scripted; no provider request was serialized."
+        },
+        {
+          "id": "direct",
+          "label": "Adapter call API",
+          "capture_api": "@openai/agents MCPServerStdio.callTool",
+          "capture_object": "the CallToolResultContent array, with the metadata the SDK attaches to it",
+          "agent_path": false
+        },
+        {
+          "id": "agent_use_structured_content",
+          "label": "Function call result to the model, useStructuredContent: true",
+          "capture_api": "@openai/agents Runner.run, server option useStructuredContent: true",
+          "capture_object": "the function_call_result item the scripted Model receives",
+          "agent_path": false,
+          "limitation": "A documented non-default server option, not the behaviour a caller gets without configuring it."
+        }
+      ],
+      "current_version": "0.20.0",
+      "stable_version": "0.20.0",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "0.16.1",
+          "era": -5,
+          "release_date": "2026-08-16T22:34:56Z"
+        },
+        {
+          "version": "0.17.0",
+          "era": -4,
+          "release_date": "2026-08-19T14:48:26Z"
+        },
+        {
+          "version": "0.17.1",
+          "era": -3,
+          "release_date": "2026-09-08T10:28:30Z"
+        },
+        {
+          "version": "0.17.2",
+          "era": -2,
+          "release_date": "2026-09-08T15:16:57Z"
+        },
+        {
+          "version": "0.18.0",
+          "era": -1,
+          "release_date": "2026-09-10T21:32:53Z"
+        },
+        {
+          "version": "0.20.0",
+          "era": 0,
+          "release_date": "2026-10-08T23:04:37Z"
+        }
+      ]
+    },
+    "pi": {
+      "name": "Pi",
+      "abbr": "PI",
+      "type": "typescript",
+      "package": "@earendil-works/pi-mcp",
+      "registry": "npm",
+      "adapter": "@earendil-works/pi-mcp McpClient with StdioTransport / StreamableHttpTransport",
+      "renderer": "src/mcp_mirror/renderers/pi_renderer.py",
+      "capture_boundary": {
+        "capture_api": "@earendil-works/pi-mcp McpClient.listTools over StdioTransport | StreamableHttpTransport",
+        "capture_object": "Tool (the MCP tools/list entry pi-mcp returns unchanged)",
+        "capture_stage": "framework_tool_definition",
+        "provider_request_captured": false,
+        "negotiated_mcp_spec_version": "2025-11-25",
+        "protocol_version_evidence": "McpClient.protocolVersion, the public getter on the initialize result"
+      },
+      "result_boundaries": [
+        {
+          "id": "llm",
+          "label": "Model content from toLlmContent",
+          "capture_api": "@earendil-works/pi-mcp toLlmContent(await McpClient.callTool(...))",
+          "capture_object": "the LlmContent[] (text and image) toLlmContent returns",
+          "agent_path": true,
+          "limitation": "pi-mcp has no agent loop; toLlmContent is its documented model conversion, and isError is left for the caller to carry."
+        },
+        {
+          "id": "direct",
+          "label": "Client call API",
+          "capture_api": "@earendil-works/pi-mcp McpClient.callTool",
+          "capture_object": "the CallToolResult, with content, structuredContent, isError and _meta",
+          "agent_path": false
+        }
+      ],
+      "current_version": "1.1.0",
+      "stable_version": "1.3.0",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "0.0.1",
+          "era": -3,
+          "release_date": "2026-09-29T16:56:08Z"
+        },
+        {
+          "version": "0.99.0",
+          "era": -2,
+          "release_date": "2026-09-29T17:17:32Z"
+        },
+        {
+          "version": "0.99.1",
+          "era": -1,
+          "release_date": "2026-09-29T18:18:59Z"
+        },
+        {
+          "version": "1.1.0",
+          "era": 0,
+          "release_date": "2026-10-07T22:14:39Z"
+        },
+        {
+          "version": "1.2.0",
+          "release_date": "2026-10-12T23:00:29Z",
+          "era": 1
+        },
+        {
+          "version": "1.3.0",
+          "release_date": "2026-10-15T19:11:17Z",
+          "era": 2
+        }
+      ]
+    },
+    "vercel_ai": {
+      "name": "Vercel AI SDK",
+      "abbr": "AI",
+      "type": "typescript",
+      "package": "@ai-sdk/mcp",
+      "registry": "npm",
+      "adapter": "@ai-sdk/mcp createMCPClient().tools",
+      "renderer": "src/mcp_mirror/renderers/vercel_ai_renderer.py",
+      "capture_boundary": {
+        "capture_api": "@ai-sdk/mcp createMCPClient().tools",
+        "capture_object": "AI SDK dynamicTool returned by MCPClient.tools",
+        "capture_stage": "framework_tool_definition",
+        "provider_request_captured": false,
+        "negotiated_mcp_spec_version": "2025-11-25",
+        "protocol_version_evidence": "protocolVersion from MCPClient.initializeResult, public API of @ai-sdk/mcp; the client implements its own JSON-RPC, so the revision is observed per server rather than implied by an SDK pin"
+      },
+      "result_boundaries": [
+        {
+          "id": "model_output",
+          "label": "Tool-result output the model receives (toModelOutput)",
+          "capture_api": "@ai-sdk/mcp tool toModelOutput applied to the execute result",
+          "capture_object": "the ToolResultOutput passed to the provider adapter",
+          "agent_path": true,
+          "limitation": "toModelOutput is called the way ai's createToolModelOutput calls it for a tool that resolved; no provider adapter ran and no provider request was captured."
+        },
+        {
+          "id": "execute",
+          "label": "Tool execute result (step toolResults output)",
+          "capture_api": "@ai-sdk/mcp tool execute",
+          "capture_object": "the CallToolResult execute resolves with",
+          "agent_path": false
+        }
+      ],
+      "current_version": "2.0.73",
+      "stable_version": "2.0.79",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "2.0.58",
+          "era": -4,
+          "release_date": "2026-09-24T18:51:44Z"
+        },
+        {
+          "version": "2.0.60",
+          "era": -3,
+          "release_date": "2026-09-25T20:40:49Z"
+        },
+        {
+          "version": "2.0.61",
+          "era": -2,
+          "release_date": "2026-09-28T17:17:44Z"
+        },
+        {
+          "version": "2.0.62",
+          "era": -1,
+          "release_date": "2026-09-28T21:59:12Z"
+        },
+        {
+          "version": "2.0.73",
+          "era": 0,
+          "release_date": "2026-10-09T00:40:39Z"
+        },
+        {
+          "version": "2.0.74",
+          "release_date": "2026-10-12T17:46:41Z",
+          "era": 1
+        },
+        {
+          "version": "2.0.75",
+          "release_date": "2026-10-15T02:23:07Z",
+          "era": 2
+        },
+        {
+          "version": "2.0.76",
+          "release_date": "2026-10-15T03:22:45Z",
+          "era": 3
+        },
+        {
+          "version": "2.0.77",
+          "release_date": "2026-10-15T18:10:16Z",
+          "era": 4
+        },
+        {
+          "version": "2.0.78",
+          "release_date": "2026-10-16T20:11:03Z",
+          "era": 5
+        },
+        {
+          "version": "2.0.79",
+          "release_date": "2026-10-19T17:55:34Z",
+          "era": 6
+        }
+      ]
+    },
+    "langchain_js": {
+      "name": "LangChain.js",
+      "abbr": "LCJ",
+      "type": "typescript",
+      "package": "@langchain/mcp-adapters",
+      "registry": "npm",
+      "adapter": "@langchain/mcp-adapters MCPAdapter",
+      "renderer": "src/mcp_mirror/renderers/langchain_js_renderer.py",
+      "capture_boundary": {
+        "capture_api": "@langchain/core/utils/function_calling convertToOpenAITool",
+        "capture_object": "OpenAI-compatible function-tool object built from the DynamicStructuredTool MCPAdapter.listTools returns",
+        "capture_stage": "provider_format",
+        "provider_request_captured": false,
+        "negotiated_mcp_spec_version": "2025-11-25",
+        "protocol_version_evidence": "getNegotiatedProtocolVersion() on the @modelcontextprotocol/client Client that MCPAdapter.getClient returns for the connected server"
+      },
+      "result_boundaries": [
+        {
+          "id": "agent",
+          "label": "Agent tool invocation (LangGraph ToolNode)",
+          "capture_api": "@langchain/langgraph/prebuilt ToolNode.invoke",
+          "capture_object": "the ToolMessage ToolNode appends for the model's tool call",
+          "agent_path": true,
+          "limitation": "ToolNode runs one AIMessage tool call built by the worker. The ToolMessage's content is what a chat model reads; its artifact stays app-side and is not recorded as rendered. No chat model was bound and no provider request was captured."
+        },
+        {
+          "id": "direct",
+          "label": "Direct tool invocation",
+          "capture_api": "@langchain/core StructuredTool.invoke(args)",
+          "capture_object": "the tool return value, without a ToolCall, so no ToolMessage",
+          "agent_path": false
+        }
+      ],
+      "current_version": "2.0.1",
+      "stable_version": "2.0.1",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "1.1.0",
+          "era": -6,
+          "release_date": "2025-12-13T01:55:22Z"
+        },
+        {
+          "version": "1.1.1",
+          "era": -5,
+          "release_date": "2025-12-18T22:41:01Z"
+        },
+        {
+          "version": "1.1.2",
+          "era": -4,
+          "release_date": "2026-01-22T21:00:48Z"
+        },
+        {
+          "version": "1.1.3",
+          "era": -3,
+          "release_date": "2026-02-12T03:09:33Z"
+        },
+        {
+          "version": "1.1.4",
+          "era": -2,
+          "release_date": "2026-08-20T01:16:28Z"
+        },
+        {
+          "version": "2.0.0",
+          "era": -1,
+          "release_date": "2026-10-01T01:16:28Z"
+        },
+        {
+          "version": "2.0.1",
+          "era": 0,
+          "release_date": "2026-10-06T00:47:45Z"
+        }
+      ]
+    },
+    "langchain4j": {
+      "name": "LangChain4j",
+      "abbr": "LC4J",
+      "type": "java",
+      "package": "dev.langchain4j:langchain4j-mcp",
+      "registry": "maven",
+      "adapter": "dev.langchain4j.mcp.McpToolProvider over dev.langchain4j.mcp.client.DefaultMcpClient",
+      "renderer": "src/mcp_mirror/renderers/langchain4j_renderer.py",
+      "capture_boundary": {
+        "capture_api": "AiServices with McpToolProvider over DefaultMcpClient: the ChatRequest.toolSpecifications() AiServices hands ChatModel.doChat",
+        "capture_object": "dev.langchain4j.agent.tool.ToolSpecification (name, description, parameters as JsonObjectSchema, serialized by JsonSchemaElementUtils.toMap)",
+        "capture_stage": "framework_tool_definition",
+        "provider_request_captured": false,
+        "negotiated_mcp_spec_version": "2025-11-25",
+        "protocol_version_evidence": "DefaultMcpClient.isModernProtocol(); on the modern path, the io.modelcontextprotocol/protocolVersion the client stamps into each request's _meta, read through its McpMetaSupplier; on the legacy path, the server's initialize answer in DefaultMcpClient's private initializeResult field, read reflectively because the client exposes no getter"
+      },
+      "result_boundaries": [
+        {
+          "id": "agent",
+          "label": "Tool result message to the model",
+          "capture_api": "AiServices tool loop for a scripted ToolExecutionRequest",
+          "capture_object": "ToolExecutionResultMessage (contents, isError) in the next ChatRequest",
+          "agent_path": true,
+          "limitation": "No provider model ran; the model's tool call is scripted."
+        },
+        {
+          "id": "direct",
+          "label": "Adapter tool executor",
+          "capture_api": "McpToolProvider.provideTools(...).toolExecutorByName(name).executeWithContext",
+          "capture_object": "the ToolExecutionResult the McpToolExecutor returns, or the exception it throws",
+          "agent_path": false
+        }
+      ],
+      "current_version": "1.22.0-beta32",
+      "stable_version": "1.22.0-beta32",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "1.18.1-beta28",
+          "era": -4,
+          "release_date": "2026-07-29T16:19:12Z"
+        },
+        {
+          "version": "1.19.3-beta29",
+          "era": -3,
+          "release_date": "2026-09-15T08:56:19Z"
+        },
+        {
+          "version": "1.20.1-beta30",
+          "era": -2,
+          "release_date": "2026-09-25T09:05:59Z"
+        },
+        {
+          "version": "1.20.2-beta30",
+          "era": -1,
+          "release_date": "2026-09-28T07:37:45Z"
+        },
+        {
+          "version": "1.22.0-beta32",
+          "era": 0,
+          "release_date": "2026-10-07T21:41:12Z"
+        }
+      ]
+    },
+    "google_adk_java": {
+      "name": "Google ADK (Java)",
+      "abbr": "GAV",
+      "type": "java",
+      "package": "com.google.adk:google-adk",
+      "registry": "maven",
+      "adapter": "com.google.adk.tools.mcp.McpToolset over io.modelcontextprotocol.client.McpSyncClient",
+      "renderer": "src/mcp_mirror/renderers/google_adk_java_renderer.py",
+      "capture_boundary": {
+        "capture_api": "com.google.adk LlmAgent.builder().tools(McpToolset) run by InMemoryRunner.runAsync; a scripted BaseLlm.generateContent receives the LlmRequest",
+        "capture_object": "com.google.genai.types.FunctionDeclaration in LlmRequest.config().tools() (name, description, parametersJsonSchema, responseJsonSchema)",
+        "capture_stage": "provider_format",
+        "provider_request_captured": false,
+        "negotiated_mcp_spec_version": "2025-11-25",
+        "protocol_version_evidence": "McpTool.getMcpSession().getCurrentInitializationResult().protocolVersion()"
+      },
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Tool return value",
+          "capture_api": "com.google.adk LlmAgent.builder().afterToolCallbackSync (response)",
+          "capture_object": "the Map McpTool.runAsync returned (AbstractMcpTool.wrapCallResult)",
+          "agent_path": false
+        },
+        {
+          "id": "agent",
+          "label": "Function response to the model",
+          "capture_api": "com.google.adk InMemoryRunner.runAsync, next LlmRequest.contents()",
+          "capture_object": "the functionResponse part in the LlmRequest the model receives",
+          "agent_path": true,
+          "limitation": "The model is a scripted BaseLlm; no google-genai client serialized the request."
+        }
+      ],
+      "current_version": "1.11.0",
+      "stable_version": "1.12.0",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "1.7.1",
+          "era": -4,
+          "release_date": "2026-08-03T09:04:05Z"
+        },
+        {
+          "version": "1.8.0",
+          "era": -3,
+          "release_date": "2026-08-18T16:24:23Z"
+        },
+        {
+          "version": "1.9.0",
+          "era": -2,
+          "release_date": "2026-08-31T10:19:13Z"
+        },
+        {
+          "version": "1.10.1",
+          "era": -1,
+          "release_date": "2026-09-18T14:23:28Z"
+        },
+        {
+          "version": "1.11.0",
+          "era": 0,
+          "release_date": "2026-10-03T08:33:29Z"
+        },
+        {
+          "version": "1.12.0",
+          "release_date": "2026-10-14T11:23:45Z",
+          "era": 1
+        }
+      ]
+    },
+    "koog": {
+      "name": "Koog",
+      "abbr": "Kg",
+      "type": "java",
+      "package": "ai.koog:agents-mcp-jvm",
+      "registry": "maven",
+      "adapter": "ai.koog.agents.mcp.McpToolRegistryProvider over the Kotlin MCP SDK Client (io.modelcontextprotocol:kotlin-sdk-client)",
+      "renderer": "src/mcp_mirror/renderers/koog_renderer.py",
+      "capture_boundary": {
+        "capture_api": "ai.koog AIAgent(toolRegistry = McpToolRegistryProvider.fromClient(...)) run with singleRunStrategy; OpenAILLMClient posts to a local fake /v1/chat/completions",
+        "capture_object": "the tools array of the chat-completions request body Koog's OpenAILLMClient sends ({type: function, function: {name, description, parameters}})",
+        "capture_stage": "provider_request",
+        "provider_request_captured": true,
+        "negotiated_mcp_spec_version": "2025-11-25",
+        "protocol_version_evidence": "initialize result protocolVersion, read on the transport's onMessage chain (the Kotlin SDK Client keeps no negotiated version)"
+      },
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Tool return value",
+          "capture_api": "ai.koog EventHandler.onToolCallCompleted (event.toolResult)",
+          "capture_object": "the CallToolResult McpTool.execute returned, as JSON",
+          "agent_path": false
+        },
+        {
+          "id": "agent",
+          "label": "Tool message to the model",
+          "capture_api": "ai.koog OpenAILLMClient, the next POST /v1/chat/completions",
+          "capture_object": "the content of the role=tool message (McpTool.encodeResultToString)",
+          "agent_path": true,
+          "limitation": "The provider is a local fake; no OpenAI model answered the request."
+        }
+      ],
+      "current_version": "1.3.0-beta",
+      "stable_version": "1.3.0-beta",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "1.0.0-beta",
+          "era": -3,
+          "release_date": "2026-05-21T14:49:22Z"
+        },
+        {
+          "version": "1.1.1-beta",
+          "era": -2,
+          "release_date": "2026-07-20T12:12:59Z"
+        },
+        {
+          "version": "1.2.0-beta",
+          "era": -1,
+          "release_date": "2026-08-27T14:46:17Z"
+        },
+        {
+          "version": "1.3.0-beta",
+          "era": 0,
+          "release_date": "2026-09-23T14:41:22Z"
+        }
+      ]
+    },
+    "spring_ai": {
+      "name": "Spring AI",
+      "abbr": "SAI",
+      "type": "java",
+      "package": "org.springframework.ai:spring-ai-starter-mcp-client",
+      "registry": "maven",
+      "adapter": "org.springframework.ai.mcp.SyncMcpToolCallbackProvider over io.modelcontextprotocol.client.McpSyncClient",
+      "renderer": "src/mcp_mirror/renderers/spring_ai_renderer.py",
+      "capture_boundary": {
+        "capture_api": "spring-ai-starter-mcp-client autoconfiguration (McpClientAutoConfiguration, McpToolCallbackAutoConfiguration): SyncMcpToolCallbackProvider.getToolCallbacks over the McpSyncClient bean, resolved by DefaultToolCallingManager.resolveToolDefinitions",
+        "capture_object": "org.springframework.ai.tool.definition.ToolDefinition (name, description, inputSchema)",
+        "capture_stage": "framework_tool_definition",
+        "provider_request_captured": false,
+        "negotiated_mcp_spec_version": "2025-11-25",
+        "protocol_version_evidence": "McpSyncClient.getCurrentInitializationResult().protocolVersion()"
+      },
+      "result_boundaries": [
+        {
+          "id": "agent",
+          "label": "Tool response to the model",
+          "capture_api": "DefaultToolCallingManager.executeToolCalls for a scripted AssistantMessage.ToolCall",
+          "capture_object": "ToolResponseMessage.ToolResponse.responseData in the returned conversation history",
+          "agent_path": true,
+          "limitation": "No ChatModel ran; the assistant tool call is scripted."
+        },
+        {
+          "id": "direct",
+          "label": "Adapter call API",
+          "capture_api": "SyncMcpToolCallback.call(String)",
+          "capture_object": "the String the callback returns, or the exception it throws",
+          "agent_path": false
+        }
+      ],
+      "current_version": "2.0.1",
+      "stable_version": "2.0.1",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "1.1.4",
+          "era": -3,
+          "release_date": "2026-03-26T13:27:00Z"
+        },
+        {
+          "version": "1.1.8",
+          "era": -2,
+          "release_date": "2026-06-12T10:08:42Z"
+        },
+        {
+          "version": "2.0.0",
+          "era": -1,
+          "release_date": "2026-06-12T10:56:05Z"
+        },
+        {
+          "version": "2.0.1",
+          "era": 0,
+          "release_date": "2026-08-20T12:21:43Z"
+        }
+      ]
+    },
+    "ms_agent_framework_dotnet": {
+      "name": "Microsoft Agent Framework (.NET)",
+      "abbr": "MAN",
+      "type": "csharp",
+      "package": "Microsoft.Agents.AI",
+      "registry": "nuget",
+      "adapter": "ModelContextProtocol McpClient.ListToolsAsync() McpClientTool (AIFunction) passed to IChatClient.AsAIAgent",
+      "renderer": "src/mcp_mirror/renderers/ms_agent_framework_dotnet_renderer.py",
+      "capture_boundary": {
+        "capture_api": "Microsoft.Agents.AI IChatClient.AsAIAgent(tools: McpClient.ListToolsAsync()) run by AIAgent.RunAsync; a scripted IChatClient.GetResponseAsync receives the ChatOptions",
+        "capture_object": "Microsoft.Extensions.AI.AIFunctionDeclaration in ChatOptions.Tools (Name, Description, JsonSchema, ReturnJsonSchema), built by McpClientTool",
+        "capture_stage": "framework_tool_definition",
+        "provider_request_captured": false,
+        "negotiated_mcp_spec_version": "2025-11-25",
+        "protocol_version_evidence": "McpClient.NegotiatedProtocolVersion"
+      },
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Tool return value",
+          "capture_api": "Microsoft.Agents.AI AIAgentBuilder.Use(function middleware), the value next() returns",
+          "capture_object": "the object McpClientTool.InvokeAsync returned (AIContent, AIContent[] or JsonElement)",
+          "agent_path": false
+        },
+        {
+          "id": "agent",
+          "label": "Function result to the model",
+          "capture_api": "Microsoft.Agents.AI AIAgent.RunAsync, next IChatClient.GetResponseAsync messages",
+          "capture_object": "FunctionResultContent.Result in the ChatMessage the model receives",
+          "agent_path": true,
+          "limitation": "The model is a scripted IChatClient; no provider client serialized the FunctionResultContent."
+        }
+      ],
+      "current_version": "1.24.0",
+      "stable_version": "1.25.0",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "1.18.0",
+          "era": -6,
+          "release_date": "2026-08-18T14:13:47Z"
+        },
+        {
+          "version": "1.19.0",
+          "era": -5,
+          "release_date": "2026-08-22T12:34:08Z"
+        },
+        {
+          "version": "1.20.0",
+          "era": -4,
+          "release_date": "2026-08-31T18:39:30Z"
+        },
+        {
+          "version": "1.21.0",
+          "era": -3,
+          "release_date": "2026-09-11T16:57:16Z"
+        },
+        {
+          "version": "1.22.0",
+          "era": -2,
+          "release_date": "2026-09-18T17:18:42Z"
+        },
+        {
+          "version": "1.23.0",
+          "era": -1,
+          "release_date": "2026-09-29T10:31:41Z"
+        },
+        {
+          "version": "1.24.0",
+          "era": 0,
+          "release_date": "2026-10-07T13:23:37Z"
+        },
+        {
+          "version": "1.25.0",
+          "release_date": "2026-10-14T19:04:58Z",
+          "era": 1
+        }
+      ]
+    },
+    "google_adk_go": {
+      "name": "Google ADK (Go)",
+      "abbr": "GAG",
+      "type": "go",
+      "package": "google.golang.org/adk/v2",
+      "registry": "go",
+      "adapter": "google.golang.org/adk/v2/tool/mcptoolset over github.com/modelcontextprotocol/go-sdk mcp.Client",
+      "renderer": "src/mcp_mirror/renderers/google_adk_go_renderer.py",
+      "capture_boundary": {
+        "capture_api": "google.golang.org/adk/v2 llmagent.New(llmagent.Config{Toolsets: mcptoolset.New(...)}) run by runner.NewInMemory Runner.Run; a scripted model.LLM.GenerateContent receives the LLMRequest",
+        "capture_object": "genai.FunctionDeclaration in LLMRequest.Config.Tools (name, description, parametersJsonSchema, responseJsonSchema)",
+        "capture_stage": "provider_format",
+        "provider_request_captured": false,
+        "negotiated_mcp_spec_version": "2025-11-25",
+        "protocol_version_evidence": "mcp.ClientSession.InitializeResult().ProtocolVersion, read from the session a sending middleware on the *mcp.Client passed as mcptoolset.Config.Client sees"
+      },
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Tool return value",
+          "capture_api": "google.golang.org/adk/v2 llmagent.Config.AfterToolCallbacks (result, err)",
+          "capture_object": "the map[string]any or error mcptoolset's mcpTool.Run returned",
+          "agent_path": false
+        },
+        {
+          "id": "agent",
+          "label": "Function response to the model",
+          "capture_api": "google.golang.org/adk/v2 Runner.Run, next LLMRequest.Contents",
+          "capture_object": "the genai.FunctionResponse part in the LLMRequest the model receives",
+          "agent_path": true,
+          "limitation": "The model is a scripted model.LLM; no genai client serialized the request."
+        }
+      ],
+      "current_version": "2.5.0",
+      "stable_version": "2.6.0",
+      "dev_version": null,
+      "version_list": [
+        {
+          "version": "2.0.0",
+          "era": -5,
+          "release_date": "2026-06-30T14:23:19Z"
+        },
+        {
+          "version": "2.1.0",
+          "era": -4,
+          "release_date": "2026-07-23T15:32:19Z"
+        },
+        {
+          "version": "2.2.0",
+          "era": -3,
+          "release_date": "2026-08-10T06:54:23Z"
+        },
+        {
+          "version": "2.3.0",
+          "era": -2,
+          "release_date": "2026-08-31T14:36:49Z"
+        },
+        {
+          "version": "2.4.0",
+          "era": -1,
+          "release_date": "2026-09-11T14:01:05Z"
+        },
+        {
+          "version": "2.5.0",
+          "era": 0,
+          "release_date": "2026-09-30T14:44:44Z"
+        },
+        {
+          "version": "2.6.0",
+          "release_date": "2026-10-13T13:21:42Z",
+          "era": 1
+        }
+      ]
+    }
+  },
+  "feedback_url": null
+}

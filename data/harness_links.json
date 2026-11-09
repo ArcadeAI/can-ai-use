@@ -1,0 +1,28 @@
+{
+  "schema": "mcp-mirror/harness-links@1",
+  "rule": "Seven agents the maintainer picked to keep the table short.",
+  "default_harnesses": [
+    "claude_code",
+    "codex",
+    "cursor_agent",
+    "gemini_cli",
+    "opencode",
+    "cline_cli",
+    "goose"
+  ],
+  "capabilities": {
+    "pagination-cursor": "h-follows-pagination",
+    "tools-list-changed": "h-reacts-to-list-changed",
+    "ping": "h-answers-ping",
+    "transport-streamable-http": "h-transport-streamable-http",
+    "transport-stdio": "h-transport-stdio",
+    "elicitation-form-mode": "h-answers-elicitation",
+    "sampling-create-message": "h-answers-sampling",
+    "progress-notifications": "h-tolerates-progress",
+    "resources-read": "h-reads-resource",
+    "prompts-get": "h-expands-prompt",
+    "tool-execution-errors": "h-error-surfaced",
+    "destructive-hint": "h-destructive-blocked-by-default",
+    "read-only-hint": "h-read-only-runs-without-prompt"
+  }
+}

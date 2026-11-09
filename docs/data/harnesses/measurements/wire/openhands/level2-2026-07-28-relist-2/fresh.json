@@ -1,0 +1,88 @@
+{
+  "format": "mcp-mirror.harness-fresh/1",
+  "passed": true,
+  "checks": {
+    "home": {
+      "passed": true,
+      "isolated": [
+        "CLAUDE_CONFIG_DIR",
+        "CODEX_HOME",
+        "GEMINI_CLI_HOME",
+        "HOME",
+        "XDG_CACHE_HOME",
+        "XDG_CONFIG_HOME",
+        "XDG_DATA_HOME",
+        "XDG_STATE_HOME"
+      ],
+      "copied": [],
+      "refused": []
+    },
+    "load": {
+      "passed": true,
+      "fixture_initialize_seconds": 0.21,
+      "limit_seconds": 2.0,
+      "load_1m_per_core": 0.69,
+      "cores": 10,
+      "waited_seconds": 0.0
+    },
+    "servers_listed": {
+      "passed": true,
+      "status": "listed",
+      "expected": [
+        "cf",
+        "def",
+        "ntf",
+        "res",
+        "util"
+      ],
+      "listed": [
+        "cf",
+        "def",
+        "ntf",
+        "res",
+        "util"
+      ],
+      "unexpected": [],
+      "missing": []
+    },
+    "recorders": {
+      "passed": true,
+      "waited_seconds": 0.098,
+      "still_running": []
+    },
+    "tools_offered": {
+      "passed": true,
+      "source": "model.jsonl",
+      "mcp_tools": 86,
+      "servers": [
+        "cf",
+        "def",
+        "ntf",
+        "res",
+        "util"
+      ],
+      "foreign_tools": [],
+      "foreign_servers": []
+    },
+    "egress": {
+      "passed": true,
+      "attempts": [
+        {
+          "host": "github.com",
+          "port": 443,
+          "method": "CONNECT",
+          "allowed": "the agent context always loads public skills (load_public_skills=True in openhands_cli/stores/agent_store.py), a git clone of github.com/OpenHands/extensions into ~/.openhands/cache; no setting turns it off. Refused, so no skill is loaded",
+          "count": 4
+        },
+        {
+          "host": "pypi.org",
+          "port": 443,
+          "method": "CONNECT",
+          "allowed": "the splash screen's update check (openhands_cli/version_check.py, https://pypi.org/pypi/openhands/json), run in headless mode too; no setting turns it off",
+          "count": 1
+        }
+      ],
+      "not_allowed": []
+    }
+  }
+}

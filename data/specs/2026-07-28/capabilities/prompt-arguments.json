@@ -1,0 +1,32 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "prompt-arguments",
+  "title": "Prompt `arguments`",
+  "description": "The declared arguments of a prompt, each with a name, description and required flag.",
+  "question": "Does the argument contract of a prompt survive to the agent?",
+  "spec": "https://modelcontextprotocol.io/specification/2026-07-28",
+  "status": "stable",
+  "categories": [
+    "Prompts"
+  ],
+  "keywords": "prompt arguments,required,argument description,completion",
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/server/prompts#prompt",
+      "title": "MCP Docs"
+    }
+  ],
+  "known_issues": [],
+  "why": "Without the argument list a host cannot build a form, cannot validate before calling, and cannot offer completion. The prompt degrades from a parameterised template to a fixed string.",
+  "shown": true,
+  "docs_url": "https://modelcontextprotocol.io/specification/2026-07-28/server/prompts#prompt",
+  "docs_label": "MCP Docs",
+  "notes": {
+    "openai_agents_js": "OpenAI Agents SDK (JS) 0.20.0: the `MCPServer` interface has no prompts method, so prompt arguments never reach the caller.",
+    "agno": "Agno 3.1.2: `MCPTools` lists and calls tools only; it has no resource or prompt API, so prompt arguments are unreachable.",
+    "dspy": "DSPy 3.4.0: DSPy's MCP support is `dspy.Tool.from_mcp_tool`, which converts one tool. It has no resource or prompt API, so resources and prompts stay on the caller's MCP session.",
+    "langchain_js": "LangChain.js (@langchain/mcp-adapters 2.0.1): `MCPAdapter` has no prompts API (no list, get or loader for prompts), so there is no route to `prompt arguments`.",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): `mcptoolset.Toolset` exposes only `Tools()`, and the `*mcp.ClientSession` it opens stays inside its unexported `connectionRefresher`, so the caller has no session to call `ListPrompts` on."
+  }
+}

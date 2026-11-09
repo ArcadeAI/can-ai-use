@@ -1,0 +1,54 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "resource-subscriptions",
+  "title": "`notifications/resources/updated`",
+  "description": "Per-resource change notifications, opted into by listing URIs in a `subscriptions/listen` request and delivered as `notifications/resources/updated`.",
+  "question": "Can the agent watch a single resource for changes?",
+  "spec": "https://modelcontextprotocol.io/specification/2025-11-25",
+  "status": "stable",
+  "categories": [
+    "Resources"
+  ],
+  "keywords": "resource subscription,updated,watch,resourceSubscriptions,subscriptions/listen",
+  "why": "This is the difference between an agent that re-reads everything on a timer and one that reacts when a specific thing changes. In 2026-07-28 it also requires the new subscription stream, so a framework still written against `resources/subscribe` cannot do it at all.",
+  "docs_url": "https://modelcontextprotocol.io/specification/2025-11-25/server/resources#subscriptions",
+  "docs_label": "MCP Docs",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/server/resources#subscriptions",
+      "title": "MCP Docs"
+    }
+  ],
+  "usage_note": "Not published. Candidate source: count of public MCP servers publishing this. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "known_issues": [],
+  "notes": {
+    "crewai": "CrewAI 1.15.26: `crewai_tools.MCPServerAdapter` exposes only `tools`; there is no subscribe route and no hook for `notifications/resources/updated`.",
+    "genkit_js": "Genkit (JS) 1.42.0: `subscribeResource` / `unsubscribeResource` and the update notification work, but @genkit-ai/mcp has no API for it and registers no notification handler; it works only on the SDK `Client` that the public getter `GenkitMcpClient.mcpClient` hands out (route `session`).",
+    "langchain": "LangChain MCP Adapters 0.3.2 has no subscribe API. The `ClientSession` that `create_session` yields is the raw SDK session, so `subscribe_resource` / `unsubscribe_resource` on it worked, and the update reached the `message_handler` passed through `session_kwargs`. That route belongs to the SDK, not the adapter.",
+    "openai-agents": "OpenAI Agents SDK 0.23.1 has no subscribe API. `MCPServerStdio.session` is the raw SDK `ClientSession`, and `subscribe_resource` / `unsubscribe_resource` on it worked, with the update reaching the server's `message_handler`. That route belongs to the SDK, not the adapter.",
+    "pydantic-ai": "Pydantic AI 2.54.0: `MCPToolset` has no subscribe API. Through the FastMCP client's raw session (`MCPToolset.client.session`), `subscribe_resource` / `unsubscribe_resource` worked, and the update reached the toolset's `message_handler`. That route belongs to the SDK, not the adapter.",
+    "mastra": "Mastra 2.2.0: `resources.subscribe('src', uri)` rejects with `subscriptions/listen needs MCP 2026-07-28` against a 2025-11-25 server. It carries every subscription on a 2026-07-28 listen stream and never falls back to `resources/subscribe`, which this revision defines, so an agent cannot watch a resource on a 2025-11-25 server at all.",
+    "google_adk": "Google ADK 2.11.0: `McpToolset` has no subscribe API. On the raw `ClientSession` from `MCPSessionManager.create_session()`, `subscribe_resource` / `unsubscribe_resource` worked and the server sent `notifications/resources/updated`, but ADK builds that session with no `message_handler` and offers no parameter for one, so the update reached no caller.",
+    "ms_agent_framework": "Microsoft Agent Framework 1.21.0: the adapter has no subscribe API. `MCPTool.session` is the raw SDK `ClientSession`, and `subscribe_resource` / `unsubscribe_resource` there deliver the update.",
+    "autogen": "AutoGen 0.7.5: `McpWorkbench` has no subscribe method and its `ClientSession` is private to `McpSessionActor`.",
+    "strands": "Strands Agents 1.59.0: `MCPClient` has no subscribe method, and its `ClientSession` is private (`_background_thread_session`), so a caller cannot subscribe to a resource.",
+    "vercel_ai": "Vercel AI SDK (@ai-sdk/mcp 2.0.73): MCPClient has no `resources/subscribe` or `unsubscribe` method and no handler for `notifications/resources/updated`. 2.0.73 adds `experimental_events`, a webhook API for `events/subscribe` and `events/unsubscribe`, which is a separate surface and does not cover resource updates.",
+    "openai_agents_js": "OpenAI Agents SDK (JS) 0.20.0: the `MCPServer` interface has `listResources`, `listResourceTemplates` and `readResource`, but no `resources/subscribe` method and no hook for `notifications/resources/updated`.",
+    "semantic_kernel": "Semantic Kernel 1.45.0: the plugin has no subscribe API; subscribing works only on the raw `ClientSession` it exposes as `plugin.session`.",
+    "llamaindex": "LlamaIndex (llama-index-tools-mcp 0.6.0): `BasicMCPClient` has no subscribe method, and its sessions close after each call, so there is no session a `notifications/resources/updated` could reach.",
+    "pi": "Pi (@earendil-works/pi-mcp 1.1.0): `McpClient` has no subscribe method. The generic `request('resources/subscribe')` and `request('resources/unsubscribe')`, with `onNotification('notifications/resources/updated')`, subscribe, deliver the update and unsubscribe, but only with the caller naming each wire method.",
+    "google_adk_js": "Google ADK (TypeScript) 2.2.1: reachable only on a raw `@modelcontextprotocol/sdk` `Client` from `MCPSessionManager.createSession()`, a public export of `@google/adk/tools/mcp`: `subscribeResource` / `unsubscribeResource` with a `ResourceUpdatedNotificationSchema` handler delivered the update, and none after unsubscribing. `MCPToolset` has no subscribe method, and its per-call sessions close before an update could arrive.",
+    "agno": "Agno 3.1.2: `MCPTools` has no subscribe method. Through the raw `ClientSession` at `MCPTools.session.session`, `subscribe_resource` is accepted, but no `notifications/resources/updated` reaches the caller.",
+    "haystack": "Haystack (mcp-haystack 1.5.2): `MCPToolset` wraps tools as Haystack `Tool`s and has no resource or prompt API, and the `ClientSession` it opens is private to `MCPToolset._worker._client`, so there is no route to `resources/subscribe` and no handler for `notifications/resources/updated`.",
+    "smolagents": "smolagents 1.26.0 (mcpadapt 0.1.20): `smolagents.MCPClient` exposes only `get_tools()`; there is no subscribe route and no hook for `notifications/resources/updated`.",
+    "dspy": "DSPy 3.4.0: DSPy has no subscribe API. Through `subscribe_resource` on the caller's `mcp.Client.session` the subscription is accepted, but no `notifications/resources/updated` reaches the caller.",
+    "langchain_js": "LangChain.js (@langchain/mcp-adapters 2.0.1): the `resourceSubscriptions` server option subscribes at connect and `onResourcesUpdated` receives the update, but the adapter has no unsubscribe method and the list is fixed for the connection.",
+    "spring_ai": "Spring AI 2.0.1: the starter has no subscription API. `McpSyncClient.subscribeResource` and `unsubscribeResource` on the published client bean work, and updates arrive only through a `resourcesUpdateConsumer` set in an `McpClientCustomizer<McpClient.SyncSpec>` bean; no update came after unsubscribing.",
+    "beeai": "BeeAI Framework 0.1.85: BeeAI has no subscribe API. Subscribing through the caller's `ClientSession` works on the wire, but BeeAI has no hook, so no update reaches the caller.",
+    "copilot_sdk": "GitHub Copilot SDK 1.0.19 (Copilot runtime 1.0.95): there is no API that sends `resources/subscribe` or `resources/unsubscribe`.",
+    "crewai-native": "CrewAI 1.15.26, native `crewai.mcp` client (`Agent(mcps=[...])`, not the `crewai_tools.MCPServerAdapter` row): `MCPClient` has `list_tools`, `call_tool`, `list_prompts` and `get_prompt` and no resource API, and `Agent(mcps=...)` turns only the tools into `BaseTool`s, so an agent built on it cannot reach this at all.",
+    "google_adk_java": "Google ADK (Java) 1.11.0: `McpTool.getMcpSession().subscribeResource` and `unsubscribeResource` reach the server, but `McpSessionManager` builds the client with no `resourcesUpdateConsumer` and ADK offers no way to add one, so no `notifications/resources/updated` reaches the caller.",
+    "koog": "Koog 1.3.0-beta: no Koog API. `Client.subscribeResource` / `unsubscribeResource` and a `notifications/resources/updated` handler set with `Client.setNotificationHandler` on the underlying Kotlin SDK `Client` deliver the update.",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): `mcptoolset.Toolset` exposes only `Tools()`, and the `*mcp.ClientSession` it opens stays inside its unexported `connectionRefresher`, so the caller has no session to call `Subscribe` on."
+  }
+}

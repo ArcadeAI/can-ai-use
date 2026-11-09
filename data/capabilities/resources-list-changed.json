@@ -1,0 +1,47 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "resources-list-changed",
+  "title": "`notifications/resources/list_changed`",
+  "description": "The notification a server sends when the set of available resources changes.",
+  "question": "Does the framework notice when the resource list changes?",
+  "spec": "https://modelcontextprotocol.io/specification/2025-11-25",
+  "status": "stable",
+  "categories": [
+    "Resources"
+  ],
+  "keywords": "list_changed,listChanged,resource list,refresh",
+  "why": "Resource sets change far more often than tool sets, because they track real files and records. A stale list means the agent offers context that no longer exists.",
+  "docs_url": "https://modelcontextprotocol.io/specification/2025-11-25/server/resources#list-changed-notification",
+  "docs_label": "MCP Docs",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/server/resources#list-changed-notification",
+      "title": "MCP Docs"
+    }
+  ],
+  "usage_note": "Not published. Candidate source: count of public MCP servers publishing this. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "known_issues": [],
+  "notes": {
+    "genkit_js": "Genkit (JS) 1.42.0: no handler for `notifications/resources/list_changed` is registered and there is no change hook. Re-listing did not show the change either: `getActiveResources` also calls `resources/templates/list`, the notify fixture does not implement it, and the `-32601` error discards the whole resource list, so both lists came back empty.",
+    "mastra": "Mastra 2.2.0 against a 2025-11-25 server: `onListChanged('src', fn)` installs the handler, and it fired and the next list showed the change. But the call itself rejects with `subscriptions/listen needs MCP 2026-07-28`, because it also tries to open a 2026-07-28 stream. Code that awaits the registration sees an error for a hook that works.",
+    "crewai": "CrewAI 1.15.26: `crewai_tools.MCPServerAdapter` exposes only `tools`. It has no resource or prompt API, so there is no list for a notification to refresh.",
+    "google_adk": "Google ADK 2.11.0: `McpToolset` takes no message handler, so nothing an application registers hears the notification. `list_resources` asks the server on every call, so the next list showed the added resource anyway.",
+    "ms_agent_framework": "Microsoft Agent Framework 1.21.0: there is no resource API to relist, so a resources list_changed notification reaches `message_handler` and changes nothing the agent can see.",
+    "autogen": "AutoGen 0.7.5: The workbench registers no message handler, so no hook hears the notification; its `list_resources` asks the server every time, so the next listing shows the change.",
+    "strands": "Strands Agents 1.59.0: `on_tools_changed` is the only change hook, and it covers tools only. Nothing hears the resources notification, but `list_resources_sync` asks the server every time, so the next listing shows the change.",
+    "vercel_ai": "Vercel AI SDK (@ai-sdk/mcp 2.0.73): MCPClient registers no notification handler: a server notification reaches only `onUncaughtError`, as an \"Unsupported message type\" error that does not name the notification. `listResources()` fetches on every call, so the next list shows the added resource.",
+    "openai_agents_js": "OpenAI Agents SDK (JS) 0.20.0: no handler hears `notifications/resources/list_changed`; the change shows only because the next `listResources` asks the server again.",
+    "semantic_kernel": "Semantic Kernel 1.45.0: `MCPPluginBase` has no resource list to refresh.",
+    "llamaindex": "LlamaIndex (llama-index-tools-mcp 0.6.0): `BasicMCPClient` takes no message handler and closes its session after every call (over stdio it also starts a fresh server process per call), so no session is open to hear `notifications/resources/list_changed`, and the next listing did not show the added resource.",
+    "google_adk_js": "Google ADK (TypeScript) 2.2.1: `MCPToolset` opens a new session for every operation (`getTools`, `listResources`, `readResource`, each tool call) and closes it after; over stdio that is a new server process each time. No session outlives the call that changed the list, and over stdio the added resource dies with its process, so the next `listResources` matched the one before.",
+    "agno": "Agno 3.1.2: `MCPTools` lists and calls tools only; it has no resource or prompt API, so a resources list_changed notification has nothing to refresh, and no hook hears it.",
+    "haystack": "Haystack (mcp-haystack 1.5.2): `MCPClient` builds its `ClientSession` with no message handler, and `MCPToolset` has no resource API, so `notifications/resources/list_changed` reaches nothing.",
+    "smolagents": "smolagents 1.26.0 (mcpadapt 0.1.20): `smolagents.MCPClient` exposes only `get_tools()`. It has no resource or prompt API, so there is no list for a notification to refresh.",
+    "dspy": "DSPy 3.4.0: DSPy's MCP support is `dspy.Tool.from_mcp_tool`, which converts one tool. It has no resource or prompt API, so resources and prompts stay on the caller's MCP session. No listing means no change to see.",
+    "beeai": "BeeAI Framework 0.1.85: no resource listing to refresh; BeeAI converts tools only and has no notification hook.",
+    "crewai-native": "CrewAI 1.15.26, native `crewai.mcp` client (`Agent(mcps=[...])`, not the `crewai_tools.MCPServerAdapter` row): `MCPClient` has `list_tools`, `call_tool`, `list_prompts` and `get_prompt` and no resource API, and `Agent(mcps=...)` turns only the tools into `BaseTool`s, so an agent built on it cannot reach this at all.",
+    "google_adk_java": "Google ADK (Java) 1.11.0: The adapter registers no `resourcesChangeConsumer` consumer, so nothing tells the agent the list changed. The next `McpToolset.getTools` call (or session `listResources`) lists again and shows the change.",
+    "koog": "Koog 1.3.0-beta: Koog exposes only tools and registers no list-changed handler. The next `Client.listResources` on the underlying Kotlin SDK `Client` shows the change.",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): a `ResourceListChangedHandler` on the caller's `*mcp.Client` hears the notification, but mcptoolset lists only tools, so the agent has no resources list to refresh."
+  }
+}

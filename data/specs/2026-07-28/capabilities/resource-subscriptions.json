@@ -1,0 +1,37 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "resource-subscriptions",
+  "title": "`notifications/resources/updated`",
+  "description": "Per-resource change notifications, opted into by listing URIs in a `subscriptions/listen` request and delivered as `notifications/resources/updated`.",
+  "question": "Can the agent watch a single resource for changes?",
+  "spec": "https://modelcontextprotocol.io/specification/2026-07-28",
+  "status": "stable",
+  "categories": [
+    "Resources"
+  ],
+  "keywords": "resource subscription,updated,watch,resourceSubscriptions,subscriptions/listen",
+  "why": "This is the difference between an agent that re-reads everything on a timer and one that reacts when a specific thing changes. In 2026-07-28 it also requires the new subscription stream, so a framework still written against `resources/subscribe` cannot do it at all.",
+  "docs_url": "https://modelcontextprotocol.io/specification/2026-07-28/server/resources#subscriptions",
+  "docs_label": "MCP Docs",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/server/resources#subscriptions",
+      "title": "MCP Docs"
+    }
+  ],
+  "usage_note": "Not published. Candidate source: count of public MCP servers publishing this. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "known_issues": [],
+  "notes": {
+    "openai-agents": "OpenAI Agents SDK 0.23.1 has no subscribe API. Opening `mcp.client.subscriptions.listen(MCPServerStdio.session, resource_subscriptions=[uri])` on the raw SDK session delivered the update, and closing it stopped updates. That route belongs to the SDK, not the adapter.",
+    "pydantic-ai": "Pydantic AI 2.54.0: `MCPToolset` has no subscribe API. Opening `mcp.client.subscriptions.listen` with `resource_subscriptions=[uri]` on `MCPToolset.client.session` delivered the update, and closing it stopped updates. That route belongs to the SDK, not the adapter.",
+    "strands": "Strands Agents 1.59.0: `MCPClient` has no subscribe method, and the `subscriptions/listen` stream it opens names tools list changes only, so a caller cannot subscribe to a resource.",
+    "vercel_ai": "Vercel AI SDK (@ai-sdk/mcp 2.0.73): MCPClient has no subscribe or unsubscribe method and no handler for resource updates. 2.0.73 adds `experimental_events`, a webhook API for `events/subscribe` and `events/unsubscribe`, which is a separate surface and does not cover resource updates.",
+    "openai_agents_js": "OpenAI Agents SDK (JS) 0.20.0: the `MCPServer` interface has `listResources`, `listResourceTemplates` and `readResource`, but no `resources/subscribe` method and no hook for `notifications/resources/updated`.",
+    "agno": "Agno 3.1.2: `MCPTools` has no subscribe method; a resource update arrives only through the raw `ClientSession` at `MCPTools.session.session`, with `mcp.client.subscriptions.listen(session, resource_subscriptions=[uri])`.",
+    "dspy": "DSPy 3.4.0: DSPy has no subscribe API. The update arrives only through `mcp.client.subscriptions.listen(session, resource_subscriptions=[uri])` on the caller's `mcp.Client.session`.",
+    "langchain_js": "LangChain.js (@langchain/mcp-adapters 2.0.1): the `resourceSubscriptions` server option subscribes at connect and `onResourcesUpdated` receives the update, but the adapter has no unsubscribe method and the list is fixed for the connection.",
+    "copilot_sdk": "GitHub Copilot SDK 1.0.19 (Copilot runtime 1.0.95): there is no API that sends `resources/subscribe` or `resources/unsubscribe`.",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): `mcptoolset.Toolset` exposes only `Tools()`, and the `*mcp.ClientSession` it opens stays inside its unexported `connectionRefresher`, so the caller has no session to call `Subscribe` on.",
+    "ms_agent_framework_dotnet": "Microsoft Agent Framework (.NET) 1.24.0 (ModelContextProtocol 2.2.0): `McpClient.SubscribeToResourceAsync` sends `resources/subscribe`, which 2026-07-28 removed; the server answered \"Method not found\", and the client offers no `subscriptions/listen` route instead."
+  }
+}

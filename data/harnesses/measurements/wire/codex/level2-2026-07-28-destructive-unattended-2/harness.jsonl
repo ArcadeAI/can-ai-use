@@ -1,0 +1,5 @@
+{"format": "mcp-mirror.harness-output/1"}
+{"event": "tool_use", "tool": "mcp__def__delete_account", "input": {"account_id": "a", "confirm": true}}
+{"event": "tool_result", "is_error": true, "text": "tool call error: tool call failed for `def/delete_account`\n\nCaused by:\n    Unexpected response type"}
+{"event": "text", "text": "done"}
+{"event": "result", "subtype": "turn.completed", "is_error": false, "num_turns": null, "text": ""}

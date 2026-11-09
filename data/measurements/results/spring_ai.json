@@ -1,0 +1,1053 @@
+{
+  "schema": "mcp-mirror/result-boundaries@2",
+  "captured_at": "2026-10-01T01:56:43Z",
+  "fixture": "fixtures/results_server.py",
+  "fixture_python": "<checkout>/.mcp-mirror/fixture-2025-11-25/bin/python",
+  "spec_version": "2025-11-25",
+  "calls": [
+    {
+      "tool": "text_content",
+      "arguments": {}
+    },
+    {
+      "tool": "image_content",
+      "arguments": {}
+    },
+    {
+      "tool": "audio_content",
+      "arguments": {}
+    },
+    {
+      "tool": "embedded_resource_content",
+      "arguments": {}
+    },
+    {
+      "tool": "resource_link_content",
+      "arguments": {}
+    },
+    {
+      "tool": "annotated_content",
+      "arguments": {}
+    },
+    {
+      "tool": "mixed_content",
+      "arguments": {}
+    },
+    {
+      "tool": "text_and_structured",
+      "arguments": {}
+    },
+    {
+      "tool": "tool_error",
+      "arguments": {}
+    }
+  ],
+  "source": {
+    "text_content": {
+      "tool": "text_content",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_TEXT_BLOCK"
+        }
+      ],
+      "block_kinds": [
+        "text"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": "SENTINEL_TEXT_BLOCK",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_TEXT_BLOCK",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "image_content": {
+      "tool": "image_content",
+      "blocks": [
+        {
+          "type": "image",
+          "data": "<96 chars>",
+          "mimeType": "image/png"
+        }
+      ],
+      "block_kinds": [
+        "image"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": null,
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "image",
+            "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==",
+            "mimeType": "image/png",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "audio_content": {
+      "tool": "audio_content",
+      "blocks": [
+        {
+          "type": "audio",
+          "data": "<60 chars>",
+          "mimeType": "audio/wav"
+        }
+      ],
+      "block_kinds": [
+        "audio"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": null,
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "audio",
+            "data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
+            "mimeType": "audio/wav",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "embedded_resource_content": {
+      "tool": "embedded_resource_content",
+      "blocks": [
+        {
+          "type": "resource",
+          "resource": {
+            "uri": "file:///fixtures/embedded.txt",
+            "mimeType": "text/plain",
+            "_meta": null,
+            "text": "SENTINEL_EMBEDDED_RESOURCE"
+          }
+        }
+      ],
+      "block_kinds": [
+        "resource"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": null,
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "resource",
+            "resource": {
+              "uri": "file:///fixtures/embedded.txt",
+              "mimeType": "text/plain",
+              "_meta": null,
+              "text": "SENTINEL_EMBEDDED_RESOURCE"
+            },
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "resource_link_content": {
+      "tool": "resource_link_content",
+      "blocks": [
+        {
+          "name": "linked.txt",
+          "uri": "file:///fixtures/linked.txt",
+          "description": "SENTINEL_RESOURCE_LINK",
+          "mimeType": "text/plain",
+          "type": "resource_link"
+        }
+      ],
+      "block_kinds": [
+        "resource_link"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": null,
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "name": "linked.txt",
+            "title": null,
+            "uri": "file:///fixtures/linked.txt",
+            "description": "SENTINEL_RESOURCE_LINK",
+            "mimeType": "text/plain",
+            "size": null,
+            "icons": null,
+            "annotations": null,
+            "_meta": null,
+            "type": "resource_link"
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "annotated_content": {
+      "tool": "annotated_content",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_ANNOTATED_TEXT",
+          "annotations": {
+            "audience": [
+              "user"
+            ],
+            "priority": 0.9
+          }
+        }
+      ],
+      "block_kinds": [
+        "text"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": "SENTINEL_ANNOTATED_TEXT",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_ANNOTATED_TEXT",
+            "annotations": {
+              "audience": [
+                "user"
+              ],
+              "priority": 0.9
+            },
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "mixed_content": {
+      "tool": "mixed_content",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_TEXT_BLOCK",
+          "annotations": {
+            "audience": [
+              "user"
+            ],
+            "priority": 0.9
+          }
+        },
+        {
+          "type": "image",
+          "data": "<96 chars>",
+          "mimeType": "image/png"
+        },
+        {
+          "type": "audio",
+          "data": "<60 chars>",
+          "mimeType": "audio/wav"
+        },
+        {
+          "type": "resource",
+          "resource": {
+            "uri": "file:///fixtures/embedded.txt",
+            "mimeType": "text/plain",
+            "_meta": null,
+            "text": "SENTINEL_EMBEDDED_RESOURCE"
+          }
+        },
+        {
+          "name": "linked.txt",
+          "uri": "file:///fixtures/linked.txt",
+          "description": "SENTINEL_RESOURCE_LINK",
+          "mimeType": "text/plain",
+          "type": "resource_link"
+        }
+      ],
+      "block_kinds": [
+        "text",
+        "image",
+        "audio",
+        "resource",
+        "resource_link"
+      ],
+      "structured_content": {
+        "count": 2,
+        "records": [
+          {
+            "id": "rec_1",
+            "status": "active"
+          },
+          {
+            "id": "rec_2",
+            "status": "archived"
+          }
+        ],
+        "note": "SENTINEL_STRUCTURED_CONTENT"
+      },
+      "is_error": false,
+      "text": "SENTINEL_TEXT_BLOCK",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_TEXT_BLOCK",
+            "annotations": {
+              "audience": [
+                "user"
+              ],
+              "priority": 0.9
+            },
+            "_meta": null
+          },
+          {
+            "type": "image",
+            "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==",
+            "mimeType": "image/png",
+            "annotations": null,
+            "_meta": null
+          },
+          {
+            "type": "audio",
+            "data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
+            "mimeType": "audio/wav",
+            "annotations": null,
+            "_meta": null
+          },
+          {
+            "type": "resource",
+            "resource": {
+              "uri": "file:///fixtures/embedded.txt",
+              "mimeType": "text/plain",
+              "_meta": null,
+              "text": "SENTINEL_EMBEDDED_RESOURCE"
+            },
+            "annotations": null,
+            "_meta": null
+          },
+          {
+            "name": "linked.txt",
+            "title": null,
+            "uri": "file:///fixtures/linked.txt",
+            "description": "SENTINEL_RESOURCE_LINK",
+            "mimeType": "text/plain",
+            "size": null,
+            "icons": null,
+            "annotations": null,
+            "_meta": null,
+            "type": "resource_link"
+          }
+        ],
+        "structuredContent": {
+          "count": 2,
+          "records": [
+            {
+              "id": "rec_1",
+              "status": "active"
+            },
+            {
+              "id": "rec_2",
+              "status": "archived"
+            }
+          ],
+          "note": "SENTINEL_STRUCTURED_CONTENT"
+        },
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "text_and_structured": {
+      "tool": "text_and_structured",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_TEXT_BLOCK"
+        }
+      ],
+      "block_kinds": [
+        "text"
+      ],
+      "structured_content": {
+        "count": 2,
+        "records": [
+          {
+            "id": "rec_1",
+            "status": "active"
+          },
+          {
+            "id": "rec_2",
+            "status": "archived"
+          }
+        ],
+        "note": "SENTINEL_STRUCTURED_CONTENT"
+      },
+      "is_error": false,
+      "text": "SENTINEL_TEXT_BLOCK",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_TEXT_BLOCK",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "count": 2,
+          "records": [
+            {
+              "id": "rec_1",
+              "status": "active"
+            },
+            {
+              "id": "rec_2",
+              "status": "archived"
+            }
+          ],
+          "note": "SENTINEL_STRUCTURED_CONTENT"
+        },
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "tool_error": {
+      "tool": "tool_error",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_TOOL_ERROR: this tool always fails"
+        }
+      ],
+      "block_kinds": [
+        "text"
+      ],
+      "structured_content": null,
+      "is_error": true,
+      "text": "SENTINEL_TOOL_ERROR: this tool always fails",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_TOOL_ERROR: this tool always fails",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": true
+      },
+      "error_channel": null
+    }
+  },
+  "frameworks": {
+    "spring_ai": {
+      "ok": true,
+      "versions": {
+        "framework": "2.0.1",
+        "adapter": "spring-ai-mcp 2.0.1, io.modelcontextprotocol.sdk:mcp-core 2.0.0, spring-boot 4.1.1, java 21.0.12.1"
+      },
+      "evidence": {
+        "capture_api": "spring-ai-starter-mcp-client autoconfiguration (McpClientAutoConfiguration, McpToolCallbackAutoConfiguration): SyncMcpToolCallbackProvider.getToolCallbacks over the McpSyncClient bean, resolved by DefaultToolCallingManager.resolveToolDefinitions",
+        "capture_object": "org.springframework.ai.tool.definition.ToolDefinition (name, description, inputSchema)",
+        "capture_stage": "framework_tool_definition",
+        "provider_request_captured": false,
+        "negotiated_mcp_spec_version": "2025-11-25",
+        "protocol_version_evidence": "McpSyncClient.getCurrentInitializationResult().protocolVersion()",
+        "limitation": "No ChatModel ran. The definitions are what DefaultToolCallingManager hands a chat model; no serialized provider request was captured."
+      },
+      "result_boundaries": [
+        {
+          "id": "agent",
+          "label": "Tool response to the model",
+          "capture_api": "DefaultToolCallingManager.executeToolCalls for a scripted AssistantMessage.ToolCall",
+          "capture_object": "ToolResponseMessage.ToolResponse.responseData in the returned conversation history",
+          "agent_path": true,
+          "limitation": "No ChatModel ran; the assistant tool call is scripted."
+        },
+        {
+          "id": "direct",
+          "label": "Adapter call API",
+          "capture_api": "SyncMcpToolCallback.call(String)",
+          "capture_object": "the String the callback returns, or the exception it throws",
+          "agent_path": false,
+          "limitation": null
+        }
+      ],
+      "reps": [
+        {
+          "name": "text_content",
+          "description": "Return one text block and nothing else.",
+          "params": {
+            "type": "object",
+            "properties": {}
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "spring_ai",
+          "raw": {
+            "name": "text_content",
+            "description": "Return one text block and nothing else.",
+            "parameters": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        {
+          "name": "image_content",
+          "description": "Return one image block and nothing else.",
+          "params": {
+            "type": "object",
+            "properties": {}
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "spring_ai",
+          "raw": {
+            "name": "image_content",
+            "description": "Return one image block and nothing else.",
+            "parameters": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        {
+          "name": "audio_content",
+          "description": "Return one audio block and nothing else.",
+          "params": {
+            "type": "object",
+            "properties": {}
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "spring_ai",
+          "raw": {
+            "name": "audio_content",
+            "description": "Return one audio block and nothing else.",
+            "parameters": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        {
+          "name": "embedded_resource_content",
+          "description": "Return one embedded resource block and nothing else.",
+          "params": {
+            "type": "object",
+            "properties": {}
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "spring_ai",
+          "raw": {
+            "name": "embedded_resource_content",
+            "description": "Return one embedded resource block and nothing else.",
+            "parameters": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        {
+          "name": "resource_link_content",
+          "description": "Return one resource_link block and nothing else.",
+          "params": {
+            "type": "object",
+            "properties": {}
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "spring_ai",
+          "raw": {
+            "name": "resource_link_content",
+            "description": "Return one resource_link block and nothing else.",
+            "parameters": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        {
+          "name": "annotated_content",
+          "description": "Return one text block carrying audience and priority annotations.",
+          "params": {
+            "type": "object",
+            "properties": {}
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "spring_ai",
+          "raw": {
+            "name": "annotated_content",
+            "description": "Return one text block carrying audience and priority annotations.",
+            "parameters": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        {
+          "name": "mixed_content",
+          "description": "Return one block of every kind plus structuredContent in one result.",
+          "params": {
+            "type": "object",
+            "properties": {}
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "spring_ai",
+          "raw": {
+            "name": "mixed_content",
+            "description": "Return one block of every kind plus structuredContent in one result.",
+            "parameters": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        {
+          "name": "text_and_structured",
+          "description": "Return one text block plus structuredContent, with no media.",
+          "params": {
+            "type": "object",
+            "properties": {}
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "spring_ai",
+          "raw": {
+            "name": "text_and_structured",
+            "description": "Return one text block plus structuredContent, with no media.",
+            "parameters": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        {
+          "name": "tool_error",
+          "description": "Always fail, reporting the failure through isError rather than a protocol error.",
+          "params": {
+            "type": "object",
+            "properties": {}
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "spring_ai",
+          "raw": {
+            "name": "tool_error",
+            "description": "Always fail, reporting the failure through isError rather than a protocol error.",
+            "parameters": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        }
+      ],
+      "results": [
+        {
+          "tool": "text_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "text_content",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "[{\"text\":\"SENTINEL_TEXT_BLOCK\"}]",
+            "origin": "spring_ai",
+            "raw": {
+              "id": "call_mirror_1",
+              "name": "text_content",
+              "responseData": "[{\"text\":\"SENTINEL_TEXT_BLOCK\"}]"
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "text_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "text_content",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "[{\"text\":\"SENTINEL_TEXT_BLOCK\"}]",
+            "origin": "spring_ai",
+            "raw": {
+              "text": "[{\"text\":\"SENTINEL_TEXT_BLOCK\"}]"
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "image_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "image_content",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "[{\"data\":\"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==\",\"mimeType\":\"image/png\"}]",
+            "origin": "spring_ai",
+            "raw": {
+              "id": "call_mirror_1",
+              "name": "image_content",
+              "responseData": "[{\"data\":\"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==\",\"mimeType\":\"image/png\"}]"
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "image_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "image_content",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "[{\"data\":\"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==\",\"mimeType\":\"image/png\"}]",
+            "origin": "spring_ai",
+            "raw": {
+              "text": "[{\"data\":\"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==\",\"mimeType\":\"image/png\"}]"
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "audio_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "audio_content",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "[{\"data\":\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\",\"mimeType\":\"audio/wav\"}]",
+            "origin": "spring_ai",
+            "raw": {
+              "id": "call_mirror_1",
+              "name": "audio_content",
+              "responseData": "[{\"data\":\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\",\"mimeType\":\"audio/wav\"}]"
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "audio_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "audio_content",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "[{\"data\":\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\",\"mimeType\":\"audio/wav\"}]",
+            "origin": "spring_ai",
+            "raw": {
+              "text": "[{\"data\":\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\",\"mimeType\":\"audio/wav\"}]"
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "embedded_resource_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "embedded_resource_content",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "[{\"resource\":{\"uri\":\"file:///fixtures/embedded.txt\",\"mimeType\":\"text/plain\",\"text\":\"SENTINEL_EMBEDDED_RESOURCE\"}}]",
+            "origin": "spring_ai",
+            "raw": {
+              "id": "call_mirror_1",
+              "name": "embedded_resource_content",
+              "responseData": "[{\"resource\":{\"uri\":\"file:///fixtures/embedded.txt\",\"mimeType\":\"text/plain\",\"text\":\"SENTINEL_EMBEDDED_RESOURCE\"}}]"
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "embedded_resource_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "embedded_resource_content",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "[{\"resource\":{\"uri\":\"file:///fixtures/embedded.txt\",\"mimeType\":\"text/plain\",\"text\":\"SENTINEL_EMBEDDED_RESOURCE\"}}]",
+            "origin": "spring_ai",
+            "raw": {
+              "text": "[{\"resource\":{\"uri\":\"file:///fixtures/embedded.txt\",\"mimeType\":\"text/plain\",\"text\":\"SENTINEL_EMBEDDED_RESOURCE\"}}]"
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "resource_link_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "resource_link_content",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "[{\"name\":\"linked.txt\",\"uri\":\"file:///fixtures/linked.txt\",\"description\":\"SENTINEL_RESOURCE_LINK\",\"mimeType\":\"text/plain\"}]",
+            "origin": "spring_ai",
+            "raw": {
+              "id": "call_mirror_1",
+              "name": "resource_link_content",
+              "responseData": "[{\"name\":\"linked.txt\",\"uri\":\"file:///fixtures/linked.txt\",\"description\":\"SENTINEL_RESOURCE_LINK\",\"mimeType\":\"text/plain\"}]"
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "resource_link_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "resource_link_content",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "[{\"name\":\"linked.txt\",\"uri\":\"file:///fixtures/linked.txt\",\"description\":\"SENTINEL_RESOURCE_LINK\",\"mimeType\":\"text/plain\"}]",
+            "origin": "spring_ai",
+            "raw": {
+              "text": "[{\"name\":\"linked.txt\",\"uri\":\"file:///fixtures/linked.txt\",\"description\":\"SENTINEL_RESOURCE_LINK\",\"mimeType\":\"text/plain\"}]"
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "annotated_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "annotated_content",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "[{\"annotations\":{\"audience\":[\"user\"],\"priority\":0.9},\"text\":\"SENTINEL_ANNOTATED_TEXT\"}]",
+            "origin": "spring_ai",
+            "raw": {
+              "id": "call_mirror_1",
+              "name": "annotated_content",
+              "responseData": "[{\"annotations\":{\"audience\":[\"user\"],\"priority\":0.9},\"text\":\"SENTINEL_ANNOTATED_TEXT\"}]"
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "annotated_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "annotated_content",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "[{\"annotations\":{\"audience\":[\"user\"],\"priority\":0.9},\"text\":\"SENTINEL_ANNOTATED_TEXT\"}]",
+            "origin": "spring_ai",
+            "raw": {
+              "text": "[{\"annotations\":{\"audience\":[\"user\"],\"priority\":0.9},\"text\":\"SENTINEL_ANNOTATED_TEXT\"}]"
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "mixed_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "mixed_content",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "[{\"annotations\":{\"audience\":[\"user\"],\"priority\":0.9},\"text\":\"SENTINEL_TEXT_BLOCK\"},{\"data\":\"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==\",\"mimeType\":\"image/png\"},{\"data\":\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\",\"mimeType\":\"audio/wav\"},{\"resource\":{\"uri\":\"file:///fixtures/embedded.txt\",\"mimeType\":\"text/plain\",\"text\":\"SENTINEL_EMBEDDED_RESOURCE\"}},{\"name\":\"linked.txt\",\"uri\":\"file:///fixtures/linked.txt\",\"description\":\"SENTINEL_RESOURCE_LINK\",\"mimeType\":\"text/plain\"}]",
+            "origin": "spring_ai",
+            "raw": {
+              "id": "call_mirror_1",
+              "name": "mixed_content",
+              "responseData": "[{\"annotations\":{\"audience\":[\"user\"],\"priority\":0.9},\"text\":\"SENTINEL_TEXT_BLOCK\"},{\"data\":\"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==\",\"mimeType\":\"image/png\"},{\"data\":\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\",\"mimeType\":\"audio/wav\"},{\"resource\":{\"uri\":\"file:///fixtures/embedded.txt\",\"mimeType\":\"text/plain\",\"text\":\"SENTINEL_EMBEDDED_RESOURCE\"}},{\"name\":\"linked.txt\",\"uri\":\"file:///fixtures/linked.txt\",\"description\":\"SENTINEL_RESOURCE_LINK\",\"mimeType\":\"text/plain\"}]"
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "mixed_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "mixed_content",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "[{\"annotations\":{\"audience\":[\"user\"],\"priority\":0.9},\"text\":\"SENTINEL_TEXT_BLOCK\"},{\"data\":\"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==\",\"mimeType\":\"image/png\"},{\"data\":\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\",\"mimeType\":\"audio/wav\"},{\"resource\":{\"uri\":\"file:///fixtures/embedded.txt\",\"mimeType\":\"text/plain\",\"text\":\"SENTINEL_EMBEDDED_RESOURCE\"}},{\"name\":\"linked.txt\",\"uri\":\"file:///fixtures/linked.txt\",\"description\":\"SENTINEL_RESOURCE_LINK\",\"mimeType\":\"text/plain\"}]",
+            "origin": "spring_ai",
+            "raw": {
+              "text": "[{\"annotations\":{\"audience\":[\"user\"],\"priority\":0.9},\"text\":\"SENTINEL_TEXT_BLOCK\"},{\"data\":\"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==\",\"mimeType\":\"image/png\"},{\"data\":\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\",\"mimeType\":\"audio/wav\"},{\"resource\":{\"uri\":\"file:///fixtures/embedded.txt\",\"mimeType\":\"text/plain\",\"text\":\"SENTINEL_EMBEDDED_RESOURCE\"}},{\"name\":\"linked.txt\",\"uri\":\"file:///fixtures/linked.txt\",\"description\":\"SENTINEL_RESOURCE_LINK\",\"mimeType\":\"text/plain\"}]"
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "text_and_structured",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "text_and_structured",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "[{\"text\":\"SENTINEL_TEXT_BLOCK\"}]",
+            "origin": "spring_ai",
+            "raw": {
+              "id": "call_mirror_1",
+              "name": "text_and_structured",
+              "responseData": "[{\"text\":\"SENTINEL_TEXT_BLOCK\"}]"
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "text_and_structured",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "text_and_structured",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "[{\"text\":\"SENTINEL_TEXT_BLOCK\"}]",
+            "origin": "spring_ai",
+            "raw": {
+              "text": "[{\"text\":\"SENTINEL_TEXT_BLOCK\"}]"
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "tool_error",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "tool_error",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": null,
+            "text": "Error calling tool: [TextContent[annotations=null, text=SENTINEL_TOOL_ERROR: this tool always fails, meta=null]]",
+            "origin": "spring_ai",
+            "raw": {
+              "id": "call_mirror_1",
+              "name": "tool_error",
+              "responseData": "Error calling tool: [TextContent[annotations=null, text=SENTINEL_TOOL_ERROR: this tool always fails, meta=null]]"
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "tool_error",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "tool_error",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "ToolExecutionException: Error calling tool: [TextContent[annotations=null, text=SENTINEL_TOOL_ERROR: this tool always fails, meta=null]]",
+            "origin": "spring_ai",
+            "raw": {
+              "exception": "org.springframework.ai.tool.execution.ToolExecutionException",
+              "error": "ToolExecutionException: Error calling tool: [TextContent[annotations=null, text=SENTINEL_TOOL_ERROR: this tool always fails, meta=null]]"
+            },
+            "error_channel": "exception"
+          }
+        }
+      ]
+    }
+  }
+}

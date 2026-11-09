@@ -1,0 +1,103 @@
+{
+  "schema": "mcp-mirror/client-probe@1",
+  "captured_at": "2026-10-09T18:39:43Z",
+  "fixture": "fixtures/client_features_server.py",
+  "fixture_python": "<checkout>/.mcp-mirror/fixture-2025-11-25/bin/python",
+  "spec_version": "2025-11-25",
+  "frameworks": {
+    "pydantic_ai": {
+      "ok": true,
+      "versions": {
+        "framework": "2.54.0",
+        "adapter": "2.54.0"
+      },
+      "negotiated_mcp_spec_version": "2025-11-25",
+      "client_probe": {
+        "sampling": {
+          "tool": "ask_sampling",
+          "hook": "MCPToolset(sampling_handler=...)",
+          "route": "adapter",
+          "expect": "SENTINEL_SAMPLED",
+          "text": "{\"answered\": \"ask_sampling\", \"response\": {\"content\": {\"text\": \"SENTINEL_SAMPLED\", \"type\": \"text\"}, \"model\": \"mcp-mirror-stub\", \"role\": \"assistant\", \"stopReason\": \"endTurn\"}}",
+          "is_error": null,
+          "handler_saw": [
+            {
+              "hook": "sampling_handler",
+              "tools": false,
+              "replied": "endTurn"
+            }
+          ]
+        },
+        "sampling.tools": {
+          "tool": "ask_sampling_tools",
+          "hook": "toolset.client.set_sampling_callback(sampling_capabilities=tools)",
+          "route": "underlying",
+          "expect": "SENTINEL_SAMPLED_AFTER_TOOL",
+          "text": "{\"answered\": \"ask_sampling_tools\", \"response\": {\"rounds\": [{\"content\": [{\"id\": \"SENTINEL_TOOL_USE_ID\", \"input\": {\"word\": \"mirror\"}, \"name\": \"sentinel_lookup\", \"type\": \"tool_use\"}], \"model\": \"mcp-mirror-stub\", \"role\": \"assistant\", \"stopReason\": \"toolUse\"}, {\"content\": {\"text\": \"SENTINEL_SAMPLED_AFTER_TOOL\", \"type\": \"text\"}, \"model\": \"mcp-mirror-stub\", \"role\": \"assistant\", \"stopReason\": \"endTurn\"}]}}",
+          "is_error": null,
+          "handler_saw": [
+            {
+              "hook": "sampling_handler",
+              "tools": true,
+              "replied": "toolUse"
+            },
+            {
+              "hook": "sampling_handler",
+              "tools": true,
+              "replied": "endTurn"
+            }
+          ]
+        },
+        "elicitation.form": {
+          "tool": "ask_elicitation_form",
+          "hook": "MCPToolset(elicitation_handler=...)",
+          "route": "adapter",
+          "expect": "SENTINEL_ELICITED",
+          "text": "{\"answered\": \"ask_elicitation_form\", \"response\": {\"action\": \"accept\", \"content\": {\"name\": \"SENTINEL_ELICITED\"}}}",
+          "is_error": null,
+          "handler_saw": [
+            {
+              "hook": "elicitation_handler",
+              "mode": "form"
+            }
+          ]
+        },
+        "elicitation.url": {
+          "tool": "ask_elicitation_url",
+          "hook": "MCPToolset(elicitation_handler=...)",
+          "route": "adapter",
+          "expect": "\"action\": \"accept\"",
+          "text": "{\"answered\": \"ask_elicitation_url\", \"response\": {\"action\": \"accept\"}}",
+          "is_error": null,
+          "handler_saw": [
+            {
+              "hook": "elicitation_handler",
+              "mode": "url"
+            }
+          ]
+        },
+        "roots.list": {
+          "tool": "list_client_roots",
+          "hook": "MCPToolset(roots=[...])",
+          "route": "adapter",
+          "expect": "file:///tmp/mcp-mirror-root",
+          "text": "{\"answered\": \"list_client_roots\", \"response\": {\"roots\": [{\"uri\": \"file:///tmp/mcp-mirror-root\"}]}}",
+          "is_error": null,
+          "handler_saw": []
+        },
+        "roots.list_changed": {
+          "tool": "roots_changes_seen",
+          "hook": "toolset.client.set_roots + send_roots_list_changed",
+          "route": "underlying",
+          "expect": "SENTINEL_ROOTS_CHANGES_SEEN",
+          "text": "{\"seen\": 1}",
+          "is_error": null,
+          "handler_saw": []
+        },
+        "capabilities": {
+          "text": "{\"elicitation\": {\"form\": {}, \"url\": {}}, \"roots\": {\"listChanged\": true}, \"sampling\": {}}"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "description-fidelity",
+  "title": "`description`",
+  "description": "The natural-language description an MCP server publishes to explain what a tool does.",
+  "question": "Is the full tool description present at each capture boundary?",
+  "spec": "https://modelcontextprotocol.io/specification",
+  "status": "stable",
+  "categories": [
+    "Identity and text"
+  ],
+  "keywords": "description,description fidelity,tool description,prose,injection,tokens",
+  "usage_perc_y": null,
+  "usage_perc_a": null,
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/server/tools#tool",
+      "title": "MCP Docs"
+    },
+    {
+      "url": "https://platform.openai.com/docs/guides/function-calling",
+      "title": "OpenAI function calling, tool schema"
+    }
+  ],
+  "known_issues": [],
+  "why": "If passed downstream, injected text spends context tokens and can steer a model in ways the tool author did not write.",
+  "shown": true,
+  "docs_url": "https://modelcontextprotocol.io/specification/2025-11-25/server/tools#tool",
+  "docs_label": "MCP Docs",
+  "example": {
+    "before_label": "server sends",
+    "before": [
+      "\"description\": \"Search records with optional filters.\""
+    ],
+    "after_label": "captured CrewAI BaseTool",
+    "after": [
+      "\"description\": \"Tool Name: search_records",
+      "Tool Arguments: {'properties': {...}}",
+      "Tool Description: Search records with optional filters.\""
+    ]
+  },
+  "notes": {
+    "crewai": "CrewAI: the captured description is rebuilt as `Tool Name: ... Tool Arguments: {schema} Tool Description: ...`, duplicating the schema as prose and parameters.",
+    "google_adk": "Google ADK 2.11.0: `McpTool.process_llm_request` replaces the declaration with a fenced one, wrapping the description in `<<<BEGIN_UNTRUSTED_TOOL_DESCRIPTION>>>` / `<<<END_UNTRUSTED_TOOL_DESCRIPTION>>>` and adding a preamble about them to the system instruction. The source text is intact inside the markers.",
+    "koog": "Koog 1.3.0-beta: the four tools that reach the model keep their descriptions unchanged. `McpToolRegistryProvider.fromClient` leaves `deliver_payload` out of the registry (`DefaultMcpToolDescriptorParser.parse` throws on its typeless `oneOf` and `fromClient` only logs it), so its description never reaches the model."
+  }
+}

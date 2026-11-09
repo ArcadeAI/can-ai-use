@@ -1,0 +1,31 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "description-fidelity",
+  "title": "`description`",
+  "description": "The natural-language description an MCP server publishes to explain what a tool does.",
+  "question": "Is the full tool description present at each capture boundary?",
+  "spec": "https://modelcontextprotocol.io/specification",
+  "status": "stable",
+  "categories": [
+    "Identity and text"
+  ],
+  "keywords": "description,description fidelity,tool description,prose,injection,tokens",
+  "usage_perc_y": null,
+  "usage_perc_a": null,
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/server/tools#tool",
+      "title": "MCP Docs"
+    },
+    {
+      "url": "https://platform.openai.com/docs/guides/function-calling",
+      "title": "OpenAI function calling, tool schema"
+    }
+  ],
+  "known_issues": [],
+  "why": "If passed downstream, injected text spends context tokens and can steer a model in ways the tool author did not write.",
+  "shown": true,
+  "docs_url": "https://modelcontextprotocol.io/specification/2026-07-28/server/tools#tool",
+  "docs_label": "MCP Docs"
+}

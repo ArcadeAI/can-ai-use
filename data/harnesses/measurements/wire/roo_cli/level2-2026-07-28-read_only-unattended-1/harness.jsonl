@@ -1,0 +1,4 @@
+{"format": "mcp-mirror.harness-output/1"}
+{"event": "tool_use", "tool": "mcp--def--search_records", "input": {"query": "x"}}
+{"event": "tool_result", "is_error": true, "text": "Error executing MCP tool:\n[\n  {\n    \"code\": \"invalid_union\",\n    \"unionErrors\": [\n      {\n        \"issues\": [\n          {\n            \"received\": \"resource_link\",\n            \"code\": \"invalid_literal\",\n            \"expected\": \"text\",\n            \"path\": [\n              \"content\",\n              4,\n              \"type\"\n            ],\n            \"message\": \"Invalid literal value, expected \\\"text\\\"\"\n          },\n          {\n            \"code\": \"invalid_type\",\n            \"expected\": \"string\",\n     ..."}
+{"event": "result", "subtype": "success", "is_error": false, "num_turns": 0, "text": "done"}

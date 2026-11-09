@@ -1,0 +1,35 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "elicitation-url-mode",
+  "title": "`elicitation/create` (URL)",
+  "description": "A server request that sends the user out of band to a URL, for interactions such as sign-in that must not pass through the client.",
+  "question": "Can the framework hand a user off to an external URL and resume?",
+  "spec": "https://modelcontextprotocol.io/specification/2026-07-28",
+  "status": "stable",
+  "categories": [
+    "Client features"
+  ],
+  "keywords": "elicitation,url mode,out of band,oauth,sensitive data,consent",
+  "why": "Form mode is explicitly forbidden from collecting credentials, so URL mode is the sanctioned path for sign-in flows. A framework that implements only form mode leaves servers with no compliant way to authenticate a user mid-task.",
+  "docs_url": "https://modelcontextprotocol.io/specification/2026-07-28/client/elicitation#url-mode-elicitation-requests",
+  "docs_label": "MCP Docs",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/client/elicitation#url-mode-elicitation-requests",
+      "title": "MCP Docs"
+    }
+  ],
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "known_issues": [],
+  "notes": {
+    "openai-agents": "OpenAI Agents SDK 0.23.1: at 2026-07-28 the request arrives embedded in an `InputRequiredResult`. The adapter has no elicitation hook and calls tools through the MCP SDK's default `call_tool`, so the SDK's `Server returned InputRequiredResult` error reaches the caller as an `AgentsException` and nothing is answered.",
+    "vercel_ai": "Vercel AI SDK (@ai-sdk/mcp 2.0.73): at 2026-07-28 the request arrives embedded in an `InputRequiredResult`. The client rejects any result with `resultType: \"input_required\"` (\"multi round-trip requests are not supported yet\"), so `execute` throws and nothing is answered. The registered `onElicitationRequest` handler never runs. At 2025-11-25 the same handler refuses URL mode because its schema requires `requestedSchema`. Kept `u` for that reason; `mrtr-input-required` carries the `n`.",
+    "openai_agents_js": "OpenAI Agents SDK (JS) 0.20.0 at 2026-07-28: the server answers with `input_required`, and the MCP client the SDK builds tries to fulfil it itself, but no `elicitation/create` handler is registered on it and the SDK offers no option to add one. The call fails with `Cannot fulfil input request`, which the agent hands the model as tool-error text.",
+    "agno": "Agno 3.1.2: `MCPTools` builds its fastmcp `Client` with no elicitation handler and exposes no hook to add one, so URL elicitation is refused.",
+    "dspy": "DSPy 3.4.0: DSPy takes no elicitation handler. The server's request is answered only by a `elicitation_callback` registered on the caller's own `mcp.Client`, which DSPy is handed by `Tool.from_mcp_tool` and never configures. DSPy itself offers no route.",
+    "copilot_sdk": "GitHub Copilot SDK 1.0.19 (Copilot runtime 1.0.95): at 2026-07-28 the request arrives embedded in an `input_required` result. The runtime fails to parse one carrying a URL-mode request (\"expected CallToolResult from tools/call, got CustomResult(...)\"), the tool call fails, and `SessionConfig.onElicitationRequest` never runs. At 2025-11-25 the same handler answers URL mode.",
+    "langchain4j": "LangChain4j 1.22.0-beta32: at 2026-07-28 `DefaultMcpClient` reads an `InputRequiredResult` and throws `Server sent inputRequests that the client cannot handle`, whatever is embedded. No hook answers it, so the tool call fails.",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): mcptoolset has no elicitation option. A `mcp.ClientOptions.ElicitationHandler` with `Capabilities.Elicitation.URL` set on the `*mcp.Client` the caller passes as `mcptoolset.Config.Client` answers the server's request, so it works, but only by configuring go-sdk rather than the toolset."
+  },
+  "verdict": {}
+}

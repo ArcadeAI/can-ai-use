@@ -1,0 +1,60 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "read-only-hint",
+  "title": "`readOnlyHint`",
+  "description": "Marks a tool as read only: safe to call, no side effects.",
+  "question": "Is the readOnlyHint annotation present at each capture boundary?",
+  "spec": "https://modelcontextprotocol.io/specification",
+  "status": "stable",
+  "categories": [
+    "Tool annotations"
+  ],
+  "keywords": "readOnlyHint,read only hint,annotations,safety,authorization",
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/schema#toolannotations",
+      "title": "MCP Docs"
+    },
+    {
+      "url": "https://platform.openai.com/docs/guides/function-calling",
+      "title": "OpenAI function calling, tool schema"
+    }
+  ],
+  "known_issues": [],
+  "why": "A downstream consumer that reads the tool definition at the capture boundary can only use this hint to tell a safe read from a risky write if it survives to that point.",
+  "shown": true,
+  "docs_url": "https://modelcontextprotocol.io/specification/2025-11-25/schema#toolannotations",
+  "docs_label": "MCP Docs",
+  "notes": {
+    "crewai": "CrewAI: the adapted tool object exposes no annotations field, so the value is not recoverable after adaptation.",
+    "genkit_js": "Genkit (JS) 1.42.0: `createDynamicTool` builds the Genkit tool from the MCP tool's `name` (prefixed `<server>/`), `description` and `inputSchema` only, with `outputSchema: z.any()` and `metadata: { mcp: { _meta } }`; `annotations.readOnlyHint` is not carried anywhere on the `ToolDefinition` the model receives.",
+    "langchain": "LangChain: retained on `StructuredTool.metadata`, but absent from the OpenAI-compatible dictionary produced by `convert_to_openai_tool`.",
+    "openai-agents": "OpenAI Agents SDK: `FunctionTool` keeps `_mcp_title` only. The behavioural hints are not carried.",
+    "pydantic-ai": "Pydantic AI: retained in `ToolDefinition.metadata['annotations']`. Not part of `parameters_json_schema`.",
+    "mastra": "Mastra 2.2.0: retained on the tool action's `mcp.annotations`; not part of the id, description or inputSchema the agent is handed.",
+    "google_adk": "Google ADK 2.11.0: retained on `McpTool.raw_mcp_tool.annotations`; the `FunctionDeclaration` in the model's `LlmRequest` has no annotations field.",
+    "vercel_ai": "Vercel AI SDK (@ai-sdk/mcp 2.0.73): toolsFromDefinitions copies the server's readOnlyHint onto the tool's app-side `metadata.annotations`, not into the description or inputSchema a provider adapter serializes. An app can read it; the model is not shown it.",
+    "ms_agent_framework": "Microsoft Agent Framework 1.21.0: `load_tools` builds each `FunctionTool` from the MCP tool's name, description and inputSchema only. The annotations are neither in the function spec nor kept anywhere on the `FunctionTool`.",
+    "autogen": "AutoGen 0.7.5: `McpWorkbench.list_tools` discards the MCP tool after building the `ToolSchema`, so the hint is neither in the definition nor retained elsewhere.",
+    "openai_agents_js": "OpenAI Agents SDK (JS) 0.20.0: `mcpToFunctionTool` builds the `FunctionTool` from the MCP tool's name, description and inputSchema only. The `readOnlyHint` annotation is not on the tool the model is handed and is not kept anywhere beside it.",
+    "semantic_kernel": "Semantic Kernel 1.45.0: `MCPPluginBase.load_tools` reads name, description and inputSchema only. No annotation is kept on the KernelFunction or sent to the model.",
+    "llamaindex": "LlamaIndex (llama-index-tools-mcp 0.6.0): `FunctionTool` keeps only name, description and the rebuilt `fn_schema`; the MCP tool's annotations are not kept anywhere on it, so the value is not recoverable after adaptation.",
+    "google_adk_js": "Google ADK (TypeScript) 2.2.1: `MCPTool` builds its `FunctionDeclaration` from name, description and the converted schemas only. The annotations are kept only on the TypeScript-private `mcpTool` field, which nothing on the model path reads.",
+    "agno": "Agno 3.1.2: `MCPTools.build_tools` registers each tool as `Function(name, description, parameters=inputSchema)`; the tool's annotations, title, icons and `outputSchema` are not carried, so `readOnlyHint` reaches neither the model nor the agent.",
+    "haystack": "Haystack (mcp-haystack 1.5.2): `MCPToolset` builds each `haystack.tools.Tool` from the tool's name, description and `inputSchema` only, so `annotations.readOnlyHint` does not reach the tool definition.",
+    "smolagents": "smolagents 1.26.0 (mcpadapt 0.1.20): mcpadapt builds each `MCPAdaptTool` from the name, description and `inputSchema` properties only, so the MCP tool's annotations are not kept anywhere on it and the value is not recoverable after adaptation.",
+    "dspy": "DSPy 3.4.0: `Tool.from_mcp_tool` builds a `dspy.Tool` from the MCP tool's name, description and `inputSchema` properties only; the tool's annotations, title, icons and `outputSchema` are on no `Tool` field and in no dict the LM is handed, so `readOnlyHint` is lost.",
+    "langchain_js": "LangChain.js (@langchain/mcp-adapters 2.0.1): `MCPAdapter.listTools` keeps the server's annotations on the tool's app-side `metadata.annotations`, but the function tool `convertToOpenAITool` builds for the provider carries name, description and parameters only, so the model never sees `readOnlyHint`.",
+    "spring_ai": "Spring AI 2.0.1: `SyncMcpToolCallbackProvider` builds a `ToolDefinition`, which holds only a name, a description and the input schema, so `readOnlyHint` is dropped.",
+    "beeai": "BeeAI Framework 0.1.85: `MCPTool` exposes the tool's name, description and input schema. The MCP `Tool` it wraps is kept only on the private `MCPTool._tool`, so the hint is in no public field and not in the function dict LiteLLM is handed.",
+    "copilot_sdk": "GitHub Copilot SDK 1.0.19 (Copilot runtime 1.0.95): the provider tool does not carry it. The runtime reads it for its own approval step: the permission request it raises names the tool's `readOnly` flag, so the hint is kept app-side only.",
+    "crewai-native": "CrewAI 1.15.26, native `crewai.mcp` client (`Agent(mcps=[...])`, not the `crewai_tools.MCPServerAdapter` row): `MCPToolResolver` builds each `MCPNativeTool` from the sanitized name, the description and an `args_schema` generated from `inputSchema`, so the MCP tool's annotations are not kept anywhere on it and the value is not recoverable after adaptation.",
+    "google_adk_java": "Google ADK (Java) 1.11.0: `AbstractMcpTool.declaration` builds the `FunctionDeclaration` from the MCP tool's name, description, `inputSchema` and `outputSchema` only. `McpTool` keeps the MCP annotations beside it, through its public `annotations()`, so `readOnlyHint` is retained in framework metadata but never reaches the model.",
+    "langchain4j": "LangChain4j 1.22.0-beta32: MCP tool annotations reach `ToolSpecification.metadata()` only; the `ToolSpecification` AiServices hands the `ChatModel` carries name, description and parameters, so the model never sees `readOnlyHint`.",
+    "koog": "Koog 1.3.0-beta: `readOnlyHint` is dropped. `DefaultMcpToolDescriptorParser` builds a `ToolDescriptor` (name, description, parameters) and `McpTool` keeps only the `Client`, that descriptor and a string metadata map, so `annotations` never reach the chat-completions request and are not kept anywhere in Koog.",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): `convertTool` builds the `FunctionDeclaration` from the tool's name, description, `inputSchema` and `outputSchema` only, and `mcpTool` keeps no other field of the `*mcp.Tool`, so `annotations.readOnlyHint` is gone after listing.",
+    "ms_agent_framework_dotnet": "Microsoft Agent Framework (.NET) 1.24.0 (ModelContextProtocol 2.2.0): `McpClientTool` passes the model only the MCP tool's name, description, `inputSchema` (as `JsonSchema`) and `outputSchema` (as `ReturnJsonSchema`). It keeps the MCP `Tool` it was built from as the public `ProtocolTool` property, so `readOnlyHint` is retained in framework metadata but never reaches the model."
+  },
+  "summary": "A framework can keep the annotation outside the captured definition, in its own tool metadata, where an application policy layer can still read it. That counts as retained elsewhere."
+}

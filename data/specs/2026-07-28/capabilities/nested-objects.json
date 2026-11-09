@@ -1,0 +1,31 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "nested-objects",
+  "title": "Nested Objects",
+  "description": "An object typed parameter carrying its own nested properties.",
+  "question": "Does nested structure survive to each capture boundary?",
+  "spec": "https://json-schema.org/draft/2020-12/json-schema-validation",
+  "status": "stable",
+  "categories": [
+    "Structure"
+  ],
+  "keywords": "nested,object,structure,schema",
+  "usage_perc_y": null,
+  "usage_perc_a": null,
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "links": [
+    {
+      "url": "https://json-schema.org/understanding-json-schema/reference/object#properties",
+      "title": "JSON Schema Docs"
+    },
+    {
+      "url": "https://platform.openai.com/docs/guides/function-calling",
+      "title": "OpenAI function calling, tool schema"
+    }
+  ],
+  "known_issues": [],
+  "why": "If nested structure were flattened or dropped, complex calls would silently degrade.",
+  "shown": true,
+  "docs_url": "https://json-schema.org/understanding-json-schema/reference/object#properties",
+  "docs_label": "JSON Schema Docs"
+}

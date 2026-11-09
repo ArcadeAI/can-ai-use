@@ -1,0 +1,5 @@
+{"format": "mcp-mirror.harness-output/1"}
+{"event": "tool_use", "tool": "mcp__ntf__add_tool", "input": {}}
+{"event": "tool_result", "is_error": false, "text": "{\"content\": [{\"type\": \"text\", \"text\": \"SENTINEL_MUTATED add_tool: sent on the session\"}], \"structured_content\": null}"}
+{"event": "text", "text": "ntf SENTINEL_ADDED_TOOL is not among the tools offered"}
+{"event": "result", "subtype": "turn.completed", "is_error": false, "num_turns": null, "text": ""}

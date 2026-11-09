@@ -1,0 +1,28 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "transport-stdio",
+  "title": "stdio transport",
+  "description": "Newline-delimited JSON-RPC over the standard streams of a subprocess the client launches.",
+  "question": "Can the framework talk to a local subprocess server?",
+  "spec": "https://modelcontextprotocol.io/specification/2025-11-25",
+  "status": "stable",
+  "categories": [
+    "Transports"
+  ],
+  "keywords": "stdio,subprocess,newline delimited,local server,transport",
+  "why": "This is how nearly every local MCP server is run, and how this project's own fixture is scanned. It is the baseline transport row.",
+  "docs_url": "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports/stdio",
+  "docs_label": "MCP Docs",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports/stdio",
+      "title": "MCP Docs"
+    }
+  ],
+  "usage_perc_y": null,
+  "usage_perc_a": null,
+  "usage_note": null,
+  "known_issues": [
+    "Measured by `scripts/measure_transports.py`: every renderer is asked for the fixture's tool definitions, resources, prompts and every result call over stdio, Streamable HTTP and the deprecated HTTP+SSE transport, with the fixture behind the recording proxy so the wire is logged on each. A transport is `y` when both fixtures open a session over it and, for an HTTP transport, every answer matches the stdio one."
+  ]
+}

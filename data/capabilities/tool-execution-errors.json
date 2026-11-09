@@ -1,0 +1,51 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "tool-execution-errors",
+  "title": "`isError`",
+  "description": "The in-band flag marking a tool result as a tool execution error, which the spec expects clients to pass to the model so it can correct itself.",
+  "question": "Can the agent tell a tool execution error from a successful result?",
+  "spec": "https://modelcontextprotocol.io/specification/2025-11-25",
+  "status": "stable",
+  "categories": [
+    "Tool results"
+  ],
+  "keywords": "isError,tool execution error,protocol error,self-correction,retry",
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/server/tools#error-handling",
+      "title": "MCP Docs"
+    }
+  ],
+  "known_issues": [],
+  "why": "MCP separates protocol errors from tool execution errors precisely so a model can retry the second kind with better arguments. A framework that raises both as exceptions, or reports both as success, collapses that distinction and removes the recovery path the spec designed.",
+  "shown": true,
+  "docs_url": "https://modelcontextprotocol.io/specification/2025-11-25/server/tools#error-handling",
+  "docs_label": "MCP Docs",
+  "notes": {
+    "crewai": "CrewAI: the adapter's tool reads only `result.content` and never `result.isError`, so a failed call returns the same bare string a successful one does. Identical at `BaseTool.run` and at `CrewStructuredTool.invoke`, which is the path a crew run takes.",
+    "langchain": "LangChain: the answer depends on the boundary. `load_mcp_tools` builds the tool with `handle_tool_error=_handle_mcp_tool_error`, so an `isError` result raises an internal `ToolException` subclass that the handler turns back into tool output. Invoked with a plain argument dict the call returns those content blocks and nothing marks them as a failure. Invoked with a `ToolCall`, which is what an agent and `ToolNode` send, the same call returns a `ToolMessage` with `status=\"error\"`.",
+    "openai-agents": "OpenAI Agents: `invoke_mcp_tool` reads `isError` only to decide whether `structuredContent` may be preferred, then emits the error text as an ordinary text output item. Identical at `MCPUtil.invoke_mcp_tool` and at `FunctionTool.on_invoke_tool`, which is what the agent loop calls. By default nothing reaching app code carries the flag either: the `on_tool_end` hook gets the same text item a success produces. Opt-in: an `MCPServer` built with `custom_data_extractor` is handed `is_error`, and whatever it returns is attached to the run's `ToolCallOutputItem.custom_data`; the model and the hook still get the unflagged text.",
+    "pydantic-ai": "Pydantic AI: the toolset's `tool_error_behavior` defaults to `'retry'`, which raises `ModelRetry` carrying the error text. Identical at `direct_call_tool` and at `call_tool`, which delegates to it; an agent run records that raise as a typed `RetryPromptPart` rather than as a tool return.",
+    "mastra": "Mastra 2.2.0: the per-server `onToolError` option defaults to `'throw'`, so the tool action throws a `MastraError` carrying the error text. Set to `'return'` the same action resolves with the server's `CallToolResult`, `isError: true` included.",
+    "vercel_ai": "Vercel AI SDK (@ai-sdk/mcp 2.0.73): an isError result is not thrown. execute resolves with the CallToolResult, isError: true, which a caller reading a step's toolResults can see. generateText then builds the model's message through toModelOutput, which keeps only the content, so the model receives the error text as an ordinary tool result with no failure flag; ai's createToolModelOutput uses its error-text path only for a tool that threw. Boundary-dependent: flagged at execute, unflagged at model_output.",
+    "ms_agent_framework": "Microsoft Agent Framework 1.21.0: an `isError` result makes `MCPTool.call_tool` raise `ToolExecutionException` with the server's text. On the agent path the function-invocation loop turns that into a function result reading `Error: Function failed.`; the server's message reaches the model only with `include_detailed_errors=True`.",
+    "autogen": "AutoGen 0.7.5: Boundary-dependent. `McpWorkbench.call_tool` and the agent's `FunctionExecutionResult` carry `is_error`; `McpToolAdapter.run_json` raises an `Exception` holding the serialized content instead of returning a flagged result.",
+    "openai_agents_js": "OpenAI Agents SDK (JS) 0.20.0: depends on the boundary. `MCPServer.callTool` returns the content array with `isError` attached to it, so a direct caller can read the flag. The `function_call_result` the model receives has no error field: a failed call arrives as ordinary text, the same shape as a success.",
+    "semantic_kernel": "Semantic Kernel 1.45.0: `call_tool` ignores `isError`, so a failed tool returns its text as an ordinary result, and the model reads it with no error signal.",
+    "llamaindex": "LlamaIndex (llama-index-tools-mcp 0.6.0): `FunctionTool._parse_tool_output` has no case for `CallToolResult`, so the `ToolOutput`, and the `ChatMessage(role=\"tool\")` a `FunctionAgent` sends the model, hold one text block: the result's Python repr. `ToolOutput.is_error` is set only when the call raises, and an `isError` result does not raise, so it is `False`; the tool message the `FunctionAgent` builds carries no error field at all. `isError=True` survives only as characters in the text.",
+    "pi": "Pi (@earendil-works/pi-mcp 1.1.0): `McpClient.callTool` returns `isError: true` to a direct caller. `toLlmContent` returns only the content blocks, so the model gets the failure text with no error flag; the README's agent-tool example carries `isError` beside it in user code.",
+    "agno": "Agno 3.1.2: an `isError` result becomes the text `Error from MCP tool '<name>': <repr of the content list>` with no error flag: the `ToolResult` has none, and the tool `Message` the model receives has `tool_call_error=False`, which is set only when the call raises.",
+    "haystack": "Haystack (mcp-haystack 1.5.2): boundary-dependent. For an `isError` result `MCPClient.call_tool` raises `MCPInvocationError`, which `Tool.invoke` wraps in `ToolInvocationError`, so a direct caller gets an exception rather than the result. An `Agent` catches it and hands the next generator turn a tool `ChatMessage` with the error text and `error=True`.",
+    "smolagents": "smolagents 1.26.0 (mcpadapt 0.1.20): `MCPAdaptTool.forward` never reads `result.isError`, so a failed call returns the same bare string a successful one does, and a `ToolCallingAgent` sends it to the model as an ordinary `Observation:`. Only a raised exception becomes an `Error:` message.",
+    "dspy": "DSPy 3.4.0: depends on the boundary. `Tool.acall` raises `RuntimeError(\"Failed to call a MCP tool: ...\")` for an `isError` result, so the error survives only as an exception (direct: `a`). `dspy.ReAct` catches it and hands the model the text `Execution error in tool_error:` followed by a Python traceback, with no error flag (react: `n`). The traceback also carries the host's file paths into the prompt.",
+    "langchain_js": "LangChain.js (@langchain/mcp-adapters 2.0.1): boundary-dependent. Inside a LangGraph `ToolNode` the failure reaches the model as a `ToolMessage` with `status: \"error\"` and the server's text. A direct `tool.invoke` throws a `ToolException` carrying the text instead of returning a result.",
+    "spring_ai": "Spring AI 2.0.1: boundary-dependent. On the agent path (`DefaultToolCallingManager.executeToolCalls`) an `isError` result reaches the model as the text `Error calling tool: [TextContent[annotations=null, text=...]]`, a Java record's toString, with no error flag. A direct `ToolCallback.call` throws `ToolExecutionException` carrying that same message.",
+    "beeai": "BeeAI Framework 0.1.85: depends on the boundary. `MCPTool._run` raises `ToolError` with the result JSON for an `isError` result, so the error survives only as an exception (direct: `a`). A `RequirementAgent` writes it through its tool_error template, \"The tool has failed; the error log is shown below...\", into the tool message (agent: `y`).",
+    "copilot_sdk": "GitHub Copilot SDK 1.0.19 (Copilot runtime 1.0.95): depends on the boundary. `agent`: the server's text reaches the provider as `MCP server 'src': SENTINEL_TOOL_ERROR: ...` in an ordinary `tool` message, with no error flag. `direct`: `session.rpc.tools.execute` returns `resultType: \"failure\"` with the same text.",
+    "crewai-native": "CrewAI 1.15.26, native `crewai.mcp` client (`Agent(mcps=[...])`, not the `crewai_tools.MCPServerAdapter` row): depends on the boundary. `MCPNativeTool._run_async` reads `isError` and returns a `ToolFailure(reason=mcp_error)` carrying the error text, so a direct `BaseTool.run` caller can tell a failure from a result (direct: `y`). In an agent run, `execute_single_native_tool_call` renders only the failure's message into the tool message, so the model gets the bare error text with no error flag, the same shape as a successful result (agent: `n`).",
+    "langchain4j": "LangChain4j 1.22.0-beta32: an `isError` result reaches the agent as a `ToolExecutionResultMessage` with `isError` set and the error text intact (agent: `y`). The direct executor throws `McpApplicationErrorException`, an LLM-visible `ToolExecutionException`, with that text instead of returning a result (direct: `a`).",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): depends on the boundary. `direct`: `mcpTool.Run` turns an `isError` result into the Go error `Tool execution failed. Details: <text>`, so the caller gets an `error`, not a result. `agent`: ADK hands the model `{\"error\": \"Tool execution failed. Details: SENTINEL_TOOL_ERROR: ...\"}` as the `FunctionResponse`, so the model sees the failure and the server's text."
+  },
+  "summary": "Measured at the value a direct invocation returns and at the value the framework's own agent path returns. Where those disagree, the cell is marked as boundary-dependent rather than dropped."
+}

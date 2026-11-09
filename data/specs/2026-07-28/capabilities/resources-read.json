@@ -1,0 +1,31 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "resources-read",
+  "title": "`resources/read`",
+  "description": "Reads the contents behind a resource URI, which may return several contents for one request.",
+  "question": "Can the agent read a resource's contents through the framework?",
+  "spec": "https://modelcontextprotocol.io/specification/2026-07-28",
+  "status": "stable",
+  "categories": [
+    "Resources"
+  ],
+  "keywords": "resources/read,read resource,contents,text,blob",
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/server/resources#reading-resources",
+      "title": "MCP Docs"
+    }
+  ],
+  "known_issues": [],
+  "why": "Listing resources without reading them is a catalogue with no way to open anything. This row is where the primitive becomes usable, and it is also where a framework that returns only the first of several contents starts losing data.",
+  "shown": true,
+  "docs_url": "https://modelcontextprotocol.io/specification/2026-07-28/server/resources#reading-resources",
+  "docs_label": "MCP Docs",
+  "notes": {
+    "pydantic-ai": "Pydantic AI 2.54.0: a text resource is returned as a bare string. The contents arrive intact, but the `uri` and `mimeType` that identify them are dropped, so the agent cannot tell which resource it just read.",
+    "agno": "Agno 3.1.2: `MCPTools` lists and calls tools only; it has no resource or prompt API, so `resources/read` is unreachable.",
+    "dspy": "DSPy 3.4.0: DSPy's MCP support is `dspy.Tool.from_mcp_tool`, which converts one tool. It has no resource or prompt API, so resources and prompts stay on the caller's MCP session.",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): `mcptoolset.Toolset` exposes only `Tools()`, and the `*mcp.ClientSession` it opens stays inside its unexported `connectionRefresher`, so the caller has no session to call `ReadResource` on."
+  }
+}

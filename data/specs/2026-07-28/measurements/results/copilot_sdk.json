@@ -1,0 +1,2003 @@
+{
+  "schema": "mcp-mirror/result-boundaries@2",
+  "captured_at": "2026-10-09T21:09:58Z",
+  "fixture": "fixtures/results_server.py",
+  "fixture_python": "<checkout>/.mcp-mirror/fixture-2026-07-28/bin/python",
+  "spec_version": "2026-07-28",
+  "calls": [
+    {
+      "tool": "text_content",
+      "arguments": {}
+    },
+    {
+      "tool": "image_content",
+      "arguments": {}
+    },
+    {
+      "tool": "audio_content",
+      "arguments": {}
+    },
+    {
+      "tool": "embedded_resource_content",
+      "arguments": {}
+    },
+    {
+      "tool": "resource_link_content",
+      "arguments": {}
+    },
+    {
+      "tool": "annotated_content",
+      "arguments": {}
+    },
+    {
+      "tool": "mixed_content",
+      "arguments": {}
+    },
+    {
+      "tool": "text_and_structured",
+      "arguments": {}
+    },
+    {
+      "tool": "tool_error",
+      "arguments": {}
+    }
+  ],
+  "source": {
+    "text_content": {
+      "tool": "text_content",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_TEXT_BLOCK"
+        }
+      ],
+      "block_kinds": [
+        "text"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": "SENTINEL_TEXT_BLOCK",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_TEXT_BLOCK",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false,
+        "resultType": "complete"
+      },
+      "error_channel": null
+    },
+    "image_content": {
+      "tool": "image_content",
+      "blocks": [
+        {
+          "type": "image",
+          "data": "<96 chars>",
+          "mimeType": "image/png"
+        }
+      ],
+      "block_kinds": [
+        "image"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": null,
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "image",
+            "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==",
+            "mimeType": "image/png",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false,
+        "resultType": "complete"
+      },
+      "error_channel": null
+    },
+    "audio_content": {
+      "tool": "audio_content",
+      "blocks": [
+        {
+          "type": "audio",
+          "data": "<60 chars>",
+          "mimeType": "audio/wav"
+        }
+      ],
+      "block_kinds": [
+        "audio"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": null,
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "audio",
+            "data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
+            "mimeType": "audio/wav",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false,
+        "resultType": "complete"
+      },
+      "error_channel": null
+    },
+    "embedded_resource_content": {
+      "tool": "embedded_resource_content",
+      "blocks": [
+        {
+          "type": "resource",
+          "resource": {
+            "uri": "file:///fixtures/embedded.txt",
+            "mimeType": "text/plain",
+            "_meta": null,
+            "text": "SENTINEL_EMBEDDED_RESOURCE"
+          }
+        }
+      ],
+      "block_kinds": [
+        "resource"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": null,
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "resource",
+            "resource": {
+              "uri": "file:///fixtures/embedded.txt",
+              "mimeType": "text/plain",
+              "_meta": null,
+              "text": "SENTINEL_EMBEDDED_RESOURCE"
+            },
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false,
+        "resultType": "complete"
+      },
+      "error_channel": null
+    },
+    "resource_link_content": {
+      "tool": "resource_link_content",
+      "blocks": [
+        {
+          "name": "linked.txt",
+          "uri": "file:///fixtures/linked.txt",
+          "description": "SENTINEL_RESOURCE_LINK",
+          "mimeType": "text/plain",
+          "type": "resource_link"
+        }
+      ],
+      "block_kinds": [
+        "resource_link"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": null,
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "name": "linked.txt",
+            "title": null,
+            "uri": "file:///fixtures/linked.txt",
+            "description": "SENTINEL_RESOURCE_LINK",
+            "mimeType": "text/plain",
+            "size": null,
+            "icons": null,
+            "annotations": null,
+            "_meta": null,
+            "type": "resource_link"
+          }
+        ],
+        "structuredContent": null,
+        "isError": false,
+        "resultType": "complete"
+      },
+      "error_channel": null
+    },
+    "annotated_content": {
+      "tool": "annotated_content",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_ANNOTATED_TEXT",
+          "annotations": {
+            "audience": [
+              "user"
+            ],
+            "priority": 0.9,
+            "lastModified": null
+          }
+        }
+      ],
+      "block_kinds": [
+        "text"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": "SENTINEL_ANNOTATED_TEXT",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_ANNOTATED_TEXT",
+            "annotations": {
+              "audience": [
+                "user"
+              ],
+              "priority": 0.9,
+              "lastModified": null
+            },
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false,
+        "resultType": "complete"
+      },
+      "error_channel": null
+    },
+    "mixed_content": {
+      "tool": "mixed_content",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_TEXT_BLOCK",
+          "annotations": {
+            "audience": [
+              "user"
+            ],
+            "priority": 0.9,
+            "lastModified": null
+          }
+        },
+        {
+          "type": "image",
+          "data": "<96 chars>",
+          "mimeType": "image/png"
+        },
+        {
+          "type": "audio",
+          "data": "<60 chars>",
+          "mimeType": "audio/wav"
+        },
+        {
+          "type": "resource",
+          "resource": {
+            "uri": "file:///fixtures/embedded.txt",
+            "mimeType": "text/plain",
+            "_meta": null,
+            "text": "SENTINEL_EMBEDDED_RESOURCE"
+          }
+        },
+        {
+          "name": "linked.txt",
+          "uri": "file:///fixtures/linked.txt",
+          "description": "SENTINEL_RESOURCE_LINK",
+          "mimeType": "text/plain",
+          "type": "resource_link"
+        }
+      ],
+      "block_kinds": [
+        "text",
+        "image",
+        "audio",
+        "resource",
+        "resource_link"
+      ],
+      "structured_content": {
+        "count": 2,
+        "records": [
+          {
+            "id": "rec_1",
+            "status": "active"
+          },
+          {
+            "id": "rec_2",
+            "status": "archived"
+          }
+        ],
+        "note": "SENTINEL_STRUCTURED_CONTENT"
+      },
+      "is_error": false,
+      "text": "SENTINEL_TEXT_BLOCK",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_TEXT_BLOCK",
+            "annotations": {
+              "audience": [
+                "user"
+              ],
+              "priority": 0.9,
+              "lastModified": null
+            },
+            "_meta": null
+          },
+          {
+            "type": "image",
+            "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==",
+            "mimeType": "image/png",
+            "annotations": null,
+            "_meta": null
+          },
+          {
+            "type": "audio",
+            "data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
+            "mimeType": "audio/wav",
+            "annotations": null,
+            "_meta": null
+          },
+          {
+            "type": "resource",
+            "resource": {
+              "uri": "file:///fixtures/embedded.txt",
+              "mimeType": "text/plain",
+              "_meta": null,
+              "text": "SENTINEL_EMBEDDED_RESOURCE"
+            },
+            "annotations": null,
+            "_meta": null
+          },
+          {
+            "name": "linked.txt",
+            "title": null,
+            "uri": "file:///fixtures/linked.txt",
+            "description": "SENTINEL_RESOURCE_LINK",
+            "mimeType": "text/plain",
+            "size": null,
+            "icons": null,
+            "annotations": null,
+            "_meta": null,
+            "type": "resource_link"
+          }
+        ],
+        "structuredContent": {
+          "count": 2,
+          "records": [
+            {
+              "id": "rec_1",
+              "status": "active"
+            },
+            {
+              "id": "rec_2",
+              "status": "archived"
+            }
+          ],
+          "note": "SENTINEL_STRUCTURED_CONTENT"
+        },
+        "isError": false,
+        "resultType": "complete"
+      },
+      "error_channel": null
+    },
+    "text_and_structured": {
+      "tool": "text_and_structured",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_TEXT_BLOCK"
+        }
+      ],
+      "block_kinds": [
+        "text"
+      ],
+      "structured_content": {
+        "count": 2,
+        "records": [
+          {
+            "id": "rec_1",
+            "status": "active"
+          },
+          {
+            "id": "rec_2",
+            "status": "archived"
+          }
+        ],
+        "note": "SENTINEL_STRUCTURED_CONTENT"
+      },
+      "is_error": false,
+      "text": "SENTINEL_TEXT_BLOCK",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_TEXT_BLOCK",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "count": 2,
+          "records": [
+            {
+              "id": "rec_1",
+              "status": "active"
+            },
+            {
+              "id": "rec_2",
+              "status": "archived"
+            }
+          ],
+          "note": "SENTINEL_STRUCTURED_CONTENT"
+        },
+        "isError": false,
+        "resultType": "complete"
+      },
+      "error_channel": null
+    },
+    "tool_error": {
+      "tool": "tool_error",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_TOOL_ERROR: this tool always fails"
+        }
+      ],
+      "block_kinds": [
+        "text"
+      ],
+      "structured_content": null,
+      "is_error": true,
+      "text": "SENTINEL_TOOL_ERROR: this tool always fails",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_TOOL_ERROR: this tool always fails",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": true,
+        "resultType": "complete"
+      },
+      "error_channel": null
+    }
+  },
+  "frameworks": {
+    "copilot_sdk": {
+      "ok": true,
+      "versions": {
+        "framework": "1.0.19",
+        "adapter": "Copilot runtime 1.0.95, node v24.21.0"
+      },
+      "evidence": {
+        "capture_api": "CopilotRequestHandler.sendRequest (CopilotClientOptions.requestHandler)",
+        "capture_object": "the function entries named src-<tool> in the tools array of the chat/completions request body the Copilot runtime sent the session's BYOK provider",
+        "capture_stage": "provider_request",
+        "provider_request_captured": true,
+        "negotiated_mcp_spec_version": "2026-07-28",
+        "protocol_version_evidence": "the initialize result, or the revision stamped on each request after a successful server/discover, in the JSON-RPC frames session.rpc.diagnostics.read returns at trace level",
+        "limitation": "The provider is a BYOK OpenAI-compatible endpoint answered in-process by the request handler; a GitHub-hosted model was not used. The request also carries the runtime's built-in tools, which are not recorded. Retained annotations come from a second turn in which the stub model calls every tool and every approval request is refused."
+      },
+      "result_boundaries": [
+        {
+          "id": "agent",
+          "label": "Agent tool loop (next provider request)",
+          "capture_api": "CopilotRequestHandler.sendRequest",
+          "capture_object": "the tool message, and any message the runtime adds for the same result, in the chat/completions request that follows the model's tool call",
+          "agent_path": true,
+          "limitation": "The stub model asks for one tool call. The chat/completions wire format has no tool-error flag, so an error reaches the model as text only. The model is declared vision-capable (SessionConfig.modelCapabilities), as gpt-4.1 is; images ride a user message the runtime appends, whose framing text is not recorded."
+        },
+        {
+          "id": "direct",
+          "label": "Direct tool invocation",
+          "capture_api": "CopilotSession.rpc.tools.execute",
+          "capture_object": "the ToolResult the runtime returns, outside a model turn",
+          "agent_path": false,
+          "limitation": null
+        }
+      ],
+      "reps": [
+        {
+          "name": "src-annotated_content",
+          "description": "Return one text block carrying audience and priority annotations.",
+          "params": {
+            "properties": {},
+            "type": "object"
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {
+            "annotations": {
+              "title": "annotated_content",
+              "readOnlyHint": false
+            }
+          },
+          "origin": "copilot_sdk",
+          "raw": {
+            "name": "src-annotated_content",
+            "description": "Return one text block carrying audience and priority annotations.",
+            "parameters": {
+              "properties": {},
+              "type": "object"
+            }
+          }
+        },
+        {
+          "name": "src-audio_content",
+          "description": "Return one audio block and nothing else.",
+          "params": {
+            "properties": {},
+            "type": "object"
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {
+            "annotations": {
+              "title": "audio_content",
+              "readOnlyHint": false
+            }
+          },
+          "origin": "copilot_sdk",
+          "raw": {
+            "name": "src-audio_content",
+            "description": "Return one audio block and nothing else.",
+            "parameters": {
+              "properties": {},
+              "type": "object"
+            }
+          }
+        },
+        {
+          "name": "src-embedded_resource_content",
+          "description": "Return one embedded resource block and nothing else.",
+          "params": {
+            "properties": {},
+            "type": "object"
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {
+            "annotations": {
+              "title": "embedded_resource_content",
+              "readOnlyHint": false
+            }
+          },
+          "origin": "copilot_sdk",
+          "raw": {
+            "name": "src-embedded_resource_content",
+            "description": "Return one embedded resource block and nothing else.",
+            "parameters": {
+              "properties": {},
+              "type": "object"
+            }
+          }
+        },
+        {
+          "name": "src-image_content",
+          "description": "Return one image block and nothing else.",
+          "params": {
+            "properties": {},
+            "type": "object"
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {
+            "annotations": {
+              "title": "image_content",
+              "readOnlyHint": false
+            }
+          },
+          "origin": "copilot_sdk",
+          "raw": {
+            "name": "src-image_content",
+            "description": "Return one image block and nothing else.",
+            "parameters": {
+              "properties": {},
+              "type": "object"
+            }
+          }
+        },
+        {
+          "name": "src-mixed_content",
+          "description": "Return one block of every kind plus structuredContent in one result.",
+          "params": {
+            "properties": {},
+            "type": "object"
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {
+            "annotations": {
+              "title": "mixed_content",
+              "readOnlyHint": false
+            }
+          },
+          "origin": "copilot_sdk",
+          "raw": {
+            "name": "src-mixed_content",
+            "description": "Return one block of every kind plus structuredContent in one result.",
+            "parameters": {
+              "properties": {},
+              "type": "object"
+            }
+          }
+        },
+        {
+          "name": "src-resource_link_content",
+          "description": "Return one resource_link block and nothing else.",
+          "params": {
+            "properties": {},
+            "type": "object"
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {
+            "annotations": {
+              "title": "resource_link_content",
+              "readOnlyHint": false
+            }
+          },
+          "origin": "copilot_sdk",
+          "raw": {
+            "name": "src-resource_link_content",
+            "description": "Return one resource_link block and nothing else.",
+            "parameters": {
+              "properties": {},
+              "type": "object"
+            }
+          }
+        },
+        {
+          "name": "src-text_and_structured",
+          "description": "Return one text block plus structuredContent, with no media.",
+          "params": {
+            "properties": {},
+            "type": "object"
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {
+            "annotations": {
+              "title": "text_and_structured",
+              "readOnlyHint": false
+            }
+          },
+          "origin": "copilot_sdk",
+          "raw": {
+            "name": "src-text_and_structured",
+            "description": "Return one text block plus structuredContent, with no media.",
+            "parameters": {
+              "properties": {},
+              "type": "object"
+            }
+          }
+        },
+        {
+          "name": "src-text_content",
+          "description": "Return one text block and nothing else.",
+          "params": {
+            "properties": {},
+            "type": "object"
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {
+            "annotations": {
+              "title": "text_content",
+              "readOnlyHint": false
+            }
+          },
+          "origin": "copilot_sdk",
+          "raw": {
+            "name": "src-text_content",
+            "description": "Return one text block and nothing else.",
+            "parameters": {
+              "properties": {},
+              "type": "object"
+            }
+          }
+        },
+        {
+          "name": "src-tool_error",
+          "description": "Always fail, reporting the failure through isError rather than a protocol error.",
+          "params": {
+            "properties": {},
+            "type": "object"
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {
+            "annotations": {
+              "title": "tool_error",
+              "readOnlyHint": false
+            }
+          },
+          "origin": "copilot_sdk",
+          "raw": {
+            "name": "src-tool_error",
+            "description": "Always fail, reporting the failure through isError rather than a protocol error.",
+            "parameters": {
+              "properties": {},
+              "type": "object"
+            }
+          }
+        }
+      ],
+      "results": [
+        {
+          "tool": "text_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "text_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TEXT_BLOCK"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_TEXT_BLOCK",
+            "origin": "copilot_sdk",
+            "raw": {
+              "kind": "provider_request",
+              "parts": [
+                {
+                  "role": "tool",
+                  "type": "text",
+                  "text": "SENTINEL_TEXT_BLOCK"
+                }
+              ],
+              "messages": [
+                {
+                  "role": "tool",
+                  "tool_call_id": "call_mcp_mirror_1",
+                  "content": "SENTINEL_TEXT_BLOCK"
+                }
+              ],
+              "execution": {
+                "toolCallId": "call_mcp_mirror_1",
+                "model": "gpt-4.1",
+                "interactionId": "5d6d02a4-a98d-46a1-8df8-a22597ca0d6f",
+                "turnId": "0",
+                "rte": false,
+                "success": true,
+                "result": {
+                  "content": "SENTINEL_TEXT_BLOCK",
+                  "detailedContent": "SENTINEL_TEXT_BLOCK",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "SENTINEL_TEXT_BLOCK"
+                    }
+                  ]
+                },
+                "toolTelemetry": {
+                  "metrics": {
+                    "mcp_result_content_bytes": 19,
+                    "result_token_count": 6
+                  }
+                }
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "text_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "text_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TEXT_BLOCK"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_TEXT_BLOCK",
+            "origin": "copilot_sdk",
+            "raw": {
+              "textResultForLlm": "SENTINEL_TEXT_BLOCK",
+              "binaryResultsForLlm": [],
+              "resultType": "success",
+              "sessionLog": "SENTINEL_TEXT_BLOCK",
+              "toolTelemetry": {
+                "metrics": {
+                  "mcp_result_content_bytes": 19
+                }
+              },
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_TEXT_BLOCK"
+                }
+              ]
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "image_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "image_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": ""
+              },
+              {
+                "type": "image",
+                "mimeType": "image/png",
+                "data": "<96 chars>"
+              }
+            ],
+            "block_kinds": [
+              "text",
+              "image"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "",
+            "origin": "copilot_sdk",
+            "raw": {
+              "kind": "provider_request",
+              "parts": [
+                {
+                  "role": "tool",
+                  "type": "text",
+                  "text": ""
+                },
+                {
+                  "role": "user",
+                  "type": "text",
+                  "text": "Here is an image:"
+                },
+                {
+                  "role": "user",
+                  "type": "image",
+                  "mimeType": "image/png",
+                  "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
+                }
+              ],
+              "messages": [
+                {
+                  "role": "tool",
+                  "tool_call_id": "call_mcp_mirror_1",
+                  "content": ""
+                },
+                {
+                  "role": "user",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Here is an image:"
+                    },
+                    {
+                      "type": "image_url",
+                      "image_url": {
+                        "url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
+                      }
+                    }
+                  ]
+                }
+              ],
+              "execution": {
+                "toolCallId": "call_mcp_mirror_1",
+                "model": "gpt-4.1",
+                "interactionId": "48219321-7336-49a1-9a60-e407b896b5b8",
+                "turnId": "0",
+                "rte": false,
+                "success": true,
+                "result": {
+                  "content": "",
+                  "detailedContent": "",
+                  "contents": [
+                    {
+                      "type": "image",
+                      "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==",
+                      "mimeType": "image/png"
+                    }
+                  ],
+                  "binaryResultsForLlm": [
+                    {
+                      "type": "image",
+                      "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==",
+                      "mimeType": "image/png"
+                    }
+                  ]
+                },
+                "toolTelemetry": {
+                  "metrics": {
+                    "mcp_result_content_bytes": 0
+                  }
+                }
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "image_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "image_content",
+            "blocks": [
+              {
+                "type": "image",
+                "data": "<96 chars>",
+                "mimeType": "image/png"
+              }
+            ],
+            "block_kinds": [
+              "image"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "",
+            "origin": "copilot_sdk",
+            "raw": {
+              "textResultForLlm": "",
+              "binaryResultsForLlm": [
+                {
+                  "type": "image",
+                  "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==",
+                  "mimeType": "image/png"
+                }
+              ],
+              "resultType": "success",
+              "sessionLog": "",
+              "toolTelemetry": {
+                "metrics": {
+                  "mcp_result_content_bytes": 0
+                }
+              },
+              "contents": [
+                {
+                  "type": "image",
+                  "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==",
+                  "mimeType": "image/png"
+                }
+              ]
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "audio_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "audio_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": ""
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "",
+            "origin": "copilot_sdk",
+            "raw": {
+              "kind": "provider_request",
+              "parts": [
+                {
+                  "role": "tool",
+                  "type": "text",
+                  "text": ""
+                }
+              ],
+              "messages": [
+                {
+                  "role": "tool",
+                  "tool_call_id": "call_mcp_mirror_1",
+                  "content": ""
+                }
+              ],
+              "execution": {
+                "toolCallId": "call_mcp_mirror_1",
+                "model": "gpt-4.1",
+                "interactionId": "28e1511e-ff48-437e-a16b-46eebe9a4c8b",
+                "turnId": "0",
+                "rte": false,
+                "success": true,
+                "result": {
+                  "content": "",
+                  "detailedContent": "",
+                  "contents": [
+                    {
+                      "type": "audio",
+                      "data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
+                      "mimeType": "audio/wav"
+                    }
+                  ]
+                },
+                "toolTelemetry": {
+                  "metrics": {
+                    "mcp_result_content_bytes": 0,
+                    "result_token_count": 0
+                  }
+                }
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "audio_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "audio_content",
+            "blocks": [
+              {
+                "type": "audio",
+                "data": "<60 chars>",
+                "mimeType": "audio/wav"
+              }
+            ],
+            "block_kinds": [
+              "audio"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "",
+            "origin": "copilot_sdk",
+            "raw": {
+              "textResultForLlm": "",
+              "binaryResultsForLlm": [],
+              "resultType": "success",
+              "sessionLog": "",
+              "toolTelemetry": {
+                "metrics": {
+                  "mcp_result_content_bytes": 0
+                }
+              },
+              "contents": [
+                {
+                  "type": "audio",
+                  "data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
+                  "mimeType": "audio/wav"
+                }
+              ]
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "embedded_resource_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "embedded_resource_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_EMBEDDED_RESOURCE"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_EMBEDDED_RESOURCE",
+            "origin": "copilot_sdk",
+            "raw": {
+              "kind": "provider_request",
+              "parts": [
+                {
+                  "role": "tool",
+                  "type": "text",
+                  "text": "SENTINEL_EMBEDDED_RESOURCE"
+                }
+              ],
+              "messages": [
+                {
+                  "role": "tool",
+                  "tool_call_id": "call_mcp_mirror_1",
+                  "content": "SENTINEL_EMBEDDED_RESOURCE"
+                }
+              ],
+              "execution": {
+                "toolCallId": "call_mcp_mirror_1",
+                "model": "gpt-4.1",
+                "interactionId": "70b26f1c-126d-4ef2-9531-534cd4828584",
+                "turnId": "0",
+                "rte": false,
+                "success": true,
+                "result": {
+                  "content": "SENTINEL_EMBEDDED_RESOURCE",
+                  "detailedContent": "SENTINEL_EMBEDDED_RESOURCE",
+                  "contents": [
+                    {
+                      "type": "resource",
+                      "resource": {
+                        "uri": "file:///fixtures/embedded.txt",
+                        "mimeType": "text/plain",
+                        "text": "SENTINEL_EMBEDDED_RESOURCE"
+                      }
+                    }
+                  ]
+                },
+                "toolTelemetry": {
+                  "metrics": {
+                    "mcp_result_content_bytes": 26,
+                    "result_token_count": 8
+                  }
+                }
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "embedded_resource_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "embedded_resource_content",
+            "blocks": [
+              {
+                "type": "resource",
+                "resource": {
+                  "uri": "file:///fixtures/embedded.txt",
+                  "mimeType": "text/plain",
+                  "text": "SENTINEL_EMBEDDED_RESOURCE"
+                }
+              }
+            ],
+            "block_kinds": [
+              "resource"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_EMBEDDED_RESOURCE",
+            "origin": "copilot_sdk",
+            "raw": {
+              "textResultForLlm": "SENTINEL_EMBEDDED_RESOURCE",
+              "binaryResultsForLlm": [],
+              "resultType": "success",
+              "sessionLog": "SENTINEL_EMBEDDED_RESOURCE",
+              "toolTelemetry": {
+                "metrics": {
+                  "mcp_result_content_bytes": 26
+                }
+              },
+              "contents": [
+                {
+                  "type": "resource",
+                  "resource": {
+                    "uri": "file:///fixtures/embedded.txt",
+                    "mimeType": "text/plain",
+                    "text": "SENTINEL_EMBEDDED_RESOURCE"
+                  }
+                }
+              ]
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "resource_link_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "resource_link_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": ""
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "",
+            "origin": "copilot_sdk",
+            "raw": {
+              "kind": "provider_request",
+              "parts": [
+                {
+                  "role": "tool",
+                  "type": "text",
+                  "text": ""
+                }
+              ],
+              "messages": [
+                {
+                  "role": "tool",
+                  "tool_call_id": "call_mcp_mirror_1",
+                  "content": ""
+                }
+              ],
+              "execution": {
+                "toolCallId": "call_mcp_mirror_1",
+                "model": "gpt-4.1",
+                "interactionId": "5661c6a5-2ab8-4c47-b343-f6e0516204b7",
+                "turnId": "0",
+                "rte": false,
+                "success": true,
+                "result": {
+                  "content": "",
+                  "detailedContent": "",
+                  "contents": [
+                    {
+                      "type": "resource_link",
+                      "uri": "file:///fixtures/linked.txt",
+                      "name": "linked.txt",
+                      "description": "SENTINEL_RESOURCE_LINK",
+                      "mimeType": "text/plain"
+                    }
+                  ]
+                },
+                "toolTelemetry": {
+                  "metrics": {
+                    "mcp_result_content_bytes": 0,
+                    "result_token_count": 0
+                  }
+                }
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "resource_link_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "resource_link_content",
+            "blocks": [
+              {
+                "type": "resource_link",
+                "uri": "file:///fixtures/linked.txt",
+                "name": "linked.txt",
+                "description": "SENTINEL_RESOURCE_LINK",
+                "mimeType": "text/plain"
+              }
+            ],
+            "block_kinds": [
+              "resource_link"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "",
+            "origin": "copilot_sdk",
+            "raw": {
+              "textResultForLlm": "",
+              "binaryResultsForLlm": [],
+              "resultType": "success",
+              "sessionLog": "",
+              "toolTelemetry": {
+                "metrics": {
+                  "mcp_result_content_bytes": 0
+                }
+              },
+              "contents": [
+                {
+                  "type": "resource_link",
+                  "uri": "file:///fixtures/linked.txt",
+                  "name": "linked.txt",
+                  "description": "SENTINEL_RESOURCE_LINK",
+                  "mimeType": "text/plain"
+                }
+              ]
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "annotated_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "annotated_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ANNOTATED_TEXT"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ANNOTATED_TEXT",
+            "origin": "copilot_sdk",
+            "raw": {
+              "kind": "provider_request",
+              "parts": [
+                {
+                  "role": "tool",
+                  "type": "text",
+                  "text": "SENTINEL_ANNOTATED_TEXT"
+                }
+              ],
+              "messages": [
+                {
+                  "role": "tool",
+                  "tool_call_id": "call_mcp_mirror_1",
+                  "content": "SENTINEL_ANNOTATED_TEXT"
+                }
+              ],
+              "execution": {
+                "toolCallId": "call_mcp_mirror_1",
+                "model": "gpt-4.1",
+                "interactionId": "adbda397-c67c-4ed9-8474-178973baa3fc",
+                "turnId": "0",
+                "rte": false,
+                "success": true,
+                "result": {
+                  "content": "SENTINEL_ANNOTATED_TEXT",
+                  "detailedContent": "SENTINEL_ANNOTATED_TEXT",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "SENTINEL_ANNOTATED_TEXT",
+                      "annotations": {
+                        "audience": [
+                          "user"
+                        ],
+                        "priority": 0.9
+                      }
+                    }
+                  ]
+                },
+                "toolTelemetry": {
+                  "metrics": {
+                    "mcp_result_content_bytes": 23,
+                    "result_token_count": 8
+                  }
+                }
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "annotated_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "annotated_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ANNOTATED_TEXT",
+                "annotations": {
+                  "audience": [
+                    "user"
+                  ],
+                  "priority": 0.9
+                }
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ANNOTATED_TEXT",
+            "origin": "copilot_sdk",
+            "raw": {
+              "textResultForLlm": "SENTINEL_ANNOTATED_TEXT",
+              "binaryResultsForLlm": [],
+              "resultType": "success",
+              "sessionLog": "SENTINEL_ANNOTATED_TEXT",
+              "toolTelemetry": {
+                "metrics": {
+                  "mcp_result_content_bytes": 23
+                }
+              },
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_ANNOTATED_TEXT",
+                  "annotations": {
+                    "audience": [
+                      "user"
+                    ],
+                    "priority": 0.9
+                  }
+                }
+              ]
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "mixed_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "mixed_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TEXT_BLOCKSENTINEL_EMBEDDED_RESOURCE\n\n{\"count\":2,\"records\":[{\"id\":\"rec_1\",\"status\":\"active\"},{\"id\":\"rec_2\",\"status\":\"archived\"}],\"note\":\"SENTINEL_STRUCTURED_CONTENT\"}"
+              },
+              {
+                "type": "image",
+                "mimeType": "image/png",
+                "data": "<96 chars>"
+              }
+            ],
+            "block_kinds": [
+              "text",
+              "image"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_TEXT_BLOCKSENTINEL_EMBEDDED_RESOURCE\n\n{\"count\":2,\"records\":[{\"id\":\"rec_1\",\"status\":\"active\"},{\"id\":\"rec_2\",\"status\":\"archived\"}],\"note\":\"SENTINEL_STRUCTURED_CONTENT\"}",
+            "origin": "copilot_sdk",
+            "raw": {
+              "kind": "provider_request",
+              "parts": [
+                {
+                  "role": "tool",
+                  "type": "text",
+                  "text": "SENTINEL_TEXT_BLOCKSENTINEL_EMBEDDED_RESOURCE\n\n{\"count\":2,\"records\":[{\"id\":\"rec_1\",\"status\":\"active\"},{\"id\":\"rec_2\",\"status\":\"archived\"}],\"note\":\"SENTINEL_STRUCTURED_CONTENT\"}"
+                },
+                {
+                  "role": "user",
+                  "type": "text",
+                  "text": "Here is an image:"
+                },
+                {
+                  "role": "user",
+                  "type": "image",
+                  "mimeType": "image/png",
+                  "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
+                }
+              ],
+              "messages": [
+                {
+                  "role": "tool",
+                  "tool_call_id": "call_mcp_mirror_1",
+                  "content": "SENTINEL_TEXT_BLOCKSENTINEL_EMBEDDED_RESOURCE\n\n{\"count\":2,\"records\":[{\"id\":\"rec_1\",\"status\":\"active\"},{\"id\":\"rec_2\",\"status\":\"archived\"}],\"note\":\"SENTINEL_STRUCTURED_CONTENT\"}"
+                },
+                {
+                  "role": "user",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Here is an image:"
+                    },
+                    {
+                      "type": "image_url",
+                      "image_url": {
+                        "url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
+                      }
+                    }
+                  ]
+                }
+              ],
+              "execution": {
+                "toolCallId": "call_mcp_mirror_1",
+                "model": "gpt-4.1",
+                "interactionId": "d03099af-352a-4cc2-9ab9-29f1f9737f3f",
+                "turnId": "0",
+                "rte": false,
+                "success": true,
+                "result": {
+                  "content": "SENTINEL_TEXT_BLOCKSENTINEL_EMBEDDED_RESOURCE\n\n{\"count\":2,\"records\":[{\"id\":\"rec_1\",\"status\":\"active\"},{\"id\":\"rec_2\",\"status\":\"archived\"}],\"note\":\"SENTINEL_STRUCTURED_CONTENT\"}",
+                  "detailedContent": "SENTINEL_TEXT_BLOCKSENTINEL_EMBEDDED_RESOURCE\n\n{\"count\":2,\"records\":[{\"id\":\"rec_1\",\"status\":\"active\"},{\"id\":\"rec_2\",\"status\":\"archived\"}],\"note\":\"SENTINEL_STRUCTURED_CONTENT\"}",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "SENTINEL_TEXT_BLOCK",
+                      "annotations": {
+                        "audience": [
+                          "user"
+                        ],
+                        "priority": 0.9
+                      }
+                    },
+                    {
+                      "type": "image",
+                      "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "type": "audio",
+                      "data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
+                      "mimeType": "audio/wav"
+                    },
+                    {
+                      "type": "resource",
+                      "resource": {
+                        "uri": "file:///fixtures/embedded.txt",
+                        "mimeType": "text/plain",
+                        "text": "SENTINEL_EMBEDDED_RESOURCE"
+                      }
+                    },
+                    {
+                      "type": "resource_link",
+                      "uri": "file:///fixtures/linked.txt",
+                      "name": "linked.txt",
+                      "description": "SENTINEL_RESOURCE_LINK",
+                      "mimeType": "text/plain"
+                    }
+                  ],
+                  "binaryResultsForLlm": [
+                    {
+                      "type": "image",
+                      "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==",
+                      "mimeType": "image/png"
+                    }
+                  ],
+                  "structuredContent": {
+                    "count": 2,
+                    "records": [
+                      {
+                        "id": "rec_1",
+                        "status": "active"
+                      },
+                      {
+                        "id": "rec_2",
+                        "status": "archived"
+                      }
+                    ],
+                    "note": "SENTINEL_STRUCTURED_CONTENT"
+                  }
+                },
+                "toolTelemetry": {
+                  "metrics": {
+                    "mcp_result_content_bytes": 45,
+                    "mcp_structured_content_bytes": 128
+                  }
+                }
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "mixed_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "mixed_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TEXT_BLOCK",
+                "annotations": {
+                  "audience": [
+                    "user"
+                  ],
+                  "priority": 0.9
+                }
+              },
+              {
+                "type": "image",
+                "data": "<96 chars>",
+                "mimeType": "image/png"
+              },
+              {
+                "type": "audio",
+                "data": "<60 chars>",
+                "mimeType": "audio/wav"
+              },
+              {
+                "type": "resource",
+                "resource": {
+                  "uri": "file:///fixtures/embedded.txt",
+                  "mimeType": "text/plain",
+                  "text": "SENTINEL_EMBEDDED_RESOURCE"
+                }
+              },
+              {
+                "type": "resource_link",
+                "uri": "file:///fixtures/linked.txt",
+                "name": "linked.txt",
+                "description": "SENTINEL_RESOURCE_LINK",
+                "mimeType": "text/plain"
+              }
+            ],
+            "block_kinds": [
+              "text",
+              "image",
+              "audio",
+              "resource",
+              "resource_link"
+            ],
+            "structured_content": {
+              "count": 2,
+              "records": [
+                {
+                  "id": "rec_1",
+                  "status": "active"
+                },
+                {
+                  "id": "rec_2",
+                  "status": "archived"
+                }
+              ],
+              "note": "SENTINEL_STRUCTURED_CONTENT"
+            },
+            "is_error": false,
+            "text": "SENTINEL_TEXT_BLOCKSENTINEL_EMBEDDED_RESOURCE\n\n{\"count\":2,\"records\":[{\"id\":\"rec_1\",\"status\":\"active\"},{\"id\":\"rec_2\",\"status\":\"archived\"}],\"note\":\"SENTINEL_STRUCTURED_CONTENT\"}",
+            "origin": "copilot_sdk",
+            "raw": {
+              "textResultForLlm": "SENTINEL_TEXT_BLOCKSENTINEL_EMBEDDED_RESOURCE\n\n{\"count\":2,\"records\":[{\"id\":\"rec_1\",\"status\":\"active\"},{\"id\":\"rec_2\",\"status\":\"archived\"}],\"note\":\"SENTINEL_STRUCTURED_CONTENT\"}",
+              "structuredContent": {
+                "count": 2,
+                "records": [
+                  {
+                    "id": "rec_1",
+                    "status": "active"
+                  },
+                  {
+                    "id": "rec_2",
+                    "status": "archived"
+                  }
+                ],
+                "note": "SENTINEL_STRUCTURED_CONTENT"
+              },
+              "binaryResultsForLlm": [
+                {
+                  "type": "image",
+                  "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==",
+                  "mimeType": "image/png"
+                }
+              ],
+              "resultType": "success",
+              "sessionLog": "SENTINEL_TEXT_BLOCKSENTINEL_EMBEDDED_RESOURCE\n\n{\"count\":2,\"records\":[{\"id\":\"rec_1\",\"status\":\"active\"},{\"id\":\"rec_2\",\"status\":\"archived\"}],\"note\":\"SENTINEL_STRUCTURED_CONTENT\"}",
+              "toolTelemetry": {
+                "metrics": {
+                  "mcp_result_content_bytes": 45,
+                  "mcp_structured_content_bytes": 128
+                }
+              },
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_TEXT_BLOCK",
+                  "annotations": {
+                    "audience": [
+                      "user"
+                    ],
+                    "priority": 0.9
+                  }
+                },
+                {
+                  "type": "image",
+                  "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==",
+                  "mimeType": "image/png"
+                },
+                {
+                  "type": "audio",
+                  "data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
+                  "mimeType": "audio/wav"
+                },
+                {
+                  "type": "resource",
+                  "resource": {
+                    "uri": "file:///fixtures/embedded.txt",
+                    "mimeType": "text/plain",
+                    "text": "SENTINEL_EMBEDDED_RESOURCE"
+                  }
+                },
+                {
+                  "type": "resource_link",
+                  "uri": "file:///fixtures/linked.txt",
+                  "name": "linked.txt",
+                  "description": "SENTINEL_RESOURCE_LINK",
+                  "mimeType": "text/plain"
+                }
+              ]
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "text_and_structured",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "text_and_structured",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TEXT_BLOCK\n\n{\"count\":2,\"records\":[{\"id\":\"rec_1\",\"status\":\"active\"},{\"id\":\"rec_2\",\"status\":\"archived\"}],\"note\":\"SENTINEL_STRUCTURED_CONTENT\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_TEXT_BLOCK\n\n{\"count\":2,\"records\":[{\"id\":\"rec_1\",\"status\":\"active\"},{\"id\":\"rec_2\",\"status\":\"archived\"}],\"note\":\"SENTINEL_STRUCTURED_CONTENT\"}",
+            "origin": "copilot_sdk",
+            "raw": {
+              "kind": "provider_request",
+              "parts": [
+                {
+                  "role": "tool",
+                  "type": "text",
+                  "text": "SENTINEL_TEXT_BLOCK\n\n{\"count\":2,\"records\":[{\"id\":\"rec_1\",\"status\":\"active\"},{\"id\":\"rec_2\",\"status\":\"archived\"}],\"note\":\"SENTINEL_STRUCTURED_CONTENT\"}"
+                }
+              ],
+              "messages": [
+                {
+                  "role": "tool",
+                  "tool_call_id": "call_mcp_mirror_1",
+                  "content": "SENTINEL_TEXT_BLOCK\n\n{\"count\":2,\"records\":[{\"id\":\"rec_1\",\"status\":\"active\"},{\"id\":\"rec_2\",\"status\":\"archived\"}],\"note\":\"SENTINEL_STRUCTURED_CONTENT\"}"
+                }
+              ],
+              "execution": {
+                "toolCallId": "call_mcp_mirror_1",
+                "model": "gpt-4.1",
+                "interactionId": "4dec7aa1-ff43-4d48-8c1a-72f84d60e9cc",
+                "turnId": "0",
+                "rte": false,
+                "success": true,
+                "result": {
+                  "content": "SENTINEL_TEXT_BLOCK\n\n{\"count\":2,\"records\":[{\"id\":\"rec_1\",\"status\":\"active\"},{\"id\":\"rec_2\",\"status\":\"archived\"}],\"note\":\"SENTINEL_STRUCTURED_CONTENT\"}",
+                  "detailedContent": "SENTINEL_TEXT_BLOCK\n\n{\"count\":2,\"records\":[{\"id\":\"rec_1\",\"status\":\"active\"},{\"id\":\"rec_2\",\"status\":\"archived\"}],\"note\":\"SENTINEL_STRUCTURED_CONTENT\"}",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "SENTINEL_TEXT_BLOCK"
+                    }
+                  ],
+                  "structuredContent": {
+                    "count": 2,
+                    "records": [
+                      {
+                        "id": "rec_1",
+                        "status": "active"
+                      },
+                      {
+                        "id": "rec_2",
+                        "status": "archived"
+                      }
+                    ],
+                    "note": "SENTINEL_STRUCTURED_CONTENT"
+                  }
+                },
+                "toolTelemetry": {
+                  "metrics": {
+                    "mcp_result_content_bytes": 19,
+                    "mcp_structured_content_bytes": 128,
+                    "result_token_count": 47
+                  }
+                }
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "text_and_structured",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "text_and_structured",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TEXT_BLOCK"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": {
+              "count": 2,
+              "records": [
+                {
+                  "id": "rec_1",
+                  "status": "active"
+                },
+                {
+                  "id": "rec_2",
+                  "status": "archived"
+                }
+              ],
+              "note": "SENTINEL_STRUCTURED_CONTENT"
+            },
+            "is_error": false,
+            "text": "SENTINEL_TEXT_BLOCK\n\n{\"count\":2,\"records\":[{\"id\":\"rec_1\",\"status\":\"active\"},{\"id\":\"rec_2\",\"status\":\"archived\"}],\"note\":\"SENTINEL_STRUCTURED_CONTENT\"}",
+            "origin": "copilot_sdk",
+            "raw": {
+              "textResultForLlm": "SENTINEL_TEXT_BLOCK\n\n{\"count\":2,\"records\":[{\"id\":\"rec_1\",\"status\":\"active\"},{\"id\":\"rec_2\",\"status\":\"archived\"}],\"note\":\"SENTINEL_STRUCTURED_CONTENT\"}",
+              "structuredContent": {
+                "count": 2,
+                "records": [
+                  {
+                    "id": "rec_1",
+                    "status": "active"
+                  },
+                  {
+                    "id": "rec_2",
+                    "status": "archived"
+                  }
+                ],
+                "note": "SENTINEL_STRUCTURED_CONTENT"
+              },
+              "binaryResultsForLlm": [],
+              "resultType": "success",
+              "sessionLog": "SENTINEL_TEXT_BLOCK\n\n{\"count\":2,\"records\":[{\"id\":\"rec_1\",\"status\":\"active\"},{\"id\":\"rec_2\",\"status\":\"archived\"}],\"note\":\"SENTINEL_STRUCTURED_CONTENT\"}",
+              "toolTelemetry": {
+                "metrics": {
+                  "mcp_result_content_bytes": 19,
+                  "mcp_structured_content_bytes": 128
+                }
+              },
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_TEXT_BLOCK"
+                }
+              ]
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "tool_error",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "tool_error",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "MCP server 'src': SENTINEL_TOOL_ERROR: this tool always fails"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "MCP server 'src': SENTINEL_TOOL_ERROR: this tool always fails",
+            "origin": "copilot_sdk",
+            "raw": {
+              "kind": "provider_request",
+              "parts": [
+                {
+                  "role": "tool",
+                  "type": "text",
+                  "text": "MCP server 'src': SENTINEL_TOOL_ERROR: this tool always fails"
+                }
+              ],
+              "messages": [
+                {
+                  "role": "tool",
+                  "tool_call_id": "call_mcp_mirror_1",
+                  "content": "MCP server 'src': SENTINEL_TOOL_ERROR: this tool always fails"
+                }
+              ],
+              "execution": {
+                "toolCallId": "call_mcp_mirror_1",
+                "model": "gpt-4.1",
+                "interactionId": "eac5c720-bf61-4c39-bed3-6ef9fd89a749",
+                "turnId": "0",
+                "rte": false,
+                "success": false,
+                "error": {
+                  "message": "MCP server 'src': SENTINEL_TOOL_ERROR: this tool always fails",
+                  "code": "failure"
+                },
+                "toolTelemetry": {
+                  "properties": {
+                    "failure_category": "server_error",
+                    "failure_stage": "invoke"
+                  },
+                  "metrics": {
+                    "mcp_result_content_bytes": 43
+                  }
+                }
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "tool_error",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "tool_error",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TOOL_ERROR: this tool always fails"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": true,
+            "text": "MCP server 'src': SENTINEL_TOOL_ERROR: this tool always fails",
+            "origin": "copilot_sdk",
+            "raw": {
+              "textResultForLlm": "MCP server 'src': SENTINEL_TOOL_ERROR: this tool always fails",
+              "resultType": "failure",
+              "error": "MCP server 'src': SENTINEL_TOOL_ERROR: this tool always fails",
+              "sessionLog": "MCP server 'src': SENTINEL_TOOL_ERROR: this tool always fails",
+              "toolTelemetry": {
+                "metrics": {
+                  "mcp_result_content_bytes": 43
+                },
+                "properties": {
+                  "failure_category": "server_error",
+                  "failure_stage": "invoke"
+                }
+              },
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_TOOL_ERROR: this tool always fails"
+                }
+              ]
+            },
+            "error_channel": "flag"
+          }
+        }
+      ]
+    }
+  }
+}

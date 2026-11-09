@@ -1,0 +1,1278 @@
+{
+  "schema": "mcp-mirror/transports@1",
+  "captured_at": "2026-10-09T21:14:44Z",
+  "spec_version": "2026-07-28",
+  "fixtures": {
+    "definitions": "fixtures/tricky_server.py",
+    "results": "fixtures/results_server.py"
+  },
+  "transports": [
+    "stdio",
+    "http"
+  ],
+  "command": "uv run python scripts/measure_transports.py --spec-version 2026-07-28 --renderers google_adk_go --out data/specs/2026-07-28/measurements/transports/google_adk_go.json",
+  "frameworks": {
+    "google_adk_go": {
+      "transports": {
+        "stdio": {
+          "definitions": {
+            "ok": true,
+            "fixture": "fixtures/tricky_server.py",
+            "capture": "wire/google_adk_go-tricky_server-stdio.jsonl",
+            "version": "2.5.0",
+            "answers": {
+              "tools": [
+                {
+                  "name": "search_records",
+                  "description": "Search records with optional filters. Read-only.",
+                  "params": {
+                    "properties": {
+                      "created_after": {
+                        "description": "Only records created at or after this RFC 3339 timestamp.",
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "limit": {
+                        "default": 20,
+                        "description": "Maximum number of records to return.",
+                        "maximum": 100,
+                        "minimum": 1,
+                        "type": "integer"
+                      },
+                      "owner_email": {
+                        "description": "Restrict to records owned by this email address.",
+                        "format": "email",
+                        "type": "string"
+                      },
+                      "query": {
+                        "description": "Full-text search query.",
+                        "type": "string"
+                      },
+                      "status": {
+                        "description": "Filter by record status.",
+                        "enum": [
+                          "active",
+                          "archived",
+                          "pending",
+                          "deleted"
+                        ],
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "query"
+                    ],
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "create_report",
+                  "description": "Create a structured report from sections.",
+                  "params": {
+                    "properties": {
+                      "config": {
+                        "description": "Rendering configuration.",
+                        "properties": {
+                          "format": {
+                            "description": "Output format.",
+                            "enum": [
+                              "pdf",
+                              "html",
+                              "csv"
+                            ],
+                            "type": "string"
+                          },
+                          "include_summary": {
+                            "description": "Whether to prepend an executive summary.",
+                            "type": "boolean"
+                          }
+                        },
+                        "required": [
+                          "format"
+                        ],
+                        "type": "object"
+                      },
+                      "sections": {
+                        "description": "Ordered report sections.",
+                        "items": {
+                          "properties": {
+                            "body": {
+                              "description": "Section body in markdown.",
+                              "type": "string"
+                            },
+                            "heading": {
+                              "description": "Section heading.",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "heading"
+                          ],
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "title": {
+                        "description": "Report title.",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "title",
+                      "config"
+                    ],
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "deliver_payload",
+                  "description": "Deliver a payload to a destination.",
+                  "params": {
+                    "properties": {
+                      "destination": {
+                        "anyOf": [
+                          {
+                            "description": "A webhook URL.",
+                            "format": "uri",
+                            "type": "string"
+                          },
+                          {
+                            "description": "An object-store location.",
+                            "properties": {
+                              "bucket": {
+                                "type": "string"
+                              },
+                              "key": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "bucket",
+                              "key"
+                            ],
+                            "type": "object"
+                          }
+                        ],
+                        "description": "Where to deliver the payload."
+                      },
+                      "mode": {
+                        "description": "Delivery mode.",
+                        "oneOf": [
+                          {
+                            "const": "sync"
+                          },
+                          {
+                            "const": "async"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "destination"
+                    ],
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "delete_account",
+                  "description": "Permanently deletes a user account and all of its associated data. This action is destructive and irreversible: it cannot be undone, and it requires elevated admin scope (accounts:delete). Use with extreme caution.",
+                  "params": {
+                    "properties": {
+                      "account_id": {
+                        "description": "The id of the account to delete.",
+                        "type": "string"
+                      },
+                      "confirm": {
+                        "description": "Must be true to proceed with the deletion.",
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "account_id",
+                      "confirm"
+                    ],
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "explain_topic",
+                  "description": "Explain a topic in depth for a curious reader. This description is deliberately very long (over 1024 characters) so that adapters which truncate tool descriptions to fit a model's function-description limit can be detected by mcp-mirror. It also contains Unicode and special characters to verify they survive the round trip: accented words like caf\u00e9, na\u00efve, r\u00e9sum\u00e9, jalape\u00f1o, and Z\u00fcrich; non-Latin scripts such as \u65e5\u672c\u8a9e (Japanese), \u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac (Greek), and \u041a\u0438\u0440\u0438\u043b\u043b\u0438\u0446\u0430 (Cyrillic); mathematical symbols \u2211 \u222b \u2248 \u2260 \u221e \u2286 \u2295; currency signs \u20ac \u00a3 \u00a5 \u20bf; smart punctuation \u201ccurly quotes\u201d, \u2018single quotes\u2019, an em-dash, an en\u2013dash, and an ellipsis\u2026; plus a few emoji \ud83d\udd10 \ud83d\ude80 \u2705 for good measure. The reader should receive a structured, well-paced explanation that starts from first principles, introduces the key vocabulary, walks through one concrete worked example, names the most common misconceptions, and then points to where to learn more. Keep the tone precise and friendly. Prefer short sentences. Define every term of art the first time it appears, and never assume the reader has seen the topic before. End with a one-paragraph recap that a busy person could read on its own and still come away with the single most important idea. SENTINEL_END_OF_LONG_DESCRIPTION.",
+                  "params": {
+                    "properties": {
+                      "max_words": {
+                        "description": "Soft cap on the explanation length.",
+                        "minimum": 1,
+                        "type": "integer"
+                      },
+                      "topic": {
+                        "description": "The subject to explain (supports Unicode: caf\u00e9, na\u00efve, \u65e5\u672c\u8a9e).",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "topic"
+                    ],
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                }
+              ],
+              "probe": {
+                "prompts.get": {
+                  "ok": false,
+                  "unsupported": "mcptoolset.Toolset exposes only Tools(); the *mcp.ClientSession it opens stays inside its connectionRefresher, so the caller has no session to call GetPrompt on"
+                },
+                "prompts.list": {
+                  "ok": false,
+                  "unsupported": "mcptoolset.Toolset exposes only Tools(); the *mcp.ClientSession it opens stays inside its connectionRefresher, so the caller has no session to call ListPrompts on"
+                },
+                "resources.list": {
+                  "ok": false,
+                  "unsupported": "mcptoolset.Toolset exposes only Tools(); the *mcp.ClientSession it opens stays inside its connectionRefresher, so the caller has no session to call ListResources on"
+                },
+                "resources.read.blob": {
+                  "ok": false,
+                  "unsupported": "mcptoolset.Toolset exposes only Tools(); the *mcp.ClientSession it opens stays inside its connectionRefresher, so the caller has no session to call ReadResource on"
+                },
+                "resources.read.text": {
+                  "ok": false,
+                  "unsupported": "mcptoolset.Toolset exposes only Tools(); the *mcp.ClientSession it opens stays inside its connectionRefresher, so the caller has no session to call ReadResource on"
+                },
+                "resources.templates": {
+                  "ok": false,
+                  "unsupported": "mcptoolset.Toolset exposes only Tools(); the *mcp.ClientSession it opens stays inside its connectionRefresher, so the caller has no session to call ListResourceTemplates on"
+                }
+              }
+            }
+          },
+          "results": {
+            "ok": true,
+            "fixture": "fixtures/results_server.py",
+            "capture": "wire/google_adk_go-results_server-stdio.jsonl",
+            "version": "2.5.0",
+            "answers": {
+              "tools": [
+                {
+                  "name": "text_content",
+                  "description": "Return one text block and nothing else.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "image_content",
+                  "description": "Return one image block and nothing else.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "audio_content",
+                  "description": "Return one audio block and nothing else.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "embedded_resource_content",
+                  "description": "Return one embedded resource block and nothing else.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "resource_link_content",
+                  "description": "Return one resource_link block and nothing else.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "annotated_content",
+                  "description": "Return one text block carrying audience and priority annotations.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "mixed_content",
+                  "description": "Return one block of every kind plus structuredContent in one result.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "text_and_structured",
+                  "description": "Return one text block plus structuredContent, with no media.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "tool_error",
+                  "description": "Always fail, reporting the failure through isError rather than a protocol error.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                }
+              ],
+              "results": [
+                {
+                  "tool": "text_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "SENTINEL_TEXT_BLOCK",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "text_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "{\"output\": \"SENTINEL_TEXT_BLOCK\"}",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "image_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "[MCP image: mimeType=\"image/png\", size=70 bytes]",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "image_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "{\"output\": \"[MCP image: mimeType=\\\"image/png\\\", size=70 bytes]\"}",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "audio_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "[MCP audio: mimeType=\"audio/wav\", size=44 bytes]",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "audio_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "{\"output\": \"[MCP audio: mimeType=\\\"audio/wav\\\", size=44 bytes]\"}",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "embedded_resource_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "[MCP embedded resource: uri=\"file:///fixtures/embedded.txt\", mimeType=\"text/plain\"]\nSENTINEL_EMBEDDED_RESOURCE",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "embedded_resource_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "{\"output\": \"[MCP embedded resource: uri=\\\"file:///fixtures/embedded.txt\\\", mimeType=\\\"text/plain\\\"]\\nSENTINEL_EMBEDDED_RESOURCE\"}",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "resource_link_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "[MCP resource link: uri=\"file:///fixtures/linked.txt\", mimeType=\"text/plain\", name=\"linked.txt\", description=\"SENTINEL_RESOURCE_LINK\"]",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "resource_link_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "{\"output\": \"[MCP resource link: uri=\\\"file:///fixtures/linked.txt\\\", mimeType=\\\"text/plain\\\", name=\\\"linked.txt\\\", description=\\\"SENTINEL_RESOURCE_LINK\\\"]\"}",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "annotated_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "SENTINEL_ANNOTATED_TEXT",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "annotated_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "{\"output\": \"SENTINEL_ANNOTATED_TEXT\"}",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "mixed_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": {
+                      "count": 2,
+                      "note": "SENTINEL_STRUCTURED_CONTENT",
+                      "records": [
+                        {
+                          "id": "rec_1",
+                          "status": "active"
+                        },
+                        {
+                          "id": "rec_2",
+                          "status": "archived"
+                        }
+                      ]
+                    },
+                    "is_error": null,
+                    "text": "{\"output\": {\"count\": 2, \"note\": \"SENTINEL_STRUCTURED_CONTENT\", \"records\": [{\"id\": \"rec_1\", \"status\": \"active\"}, {\"id\": \"rec_2\", \"status\": \"archived\"}]}}",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "mixed_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": {
+                      "count": 2,
+                      "note": "SENTINEL_STRUCTURED_CONTENT",
+                      "records": [
+                        {
+                          "id": "rec_1",
+                          "status": "active"
+                        },
+                        {
+                          "id": "rec_2",
+                          "status": "archived"
+                        }
+                      ]
+                    },
+                    "is_error": null,
+                    "text": "{\"output\": {\"count\": 2, \"note\": \"SENTINEL_STRUCTURED_CONTENT\", \"records\": [{\"id\": \"rec_1\", \"status\": \"active\"}, {\"id\": \"rec_2\", \"status\": \"archived\"}]}}",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "text_and_structured",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": {
+                      "count": 2,
+                      "note": "SENTINEL_STRUCTURED_CONTENT",
+                      "records": [
+                        {
+                          "id": "rec_1",
+                          "status": "active"
+                        },
+                        {
+                          "id": "rec_2",
+                          "status": "archived"
+                        }
+                      ]
+                    },
+                    "is_error": null,
+                    "text": "{\"output\": {\"count\": 2, \"note\": \"SENTINEL_STRUCTURED_CONTENT\", \"records\": [{\"id\": \"rec_1\", \"status\": \"active\"}, {\"id\": \"rec_2\", \"status\": \"archived\"}]}}",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "text_and_structured",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": {
+                      "count": 2,
+                      "note": "SENTINEL_STRUCTURED_CONTENT",
+                      "records": [
+                        {
+                          "id": "rec_1",
+                          "status": "active"
+                        },
+                        {
+                          "id": "rec_2",
+                          "status": "archived"
+                        }
+                      ]
+                    },
+                    "is_error": null,
+                    "text": "{\"output\": {\"count\": 2, \"note\": \"SENTINEL_STRUCTURED_CONTENT\", \"records\": [{\"id\": \"rec_1\", \"status\": \"active\"}, {\"id\": \"rec_2\", \"status\": \"archived\"}]}}",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "tool_error",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": true,
+                    "text": "Tool execution failed. Details: SENTINEL_TOOL_ERROR: this tool always fails",
+                    "error_channel": "exception"
+                  }
+                },
+                {
+                  "tool": "tool_error",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": true,
+                    "text": "{\"error\": \"Tool execution failed. Details: SENTINEL_TOOL_ERROR: this tool always fails\"}",
+                    "error_channel": "error_field"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "http": {
+          "definitions": {
+            "ok": true,
+            "fixture": "fixtures/tricky_server.py",
+            "capture": "wire/google_adk_go-tricky_server-http.jsonl",
+            "version": "2.5.0",
+            "answers": {
+              "tools": [
+                {
+                  "name": "search_records",
+                  "description": "Search records with optional filters. Read-only.",
+                  "params": {
+                    "properties": {
+                      "created_after": {
+                        "description": "Only records created at or after this RFC 3339 timestamp.",
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "limit": {
+                        "default": 20,
+                        "description": "Maximum number of records to return.",
+                        "maximum": 100,
+                        "minimum": 1,
+                        "type": "integer"
+                      },
+                      "owner_email": {
+                        "description": "Restrict to records owned by this email address.",
+                        "format": "email",
+                        "type": "string"
+                      },
+                      "query": {
+                        "description": "Full-text search query.",
+                        "type": "string"
+                      },
+                      "status": {
+                        "description": "Filter by record status.",
+                        "enum": [
+                          "active",
+                          "archived",
+                          "pending",
+                          "deleted"
+                        ],
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "query"
+                    ],
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "create_report",
+                  "description": "Create a structured report from sections.",
+                  "params": {
+                    "properties": {
+                      "config": {
+                        "description": "Rendering configuration.",
+                        "properties": {
+                          "format": {
+                            "description": "Output format.",
+                            "enum": [
+                              "pdf",
+                              "html",
+                              "csv"
+                            ],
+                            "type": "string"
+                          },
+                          "include_summary": {
+                            "description": "Whether to prepend an executive summary.",
+                            "type": "boolean"
+                          }
+                        },
+                        "required": [
+                          "format"
+                        ],
+                        "type": "object"
+                      },
+                      "sections": {
+                        "description": "Ordered report sections.",
+                        "items": {
+                          "properties": {
+                            "body": {
+                              "description": "Section body in markdown.",
+                              "type": "string"
+                            },
+                            "heading": {
+                              "description": "Section heading.",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "heading"
+                          ],
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "title": {
+                        "description": "Report title.",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "title",
+                      "config"
+                    ],
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "deliver_payload",
+                  "description": "Deliver a payload to a destination.",
+                  "params": {
+                    "properties": {
+                      "destination": {
+                        "anyOf": [
+                          {
+                            "description": "A webhook URL.",
+                            "format": "uri",
+                            "type": "string"
+                          },
+                          {
+                            "description": "An object-store location.",
+                            "properties": {
+                              "bucket": {
+                                "type": "string"
+                              },
+                              "key": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "bucket",
+                              "key"
+                            ],
+                            "type": "object"
+                          }
+                        ],
+                        "description": "Where to deliver the payload."
+                      },
+                      "mode": {
+                        "description": "Delivery mode.",
+                        "oneOf": [
+                          {
+                            "const": "sync"
+                          },
+                          {
+                            "const": "async"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "destination"
+                    ],
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "delete_account",
+                  "description": "Permanently deletes a user account and all of its associated data. This action is destructive and irreversible: it cannot be undone, and it requires elevated admin scope (accounts:delete). Use with extreme caution.",
+                  "params": {
+                    "properties": {
+                      "account_id": {
+                        "description": "The id of the account to delete.",
+                        "type": "string"
+                      },
+                      "confirm": {
+                        "description": "Must be true to proceed with the deletion.",
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "account_id",
+                      "confirm"
+                    ],
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "explain_topic",
+                  "description": "Explain a topic in depth for a curious reader. This description is deliberately very long (over 1024 characters) so that adapters which truncate tool descriptions to fit a model's function-description limit can be detected by mcp-mirror. It also contains Unicode and special characters to verify they survive the round trip: accented words like caf\u00e9, na\u00efve, r\u00e9sum\u00e9, jalape\u00f1o, and Z\u00fcrich; non-Latin scripts such as \u65e5\u672c\u8a9e (Japanese), \u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac (Greek), and \u041a\u0438\u0440\u0438\u043b\u043b\u0438\u0446\u0430 (Cyrillic); mathematical symbols \u2211 \u222b \u2248 \u2260 \u221e \u2286 \u2295; currency signs \u20ac \u00a3 \u00a5 \u20bf; smart punctuation \u201ccurly quotes\u201d, \u2018single quotes\u2019, an em-dash, an en\u2013dash, and an ellipsis\u2026; plus a few emoji \ud83d\udd10 \ud83d\ude80 \u2705 for good measure. The reader should receive a structured, well-paced explanation that starts from first principles, introduces the key vocabulary, walks through one concrete worked example, names the most common misconceptions, and then points to where to learn more. Keep the tone precise and friendly. Prefer short sentences. Define every term of art the first time it appears, and never assume the reader has seen the topic before. End with a one-paragraph recap that a busy person could read on its own and still come away with the single most important idea. SENTINEL_END_OF_LONG_DESCRIPTION.",
+                  "params": {
+                    "properties": {
+                      "max_words": {
+                        "description": "Soft cap on the explanation length.",
+                        "minimum": 1,
+                        "type": "integer"
+                      },
+                      "topic": {
+                        "description": "The subject to explain (supports Unicode: caf\u00e9, na\u00efve, \u65e5\u672c\u8a9e).",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "topic"
+                    ],
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                }
+              ],
+              "probe": {
+                "prompts.get": {
+                  "ok": false,
+                  "unsupported": "mcptoolset.Toolset exposes only Tools(); the *mcp.ClientSession it opens stays inside its connectionRefresher, so the caller has no session to call GetPrompt on"
+                },
+                "prompts.list": {
+                  "ok": false,
+                  "unsupported": "mcptoolset.Toolset exposes only Tools(); the *mcp.ClientSession it opens stays inside its connectionRefresher, so the caller has no session to call ListPrompts on"
+                },
+                "resources.list": {
+                  "ok": false,
+                  "unsupported": "mcptoolset.Toolset exposes only Tools(); the *mcp.ClientSession it opens stays inside its connectionRefresher, so the caller has no session to call ListResources on"
+                },
+                "resources.read.blob": {
+                  "ok": false,
+                  "unsupported": "mcptoolset.Toolset exposes only Tools(); the *mcp.ClientSession it opens stays inside its connectionRefresher, so the caller has no session to call ReadResource on"
+                },
+                "resources.read.text": {
+                  "ok": false,
+                  "unsupported": "mcptoolset.Toolset exposes only Tools(); the *mcp.ClientSession it opens stays inside its connectionRefresher, so the caller has no session to call ReadResource on"
+                },
+                "resources.templates": {
+                  "ok": false,
+                  "unsupported": "mcptoolset.Toolset exposes only Tools(); the *mcp.ClientSession it opens stays inside its connectionRefresher, so the caller has no session to call ListResourceTemplates on"
+                }
+              }
+            }
+          },
+          "results": {
+            "ok": true,
+            "fixture": "fixtures/results_server.py",
+            "capture": "wire/google_adk_go-results_server-http.jsonl",
+            "version": "2.5.0",
+            "answers": {
+              "tools": [
+                {
+                  "name": "text_content",
+                  "description": "Return one text block and nothing else.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "image_content",
+                  "description": "Return one image block and nothing else.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "audio_content",
+                  "description": "Return one audio block and nothing else.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "embedded_resource_content",
+                  "description": "Return one embedded resource block and nothing else.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "resource_link_content",
+                  "description": "Return one resource_link block and nothing else.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "annotated_content",
+                  "description": "Return one text block carrying audience and priority annotations.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "mixed_content",
+                  "description": "Return one block of every kind plus structuredContent in one result.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "text_and_structured",
+                  "description": "Return one text block plus structuredContent, with no media.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                },
+                {
+                  "name": "tool_error",
+                  "description": "Always fail, reporting the failure through isError rather than a protocol error.",
+                  "params": {
+                    "properties": {},
+                    "type": "object"
+                  },
+                  "annotations": {},
+                  "icons": []
+                }
+              ],
+              "results": [
+                {
+                  "tool": "text_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "SENTINEL_TEXT_BLOCK",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "text_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "{\"output\": \"SENTINEL_TEXT_BLOCK\"}",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "image_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "[MCP image: mimeType=\"image/png\", size=70 bytes]",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "image_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "{\"output\": \"[MCP image: mimeType=\\\"image/png\\\", size=70 bytes]\"}",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "audio_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "[MCP audio: mimeType=\"audio/wav\", size=44 bytes]",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "audio_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "{\"output\": \"[MCP audio: mimeType=\\\"audio/wav\\\", size=44 bytes]\"}",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "embedded_resource_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "[MCP embedded resource: uri=\"file:///fixtures/embedded.txt\", mimeType=\"text/plain\"]\nSENTINEL_EMBEDDED_RESOURCE",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "embedded_resource_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "{\"output\": \"[MCP embedded resource: uri=\\\"file:///fixtures/embedded.txt\\\", mimeType=\\\"text/plain\\\"]\\nSENTINEL_EMBEDDED_RESOURCE\"}",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "resource_link_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "[MCP resource link: uri=\"file:///fixtures/linked.txt\", mimeType=\"text/plain\", name=\"linked.txt\", description=\"SENTINEL_RESOURCE_LINK\"]",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "resource_link_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "{\"output\": \"[MCP resource link: uri=\\\"file:///fixtures/linked.txt\\\", mimeType=\\\"text/plain\\\", name=\\\"linked.txt\\\", description=\\\"SENTINEL_RESOURCE_LINK\\\"]\"}",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "annotated_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "SENTINEL_ANNOTATED_TEXT",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "annotated_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": null,
+                    "text": "{\"output\": \"SENTINEL_ANNOTATED_TEXT\"}",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "mixed_content",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": {
+                      "count": 2,
+                      "note": "SENTINEL_STRUCTURED_CONTENT",
+                      "records": [
+                        {
+                          "id": "rec_1",
+                          "status": "active"
+                        },
+                        {
+                          "id": "rec_2",
+                          "status": "archived"
+                        }
+                      ]
+                    },
+                    "is_error": null,
+                    "text": "{\"output\": {\"count\": 2, \"note\": \"SENTINEL_STRUCTURED_CONTENT\", \"records\": [{\"id\": \"rec_1\", \"status\": \"active\"}, {\"id\": \"rec_2\", \"status\": \"archived\"}]}}",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "mixed_content",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": {
+                      "count": 2,
+                      "note": "SENTINEL_STRUCTURED_CONTENT",
+                      "records": [
+                        {
+                          "id": "rec_1",
+                          "status": "active"
+                        },
+                        {
+                          "id": "rec_2",
+                          "status": "archived"
+                        }
+                      ]
+                    },
+                    "is_error": null,
+                    "text": "{\"output\": {\"count\": 2, \"note\": \"SENTINEL_STRUCTURED_CONTENT\", \"records\": [{\"id\": \"rec_1\", \"status\": \"active\"}, {\"id\": \"rec_2\", \"status\": \"archived\"}]}}",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "text_and_structured",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": {
+                      "count": 2,
+                      "note": "SENTINEL_STRUCTURED_CONTENT",
+                      "records": [
+                        {
+                          "id": "rec_1",
+                          "status": "active"
+                        },
+                        {
+                          "id": "rec_2",
+                          "status": "archived"
+                        }
+                      ]
+                    },
+                    "is_error": null,
+                    "text": "{\"output\": {\"count\": 2, \"note\": \"SENTINEL_STRUCTURED_CONTENT\", \"records\": [{\"id\": \"rec_1\", \"status\": \"active\"}, {\"id\": \"rec_2\", \"status\": \"archived\"}]}}",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "text_and_structured",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": {
+                      "count": 2,
+                      "note": "SENTINEL_STRUCTURED_CONTENT",
+                      "records": [
+                        {
+                          "id": "rec_1",
+                          "status": "active"
+                        },
+                        {
+                          "id": "rec_2",
+                          "status": "archived"
+                        }
+                      ]
+                    },
+                    "is_error": null,
+                    "text": "{\"output\": {\"count\": 2, \"note\": \"SENTINEL_STRUCTURED_CONTENT\", \"records\": [{\"id\": \"rec_1\", \"status\": \"active\"}, {\"id\": \"rec_2\", \"status\": \"archived\"}]}}",
+                    "error_channel": null
+                  }
+                },
+                {
+                  "tool": "tool_error",
+                  "boundary": "direct",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": true,
+                    "text": "Tool execution failed. Details: SENTINEL_TOOL_ERROR: this tool always fails",
+                    "error_channel": "exception"
+                  }
+                },
+                {
+                  "tool": "tool_error",
+                  "boundary": "agent",
+                  "ok": true,
+                  "rep": {
+                    "blocks": [],
+                    "block_kinds": [],
+                    "structured_content": null,
+                    "is_error": true,
+                    "text": "{\"error\": \"Tool execution failed. Details: SENTINEL_TOOL_ERROR: this tool always fails\"}",
+                    "error_channel": "error_field"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,6432 @@
+{
+ "schema": "mcp-mirror/utilities-probe@1",
+ "captured_at": "2026-10-09T21:04:58Z",
+ "fixture": "fixtures/utilities_server.py",
+ "fixture_python": "<checkout>/.mcp-mirror/fixture-2025-11-25/bin/python",
+ "spec_version": "2025-11-25",
+ "source": {
+  "sdk": 1,
+  "tools": [
+   "slow_with_progress",
+   "cancellable_wait",
+   "emit_logs",
+   "task_capable",
+   "page_filler_00",
+   "page_filler_01",
+   "page_filler_02",
+   "page_filler_03",
+   "page_filler_04",
+   "page_filler_05",
+   "page_filler_06",
+   "page_filler_07",
+   "page_filler_08",
+   "page_filler_09",
+   "page_filler_10",
+   "page_filler_11",
+   "page_filler_12",
+   "page_filler_13",
+   "page_filler_14",
+   "page_filler_15",
+   "page_filler_16",
+   "page_filler_17",
+   "page_filler_18",
+   "page_filler_19",
+   "page_filler_20",
+   "page_filler_21",
+   "page_filler_22",
+   "page_filler_23",
+   "page_filler_24",
+   "page_filler_25",
+   "page_filler_26",
+   "page_filler_27",
+   "page_filler_28",
+   "page_filler_29",
+   "page_filler_30",
+   "page_filler_31",
+   "page_filler_32",
+   "page_filler_33",
+   "page_filler_34",
+   "page_filler_35",
+   "page_filler_36",
+   "page_filler_37",
+   "page_filler_38",
+   "page_filler_39",
+   "page_filler_40",
+   "page_filler_41",
+   "page_filler_42",
+   "page_filler_43",
+   "page_filler_44",
+   "page_filler_45",
+   "page_filler_46",
+   "page_filler_47",
+   "page_filler_48",
+   "page_filler_49",
+   "page_filler_50",
+   "page_filler_51",
+   "page_filler_52",
+   "page_filler_53",
+   "page_filler_54",
+   "SENTINEL_LAST_TOOL"
+  ],
+  "page_size": 20,
+  "progress_steps": 5,
+  "log_levels": [
+   "debug",
+   "info",
+   "notice",
+   "warning",
+   "error"
+  ],
+  "completion": {
+   "prompt": [
+    "crimson",
+    "cyan",
+    "cobalt"
+   ],
+   "resource": [
+    "rec_1",
+    "rec_10",
+    "rec_11"
+   ]
+  },
+  "cache_ttl_ms": null,
+  "tasks_extension": "io.modelcontextprotocol/tasks"
+ },
+ "frameworks": {
+  "ms_agent_framework": {
+   "ok": true,
+   "versions": {
+    "framework": "1.21.0",
+    "adapter": "1.21.0"
+   },
+   "utilities": {
+    "tools.list": {
+     "ok": true,
+     "route": "adapter",
+     "names": [
+      "slow_with_progress",
+      "cancellable_wait",
+      "emit_logs",
+      "task_capable",
+      "page_filler_00",
+      "page_filler_01",
+      "page_filler_02",
+      "page_filler_03",
+      "page_filler_04",
+      "page_filler_05",
+      "page_filler_06",
+      "page_filler_07",
+      "page_filler_08",
+      "page_filler_09",
+      "page_filler_10",
+      "page_filler_11",
+      "page_filler_12",
+      "page_filler_13",
+      "page_filler_14",
+      "page_filler_15",
+      "page_filler_16",
+      "page_filler_17",
+      "page_filler_18",
+      "page_filler_19",
+      "page_filler_20",
+      "page_filler_21",
+      "page_filler_22",
+      "page_filler_23",
+      "page_filler_24",
+      "page_filler_25",
+      "page_filler_26",
+      "page_filler_27",
+      "page_filler_28",
+      "page_filler_29",
+      "page_filler_30",
+      "page_filler_31",
+      "page_filler_32",
+      "page_filler_33",
+      "page_filler_34",
+      "page_filler_35",
+      "page_filler_36",
+      "page_filler_37",
+      "page_filler_38",
+      "page_filler_39",
+      "page_filler_40",
+      "page_filler_41",
+      "page_filler_42",
+      "page_filler_43",
+      "page_filler_44",
+      "page_filler_45",
+      "page_filler_46",
+      "page_filler_47",
+      "page_filler_48",
+      "page_filler_49",
+      "page_filler_50",
+      "page_filler_51",
+      "page_filler_52",
+      "page_filler_53",
+      "page_filler_54",
+      "SENTINEL_LAST_TOOL"
+     ]
+    },
+    "progress": {
+     "ok": true,
+     "route": "session",
+     "api": "MCPTool.session.call_tool(progress_callback=...)",
+     "events": [
+      {
+       "progress": 1.0,
+       "total": 5.0,
+       "message": "SENTINEL_PROGRESS 1/5"
+      },
+      {
+       "progress": 2.0,
+       "total": 5.0,
+       "message": "SENTINEL_PROGRESS 2/5"
+      },
+      {
+       "progress": 3.0,
+       "total": 5.0,
+       "message": "SENTINEL_PROGRESS 3/5"
+      },
+      {
+       "progress": 4.0,
+       "total": 5.0,
+       "message": "SENTINEL_PROGRESS 4/5"
+      },
+      {
+       "progress": 5.0,
+       "total": 5.0,
+       "message": "SENTINEL_PROGRESS 5/5"
+      }
+     ],
+     "text": "SENTINEL_SLOW_DONE progress_sent=5"
+    },
+    "logging": {
+     "ok": true,
+     "route": "adapter",
+     "api": "MCPTool.logging_callback (subclass override)",
+     "messages": [
+      {
+       "level": "debug",
+       "data": {
+        "message": "SENTINEL_LOG_DEBUG"
+       }
+      },
+      {
+       "level": "info",
+       "data": {
+        "message": "SENTINEL_LOG_INFO"
+       }
+      },
+      {
+       "level": "notice",
+       "data": {
+        "message": "SENTINEL_LOG_NOTICE"
+       }
+      },
+      {
+       "level": "warning",
+       "data": {
+        "message": "SENTINEL_LOG_WARNING"
+       }
+      },
+      {
+       "level": "error",
+       "data": {
+        "message": "SENTINEL_LOG_ERROR"
+       }
+      }
+     ],
+     "text": "SENTINEL_LOGS_SENT 5 at level>=debug"
+    },
+    "set_level": {
+     "ok": true,
+     "route": "adapter",
+     "api": "logging.getLogger('agent_framework._mcp').setLevel before connect",
+     "level": "warning",
+     "text": "SENTINEL_LOGS_SENT 2 at level>=warning"
+    },
+    "completion": {
+     "ok": true,
+     "route": "session",
+     "api": "MCPTool.session.complete",
+     "prompt": [
+      "crimson",
+      "cyan",
+      "cobalt"
+     ],
+     "resource": [
+      "rec_1",
+      "rec_10",
+      "rec_11"
+     ]
+    },
+    "cancellation": {
+     "ok": true,
+     "route": "adapter",
+     "mechanism": "asyncio task.cancel() around MCPTool.call_tool",
+     "abandoned_after_s": 1.002,
+     "outcome": "cancelled"
+    },
+    "tasks": {
+     "ok": true,
+     "route": "adapter",
+     "text": "SENTINEL_TASK_CAPABLE task_requested=False"
+    }
+   },
+   "wire": {
+    "tools.list": [
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 1,
+      "t": "2026-10-09T21:04:52.836730+00:00",
+      "elapsed": 0.007495,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "initialize",
+      "id": 0,
+      "revision": null,
+      "batch": false,
+      "message": {
+       "method": "initialize",
+       "params": {
+        "protocolVersion": "2025-11-25",
+        "capabilities": {
+         "sampling": {}
+        },
+        "clientInfo": {
+         "name": "mcp",
+         "version": "0.1.0"
+        }
+       },
+       "jsonrpc": "2.0",
+       "id": 0
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 2,
+      "t": "2026-10-09T21:04:52.999884+00:00",
+      "elapsed": 0.170661,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "initialize",
+      "id": 0,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 0,
+       "result": {
+        "protocolVersion": "2025-11-25",
+        "capabilities": {
+         "experimental": {},
+         "logging": {},
+         "prompts": {
+          "listChanged": false
+         },
+         "resources": {
+          "subscribe": false,
+          "listChanged": false
+         },
+         "tools": {
+          "listChanged": false
+         },
+         "completions": {},
+         "tasks": {
+          "requests": {
+           "tools": {
+            "call": {}
+           }
+          }
+         }
+        },
+        "serverInfo": {
+         "name": "utilities-mcp",
+         "version": "1.26.0"
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "negotiation",
+      "seq": 3,
+      "t": "2026-10-09T21:04:52.999951+00:00",
+      "elapsed": 0.170711,
+      "session": "stdio",
+      "via": "initialize",
+      "requested_revision": "2025-11-25",
+      "negotiated_revision": "2025-11-25",
+      "client_capabilities": {
+       "sampling": {}
+      },
+      "client_info": {
+       "name": "mcp",
+       "version": "0.1.0"
+      },
+      "server_capabilities": {
+       "experimental": {},
+       "logging": {},
+       "prompts": {
+        "listChanged": false
+       },
+       "resources": {
+        "subscribe": false,
+        "listChanged": false
+       },
+       "tools": {
+        "listChanged": false
+       },
+       "completions": {},
+       "tasks": {
+        "requests": {
+         "tools": {
+          "call": {}
+         }
+        }
+       }
+      },
+      "server_info": {
+       "name": "utilities-mcp",
+       "version": "1.26.0"
+      },
+      "error": null
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 4,
+      "t": "2026-10-09T21:04:53.000708+00:00",
+      "elapsed": 0.171469,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "notification",
+      "method": "notifications/initialized",
+      "id": null,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "notifications/initialized",
+       "jsonrpc": "2.0"
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 5,
+      "t": "2026-10-09T21:04:53.000895+00:00",
+      "elapsed": 0.171656,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "ping",
+      "id": 1,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "ping",
+       "jsonrpc": "2.0",
+       "id": 1
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 6,
+      "t": "2026-10-09T21:04:53.001474+00:00",
+      "elapsed": 0.172234,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "ping",
+      "id": 1,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 1,
+       "result": {}
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 7,
+      "t": "2026-10-09T21:04:53.001896+00:00",
+      "elapsed": 0.172658,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 2,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "tools/list",
+       "jsonrpc": "2.0",
+       "id": 2
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 8,
+      "t": "2026-10-09T21:04:53.002466+00:00",
+      "elapsed": 0.173226,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 2,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 2,
+       "result": {
+        "nextCursor": "20",
+        "tools": [
+         "slow_with_progress",
+         "cancellable_wait",
+         "emit_logs",
+         "task_capable",
+         "page_filler_00",
+         "page_filler_01",
+         "page_filler_02",
+         "page_filler_03",
+         "page_filler_04",
+         "page_filler_05",
+         "page_filler_06",
+         "page_filler_07",
+         "page_filler_08",
+         "page_filler_09",
+         "page_filler_10",
+         "page_filler_11",
+         "page_filler_12",
+         "page_filler_13",
+         "page_filler_14",
+         "page_filler_15"
+        ]
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 9,
+      "t": "2026-10-09T21:04:53.003393+00:00",
+      "elapsed": 0.174153,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "ping",
+      "id": 3,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "ping",
+       "jsonrpc": "2.0",
+       "id": 3
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 10,
+      "t": "2026-10-09T21:04:53.003815+00:00",
+      "elapsed": 0.174575,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "ping",
+      "id": 3,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 3,
+       "result": {}
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 11,
+      "t": "2026-10-09T21:04:53.004143+00:00",
+      "elapsed": 0.174903,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 4,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "tools/list",
+       "params": {
+        "cursor": "20"
+       },
+       "jsonrpc": "2.0",
+       "id": 4
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 12,
+      "t": "2026-10-09T21:04:53.004608+00:00",
+      "elapsed": 0.175368,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 4,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 4,
+       "result": {
+        "nextCursor": "40",
+        "tools": [
+         "page_filler_16",
+         "page_filler_17",
+         "page_filler_18",
+         "page_filler_19",
+         "page_filler_20",
+         "page_filler_21",
+         "page_filler_22",
+         "page_filler_23",
+         "page_filler_24",
+         "page_filler_25",
+         "page_filler_26",
+         "page_filler_27",
+         "page_filler_28",
+         "page_filler_29",
+         "page_filler_30",
+         "page_filler_31",
+         "page_filler_32",
+         "page_filler_33",
+         "page_filler_34",
+         "page_filler_35"
+        ]
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 13,
+      "t": "2026-10-09T21:04:53.005249+00:00",
+      "elapsed": 0.176008,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "ping",
+      "id": 5,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "ping",
+       "jsonrpc": "2.0",
+       "id": 5
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 14,
+      "t": "2026-10-09T21:04:53.005643+00:00",
+      "elapsed": 0.176402,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "ping",
+      "id": 5,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 5,
+       "result": {}
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 15,
+      "t": "2026-10-09T21:04:53.005953+00:00",
+      "elapsed": 0.176713,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 6,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "tools/list",
+       "params": {
+        "cursor": "40"
+       },
+       "jsonrpc": "2.0",
+       "id": 6
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 16,
+      "t": "2026-10-09T21:04:53.006489+00:00",
+      "elapsed": 0.177248,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 6,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 6,
+       "result": {
+        "tools": [
+         "page_filler_36",
+         "page_filler_37",
+         "page_filler_38",
+         "page_filler_39",
+         "page_filler_40",
+         "page_filler_41",
+         "page_filler_42",
+         "page_filler_43",
+         "page_filler_44",
+         "page_filler_45",
+         "page_filler_46",
+         "page_filler_47",
+         "page_filler_48",
+         "page_filler_49",
+         "page_filler_50",
+         "page_filler_51",
+         "page_filler_52",
+         "page_filler_53",
+         "page_filler_54",
+         "SENTINEL_LAST_TOOL"
+        ]
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 17,
+      "t": "2026-10-09T21:04:53.007662+00:00",
+      "elapsed": 0.178421,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "ping",
+      "id": 7,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "ping",
+       "jsonrpc": "2.0",
+       "id": 7
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 18,
+      "t": "2026-10-09T21:04:53.008068+00:00",
+      "elapsed": 0.178828,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "ping",
+      "id": 7,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 7,
+       "result": {}
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 19,
+      "t": "2026-10-09T21:04:53.008376+00:00",
+      "elapsed": 0.179135,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "prompts/list",
+      "id": 8,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "prompts/list",
+       "jsonrpc": "2.0",
+       "id": 8
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 20,
+      "t": "2026-10-09T21:04:53.008844+00:00",
+      "elapsed": 0.179603,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "prompts/list",
+      "id": 8,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 8,
+       "result": {
+        "nextCursor": "20",
+        "prompts": [
+         "pick_colour",
+         "page_prompt_00",
+         "page_prompt_01",
+         "page_prompt_02",
+         "page_prompt_03",
+         "page_prompt_04",
+         "page_prompt_05",
+         "page_prompt_06",
+         "page_prompt_07",
+         "page_prompt_08",
+         "page_prompt_09",
+         "page_prompt_10",
+         "page_prompt_11",
+         "page_prompt_12",
+         "page_prompt_13",
+         "page_prompt_14",
+         "page_prompt_15",
+         "page_prompt_16",
+         "page_prompt_17",
+         "page_prompt_18"
+        ]
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 21,
+      "t": "2026-10-09T21:04:53.009449+00:00",
+      "elapsed": 0.180208,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "ping",
+      "id": 9,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "ping",
+       "jsonrpc": "2.0",
+       "id": 9
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 22,
+      "t": "2026-10-09T21:04:53.009872+00:00",
+      "elapsed": 0.180632,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "ping",
+      "id": 9,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 9,
+       "result": {}
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 23,
+      "t": "2026-10-09T21:04:53.010207+00:00",
+      "elapsed": 0.180967,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "prompts/list",
+      "id": 10,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "prompts/list",
+       "params": {
+        "cursor": "20"
+       },
+       "jsonrpc": "2.0",
+       "id": 10
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 24,
+      "t": "2026-10-09T21:04:53.010623+00:00",
+      "elapsed": 0.181382,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "prompts/list",
+      "id": 10,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 10,
+       "result": {
+        "nextCursor": "40",
+        "prompts": [
+         "page_prompt_19",
+         "page_prompt_20",
+         "page_prompt_21",
+         "page_prompt_22",
+         "page_prompt_23",
+         "page_prompt_24",
+         "page_prompt_25",
+         "page_prompt_26",
+         "page_prompt_27",
+         "page_prompt_28",
+         "page_prompt_29",
+         "page_prompt_30",
+         "page_prompt_31",
+         "page_prompt_32",
+         "page_prompt_33",
+         "page_prompt_34",
+         "page_prompt_35",
+         "page_prompt_36",
+         "page_prompt_37",
+         "page_prompt_38"
+        ]
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 25,
+      "t": "2026-10-09T21:04:53.011185+00:00",
+      "elapsed": 0.181944,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "ping",
+      "id": 11,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "ping",
+       "jsonrpc": "2.0",
+       "id": 11
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 26,
+      "t": "2026-10-09T21:04:53.011566+00:00",
+      "elapsed": 0.182325,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "ping",
+      "id": 11,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 11,
+       "result": {}
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 27,
+      "t": "2026-10-09T21:04:53.011925+00:00",
+      "elapsed": 0.182684,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "prompts/list",
+      "id": 12,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "prompts/list",
+       "params": {
+        "cursor": "40"
+       },
+       "jsonrpc": "2.0",
+       "id": 12
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 28,
+      "t": "2026-10-09T21:04:53.012368+00:00",
+      "elapsed": 0.183127,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "prompts/list",
+      "id": 12,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 12,
+       "result": {
+        "prompts": [
+         "page_prompt_39",
+         "page_prompt_40",
+         "page_prompt_41",
+         "page_prompt_42",
+         "page_prompt_43",
+         "page_prompt_44",
+         "page_prompt_45",
+         "page_prompt_46",
+         "page_prompt_47",
+         "page_prompt_48",
+         "page_prompt_49",
+         "page_prompt_50",
+         "page_prompt_51",
+         "page_prompt_52",
+         "page_prompt_53",
+         "page_prompt_54",
+         "page_prompt_55",
+         "page_prompt_56",
+         "page_prompt_57",
+         "SENTINEL_LAST_PROMPT"
+        ]
+       }
+      }
+     }
+    ],
+    "progress": [
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 1,
+      "t": "2026-10-09T21:04:53.162726+00:00",
+      "elapsed": 0.00713,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "initialize",
+      "id": 0,
+      "revision": null,
+      "batch": false,
+      "message": {
+       "method": "initialize",
+       "params": {
+        "protocolVersion": "2025-11-25",
+        "capabilities": {
+         "sampling": {}
+        },
+        "clientInfo": {
+         "name": "mcp",
+         "version": "0.1.0"
+        }
+       },
+       "jsonrpc": "2.0",
+       "id": 0
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 2,
+      "t": "2026-10-09T21:04:53.318507+00:00",
+      "elapsed": 0.16292,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "initialize",
+      "id": 0,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 0,
+       "result": {
+        "protocolVersion": "2025-11-25",
+        "capabilities": {
+         "experimental": {},
+         "logging": {},
+         "prompts": {
+          "listChanged": false
+         },
+         "resources": {
+          "subscribe": false,
+          "listChanged": false
+         },
+         "tools": {
+          "listChanged": false
+         },
+         "completions": {},
+         "tasks": {
+          "requests": {
+           "tools": {
+            "call": {}
+           }
+          }
+         }
+        },
+        "serverInfo": {
+         "name": "utilities-mcp",
+         "version": "1.26.0"
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "negotiation",
+      "seq": 3,
+      "t": "2026-10-09T21:04:53.318573+00:00",
+      "elapsed": 0.162971,
+      "session": "stdio",
+      "via": "initialize",
+      "requested_revision": "2025-11-25",
+      "negotiated_revision": "2025-11-25",
+      "client_capabilities": {
+       "sampling": {}
+      },
+      "client_info": {
+       "name": "mcp",
+       "version": "0.1.0"
+      },
+      "server_capabilities": {
+       "experimental": {},
+       "logging": {},
+       "prompts": {
+        "listChanged": false
+       },
+       "resources": {
+        "subscribe": false,
+        "listChanged": false
+       },
+       "tools": {
+        "listChanged": false
+       },
+       "completions": {},
+       "tasks": {
+        "requests": {
+         "tools": {
+          "call": {}
+         }
+        }
+       }
+      },
+      "server_info": {
+       "name": "utilities-mcp",
+       "version": "1.26.0"
+      },
+      "error": null
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 4,
+      "t": "2026-10-09T21:04:53.319310+00:00",
+      "elapsed": 0.163709,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "notification",
+      "method": "notifications/initialized",
+      "id": null,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "notifications/initialized",
+       "jsonrpc": "2.0"
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 5,
+      "t": "2026-10-09T21:04:53.319478+00:00",
+      "elapsed": 0.163876,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "ping",
+      "id": 1,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "ping",
+       "jsonrpc": "2.0",
+       "id": 1
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 6,
+      "t": "2026-10-09T21:04:53.320079+00:00",
+      "elapsed": 0.164476,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "ping",
+      "id": 1,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 1,
+       "result": {}
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 7,
+      "t": "2026-10-09T21:04:53.320475+00:00",
+      "elapsed": 0.164871,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 2,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "tools/list",
+       "jsonrpc": "2.0",
+       "id": 2
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 8,
+      "t": "2026-10-09T21:04:53.321137+00:00",
+      "elapsed": 0.165537,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 2,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 2,
+       "result": {
+        "nextCursor": "20",
+        "tools": [
+         "slow_with_progress",
+         "cancellable_wait",
+         "emit_logs",
+         "task_capable",
+         "page_filler_00",
+         "page_filler_01",
+         "page_filler_02",
+         "page_filler_03",
+         "page_filler_04",
+         "page_filler_05",
+         "page_filler_06",
+         "page_filler_07",
+         "page_filler_08",
+         "page_filler_09",
+         "page_filler_10",
+         "page_filler_11",
+         "page_filler_12",
+         "page_filler_13",
+         "page_filler_14",
+         "page_filler_15"
+        ]
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 9,
+      "t": "2026-10-09T21:04:53.322188+00:00",
+      "elapsed": 0.166586,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "ping",
+      "id": 3,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "ping",
+       "jsonrpc": "2.0",
+       "id": 3
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 10,
+      "t": "2026-10-09T21:04:53.322648+00:00",
+      "elapsed": 0.167046,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "ping",
+      "id": 3,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 3,
+       "result": {}
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 11,
+      "t": "2026-10-09T21:04:53.323016+00:00",
+      "elapsed": 0.167414,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 4,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "tools/list",
+       "params": {
+        "cursor": "20"
+       },
+       "jsonrpc": "2.0",
+       "id": 4
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 12,
+      "t": "2026-10-09T21:04:53.323550+00:00",
+      "elapsed": 0.167947,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 4,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 4,
+       "result": {
+        "nextCursor": "40",
+        "tools": [
+         "page_filler_16",
+         "page_filler_17",
+         "page_filler_18",
+         "page_filler_19",
+         "page_filler_20",
+         "page_filler_21",
+         "page_filler_22",
+         "page_filler_23",
+         "page_filler_24",
+         "page_filler_25",
+         "page_filler_26",
+         "page_filler_27",
+         "page_filler_28",
+         "page_filler_29",
+         "page_filler_30",
+         "page_filler_31",
+         "page_filler_32",
+         "page_filler_33",
+         "page_filler_34",
+         "page_filler_35"
+        ]
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 13,
+      "t": "2026-10-09T21:04:53.324201+00:00",
+      "elapsed": 0.168601,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "ping",
+      "id": 5,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "ping",
+       "jsonrpc": "2.0",
+       "id": 5
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 14,
+      "t": "2026-10-09T21:04:53.324619+00:00",
+      "elapsed": 0.169016,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "ping",
+      "id": 5,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 5,
+       "result": {}
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 15,
+      "t": "2026-10-09T21:04:53.324933+00:00",
+      "elapsed": 0.16933,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 6,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "tools/list",
+       "params": {
+        "cursor": "40"
+       },
+       "jsonrpc": "2.0",
+       "id": 6
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 16,
+      "t": "2026-10-09T21:04:53.325445+00:00",
+      "elapsed": 0.169842,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 6,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 6,
+       "result": {
+        "tools": [
+         "page_filler_36",
+         "page_filler_37",
+         "page_filler_38",
+         "page_filler_39",
+         "page_filler_40",
+         "page_filler_41",
+         "page_filler_42",
+         "page_filler_43",
+         "page_filler_44",
+         "page_filler_45",
+         "page_filler_46",
+         "page_filler_47",
+         "page_filler_48",
+         "page_filler_49",
+         "page_filler_50",
+         "page_filler_51",
+         "page_filler_52",
+         "page_filler_53",
+         "page_filler_54",
+         "SENTINEL_LAST_TOOL"
+        ]
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 17,
+      "t": "2026-10-09T21:04:53.326146+00:00",
+      "elapsed": 0.170543,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "ping",
+      "id": 7,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "ping",
+       "jsonrpc": "2.0",
+       "id": 7
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 18,
+      "t": "2026-10-09T21:04:53.326547+00:00",
+      "elapsed": 0.170944,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "ping",
+      "id": 7,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 7,
+       "result": {}
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 19,
+      "t": "2026-10-09T21:04:53.326887+00:00",
+      "elapsed": 0.171286,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "prompts/list",
+      "id": 8,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "prompts/list",
+       "jsonrpc": "2.0",
+       "id": 8
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 20,
+      "t": "2026-10-09T21:04:53.327356+00:00",
+      "elapsed": 0.171752,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "prompts/list",
+      "id": 8,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 8,
+       "result": {
+        "nextCursor": "20",
+        "prompts": [
+         "pick_colour",
+         "page_prompt_00",
+         "page_prompt_01",
+         "page_prompt_02",
+         "page_prompt_03",
+         "page_prompt_04",
+         "page_prompt_05",
+         "page_prompt_06",
+         "page_prompt_07",
+         "page_prompt_08",
+         "page_prompt_09",
+         "page_prompt_10",
+         "page_prompt_11",
+         "page_prompt_12",
+         "page_prompt_13",
+         "page_prompt_14",
+         "page_prompt_15",
+         "page_prompt_16",
+         "page_prompt_17",
+         "page_prompt_18"
+        ]
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 21,
+      "t": "2026-10-09T21:04:53.328010+00:00",
+      "elapsed": 0.172408,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "ping",
+      "id": 9,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "ping",
+       "jsonrpc": "2.0",
+       "id": 9
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 22,
+      "t": "2026-10-09T21:04:53.328403+00:00",
+      "elapsed": 0.1728,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "ping",
+      "id": 9,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 9,
+       "result": {}
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 23,
+      "t": "2026-10-09T21:04:53.328703+00:00",
+      "elapsed": 0.173101,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "prompts/list",
+      "id": 10,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "prompts/list",
+       "params": {
+        "cursor": "20"
+       },
+       "jsonrpc": "2.0",
+       "id": 10
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 24,
+      "t": "2026-10-09T21:04:53.329152+00:00",
+      "elapsed": 0.173549,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "prompts/list",
+      "id": 10,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 10,
+       "result": {
+        "nextCursor": "40",
+        "prompts": [
+         "page_prompt_19",
+         "page_prompt_20",
+         "page_prompt_21",
+         "page_prompt_22",
+         "page_prompt_23",
+         "page_prompt_24",
+         "page_prompt_25",
+         "page_prompt_26",
+         "page_prompt_27",
+         "page_prompt_28",
+         "page_prompt_29",
+         "page_prompt_30",
+         "page_prompt_31",
+         "page_prompt_32",
+         "page_prompt_33",
+         "page_prompt_34",
+         "page_prompt_35",
+         "page_prompt_36",
+         "page_prompt_37",
+         "page_prompt_38"
+        ]
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 25,
+      "t": "2026-10-09T21:04:53.329780+00:00",
+      "elapsed": 0.174177,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "ping",
+      "id": 11,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "ping",
+       "jsonrpc": "2.0",
+       "id": 11
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 26,
+      "t": "2026-10-09T21:04:53.330177+00:00",
+      "elapsed": 0.174573,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "ping",
+      "id": 11,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 11,
+       "result": {}
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 27,
+      "t": "2026-10-09T21:04:53.330484+00:00",
+      "elapsed": 0.174881,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "prompts/list",
+      "id": 12,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "prompts/list",
+       "params": {
+        "cursor": "40"
+       },
+       "jsonrpc": "2.0",
+       "id": 12
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 28,
+      "t": "2026-10-09T21:04:53.330888+00:00",
+      "elapsed": 0.175285,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "prompts/list",
+      "id": 12,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 12,
+       "result": {
+        "prompts": [
+         "page_prompt_39",
+         "page_prompt_40",
+         "page_prompt_41",
+         "page_prompt_42",
+         "page_prompt_43",
+         "page_prompt_44",
+         "page_prompt_45",
+         "page_prompt_46",
+         "page_prompt_47",
+         "page_prompt_48",
+         "page_prompt_49",
+         "page_prompt_50",
+         "page_prompt_51",
+         "page_prompt_52",
+         "page_prompt_53",
+         "page_prompt_54",
+         "page_prompt_55",
+         "page_prompt_56",
+         "page_prompt_57",
+         "SENTINEL_LAST_PROMPT"
+        ]
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 29,
+      "t": "2026-10-09T21:04:53.331664+00:00",
+      "elapsed": 0.176061,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/call",
+      "id": 13,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "tools/call",
+       "params": {
+        "name": "slow_with_progress",
+        "arguments": {},
+        "_meta": {
+         "progressToken": 13
+        }
+       },
+       "jsonrpc": "2.0",
+       "id": 13
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 30,
+      "t": "2026-10-09T21:04:53.384519+00:00",
+      "elapsed": 0.22892,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "notification",
+      "method": "notifications/progress",
+      "id": null,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "notifications/progress",
+       "params": {
+        "progressToken": 13,
+        "progress": 1.0,
+        "total": 5.0,
+        "message": "SENTINEL_PROGRESS 1/5"
+       },
+       "jsonrpc": "2.0"
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 31,
+      "t": "2026-10-09T21:04:53.436577+00:00",
+      "elapsed": 0.280977,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "notification",
+      "method": "notifications/progress",
+      "id": null,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "notifications/progress",
+       "params": {
+        "progressToken": 13,
+        "progress": 2.0,
+        "total": 5.0,
+        "message": "SENTINEL_PROGRESS 2/5"
+       },
+       "jsonrpc": "2.0"
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 32,
+      "t": "2026-10-09T21:04:53.487990+00:00",
+      "elapsed": 0.332392,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "notification",
+      "method": "notifications/progress",
+      "id": null,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "notifications/progress",
+       "params": {
+        "progressToken": 13,
+        "progress": 3.0,
+        "total": 5.0,
+        "message": "SENTINEL_PROGRESS 3/5"
+       },
+       "jsonrpc": "2.0"
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 33,
+      "t": "2026-10-09T21:04:53.540482+00:00",
+      "elapsed": 0.384888,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "notification",
+      "method": "notifications/progress",
+      "id": null,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "notifications/progress",
+       "params": {
+        "progressToken": 13,
+        "progress": 4.0,
+        "total": 5.0,
+        "message": "SENTINEL_PROGRESS 4/5"
+       },
+       "jsonrpc": "2.0"
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 34,
+      "t": "2026-10-09T21:04:53.593008+00:00",
+      "elapsed": 0.43742,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "notification",
+      "method": "notifications/progress",
+      "id": null,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "notifications/progress",
+       "params": {
+        "progressToken": 13,
+        "progress": 5.0,
+        "total": 5.0,
+        "message": "SENTINEL_PROGRESS 5/5"
+       },
+       "jsonrpc": "2.0"
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 35,
+      "t": "2026-10-09T21:04:53.593453+00:00",
+      "elapsed": 0.437854,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/call",
+      "id": 13,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 13,
+       "result": {
+        "content": [
+         {
+          "type": "text",
+          "text": "SENTINEL_SLOW_DONE progress_sent=5"
+         }
+        ],
+        "isError": false
+       }
+      }
+     }
+    ],
+    "logging": [
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 1,
+      "t": "2026-10-09T21:04:53.750989+00:00",
+      "elapsed": 0.006978,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "initialize",
+      "id": 0,
+      "revision": null,
+      "batch": false,
+      "message": {
+       "method": "initialize",
+       "params": {
+        "protocolVersion": "2025-11-25",
+        "capabilities": {
+         "sampling": {}
+        },
+        "clientInfo": {
+         "name": "mcp",
+         "version": "0.1.0"
+        }
+       },
+       "jsonrpc": "2.0",
+       "id": 0
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 2,
+      "t": "2026-10-09T21:04:53.900385+00:00",
+      "elapsed": 0.156385,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "initialize",
+      "id": 0,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 0,
+       "result": {
+        "protocolVersion": "2025-11-25",
+        "capabilities": {
+         "experimental": {},
+         "logging": {},
+         "prompts": {
+          "listChanged": false
+         },
+         "resources": {
+          "subscribe": false,
+          "listChanged": false
+         },
+         "tools": {
+          "listChanged": false
+         },
+         "completions": {},
+         "tasks": {
+          "requests": {
+           "tools": {
+            "call": {}
+           }
+          }
+         }
+        },
+        "serverInfo": {
+         "name": "utilities-mcp",
+         "version": "1.26.0"
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "negotiation",
+      "seq": 3,
+      "t": "2026-10-09T21:04:53.900451+00:00",
+      "elapsed": 0.156434,
+      "session": "stdio",
+      "via": "initialize",
+      "requested_revision": "2025-11-25",
+      "negotiated_revision": "2025-11-25",
+      "client_capabilities": {
+       "sampling": {}
+      },
+      "client_info": {
+       "name": "mcp",
+       "version": "0.1.0"
+      },
+      "server_capabilities": {
+       "experimental": {},
+       "logging": {},
+       "prompts": {
+        "listChanged": false
+       },
+       "resources": {
+        "subscribe": false,
+        "listChanged": false
+       },
+       "tools": {
+        "listChanged": false
+       },
+       "completions": {},
+       "tasks": {
+        "requests": {
+         "tools": {
+          "call": {}
+         }
+        }
+       }
+      },
+      "server_info": {
+       "name": "utilities-mcp",
+       "version": "1.26.0"
+      },
+      "error": null
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 4,
+      "t": "2026-10-09T21:04:53.901123+00:00",
+      "elapsed": 0.157106,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "notification",
+      "method": "notifications/initialized",
+      "id": null,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "notifications/initialized",
+       "jsonrpc": "2.0"
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 5,
+      "t": "2026-10-09T21:04:53.901289+00:00",
+      "elapsed": 0.157274,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "ping",
+      "id": 1,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "ping",
+       "jsonrpc": "2.0",
+       "id": 1
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 6,
+      "t": "2026-10-09T21:04:53.901827+00:00",
+      "elapsed": 0.157811,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "ping",
+      "id": 1,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 1,
+       "result": {}
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 7,
+      "t": "2026-10-09T21:04:53.902176+00:00",
+      "elapsed": 0.158158,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 2,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "tools/list",
+       "jsonrpc": "2.0",
+       "id": 2
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 8,
+      "t": "2026-10-09T21:04:53.902720+00:00",
+      "elapsed": 0.158703,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 2,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 2,
+       "result": {
+        "nextCursor": "20",
+        "tools": [
+         "slow_with_progress",
+         "cancellable_wait",
+         "emit_logs",
+         "task_capable",
+         "page_filler_00",
+         "page_filler_01",
+         "page_filler_02",
+         "page_filler_03",
+         "page_filler_04",
+         "page_filler_05",
+         "page_filler_06",
+         "page_filler_07",
+         "page_filler_08",
+         "page_filler_09",
+         "page_filler_10",
+         "page_filler_11",
+         "page_filler_12",
+         "page_filler_13",
+         "page_filler_14",
+         "page_filler_15"
+        ]
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 9,
+      "t": "2026-10-09T21:04:53.903635+00:00",
+      "elapsed": 0.159618,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "ping",
+      "id": 3,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "ping",
+       "jsonrpc": "2.0",
+       "id": 3
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 10,
+      "t": "2026-10-09T21:04:53.904039+00:00",
+      "elapsed": 0.160023,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "ping",
+      "id": 3,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 3,
+       "result": {}
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 11,
+      "t": "2026-10-09T21:04:53.904344+00:00",
+      "elapsed": 0.160327,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 4,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "tools/list",
+       "params": {
+        "cursor": "20"
+       },
+       "jsonrpc": "2.0",
+       "id": 4
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 12,
+      "t": "2026-10-09T21:04:53.904785+00:00",
+      "elapsed": 0.160768,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 4,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 4,
+       "result": {
+        "nextCursor": "40",
+        "tools": [
+         "page_filler_16",
+         "page_filler_17",
+         "page_filler_18",
+         "page_filler_19",
+         "page_filler_20",
+         "page_filler_21",
+         "page_filler_22",
+         "page_filler_23",
+         "page_filler_24",
+         "page_filler_25",
+         "page_filler_26",
+         "page_filler_27",
+         "page_filler_28",
+         "page_filler_29",
+         "page_filler_30",
+         "page_filler_31",
+         "page_filler_32",
+         "page_filler_33",
+         "page_filler_34",
+         "page_filler_35"
+        ]
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 13,
+      "t": "2026-10-09T21:04:53.905400+00:00",
+      "elapsed": 0.161382,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "ping",
+      "id": 5,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "ping",
+       "jsonrpc": "2.0",
+       "id": 5
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 14,
+      "t": "2026-10-09T21:04:53.905779+00:00",
+      "elapsed": 0.161761,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "ping",
+      "id": 5,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 5,
+       "result": {}
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 15,
+      "t": "2026-10-09T21:04:53.906060+00:00",
+      "elapsed": 0.162042,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 6,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "tools/list",
+       "params": {
+        "cursor": "40"
+       },
+       "jsonrpc": "2.0",
+       "id": 6
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 16,
+      "t": "2026-10-09T21:04:53.906544+00:00",
+      "elapsed": 0.162526,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 6,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 6,
+       "result": {
+        "tools": [
+         "page_filler_36",
+         "page_filler_37",
+         "page_filler_38",
+         "page_filler_39",
+         "page_filler_40",
+         "page_filler_41",
+         "page_filler_42",
+         "page_filler_43",
+         "page_filler_44",
+         "page_filler_45",
+         "page_filler_46",
+         "page_filler_47",
+         "page_filler_48",
+         "page_filler_49",
+         "page_filler_50",
+         "page_filler_51",
+         "page_filler_52",
+         "page_filler_53",
+         "page_filler_54",
+         "SENTINEL_LAST_TOOL"
+        ]
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 17,
+      "t": "2026-10-09T21:04:53.907275+00:00",
+      "elapsed": 0.163258,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "ping",
+      "id": 7,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "ping",
+       "jsonrpc": "2.0",
+       "id": 7
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 18,
+      "t": "2026-10-09T21:04:53.907662+00:00",
+      "elapsed": 0.163644,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "ping",
+      "id": 7,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 7,
+       "result": {}
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 19,
+      "t": "2026-10-09T21:04:53.908007+00:00",
+      "elapsed": 0.163989,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "prompts/list",
+      "id": 8,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "prompts/list",
+       "jsonrpc": "2.0",
+       "id": 8
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 20,
+      "t": "2026-10-09T21:04:53.908442+00:00",
+      "elapsed": 0.164424,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "prompts/list",
+      "id": 8,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 8,
+       "result": {
+        "nextCursor": "20",
+        "prompts": [
+         "pick_colour",
+         "page_prompt_00",
+         "page_prompt_01",
+         "page_prompt_02",
+         "page_prompt_03",
+         "page_prompt_04",
+         "page_prompt_05",
+         "page_prompt_06",
+         "page_prompt_07",
+         "page_prompt_08",
+         "page_prompt_09",
+         "page_prompt_10",
+         "page_prompt_11",
+         "page_prompt_12",
+         "page_prompt_13",
+         "page_prompt_14",
+         "page_prompt_15",
+         "page_prompt_16",
+         "page_prompt_17",
+         "page_prompt_18"
+        ]
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 21,
+      "t": "2026-10-09T21:04:53.909031+00:00",
+      "elapsed": 0.165014,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "ping",
+      "id": 9,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "ping",
+       "jsonrpc": "2.0",
+       "id": 9
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 22,
+      "t": "2026-10-09T21:04:53.909395+00:00",
+      "elapsed": 0.165377,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "ping",
+      "id": 9,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 9,
+       "result": {}
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 23,
+      "t": "2026-10-09T21:04:53.909672+00:00",
+      "elapsed": 0.165655,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "prompts/list",
+      "id": 10,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "prompts/list",
+       "params": {
+        "cursor": "20"
+       },
+       "jsonrpc": "2.0",
+       "id": 10
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 24,
+      "t": "2026-10-09T21:04:53.910073+00:00",
+      "elapsed": 0.166055,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "prompts/list",
+      "id": 10,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 10,
+       "result": {
+        "nextCursor": "40",
+        "prompts": [
+         "page_prompt_19",
+         "page_prompt_20",
+         "page_prompt_21",
+         "page_prompt_22",
+         "page_prompt_23",
+         "page_prompt_24",
+         "page_prompt_25",
+         "page_prompt_26",
+         "page_prompt_27",
+         "page_prompt_28",
+         "page_prompt_29",
+         "page_prompt_30",
+         "page_prompt_31",
+         "page_prompt_32",
+         "page_prompt_33",
+         "page_prompt_34",
+         "page_prompt_35",
+         "page_prompt_36",
+         "page_prompt_37",
+         "page_prompt_38"
+        ]
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 25,
+      "t": "2026-10-09T21:04:53.910629+00:00",
+      "elapsed": 0.166611,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "ping",
+      "id": 11,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "ping",
+       "jsonrpc": "2.0",
+       "id": 11
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 26,
+      "t": "2026-10-09T21:04:53.911002+00:00",
+      "elapsed": 0.166985,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "ping",
+      "id": 11,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 11,
+       "result": {}
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 27,
+      "t": "2026-10-09T21:04:53.911294+00:00",
+      "elapsed": 0.167276,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "prompts/list",
+      "id": 12,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "prompts/list",
+       "params": {
+        "cursor": "40"
+       },
+       "jsonrpc": "2.0",
+       "id": 12
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 28,
+      "t": "2026-10-09T21:04:53.911683+00:00",
+      "elapsed": 0.167665,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "prompts/list",
+      "id": 12,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 12,
+       "result": {
+        "prompts": [
+         "page_prompt_39",
+         "page_prompt_40",
+         "page_prompt_41",
+         "page_prompt_42",
+         "page_prompt_43",
+         "page_prompt_44",
+         "page_prompt_45",
+         "page_prompt_46",
+         "page_prompt_47",
+         "page_prompt_48",
+         "page_prompt_49",
+         "page_prompt_50",
+         "page_prompt_51",
+         "page_prompt_52",
+         "page_prompt_53",
+         "page_prompt_54",
+         "page_prompt_55",
+         "page_prompt_56",
+         "page_prompt_57",
+         "SENTINEL_LAST_PROMPT"
+        ]
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 29,
+      "t": "2026-10-09T21:04:53.912333+00:00",
+      "elapsed": 0.168316,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/call",
+      "id": 13,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "tools/call",
+       "params": {
+        "name": "emit_logs",
+        "arguments": {}
+       },
+       "jsonrpc": "2.0",
+       "id": 13
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 30,
+      "t": "2026-10-09T21:04:53.912784+00:00",
+      "elapsed": 0.168767,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "notification",
+      "method": "notifications/message",
+      "id": null,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "notifications/message",
+       "params": {
+        "level": "debug",
+        "logger": "utilities-fixture",
+        "data": {
+         "message": "SENTINEL_LOG_DEBUG"
+        }
+       },
+       "jsonrpc": "2.0"
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 31,
+      "t": "2026-10-09T21:04:53.912954+00:00",
+      "elapsed": 0.168936,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "notification",
+      "method": "notifications/message",
+      "id": null,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "notifications/message",
+       "params": {
+        "level": "info",
+        "logger": "utilities-fixture",
+        "data": {
+         "message": "SENTINEL_LOG_INFO"
+        }
+       },
+       "jsonrpc": "2.0"
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 32,
+      "t": "2026-10-09T21:04:53.913189+00:00",
+      "elapsed": 0.169171,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "notification",
+      "method": "notifications/message",
+      "id": null,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "notifications/message",
+       "params": {
+        "level": "notice",
+        "logger": "utilities-fixture",
+        "data": {
+         "message": "SENTINEL_LOG_NOTICE"
+        }
+       },
+       "jsonrpc": "2.0"
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 33,
+      "t": "2026-10-09T21:04:53.913376+00:00",
+      "elapsed": 0.169358,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "notification",
+      "method": "notifications/message",
+      "id": null,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "notifications/message",
+       "params": {
+        "level": "warning",
+        "logger": "utilities-fixture",
+        "data": {
+         "message": "SENTINEL_LOG_WARNING"
+        }
+       },
+       "jsonrpc": "2.0"
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 34,
+      "t": "2026-10-09T21:04:53.913589+00:00",
+      "elapsed": 0.169574,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "notification",
+      "method": "notifications/message",
+      "id": null,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "notifications/message",
+       "params": {
+        "level": "error",
+        "logger": "utilities-fixture",
+        "data": {
+         "message": "SENTINEL_LOG_ERROR"
+        }
+       },
+       "jsonrpc": "2.0"
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 35,
+      "t": "2026-10-09T21:04:53.913764+00:00",
+      "elapsed": 0.169746,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/call",
+      "id": 13,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 13,
+       "result": {
+        "content": [
+         {
+          "type": "text",
+          "text": "SENTINEL_LOGS_SENT 5 at level>=debug"
+         }
+        ],
+        "isError": false
+       }
+      }
+     }
+    ],
+    "set_level": [
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 1,
+      "t": "2026-10-09T21:04:54.258351+00:00",
+      "elapsed": 0.007052,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "initialize",
+      "id": 0,
+      "revision": null,
+      "batch": false,
+      "message": {
+       "method": "initialize",
+       "params": {
+        "protocolVersion": "2025-11-25",
+        "capabilities": {
+         "sampling": {}
+        },
+        "clientInfo": {
+         "name": "mcp",
+         "version": "0.1.0"
+        }
+       },
+       "jsonrpc": "2.0",
+       "id": 0
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 2,
+      "t": "2026-10-09T21:04:54.403072+00:00",
+      "elapsed": 0.151784,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "initialize",
+      "id": 0,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 0,
+       "result": {
+        "protocolVersion": "2025-11-25",
+        "capabilities": {
+         "experimental": {},
+         "logging": {},
+         "prompts": {
+          "listChanged": false
+         },
+         "resources": {
+          "subscribe": false,
+          "listChanged": false
+         },
+         "tools": {
+          "listChanged": false
+         },
+         "completions": {},
+         "tasks": {
+          "requests": {
+           "tools": {
+            "call": {}
+           }
+          }
+         }
+        },
+        "serverInfo": {
+         "name": "utilities-mcp",
+         "version": "1.26.0"
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "negotiation",
+      "seq": 3,
+      "t": "2026-10-09T21:04:54.403134+00:00",
+      "elapsed": 0.15183,
+      "session": "stdio",
+      "via": "initialize",
+      "requested_revision": "2025-11-25",
+      "negotiated_revision": "2025-11-25",
+      "client_capabilities": {
+       "sampling": {}
+      },
+      "client_info": {
+       "name": "mcp",
+       "version": "0.1.0"
+      },
+      "server_capabilities": {
+       "experimental": {},
+       "logging": {},
+       "prompts": {
+        "listChanged": false
+       },
+       "resources": {
+        "subscribe": false,
+        "listChanged": false
+       },
+       "tools": {
+        "listChanged": false
+       },
+       "completions": {},
+       "tasks": {
+        "requests": {
+         "tools": {
+          "call": {}
+         }
+        }
+       }
+      },
+      "server_info": {
+       "name": "utilities-mcp",
+       "version": "1.26.0"
+      },
+      "error": null
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 4,
+      "t": "2026-10-09T21:04:54.403813+00:00",
+      "elapsed": 0.152511,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "notification",
+      "method": "notifications/initialized",
+      "id": null,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "notifications/initialized",
+       "jsonrpc": "2.0"
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 5,
+      "t": "2026-10-09T21:04:54.403978+00:00",
+      "elapsed": 0.152674,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "ping",
+      "id": 1,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "ping",
+       "jsonrpc": "2.0",
+       "id": 1
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 6,
+      "t": "2026-10-09T21:04:54.404524+00:00",
+      "elapsed": 0.15322,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "ping",
+      "id": 1,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 1,
+       "result": {}
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 7,
+      "t": "2026-10-09T21:04:54.404880+00:00",
+      "elapsed": 0.153578,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 2,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "tools/list",
+       "jsonrpc": "2.0",
+       "id": 2
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 8,
+      "t": "2026-10-09T21:04:54.405500+00:00",
+      "elapsed": 0.154196,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 2,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 2,
+       "result": {
+        "nextCursor": "20",
+        "tools": [
+         "slow_with_progress",
+         "cancellable_wait",
+         "emit_logs",
+         "task_capable",
+         "page_filler_00",
+         "page_filler_01",
+         "page_filler_02",
+         "page_filler_03",
+         "page_filler_04",
+         "page_filler_05",
+         "page_filler_06",
+         "page_filler_07",
+         "page_filler_08",
+         "page_filler_09",
+         "page_filler_10",
+         "page_filler_11",
+         "page_filler_12",
+         "page_filler_13",
+         "page_filler_14",
+         "page_filler_15"
+        ]
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 9,
+      "t": "2026-10-09T21:04:54.406557+00:00",
+      "elapsed": 0.155253,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "ping",
+      "id": 3,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "ping",
+       "jsonrpc": "2.0",
+       "id": 3
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 10,
+      "t": "2026-10-09T21:04:54.407021+00:00",
+      "elapsed": 0.155717,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "ping",
+      "id": 3,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 3,
+       "result": {}
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 11,
+      "t": "2026-10-09T21:04:54.407401+00:00",
+      "elapsed": 0.156099,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 4,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "tools/list",
+       "params": {
+        "cursor": "20"
+       },
+       "jsonrpc": "2.0",
+       "id": 4
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 12,
+      "t": "2026-10-09T21:04:54.407892+00:00",
+      "elapsed": 0.156589,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 4,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 4,
+       "result": {
+        "nextCursor": "40",
+        "tools": [
+         "page_filler_16",
+         "page_filler_17",
+         "page_filler_18",
+         "page_filler_19",
+         "page_filler_20",
+         "page_filler_21",
+         "page_filler_22",
+         "page_filler_23",
+         "page_filler_24",
+         "page_filler_25",
+         "page_filler_26",
+         "page_filler_27",
+         "page_filler_28",
+         "page_filler_29",
+         "page_filler_30",
+         "page_filler_31",
+         "page_filler_32",
+         "page_filler_33",
+         "page_filler_34",
+         "page_filler_35"
+        ]
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 13,
+      "t": "2026-10-09T21:04:54.411912+00:00",
+      "elapsed": 0.160608,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "ping",
+      "id": 5,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "ping",
+       "jsonrpc": "2.0",
+       "id": 5
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 14,
+      "t": "2026-10-09T21:04:54.412447+00:00",
+      "elapsed": 0.161143,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "ping",
+      "id": 5,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 5,
+       "result": {}
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 15,
+      "t": "2026-10-09T21:04:54.412802+00:00",
+      "elapsed": 0.161498,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 6,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "tools/list",
+       "params": {
+        "cursor": "40"
+       },
+       "jsonrpc": "2.0",
+       "id": 6
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 16,
+      "t": "2026-10-09T21:04:54.413328+00:00",
+      "elapsed": 0.162023,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 6,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 6,
+       "result": {
+        "tools": [
+         "page_filler_36",
+         "page_filler_37",
+         "page_filler_38",
+         "page_filler_39",
+         "page_filler_40",
+         "page_filler_41",
+         "page_filler_42",
+         "page_filler_43",
+         "page_filler_44",
+         "page_filler_45",
+         "page_filler_46",
+         "page_filler_47",
+         "page_filler_48",
+         "page_filler_49",
+         "page_filler_50",
+         "page_filler_51",
+         "page_filler_52",
+         "page_filler_53",
+         "page_filler_54",
+         "SENTINEL_LAST_TOOL"
+        ]
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 17,
+      "t": "2026-10-09T21:04:54.415059+00:00",
+      "elapsed": 0.163755,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "ping",
+      "id": 7,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "ping",
+       "jsonrpc": "2.0",
+       "id": 7
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 18,
+      "t": "2026-10-09T21:04:54.415526+00:00",
+      "elapsed": 0.164222,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "ping",
+      "id": 7,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 7,
+       "result": {}
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 19,
+      "t": "2026-10-09T21:04:54.415862+00:00",
+      "elapsed": 0.164558,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "prompts/list",
+      "id": 8,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "prompts/list",
+       "jsonrpc": "2.0",
+       "id": 8
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 20,
+      "t": "2026-10-09T21:04:54.416327+00:00",
+      "elapsed": 0.165023,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "prompts/list",
+      "id": 8,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 8,
+       "result": {
+        "nextCursor": "20",
+        "prompts": [
+         "pick_colour",
+         "page_prompt_00",
+         "page_prompt_01",
+         "page_prompt_02",
+         "page_prompt_03",
+         "page_prompt_04",
+         "page_prompt_05",
+         "page_prompt_06",
+         "page_prompt_07",
+         "page_prompt_08",
+         "page_prompt_09",
+         "page_prompt_10",
+         "page_prompt_11",
+         "page_prompt_12",
+         "page_prompt_13",
+         "page_prompt_14",
+         "page_prompt_15",
+         "page_prompt_16",
+         "page_prompt_17",
+         "page_prompt_18"
+        ]
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 21,
+      "t": "2026-10-09T21:04:54.417732+00:00",
+      "elapsed": 0.166428,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "ping",
+      "id": 9,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "ping",
+       "jsonrpc": "2.0",
+       "id": 9
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 22,
+      "t": "2026-10-09T21:04:54.418144+00:00",
+      "elapsed": 0.166841,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "ping",
+      "id": 9,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 9,
+       "result": {}
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 23,
+      "t": "2026-10-09T21:04:54.418466+00:00",
+      "elapsed": 0.167161,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "prompts/list",
+      "id": 10,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "prompts/list",
+       "params": {
+        "cursor": "20"
+       },
+       "jsonrpc": "2.0",
+       "id": 10
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 24,
+      "t": "2026-10-09T21:04:54.418916+00:00",
+      "elapsed": 0.167612,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "prompts/list",
+      "id": 10,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 10,
+       "result": {
+        "nextCursor": "40",
+        "prompts": [
+         "page_prompt_19",
+         "page_prompt_20",
+         "page_prompt_21",
+         "page_prompt_22",
+         "page_prompt_23",
+         "page_prompt_24",
+         "page_prompt_25",
+         "page_prompt_26",
+         "page_prompt_27",
+         "page_prompt_28",
+         "page_prompt_29",
+         "page_prompt_30",
+         "page_prompt_31",
+         "page_prompt_32",
+         "page_prompt_33",
+         "page_prompt_34",
+         "page_prompt_35",
+         "page_prompt_36",
+         "page_prompt_37",
+         "page_prompt_38"
+        ]
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 25,
+      "t": "2026-10-09T21:04:54.419488+00:00",
+      "elapsed": 0.168184,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "ping",
+      "id": 11,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "ping",
+       "jsonrpc": "2.0",
+       "id": 11
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 26,
+      "t": "2026-10-09T21:04:54.419913+00:00",
+      "elapsed": 0.168609,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "ping",
+      "id": 11,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 11,
+       "result": {}
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 27,
+      "t": "2026-10-09T21:04:54.420219+00:00",
+      "elapsed": 0.168915,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "prompts/list",
+      "id": 12,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "prompts/list",
+       "params": {
+        "cursor": "40"
+       },
+       "jsonrpc": "2.0",
+       "id": 12
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 28,
+      "t": "2026-10-09T21:04:54.420628+00:00",
+      "elapsed": 0.169324,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "prompts/list",
+      "id": 12,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 12,
+       "result": {
+        "prompts": [
+         "page_prompt_39",
+         "page_prompt_40",
+         "page_prompt_41",
+         "page_prompt_42",
+         "page_prompt_43",
+         "page_prompt_44",
+         "page_prompt_45",
+         "page_prompt_46",
+         "page_prompt_47",
+         "page_prompt_48",
+         "page_prompt_49",
+         "page_prompt_50",
+         "page_prompt_51",
+         "page_prompt_52",
+         "page_prompt_53",
+         "page_prompt_54",
+         "page_prompt_55",
+         "page_prompt_56",
+         "page_prompt_57",
+         "SENTINEL_LAST_PROMPT"
+        ]
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 29,
+      "t": "2026-10-09T21:04:54.421325+00:00",
+      "elapsed": 0.170021,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "logging/setLevel",
+      "id": 13,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "logging/setLevel",
+       "params": {
+        "level": "warning"
+       },
+       "jsonrpc": "2.0",
+       "id": 13
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 30,
+      "t": "2026-10-09T21:04:54.421735+00:00",
+      "elapsed": 0.170431,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "logging/setLevel",
+      "id": 13,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 13,
+       "result": {}
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 31,
+      "t": "2026-10-09T21:04:54.422104+00:00",
+      "elapsed": 0.170799,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/call",
+      "id": 14,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "tools/call",
+       "params": {
+        "name": "emit_logs",
+        "arguments": {}
+       },
+       "jsonrpc": "2.0",
+       "id": 14
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 32,
+      "t": "2026-10-09T21:04:54.422551+00:00",
+      "elapsed": 0.171246,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "notification",
+      "method": "notifications/message",
+      "id": null,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "notifications/message",
+       "params": {
+        "level": "warning",
+        "logger": "utilities-fixture",
+        "data": {
+         "message": "SENTINEL_LOG_WARNING"
+        }
+       },
+       "jsonrpc": "2.0"
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 33,
+      "t": "2026-10-09T21:04:54.422767+00:00",
+      "elapsed": 0.171464,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "notification",
+      "method": "notifications/message",
+      "id": null,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "notifications/message",
+       "params": {
+        "level": "error",
+        "logger": "utilities-fixture",
+        "data": {
+         "message": "SENTINEL_LOG_ERROR"
+        }
+       },
+       "jsonrpc": "2.0"
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 34,
+      "t": "2026-10-09T21:04:54.422964+00:00",
+      "elapsed": 0.17166,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/call",
+      "id": 14,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 14,
+       "result": {
+        "content": [
+         {
+          "type": "text",
+          "text": "SENTINEL_LOGS_SENT 2 at level>=warning"
+         }
+        ],
+        "isError": false
+       }
+      }
+     }
+    ],
+    "completion": [
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 1,
+      "t": "2026-10-09T21:04:54.566584+00:00",
+      "elapsed": 0.007594,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "initialize",
+      "id": 0,
+      "revision": null,
+      "batch": false,
+      "message": {
+       "method": "initialize",
+       "params": {
+        "protocolVersion": "2025-11-25",
+        "capabilities": {
+         "sampling": {}
+        },
+        "clientInfo": {
+         "name": "mcp",
+         "version": "0.1.0"
+        }
+       },
+       "jsonrpc": "2.0",
+       "id": 0
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 2,
+      "t": "2026-10-09T21:04:54.716727+00:00",
+      "elapsed": 0.15774,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "initialize",
+      "id": 0,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 0,
+       "result": {
+        "protocolVersion": "2025-11-25",
+        "capabilities": {
+         "experimental": {},
+         "logging": {},
+         "prompts": {
+          "listChanged": false
+         },
+         "resources": {
+          "subscribe": false,
+          "listChanged": false
+         },
+         "tools": {
+          "listChanged": false
+         },
+         "completions": {},
+         "tasks": {
+          "requests": {
+           "tools": {
+            "call": {}
+           }
+          }
+         }
+        },
+        "serverInfo": {
+         "name": "utilities-mcp",
+         "version": "1.26.0"
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "negotiation",
+      "seq": 3,
+      "t": "2026-10-09T21:04:54.716794+00:00",
+      "elapsed": 0.157795,
+      "session": "stdio",
+      "via": "initialize",
+      "requested_revision": "2025-11-25",
+      "negotiated_revision": "2025-11-25",
+      "client_capabilities": {
+       "sampling": {}
+      },
+      "client_info": {
+       "name": "mcp",
+       "version": "0.1.0"
+      },
+      "server_capabilities": {
+       "experimental": {},
+       "logging": {},
+       "prompts": {
+        "listChanged": false
+       },
+       "resources": {
+        "subscribe": false,
+        "listChanged": false
+       },
+       "tools": {
+        "listChanged": false
+       },
+       "completions": {},
+       "tasks": {
+        "requests": {
+         "tools": {
+          "call": {}
+         }
+        }
+       }
+      },
+      "server_info": {
+       "name": "utilities-mcp",
+       "version": "1.26.0"
+      },
+      "error": null
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 4,
+      "t": "2026-10-09T21:04:54.717486+00:00",
+      "elapsed": 0.158488,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "notification",
+      "method": "notifications/initialized",
+      "id": null,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "notifications/initialized",
+       "jsonrpc": "2.0"
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 5,
+      "t": "2026-10-09T21:04:54.717653+00:00",
+      "elapsed": 0.158656,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "ping",
+      "id": 1,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "ping",
+       "jsonrpc": "2.0",
+       "id": 1
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 6,
+      "t": "2026-10-09T21:04:54.718158+00:00",
+      "elapsed": 0.159159,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "ping",
+      "id": 1,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 1,
+       "result": {}
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 7,
+      "t": "2026-10-09T21:04:54.718549+00:00",
+      "elapsed": 0.159553,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 2,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "tools/list",
+       "jsonrpc": "2.0",
+       "id": 2
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 8,
+      "t": "2026-10-09T21:04:54.719096+00:00",
+      "elapsed": 0.160098,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 2,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 2,
+       "result": {
+        "nextCursor": "20",
+        "tools": [
+         "slow_with_progress",
+         "cancellable_wait",
+         "emit_logs",
+         "task_capable",
+         "page_filler_00",
+         "page_filler_01",
+         "page_filler_02",
+         "page_filler_03",
+         "page_filler_04",
+         "page_filler_05",
+         "page_filler_06",
+         "page_filler_07",
+         "page_filler_08",
+         "page_filler_09",
+         "page_filler_10",
+         "page_filler_11",
+         "page_filler_12",
+         "page_filler_13",
+         "page_filler_14",
+         "page_filler_15"
+        ]
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 9,
+      "t": "2026-10-09T21:04:54.719987+00:00",
+      "elapsed": 0.160989,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "ping",
+      "id": 3,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "ping",
+       "jsonrpc": "2.0",
+       "id": 3
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 10,
+      "t": "2026-10-09T21:04:54.720410+00:00",
+      "elapsed": 0.161411,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "ping",
+      "id": 3,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 3,
+       "result": {}
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 11,
+      "t": "2026-10-09T21:04:54.720735+00:00",
+      "elapsed": 0.161736,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 4,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "tools/list",
+       "params": {
+        "cursor": "20"
+       },
+       "jsonrpc": "2.0",
+       "id": 4
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 12,
+      "t": "2026-10-09T21:04:54.721200+00:00",
+      "elapsed": 0.1622,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 4,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 4,
+       "result": {
+        "nextCursor": "40",
+        "tools": [
+         "page_filler_16",
+         "page_filler_17",
+         "page_filler_18",
+         "page_filler_19",
+         "page_filler_20",
+         "page_filler_21",
+         "page_filler_22",
+         "page_filler_23",
+         "page_filler_24",
+         "page_filler_25",
+         "page_filler_26",
+         "page_filler_27",
+         "page_filler_28",
+         "page_filler_29",
+         "page_filler_30",
+         "page_filler_31",
+         "page_filler_32",
+         "page_filler_33",
+         "page_filler_34",
+         "page_filler_35"
+        ]
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 13,
+      "t": "2026-10-09T21:04:54.721845+00:00",
+      "elapsed": 0.162846,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "ping",
+      "id": 5,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "ping",
+       "jsonrpc": "2.0",
+       "id": 5
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 14,
+      "t": "2026-10-09T21:04:54.722236+00:00",
+      "elapsed": 0.163237,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "ping",
+      "id": 5,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 5,
+       "result": {}
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 15,
+      "t": "2026-10-09T21:04:54.722527+00:00",
+      "elapsed": 0.163529,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 6,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "tools/list",
+       "params": {
+        "cursor": "40"
+       },
+       "jsonrpc": "2.0",
+       "id": 6
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 16,
+      "t": "2026-10-09T21:04:54.722951+00:00",
+      "elapsed": 0.163952,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 6,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 6,
+       "result": {
+        "tools": [
+         "page_filler_36",
+         "page_filler_37",
+         "page_filler_38",
+         "page_filler_39",
+         "page_filler_40",
+         "page_filler_41",
+         "page_filler_42",
+         "page_filler_43",
+         "page_filler_44",
+         "page_filler_45",
+         "page_filler_46",
+         "page_filler_47",
+         "page_filler_48",
+         "page_filler_49",
+         "page_filler_50",
+         "page_filler_51",
+         "page_filler_52",
+         "page_filler_53",
+         "page_filler_54",
+         "SENTINEL_LAST_TOOL"
+        ]
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 17,
+      "t": "2026-10-09T21:04:54.724029+00:00",
+      "elapsed": 0.16503,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "ping",
+      "id": 7,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "ping",
+       "jsonrpc": "2.0",
+       "id": 7
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 18,
+      "t": "2026-10-09T21:04:54.724455+00:00",
+      "elapsed": 0.165456,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "ping",
+      "id": 7,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 7,
+       "result": {}
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 19,
+      "t": "2026-10-09T21:04:54.724771+00:00",
+      "elapsed": 0.165772,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "prompts/list",
+      "id": 8,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "prompts/list",
+       "jsonrpc": "2.0",
+       "id": 8
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 20,
+      "t": "2026-10-09T21:04:54.725197+00:00",
+      "elapsed": 0.166197,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "prompts/list",
+      "id": 8,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 8,
+       "result": {
+        "nextCursor": "20",
+        "prompts": [
+         "pick_colour",
+         "page_prompt_00",
+         "page_prompt_01",
+         "page_prompt_02",
+         "page_prompt_03",
+         "page_prompt_04",
+         "page_prompt_05",
+         "page_prompt_06",
+         "page_prompt_07",
+         "page_prompt_08",
+         "page_prompt_09",
+         "page_prompt_10",
+         "page_prompt_11",
+         "page_prompt_12",
+         "page_prompt_13",
+         "page_prompt_14",
+         "page_prompt_15",
+         "page_prompt_16",
+         "page_prompt_17",
+         "page_prompt_18"
+        ]
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 21,
+      "t": "2026-10-09T21:04:54.725756+00:00",
+      "elapsed": 0.166757,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "ping",
+      "id": 9,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "ping",
+       "jsonrpc": "2.0",
+       "id": 9
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 22,
+      "t": "2026-10-09T21:04:54.726215+00:00",
+      "elapsed": 0.167219,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "ping",
+      "id": 9,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 9,
+       "result": {}
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 23,
+      "t": "2026-10-09T21:04:54.726556+00:00",
+      "elapsed": 0.167557,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "prompts/list",
+      "id": 10,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "prompts/list",
+       "params": {
+        "cursor": "20"
+       },
+       "jsonrpc": "2.0",
+       "id": 10
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 24,
+      "t": "2026-10-09T21:04:54.726977+00:00",
+      "elapsed": 0.167978,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "prompts/list",
+      "id": 10,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 10,
+       "result": {
+        "nextCursor": "40",
+        "prompts": [
+         "page_prompt_19",
+         "page_prompt_20",
+         "page_prompt_21",
+         "page_prompt_22",
+         "page_prompt_23",
+         "page_prompt_24",
+         "page_prompt_25",
+         "page_prompt_26",
+         "page_prompt_27",
+         "page_prompt_28",
+         "page_prompt_29",
+         "page_prompt_30",
+         "page_prompt_31",
+         "page_prompt_32",
+         "page_prompt_33",
+         "page_prompt_34",
+         "page_prompt_35",
+         "page_prompt_36",
+         "page_prompt_37",
+         "page_prompt_38"
+        ]
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 25,
+      "t": "2026-10-09T21:04:54.727525+00:00",
+      "elapsed": 0.168526,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "ping",
+      "id": 11,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "ping",
+       "jsonrpc": "2.0",
+       "id": 11
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 26,
+      "t": "2026-10-09T21:04:54.727955+00:00",
+      "elapsed": 0.168956,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "ping",
+      "id": 11,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 11,
+       "result": {}
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 27,
+      "t": "2026-10-09T21:04:54.728294+00:00",
+      "elapsed": 0.169296,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "prompts/list",
+      "id": 12,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "prompts/list",
+       "params": {
+        "cursor": "40"
+       },
+       "jsonrpc": "2.0",
+       "id": 12
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 28,
+      "t": "2026-10-09T21:04:54.728755+00:00",
+      "elapsed": 0.169755,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "prompts/list",
+      "id": 12,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 12,
+       "result": {
+        "prompts": [
+         "page_prompt_39",
+         "page_prompt_40",
+         "page_prompt_41",
+         "page_prompt_42",
+         "page_prompt_43",
+         "page_prompt_44",
+         "page_prompt_45",
+         "page_prompt_46",
+         "page_prompt_47",
+         "page_prompt_48",
+         "page_prompt_49",
+         "page_prompt_50",
+         "page_prompt_51",
+         "page_prompt_52",
+         "page_prompt_53",
+         "page_prompt_54",
+         "page_prompt_55",
+         "page_prompt_56",
+         "page_prompt_57",
+         "SENTINEL_LAST_PROMPT"
+        ]
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 29,
+      "t": "2026-10-09T21:04:54.729585+00:00",
+      "elapsed": 0.170586,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "completion/complete",
+      "id": 13,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "completion/complete",
+       "params": {
+        "ref": {
+         "type": "ref/prompt",
+         "name": "pick_colour"
+        },
+        "argument": {
+         "name": "colour",
+         "value": "c"
+        }
+       },
+       "jsonrpc": "2.0",
+       "id": 13
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 30,
+      "t": "2026-10-09T21:04:54.730040+00:00",
+      "elapsed": 0.171041,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "completion/complete",
+      "id": 13,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 13,
+       "result": {
+        "completion": {
+         "values": [
+          "crimson",
+          "cyan",
+          "cobalt"
+         ],
+         "total": 3,
+         "hasMore": false
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 31,
+      "t": "2026-10-09T21:04:54.730364+00:00",
+      "elapsed": 0.171365,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "completion/complete",
+      "id": 14,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "completion/complete",
+       "params": {
+        "ref": {
+         "type": "ref/resource",
+         "uri": "file:///fixtures/records/{record_id}"
+        },
+        "argument": {
+         "name": "record_id",
+         "value": "rec_1"
+        }
+       },
+       "jsonrpc": "2.0",
+       "id": 14
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 32,
+      "t": "2026-10-09T21:04:54.730779+00:00",
+      "elapsed": 0.17178,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "completion/complete",
+      "id": 14,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 14,
+       "result": {
+        "completion": {
+         "values": [
+          "rec_1",
+          "rec_10",
+          "rec_11"
+         ],
+         "total": 3,
+         "hasMore": false
+        }
+       }
+      }
+     }
+    ],
+    "cancellation": [
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 1,
+      "t": "2026-10-09T21:04:54.873909+00:00",
+      "elapsed": 0.007786,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "initialize",
+      "id": 0,
+      "revision": null,
+      "batch": false,
+      "message": {
+       "method": "initialize",
+       "params": {
+        "protocolVersion": "2025-11-25",
+        "capabilities": {
+         "sampling": {}
+        },
+        "clientInfo": {
+         "name": "mcp",
+         "version": "0.1.0"
+        }
+       },
+       "jsonrpc": "2.0",
+       "id": 0
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 2,
+      "t": "2026-10-09T21:04:55.031787+00:00",
+      "elapsed": 0.16567,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "initialize",
+      "id": 0,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 0,
+       "result": {
+        "protocolVersion": "2025-11-25",
+        "capabilities": {
+         "experimental": {},
+         "logging": {},
+         "prompts": {
+          "listChanged": false
+         },
+         "resources": {
+          "subscribe": false,
+          "listChanged": false
+         },
+         "tools": {
+          "listChanged": false
+         },
+         "completions": {},
+         "tasks": {
+          "requests": {
+           "tools": {
+            "call": {}
+           }
+          }
+         }
+        },
+        "serverInfo": {
+         "name": "utilities-mcp",
+         "version": "1.26.0"
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "negotiation",
+      "seq": 3,
+      "t": "2026-10-09T21:04:55.031846+00:00",
+      "elapsed": 0.165715,
+      "session": "stdio",
+      "via": "initialize",
+      "requested_revision": "2025-11-25",
+      "negotiated_revision": "2025-11-25",
+      "client_capabilities": {
+       "sampling": {}
+      },
+      "client_info": {
+       "name": "mcp",
+       "version": "0.1.0"
+      },
+      "server_capabilities": {
+       "experimental": {},
+       "logging": {},
+       "prompts": {
+        "listChanged": false
+       },
+       "resources": {
+        "subscribe": false,
+        "listChanged": false
+       },
+       "tools": {
+        "listChanged": false
+       },
+       "completions": {},
+       "tasks": {
+        "requests": {
+         "tools": {
+          "call": {}
+         }
+        }
+       }
+      },
+      "server_info": {
+       "name": "utilities-mcp",
+       "version": "1.26.0"
+      },
+      "error": null
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 4,
+      "t": "2026-10-09T21:04:55.032589+00:00",
+      "elapsed": 0.166459,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "notification",
+      "method": "notifications/initialized",
+      "id": null,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "notifications/initialized",
+       "jsonrpc": "2.0"
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 5,
+      "t": "2026-10-09T21:04:55.032767+00:00",
+      "elapsed": 0.166638,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "ping",
+      "id": 1,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "ping",
+       "jsonrpc": "2.0",
+       "id": 1
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 6,
+      "t": "2026-10-09T21:04:55.033302+00:00",
+      "elapsed": 0.167171,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "ping",
+      "id": 1,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 1,
+       "result": {}
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 7,
+      "t": "2026-10-09T21:04:55.033675+00:00",
+      "elapsed": 0.167544,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 2,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "tools/list",
+       "jsonrpc": "2.0",
+       "id": 2
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 8,
+      "t": "2026-10-09T21:04:55.034230+00:00",
+      "elapsed": 0.168099,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 2,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 2,
+       "result": {
+        "nextCursor": "20",
+        "tools": [
+         "slow_with_progress",
+         "cancellable_wait",
+         "emit_logs",
+         "task_capable",
+         "page_filler_00",
+         "page_filler_01",
+         "page_filler_02",
+         "page_filler_03",
+         "page_filler_04",
+         "page_filler_05",
+         "page_filler_06",
+         "page_filler_07",
+         "page_filler_08",
+         "page_filler_09",
+         "page_filler_10",
+         "page_filler_11",
+         "page_filler_12",
+         "page_filler_13",
+         "page_filler_14",
+         "page_filler_15"
+        ]
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 9,
+      "t": "2026-10-09T21:04:55.035132+00:00",
+      "elapsed": 0.169001,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "ping",
+      "id": 3,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "ping",
+       "jsonrpc": "2.0",
+       "id": 3
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 10,
+      "t": "2026-10-09T21:04:55.035566+00:00",
+      "elapsed": 0.169434,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "ping",
+      "id": 3,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 3,
+       "result": {}
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 11,
+      "t": "2026-10-09T21:04:55.035881+00:00",
+      "elapsed": 0.16975,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 4,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "tools/list",
+       "params": {
+        "cursor": "20"
+       },
+       "jsonrpc": "2.0",
+       "id": 4
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 12,
+      "t": "2026-10-09T21:04:55.036366+00:00",
+      "elapsed": 0.170235,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 4,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 4,
+       "result": {
+        "nextCursor": "40",
+        "tools": [
+         "page_filler_16",
+         "page_filler_17",
+         "page_filler_18",
+         "page_filler_19",
+         "page_filler_20",
+         "page_filler_21",
+         "page_filler_22",
+         "page_filler_23",
+         "page_filler_24",
+         "page_filler_25",
+         "page_filler_26",
+         "page_filler_27",
+         "page_filler_28",
+         "page_filler_29",
+         "page_filler_30",
+         "page_filler_31",
+         "page_filler_32",
+         "page_filler_33",
+         "page_filler_34",
+         "page_filler_35"
+        ]
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 13,
+      "t": "2026-10-09T21:04:55.037017+00:00",
+      "elapsed": 0.170886,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "ping",
+      "id": 5,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "ping",
+       "jsonrpc": "2.0",
+       "id": 5
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 14,
+      "t": "2026-10-09T21:04:55.037439+00:00",
+      "elapsed": 0.171308,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "ping",
+      "id": 5,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 5,
+       "result": {}
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 15,
+      "t": "2026-10-09T21:04:55.037736+00:00",
+      "elapsed": 0.171606,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 6,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "tools/list",
+       "params": {
+        "cursor": "40"
+       },
+       "jsonrpc": "2.0",
+       "id": 6
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 16,
+      "t": "2026-10-09T21:04:55.038186+00:00",
+      "elapsed": 0.172055,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 6,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 6,
+       "result": {
+        "tools": [
+         "page_filler_36",
+         "page_filler_37",
+         "page_filler_38",
+         "page_filler_39",
+         "page_filler_40",
+         "page_filler_41",
+         "page_filler_42",
+         "page_filler_43",
+         "page_filler_44",
+         "page_filler_45",
+         "page_filler_46",
+         "page_filler_47",
+         "page_filler_48",
+         "page_filler_49",
+         "page_filler_50",
+         "page_filler_51",
+         "page_filler_52",
+         "page_filler_53",
+         "page_filler_54",
+         "SENTINEL_LAST_TOOL"
+        ]
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 17,
+      "t": "2026-10-09T21:04:55.038834+00:00",
+      "elapsed": 0.172704,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "ping",
+      "id": 7,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "ping",
+       "jsonrpc": "2.0",
+       "id": 7
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 18,
+      "t": "2026-10-09T21:04:55.039220+00:00",
+      "elapsed": 0.173089,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "ping",
+      "id": 7,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 7,
+       "result": {}
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 19,
+      "t": "2026-10-09T21:04:55.039509+00:00",
+      "elapsed": 0.173378,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "prompts/list",
+      "id": 8,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "prompts/list",
+       "jsonrpc": "2.0",
+       "id": 8
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 20,
+      "t": "2026-10-09T21:04:55.039943+00:00",
+      "elapsed": 0.173812,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "prompts/list",
+      "id": 8,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 8,
+       "result": {
+        "nextCursor": "20",
+        "prompts": [
+         "pick_colour",
+         "page_prompt_00",
+         "page_prompt_01",
+         "page_prompt_02",
+         "page_prompt_03",
+         "page_prompt_04",
+         "page_prompt_05",
+         "page_prompt_06",
+         "page_prompt_07",
+         "page_prompt_08",
+         "page_prompt_09",
+         "page_prompt_10",
+         "page_prompt_11",
+         "page_prompt_12",
+         "page_prompt_13",
+         "page_prompt_14",
+         "page_prompt_15",
+         "page_prompt_16",
+         "page_prompt_17",
+         "page_prompt_18"
+        ]
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 21,
+      "t": "2026-10-09T21:04:55.040507+00:00",
+      "elapsed": 0.174375,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "ping",
+      "id": 9,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "ping",
+       "jsonrpc": "2.0",
+       "id": 9
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 22,
+      "t": "2026-10-09T21:04:55.040875+00:00",
+      "elapsed": 0.174743,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "ping",
+      "id": 9,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 9,
+       "result": {}
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 23,
+      "t": "2026-10-09T21:04:55.041203+00:00",
+      "elapsed": 0.175074,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "prompts/list",
+      "id": 10,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "prompts/list",
+       "params": {
+        "cursor": "20"
+       },
+       "jsonrpc": "2.0",
+       "id": 10
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 24,
+      "t": "2026-10-09T21:04:55.041617+00:00",
+      "elapsed": 0.175485,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "prompts/list",
+      "id": 10,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 10,
+       "result": {
+        "nextCursor": "40",
+        "prompts": [
+         "page_prompt_19",
+         "page_prompt_20",
+         "page_prompt_21",
+         "page_prompt_22",
+         "page_prompt_23",
+         "page_prompt_24",
+         "page_prompt_25",
+         "page_prompt_26",
+         "page_prompt_27",
+         "page_prompt_28",
+         "page_prompt_29",
+         "page_prompt_30",
+         "page_prompt_31",
+         "page_prompt_32",
+         "page_prompt_33",
+         "page_prompt_34",
+         "page_prompt_35",
+         "page_prompt_36",
+         "page_prompt_37",
+         "page_prompt_38"
+        ]
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 25,
+      "t": "2026-10-09T21:04:55.042169+00:00",
+      "elapsed": 0.176038,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "ping",
+      "id": 11,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "ping",
+       "jsonrpc": "2.0",
+       "id": 11
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 26,
+      "t": "2026-10-09T21:04:55.042534+00:00",
+      "elapsed": 0.176403,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "ping",
+      "id": 11,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 11,
+       "result": {}
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 27,
+      "t": "2026-10-09T21:04:55.042827+00:00",
+      "elapsed": 0.176696,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "prompts/list",
+      "id": 12,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "prompts/list",
+       "params": {
+        "cursor": "40"
+       },
+       "jsonrpc": "2.0",
+       "id": 12
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 28,
+      "t": "2026-10-09T21:04:55.043221+00:00",
+      "elapsed": 0.17709,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "prompts/list",
+      "id": 12,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 12,
+       "result": {
+        "prompts": [
+         "page_prompt_39",
+         "page_prompt_40",
+         "page_prompt_41",
+         "page_prompt_42",
+         "page_prompt_43",
+         "page_prompt_44",
+         "page_prompt_45",
+         "page_prompt_46",
+         "page_prompt_47",
+         "page_prompt_48",
+         "page_prompt_49",
+         "page_prompt_50",
+         "page_prompt_51",
+         "page_prompt_52",
+         "page_prompt_53",
+         "page_prompt_54",
+         "page_prompt_55",
+         "page_prompt_56",
+         "page_prompt_57",
+         "SENTINEL_LAST_PROMPT"
+        ]
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 29,
+      "t": "2026-10-09T21:04:55.043911+00:00",
+      "elapsed": 0.17778,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/call",
+      "id": 13,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "tools/call",
+       "params": {
+        "name": "cancellable_wait",
+        "arguments": {
+         "seconds": 4
+        }
+       },
+       "jsonrpc": "2.0",
+       "id": 13
+      }
+     }
+    ],
+    "tasks": [
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 1,
+      "t": "2026-10-09T21:04:58.559540+00:00",
+      "elapsed": 0.006961,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "initialize",
+      "id": 0,
+      "revision": null,
+      "batch": false,
+      "message": {
+       "method": "initialize",
+       "params": {
+        "protocolVersion": "2025-11-25",
+        "capabilities": {
+         "sampling": {}
+        },
+        "clientInfo": {
+         "name": "mcp",
+         "version": "0.1.0"
+        }
+       },
+       "jsonrpc": "2.0",
+       "id": 0
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 2,
+      "t": "2026-10-09T21:04:58.711850+00:00",
+      "elapsed": 0.159278,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "initialize",
+      "id": 0,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 0,
+       "result": {
+        "protocolVersion": "2025-11-25",
+        "capabilities": {
+         "experimental": {},
+         "logging": {},
+         "prompts": {
+          "listChanged": false
+         },
+         "resources": {
+          "subscribe": false,
+          "listChanged": false
+         },
+         "tools": {
+          "listChanged": false
+         },
+         "completions": {},
+         "tasks": {
+          "requests": {
+           "tools": {
+            "call": {}
+           }
+          }
+         }
+        },
+        "serverInfo": {
+         "name": "utilities-mcp",
+         "version": "1.26.0"
+        }
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "negotiation",
+      "seq": 3,
+      "t": "2026-10-09T21:04:58.711894+00:00",
+      "elapsed": 0.15931,
+      "session": "stdio",
+      "via": "initialize",
+      "requested_revision": "2025-11-25",
+      "negotiated_revision": "2025-11-25",
+      "client_capabilities": {
+       "sampling": {}
+      },
+      "client_info": {
+       "name": "mcp",
+       "version": "0.1.0"
+      },
+      "server_capabilities": {
+       "experimental": {},
+       "logging": {},
+       "prompts": {
+        "listChanged": false
+       },
+       "resources": {
+        "subscribe": false,
+        "listChanged": false
+       },
+       "tools": {
+        "listChanged": false
+       },
+       "completions": {},
+       "tasks": {
+        "requests": {
+         "tools": {
+          "call": {}
+         }
+        }
+       }
+      },
+      "server_info": {
+       "name": "utilities-mcp",
+       "version": "1.26.0"
+      },
+      "error": null
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 4,
+      "t": "2026-10-09T21:04:58.712596+00:00",
+      "elapsed": 0.160014,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "notification",
+      "method": "notifications/initialized",
+      "id": null,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "notifications/initialized",
+       "jsonrpc": "2.0"
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 5,
+      "t": "2026-10-09T21:04:58.712771+00:00",
+      "elapsed": 0.160187,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "ping",
+      "id": 1,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "ping",
+       "jsonrpc": "2.0",
+       "id": 1
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 6,
+      "t": "2026-10-09T21:04:58.713523+00:00",
+      "elapsed": 0.160939,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "ping",
+      "id": 1,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 1,
+       "result": {}
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 7,
+      "t": "2026-10-09T21:04:58.713893+00:00",
+      "elapsed": 0.161309,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 2,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "tools/list",
+       "jsonrpc": "2.0",
+       "id": 2
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 8,
+      "t": "2026-10-09T21:04:58.714424+00:00",
+      "elapsed": 0.161839,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 2,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 2,
+       "result": {
+        "nextCursor": "20",
+        "tools": [
+         "slow_with_progress",
+         "cancellable_wait",
+         "emit_logs",
+         "task_capable",
+         "page_filler_00",
+         "page_filler_01",
+         "page_filler_02",
+         "page_filler_03",
+         "page_filler_04",
+         "page_filler_05",
+         "page_filler_06",
+         "page_filler_07",
+         "page_filler_08",
+         "page_filler_09",
+         "page_filler_10",
+         "page_filler_11",
+         "page_filler_12",
+         "page_filler_13",
+         "page_filler_14",
+         "page_filler_15"
+        ]
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 9,
+      "t": "2026-10-09T21:04:58.715371+00:00",
+      "elapsed": 0.162791,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "ping",
+      "id": 3,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "ping",
+       "jsonrpc": "2.0",
+       "id": 3
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 10,
+      "t": "2026-10-09T21:04:58.715840+00:00",
+      "elapsed": 0.163256,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "ping",
+      "id": 3,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 3,
+       "result": {}
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 11,
+      "t": "2026-10-09T21:04:58.716157+00:00",
+      "elapsed": 0.163573,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 4,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "tools/list",
+       "params": {
+        "cursor": "20"
+       },
+       "jsonrpc": "2.0",
+       "id": 4
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 12,
+      "t": "2026-10-09T21:04:58.716613+00:00",
+      "elapsed": 0.164028,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 4,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 4,
+       "result": {
+        "nextCursor": "40",
+        "tools": [
+         "page_filler_16",
+         "page_filler_17",
+         "page_filler_18",
+         "page_filler_19",
+         "page_filler_20",
+         "page_filler_21",
+         "page_filler_22",
+         "page_filler_23",
+         "page_filler_24",
+         "page_filler_25",
+         "page_filler_26",
+         "page_filler_27",
+         "page_filler_28",
+         "page_filler_29",
+         "page_filler_30",
+         "page_filler_31",
+         "page_filler_32",
+         "page_filler_33",
+         "page_filler_34",
+         "page_filler_35"
+        ]
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 13,
+      "t": "2026-10-09T21:04:58.717241+00:00",
+      "elapsed": 0.164656,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "ping",
+      "id": 5,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "ping",
+       "jsonrpc": "2.0",
+       "id": 5
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 14,
+      "t": "2026-10-09T21:04:58.717636+00:00",
+      "elapsed": 0.165052,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "ping",
+      "id": 5,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 5,
+       "result": {}
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 15,
+      "t": "2026-10-09T21:04:58.717940+00:00",
+      "elapsed": 0.165355,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/list",
+      "id": 6,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "tools/list",
+       "params": {
+        "cursor": "40"
+       },
+       "jsonrpc": "2.0",
+       "id": 6
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 16,
+      "t": "2026-10-09T21:04:58.718369+00:00",
+      "elapsed": 0.165784,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/list",
+      "id": 6,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 6,
+       "result": {
+        "tools": [
+         "page_filler_36",
+         "page_filler_37",
+         "page_filler_38",
+         "page_filler_39",
+         "page_filler_40",
+         "page_filler_41",
+         "page_filler_42",
+         "page_filler_43",
+         "page_filler_44",
+         "page_filler_45",
+         "page_filler_46",
+         "page_filler_47",
+         "page_filler_48",
+         "page_filler_49",
+         "page_filler_50",
+         "page_filler_51",
+         "page_filler_52",
+         "page_filler_53",
+         "page_filler_54",
+         "SENTINEL_LAST_TOOL"
+        ]
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 17,
+      "t": "2026-10-09T21:04:58.719073+00:00",
+      "elapsed": 0.166489,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "ping",
+      "id": 7,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "ping",
+       "jsonrpc": "2.0",
+       "id": 7
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 18,
+      "t": "2026-10-09T21:04:58.719462+00:00",
+      "elapsed": 0.166877,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "ping",
+      "id": 7,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 7,
+       "result": {}
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 19,
+      "t": "2026-10-09T21:04:58.719755+00:00",
+      "elapsed": 0.16717,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "prompts/list",
+      "id": 8,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "prompts/list",
+       "jsonrpc": "2.0",
+       "id": 8
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 20,
+      "t": "2026-10-09T21:04:58.720165+00:00",
+      "elapsed": 0.167582,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "prompts/list",
+      "id": 8,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 8,
+       "result": {
+        "nextCursor": "20",
+        "prompts": [
+         "pick_colour",
+         "page_prompt_00",
+         "page_prompt_01",
+         "page_prompt_02",
+         "page_prompt_03",
+         "page_prompt_04",
+         "page_prompt_05",
+         "page_prompt_06",
+         "page_prompt_07",
+         "page_prompt_08",
+         "page_prompt_09",
+         "page_prompt_10",
+         "page_prompt_11",
+         "page_prompt_12",
+         "page_prompt_13",
+         "page_prompt_14",
+         "page_prompt_15",
+         "page_prompt_16",
+         "page_prompt_17",
+         "page_prompt_18"
+        ]
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 21,
+      "t": "2026-10-09T21:04:58.720754+00:00",
+      "elapsed": 0.168169,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "ping",
+      "id": 9,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "ping",
+       "jsonrpc": "2.0",
+       "id": 9
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 22,
+      "t": "2026-10-09T21:04:58.721127+00:00",
+      "elapsed": 0.168542,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "ping",
+      "id": 9,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 9,
+       "result": {}
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 23,
+      "t": "2026-10-09T21:04:58.721424+00:00",
+      "elapsed": 0.168839,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "prompts/list",
+      "id": 10,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "prompts/list",
+       "params": {
+        "cursor": "20"
+       },
+       "jsonrpc": "2.0",
+       "id": 10
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 24,
+      "t": "2026-10-09T21:04:58.721837+00:00",
+      "elapsed": 0.169252,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "prompts/list",
+      "id": 10,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 10,
+       "result": {
+        "nextCursor": "40",
+        "prompts": [
+         "page_prompt_19",
+         "page_prompt_20",
+         "page_prompt_21",
+         "page_prompt_22",
+         "page_prompt_23",
+         "page_prompt_24",
+         "page_prompt_25",
+         "page_prompt_26",
+         "page_prompt_27",
+         "page_prompt_28",
+         "page_prompt_29",
+         "page_prompt_30",
+         "page_prompt_31",
+         "page_prompt_32",
+         "page_prompt_33",
+         "page_prompt_34",
+         "page_prompt_35",
+         "page_prompt_36",
+         "page_prompt_37",
+         "page_prompt_38"
+        ]
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 25,
+      "t": "2026-10-09T21:04:58.722408+00:00",
+      "elapsed": 0.169824,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "ping",
+      "id": 11,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "ping",
+       "jsonrpc": "2.0",
+       "id": 11
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 26,
+      "t": "2026-10-09T21:04:58.722829+00:00",
+      "elapsed": 0.170245,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "ping",
+      "id": 11,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 11,
+       "result": {}
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 27,
+      "t": "2026-10-09T21:04:58.723120+00:00",
+      "elapsed": 0.170535,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "prompts/list",
+      "id": 12,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "prompts/list",
+       "params": {
+        "cursor": "40"
+       },
+       "jsonrpc": "2.0",
+       "id": 12
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 28,
+      "t": "2026-10-09T21:04:58.723520+00:00",
+      "elapsed": 0.170935,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "prompts/list",
+      "id": 12,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 12,
+       "result": {
+        "prompts": [
+         "page_prompt_39",
+         "page_prompt_40",
+         "page_prompt_41",
+         "page_prompt_42",
+         "page_prompt_43",
+         "page_prompt_44",
+         "page_prompt_45",
+         "page_prompt_46",
+         "page_prompt_47",
+         "page_prompt_48",
+         "page_prompt_49",
+         "page_prompt_50",
+         "page_prompt_51",
+         "page_prompt_52",
+         "page_prompt_53",
+         "page_prompt_54",
+         "page_prompt_55",
+         "page_prompt_56",
+         "page_prompt_57",
+         "SENTINEL_LAST_PROMPT"
+        ]
+       }
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 29,
+      "t": "2026-10-09T21:04:58.724183+00:00",
+      "elapsed": 0.171598,
+      "session": "stdio",
+      "direction": "client_to_server",
+      "origin": "client",
+      "kind": "request",
+      "method": "tools/call",
+      "id": 13,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "method": "tools/call",
+       "params": {
+        "name": "task_capable",
+        "arguments": {}
+       },
+       "jsonrpc": "2.0",
+       "id": 13
+      }
+     },
+     {
+      "capture": 0,
+      "type": "message",
+      "seq": 30,
+      "t": "2026-10-09T21:04:58.724594+00:00",
+      "elapsed": 0.172009,
+      "session": "stdio",
+      "direction": "server_to_client",
+      "origin": "server",
+      "kind": "response",
+      "method": "tools/call",
+      "id": 13,
+      "revision": "2025-11-25",
+      "batch": false,
+      "message": {
+       "jsonrpc": "2.0",
+       "id": 13,
+       "result": {
+        "content": [
+         {
+          "type": "text",
+          "text": "SENTINEL_TASK_CAPABLE task_requested=False"
+         }
+        ],
+        "isError": false
+       }
+      }
+     }
+    ]
+   }
+  }
+ }
+}

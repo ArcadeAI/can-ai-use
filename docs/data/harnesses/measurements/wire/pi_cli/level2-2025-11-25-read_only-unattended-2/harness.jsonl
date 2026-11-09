@@ -1,0 +1,8 @@
+{"format": "mcp-mirror.harness-output/1"}
+{"event": "init", "harness_version": null, "permission_mode": null, "mcp_servers": null, "mcp_tools": null}
+{"event": "tool_use", "tool": "codemode", "input": {"code": "return await tools.mcp__def__search_records({query: 'x'})"}}
+{"event": "tool_use", "tool": "mcp__def__search_records", "input": {"query": "x"}}
+{"event": "tool_result", "is_error": false, "text": "SENTINEL_TEXT_BLOCK[audio audio/wav omitted]SENTINEL_EMBEDDED_RESOURCE[Resource file:///fixtures/linked.txt \"linked.txt\" (text/plain): SENTINEL_RESOURCE_LINK. Read it with read_mcp_resource (server \"def\")]"}
+{"event": "tool_result", "is_error": false, "text": "Script completed\nWall time 0.2 seconds\nOutput:\n{\"content\":[{\"type\":\"text\",\"text\":\"SENTINEL_TEXT_BLOCK\",\"annotations\":{\"audience\":[\"user\"],\"priority\":0.9}},{\"type\":\"image\",\"data\":\"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==\",\"mimeType\":\"image/png\"},{\"type\":\"audio\",\"data\":\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\",\"mimeType\":\"audio/wav\"},{\"type\":\"resource\",\"resource\":{\"uri\":\"file:///fixtures/embedded.txt\",\"mimeType\":\"text/pla..."}
+{"event": "text", "text": "done"}
+{"event": "result", "subtype": "stop", "is_error": false, "num_turns": 2, "text": "done"}

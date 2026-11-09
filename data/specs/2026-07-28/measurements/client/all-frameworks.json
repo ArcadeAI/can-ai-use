@@ -1,0 +1,8 @@
+{
+  "schema": "mcp-mirror/client-probe@1",
+  "captured_at": "2026-09-30T18:28:09Z",
+  "fixture": "fixtures/client_features_server.py",
+  "fixture_python": "<checkout>/.mcp-mirror/fixture-2026-07-28/bin/python",
+  "spec_version": "2026-07-28",
+  "frameworks": {}
+}

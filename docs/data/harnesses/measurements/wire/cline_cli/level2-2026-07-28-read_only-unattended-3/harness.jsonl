@@ -1,0 +1,5 @@
+{"format": "mcp-mirror.harness-output/1"}
+{"event": "tool_use", "tool": "def__search_records", "input": {"query": "x"}}
+{"event": "tool_result", "is_error": false, "text": "{\"content\": [{\"annotations\": {\"audience\": [\"user\"], \"priority\": 0.9}, \"text\": \"SENTINEL_TEXT_BLOCK\", \"type\": \"text\"}, {\"data\": \"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==\", \"mimeType\": \"image/png\", \"type\": \"image\"}, {\"data\": \"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\", \"mimeType\": \"audio/wav\", \"type\": \"audio\"}, {\"resource\": {\"mimeType\": \"text/plain\", \"text\": \"SENTINEL_EMBEDDED_RESOURCE\", \"uri\": \"file:///fixtures/embedded.tx..."}
+{"event": "text", "text": "done"}
+{"event": "result", "subtype": "completed", "is_error": false, "num_turns": 2, "text": "done"}

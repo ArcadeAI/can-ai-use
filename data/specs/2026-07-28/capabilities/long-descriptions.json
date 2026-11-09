@@ -1,0 +1,31 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "long-descriptions",
+  "title": "Long Descriptions",
+  "description": "Whether a long description survives without being cut. Tested with 1,300 characters including Unicode.",
+  "question": "Do long descriptions survive without truncation?",
+  "spec": "https://modelcontextprotocol.io/specification",
+  "status": "stable",
+  "categories": [
+    "Identity and text"
+  ],
+  "keywords": "truncation,length,unicode,description",
+  "usage_perc_y": null,
+  "usage_perc_a": null,
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/server/tools#tool",
+      "title": "MCP Docs"
+    },
+    {
+      "url": "https://platform.openai.com/docs/guides/function-calling",
+      "title": "OpenAI function calling, tool schema"
+    }
+  ],
+  "known_issues": [],
+  "why": "Silent truncation would remove exactly the caveats authors tend to put at the end of a description.",
+  "shown": true,
+  "docs_url": "https://modelcontextprotocol.io/specification/2026-07-28/server/tools#tool",
+  "docs_label": "MCP Docs"
+}

@@ -1,0 +1,39 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "roots-list",
+  "title": "`roots/list`",
+  "description": "A server request for the client's filesystem roots, offered as informational guidance rather than as access control.",
+  "question": "Can a server learn which directories the client is working in?",
+  "spec": "https://modelcontextprotocol.io/specification/2026-07-28",
+  "status": "deprecated",
+  "categories": [
+    "Client features"
+  ],
+  "keywords": "roots,roots/list,file uri,workspace,boundaries",
+  "why": "Roots tell a server where to look without it guessing paths. It is deprecated as of 2026-07-28 under SEP-2577, and its change notification was removed outright in the same revision, so support here is a legacy question rather than a forward-looking one.",
+  "docs_url": "https://modelcontextprotocol.io/specification/2026-07-28/client/roots#listing-roots",
+  "docs_label": "MCP Docs",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/client/roots#listing-roots",
+      "title": "MCP Docs"
+    }
+  ],
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "known_issues": [],
+  "notes": {
+    "openai-agents": "OpenAI Agents SDK 0.23.1: at 2026-07-28 the request arrives embedded in an `InputRequiredResult`. The adapter has no roots hook and calls tools through the MCP SDK's default `call_tool`, so the SDK's `Server returned InputRequiredResult` error reaches the caller as an `AgentsException` and nothing is answered.",
+    "mastra": "Mastra 2.2.0: its `inputRequests` hook answers elicitations only. An embedded `roots/list` fails with `no handler is registered for 'roots/list'`, as the docs say for the deprecated capability.",
+    "strands": "Strands Agents 1.59.0: `MCPClient` passes its `ClientSession` an `elicitation_callback` only. There is no roots parameter, so the client declares no roots capability and the server's `roots/list` is refused.",
+    "vercel_ai": "Vercel AI SDK (@ai-sdk/mcp 2.0.73): at 2026-07-28 the request arrives embedded in an `InputRequiredResult`. The client rejects any result with `resultType: \"input_required\"` (\"multi round-trip requests are not supported yet\"), so `execute` throws and nothing is answered. The client has no roots option either.",
+    "openai_agents_js": "OpenAI Agents SDK (JS) 0.20.0 at 2026-07-28: the server answers with `input_required`, and the MCP client the SDK builds tries to fulfil it itself, but no `roots/list` handler is registered on it and the SDK offers no option to add one. The call fails with `Cannot fulfil input request`, which the agent hands the model as tool-error text.",
+    "agno": "Agno 3.1.2: `MCPTools` builds its fastmcp `Client` with no roots and exposes no hook to set them, so `roots/list` is refused.",
+    "dspy": "DSPy 3.4.0: DSPy takes no roots handler. The server's request is answered only by a `list_roots_callback` registered on the caller's own `mcp.Client`, which DSPy is handed by `Tool.from_mcp_tool` and never configures. DSPy itself offers no route.",
+    "langchain_js": "LangChain.js (@langchain/mcp-adapters 2.0.1): the adapter declares no roots and offers no option for them. A legacy `roots/list` gets Method not found; a modern tool call that asks for roots fails with \"asked for input this adapter cannot answer\".",
+    "copilot_sdk": "GitHub Copilot SDK 1.0.19 (Copilot runtime 1.0.95): there is no session option to declare roots, and an embedded `roots/list` input request fails the call with \"tools/call requested unsupported input method: roots/list\".",
+    "langchain4j": "LangChain4j 1.22.0-beta32: `DefaultMcpClient.Builder.roots(List<McpRoot>)` registers roots, and the client answers `roots/list` at 2025-11-25. At 2026-07-28 the request arrives embedded in an `InputRequiredResult`, and the client throws `Server sent inputRequests that the client cannot handle` before the hook runs, so the measurement cannot tell whether the roots would have been sent.",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): the embedded `roots/list` input request fails the call with `calling \"tools/call\": unexpected end of JSON input`. go-sdk's `InputRequestMap.UnmarshalJSON` (mcp/protocol.go) runs `json.Unmarshal` on the request's `params`, which is omitted for `roots/list`, so the `input_required` result is never decoded. A root added with `mcp.Client.AddRoots` cannot reach the server."
+  },
+  "verdict": {},
+  "summary": "Deprecated in 2026-07-28. The cell asks whether the adapter answers it through its own API."
+}

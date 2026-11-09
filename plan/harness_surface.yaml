@@ -1,0 +1,158 @@
+# The harness surface: what the harness page measures, and how each cell is observed.
+#
+# A harness is measured on the wire only. The recording server (mcp-mirror record) sits between
+# the harness and the fixtures and logs every JSON-RPC message with a timestamp. A cell
+# is a function of that capture, the same way framework cells are functions of scan
+# artifacts. Level 2 also records what the harness offers the model: a scripted model
+# stub stands in for the provider API and logs every request, so h-tools-offered-to-model
+# can show which tool fields (and whether any annotation) reach the model.
+#
+# Level 1 needs no model: it is what the harness does between launch and its first
+# model call. Level 2 needs a model and a fixed prompt; it runs three times and the cell
+# publishes the count (3/3 -> y, 1-2 -> a, 0/3 -> n). A harness that cannot run level 2
+# on this machine publishes its level-2 cells as u with the reason.
+#
+# Vocabulary on the page: requested / negotiated / never called / blocked by prompt.
+# It is deliberately not the framework vocabulary; the two tables never merge.
+
+fixtures:
+  # All served through the recorder, over stdio and over streamable HTTP.
+  definitions: fixtures/definitions_server.py      # the five tricky tools, incl. annotations and icons
+  results: fixtures/results_server.py              # one tool per content kind, error tool, structured tool
+  notify: fixtures/notify_server.py                # a tool that adds a tool and fires tools/list_changed
+  client_features: fixtures/client_features_server.py   # tools whose handlers call elicitation / sampling / roots
+  utilities: fixtures/utilities_server.py          # 150 tools in pages of 50; slow tool with progress; logging
+  # Each harness session mounts all five as separate servers named def, res, ntf, cf, util.
+
+level_1:
+  # Observed from launch until the harness returns from a prompt that needs no tool
+  # ("Reply with the single word ready.") or, for harnesses that cannot run a prompt
+  # without a model, until 30s after the MCP handshake completes.
+  - id: h-negotiated-revision
+    question: Which protocol revision does the agent request, and which does it settle on?
+    description: "When an agent connects, it asks for an MCP revision and the server answers with the one they will use. We record both, over stdio and over HTTP, against a test server on MCP 2025-11-25 and one on 2026-07-28."
+    observe: initialize request params.protocolVersion and the response, on the stdio and the HTTP session. Cell is the revision string, not y/a/n; it names each transport when they differ.
+  - id: h-declared-capabilities
+    question: Which client capabilities does it declare?
+    description: "When an agent connects, it tells the server which client features it supports: roots, sampling, elicitation or experimental extras. The cell lists what it declared."
+    observe: initialize params.capabilities keys (roots, sampling, elicitation, experimental), on the stdio and the HTTP session. Cell lists them, per transport when they differ.
+  - id: h-lists-tools-at-startup
+    question: Does it call tools/list before its first model turn?
+    description: "Yes if the agent asks every connected server for its tools before its first tool call, or before the session ends if it makes none."
+    observe: a tools/list request on every mounted server before the first tools/call or before the session ends. y / n.
+  - id: h-lists-prompts-at-startup
+    question: Does it ask a server for its prompts at startup?
+    description: "Yes if the agent asks any connected server for its list of prompts."
+    observe: prompts/list on any server. y / n.
+  - id: h-lists-resources-at-startup
+    question: Does it ask a server for its resources and resource templates at startup?
+    description: "Yes if the agent asks for both a server's resources and its resource templates, some if it asks for one of them, no if neither."
+    observe: resources/list and resources/templates/list. y if both, a if one, n if none.
+  - id: h-follows-pagination
+    question: With 150 tools served in pages of 50, does it fetch every page?
+    description: "One test server has 150 tools and hands them out 50 per page. Yes if the agent follows the server's cursor through all three pages, some if it stops partway, no if it reads only the first page."
+    observe: three tools/list requests on util with cursors chained. y all pages, a some, n first page only.
+    labels: {n: first page only}
+  - id: h-tool-count-limit
+    question: How many tools will it take from one server?
+    description: "We can't see how many tools an agent keeps, so the cell records how many pages of the 150-tool server it fetched and whether it stopped early. Caps an agent documents, such as VS Code's 128, appear as notes."
+    observe: the number of tools the harness later exposes cannot be seen; instead the fixture logs whether the harness stops paging early or disconnects. Cell is the page count reached plus any documented cap (VS Code 128, Cascade 100) as a note.
+  - id: h-reacts-to-list-changed
+    question: When a server says its tool list changed, does it fetch the list again?
+    description: "A test server tells the agent its tool list has changed. Yes if the agent fetches the list again within 30 seconds. Agents that only pick up the change on their next turn show up under Relist next turn instead."
+    observe: a second tools/list on ntf within 30s of the notification. y / n. Harnesses that only re-list on the next turn are measured in level 2 (h-relist-next-turn).
+    labels: {n: no re-list}
+  - id: h-answers-ping
+    question: When a server pings it, does it answer within 5 seconds?
+    description: "After connecting, the server pings the agent, once over stdio and once over HTTP. Yes if the agent replies within 5 seconds on both, some if on only one. MCP 2026-07-28 removed ping, so an agent that settles on 2026-07-28 has nothing to answer and shows as not measured there."
+    observe: the recorder sends a server-initiated ping after the handshake, on the stdio and the HTTP session; a response within 5s. y / n per transport, a when the transports differ.
+  - id: h-transport-streamable-http
+    question: Does it connect to servers over streamable HTTP and keep the session ID?
+    description: "We connect all five test servers over streamable HTTP. Yes if startup completes and, on MCP 2025-11-25, the agent sends the server's session ID back on later requests. Some if it connects but drops the session ID, no if it cannot connect. MCP 2026-07-28 removed sessions, so there the check is only that startup completes."
+    observe: the same startup sequence completes with all five servers mounted over HTTP; Mcp-Session-Id echoed on subsequent requests. y / a (connects, no session id) / n.
+  - id: h-transport-stdio
+    question: Does it connect to servers over stdio?
+    description: "We run all five test servers as local processes over stdio. Yes if the agent starts them and completes the handshake."
+    observe: the same over stdio. y / n.
+  - id: h-startup-timeout
+    question: How long does it wait for a slow server before giving up?
+    description: "One test server waits 8 seconds before answering the agent's first request. Yes if the agent waits and keeps the server, no if it drops it. The note gives how long the agent actually waited."
+    observe: util delays initialize by 8s; cell is whether util was still listed (y) or dropped (n), with the observed wait as a note.
+    labels: {n: dropped slow server}
+  # The model stub records what the
+  # harness sends its model, so this one cell reads the model side rather than the wire.
+  - id: h-tools-offered-to-model
+    question: Which of a server's tools does the agent offer its model, and do their descriptions, schemas and annotations arrive unchanged?
+    description: "A scripted stand-in for the model records the agent's first request to it. We compare each tool in that request with what the servers listed: whether it was offered, whether its description and input schema arrived unchanged, and whether hints such as destructiveHint reached the model at all. Yes if every tool arrived unchanged, some if any are missing or changed, no if none were offered."
+    observe: the first model request the stub receives in the level-1 stdio session, against every tool the fixtures answered in tools/list. Per tool, whether it was offered, whether its description and input schema arrived unchanged, and whether its annotations reached the model as a field or as hint names anywhere in the request. y all offered unchanged, a some missing or changed, n none offered. Cell value summarises the counts.
+    labels: {n: none offered}
+
+level_2:
+  # Fixed prompts, each its own session, three runs each. The recorder is the judge:
+  # a cell is about what reached the server, and about the harness's own output only
+  # where a documented flag makes it machine-readable (stream-json / NDJSON).
+  prompts:
+    read_only: "Use the search_records tool with query 'x' and tell me the count it returns."
+    destructive: "Use the delete_account tool with account_id 'a' and confirm true."
+    resource: "Read the resource at file:///fixtures/notes.txt and quote it exactly."
+    prompt: "Use the summarize_records prompt with status 'active' and follow it."
+    elicit: "Use the ask_elicitation_form tool and answer whatever it asks with 'x'."
+    slow: "Use the slow_with_progress tool and wait for it to finish."
+  approval_modes:
+    default: the harness's documented default approval behaviour
+    unattended: the documented switch that removes prompts (see inventory `unattended`)
+  cells:
+    - id: h-calls-read-only-tool
+      question: With approvals switched off, does it call a read-only tool when asked?
+      description: "With approvals switched off, we ask the agent to use a read-only search tool, three times. Yes if the call reaches the server in all three runs, some in one or two, no in none."
+      observe: tools/call search_records within the read_only-unattended session (the documented unattended switch, so no prompt can hold it; the default-mode read_only session is h-read-only-runs-without-prompt). Count over 3 runs.
+    - id: h-destructive-blocked-by-default
+      question: In default approval mode, is the destructive call held for confirmation?
+      description: "In the agent's default mode, we ask it to use a tool marked destructive, three times. The tool deletes nothing; only its name and hints are under test. Yes if the agent holds the call for confirmation every time. Ran without asking if the call reached the server. Not measured if the agent has no machine-readable output and the call never arrived, because then held and never tried look the same."
+      observe: no tools/call delete_account reaches the server AND the harness output (stream-json/NDJSON) contains a permission request event. y if held in 3/3, n if the call reached the server, a mixed. u if the harness has no machine-readable output and the call did not arrive, since "held" and "never tried" cannot be told apart.
+      # n here means the call arrived, so the generic "never called" would say the opposite.
+      labels: {n: ran without asking}
+    - id: h-read-only-runs-without-prompt
+      question: In default mode, does a readOnlyHint tool run without a confirmation?
+      description: "In the agent's default mode, we ask it to use a tool marked read-only, three times. Yes if the call runs without a confirmation prompt. Few agents document doing this: Claude Desktop, VS Code Copilot, ChatGPT, Codex in writes mode and Qwen Code in auto mode."
+      observe: tools/call search_records arrives with no permission event preceding it. This is the annotation-honoring cell; documented only for Claude Desktop, VS Code Copilot, ChatGPT, Codex writes mode, Qwen auto mode.
+    - id: h-destructive-runs-unattended
+      question: With approvals switched off, does a destructive tool actually run?
+      description: "With approvals switched off, we ask the agent to use the tool marked destructive. Yes if the call reaches the server, which confirms the switch does what the agent's docs say."
+      observe: with the unattended switch, tools/call delete_account arrives. Confirms the switch does what its docs say.
+    - id: h-reads-resource
+      question: Asked about a resource, does it read it from the server?
+      description: "We ask the agent to read and quote a resource the server offers. Yes if it fetches that resource from the server."
+      observe: resources/read for the URI in the resource session.
+    - id: h-expands-prompt
+      question: Asked to use a server's prompt, does it fetch the prompt with the right arguments?
+      description: "We ask the agent to use a server's prompt with one argument set. Yes if it fetches the prompt with that argument, some if it passes other arguments (the note quotes them), no if it never fetches the prompt."
+      observe: "prompts/get summarize_records with arguments {status: active}. y with those arguments; a when prompts/get is issued with other arguments (the note quotes them); n when prompts/get is never issued."
+    - id: h-answers-elicitation
+      question: When a tool asks the user for input mid-call (elicitation), does the agent answer?
+      description: "A test tool asks the user for input in the middle of the call (MCP elicitation). On MCP 2025-11-25 the server sends a separate request, and the agent passes if it replies with accept, decline or cancel instead of an error. On 2026-07-28 the tool asks through its result, and the agent passes if it calls the tool again with an answer. We test whichever revision the agent negotiates."
+      observe: the cf tool's elicitation/create request receives a response (accept/decline/cancel) rather than an error. Deprecated-status note on 2026-07-28; MRTR measured instead where the harness negotiates 2026.
+      labels: {n: not answered}
+    - id: h-answers-sampling
+      question: When a tool asks the agent's model for a completion mid-call (sampling), does the agent answer?
+      description: "A test tool asks the agent's model to write something in the middle of the call (MCP sampling). On MCP 2025-11-25 the server sends a separate request, and the agent passes if it replies with a completion instead of an error. On 2026-07-28 the tool asks through its result, and the agent passes if it calls the tool again with a completion. We test whichever revision the agent negotiates. Sampling is deprecated as of 2026-07-28: it still works, but new implementations should call a model provider's API directly, and it may be removed no earlier than 2027-07-28."
+      observe: sampling/createMessage from cf receives a completion rather than an error. Where the harness negotiates 2026-07-28, the MRTR form instead, as for elicitation - the tools/call result carries an inputRequests sampling/createMessage and y is a retry of the call with inputResponses.
+      labels: {n: not answered}
+    - id: h-tolerates-progress
+      question: Does it wait out a slow tool that sends progress updates, without cancelling it?
+      description: "We ask the agent to run a slow tool that sends progress updates as it works. Yes if it waits for the tool to finish, some if it cancels after updates arrive, no if it fails before any arrive."
+      observe: the slow session completes with progress notifications received and no cancellation. y completes, a cancels after progress, n fails before.
+    - id: h-relist-next-turn
+      question: After a server adds a tool, does the agent see the new tool on its next turn?
+      description: "A test server adds a tool during one session. Yes if the tool list the agent fetches at the start of the next session includes the new tool."
+      observe: after ntf's list_changed in the read_only session, the next session's tools/list includes the added tool.
+      labels: {n: missed new tool}
+    - id: h-error-surfaced
+      question: When a tool returns an error, does the agent try again or report it?
+      description: "We have the agent call a tool in a way that returns an error. The cell records whether it tried again or reported the error, and the note quotes what the agent said. This is the weakest measurement on the page, so read the note before the code."
+      observe: after delete_account with confirm false (error path), a second tools/call or the session ending; the harness's output text is quoted in the note. Weakest cell on the page; published as a note more than a code.
+
+notes:
+  - Every cell's evidence is the capture path and the message ids, so a maintainer can open the JSONL and see exactly what their harness sent.
+  - Level-2 prompts are the same for every harness. A harness that paraphrases tool names or refuses a prompt is measured as it behaves; the note says why.
+  - The destructive tool in the fixture does nothing. The name and annotations are what is under test.

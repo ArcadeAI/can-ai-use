@@ -1,0 +1,635 @@
+[
+  {
+    "tool": "list_snapshots",
+    "arguments": {}
+  },
+  {
+    "tool": "search_capabilities",
+    "arguments": {
+      "query": "destructive"
+    }
+  },
+  {
+    "tool": "search_capabilities",
+    "arguments": {
+      "query": "hint",
+      "revision": "2025-11-25"
+    }
+  },
+  {
+    "tool": "search_capabilities",
+    "arguments": {
+      "query": "hint",
+      "revision": "2026-07-28"
+    }
+  },
+  {
+    "tool": "search_capabilities",
+    "arguments": {
+      "query": "outputSchema",
+      "revision": "latest"
+    }
+  },
+  {
+    "tool": "search_capabilities",
+    "arguments": {
+      "query": "tool result",
+      "revision": "default"
+    }
+  },
+  {
+    "tool": "search_capabilities",
+    "arguments": {
+      "query": "  Resource   TEMPLATE "
+    }
+  },
+  {
+    "tool": "search_capabilities",
+    "arguments": {
+      "query": ""
+    }
+  },
+  {
+    "tool": "search_capabilities",
+    "arguments": {
+      "query": "nothing-matches-this"
+    }
+  },
+  {
+    "tool": "search_capabilities",
+    "arguments": {
+      "query": "a",
+      "revision": "1999-01-01"
+    }
+  },
+  {
+    "tool": "lookup_capability",
+    "arguments": {
+      "capability_id": "destructive-hint"
+    }
+  },
+  {
+    "tool": "lookup_capability",
+    "arguments": {
+      "capability_id": "tool-execution-errors",
+      "frameworks": [
+        "langchain",
+        "langgraph",
+        "mastra"
+      ]
+    }
+  },
+  {
+    "tool": "lookup_capability",
+    "arguments": {
+      "capability_id": "structured-content",
+      "revision": "2026-07-28"
+    }
+  },
+  {
+    "tool": "lookup_capability",
+    "arguments": {
+      "capability_id": "tool-name",
+      "revision": "latest",
+      "frameworks": [
+        "pydantic-ai"
+      ]
+    }
+  },
+  {
+    "tool": "lookup_capability",
+    "arguments": {
+      "capability_id": "long-descriptions",
+      "revision": "default",
+      "frameworks": []
+    }
+  },
+  {
+    "tool": "lookup_capability",
+    "arguments": {
+      "capability_id": "read-only-hint",
+      "revision": "2025-11-25",
+      "frameworks": [
+        "openai-agents",
+        "crewai"
+      ]
+    }
+  },
+  {
+    "tool": "lookup_capability",
+    "arguments": {
+      "capability_id": "sampling"
+    }
+  },
+  {
+    "tool": "lookup_capability",
+    "arguments": {
+      "capability_id": "destructive"
+    }
+  },
+  {
+    "tool": "lookup_capability",
+    "arguments": {
+      "capability_id": "no-such-capability-anywhere"
+    }
+  },
+  {
+    "tool": "lookup_capability",
+    "arguments": {
+      "capability_id": "destructive-hint",
+      "frameworks": [
+        "langchain",
+        "not-a-framework"
+      ]
+    }
+  },
+  {
+    "tool": "lookup_capability",
+    "arguments": {
+      "capability_id": "destructive-hint",
+      "revision": "2024-11-05"
+    }
+  },
+  {
+    "tool": "inspect_tool_definition",
+    "arguments": {
+      "tool": {
+        "name": "delete_account",
+        "title": "Delete account",
+        "description": "Deletes the account and every record attached to it. Deletes the account and every record attached to it. Deletes the account and every record attached to it. Deletes the account and every record attached to it. Deletes the account and every record attached to it. Deletes the account and every record attached to it. Deletes the account and every record attached to it. Deletes the account and every record attached to it. Deletes the account and every record attached to it. Deletes the account and every record attached to it. Deletes the account and every record attached to it. Deletes the account and every record attached to it.",
+        "icons": [
+          {
+            "src": "https://example.com/trash.svg",
+            "mimeType": "image/svg+xml"
+          }
+        ],
+        "annotations": {
+          "title": "Delete account",
+          "readOnlyHint": false,
+          "destructiveHint": true,
+          "idempotentHint": false,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "account_id": {
+              "type": "string",
+              "description": "Account identifier.",
+              "format": "uuid"
+            },
+            "reason": {
+              "type": "string",
+              "enum": [
+                "fraud",
+                "request",
+                "inactive"
+              ],
+              "default": "request"
+            },
+            "retries": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 5
+            },
+            "note": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "owner": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "format": "email"
+                }
+              }
+            },
+            "attachments": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "url": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "mode": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            }
+          },
+          "required": [
+            "account_id"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  {
+    "tool": "inspect_tool_definition",
+    "arguments": {
+      "tool": {
+        "name": "delete_account",
+        "title": "Delete account",
+        "description": "Deletes the account and every record attached to it. Deletes the account and every record attached to it. Deletes the account and every record attached to it. Deletes the account and every record attached to it. Deletes the account and every record attached to it. Deletes the account and every record attached to it. Deletes the account and every record attached to it. Deletes the account and every record attached to it. Deletes the account and every record attached to it. Deletes the account and every record attached to it. Deletes the account and every record attached to it. Deletes the account and every record attached to it.",
+        "icons": [
+          {
+            "src": "https://example.com/trash.svg",
+            "mimeType": "image/svg+xml"
+          }
+        ],
+        "annotations": {
+          "title": "Delete account",
+          "readOnlyHint": false,
+          "destructiveHint": true,
+          "idempotentHint": false,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "account_id": {
+              "type": "string",
+              "description": "Account identifier.",
+              "format": "uuid"
+            },
+            "reason": {
+              "type": "string",
+              "enum": [
+                "fraud",
+                "request",
+                "inactive"
+              ],
+              "default": "request"
+            },
+            "retries": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 5
+            },
+            "note": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "owner": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "format": "email"
+                }
+              }
+            },
+            "attachments": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "url": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "mode": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            }
+          },
+          "required": [
+            "account_id"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "revision": "2026-07-28",
+      "frameworks": [
+        "mastra",
+        "vercel_ai"
+      ]
+    }
+  },
+  {
+    "tool": "inspect_tool_definition",
+    "arguments": {
+      "tool": {
+        "name": "noop",
+        "description": "",
+        "icons": [],
+        "annotations": "nope",
+        "inputSchema": {
+          "type": "string"
+        }
+      },
+      "revision": "latest"
+    }
+  },
+  {
+    "tool": "inspect_tool_definition",
+    "arguments": {
+      "tool": {}
+    }
+  },
+  {
+    "tool": "inspect_tool_definition",
+    "arguments": {
+      "tool": {
+        "name": "delete_account",
+        "title": "Delete account",
+        "description": "Deletes the account and every record attached to it. Deletes the account and every record attached to it. Deletes the account and every record attached to it. Deletes the account and every record attached to it. Deletes the account and every record attached to it. Deletes the account and every record attached to it. Deletes the account and every record attached to it. Deletes the account and every record attached to it. Deletes the account and every record attached to it. Deletes the account and every record attached to it. Deletes the account and every record attached to it. Deletes the account and every record attached to it.",
+        "icons": [
+          {
+            "src": "https://example.com/trash.svg",
+            "mimeType": "image/svg+xml"
+          }
+        ],
+        "annotations": {
+          "title": "Delete account",
+          "readOnlyHint": false,
+          "destructiveHint": true,
+          "idempotentHint": false,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "account_id": {
+              "type": "string",
+              "description": "Account identifier.",
+              "format": "uuid"
+            },
+            "reason": {
+              "type": "string",
+              "enum": [
+                "fraud",
+                "request",
+                "inactive"
+              ],
+              "default": "request"
+            },
+            "retries": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 5
+            },
+            "note": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "owner": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "format": "email"
+                }
+              }
+            },
+            "attachments": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "url": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "mode": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            }
+          },
+          "required": [
+            "account_id"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "revision": "2000-01-01"
+    }
+  },
+  {
+    "tool": "inspect_tool_result",
+    "arguments": {
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "done",
+            "annotations": {
+              "audience": [
+                "user"
+              ],
+              "priority": 0.5
+            }
+          },
+          {
+            "type": "image",
+            "data": "AAAA",
+            "mimeType": "image/png"
+          },
+          {
+            "type": "audio",
+            "data": "AAAA",
+            "mimeType": "audio/wav"
+          },
+          {
+            "type": "resource",
+            "resource": {
+              "uri": "file:///tmp/a.txt",
+              "text": "a"
+            }
+          },
+          {
+            "type": "resource_link",
+            "uri": "https://example.com/a",
+            "name": "a"
+          },
+          "not a block"
+        ],
+        "structuredContent": {
+          "ok": true
+        },
+        "isError": true
+      }
+    }
+  },
+  {
+    "tool": "inspect_tool_result",
+    "arguments": {
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "done",
+            "annotations": {
+              "audience": [
+                "user"
+              ],
+              "priority": 0.5
+            }
+          },
+          {
+            "type": "image",
+            "data": "AAAA",
+            "mimeType": "image/png"
+          },
+          {
+            "type": "audio",
+            "data": "AAAA",
+            "mimeType": "audio/wav"
+          },
+          {
+            "type": "resource",
+            "resource": {
+              "uri": "file:///tmp/a.txt",
+              "text": "a"
+            }
+          },
+          {
+            "type": "resource_link",
+            "uri": "https://example.com/a",
+            "name": "a"
+          },
+          "not a block"
+        ],
+        "structuredContent": {
+          "ok": true
+        },
+        "isError": true
+      },
+      "revision": "latest",
+      "frameworks": [
+        "langchain",
+        "agno"
+      ]
+    }
+  },
+  {
+    "tool": "inspect_tool_result",
+    "arguments": {
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "x",
+            "annotations": {}
+          }
+        ],
+        "isError": "yes"
+      }
+    }
+  },
+  {
+    "tool": "inspect_tool_result",
+    "arguments": {
+      "result": {}
+    }
+  },
+  {
+    "tool": "inspect_tool_result",
+    "arguments": {
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "done",
+            "annotations": {
+              "audience": [
+                "user"
+              ],
+              "priority": 0.5
+            }
+          },
+          {
+            "type": "image",
+            "data": "AAAA",
+            "mimeType": "image/png"
+          },
+          {
+            "type": "audio",
+            "data": "AAAA",
+            "mimeType": "audio/wav"
+          },
+          {
+            "type": "resource",
+            "resource": {
+              "uri": "file:///tmp/a.txt",
+              "text": "a"
+            }
+          },
+          {
+            "type": "resource_link",
+            "uri": "https://example.com/a",
+            "name": "a"
+          },
+          "not a block"
+        ],
+        "structuredContent": {
+          "ok": true
+        },
+        "isError": true
+      },
+      "frameworks": [
+        "ghost"
+      ]
+    }
+  },
+  {
+    "tool": "inspect_tool_definition",
+    "arguments": {
+      "tool": {
+        "name": "set_flag",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "flag": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "enum": [
+                    "yes",
+                    "no"
+                  ]
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+]

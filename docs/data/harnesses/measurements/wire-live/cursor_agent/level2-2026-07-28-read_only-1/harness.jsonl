@@ -1,0 +1,10 @@
+{"format": "mcp-mirror.harness-output/1"}
+{"event": "init", "harness_version": null, "model": "Auto Balance", "permission_mode": "default", "mcp_servers": null, "mcp_tools": null}
+{"event": "routed", "model": "GPT-5.6 Sol"}
+{"event": "text", "text": "> Auto routed to GPT-5.6 Sol\n\n"}
+{"event": "tool_use", "tool": "getMcpToolsToolCall", "input": {"server": "def", "toolName": "search_records", "toolCallId": "call_cguPGl2hLmPDxABGfSrz28mL\nfc_0a41b840cbc276bd016ad2ac22550c87d1aac96f99e09b6038"}}
+{"event": "tool_result", "is_error": false, "text": "{\"success\": {\"content\": \"{\\n  \\\"tool\\\": \\\"search_records\\\",\\n  \\\"description\\\": \\\"Search records with optional filters. Read-only.\\\",\\n  \\\"inputSchema\\\": {\\n    \\\"type\\\": \\\"object\\\",\\n    \\\"properties\\\": {\\n      \\\"query\\\": {\\n        \\\"type\\\": \\\"string\\\",\\n        \\\"description\\\": \\\"Full-text search query.\\\"\\n      },\\n      \\\"status\\\": {\\n        \\\"type\\\": \\\"string\\\",\\n        \\\"description\\\": \\\"Filter by record status.\\\",\\n        \\\"enum\\\": [\\n          \\\"active\\\",\\n          \\\"archived\\\",\\n ..."}
+{"event": "tool_use", "tool": "mcpToolCall", "input": {"name": "def-search_records", "args": {"query": "x"}, "toolCallId": "call_X2nE5pgDPGI8fd0KLZ9zQ8bh\nfc_0a41b840cbc276bd016ad2ac23a4d087d1bc38cc89679e1608", "providerIdentifier": "def", "toolName": "search_records", "smartModeApprovalOnly": false, "skipApproval": false, "serverIdentifier": "def", "symbolicPathArguments": [], "argumentsRepaired": false}}
+{"event": "tool_result", "is_error": true, "text": "{\"rejected\": {\"reason\": \"User rejected MCP: def-search_records\", \"isReadonly\": false}}"}
+{"event": "text", "text": "The search was not run because tool access was rejected, so no count was returned."}
+{"event": "result", "subtype": "success", "is_error": false, "num_turns": null, "text": "> Auto routed to GPT-5.6 Sol\n\nThe search was not run because tool access was rejected, so no count was returned."}

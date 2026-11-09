@@ -1,0 +1,8 @@
+{"format": "mcp-mirror.harness-output/1"}
+{"event": "init", "harness_version": null, "permission_mode": null, "mcp_servers": null, "mcp_tools": null}
+{"event": "tool_use", "tool": "codemode", "input": {"code": "return await tools.mcp__cf__ask_elicitation_form({})"}}
+{"event": "tool_use", "tool": "mcp__cf__ask_elicitation_form", "input": {}}
+{"event": "tool_result", "is_error": true, "text": "SENTINEL_CLIENT_FEATURE_UNAVAILABLE ask_elicitation_form: MCPError: Method not found: elicitation/create"}
+{"event": "tool_result", "is_error": false, "text": "Script completed\nWall time 0.1 seconds\nOutput:\n{\"content\":[{\"text\":\"SENTINEL_CLIENT_FEATURE_UNAVAILABLE ask_elicitation_form: MCPError: Method not found: elicitation/create\",\"type\":\"text\"}],\"isError\":true}"}
+{"event": "text", "text": "done"}
+{"event": "result", "subtype": "stop", "is_error": false, "num_turns": 2, "text": "done"}

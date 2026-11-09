@@ -1,0 +1,36 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "transport-streamable-http",
+  "title": "Streamable HTTP transport",
+  "description": "One HTTP POST per message to a single endpoint, answered with a JSON object or a request-scoped SSE stream, and carrying the required `Mcp-Method` and `Mcp-Name` headers.",
+  "question": "Can the framework talk to a remote server on this revision's terms?",
+  "spec": "https://modelcontextprotocol.io/specification/2025-11-25",
+  "status": "stable",
+  "categories": [
+    "Transports"
+  ],
+  "keywords": "streamable http,POST,SSE,Mcp-Method,Mcp-Name,remote server",
+  "why": "Every remote MCP server uses this transport, and 2026-07-28 changed it substantially: sessions and the `Mcp-Session-Id` header are gone, SSE resumability is gone, and two new headers are required. An adapter written for the old shape may connect and still be non-conformant.",
+  "docs_url": "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports/streamable-http",
+  "docs_label": "MCP Docs",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports/streamable-http",
+      "title": "MCP Docs"
+    },
+    {
+      "url": "https://github.com/modelcontextprotocol/conformance",
+      "title": "MCP conformance suite"
+    }
+  ],
+  "usage_perc_y": null,
+  "usage_perc_a": null,
+  "usage_note": null,
+  "known_issues": [
+    "Measured with the official MCP conformance suite 0.1.16, whose client scenarios are tagged 2025-11-25.",
+    "Also measured by `scripts/measure_transports.py`, which asks every renderer for the same definitions, probe answers and result calls over stdio and over Streamable HTTP behind the recording proxy; the cell combines that comparison with the suite's `tools_call` scenario."
+  ],
+  "notes": {
+    "crewai-native": "CrewAI 1.15.26, native `crewai.mcp` client (`Agent(mcps=[...])`, not the `crewai_tools.MCPServerAdapter` row): the session opens and lists the same definitions as stdio, but on the pinned Python 3.11 every tool call fails. `MCPNativeTool._run` calls `asyncio.run` when no event loop is running, which is the case for `BaseTool.run` and for a synchronous crew, and the fresh `MCPClient` it opens for the call then fails to close its `streamablehttp_client` transport: `RuntimeError: Error executing MCP tool text_content: Error during MCP client disconnect: no running event loop`, for all 18 calls at both boundaries. The server did answer each `tools/call`; the result is lost on the client. A standalone repro of the same call succeeds on Python 3.12 and 3.13, and on 3.11 when the tool runs inside a running event loop; neither was measured by the instrument. The tool names also change with the transport: each is named after the URL's host, port and path (`127_0_0_1_<port>_mcp_search_records`), so the name differs from the stdio one and from run to run as the port changes."
+  }
+}

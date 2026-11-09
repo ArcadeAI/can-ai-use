@@ -1,0 +1,172 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Scanner, data, and site
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            src/mcp_mirror/renderers/mastra_node/package-lock.json
+            src/mcp_mirror/renderers/vercel_ai_node/package-lock.json
+            src/mcp_mirror/renderers/openai_agents_js_node/package-lock.json
+            src/mcp_mirror/renderers/pi_node/package-lock.json
+            src/mcp_mirror/renderers/google_adk_js_node/package-lock.json
+            src/mcp_mirror/renderers/langchain_js_node/package-lock.json
+            src/mcp_mirror/renderers/genkit_js_node/package-lock.json
+            src/mcp_mirror/renderers/copilot_sdk_node/package-lock.json
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+          cache: maven
+          cache-dependency-path: |
+            src/mcp_mirror/renderers/spring_ai_java/pom.xml
+            src/mcp_mirror/renderers/google_adk_java/pom.xml
+            src/mcp_mirror/renderers/langchain4j_java/pom.xml
+            src/mcp_mirror/renderers/koog_kotlin/pom.xml
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.401"
+          cache: true
+          cache-dependency-path: src/mcp_mirror/renderers/ms_agent_framework_dotnet/packages.lock.json
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.27.1"
+          cache-dependency-path: src/mcp_mirror/renderers/google_adk_go/go.sum
+
+      - name: Install Python framework adapters
+        run: uv sync --locked --extra dev --extra all
+
+      - name: Install site dependencies
+        run: npm ci
+
+      - name: Install Mastra adapter
+        run: npm ci --prefix src/mcp_mirror/renderers/mastra_node
+
+      - name: Install Vercel AI SDK adapter
+        run: npm ci --prefix src/mcp_mirror/renderers/vercel_ai_node
+
+      - name: Install OpenAI Agents SDK (JS) adapter
+        run: npm ci --prefix src/mcp_mirror/renderers/openai_agents_js_node
+
+      - name: Install Pi MCP client adapter
+        run: npm ci --prefix src/mcp_mirror/renderers/pi_node
+      - name: Install Google ADK (TypeScript) adapter
+        run: npm ci --prefix src/mcp_mirror/renderers/google_adk_js_node
+      - name: Install LangChain.js adapter
+        run: npm ci --prefix src/mcp_mirror/renderers/langchain_js_node
+      - name: Install GitHub Copilot SDK adapter
+        run: npm ci --prefix src/mcp_mirror/renderers/copilot_sdk_node
+      - name: Build Spring AI adapter worker
+        run: mvn -B -q -f src/mcp_mirror/renderers/spring_ai_java/pom.xml package -DskipTests
+      - name: Build Google ADK (Java) adapter worker
+        run: mvn -B -q -f src/mcp_mirror/renderers/google_adk_java/pom.xml package -DskipTests
+      - name: Build LangChain4j adapter worker
+        run: mvn -B -q -f src/mcp_mirror/renderers/langchain4j_java/pom.xml package -DskipTests
+      - name: Publish Microsoft Agent Framework (.NET) adapter worker
+        run: dotnet publish src/mcp_mirror/renderers/ms_agent_framework_dotnet -c Release --nologo -v quiet
+      - name: Build Google ADK (Go) adapter worker
+        run: go -C src/mcp_mirror/renderers/google_adk_go build -o worker .
+      - name: Build Koog adapter worker
+        run: mvn -B -q -f src/mcp_mirror/renderers/koog_kotlin/pom.xml package -DskipTests
+      - name: Install Genkit (JS) adapter
+        run: npm ci --prefix src/mcp_mirror/renderers/genkit_js_node
+
+      - name: Require every registered renderer
+        run: |
+          uv run python - <<'PY'
+          from mcp_mirror.renderers import available_renderers, local_renderer_ids
+
+          # A manifest marked managed_only cannot share this environment; its tests
+          # drive it through the managed runner instead.
+          registered = set(local_renderer_ids())
+          available = available_renderers()
+          missing = sorted(registered - set(available))
+          assert not missing, f"registered renderers unavailable in CI: {missing}"
+
+          reported = {
+              renderer_id: renderer.versions()
+              for renderer_id, renderer in available.items()
+          }
+          unknown = {
+              renderer_id: versions
+              for renderer_id, versions in reported.items()
+              if any(
+                  not versions.get(key) or versions.get(key) == "unknown"
+                  for key in ("framework", "adapter")
+              )
+          }
+          assert not unknown, f"renderers did not report exact versions: {unknown}"
+
+          evidence = {
+              renderer_id: renderer.evidence()
+              for renderer_id, renderer in available.items()
+          }
+          incomplete = {
+              renderer_id: item
+              for renderer_id, item in evidence.items()
+              if not item.capture_api
+              or not item.capture_object
+              or not item.protocol_version_evidence
+              or (
+                  item.provider_request_captured
+                  and item.capture_stage != "provider_request"
+              )
+          }
+          assert not incomplete, f"renderers declared incomplete evidence: {incomplete}"
+          print(f"verified {len(available)} registered renderers")
+          PY
+
+      - name: Run scanner and real-adapter tests
+        run: uv run pytest tests -q
+
+      - name: Validate compatibility data
+        run: python3 data/validator/validate.py data
+
+      - name: Check published cells match a fresh derivation
+        run: uv run python scripts/generate_cells.py --check
+
+      - name: Test news feed parsing
+        run: npm run news:test
+
+      - name: Build compatibility site
+        run: npm run build
+
+      - name: Build Python wheel
+        run: uv build --wheel

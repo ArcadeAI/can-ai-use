@@ -1,0 +1,1779 @@
+{
+  "schema": "mcp-mirror/result-boundaries@2",
+  "captured_at": "2026-10-09T18:32:45Z",
+  "fixture": "fixtures/results_server.py",
+  "fixture_python": "<checkout>/.mcp-mirror/fixture-2025-11-25/bin/python",
+  "spec_version": "2025-11-25",
+  "calls": [
+    {
+      "tool": "text_content",
+      "arguments": {}
+    },
+    {
+      "tool": "image_content",
+      "arguments": {}
+    },
+    {
+      "tool": "audio_content",
+      "arguments": {}
+    },
+    {
+      "tool": "embedded_resource_content",
+      "arguments": {}
+    },
+    {
+      "tool": "resource_link_content",
+      "arguments": {}
+    },
+    {
+      "tool": "annotated_content",
+      "arguments": {}
+    },
+    {
+      "tool": "mixed_content",
+      "arguments": {}
+    },
+    {
+      "tool": "text_and_structured",
+      "arguments": {}
+    },
+    {
+      "tool": "tool_error",
+      "arguments": {}
+    }
+  ],
+  "source": {
+    "text_content": {
+      "tool": "text_content",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_TEXT_BLOCK"
+        }
+      ],
+      "block_kinds": [
+        "text"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": "SENTINEL_TEXT_BLOCK",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_TEXT_BLOCK",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "image_content": {
+      "tool": "image_content",
+      "blocks": [
+        {
+          "type": "image",
+          "data": "<96 chars>",
+          "mimeType": "image/png"
+        }
+      ],
+      "block_kinds": [
+        "image"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": null,
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "image",
+            "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==",
+            "mimeType": "image/png",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "audio_content": {
+      "tool": "audio_content",
+      "blocks": [
+        {
+          "type": "audio",
+          "data": "<60 chars>",
+          "mimeType": "audio/wav"
+        }
+      ],
+      "block_kinds": [
+        "audio"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": null,
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "audio",
+            "data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
+            "mimeType": "audio/wav",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "embedded_resource_content": {
+      "tool": "embedded_resource_content",
+      "blocks": [
+        {
+          "type": "resource",
+          "resource": {
+            "uri": "file:///fixtures/embedded.txt",
+            "mimeType": "text/plain",
+            "_meta": null,
+            "text": "SENTINEL_EMBEDDED_RESOURCE"
+          }
+        }
+      ],
+      "block_kinds": [
+        "resource"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": null,
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "resource",
+            "resource": {
+              "uri": "file:///fixtures/embedded.txt",
+              "mimeType": "text/plain",
+              "_meta": null,
+              "text": "SENTINEL_EMBEDDED_RESOURCE"
+            },
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "resource_link_content": {
+      "tool": "resource_link_content",
+      "blocks": [
+        {
+          "name": "linked.txt",
+          "uri": "file:///fixtures/linked.txt",
+          "description": "SENTINEL_RESOURCE_LINK",
+          "mimeType": "text/plain",
+          "type": "resource_link"
+        }
+      ],
+      "block_kinds": [
+        "resource_link"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": null,
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "name": "linked.txt",
+            "title": null,
+            "uri": "file:///fixtures/linked.txt",
+            "description": "SENTINEL_RESOURCE_LINK",
+            "mimeType": "text/plain",
+            "size": null,
+            "icons": null,
+            "annotations": null,
+            "_meta": null,
+            "type": "resource_link"
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "annotated_content": {
+      "tool": "annotated_content",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_ANNOTATED_TEXT",
+          "annotations": {
+            "audience": [
+              "user"
+            ],
+            "priority": 0.9
+          }
+        }
+      ],
+      "block_kinds": [
+        "text"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": "SENTINEL_ANNOTATED_TEXT",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_ANNOTATED_TEXT",
+            "annotations": {
+              "audience": [
+                "user"
+              ],
+              "priority": 0.9
+            },
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "mixed_content": {
+      "tool": "mixed_content",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_TEXT_BLOCK",
+          "annotations": {
+            "audience": [
+              "user"
+            ],
+            "priority": 0.9
+          }
+        },
+        {
+          "type": "image",
+          "data": "<96 chars>",
+          "mimeType": "image/png"
+        },
+        {
+          "type": "audio",
+          "data": "<60 chars>",
+          "mimeType": "audio/wav"
+        },
+        {
+          "type": "resource",
+          "resource": {
+            "uri": "file:///fixtures/embedded.txt",
+            "mimeType": "text/plain",
+            "_meta": null,
+            "text": "SENTINEL_EMBEDDED_RESOURCE"
+          }
+        },
+        {
+          "name": "linked.txt",
+          "uri": "file:///fixtures/linked.txt",
+          "description": "SENTINEL_RESOURCE_LINK",
+          "mimeType": "text/plain",
+          "type": "resource_link"
+        }
+      ],
+      "block_kinds": [
+        "text",
+        "image",
+        "audio",
+        "resource",
+        "resource_link"
+      ],
+      "structured_content": {
+        "count": 2,
+        "records": [
+          {
+            "id": "rec_1",
+            "status": "active"
+          },
+          {
+            "id": "rec_2",
+            "status": "archived"
+          }
+        ],
+        "note": "SENTINEL_STRUCTURED_CONTENT"
+      },
+      "is_error": false,
+      "text": "SENTINEL_TEXT_BLOCK",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_TEXT_BLOCK",
+            "annotations": {
+              "audience": [
+                "user"
+              ],
+              "priority": 0.9
+            },
+            "_meta": null
+          },
+          {
+            "type": "image",
+            "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==",
+            "mimeType": "image/png",
+            "annotations": null,
+            "_meta": null
+          },
+          {
+            "type": "audio",
+            "data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
+            "mimeType": "audio/wav",
+            "annotations": null,
+            "_meta": null
+          },
+          {
+            "type": "resource",
+            "resource": {
+              "uri": "file:///fixtures/embedded.txt",
+              "mimeType": "text/plain",
+              "_meta": null,
+              "text": "SENTINEL_EMBEDDED_RESOURCE"
+            },
+            "annotations": null,
+            "_meta": null
+          },
+          {
+            "name": "linked.txt",
+            "title": null,
+            "uri": "file:///fixtures/linked.txt",
+            "description": "SENTINEL_RESOURCE_LINK",
+            "mimeType": "text/plain",
+            "size": null,
+            "icons": null,
+            "annotations": null,
+            "_meta": null,
+            "type": "resource_link"
+          }
+        ],
+        "structuredContent": {
+          "count": 2,
+          "records": [
+            {
+              "id": "rec_1",
+              "status": "active"
+            },
+            {
+              "id": "rec_2",
+              "status": "archived"
+            }
+          ],
+          "note": "SENTINEL_STRUCTURED_CONTENT"
+        },
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "text_and_structured": {
+      "tool": "text_and_structured",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_TEXT_BLOCK"
+        }
+      ],
+      "block_kinds": [
+        "text"
+      ],
+      "structured_content": {
+        "count": 2,
+        "records": [
+          {
+            "id": "rec_1",
+            "status": "active"
+          },
+          {
+            "id": "rec_2",
+            "status": "archived"
+          }
+        ],
+        "note": "SENTINEL_STRUCTURED_CONTENT"
+      },
+      "is_error": false,
+      "text": "SENTINEL_TEXT_BLOCK",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_TEXT_BLOCK",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "count": 2,
+          "records": [
+            {
+              "id": "rec_1",
+              "status": "active"
+            },
+            {
+              "id": "rec_2",
+              "status": "archived"
+            }
+          ],
+          "note": "SENTINEL_STRUCTURED_CONTENT"
+        },
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "tool_error": {
+      "tool": "tool_error",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_TOOL_ERROR: this tool always fails"
+        }
+      ],
+      "block_kinds": [
+        "text"
+      ],
+      "structured_content": null,
+      "is_error": true,
+      "text": "SENTINEL_TOOL_ERROR: this tool always fails",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_TOOL_ERROR: this tool always fails",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": true
+      },
+      "error_channel": null
+    }
+  },
+  "frameworks": {
+    "openai_agents_js": {
+      "ok": true,
+      "versions": {
+        "framework": "0.20.0",
+        "adapter": "@openai/agents-core 0.20.0, node v24.21.0"
+      },
+      "evidence": {
+        "capture_api": "@openai/agents Runner.run with Agent({ mcpServers: [MCPServerStdio | MCPServerStreamableHttp | MCPServerSSE] }), tools loaded by getAllMcpTools",
+        "capture_object": "SerializedFunctionTool in the ModelRequest.tools handed to Model.getResponse",
+        "capture_stage": "framework_tool_definition",
+        "provider_request_captured": false,
+        "negotiated_mcp_spec_version": "2025-11-25",
+        "protocol_version_evidence": "Client.getNegotiatedProtocolVersion on the @modelcontextprotocol/client Client the node shim keeps in its protected session field; the SDK has no public accessor",
+        "limitation": "The Model is scripted. No OpenAI provider model ran and no serialized provider request was captured."
+      },
+      "result_boundaries": [
+        {
+          "id": "agent",
+          "label": "Function call result to the model",
+          "capture_api": "@openai/agents Runner.run, next ModelRequest.input",
+          "capture_object": "the function_call_result item the scripted Model receives",
+          "agent_path": true,
+          "limitation": "The Model is scripted; no provider request was serialized."
+        },
+        {
+          "id": "direct",
+          "label": "Adapter call API",
+          "capture_api": "@openai/agents MCPServerStdio.callTool",
+          "capture_object": "the CallToolResultContent array, with the metadata the SDK attaches to it",
+          "agent_path": false,
+          "limitation": null
+        },
+        {
+          "id": "agent_use_structured_content",
+          "label": "Function call result to the model, useStructuredContent: true",
+          "capture_api": "@openai/agents Runner.run, server option useStructuredContent: true",
+          "capture_object": "the function_call_result item the scripted Model receives",
+          "agent_path": false,
+          "limitation": "A documented non-default server option, not the behaviour a caller gets without configuring it."
+        }
+      ],
+      "reps": [
+        {
+          "name": "text_content",
+          "description": "Return one text block and nothing else.",
+          "params": {
+            "type": "object",
+            "properties": {},
+            "required": [],
+            "additionalProperties": true
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "openai_agents_js",
+          "raw": {
+            "name": "text_content",
+            "description": "Return one text block and nothing else.",
+            "parameters": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": true
+            }
+          }
+        },
+        {
+          "name": "image_content",
+          "description": "Return one image block and nothing else.",
+          "params": {
+            "type": "object",
+            "properties": {},
+            "required": [],
+            "additionalProperties": true
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "openai_agents_js",
+          "raw": {
+            "name": "image_content",
+            "description": "Return one image block and nothing else.",
+            "parameters": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": true
+            }
+          }
+        },
+        {
+          "name": "audio_content",
+          "description": "Return one audio block and nothing else.",
+          "params": {
+            "type": "object",
+            "properties": {},
+            "required": [],
+            "additionalProperties": true
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "openai_agents_js",
+          "raw": {
+            "name": "audio_content",
+            "description": "Return one audio block and nothing else.",
+            "parameters": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": true
+            }
+          }
+        },
+        {
+          "name": "embedded_resource_content",
+          "description": "Return one embedded resource block and nothing else.",
+          "params": {
+            "type": "object",
+            "properties": {},
+            "required": [],
+            "additionalProperties": true
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "openai_agents_js",
+          "raw": {
+            "name": "embedded_resource_content",
+            "description": "Return one embedded resource block and nothing else.",
+            "parameters": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": true
+            }
+          }
+        },
+        {
+          "name": "resource_link_content",
+          "description": "Return one resource_link block and nothing else.",
+          "params": {
+            "type": "object",
+            "properties": {},
+            "required": [],
+            "additionalProperties": true
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "openai_agents_js",
+          "raw": {
+            "name": "resource_link_content",
+            "description": "Return one resource_link block and nothing else.",
+            "parameters": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": true
+            }
+          }
+        },
+        {
+          "name": "annotated_content",
+          "description": "Return one text block carrying audience and priority annotations.",
+          "params": {
+            "type": "object",
+            "properties": {},
+            "required": [],
+            "additionalProperties": true
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "openai_agents_js",
+          "raw": {
+            "name": "annotated_content",
+            "description": "Return one text block carrying audience and priority annotations.",
+            "parameters": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": true
+            }
+          }
+        },
+        {
+          "name": "mixed_content",
+          "description": "Return one block of every kind plus structuredContent in one result.",
+          "params": {
+            "type": "object",
+            "properties": {},
+            "required": [],
+            "additionalProperties": true
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "openai_agents_js",
+          "raw": {
+            "name": "mixed_content",
+            "description": "Return one block of every kind plus structuredContent in one result.",
+            "parameters": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": true
+            }
+          }
+        },
+        {
+          "name": "text_and_structured",
+          "description": "Return one text block plus structuredContent, with no media.",
+          "params": {
+            "type": "object",
+            "properties": {},
+            "required": [],
+            "additionalProperties": true
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "openai_agents_js",
+          "raw": {
+            "name": "text_and_structured",
+            "description": "Return one text block plus structuredContent, with no media.",
+            "parameters": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": true
+            }
+          }
+        },
+        {
+          "name": "tool_error",
+          "description": "Always fail, reporting the failure through isError rather than a protocol error.",
+          "params": {
+            "type": "object",
+            "properties": {},
+            "required": [],
+            "additionalProperties": true
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "openai_agents_js",
+          "raw": {
+            "name": "tool_error",
+            "description": "Always fail, reporting the failure through isError rather than a protocol error.",
+            "parameters": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": true
+            }
+          }
+        }
+      ],
+      "results": [
+        {
+          "tool": "text_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "text_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TEXT_BLOCK"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_TEXT_BLOCK",
+            "origin": "openai_agents_js",
+            "raw": {
+              "type": "function_call_result",
+              "name": "text_content",
+              "callId": "mcp-mirror-call",
+              "status": "completed",
+              "output": [
+                {
+                  "type": "input_text",
+                  "text": "SENTINEL_TEXT_BLOCK"
+                }
+              ]
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "text_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "text_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TEXT_BLOCK"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_TEXT_BLOCK",
+            "origin": "openai_agents_js",
+            "raw": {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_TEXT_BLOCK"
+                }
+              ],
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "text_content",
+          "boundary": "agent_use_structured_content",
+          "ok": true,
+          "rep": {
+            "tool": "text_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TEXT_BLOCK"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_TEXT_BLOCK",
+            "origin": "openai_agents_js",
+            "raw": {
+              "type": "function_call_result",
+              "name": "text_content",
+              "callId": "mcp-mirror-call",
+              "status": "completed",
+              "output": [
+                {
+                  "type": "input_text",
+                  "text": "SENTINEL_TEXT_BLOCK"
+                }
+              ]
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "image_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "image_content",
+            "blocks": [
+              {
+                "type": "image",
+                "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==",
+                "mimeType": "image/png"
+              }
+            ],
+            "block_kinds": [
+              "image"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": null,
+            "origin": "openai_agents_js",
+            "raw": {
+              "type": "function_call_result",
+              "name": "image_content",
+              "callId": "mcp-mirror-call",
+              "status": "completed",
+              "output": [
+                {
+                  "type": "input_image",
+                  "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
+                }
+              ]
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "image_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "image_content",
+            "blocks": [
+              {
+                "type": "image",
+                "data": "<96 chars>",
+                "mimeType": "image/png"
+              }
+            ],
+            "block_kinds": [
+              "image"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": null,
+            "origin": "openai_agents_js",
+            "raw": {
+              "content": [
+                {
+                  "type": "image",
+                  "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==",
+                  "mimeType": "image/png"
+                }
+              ],
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "image_content",
+          "boundary": "agent_use_structured_content",
+          "ok": true,
+          "rep": {
+            "tool": "image_content",
+            "blocks": [
+              {
+                "type": "image",
+                "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==",
+                "mimeType": "image/png"
+              }
+            ],
+            "block_kinds": [
+              "image"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": null,
+            "origin": "openai_agents_js",
+            "raw": {
+              "type": "function_call_result",
+              "name": "image_content",
+              "callId": "mcp-mirror-call",
+              "status": "completed",
+              "output": [
+                {
+                  "type": "input_image",
+                  "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
+                }
+              ]
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "audio_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "audio_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "{\"type\":\"audio\",\"data\":\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\",\"mimeType\":\"audio/wav\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"type\":\"audio\",\"data\":\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\",\"mimeType\":\"audio/wav\"}",
+            "origin": "openai_agents_js",
+            "raw": {
+              "type": "function_call_result",
+              "name": "audio_content",
+              "callId": "mcp-mirror-call",
+              "status": "completed",
+              "output": {
+                "type": "text",
+                "text": "{\"type\":\"audio\",\"data\":\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\",\"mimeType\":\"audio/wav\"}"
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "audio_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "audio_content",
+            "blocks": [
+              {
+                "type": "audio",
+                "data": "<60 chars>",
+                "mimeType": "audio/wav"
+              }
+            ],
+            "block_kinds": [
+              "audio"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": null,
+            "origin": "openai_agents_js",
+            "raw": {
+              "content": [
+                {
+                  "type": "audio",
+                  "data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
+                  "mimeType": "audio/wav"
+                }
+              ],
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "audio_content",
+          "boundary": "agent_use_structured_content",
+          "ok": true,
+          "rep": {
+            "tool": "audio_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "{\"type\":\"audio\",\"data\":\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\",\"mimeType\":\"audio/wav\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"type\":\"audio\",\"data\":\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\",\"mimeType\":\"audio/wav\"}",
+            "origin": "openai_agents_js",
+            "raw": {
+              "type": "function_call_result",
+              "name": "audio_content",
+              "callId": "mcp-mirror-call",
+              "status": "completed",
+              "output": {
+                "type": "text",
+                "text": "{\"type\":\"audio\",\"data\":\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\",\"mimeType\":\"audio/wav\"}"
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "embedded_resource_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "embedded_resource_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "{\"type\":\"resource\",\"resource\":{\"uri\":\"file:///fixtures/embedded.txt\",\"mimeType\":\"text/plain\",\"text\":\"SENTINEL_EMBEDDED_RESOURCE\"}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"type\":\"resource\",\"resource\":{\"uri\":\"file:///fixtures/embedded.txt\",\"mimeType\":\"text/plain\",\"text\":\"SENTINEL_EMBEDDED_RESOURCE\"}}",
+            "origin": "openai_agents_js",
+            "raw": {
+              "type": "function_call_result",
+              "name": "embedded_resource_content",
+              "callId": "mcp-mirror-call",
+              "status": "completed",
+              "output": {
+                "type": "text",
+                "text": "{\"type\":\"resource\",\"resource\":{\"uri\":\"file:///fixtures/embedded.txt\",\"mimeType\":\"text/plain\",\"text\":\"SENTINEL_EMBEDDED_RESOURCE\"}}"
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "embedded_resource_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "embedded_resource_content",
+            "blocks": [
+              {
+                "type": "resource",
+                "resource": {
+                  "uri": "file:///fixtures/embedded.txt",
+                  "mimeType": "text/plain",
+                  "text": "SENTINEL_EMBEDDED_RESOURCE"
+                }
+              }
+            ],
+            "block_kinds": [
+              "resource"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": null,
+            "origin": "openai_agents_js",
+            "raw": {
+              "content": [
+                {
+                  "type": "resource",
+                  "resource": {
+                    "uri": "file:///fixtures/embedded.txt",
+                    "mimeType": "text/plain",
+                    "text": "SENTINEL_EMBEDDED_RESOURCE"
+                  }
+                }
+              ],
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "embedded_resource_content",
+          "boundary": "agent_use_structured_content",
+          "ok": true,
+          "rep": {
+            "tool": "embedded_resource_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "{\"type\":\"resource\",\"resource\":{\"uri\":\"file:///fixtures/embedded.txt\",\"mimeType\":\"text/plain\",\"text\":\"SENTINEL_EMBEDDED_RESOURCE\"}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"type\":\"resource\",\"resource\":{\"uri\":\"file:///fixtures/embedded.txt\",\"mimeType\":\"text/plain\",\"text\":\"SENTINEL_EMBEDDED_RESOURCE\"}}",
+            "origin": "openai_agents_js",
+            "raw": {
+              "type": "function_call_result",
+              "name": "embedded_resource_content",
+              "callId": "mcp-mirror-call",
+              "status": "completed",
+              "output": {
+                "type": "text",
+                "text": "{\"type\":\"resource\",\"resource\":{\"uri\":\"file:///fixtures/embedded.txt\",\"mimeType\":\"text/plain\",\"text\":\"SENTINEL_EMBEDDED_RESOURCE\"}}"
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "resource_link_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "resource_link_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "{\"name\":\"linked.txt\",\"uri\":\"file:///fixtures/linked.txt\",\"description\":\"SENTINEL_RESOURCE_LINK\",\"mimeType\":\"text/plain\",\"type\":\"resource_link\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"name\":\"linked.txt\",\"uri\":\"file:///fixtures/linked.txt\",\"description\":\"SENTINEL_RESOURCE_LINK\",\"mimeType\":\"text/plain\",\"type\":\"resource_link\"}",
+            "origin": "openai_agents_js",
+            "raw": {
+              "type": "function_call_result",
+              "name": "resource_link_content",
+              "callId": "mcp-mirror-call",
+              "status": "completed",
+              "output": {
+                "type": "text",
+                "text": "{\"name\":\"linked.txt\",\"uri\":\"file:///fixtures/linked.txt\",\"description\":\"SENTINEL_RESOURCE_LINK\",\"mimeType\":\"text/plain\",\"type\":\"resource_link\"}"
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "resource_link_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "resource_link_content",
+            "blocks": [
+              {
+                "name": "linked.txt",
+                "uri": "file:///fixtures/linked.txt",
+                "description": "SENTINEL_RESOURCE_LINK",
+                "mimeType": "text/plain",
+                "type": "resource_link"
+              }
+            ],
+            "block_kinds": [
+              "resource_link"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": null,
+            "origin": "openai_agents_js",
+            "raw": {
+              "content": [
+                {
+                  "name": "linked.txt",
+                  "uri": "file:///fixtures/linked.txt",
+                  "description": "SENTINEL_RESOURCE_LINK",
+                  "mimeType": "text/plain",
+                  "type": "resource_link"
+                }
+              ],
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "resource_link_content",
+          "boundary": "agent_use_structured_content",
+          "ok": true,
+          "rep": {
+            "tool": "resource_link_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "{\"name\":\"linked.txt\",\"uri\":\"file:///fixtures/linked.txt\",\"description\":\"SENTINEL_RESOURCE_LINK\",\"mimeType\":\"text/plain\",\"type\":\"resource_link\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"name\":\"linked.txt\",\"uri\":\"file:///fixtures/linked.txt\",\"description\":\"SENTINEL_RESOURCE_LINK\",\"mimeType\":\"text/plain\",\"type\":\"resource_link\"}",
+            "origin": "openai_agents_js",
+            "raw": {
+              "type": "function_call_result",
+              "name": "resource_link_content",
+              "callId": "mcp-mirror-call",
+              "status": "completed",
+              "output": {
+                "type": "text",
+                "text": "{\"name\":\"linked.txt\",\"uri\":\"file:///fixtures/linked.txt\",\"description\":\"SENTINEL_RESOURCE_LINK\",\"mimeType\":\"text/plain\",\"type\":\"resource_link\"}"
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "annotated_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "annotated_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ANNOTATED_TEXT"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ANNOTATED_TEXT",
+            "origin": "openai_agents_js",
+            "raw": {
+              "type": "function_call_result",
+              "name": "annotated_content",
+              "callId": "mcp-mirror-call",
+              "status": "completed",
+              "output": [
+                {
+                  "type": "input_text",
+                  "text": "SENTINEL_ANNOTATED_TEXT"
+                }
+              ]
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "annotated_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "annotated_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ANNOTATED_TEXT",
+                "annotations": {
+                  "audience": [
+                    "user"
+                  ],
+                  "priority": 0.9
+                }
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ANNOTATED_TEXT",
+            "origin": "openai_agents_js",
+            "raw": {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_ANNOTATED_TEXT",
+                  "annotations": {
+                    "audience": [
+                      "user"
+                    ],
+                    "priority": 0.9
+                  }
+                }
+              ],
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "annotated_content",
+          "boundary": "agent_use_structured_content",
+          "ok": true,
+          "rep": {
+            "tool": "annotated_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ANNOTATED_TEXT"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ANNOTATED_TEXT",
+            "origin": "openai_agents_js",
+            "raw": {
+              "type": "function_call_result",
+              "name": "annotated_content",
+              "callId": "mcp-mirror-call",
+              "status": "completed",
+              "output": [
+                {
+                  "type": "input_text",
+                  "text": "SENTINEL_ANNOTATED_TEXT"
+                }
+              ]
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "mixed_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "mixed_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "[{\"type\":\"text\",\"text\":\"SENTINEL_TEXT_BLOCK\",\"annotations\":{\"audience\":[\"user\"],\"priority\":0.9}},{\"type\":\"image\",\"data\":\"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==\",\"mimeType\":\"image/png\"},{\"type\":\"audio\",\"data\":\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\",\"mimeType\":\"audio/wav\"},{\"type\":\"resource\",\"resource\":{\"uri\":\"file:///fixtures/embedded.txt\",\"mimeType\":\"text/plain\",\"text\":\"SENTINEL_EMBEDDED_RESOURCE\"}},{\"name\":\"linked.txt\",\"uri\":\"file:///fixtures/linked.txt\",\"description\":\"SENTINEL_RESOURCE_LINK\",\"mimeType\":\"text/plain\",\"type\":\"resource_link\"}]"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "[{\"type\":\"text\",\"text\":\"SENTINEL_TEXT_BLOCK\",\"annotations\":{\"audience\":[\"user\"],\"priority\":0.9}},{\"type\":\"image\",\"data\":\"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==\",\"mimeType\":\"image/png\"},{\"type\":\"audio\",\"data\":\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\",\"mimeType\":\"audio/wav\"},{\"type\":\"resource\",\"resource\":{\"uri\":\"file:///fixtures/embedded.txt\",\"mimeType\":\"text/plain\",\"text\":\"SENTINEL_EMBEDDED_RESOURCE\"}},{\"name\":\"linked.txt\",\"uri\":\"file:///fixtures/linked.txt\",\"description\":\"SENTINEL_RESOURCE_LINK\",\"mimeType\":\"text/plain\",\"type\":\"resource_link\"}]",
+            "origin": "openai_agents_js",
+            "raw": {
+              "type": "function_call_result",
+              "name": "mixed_content",
+              "callId": "mcp-mirror-call",
+              "status": "completed",
+              "output": {
+                "type": "text",
+                "text": "[{\"type\":\"text\",\"text\":\"SENTINEL_TEXT_BLOCK\",\"annotations\":{\"audience\":[\"user\"],\"priority\":0.9}},{\"type\":\"image\",\"data\":\"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==\",\"mimeType\":\"image/png\"},{\"type\":\"audio\",\"data\":\"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\",\"mimeType\":\"audio/wav\"},{\"type\":\"resource\",\"resource\":{\"uri\":\"file:///fixtures/embedded.txt\",\"mimeType\":\"text/plain\",\"text\":\"SENTINEL_EMBEDDED_RESOURCE\"}},{\"name\":\"linked.txt\",\"uri\":\"file:///fixtures/linked.txt\",\"description\":\"SENTINEL_RESOURCE_LINK\",\"mimeType\":\"text/plain\",\"type\":\"resource_link\"}]"
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "mixed_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "mixed_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TEXT_BLOCK",
+                "annotations": {
+                  "audience": [
+                    "user"
+                  ],
+                  "priority": 0.9
+                }
+              },
+              {
+                "type": "image",
+                "data": "<96 chars>",
+                "mimeType": "image/png"
+              },
+              {
+                "type": "audio",
+                "data": "<60 chars>",
+                "mimeType": "audio/wav"
+              },
+              {
+                "type": "resource",
+                "resource": {
+                  "uri": "file:///fixtures/embedded.txt",
+                  "mimeType": "text/plain",
+                  "text": "SENTINEL_EMBEDDED_RESOURCE"
+                }
+              },
+              {
+                "name": "linked.txt",
+                "uri": "file:///fixtures/linked.txt",
+                "description": "SENTINEL_RESOURCE_LINK",
+                "mimeType": "text/plain",
+                "type": "resource_link"
+              }
+            ],
+            "block_kinds": [
+              "text",
+              "image",
+              "audio",
+              "resource",
+              "resource_link"
+            ],
+            "structured_content": {
+              "count": 2,
+              "records": [
+                {
+                  "id": "rec_1",
+                  "status": "active"
+                },
+                {
+                  "id": "rec_2",
+                  "status": "archived"
+                }
+              ],
+              "note": "SENTINEL_STRUCTURED_CONTENT"
+            },
+            "is_error": false,
+            "text": "SENTINEL_TEXT_BLOCK",
+            "origin": "openai_agents_js",
+            "raw": {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_TEXT_BLOCK",
+                  "annotations": {
+                    "audience": [
+                      "user"
+                    ],
+                    "priority": 0.9
+                  }
+                },
+                {
+                  "type": "image",
+                  "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==",
+                  "mimeType": "image/png"
+                },
+                {
+                  "type": "audio",
+                  "data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
+                  "mimeType": "audio/wav"
+                },
+                {
+                  "type": "resource",
+                  "resource": {
+                    "uri": "file:///fixtures/embedded.txt",
+                    "mimeType": "text/plain",
+                    "text": "SENTINEL_EMBEDDED_RESOURCE"
+                  }
+                },
+                {
+                  "name": "linked.txt",
+                  "uri": "file:///fixtures/linked.txt",
+                  "description": "SENTINEL_RESOURCE_LINK",
+                  "mimeType": "text/plain",
+                  "type": "resource_link"
+                }
+              ],
+              "structuredContent": {
+                "count": 2,
+                "records": [
+                  {
+                    "id": "rec_1",
+                    "status": "active"
+                  },
+                  {
+                    "id": "rec_2",
+                    "status": "archived"
+                  }
+                ],
+                "note": "SENTINEL_STRUCTURED_CONTENT"
+              },
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "mixed_content",
+          "boundary": "agent_use_structured_content",
+          "ok": true,
+          "rep": {
+            "tool": "mixed_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "{\"count\":2,\"records\":[{\"id\":\"rec_1\",\"status\":\"active\"},{\"id\":\"rec_2\",\"status\":\"archived\"}],\"note\":\"SENTINEL_STRUCTURED_CONTENT\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"count\":2,\"records\":[{\"id\":\"rec_1\",\"status\":\"active\"},{\"id\":\"rec_2\",\"status\":\"archived\"}],\"note\":\"SENTINEL_STRUCTURED_CONTENT\"}",
+            "origin": "openai_agents_js",
+            "raw": {
+              "type": "function_call_result",
+              "name": "mixed_content",
+              "callId": "mcp-mirror-call",
+              "status": "completed",
+              "output": {
+                "type": "text",
+                "text": "{\"count\":2,\"records\":[{\"id\":\"rec_1\",\"status\":\"active\"},{\"id\":\"rec_2\",\"status\":\"archived\"}],\"note\":\"SENTINEL_STRUCTURED_CONTENT\"}"
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "text_and_structured",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "text_and_structured",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TEXT_BLOCK"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_TEXT_BLOCK",
+            "origin": "openai_agents_js",
+            "raw": {
+              "type": "function_call_result",
+              "name": "text_and_structured",
+              "callId": "mcp-mirror-call",
+              "status": "completed",
+              "output": [
+                {
+                  "type": "input_text",
+                  "text": "SENTINEL_TEXT_BLOCK"
+                }
+              ]
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "text_and_structured",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "text_and_structured",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TEXT_BLOCK"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": {
+              "count": 2,
+              "records": [
+                {
+                  "id": "rec_1",
+                  "status": "active"
+                },
+                {
+                  "id": "rec_2",
+                  "status": "archived"
+                }
+              ],
+              "note": "SENTINEL_STRUCTURED_CONTENT"
+            },
+            "is_error": false,
+            "text": "SENTINEL_TEXT_BLOCK",
+            "origin": "openai_agents_js",
+            "raw": {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_TEXT_BLOCK"
+                }
+              ],
+              "structuredContent": {
+                "count": 2,
+                "records": [
+                  {
+                    "id": "rec_1",
+                    "status": "active"
+                  },
+                  {
+                    "id": "rec_2",
+                    "status": "archived"
+                  }
+                ],
+                "note": "SENTINEL_STRUCTURED_CONTENT"
+              },
+              "isError": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "text_and_structured",
+          "boundary": "agent_use_structured_content",
+          "ok": true,
+          "rep": {
+            "tool": "text_and_structured",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "{\"count\":2,\"records\":[{\"id\":\"rec_1\",\"status\":\"active\"},{\"id\":\"rec_2\",\"status\":\"archived\"}],\"note\":\"SENTINEL_STRUCTURED_CONTENT\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"count\":2,\"records\":[{\"id\":\"rec_1\",\"status\":\"active\"},{\"id\":\"rec_2\",\"status\":\"archived\"}],\"note\":\"SENTINEL_STRUCTURED_CONTENT\"}",
+            "origin": "openai_agents_js",
+            "raw": {
+              "type": "function_call_result",
+              "name": "text_and_structured",
+              "callId": "mcp-mirror-call",
+              "status": "completed",
+              "output": {
+                "type": "text",
+                "text": "{\"count\":2,\"records\":[{\"id\":\"rec_1\",\"status\":\"active\"},{\"id\":\"rec_2\",\"status\":\"archived\"}],\"note\":\"SENTINEL_STRUCTURED_CONTENT\"}"
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "tool_error",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "tool_error",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TOOL_ERROR: this tool always fails"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_TOOL_ERROR: this tool always fails",
+            "origin": "openai_agents_js",
+            "raw": {
+              "type": "function_call_result",
+              "name": "tool_error",
+              "callId": "mcp-mirror-call",
+              "status": "completed",
+              "output": [
+                {
+                  "type": "input_text",
+                  "text": "SENTINEL_TOOL_ERROR: this tool always fails"
+                }
+              ]
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "tool_error",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "tool_error",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TOOL_ERROR: this tool always fails"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": true,
+            "text": "SENTINEL_TOOL_ERROR: this tool always fails",
+            "origin": "openai_agents_js",
+            "raw": {
+              "content": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_TOOL_ERROR: this tool always fails"
+                }
+              ],
+              "isError": true
+            },
+            "error_channel": "flag"
+          }
+        },
+        {
+          "tool": "tool_error",
+          "boundary": "agent_use_structured_content",
+          "ok": true,
+          "rep": {
+            "tool": "tool_error",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TOOL_ERROR: this tool always fails"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_TOOL_ERROR: this tool always fails",
+            "origin": "openai_agents_js",
+            "raw": {
+              "type": "function_call_result",
+              "name": "tool_error",
+              "callId": "mcp-mirror-call",
+              "status": "completed",
+              "output": [
+                {
+                  "type": "input_text",
+                  "text": "SENTINEL_TOOL_ERROR: this tool always fails"
+                }
+              ]
+            },
+            "error_channel": null
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,593 @@
+{
+  "schema": "mcp-mirror/conformance@1",
+  "captured_at": "2026-10-01T01:48:13Z",
+  "renderer": "spring_ai",
+  "versions": {
+    "framework": "2.0.1",
+    "adapter": "spring-ai-mcp 2.0.1, io.modelcontextprotocol.sdk:mcp-core 2.0.0, spring-boot 4.1.1, java 21.0.12.1"
+  },
+  "suite": {
+    "package": "@modelcontextprotocol/conformance",
+    "version": "0.1.16"
+  },
+  "spec_version": "2025-11-25",
+  "spec_note": "Every scenario that ran is tagged 2025-11-25 by the suite (see scenario_tags); the suite has no 2026-07-28 client scenarios.",
+  "scenario_tags": {
+    "auth/basic-cimd": [
+      "2025-11-25"
+    ],
+    "auth/metadata-default": [
+      "2025-11-25"
+    ],
+    "auth/metadata-var1": [
+      "2025-11-25"
+    ],
+    "auth/metadata-var2": [
+      "2025-11-25"
+    ],
+    "auth/metadata-var3": [
+      "2025-11-25"
+    ],
+    "auth/pre-registration": [
+      "2025-11-25"
+    ],
+    "auth/scope-from-scopes-supported": [
+      "2025-11-25"
+    ],
+    "auth/scope-from-www-authenticate": [
+      "2025-11-25"
+    ],
+    "auth/scope-omitted-when-undefined": [
+      "2025-11-25"
+    ],
+    "auth/scope-retry-limit": [
+      "2025-11-25"
+    ],
+    "auth/scope-step-up": [
+      "2025-11-25"
+    ],
+    "auth/token-endpoint-auth-basic": [
+      "2025-06-18",
+      "2025-11-25"
+    ],
+    "auth/token-endpoint-auth-none": [
+      "2025-06-18",
+      "2025-11-25"
+    ],
+    "auth/token-endpoint-auth-post": [
+      "2025-06-18",
+      "2025-11-25"
+    ],
+    "elicitation-sep1034-client-defaults": [
+      "2025-11-25"
+    ],
+    "initialize": [
+      "2025-06-18",
+      "2025-11-25"
+    ],
+    "sse-retry": [
+      "2025-11-25"
+    ],
+    "tools_call": [
+      "2025-06-18",
+      "2025-11-25"
+    ]
+  },
+  "client_command": "python scripts/conformance_client.py spring_ai <url>",
+  "command": "uv run python scripts/run_conformance.py --renderers spring_ai",
+  "suites": {
+    "auth": {
+      "exit_code": 1,
+      "scenarios": {
+        "auth/basic-cimd": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "cimd-client-id-used", "status": "FAILURE", "description": "Client did not make an authorization request to test CIMD support"}
+          ],
+          "client": null,
+          "client_stderr_tail": "66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-7iembsos/mcp_mirror/renderers/spring_ai_renderer.py\", line 346, in _run_worker\n    raise RenderError(f\"spring_ai worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: spring_ai worker error: BeanCreationException: Error creating bean with name 'mcpSyncClients' defined in class path resource [org/springframework/ai/mcp/client/common/autoconfigure/McpClientAutoConfiguration.class]: Failed to instantiate [java.util.List]: Factory method 'mcpSyncClients' threw exception with message: Client failed to initialize by explicit API call"
+        },
+        "auth/metadata-default": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "prm-pathbased-requested", "status": "FAILURE", "description": "Expected Check Missing: prm-pathbased-requested"},
+            {"id": "authorization-server-metadata", "status": "FAILURE", "description": "Expected Check Missing: authorization-server-metadata"},
+            {"id": "client-registration", "status": "FAILURE", "description": "Expected Check Missing: client-registration"},
+            {"id": "authorization-request", "status": "FAILURE", "description": "Expected Check Missing: authorization-request"},
+            {"id": "token-request", "status": "FAILURE", "description": "Expected Check Missing: token-request"}
+          ],
+          "client": null,
+          "client_stderr_tail": "66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-v6cpiaq9/mcp_mirror/renderers/spring_ai_renderer.py\", line 346, in _run_worker\n    raise RenderError(f\"spring_ai worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: spring_ai worker error: BeanCreationException: Error creating bean with name 'mcpSyncClients' defined in class path resource [org/springframework/ai/mcp/client/common/autoconfigure/McpClientAutoConfiguration.class]: Failed to instantiate [java.util.List]: Factory method 'mcpSyncClients' threw exception with message: Client failed to initialize by explicit API call"
+        },
+        "auth/metadata-var1": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "prm-pathbased-requested", "status": "FAILURE", "description": "Expected Check Missing: prm-pathbased-requested"},
+            {"id": "authorization-server-metadata", "status": "FAILURE", "description": "Expected Check Missing: authorization-server-metadata"},
+            {"id": "client-registration", "status": "FAILURE", "description": "Expected Check Missing: client-registration"},
+            {"id": "authorization-request", "status": "FAILURE", "description": "Expected Check Missing: authorization-request"},
+            {"id": "token-request", "status": "FAILURE", "description": "Expected Check Missing: token-request"}
+          ],
+          "client": null,
+          "client_stderr_tail": "66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-3sul54pq/mcp_mirror/renderers/spring_ai_renderer.py\", line 346, in _run_worker\n    raise RenderError(f\"spring_ai worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: spring_ai worker error: BeanCreationException: Error creating bean with name 'mcpSyncClients' defined in class path resource [org/springframework/ai/mcp/client/common/autoconfigure/McpClientAutoConfiguration.class]: Failed to instantiate [java.util.List]: Factory method 'mcpSyncClients' threw exception with message: Client failed to initialize by explicit API call"
+        },
+        "auth/metadata-var2": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "authorization-server-metadata", "status": "FAILURE", "description": "Expected Check Missing: authorization-server-metadata"},
+            {"id": "client-registration", "status": "FAILURE", "description": "Expected Check Missing: client-registration"},
+            {"id": "authorization-request", "status": "FAILURE", "description": "Expected Check Missing: authorization-request"},
+            {"id": "token-request", "status": "FAILURE", "description": "Expected Check Missing: token-request"}
+          ],
+          "client": null,
+          "client_stderr_tail": "66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-76z05dwo/mcp_mirror/renderers/spring_ai_renderer.py\", line 346, in _run_worker\n    raise RenderError(f\"spring_ai worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: spring_ai worker error: BeanCreationException: Error creating bean with name 'mcpSyncClients' defined in class path resource [org/springframework/ai/mcp/client/common/autoconfigure/McpClientAutoConfiguration.class]: Failed to instantiate [java.util.List]: Factory method 'mcpSyncClients' threw exception with message: Client failed to initialize by explicit API call"
+        },
+        "auth/metadata-var3": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "authorization-server-metadata", "status": "FAILURE", "description": "Expected Check Missing: authorization-server-metadata"},
+            {"id": "client-registration", "status": "FAILURE", "description": "Expected Check Missing: client-registration"},
+            {"id": "authorization-request", "status": "FAILURE", "description": "Expected Check Missing: authorization-request"},
+            {"id": "token-request", "status": "FAILURE", "description": "Expected Check Missing: token-request"}
+          ],
+          "client": null,
+          "client_stderr_tail": "66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-bri7i3sp/mcp_mirror/renderers/spring_ai_renderer.py\", line 346, in _run_worker\n    raise RenderError(f\"spring_ai worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: spring_ai worker error: BeanCreationException: Error creating bean with name 'mcpSyncClients' defined in class path resource [org/springframework/ai/mcp/client/common/autoconfigure/McpClientAutoConfiguration.class]: Failed to instantiate [java.util.List]: Factory method 'mcpSyncClients' threw exception with message: Client failed to initialize by explicit API call"
+        },
+        "auth/pre-registration": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "pre-registration-auth", "status": "FAILURE", "description": "Client did not make a token request"}
+          ],
+          "client": null,
+          "client_stderr_tail": "66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-fa0li_ib/mcp_mirror/renderers/spring_ai_renderer.py\", line 346, in _run_worker\n    raise RenderError(f\"spring_ai worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: spring_ai worker error: BeanCreationException: Error creating bean with name 'mcpSyncClients' defined in class path resource [org/springframework/ai/mcp/client/common/autoconfigure/McpClientAutoConfiguration.class]: Failed to instantiate [java.util.List]: Factory method 'mcpSyncClients' threw exception with message: Client failed to initialize by explicit API call"
+        },
+        "auth/scope-from-scopes-supported": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "scope-from-scopes-supported", "status": "FAILURE", "description": "Client did not complete authorization flow - scope check could not be performed"}
+          ],
+          "client": null,
+          "client_stderr_tail": "66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-ggnsd4lp/mcp_mirror/renderers/spring_ai_renderer.py\", line 346, in _run_worker\n    raise RenderError(f\"spring_ai worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: spring_ai worker error: BeanCreationException: Error creating bean with name 'mcpSyncClients' defined in class path resource [org/springframework/ai/mcp/client/common/autoconfigure/McpClientAutoConfiguration.class]: Failed to instantiate [java.util.List]: Factory method 'mcpSyncClients' threw exception with message: Client failed to initialize by explicit API call"
+        },
+        "auth/scope-from-www-authenticate": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "scope-from-www-authenticate", "status": "FAILURE", "description": "Client did not complete authorization flow - scope check could not be performed"}
+          ],
+          "client": null,
+          "client_stderr_tail": "66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-vp66onjb/mcp_mirror/renderers/spring_ai_renderer.py\", line 346, in _run_worker\n    raise RenderError(f\"spring_ai worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: spring_ai worker error: BeanCreationException: Error creating bean with name 'mcpSyncClients' defined in class path resource [org/springframework/ai/mcp/client/common/autoconfigure/McpClientAutoConfiguration.class]: Failed to instantiate [java.util.List]: Factory method 'mcpSyncClients' threw exception with message: Client failed to initialize by explicit API call"
+        },
+        "auth/scope-omitted-when-undefined": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "scope-omitted-when-undefined", "status": "FAILURE", "description": "Client did not complete authorization flow - scope check could not be performed"}
+          ],
+          "client": null,
+          "client_stderr_tail": "66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-0mf83lkz/mcp_mirror/renderers/spring_ai_renderer.py\", line 346, in _run_worker\n    raise RenderError(f\"spring_ai worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: spring_ai worker error: BeanCreationException: Error creating bean with name 'mcpSyncClients' defined in class path resource [org/springframework/ai/mcp/client/common/autoconfigure/McpClientAutoConfiguration.class]: Failed to instantiate [java.util.List]: Factory method 'mcpSyncClients' threw exception with message: Client failed to initialize by explicit API call"
+        },
+        "auth/scope-retry-limit": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 200}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "GET", "path": "/mcp"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "GET", "path": "/mcp", "statusCode": 404, "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot GET /mcp</pre>\n</body>\n</html>\n"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized", "statusCode": 202}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "scope-retry-limit", "status": "FAILURE", "description": "Client did not make any authorization requests"}
+          ],
+          "client": null,
+          "client_stderr_tail": "d-nul95oef/mcp_mirror/renderers/spring_ai_renderer.py\", line 142, in render\n    payload = self._run_worker({**self._config(server), \"mode\": \"tools\"})\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-nul95oef/mcp_mirror/renderers/spring_ai_renderer.py\", line 346, in _run_worker\n    raise RenderError(f\"spring_ai worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: spring_ai worker error: McpHttpClientTransportAuthorizationException: Authorization error when sending message"
+        },
+        "auth/scope-step-up": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 200}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "GET", "path": "/mcp"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "GET", "path": "/mcp", "statusCode": 404, "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot GET /mcp</pre>\n</body>\n</html>\n"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized", "statusCode": 202}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "scope-step-up-initial", "status": "FAILURE", "description": "Client did not make an initial authorization request"},
+            {"id": "scope-step-up-escalation", "status": "FAILURE", "description": "Client did not make a second authorization request for scope escalation"}
+          ],
+          "client": null,
+          "client_stderr_tail": "d-20ky6_br/mcp_mirror/renderers/spring_ai_renderer.py\", line 142, in render\n    payload = self._run_worker({**self._config(server), \"mode\": \"tools\"})\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-20ky6_br/mcp_mirror/renderers/spring_ai_renderer.py\", line 346, in _run_worker\n    raise RenderError(f\"spring_ai worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: spring_ai worker error: McpHttpClientTransportAuthorizationException: Authorization error when sending message"
+        },
+        "auth/token-endpoint-auth-basic": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "token-endpoint-auth-method", "status": "FAILURE", "description": "Client did not make a token request"},
+            {"id": "resource-parameter-in-authorization", "status": "FAILURE", "description": "Client MUST include resource parameter in authorization request per RFC 8707", "details": {"resource": "not provided"}},
+            {"id": "resource-parameter-in-token", "status": "FAILURE", "description": "Client MUST include resource parameter in token request per RFC 8707", "details": {"resource": "not provided"}}
+          ],
+          "client": null,
+          "client_stderr_tail": "66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-okln0o64/mcp_mirror/renderers/spring_ai_renderer.py\", line 346, in _run_worker\n    raise RenderError(f\"spring_ai worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: spring_ai worker error: BeanCreationException: Error creating bean with name 'mcpSyncClients' defined in class path resource [org/springframework/ai/mcp/client/common/autoconfigure/McpClientAutoConfiguration.class]: Failed to instantiate [java.util.List]: Factory method 'mcpSyncClients' threw exception with message: Client failed to initialize by explicit API call"
+        },
+        "auth/token-endpoint-auth-none": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "token-endpoint-auth-method", "status": "FAILURE", "description": "Client did not make a token request"},
+            {"id": "resource-parameter-in-authorization", "status": "FAILURE", "description": "Client MUST include resource parameter in authorization request per RFC 8707", "details": {"resource": "not provided"}},
+            {"id": "resource-parameter-in-token", "status": "FAILURE", "description": "Client MUST include resource parameter in token request per RFC 8707", "details": {"resource": "not provided"}}
+          ],
+          "client": null,
+          "client_stderr_tail": "66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-i32s3glj/mcp_mirror/renderers/spring_ai_renderer.py\", line 346, in _run_worker\n    raise RenderError(f\"spring_ai worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: spring_ai worker error: BeanCreationException: Error creating bean with name 'mcpSyncClients' defined in class path resource [org/springframework/ai/mcp/client/common/autoconfigure/McpClientAutoConfiguration.class]: Failed to instantiate [java.util.List]: Factory method 'mcpSyncClients' threw exception with message: Client failed to initialize by explicit API call"
+        },
+        "auth/token-endpoint-auth-post": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "token-endpoint-auth-method", "status": "FAILURE", "description": "Client did not make a token request"},
+            {"id": "resource-parameter-in-authorization", "status": "FAILURE", "description": "Client MUST include resource parameter in authorization request per RFC 8707", "details": {"resource": "not provided"}},
+            {"id": "resource-parameter-in-token", "status": "FAILURE", "description": "Client MUST include resource parameter in token request per RFC 8707", "details": {"resource": "not provided"}}
+          ],
+          "client": null,
+          "client_stderr_tail": "66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-3c5sozf9/mcp_mirror/renderers/spring_ai_renderer.py\", line 346, in _run_worker\n    raise RenderError(f\"spring_ai worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: spring_ai worker error: BeanCreationException: Error creating bean with name 'mcpSyncClients' defined in class path resource [org/springframework/ai/mcp/client/common/autoconfigure/McpClientAutoConfiguration.class]: Failed to instantiate [java.util.List]: Factory method 'mcpSyncClients' threw exception with message: Client failed to initialize by explicit API call"
+        }
+      }
+    },
+    "core": {
+      "exit_code": 1,
+      "scenarios": {
+        "auth/basic-cimd": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "cimd-client-id-used", "status": "FAILURE", "description": "Client did not make an authorization request to test CIMD support"}
+          ],
+          "client": null,
+          "client_stderr_tail": "66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-u0my0cl8/mcp_mirror/renderers/spring_ai_renderer.py\", line 346, in _run_worker\n    raise RenderError(f\"spring_ai worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: spring_ai worker error: BeanCreationException: Error creating bean with name 'mcpSyncClients' defined in class path resource [org/springframework/ai/mcp/client/common/autoconfigure/McpClientAutoConfiguration.class]: Failed to instantiate [java.util.List]: Factory method 'mcpSyncClients' threw exception with message: Client failed to initialize by explicit API call"
+        },
+        "auth/metadata-default": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "prm-pathbased-requested", "status": "FAILURE", "description": "Expected Check Missing: prm-pathbased-requested"},
+            {"id": "authorization-server-metadata", "status": "FAILURE", "description": "Expected Check Missing: authorization-server-metadata"},
+            {"id": "client-registration", "status": "FAILURE", "description": "Expected Check Missing: client-registration"},
+            {"id": "authorization-request", "status": "FAILURE", "description": "Expected Check Missing: authorization-request"},
+            {"id": "token-request", "status": "FAILURE", "description": "Expected Check Missing: token-request"}
+          ],
+          "client": null,
+          "client_stderr_tail": "66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-87ms0c08/mcp_mirror/renderers/spring_ai_renderer.py\", line 346, in _run_worker\n    raise RenderError(f\"spring_ai worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: spring_ai worker error: BeanCreationException: Error creating bean with name 'mcpSyncClients' defined in class path resource [org/springframework/ai/mcp/client/common/autoconfigure/McpClientAutoConfiguration.class]: Failed to instantiate [java.util.List]: Factory method 'mcpSyncClients' threw exception with message: Client failed to initialize by explicit API call"
+        },
+        "auth/metadata-var1": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "prm-pathbased-requested", "status": "FAILURE", "description": "Expected Check Missing: prm-pathbased-requested"},
+            {"id": "authorization-server-metadata", "status": "FAILURE", "description": "Expected Check Missing: authorization-server-metadata"},
+            {"id": "client-registration", "status": "FAILURE", "description": "Expected Check Missing: client-registration"},
+            {"id": "authorization-request", "status": "FAILURE", "description": "Expected Check Missing: authorization-request"},
+            {"id": "token-request", "status": "FAILURE", "description": "Expected Check Missing: token-request"}
+          ],
+          "client": null,
+          "client_stderr_tail": "66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-kv0_kjy6/mcp_mirror/renderers/spring_ai_renderer.py\", line 346, in _run_worker\n    raise RenderError(f\"spring_ai worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: spring_ai worker error: BeanCreationException: Error creating bean with name 'mcpSyncClients' defined in class path resource [org/springframework/ai/mcp/client/common/autoconfigure/McpClientAutoConfiguration.class]: Failed to instantiate [java.util.List]: Factory method 'mcpSyncClients' threw exception with message: Client failed to initialize by explicit API call"
+        },
+        "auth/metadata-var2": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "authorization-server-metadata", "status": "FAILURE", "description": "Expected Check Missing: authorization-server-metadata"},
+            {"id": "client-registration", "status": "FAILURE", "description": "Expected Check Missing: client-registration"},
+            {"id": "authorization-request", "status": "FAILURE", "description": "Expected Check Missing: authorization-request"},
+            {"id": "token-request", "status": "FAILURE", "description": "Expected Check Missing: token-request"}
+          ],
+          "client": null,
+          "client_stderr_tail": "66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-nv2dy6hg/mcp_mirror/renderers/spring_ai_renderer.py\", line 346, in _run_worker\n    raise RenderError(f\"spring_ai worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: spring_ai worker error: BeanCreationException: Error creating bean with name 'mcpSyncClients' defined in class path resource [org/springframework/ai/mcp/client/common/autoconfigure/McpClientAutoConfiguration.class]: Failed to instantiate [java.util.List]: Factory method 'mcpSyncClients' threw exception with message: Client failed to initialize by explicit API call"
+        },
+        "auth/metadata-var3": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "authorization-server-metadata", "status": "FAILURE", "description": "Expected Check Missing: authorization-server-metadata"},
+            {"id": "client-registration", "status": "FAILURE", "description": "Expected Check Missing: client-registration"},
+            {"id": "authorization-request", "status": "FAILURE", "description": "Expected Check Missing: authorization-request"},
+            {"id": "token-request", "status": "FAILURE", "description": "Expected Check Missing: token-request"}
+          ],
+          "client": null,
+          "client_stderr_tail": "66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-4bs5ym1i/mcp_mirror/renderers/spring_ai_renderer.py\", line 346, in _run_worker\n    raise RenderError(f\"spring_ai worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: spring_ai worker error: BeanCreationException: Error creating bean with name 'mcpSyncClients' defined in class path resource [org/springframework/ai/mcp/client/common/autoconfigure/McpClientAutoConfiguration.class]: Failed to instantiate [java.util.List]: Factory method 'mcpSyncClients' threw exception with message: Client failed to initialize by explicit API call"
+        },
+        "auth/pre-registration": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "pre-registration-auth", "status": "FAILURE", "description": "Client did not make a token request"}
+          ],
+          "client": null,
+          "client_stderr_tail": "66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-r2f5je7i/mcp_mirror/renderers/spring_ai_renderer.py\", line 346, in _run_worker\n    raise RenderError(f\"spring_ai worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: spring_ai worker error: BeanCreationException: Error creating bean with name 'mcpSyncClients' defined in class path resource [org/springframework/ai/mcp/client/common/autoconfigure/McpClientAutoConfiguration.class]: Failed to instantiate [java.util.List]: Factory method 'mcpSyncClients' threw exception with message: Client failed to initialize by explicit API call"
+        },
+        "auth/scope-from-scopes-supported": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "scope-from-scopes-supported", "status": "FAILURE", "description": "Client did not complete authorization flow - scope check could not be performed"}
+          ],
+          "client": null,
+          "client_stderr_tail": "66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-2tfnsth6/mcp_mirror/renderers/spring_ai_renderer.py\", line 346, in _run_worker\n    raise RenderError(f\"spring_ai worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: spring_ai worker error: BeanCreationException: Error creating bean with name 'mcpSyncClients' defined in class path resource [org/springframework/ai/mcp/client/common/autoconfigure/McpClientAutoConfiguration.class]: Failed to instantiate [java.util.List]: Factory method 'mcpSyncClients' threw exception with message: Client failed to initialize by explicit API call"
+        },
+        "auth/scope-from-www-authenticate": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "scope-from-www-authenticate", "status": "FAILURE", "description": "Client did not complete authorization flow - scope check could not be performed"}
+          ],
+          "client": null,
+          "client_stderr_tail": "66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-k_dmi41c/mcp_mirror/renderers/spring_ai_renderer.py\", line 346, in _run_worker\n    raise RenderError(f\"spring_ai worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: spring_ai worker error: BeanCreationException: Error creating bean with name 'mcpSyncClients' defined in class path resource [org/springframework/ai/mcp/client/common/autoconfigure/McpClientAutoConfiguration.class]: Failed to instantiate [java.util.List]: Factory method 'mcpSyncClients' threw exception with message: Client failed to initialize by explicit API call"
+        },
+        "auth/scope-omitted-when-undefined": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "scope-omitted-when-undefined", "status": "FAILURE", "description": "Client did not complete authorization flow - scope check could not be performed"}
+          ],
+          "client": null,
+          "client_stderr_tail": "66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-biexotzd/mcp_mirror/renderers/spring_ai_renderer.py\", line 346, in _run_worker\n    raise RenderError(f\"spring_ai worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: spring_ai worker error: BeanCreationException: Error creating bean with name 'mcpSyncClients' defined in class path resource [org/springframework/ai/mcp/client/common/autoconfigure/McpClientAutoConfiguration.class]: Failed to instantiate [java.util.List]: Factory method 'mcpSyncClients' threw exception with message: Client failed to initialize by explicit API call"
+        },
+        "auth/scope-retry-limit": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 200}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "GET", "path": "/mcp"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "GET", "path": "/mcp", "statusCode": 404, "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot GET /mcp</pre>\n</body>\n</html>\n"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized", "statusCode": 202}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "scope-retry-limit", "status": "FAILURE", "description": "Client did not make any authorization requests"}
+          ],
+          "client": null,
+          "client_stderr_tail": "d-s_w0c726/mcp_mirror/renderers/spring_ai_renderer.py\", line 142, in render\n    payload = self._run_worker({**self._config(server), \"mode\": \"tools\"})\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-s_w0c726/mcp_mirror/renderers/spring_ai_renderer.py\", line 346, in _run_worker\n    raise RenderError(f\"spring_ai worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: spring_ai worker error: McpHttpClientTransportAuthorizationException: Authorization error when sending message"
+        },
+        "auth/scope-step-up": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 200}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "GET", "path": "/mcp"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "GET", "path": "/mcp", "statusCode": 404, "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot GET /mcp</pre>\n</body>\n</html>\n"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized", "statusCode": 202}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "scope-step-up-initial", "status": "FAILURE", "description": "Client did not make an initial authorization request"},
+            {"id": "scope-step-up-escalation", "status": "FAILURE", "description": "Client did not make a second authorization request for scope escalation"}
+          ],
+          "client": null,
+          "client_stderr_tail": "d-we63t4pp/mcp_mirror/renderers/spring_ai_renderer.py\", line 142, in render\n    payload = self._run_worker({**self._config(server), \"mode\": \"tools\"})\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-we63t4pp/mcp_mirror/renderers/spring_ai_renderer.py\", line 346, in _run_worker\n    raise RenderError(f\"spring_ai worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: spring_ai worker error: McpHttpClientTransportAuthorizationException: Authorization error when sending message"
+        },
+        "auth/token-endpoint-auth-basic": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "token-endpoint-auth-method", "status": "FAILURE", "description": "Client did not make a token request"},
+            {"id": "resource-parameter-in-authorization", "status": "FAILURE", "description": "Client MUST include resource parameter in authorization request per RFC 8707", "details": {"resource": "not provided"}},
+            {"id": "resource-parameter-in-token", "status": "FAILURE", "description": "Client MUST include resource parameter in token request per RFC 8707", "details": {"resource": "not provided"}}
+          ],
+          "client": null,
+          "client_stderr_tail": "66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-qj4lh3ga/mcp_mirror/renderers/spring_ai_renderer.py\", line 346, in _run_worker\n    raise RenderError(f\"spring_ai worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: spring_ai worker error: BeanCreationException: Error creating bean with name 'mcpSyncClients' defined in class path resource [org/springframework/ai/mcp/client/common/autoconfigure/McpClientAutoConfiguration.class]: Failed to instantiate [java.util.List]: Factory method 'mcpSyncClients' threw exception with message: Client failed to initialize by explicit API call"
+        },
+        "auth/token-endpoint-auth-none": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "token-endpoint-auth-method", "status": "FAILURE", "description": "Client did not make a token request"},
+            {"id": "resource-parameter-in-authorization", "status": "FAILURE", "description": "Client MUST include resource parameter in authorization request per RFC 8707", "details": {"resource": "not provided"}},
+            {"id": "resource-parameter-in-token", "status": "FAILURE", "description": "Client MUST include resource parameter in token request per RFC 8707", "details": {"resource": "not provided"}}
+          ],
+          "client": null,
+          "client_stderr_tail": "66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-v97cig20/mcp_mirror/renderers/spring_ai_renderer.py\", line 346, in _run_worker\n    raise RenderError(f\"spring_ai worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: spring_ai worker error: BeanCreationException: Error creating bean with name 'mcpSyncClients' defined in class path resource [org/springframework/ai/mcp/client/common/autoconfigure/McpClientAutoConfiguration.class]: Failed to instantiate [java.util.List]: Factory method 'mcpSyncClients' threw exception with message: Client failed to initialize by explicit API call"
+        },
+        "auth/token-endpoint-auth-post": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "token-endpoint-auth-method", "status": "FAILURE", "description": "Client did not make a token request"},
+            {"id": "resource-parameter-in-authorization", "status": "FAILURE", "description": "Client MUST include resource parameter in authorization request per RFC 8707", "details": {"resource": "not provided"}},
+            {"id": "resource-parameter-in-token", "status": "FAILURE", "description": "Client MUST include resource parameter in token request per RFC 8707", "details": {"resource": "not provided"}}
+          ],
+          "client": null,
+          "client_stderr_tail": "66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-6gcjalho/mcp_mirror/renderers/spring_ai_renderer.py\", line 346, in _run_worker\n    raise RenderError(f\"spring_ai worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: spring_ai worker error: BeanCreationException: Error creating bean with name 'mcpSyncClients' defined in class path resource [org/springframework/ai/mcp/client/common/autoconfigure/McpClientAutoConfiguration.class]: Failed to instantiate [java.util.List]: Factory method 'mcpSyncClients' threw exception with message: Client failed to initialize by explicit API call"
+        },
+        "elicitation-sep1034-client-defaults": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 200, "sessionIdIssued": true}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "GET", "path": "/mcp"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized", "statusCode": 202}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list", "statusCode": 200, "sessionIdIssued": true}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "DELETE", "path": "/mcp"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "GET", "path": "/mcp", "statusCode": 200, "sessionIdIssued": true}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "DELETE", "path": "/mcp", "statusCode": 200}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 200, "sessionIdIssued": true}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "GET", "path": "/mcp"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized", "statusCode": 202}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list", "statusCode": 200, "sessionIdIssued": true}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/call"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp"}},
+            {"id": "client-elicitation-sep1034-general", "status": "FAILURE", "description": "Client handles elicitation with defaults", "errorMessage": "Elicitation failed: MCP error -32601: Method not found: elicitation/create"},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "statusCode": 202}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/call", "statusCode": 200, "sessionIdIssued": true}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "DELETE", "path": "/mcp"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "GET", "path": "/mcp", "statusCode": 200, "sessionIdIssued": true}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "DELETE", "path": "/mcp", "statusCode": 200}},
+            {"id": "client-elicitation-sep1034-string-default", "status": "FAILURE", "description": "Server applies default default for elicitation", "details": {"message": "Tool was not called by client"}},
+            {"id": "client-elicitation-sep1034-integer-default", "status": "FAILURE", "description": "Server applies default default for elicitation", "details": {"message": "Tool was not called by client"}},
+            {"id": "client-elicitation-sep1034-number-default", "status": "FAILURE", "description": "Server applies default default for elicitation", "details": {"message": "Tool was not called by client"}},
+            {"id": "client-elicitation-sep1034-enum-default", "status": "FAILURE", "description": "Server applies default default for elicitation", "details": {"message": "Tool was not called by client"}},
+            {"id": "client-elicitation-sep1034-boolean-default", "status": "FAILURE", "description": "Server applies default default for elicitation", "details": {"message": "Tool was not called by client"}}
+          ],
+          "client": {
+            "renderer": "spring_ai",
+            "versions": {
+              "framework": "2.0.1",
+              "adapter": "spring-ai-mcp 2.0.1, io.modelcontextprotocol.sdk:mcp-core 2.0.0, spring-boot 4.1.1, java 21.0.12.1"
+            },
+            "auth_hook": null,
+            "tools": [
+              "test_client_elicitation_defaults"
+            ],
+            "called": {
+              "tool": "test_client_elicitation_defaults",
+              "arguments": {},
+              "result": {
+                "tool": "test_client_elicitation_defaults",
+                "blocks": [],
+                "block_kinds": [],
+                "structured_content": null,
+                "is_error": null,
+                "text": "[{\"text\":\"Elicitation error: MCP error -32601: Method not found: elicitation/create\"}]",
+                "origin": "spring_ai",
+                "raw": {
+                  "id": "call_mirror_1",
+                  "name": "test_client_elicitation_defaults",
+                  "responseData": "[{\"text\":\"Elicitation error: MCP error -32601: Method not found: elicitation/create\"}]"
+                },
+                "error_channel": null
+              }
+            }
+          },
+          "client_stderr_tail": null
+        },
+        "initialize": {
+          "checks": [
+            {"id": "mcp-client-initialization", "status": "SUCCESS", "description": "Validates that MCP client properly initializes with server", "details": {"protocolVersionSent": "2025-11-25", "expectedSpecVersion": "2025-11-25", "versionMatch": true, "clientName": "spring-ai-mcp-client - src", "clientVersion": "1.0.0"}},
+            {"id": "server-info", "status": "INFO", "details": {}}
+          ],
+          "client": null,
+          "client_stderr_tail": "0gn/T/mcp-mirror-managed-gv4a7cl7/mcp_mirror/renderers/spring_ai_renderer.py\", line 142, in render\n    payload = self._run_worker({**self._config(server), \"mode\": \"tools\"})\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/4y/hbmrrjnn66n_z7svvfvth0fr0000gn/T/mcp-mirror-managed-gv4a7cl7/mcp_mirror/renderers/spring_ai_renderer.py\", line 346, in _run_worker\n    raise RenderError(f\"spring_ai worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: spring_ai worker error: IllegalStateException: Server does not provide tools capability"
+        },
+        "sse-retry": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "GET", "sessionIdIssued": true}},
+            {"id": "outgoing-sse-event", "status": "INFO", "details": {}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "GET", "sessionIdIssued": true}},
+            {"id": "outgoing-sse-event", "status": "INFO", "details": {}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST"}},
+            {"id": "outgoing-sse-event", "status": "INFO", "details": {}},
+            {"id": "outgoing-stream-close", "status": "INFO", "details": {}},
+            {"id": "client-sse-graceful-reconnect", "status": "SUCCESS", "description": "Client reconnects via GET after SSE stream is closed gracefully", "details": {"getConnectionCount": 2}},
+            {"id": "client-sse-retry-timing", "status": "FAILURE", "description": "Client MUST respect the retry field, waiting the given number of milliseconds before attempting to reconnect", "errorMessage": "Client reconnected too early (-243ms instead of 500ms). Client MUST respect the retry field and wait the specified time.", "details": {"expectedRetryMs": 500, "actualDelayMs": -243, "minAcceptableMs": 450, "maxAcceptableMs": 700, "veryLateThresholdMs": 1000, "earlyToleranceMs": 50, "lateToleranceMs": 200, "withinTolerance": false, "tooEarly": true, "slightlyLate": false, "veryLate": false, "getConnectionCount": 2}},
+            {"id": "client-sse-last-event-id", "status": "WARNING", "description": "Client SHOULD send Last-Event-ID header on reconnection for resumability", "errorMessage": "Client did not send Last-Event-ID header on reconnection. This is a SHOULD requirement for resumability.", "details": {"hasLastEventId": false, "lastEventIds": [], "getConnectionCount": 2}}
+          ],
+          "client": {
+            "renderer": "spring_ai",
+            "versions": {
+              "framework": "2.0.1",
+              "adapter": "spring-ai-mcp 2.0.1, io.modelcontextprotocol.sdk:mcp-core 2.0.0, spring-boot 4.1.1, java 21.0.12.1"
+            },
+            "auth_hook": null,
+            "tools": [
+              "test_reconnection"
+            ],
+            "called": {
+              "tool": "test_reconnection",
+              "arguments": {},
+              "result": {
+                "tool": "test_reconnection",
+                "blocks": [],
+                "block_kinds": [],
+                "structured_content": null,
+                "is_error": null,
+                "text": "Invalid SSE response. Status code: 200 Line: retry: 500",
+                "origin": "spring_ai",
+                "raw": {
+                  "id": "call_mirror_1",
+                  "name": "test_reconnection",
+                  "responseData": "Invalid SSE response. Status code: 200 Line: retry: 500"
+                },
+                "error_channel": null
+              }
+            }
+          },
+          "client_stderr_tail": null
+        },
+        "tools_call": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 200}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "GET", "path": "/mcp"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "GET", "path": "/mcp", "statusCode": 404, "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot GET /mcp</pre>\n</body>\n</html>\n"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized", "statusCode": 202}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list", "statusCode": 200}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 200}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "GET", "path": "/mcp"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "GET", "path": "/mcp", "statusCode": 404, "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot GET /mcp</pre>\n</body>\n</html>\n"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized", "statusCode": 202}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list", "statusCode": 200}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/call"}},
+            {"id": "tool-add-numbers", "status": "SUCCESS", "description": "Validates that the add_numbers tool works correctly", "details": {"a": 1, "b": 1, "result": 2}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/call", "statusCode": 200}}
+          ],
+          "client": {
+            "renderer": "spring_ai",
+            "versions": {
+              "framework": "2.0.1",
+              "adapter": "spring-ai-mcp 2.0.1, io.modelcontextprotocol.sdk:mcp-core 2.0.0, spring-boot 4.1.1, java 21.0.12.1"
+            },
+            "auth_hook": null,
+            "tools": [
+              "add_numbers"
+            ],
+            "called": {
+              "tool": "add_numbers",
+              "arguments": {
+                "a": 1,
+                "b": 1
+              },
+              "result": {
+                "tool": "add_numbers",
+                "blocks": [],
+                "block_kinds": [],
+                "structured_content": null,
+                "is_error": null,
+                "text": "[{\"text\":\"The sum of 1 and 1 is 2\"}]",
+                "origin": "spring_ai",
+                "raw": {
+                  "id": "call_mirror_1",
+                  "name": "add_numbers",
+                  "responseData": "[{\"text\":\"The sum of 1 and 1 is 2\"}]"
+                },
+                "error_channel": null
+              }
+            }
+          },
+          "client_stderr_tail": null
+        }
+      }
+    }
+  }
+}

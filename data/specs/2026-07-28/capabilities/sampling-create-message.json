@@ -1,0 +1,39 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "sampling-create-message",
+  "title": "`sampling/createMessage`",
+  "description": "A server request asking the client's model for a generation, so the server can use an LLM without holding model credentials of its own.",
+  "question": "Can a server borrow the client's model through this framework?",
+  "spec": "https://modelcontextprotocol.io/specification/2026-07-28",
+  "status": "deprecated",
+  "categories": [
+    "Client features"
+  ],
+  "keywords": "sampling,createMessage,modelPreferences,maxTokens,server-initiated generation",
+  "why": "Sampling inverts the usual direction of control, which is why it is both powerful and rarely implemented. It is deprecated as of 2026-07-28 under SEP-2577 and stays in the specification for at least twelve months, so the honest question now is whether existing support exists, not whether new support should be built.",
+  "docs_url": "https://modelcontextprotocol.io/specification/2026-07-28/client/sampling#creating-messages",
+  "docs_label": "MCP Docs",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/client/sampling#creating-messages",
+      "title": "MCP Docs"
+    }
+  ],
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "known_issues": [],
+  "notes": {
+    "openai-agents": "OpenAI Agents SDK 0.23.1: at 2026-07-28 the request arrives embedded in an `InputRequiredResult`. The adapter has no sampling hook and calls tools through the MCP SDK's default `call_tool`, so the SDK's `Server returned InputRequiredResult` error reaches the caller as an `AgentsException` and nothing is answered.",
+    "mastra": "Mastra 2.2.0: its `inputRequests` hook answers elicitations only. An embedded `sampling/createMessage` fails with `no handler is registered for 'sampling/createMessage'`, as the docs say for the deprecated capability.",
+    "strands": "Strands Agents 1.59.0: `MCPClient` passes its `ClientSession` an `elicitation_callback` only. There is no sampling parameter, so the server's `sampling/createMessage` is refused.",
+    "vercel_ai": "Vercel AI SDK (@ai-sdk/mcp 2.0.73): at 2026-07-28 the request arrives embedded in an `InputRequiredResult`. The client rejects any result with `resultType: \"input_required\"` (\"multi round-trip requests are not supported yet\"), so `execute` throws and nothing is answered. The client has no sampling handler either.",
+    "openai_agents_js": "OpenAI Agents SDK (JS) 0.20.0 at 2026-07-28: the server answers with `input_required`, and the MCP client the SDK builds tries to fulfil it itself, but no `sampling/createMessage` handler is registered on it and the SDK offers no option to add one. The call fails with `Cannot fulfil input request`, which the agent hands the model as tool-error text.",
+    "agno": "Agno 3.1.2: `MCPTools` builds its fastmcp `Client` with no sampling handler and exposes no hook to add one, so a server's `sampling/createMessage` is refused.",
+    "dspy": "DSPy 3.4.0: DSPy takes no sampling handler. The server's request is answered only by a `sampling_callback` registered on the caller's own `mcp.Client`, which DSPy is handed by `Tool.from_mcp_tool` and never configures. DSPy itself offers no route.",
+    "langchain_js": "LangChain.js (@langchain/mcp-adapters 2.0.1): the adapter registers no sampling handler and offers no option for one. A legacy session answers `sampling/createMessage` with Method not found; a modern tool call that asks for it fails with \"asked for input this adapter cannot answer\".",
+    "copilot_sdk": "GitHub Copilot SDK 1.0.19 (Copilot runtime 1.0.95): the client declares the sampling capability, but the runtime answers every `sampling/createMessage` itself with `stopReason: \"cancelled\"` and the text \"The user cancelled the request.\". The documented `sampling.requested` session event, with `session.rpc.mcp.executeSampling` behind it, never fired, so the host's handler never ran. The session config has no option to enable it.",
+    "langchain4j": "LangChain4j 1.22.0-beta32: at 2026-07-28 `DefaultMcpClient` reads an `InputRequiredResult` and throws `Server sent inputRequests that the client cannot handle`, whatever is embedded. No hook answers it, so the tool call fails.",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): mcptoolset has no sampling option. A `mcp.ClientOptions.CreateMessageWithToolsHandler` set on the `*mcp.Client` the caller passes as `mcptoolset.Config.Client` answers the server's request, so it works, but only by configuring go-sdk rather than the toolset."
+  },
+  "verdict": {},
+  "summary": "Deprecated in 2026-07-28. The cell asks whether the adapter answers it through its own API."
+}

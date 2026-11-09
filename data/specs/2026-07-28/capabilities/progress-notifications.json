@@ -1,0 +1,32 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "progress-notifications",
+  "title": "`notifications/progress`",
+  "description": "Server-pushed progress updates for a request that opted in by supplying a progress token, reporting a monotonically increasing value with an optional total and message.",
+  "question": "Can the agent observe progress on a long-running call?",
+  "spec": "https://modelcontextprotocol.io/specification/2026-07-28",
+  "status": "stable",
+  "categories": [
+    "Base protocol"
+  ],
+  "keywords": "progress,progressToken,long running,notifications/progress",
+  "why": "Without it every slow tool is indistinguishable from a hung one, and the only tuning available is the timeout. The client has to send the token first, so this is a capability the framework must actively opt into.",
+  "docs_url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/patterns/progress#progress-flow",
+  "docs_label": "MCP Docs",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/patterns/progress#progress-flow",
+      "title": "MCP Docs"
+    }
+  ],
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "known_issues": [],
+  "notes": {
+    "openai-agents": "OpenAI Agents SDK 0.23.1: `invoke_mcp_tool` sends no `progressToken`. Progress works only if the caller passes one by hand, as `call_tool(..., meta={\"progressToken\": ...})`, and reads the notifications from `message_handler`. No progress callback exists.",
+    "vercel_ai": "Vercel AI SDK (@ai-sdk/mcp 2.0.73): `RequestOptions` takes only `signal`, `timeout` and `maxTotalTimeout`, so `tools/call` carries no `_meta.progressToken` and the server sends no progress.",
+    "openai_agents_js": "OpenAI Agents SDK (JS) 0.20.0: a `progressToken` can be sent through the documented `toolMetaResolver` option, and the server then sends progress, but no SDK hook receives `notifications/progress`, so the caller sees none of it.",
+    "agno": "Agno 3.1.2: the fastmcp `Client` sends a `progressToken`, but `MCPTools` takes no progress handler and builds its client without one, so the server's progress notifications reach no caller.",
+    "dspy": "DSPy 3.4.0: the `Tool` that `from_mcp_tool` builds calls `session.call_tool(name, arguments=kwargs)` with no `progress_callback` and takes none, so no `progressToken` is sent and the server sends no progress.",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): `mcpTool.Run` calls `CallTool` with `Name` and `Arguments` only, so `tools/call` carries no `_meta.progressToken` and the server sends no progress. A `ProgressNotificationHandler` on the caller's `*mcp.Client` never fires."
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "format": "mcp-mirror.harness-fresh/1",
+  "passed": true,
+  "checks": {
+    "home": {
+      "passed": true,
+      "isolated": [
+        "CLAUDE_CONFIG_DIR",
+        "CODEX_HOME",
+        "GEMINI_CLI_HOME",
+        "HOME",
+        "XDG_CACHE_HOME",
+        "XDG_CONFIG_HOME",
+        "XDG_DATA_HOME",
+        "XDG_STATE_HOME"
+      ],
+      "copied": [],
+      "refused": []
+    },
+    "load": {
+      "passed": true,
+      "fixture_initialize_seconds": 0.32,
+      "limit_seconds": 2.0,
+      "load_1m_per_core": 6.91,
+      "cores": 10,
+      "waited_seconds": 0.0
+    },
+    "servers_listed": {
+      "passed": true,
+      "status": "not available",
+      "expected": [
+        "cf",
+        "def",
+        "ntf",
+        "res",
+        "util"
+      ],
+      "listed": null
+    },
+    "recorders": {
+      "passed": true,
+      "waited_seconds": 0.492,
+      "still_running": []
+    },
+    "tools_offered": {
+      "passed": true,
+      "source": "model.jsonl",
+      "mcp_tools": 46,
+      "servers": [
+        "cf",
+        "def",
+        "ntf",
+        "res",
+        "util"
+      ],
+      "foreign_tools": [],
+      "foreign_servers": []
+    },
+    "egress": {
+      "passed": true,
+      "attempts": [
+        {
+          "host": "ai-gateway.vercel.sh",
+          "port": 443,
+          "method": "GET",
+          "allowed": "the public model-list fetch the extension starts 2 s after activation (initializeModelCacheRefresh, src/api/providers/fetchers/modelCache.ts) for openrouter and vercel-ai-gateway whatever the provider; no setting turns it off, and a refusal falls back to the empty cache",
+          "count": 1
+        },
+        {
+          "host": "openrouter.ai",
+          "port": 443,
+          "method": "GET",
+          "allowed": "the public model-list fetch the extension starts 2 s after activation (initializeModelCacheRefresh, src/api/providers/fetchers/modelCache.ts) for openrouter and vercel-ai-gateway whatever the provider; no setting turns it off, and a refusal falls back to the empty cache",
+          "count": 1
+        }
+      ],
+      "not_allowed": []
+    }
+  }
+}

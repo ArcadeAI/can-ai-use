@@ -1,0 +1,36 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "logging-notifications",
+  "title": "`notifications/message`",
+  "description": "Structured server log records at RFC 5424 levels, enabled per request through a log level in that request's `_meta`.",
+  "question": "Can a developer see the server's own logs through the framework?",
+  "spec": "https://modelcontextprotocol.io/specification/2026-07-28",
+  "status": "deprecated",
+  "categories": [
+    "Server utilities"
+  ],
+  "keywords": "logging,notifications/message,log level,RFC 5424,diagnostics",
+  "why": "This is the only channel through which a server explains itself while a call is in flight, and it is the difference between debugging a failing integration and guessing at it. Note that the connection-wide `logging/setLevel` was removed in this revision: log level is now per request, so a framework that sets it once at startup gets nothing.",
+  "docs_url": "https://modelcontextprotocol.io/specification/2026-07-28/server/utilities/logging#log-message-notifications",
+  "docs_label": "MCP Docs",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/server/utilities/logging#log-message-notifications",
+      "title": "MCP Docs"
+    }
+  ],
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "known_issues": [],
+  "notes": {
+    "openai-agents": "OpenAI Agents SDK 0.23.1: `MCPServerStdio` passes no log level, so its requests carry no `io.modelcontextprotocol/logLevel` in `_meta`. At 2026-07-28 that means the server must not log, and nothing reaches `message_handler`.",
+    "strands": "Strands Agents 1.59.0: `MCPClient` sets no `io.modelcontextprotocol/logLevel` in a call's `_meta`, so at 2026-07-28 the server sends no log messages. It also opens its `ClientSession` with no `logging_callback` and takes no log hook.",
+    "vercel_ai": "Vercel AI SDK (@ai-sdk/mcp 2.0.73): `tools/call` carries no `io.modelcontextprotocol/logLevel` in `_meta`, so the server sends no log messages. The client has no logging option.",
+    "openai_agents_js": "OpenAI Agents SDK (JS) 0.20.0 at 2026-07-28: the SDK sends no `io.modelcontextprotocol/logLevel` in a call's `_meta`, so the server sends no log messages, and the server options take no message or logging handler that could receive them.",
+    "agno": "Agno 3.1.2: `MCPTools` takes no log handler; its fastmcp `Client` uses fastmcp's default, which writes server log messages to Python logging, so none reaches the agent or caller.",
+    "dspy": "DSPy 3.4.0: DSPy takes no log handler. Server log messages reach a caller only through a `logging_callback` on the caller's own `mcp.Client`, which DSPy is handed by `Tool.from_mcp_tool` and never configures. DSPy itself offers no route.",
+    "copilot_sdk": "GitHub Copilot SDK 1.0.19 (Copilot runtime 1.0.95): the runtime puts no `io.modelcontextprotocol/logLevel` in a `tools/call` `_meta`, so the server sent no log messages, and there is no session option to request them.",
+    "langchain4j": "LangChain4j 1.22.0-beta32: `DefaultMcpClient` never stamps `io.modelcontextprotocol/logLevel` into a request's `_meta`, so the server sends no log notifications.",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): at 2026-07-28 a server sends `notifications/message` only for a request whose `_meta` carries `io.modelcontextprotocol/logLevel`. `mcpTool.Run` builds `CallToolParams` with no `_meta`, so the server sent none and a `LoggingMessageHandler` on the caller's `*mcp.Client` heard nothing.",
+    "ms_agent_framework_dotnet": "Microsoft Agent Framework (.NET) 1.24.0 (ModelContextProtocol 2.2.0): `McpClientTool` puts no `io.modelcontextprotocol/logLevel` in a `tools/call` `_meta`, so the server sent no log messages."
+  }
+}

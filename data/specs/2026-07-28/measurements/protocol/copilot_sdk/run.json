@@ -1,0 +1,1153 @@
+{
+  "schema": "mcp-mirror/protocol-run@1",
+  "captured_at": "2026-10-09T21:11:26Z",
+  "renderer": "copilot_sdk",
+  "fixture": "fixtures/base_protocol_server.py",
+  "spec_version": "2026-07-28",
+  "versions": {
+    "framework": "1.0.19",
+    "adapter": "Copilot runtime 1.0.95, node v24.21.0"
+  },
+  "captures": [
+    "http.jsonl",
+    "stdio-00.jsonl",
+    "stdio-01.jsonl",
+    "stdio-02.jsonl",
+    "stdio-03.jsonl",
+    "stdio-04.jsonl",
+    "stdio-05.jsonl",
+    "stdio-06.jsonl",
+    "stdio-07.jsonl",
+    "stdio-08.jsonl"
+  ],
+  "transports": {
+    "stdio": {
+      "ok": true,
+      "versions": {
+        "framework": "1.0.19",
+        "adapter": "Copilot runtime 1.0.95, node v24.21.0"
+      },
+      "tools": [
+        {
+          "name": "src-bad_header",
+          "params": {
+            "properties": {
+              "filter": {
+                "properties": {
+                  "field": {
+                    "type": "string"
+                  }
+                },
+                "type": "object",
+                "x-mcp-header": "Filter"
+              }
+            },
+            "type": "object"
+          }
+        },
+        {
+          "name": "src-dialect_2020_12",
+          "params": {
+            "$defs": {
+              "range": {
+                "properties": {
+                  "high": {
+                    "type": "number"
+                  },
+                  "low": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "low",
+                  "high"
+                ],
+                "type": "object"
+              }
+            },
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "properties": {
+              "label": {
+                "type": "string"
+              },
+              "point": {
+                "description": "An [x, y] pair.",
+                "items": {
+                  "description": "{schema: false}"
+                },
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "type": "array"
+              },
+              "units": {
+                "type": "string"
+              },
+              "window": {
+                "$ref": "#/$defs/range"
+              }
+            },
+            "required": [
+              "point"
+            ],
+            "type": "object",
+            "description": "{dependentRequired: {\"label\":[\"units\"]}}"
+          }
+        },
+        {
+          "name": "src-dialect_draft_07",
+          "params": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "definitions": {
+              "range": {
+                "properties": {
+                  "high": {
+                    "type": "number"
+                  },
+                  "low": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "low",
+                  "high"
+                ],
+                "type": "object"
+              }
+            },
+            "properties": {
+              "point": {
+                "additionalItems": {
+                  "description": "{schema: false}"
+                },
+                "description": "An [x, y] pair.",
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "number"
+                    }
+                  ]
+                },
+                "type": "array"
+              },
+              "window": {
+                "$ref": "#/definitions/range"
+              }
+            },
+            "required": [
+              "point"
+            ],
+            "type": "object"
+          }
+        },
+        {
+          "name": "src-needs_input",
+          "params": {
+            "properties": {},
+            "type": "object"
+          }
+        },
+        {
+          "name": "src-routed_lookup",
+          "params": {
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "region": {
+                "type": "string",
+                "x-mcp-header": "Region"
+              }
+            },
+            "required": [
+              "region",
+              "key"
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "result_boundaries": [
+        {
+          "id": "agent",
+          "label": "Agent tool loop (next provider request)",
+          "capture_api": "CopilotRequestHandler.sendRequest",
+          "capture_object": "the tool message, and any message the runtime adds for the same result, in the chat/completions request that follows the model's tool call",
+          "agent_path": true,
+          "limitation": "The stub model asks for one tool call. The chat/completions wire format has no tool-error flag, so an error reaches the model as text only. The model is declared vision-capable (SessionConfig.modelCapabilities), as gpt-4.1 is; images ride a user message the runtime appends, whose framing text is not recorded."
+        },
+        {
+          "id": "direct",
+          "label": "Direct tool invocation",
+          "capture_api": "CopilotSession.rpc.tools.execute",
+          "capture_object": "the ToolResult the runtime returns, outside a model turn",
+          "agent_path": false,
+          "limitation": null
+        }
+      ],
+      "results": [
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "copilot_sdk",
+            "raw": {
+              "kind": "provider_request",
+              "parts": [
+                {
+                  "role": "tool",
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ],
+              "messages": [
+                {
+                  "role": "tool",
+                  "tool_call_id": "call_mcp_mirror_1",
+                  "content": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ],
+              "execution": {
+                "toolCallId": "call_mcp_mirror_1",
+                "model": "gpt-4.1",
+                "interactionId": "98ae11b5-d0ac-48dd-9efe-894fc13081be",
+                "turnId": "0",
+                "rte": false,
+                "success": true,
+                "result": {
+                  "content": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+                  "detailedContent": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                    }
+                  ]
+                },
+                "toolTelemetry": {
+                  "metrics": {
+                    "mcp_result_content_bytes": 85,
+                    "result_token_count": 36
+                  }
+                }
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "copilot_sdk",
+            "raw": {
+              "textResultForLlm": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+              "binaryResultsForLlm": [],
+              "resultType": "success",
+              "sessionLog": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+              "toolTelemetry": {
+                "metrics": {
+                  "mcp_result_content_bytes": 85
+                }
+              },
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ]
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "copilot_sdk",
+            "raw": {
+              "kind": "provider_request",
+              "parts": [
+                {
+                  "role": "tool",
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ],
+              "messages": [
+                {
+                  "role": "tool",
+                  "tool_call_id": "call_mcp_mirror_1",
+                  "content": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ],
+              "execution": {
+                "toolCallId": "call_mcp_mirror_1",
+                "model": "gpt-4.1",
+                "interactionId": "d6961195-f0cb-43d0-801c-fb4447e29497",
+                "turnId": "0",
+                "rte": false,
+                "success": true,
+                "result": {
+                  "content": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+                  "detailedContent": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                    }
+                  ]
+                },
+                "toolTelemetry": {
+                  "metrics": {
+                    "mcp_result_content_bytes": 86,
+                    "result_token_count": 35
+                  }
+                }
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "copilot_sdk",
+            "raw": {
+              "textResultForLlm": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+              "binaryResultsForLlm": [],
+              "resultType": "success",
+              "sessionLog": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+              "toolTelemetry": {
+                "metrics": {
+                  "mcp_result_content_bytes": 86
+                }
+              },
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ]
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "origin": "copilot_sdk",
+            "raw": {
+              "kind": "provider_request",
+              "parts": [
+                {
+                  "role": "tool",
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+                }
+              ],
+              "messages": [
+                {
+                  "role": "tool",
+                  "tool_call_id": "call_mcp_mirror_1",
+                  "content": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+                }
+              ],
+              "execution": {
+                "toolCallId": "call_mcp_mirror_1",
+                "model": "gpt-4.1",
+                "interactionId": "9cece781-72c3-4d75-8aa4-687b23926386",
+                "turnId": "0",
+                "rte": false,
+                "success": true,
+                "result": {
+                  "content": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+                  "detailedContent": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+                    }
+                  ]
+                },
+                "toolTelemetry": {
+                  "metrics": {
+                    "mcp_result_content_bytes": 69,
+                    "result_token_count": 24
+                  }
+                }
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "origin": "copilot_sdk",
+            "raw": {
+              "textResultForLlm": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+              "binaryResultsForLlm": [],
+              "resultType": "success",
+              "sessionLog": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+              "toolTelemetry": {
+                "metrics": {
+                  "mcp_result_content_bytes": 69
+                }
+              },
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+                }
+              ]
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "MCP server 'src': MCP request failed: tools/call requested elicitation input but no elicitation responder is wired"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "MCP server 'src': MCP request failed: tools/call requested elicitation input but no elicitation responder is wired",
+            "origin": "copilot_sdk",
+            "raw": {
+              "kind": "provider_request",
+              "parts": [
+                {
+                  "role": "tool",
+                  "type": "text",
+                  "text": "MCP server 'src': MCP request failed: tools/call requested elicitation input but no elicitation responder is wired"
+                }
+              ],
+              "messages": [
+                {
+                  "role": "tool",
+                  "tool_call_id": "call_mcp_mirror_1",
+                  "content": "MCP server 'src': MCP request failed: tools/call requested elicitation input but no elicitation responder is wired"
+                }
+              ],
+              "execution": {
+                "toolCallId": "call_mcp_mirror_1",
+                "model": "gpt-4.1",
+                "interactionId": "6a473a72-6f06-443e-b42c-35d59f0b67cf",
+                "turnId": "0",
+                "rte": false,
+                "success": false,
+                "error": {
+                  "message": "MCP server 'src': MCP request failed: tools/call requested elicitation input but no elicitation responder is wired",
+                  "code": "failure"
+                },
+                "toolTelemetry": {
+                  "properties": {
+                    "failure_category": "transport_failure",
+                    "failure_stage": "invoke"
+                  }
+                }
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "MCP server 'src': MCP request failed: tools/call requested elicitation input but no elicitation responder is wired",
+            "origin": "copilot_sdk",
+            "raw": {
+              "textResultForLlm": "MCP server 'src': MCP request failed: tools/call requested elicitation input but no elicitation responder is wired",
+              "resultType": "failure",
+              "error": "MCP server 'src': MCP request failed: tools/call requested elicitation input but no elicitation responder is wired",
+              "toolTelemetry": {
+                "properties": {
+                  "failure_category": "transport_failure",
+                  "failure_stage": "invoke"
+                }
+              }
+            },
+            "error_channel": "flag"
+          }
+        }
+      ]
+    },
+    "http": {
+      "ok": true,
+      "versions": {
+        "framework": "1.0.19",
+        "adapter": "Copilot runtime 1.0.95, node v24.21.0"
+      },
+      "tools": [
+        {
+          "name": "src-bad_header",
+          "params": {
+            "properties": {
+              "filter": {
+                "properties": {
+                  "field": {
+                    "type": "string"
+                  }
+                },
+                "type": "object",
+                "x-mcp-header": "Filter"
+              }
+            },
+            "type": "object"
+          }
+        },
+        {
+          "name": "src-dialect_2020_12",
+          "params": {
+            "$defs": {
+              "range": {
+                "properties": {
+                  "high": {
+                    "type": "number"
+                  },
+                  "low": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "low",
+                  "high"
+                ],
+                "type": "object"
+              }
+            },
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "properties": {
+              "label": {
+                "type": "string"
+              },
+              "point": {
+                "description": "An [x, y] pair.",
+                "items": {
+                  "description": "{schema: false}"
+                },
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "type": "array"
+              },
+              "units": {
+                "type": "string"
+              },
+              "window": {
+                "$ref": "#/$defs/range"
+              }
+            },
+            "required": [
+              "point"
+            ],
+            "type": "object",
+            "description": "{dependentRequired: {\"label\":[\"units\"]}}"
+          }
+        },
+        {
+          "name": "src-dialect_draft_07",
+          "params": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "definitions": {
+              "range": {
+                "properties": {
+                  "high": {
+                    "type": "number"
+                  },
+                  "low": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "low",
+                  "high"
+                ],
+                "type": "object"
+              }
+            },
+            "properties": {
+              "point": {
+                "additionalItems": {
+                  "description": "{schema: false}"
+                },
+                "description": "An [x, y] pair.",
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "number"
+                    }
+                  ]
+                },
+                "type": "array"
+              },
+              "window": {
+                "$ref": "#/definitions/range"
+              }
+            },
+            "required": [
+              "point"
+            ],
+            "type": "object"
+          }
+        },
+        {
+          "name": "src-needs_input",
+          "params": {
+            "properties": {},
+            "type": "object"
+          }
+        },
+        {
+          "name": "src-routed_lookup",
+          "params": {
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "region": {
+                "type": "string",
+                "x-mcp-header": "Region"
+              }
+            },
+            "required": [
+              "region",
+              "key"
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "result_boundaries": [
+        {
+          "id": "agent",
+          "label": "Agent tool loop (next provider request)",
+          "capture_api": "CopilotRequestHandler.sendRequest",
+          "capture_object": "the tool message, and any message the runtime adds for the same result, in the chat/completions request that follows the model's tool call",
+          "agent_path": true,
+          "limitation": "The stub model asks for one tool call. The chat/completions wire format has no tool-error flag, so an error reaches the model as text only. The model is declared vision-capable (SessionConfig.modelCapabilities), as gpt-4.1 is; images ride a user message the runtime appends, whose framing text is not recorded."
+        },
+        {
+          "id": "direct",
+          "label": "Direct tool invocation",
+          "capture_api": "CopilotSession.rpc.tools.execute",
+          "capture_object": "the ToolResult the runtime returns, outside a model turn",
+          "agent_path": false,
+          "limitation": null
+        }
+      ],
+      "results": [
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "copilot_sdk",
+            "raw": {
+              "kind": "provider_request",
+              "parts": [
+                {
+                  "role": "tool",
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ],
+              "messages": [
+                {
+                  "role": "tool",
+                  "tool_call_id": "call_mcp_mirror_1",
+                  "content": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ],
+              "execution": {
+                "toolCallId": "call_mcp_mirror_1",
+                "model": "gpt-4.1",
+                "interactionId": "e3ea11b7-52c5-45f8-98f3-1dbe535e302b",
+                "turnId": "0",
+                "rte": false,
+                "success": true,
+                "result": {
+                  "content": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+                  "detailedContent": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                    }
+                  ]
+                },
+                "toolTelemetry": {
+                  "metrics": {
+                    "mcp_result_content_bytes": 85,
+                    "result_token_count": 36
+                  }
+                }
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "copilot_sdk",
+            "raw": {
+              "textResultForLlm": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+              "binaryResultsForLlm": [],
+              "resultType": "success",
+              "sessionLog": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+              "toolTelemetry": {
+                "metrics": {
+                  "mcp_result_content_bytes": 85
+                }
+              },
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ]
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "copilot_sdk",
+            "raw": {
+              "kind": "provider_request",
+              "parts": [
+                {
+                  "role": "tool",
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ],
+              "messages": [
+                {
+                  "role": "tool",
+                  "tool_call_id": "call_mcp_mirror_1",
+                  "content": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ],
+              "execution": {
+                "toolCallId": "call_mcp_mirror_1",
+                "model": "gpt-4.1",
+                "interactionId": "476c22cc-c87f-43e5-b24b-ad0b9191b455",
+                "turnId": "0",
+                "rte": false,
+                "success": true,
+                "result": {
+                  "content": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+                  "detailedContent": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                    }
+                  ]
+                },
+                "toolTelemetry": {
+                  "metrics": {
+                    "mcp_result_content_bytes": 86,
+                    "result_token_count": 35
+                  }
+                }
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "copilot_sdk",
+            "raw": {
+              "textResultForLlm": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+              "binaryResultsForLlm": [],
+              "resultType": "success",
+              "sessionLog": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+              "toolTelemetry": {
+                "metrics": {
+                  "mcp_result_content_bytes": 86
+                }
+              },
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ]
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "origin": "copilot_sdk",
+            "raw": {
+              "kind": "provider_request",
+              "parts": [
+                {
+                  "role": "tool",
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+                }
+              ],
+              "messages": [
+                {
+                  "role": "tool",
+                  "tool_call_id": "call_mcp_mirror_1",
+                  "content": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+                }
+              ],
+              "execution": {
+                "toolCallId": "call_mcp_mirror_1",
+                "model": "gpt-4.1",
+                "interactionId": "1b35a814-7d27-457e-9ab6-ac9f4e29767e",
+                "turnId": "0",
+                "rte": false,
+                "success": true,
+                "result": {
+                  "content": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+                  "detailedContent": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+                    }
+                  ]
+                },
+                "toolTelemetry": {
+                  "metrics": {
+                    "mcp_result_content_bytes": 69,
+                    "result_token_count": 24
+                  }
+                }
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "origin": "copilot_sdk",
+            "raw": {
+              "textResultForLlm": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+              "binaryResultsForLlm": [],
+              "resultType": "success",
+              "sessionLog": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+              "toolTelemetry": {
+                "metrics": {
+                  "mcp_result_content_bytes": 69
+                }
+              },
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+                }
+              ]
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "MCP server 'src': MCP request failed: tools/call requested elicitation input but no elicitation responder is wired"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "MCP server 'src': MCP request failed: tools/call requested elicitation input but no elicitation responder is wired",
+            "origin": "copilot_sdk",
+            "raw": {
+              "kind": "provider_request",
+              "parts": [
+                {
+                  "role": "tool",
+                  "type": "text",
+                  "text": "MCP server 'src': MCP request failed: tools/call requested elicitation input but no elicitation responder is wired"
+                }
+              ],
+              "messages": [
+                {
+                  "role": "tool",
+                  "tool_call_id": "call_mcp_mirror_1",
+                  "content": "MCP server 'src': MCP request failed: tools/call requested elicitation input but no elicitation responder is wired"
+                }
+              ],
+              "execution": {
+                "toolCallId": "call_mcp_mirror_1",
+                "model": "gpt-4.1",
+                "interactionId": "83f7d110-1d38-4cad-bb37-8c9ac60a4c6d",
+                "turnId": "0",
+                "rte": false,
+                "success": false,
+                "error": {
+                  "message": "MCP server 'src': MCP request failed: tools/call requested elicitation input but no elicitation responder is wired",
+                  "code": "failure"
+                },
+                "toolTelemetry": {
+                  "properties": {
+                    "failure_category": "transport_failure",
+                    "failure_stage": "invoke"
+                  }
+                }
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "MCP server 'src': MCP request failed: tools/call requested elicitation input but no elicitation responder is wired",
+            "origin": "copilot_sdk",
+            "raw": {
+              "textResultForLlm": "MCP server 'src': MCP request failed: tools/call requested elicitation input but no elicitation responder is wired",
+              "resultType": "failure",
+              "error": "MCP server 'src': MCP request failed: tools/call requested elicitation input but no elicitation responder is wired",
+              "toolTelemetry": {
+                "properties": {
+                  "failure_category": "transport_failure",
+                  "failure_stage": "invoke"
+                }
+              }
+            },
+            "error_channel": "flag"
+          }
+        }
+      ]
+    }
+  }
+}

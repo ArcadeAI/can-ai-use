@@ -1,0 +1,391 @@
+{
+  "schema": "mcp-mirror/protocol-run@1",
+  "captured_at": "2026-09-30T23:10:21Z",
+  "renderer": "llamaindex",
+  "fixture": "fixtures/base_protocol_server.py",
+  "spec_version": "2025-11-25",
+  "versions": {
+    "framework": "0.14.25",
+    "adapter": "0.6.0"
+  },
+  "captures": [
+    "http-without-bad_header.jsonl",
+    "http-without-dialect_2020_12-dialect_draft_07.jsonl",
+    "http-without-dialect_2020_12.jsonl",
+    "http-without-dialect_draft_07.jsonl",
+    "http-without-needs_input.jsonl",
+    "http-without-routed_lookup.jsonl",
+    "http.jsonl",
+    "stdio-00.jsonl",
+    "stdio-01.jsonl",
+    "stdio-02.jsonl",
+    "stdio-03.jsonl",
+    "stdio-04.jsonl",
+    "stdio-05.jsonl",
+    "stdio-06.jsonl",
+    "stdio-07.jsonl",
+    "stdio-08.jsonl",
+    "stdio-09.jsonl",
+    "stdio-10.jsonl",
+    "stdio-11.jsonl",
+    "stdio-12.jsonl",
+    "stdio-13.jsonl",
+    "stdio-14.jsonl"
+  ],
+  "transports": {
+    "stdio": {
+      "ok": true,
+      "versions": {
+        "framework": "0.14.25",
+        "adapter": "0.6.0"
+      },
+      "tools": [
+        {
+          "name": "routed_lookup",
+          "params": {
+            "properties": {
+              "region": {
+                "description": "",
+                "title": "Region",
+                "type": "string"
+              },
+              "key": {
+                "description": "",
+                "title": "Key",
+                "type": "string"
+              }
+            },
+            "required": [
+              "region",
+              "key"
+            ],
+            "type": "object"
+          }
+        },
+        {
+          "name": "bad_header",
+          "params": {
+            "properties": {
+              "filter": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "",
+                "title": "Filter"
+              }
+            },
+            "type": "object"
+          }
+        },
+        {
+          "name": "needs_input",
+          "params": {
+            "properties": {},
+            "type": "object"
+          }
+        }
+      ],
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Tool return value",
+          "capture_api": "llama_index.core.tools.FunctionTool.acall",
+          "capture_object": "the ToolOutput (blocks and is_error) FunctionTool builds from the CallToolResult",
+          "agent_path": false,
+          "limitation": null
+        },
+        {
+          "id": "agent",
+          "label": "Tool message to the model",
+          "capture_api": "llama_index.core.agent.workflow.FunctionAgent.handle_tool_call_results, next LLM turn",
+          "capture_object": "the ChatMessage(role='tool') in the chat history the next model call receives",
+          "agent_path": true,
+          "limitation": "The model is core's MockFunctionCallingLLM with a scripted response; no LLM integration serialized the message."
+        }
+      ],
+      "results": [
+        {
+          "tool": "routed_lookup",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "meta=None content=[TextContent(type='text', text='SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "meta=None content=[TextContent(type='text', text='SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'",
+            "origin": "llamaindex",
+            "raw": "CallToolResult(meta=None, content=[TextContent(type='text', text='SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}', annotations=None, meta=None)], structured_content=None, is_error=False, result_type='complete')",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "meta=None content=[TextContent(type='text', text='SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "meta=None content=[TextContent(type='text', text='SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'",
+            "origin": "llamaindex",
+            "raw": "ChatMessage(role=<MessageRole.TOOL: 'tool'>, additional_kwargs={'tool_call_id': 'mcp-mirror-call'}, blocks=[TextBlock(block_type='text', text='meta=None content=[TextContent(type=\\'text\\', text=\\'SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}\\', annotations=None, meta=None)] structured_content=None is_error=False result_type=\\'complete\\'')])",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "meta=None content=[TextContent(type='text', text='SENTINEL_ARGUMENTS needs_input {}', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "meta=None content=[TextContent(type='text', text='SENTINEL_ARGUMENTS needs_input {}', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'",
+            "origin": "llamaindex",
+            "raw": "CallToolResult(meta=None, content=[TextContent(type='text', text='SENTINEL_ARGUMENTS needs_input {}', annotations=None, meta=None)], structured_content=None, is_error=False, result_type='complete')",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "meta=None content=[TextContent(type='text', text='SENTINEL_ARGUMENTS needs_input {}', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "meta=None content=[TextContent(type='text', text='SENTINEL_ARGUMENTS needs_input {}', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'",
+            "origin": "llamaindex",
+            "raw": "ChatMessage(role=<MessageRole.TOOL: 'tool'>, additional_kwargs={'tool_call_id': 'mcp-mirror-call'}, blocks=[TextBlock(block_type='text', text=\"meta=None content=[TextContent(type='text', text='SENTINEL_ARGUMENTS needs_input {}', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'\")])",
+            "error_channel": null
+          }
+        }
+      ],
+      "omitted": [
+        "dialect_2020_12",
+        "dialect_draft_07"
+      ],
+      "full_fixture_error": "RenderError: llamaindex renderer failed: argument of type 'bool' is not iterable"
+    },
+    "http": {
+      "ok": true,
+      "versions": {
+        "framework": "0.14.25",
+        "adapter": "0.6.0"
+      },
+      "tools": [
+        {
+          "name": "routed_lookup",
+          "params": {
+            "properties": {
+              "region": {
+                "description": "",
+                "title": "Region",
+                "type": "string"
+              },
+              "key": {
+                "description": "",
+                "title": "Key",
+                "type": "string"
+              }
+            },
+            "required": [
+              "region",
+              "key"
+            ],
+            "type": "object"
+          }
+        },
+        {
+          "name": "bad_header",
+          "params": {
+            "properties": {
+              "filter": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "",
+                "title": "Filter"
+              }
+            },
+            "type": "object"
+          }
+        },
+        {
+          "name": "needs_input",
+          "params": {
+            "properties": {},
+            "type": "object"
+          }
+        }
+      ],
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Tool return value",
+          "capture_api": "llama_index.core.tools.FunctionTool.acall",
+          "capture_object": "the ToolOutput (blocks and is_error) FunctionTool builds from the CallToolResult",
+          "agent_path": false,
+          "limitation": null
+        },
+        {
+          "id": "agent",
+          "label": "Tool message to the model",
+          "capture_api": "llama_index.core.agent.workflow.FunctionAgent.handle_tool_call_results, next LLM turn",
+          "capture_object": "the ChatMessage(role='tool') in the chat history the next model call receives",
+          "agent_path": true,
+          "limitation": "The model is core's MockFunctionCallingLLM with a scripted response; no LLM integration serialized the message."
+        }
+      ],
+      "results": [
+        {
+          "tool": "routed_lookup",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "meta=None content=[TextContent(type='text', text='SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "meta=None content=[TextContent(type='text', text='SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'",
+            "origin": "llamaindex",
+            "raw": "CallToolResult(meta=None, content=[TextContent(type='text', text='SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}', annotations=None, meta=None)], structured_content=None, is_error=False, result_type='complete')",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "meta=None content=[TextContent(type='text', text='SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "meta=None content=[TextContent(type='text', text='SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'",
+            "origin": "llamaindex",
+            "raw": "ChatMessage(role=<MessageRole.TOOL: 'tool'>, additional_kwargs={'tool_call_id': 'mcp-mirror-call'}, blocks=[TextBlock(block_type='text', text='meta=None content=[TextContent(type=\\'text\\', text=\\'SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}\\', annotations=None, meta=None)] structured_content=None is_error=False result_type=\\'complete\\'')])",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "meta=None content=[TextContent(type='text', text='SENTINEL_ARGUMENTS needs_input {}', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "meta=None content=[TextContent(type='text', text='SENTINEL_ARGUMENTS needs_input {}', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'",
+            "origin": "llamaindex",
+            "raw": "CallToolResult(meta=None, content=[TextContent(type='text', text='SENTINEL_ARGUMENTS needs_input {}', annotations=None, meta=None)], structured_content=None, is_error=False, result_type='complete')",
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "meta=None content=[TextContent(type='text', text='SENTINEL_ARGUMENTS needs_input {}', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "meta=None content=[TextContent(type='text', text='SENTINEL_ARGUMENTS needs_input {}', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'",
+            "origin": "llamaindex",
+            "raw": "ChatMessage(role=<MessageRole.TOOL: 'tool'>, additional_kwargs={'tool_call_id': 'mcp-mirror-call'}, blocks=[TextBlock(block_type='text', text=\"meta=None content=[TextContent(type='text', text='SENTINEL_ARGUMENTS needs_input {}', annotations=None, meta=None)] structured_content=None is_error=False result_type='complete'\")])",
+            "error_channel": null
+          }
+        }
+      ],
+      "omitted": [
+        "dialect_2020_12",
+        "dialect_draft_07"
+      ],
+      "full_fixture_error": "RenderError: llamaindex renderer failed: argument of type 'bool' is not iterable"
+    }
+  }
+}

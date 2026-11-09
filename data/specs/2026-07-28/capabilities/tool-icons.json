@@ -1,0 +1,40 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "tool-icons",
+  "title": "`icons`",
+  "description": "An optional array of display icons on a tool definition, each with a source URL, MIME type and size list.",
+  "question": "Does the tool's icon set reach the agent's tool definition?",
+  "spec": "https://modelcontextprotocol.io/specification/2026-07-28",
+  "status": "stable",
+  "categories": [
+    "Tool definition"
+  ],
+  "keywords": "icons,icon,src,mimeType,sizes,tool display,branding",
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/server/tools#tool",
+      "title": "MCP Docs"
+    }
+  ],
+  "known_issues": [],
+  "why": "Icons are the one part of a tool definition aimed at a human rather than a model. A framework that drops them removes the server's only way to identify its tools visually in any UI built on top of the adapter.",
+  "shown": true,
+  "docs_url": "https://modelcontextprotocol.io/specification/2026-07-28/server/tools#tool",
+  "docs_label": "MCP Docs",
+  "notes": {
+    "openai-agents": "OpenAI Agents SDK 0.23.1: the agents package contains no reference to icons. FunctionTool keeps the MCP title only.",
+    "pydantic-ai": "Pydantic AI 2.54.0: pydantic_ai.mcp declares icons on its resource type only. ToolDefinition has no icon field, so tool icons are dropped.",
+    "mastra": "Mastra 2.2.0: the tool action has no icons field and its `mcp` metadata holds annotations only, so tool icons are dropped.",
+    "vercel_ai": "Vercel AI SDK (@ai-sdk/mcp 2.0.73): toolsFromDefinitions reads name, title, description, inputSchema, annotations and _meta from each listed tool. `icons` is not copied onto the tool object, so it is dropped.",
+    "strands": "Strands Agents 1.59.0: `MCPAgentTool.tool_spec` builds the `ToolSpec` from name, description, schemas and annotations. Icons stay on `MCPAgentTool.mcp_tool.icons` and never reach the spec the model receives.",
+    "openai_agents_js": "OpenAI Agents SDK (JS) 0.20.0: `mcpToFunctionTool` builds the `FunctionTool` from the MCP tool's name, description and inputSchema only. The tool's `icons` list is not on the tool the model is handed and is not kept anywhere beside it.",
+    "agno": "Agno 3.1.2: `MCPTools.build_tools` registers each tool as `Function(name, description, parameters=inputSchema)`; the tool's annotations, title, icons and `outputSchema` are not carried, so `icons` are discarded.",
+    "dspy": "DSPy 3.4.0: `Tool.from_mcp_tool` builds a `dspy.Tool` from the MCP tool's name, description and `inputSchema` properties only; the tool's annotations, title, icons and `outputSchema` are on no `Tool` field and in no dict the LM is handed, so `icons` are discarded.",
+    "langchain_js": "LangChain.js (@langchain/mcp-adapters 2.0.1): `icons` is not carried onto the `DynamicStructuredTool` or its metadata, so neither the provider tool nor the application can read it.",
+    "copilot_sdk": "GitHub Copilot SDK 1.0.19 (Copilot runtime 1.0.95): `icons` are not carried onto the provider tool or kept anywhere the session exposes.",
+    "langchain4j": "LangChain4j 1.22.0-beta32: tool `icons` reach `ToolSpecification.metadata()` only, so they never reach the `ChatModel`.",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): `convertTool` builds the `FunctionDeclaration` from the tool's name, description, `inputSchema` and `outputSchema` only, and `mcpTool` keeps no other field of the `*mcp.Tool`, so `icons` is gone after listing.",
+    "ms_agent_framework_dotnet": "Microsoft Agent Framework (.NET) 1.24.0 (ModelContextProtocol 2.2.0): `icons` stay on the public `McpClientTool.ProtocolTool` (framework metadata); the `AIFunction` the model is given has no place for them."
+  }
+}

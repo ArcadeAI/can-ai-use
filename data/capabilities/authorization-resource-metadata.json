@@ -1,0 +1,43 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "authorization-resource-metadata",
+  "title": "Protected Resource Metadata",
+  "description": "RFC 9728 discovery, where the server advertises its authorization server through a `WWW-Authenticate` challenge and clients follow it rather than being configured by hand.",
+  "question": "Does the framework discover the authorization server from the challenge?",
+  "spec": "https://modelcontextprotocol.io/specification/2025-11-25",
+  "status": "stable",
+  "categories": [
+    "Authorization"
+  ],
+  "keywords": "RFC 9728,protected resource metadata,WWW-Authenticate,discovery,scope,step-up",
+  "why": "This is what makes connecting to an unfamiliar protected server possible without out-of-band setup. A framework that requires hand-configured endpoints cannot connect to a server it was not told about in advance, and cannot handle a step-up scope challenge when one arrives.",
+  "docs_url": "https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization#authorization-server-discovery",
+  "docs_label": "MCP Docs",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization#authorization-server-discovery",
+      "title": "MCP Docs"
+    },
+    {
+      "url": "https://github.com/modelcontextprotocol/conformance",
+      "title": "MCP conformance suite"
+    }
+  ],
+  "usage_perc_y": null,
+  "usage_perc_a": null,
+  "usage_note": null,
+  "known_issues": [
+    "Measured with the official MCP conformance suite 0.1.16, whose client scenarios are tagged 2025-11-25."
+  ],
+  "notes": {
+    "vercel_ai": "Vercel AI SDK (@ai-sdk/mcp 2.0.73, an OAuthClientProvider as the HTTP transport's authProvider, conformance suite 0.1.16): discovery passed in metadata-default, var1 and var2. In metadata-var3, where the authorization server's URL has a path, the client also requested that server's metadata at the root path (authorization-server-metadata-wrong-path, 5 of 8 checks passed).",
+    "autogen": "AutoGen 0.7.5: No auth hook (see Authorization): the workbench never fetches protected-resource or authorization-server metadata.",
+    "agno": "Agno 3.1.2: `MCPTools` takes only static `headers` or a `header_provider` and builds its HTTP transport with `auth=None`, so it never fetches protected-resource or authorization-server metadata.",
+    "haystack": "Haystack (mcp-haystack 1.5.2): `StreamableHttpServerInfo` and `SSEServerInfo` take a static `token` or `headers`, and `MCPClient` builds its httpx client with no auth handler, so the adapter does no OAuth discovery: it never fetched the protected resource metadata or the authorization server metadata in the conformance suite's auth scenarios.",
+    "spring_ai": "Spring AI 2.0.1: the starter has no OAuth hook; Spring AI points OAuth users at the separate community module `mcp-client-security`. Against the conformance auth scenarios the client sends no Authorization header, never fetches protected-resource metadata, and fails to start on the server's 401.",
+    "crewai-native": "CrewAI 1.15.26, native `crewai.mcp` client (`Agent(mcps=[...])`, not the `crewai_tools.MCPServerAdapter` row): `MCPServerHTTP` and `MCPServerSSE` take only `url` and static `headers`, and `HTTPTransport` calls `streamablehttp_client` with no `auth`, so the client does no OAuth discovery: in the conformance suite's auth scenarios it never fetched the protected resource metadata or the authorization server metadata.",
+    "google_adk_java": "Google ADK (Java) 1.11.0: `StreamableHttpServerParameters` and `SseServerParameters` take only static headers, and ADK has no OAuth hook. Every `auth/*` conformance scenario fails: the client sends no `Authorization` header, the server answers 401, and `McpToolset.getTools` throws `McpToolLoadingException` (cause: `McpHttpClientTransportAuthorizationException`).",
+    "langchain4j": "LangChain4j 1.22.0-beta32: `StreamableHttpMcpTransport` takes static `customHeaders` or an `McpHeadersSupplier`, and langchain4j-mcp ships no OAuth client. It never fetches protected-resource or authorization-server metadata.",
+    "koog": "Koog 1.3.0-beta: no OAuth flow, so the client never requests protected resource metadata or authorization server metadata after the 401."
+  }
+}

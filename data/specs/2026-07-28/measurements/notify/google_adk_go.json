@@ -1,0 +1,161 @@
+{
+  "schema": "mcp-mirror/notify-probe@1",
+  "captured_at": "2026-10-09T21:14:16Z",
+  "fixture": "fixtures/notify_server.py",
+  "fixture_python": "<checkout>/.mcp-mirror/fixture-2026-07-28/bin/python",
+  "spec_version": "2026-07-28",
+  "source": {
+    "negotiated": "2026-07-28",
+    "tools.list_changed": {
+      "ok": true,
+      "hook": "message_handler",
+      "notified": false,
+      "before": [
+        "add_prompt",
+        "add_resource",
+        "add_tool",
+        "remove_tool",
+        "update_resource"
+      ],
+      "after": [
+        "SENTINEL_ADDED_TOOL",
+        "add_prompt",
+        "add_resource",
+        "add_tool",
+        "remove_tool",
+        "update_resource"
+      ],
+      "sentinel": "SENTINEL_ADDED_TOOL",
+      "server_said": "SENTINEL_MUTATED add_tool: published to subscriptions/listen"
+    },
+    "resources.list_changed": {
+      "ok": true,
+      "hook": "message_handler",
+      "notified": false,
+      "before": [
+        "file:///fixtures/watched.txt"
+      ],
+      "after": [
+        "file:///fixtures/added-1.txt",
+        "file:///fixtures/watched.txt"
+      ],
+      "sentinel": "fixtures/added-",
+      "server_said": "SENTINEL_MUTATED add_resource: published to subscriptions/listen"
+    },
+    "prompts.list_changed": {
+      "ok": true,
+      "hook": "message_handler",
+      "notified": false,
+      "before": [],
+      "after": [
+        "SENTINEL_ADDED_PROMPT_0"
+      ],
+      "sentinel": "SENTINEL_ADDED_PROMPT",
+      "server_said": "SENTINEL_MUTATED add_prompt: published to subscriptions/listen"
+    },
+    "resources.subscribe": {
+      "ok": true,
+      "route": "session",
+      "api": "mcp.client.subscriptions.listen(session, resource_subscriptions=[uri])",
+      "subscribed": true,
+      "subscribe_error": null,
+      "notified": true,
+      "unsubscribed": true,
+      "unsubscribe_error": null,
+      "notified_after_unsubscribe": false,
+      "server_said": [
+        "SENTINEL_MUTATED update_resource: published to subscriptions/listen",
+        "SENTINEL_MUTATED update_resource: published to subscriptions/listen"
+      ]
+    },
+    "subscriptions.listen": {
+      "ok": true,
+      "route": "session",
+      "api": "mcp.client.subscriptions.listen",
+      "opened": true,
+      "open_error": null,
+      "honored": {
+        "toolsListChanged": true,
+        "promptsListChanged": true,
+        "resourcesListChanged": true,
+        "resourceSubscriptions": [
+          "file:///fixtures/watched.txt"
+        ]
+      },
+      "events": [
+        "ToolsListChanged",
+        "ResourcesListChanged",
+        "PromptsListChanged",
+        "ResourceUpdated"
+      ]
+    }
+  },
+  "frameworks": {
+    "google_adk_go": {
+      "ok": true,
+      "versions": {
+        "framework": "2.5.0",
+        "adapter": "google.golang.org/adk/v2/tool/mcptoolset 2.5.0, github.com/modelcontextprotocol/go-sdk 1.8.0, google.golang.org/genai 1.71.0, go1.27.1"
+      },
+      "notify": {
+        "negotiated": "2026-07-28",
+        "prompts.list_changed": {
+          "handler_heard": true,
+          "hook": "mcp.ClientOptions.PromptListChangedHandler on the client passed as mcptoolset.Config.Client",
+          "ok": false,
+          "server_said": "SENTINEL_MUTATED add_prompt: published to subscriptions/listen",
+          "unsupported": "mcptoolset lists only tools, so the agent has no prompts list to refresh"
+        },
+        "resources.list_changed": {
+          "handler_heard": true,
+          "hook": "mcp.ClientOptions.ResourceListChangedHandler on the client passed as mcptoolset.Config.Client",
+          "ok": false,
+          "server_said": "SENTINEL_MUTATED add_resource: published to subscriptions/listen",
+          "unsupported": "mcptoolset lists only tools, so the agent has no resources list to refresh"
+        },
+        "resources.subscribe": {
+          "ok": false,
+          "server_said": [
+            "SENTINEL_MUTATED update_resource: published to subscriptions/listen"
+          ],
+          "unsupported": "mcptoolset.Toolset exposes only Tools(); the *mcp.ClientSession it opens stays inside its connectionRefresher, so the caller has no session to call Subscribe on"
+        },
+        "subscriptions.listen": {
+          "api": "go-sdk Client.Connect opens subscriptions/listen for the list-changed handlers set on the client passed as mcptoolset.Config.Client; no resource subscription rides it",
+          "events": [
+            "ToolsListChanged",
+            "ResourcesListChanged",
+            "PromptsListChanged"
+          ],
+          "honored": null,
+          "ok": true,
+          "open_error": null,
+          "opened": true,
+          "route": "passthrough"
+        },
+        "tools.list_changed": {
+          "after": [
+            "SENTINEL_ADDED_TOOL",
+            "add_prompt",
+            "add_resource",
+            "add_tool",
+            "remove_tool",
+            "update_resource"
+          ],
+          "before": [
+            "add_prompt",
+            "add_resource",
+            "add_tool",
+            "remove_tool",
+            "update_resource"
+          ],
+          "hook": "mcp.ClientOptions.ToolListChangedHandler on the client passed as mcptoolset.Config.Client",
+          "notified": true,
+          "ok": true,
+          "sentinel": "SENTINEL_ADDED_TOOL",
+          "server_said": "SENTINEL_MUTATED add_tool: published to subscriptions/listen"
+        }
+      }
+    }
+  }
+}

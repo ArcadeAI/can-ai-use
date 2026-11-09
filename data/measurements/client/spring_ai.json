@@ -1,0 +1,91 @@
+{
+  "schema": "mcp-mirror/client-probe@1",
+  "captured_at": "2026-10-01T01:43:46Z",
+  "fixture": "fixtures/client_features_server.py",
+  "fixture_python": "<checkout>/.mcp-mirror/fixture-2025-11-25/bin/python",
+  "spec_version": "2025-11-25",
+  "frameworks": {
+    "spring_ai": {
+      "ok": true,
+      "versions": {
+        "framework": "2.0.1",
+        "adapter": "spring-ai-mcp 2.0.1, io.modelcontextprotocol.sdk:mcp-core 2.0.0, spring-boot 4.1.1, java 21.0.12.1"
+      },
+      "negotiated_mcp_spec_version": "2025-11-25",
+      "client_probe": {
+        "sampling": {
+          "tool": "ask_sampling",
+          "hook": "@McpSampling(clients = \"src\")",
+          "route": "adapter",
+          "expect": "SENTINEL_SAMPLED",
+          "text": "[{\"text\":\"SENTINEL_CLIENT_ANSWERED ask_sampling: {\\\"content\\\": {\\\"text\\\": \\\"SENTINEL_SAMPLED\\\", \\\"type\\\": \\\"text\\\"}, \\\"model\\\": \\\"mcp-mirror-stub\\\", \\\"role\\\": \\\"assistant\\\", \\\"stopReason\\\": \\\"endTurn\\\"}\"}]",
+          "is_error": null,
+          "handler_saw": [
+            {
+              "hook": "@McpSampling",
+              "messages": 1
+            }
+          ]
+        },
+        "sampling.tools": {
+          "tool": "ask_sampling_tools",
+          "hook": "@McpSampling(clients = \"src\")",
+          "route": "adapter",
+          "expect": "SENTINEL_SAMPLED_AFTER_TOOL",
+          "text": "Error calling tool: [TextContent[annotations=null, text=SENTINEL_CLIENT_FEATURE_UNAVAILABLE ask_sampling_tools: McpError: Client does not support sampling tools capability, meta=null]]",
+          "is_error": null,
+          "handler_saw": []
+        },
+        "elicitation.form": {
+          "tool": "ask_elicitation_form",
+          "hook": "@McpElicitation(clients = \"src\")",
+          "route": "adapter",
+          "expect": "SENTINEL_ELICITED",
+          "text": "[{\"text\":\"SENTINEL_CLIENT_ANSWERED ask_elicitation_form: {\\\"action\\\": \\\"accept\\\", \\\"content\\\": {\\\"name\\\": \\\"SENTINEL_ELICITED\\\"}}\"}]",
+          "is_error": null,
+          "handler_saw": [
+            {
+              "hook": "@McpElicitation",
+              "mode": "form"
+            }
+          ]
+        },
+        "elicitation.url": {
+          "tool": "ask_elicitation_url",
+          "hook": "McpClientCustomizer<McpClient.SyncSpec>: spec.urlElicitation(...)",
+          "route": "passthrough",
+          "expect": "\"action\": \"accept\"",
+          "text": "[{\"text\":\"SENTINEL_CLIENT_ANSWERED ask_elicitation_url: {\\\"action\\\": \\\"accept\\\"}\"}]",
+          "is_error": null,
+          "handler_saw": [
+            {
+              "hook": "McpClientCustomizer urlElicitation",
+              "mode": "url"
+            }
+          ]
+        },
+        "roots.list": {
+          "tool": "list_client_roots",
+          "hook": "McpClientCustomizer<McpClient.SyncSpec>: spec.roots(...)",
+          "route": "passthrough",
+          "expect": "file:///tmp/mcp-mirror-root",
+          "text": "[{\"text\":\"SENTINEL_CLIENT_ANSWERED list_client_roots: {\\\"roots\\\": [{\\\"name\\\": \\\"mcp-mirror\\\", \\\"uri\\\": \\\"file:///tmp/mcp-mirror-root\\\"}]}\"}]",
+          "is_error": null,
+          "handler_saw": []
+        },
+        "roots.list_changed": {
+          "tool": "roots_changes_seen",
+          "hook": "McpSyncClient.removeRoot / addRoot on the bean the starter publishes",
+          "route": "underlying",
+          "expect": "SENTINEL_ROOTS_CHANGES_SEEN",
+          "text": "[{\"text\":\"SENTINEL_ROOTS_CHANGES_SEEN 2\"}]",
+          "is_error": null,
+          "handler_saw": []
+        },
+        "capabilities": {
+          "text": "[{\"text\":\"SENTINEL_CLIENT_CAPABILITIES {\\\"elicitation\\\": {\\\"form\\\": {}, \\\"url\\\": {}}, \\\"roots\\\": {\\\"listChanged\\\": true}, \\\"sampling\\\": {}}\"}]"
+        }
+      }
+    }
+  }
+}

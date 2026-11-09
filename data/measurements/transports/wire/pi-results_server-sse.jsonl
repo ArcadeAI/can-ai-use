@@ -1,0 +1,2 @@
+{"type":"capture","seq":0,"t":"2026-10-09T21:00:38.595762+00:00","elapsed":0.000128,"format":"mcp-mirror.wire/1","recorder":"mcp-mirror 0.1.0","fixture":".mcp-mirror/fixture-2025-11-25/bin/python fixtures/results_server.py","transport":"sse","url":"http://127.0.0.1:64351/sse"}
+{"type":"end","seq":1,"t":"2026-10-09T21:00:38.935417+00:00","elapsed":0.339663,"messages":0,"sessions":0}

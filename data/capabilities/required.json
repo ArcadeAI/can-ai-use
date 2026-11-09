@@ -1,0 +1,40 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "required",
+  "title": "`required`",
+  "description": "Which parameters must be supplied for the call to be valid.",
+  "question": "Is the required parameter set present at each capture boundary?",
+  "spec": "https://json-schema.org/draft/2020-12/json-schema-validation",
+  "status": "stable",
+  "categories": [
+    "Parameter contract"
+  ],
+  "keywords": "required,required properties,parameters,contract",
+  "usage_perc_y": null,
+  "usage_perc_a": null,
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "links": [
+    {
+      "url": "https://json-schema.org/understanding-json-schema/reference/object#required",
+      "title": "JSON Schema Docs"
+    },
+    {
+      "url": "https://platform.openai.com/docs/guides/function-calling",
+      "title": "OpenAI function calling, tool schema"
+    }
+  ],
+  "known_issues": [],
+  "why": "If the required list shrank, a downstream model could omit parameters your server depends on.",
+  "shown": true,
+  "docs_url": "https://json-schema.org/understanding-json-schema/reference/object#required",
+  "docs_label": "JSON Schema Docs",
+  "summary": "Where a framework builds its schema from a model class, optional parameters are wrapped, and a constraint that stays inside the wrapper counts as present.",
+  "notes": {
+    "llamaindex": "LlamaIndex (llama-index-tools-mcp 0.6.0): `McpToolSpec` rebuilds each `inputSchema` as a Pydantic model (`create_model_from_json_schema`), and the model's JSON schema is what `ToolMetadata.to_openai_tool` hands the LLM. Top-level `required` survives, but the `required` list of every nested object is lost with its properties.",
+    "smolagents": "smolagents 1.26.0 (mcpadapt 0.1.20): mcpadapt hands smolagents only `inputSchema.properties`, so the source `required` list is lost, and `smolagents.models.get_tool_json_schema` rebuilds `required` from every property not marked `nullable`. Every optional parameter becomes required (`explain_topic.max_words`, `search_records.limit`), and smolagents rejects a call that omits one before it reaches the server.",
+    "dspy": "DSPy 3.4.0: `Tool.format_as_litellm_function_call` recomputes `required` as every property without a `default`, so optional parameters become required (for example `deliver_payload.mode` and `create_report.status`). `from_mcp_tool` reads the server's `required` only to append \" (Required)\" to `arg_desc`, which is not in the dict. `dspy.ReAct` prints `str(tool)` with no required list at all.",
+    "beeai": "BeeAI Framework 0.1.85: the strict tool schema (`use_strict_tool_schema=True`, the ChatModel default) marks every property required at every level. `create_report` gains `sections`, `config.include_summary` and each section's `body`, and the optional properties are not made nullable, so the model must invent values for them.",
+    "crewai-native": "CrewAI 1.15.26, native `crewai.mcp` client (`Agent(mcps=[...])`, not the `crewai_tools.MCPServerAdapter` row): `convert_tools_to_openai_schema` emits the strict OpenAI function schema from the Pydantic `args_schema`, which lists every property in `required` and expresses optional ones as nullable `anyOf` wrappers, so the source `required` lists are rewritten on every object.",
+    "koog": "Koog 1.3.0-beta: top-level `required` survives, nested `required` does not. The `ToolDescriptor` keeps it (`config` has `requiredProperties = [format]`, `sections.items` has `[heading]`), but the schema `OpenAILLMClient` serializes for the request leaves `required` off nested objects and array items. `McpToolRegistryProvider.fromClient` leaves `deliver_payload` out of the registry (`DefaultMcpToolDescriptorParser.parse` throws on its typeless `oneOf` and `fromClient` only logs it), so its `required` lists are lost with the whole tool."
+  }
+}

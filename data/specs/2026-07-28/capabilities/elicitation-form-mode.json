@@ -1,0 +1,34 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "elicitation-form-mode",
+  "title": "`elicitation/create` (form)",
+  "description": "A server request for structured user input, described by a restricted flat JSON Schema and answered with accept, decline or cancel.",
+  "question": "Can a server ask the user a question through this framework?",
+  "spec": "https://modelcontextprotocol.io/specification/2026-07-28",
+  "status": "stable",
+  "categories": [
+    "Client features"
+  ],
+  "keywords": "elicitation,form mode,requestedSchema,user input,accept decline cancel",
+  "why": "Elicitation is the only client feature the 2026-07-28 index still recommends, and it is what lets a tool ask for the one missing detail instead of failing. A framework without it forces every server to guess or error.",
+  "docs_url": "https://modelcontextprotocol.io/specification/2026-07-28/client/elicitation#form-mode-elicitation-requests",
+  "docs_label": "MCP Docs",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/client/elicitation#form-mode-elicitation-requests",
+      "title": "MCP Docs"
+    }
+  ],
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "known_issues": [],
+  "notes": {
+    "openai-agents": "OpenAI Agents SDK 0.23.1: at 2026-07-28 the request arrives embedded in an `InputRequiredResult`. The adapter has no elicitation hook and calls tools through the MCP SDK's default `call_tool`, so the SDK's `Server returned InputRequiredResult` error reaches the caller as an `AgentsException` and nothing is answered.",
+    "vercel_ai": "Vercel AI SDK (@ai-sdk/mcp 2.0.73): at 2026-07-28 the request arrives embedded in an `InputRequiredResult`. The client rejects any result with `resultType: \"input_required\"` (\"multi round-trip requests are not supported yet\"), so `execute` throws and nothing is answered. The registered `onElicitationRequest` handler never runs, so the probe cannot tell how it would answer. Kept `u` for that reason; `mrtr-input-required` carries the `n`.",
+    "openai_agents_js": "OpenAI Agents SDK (JS) 0.20.0 at 2026-07-28: the server answers with `input_required`, and the MCP client the SDK builds tries to fulfil it itself, but no `elicitation/create` handler is registered on it and the SDK offers no option to add one. The call fails with `Cannot fulfil input request`, which the agent hands the model as tool-error text.",
+    "agno": "Agno 3.1.2: `MCPTools` builds its fastmcp `Client` with no elicitation handler and exposes no hook to add one, so form elicitation is refused.",
+    "dspy": "DSPy 3.4.0: DSPy takes no elicitation handler. The server's request is answered only by a `elicitation_callback` registered on the caller's own `mcp.Client`, which DSPy is handed by `Tool.from_mcp_tool` and never configures. DSPy itself offers no route.",
+    "langchain4j": "LangChain4j 1.22.0-beta32: at 2026-07-28 `DefaultMcpClient` reads an `InputRequiredResult` and throws `Server sent inputRequests that the client cannot handle`, whatever is embedded. No hook answers it, so the tool call fails.",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): mcptoolset has no elicitation option. A `mcp.ClientOptions.ElicitationHandler` set on the `*mcp.Client` the caller passes as `mcptoolset.Config.Client` answers the server's request, so it works, but only by configuring go-sdk rather than the toolset."
+  },
+  "verdict": {}
+}

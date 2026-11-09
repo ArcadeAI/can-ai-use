@@ -1,0 +1,1446 @@
+{
+  "schema": "mcp-mirror/result-boundaries@2",
+  "captured_at": "2026-10-09T21:04:48Z",
+  "fixture": "fixtures/results_server.py",
+  "fixture_python": "<checkout>/.mcp-mirror/fixture-2025-11-25/bin/python",
+  "spec_version": "2025-11-25",
+  "calls": [
+    {
+      "tool": "text_content",
+      "arguments": {}
+    },
+    {
+      "tool": "image_content",
+      "arguments": {}
+    },
+    {
+      "tool": "audio_content",
+      "arguments": {}
+    },
+    {
+      "tool": "embedded_resource_content",
+      "arguments": {}
+    },
+    {
+      "tool": "resource_link_content",
+      "arguments": {}
+    },
+    {
+      "tool": "annotated_content",
+      "arguments": {}
+    },
+    {
+      "tool": "mixed_content",
+      "arguments": {}
+    },
+    {
+      "tool": "text_and_structured",
+      "arguments": {}
+    },
+    {
+      "tool": "tool_error",
+      "arguments": {}
+    }
+  ],
+  "source": {
+    "text_content": {
+      "tool": "text_content",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_TEXT_BLOCK"
+        }
+      ],
+      "block_kinds": [
+        "text"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": "SENTINEL_TEXT_BLOCK",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_TEXT_BLOCK",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "image_content": {
+      "tool": "image_content",
+      "blocks": [
+        {
+          "type": "image",
+          "data": "<96 chars>",
+          "mimeType": "image/png"
+        }
+      ],
+      "block_kinds": [
+        "image"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": null,
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "image",
+            "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==",
+            "mimeType": "image/png",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "audio_content": {
+      "tool": "audio_content",
+      "blocks": [
+        {
+          "type": "audio",
+          "data": "<60 chars>",
+          "mimeType": "audio/wav"
+        }
+      ],
+      "block_kinds": [
+        "audio"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": null,
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "audio",
+            "data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
+            "mimeType": "audio/wav",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "embedded_resource_content": {
+      "tool": "embedded_resource_content",
+      "blocks": [
+        {
+          "type": "resource",
+          "resource": {
+            "uri": "file:///fixtures/embedded.txt",
+            "mimeType": "text/plain",
+            "_meta": null,
+            "text": "SENTINEL_EMBEDDED_RESOURCE"
+          }
+        }
+      ],
+      "block_kinds": [
+        "resource"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": null,
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "resource",
+            "resource": {
+              "uri": "file:///fixtures/embedded.txt",
+              "mimeType": "text/plain",
+              "_meta": null,
+              "text": "SENTINEL_EMBEDDED_RESOURCE"
+            },
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "resource_link_content": {
+      "tool": "resource_link_content",
+      "blocks": [
+        {
+          "name": "linked.txt",
+          "uri": "file:///fixtures/linked.txt",
+          "description": "SENTINEL_RESOURCE_LINK",
+          "mimeType": "text/plain",
+          "type": "resource_link"
+        }
+      ],
+      "block_kinds": [
+        "resource_link"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": null,
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "name": "linked.txt",
+            "title": null,
+            "uri": "file:///fixtures/linked.txt",
+            "description": "SENTINEL_RESOURCE_LINK",
+            "mimeType": "text/plain",
+            "size": null,
+            "icons": null,
+            "annotations": null,
+            "_meta": null,
+            "type": "resource_link"
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "annotated_content": {
+      "tool": "annotated_content",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_ANNOTATED_TEXT",
+          "annotations": {
+            "audience": [
+              "user"
+            ],
+            "priority": 0.9
+          }
+        }
+      ],
+      "block_kinds": [
+        "text"
+      ],
+      "structured_content": null,
+      "is_error": false,
+      "text": "SENTINEL_ANNOTATED_TEXT",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_ANNOTATED_TEXT",
+            "annotations": {
+              "audience": [
+                "user"
+              ],
+              "priority": 0.9
+            },
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "mixed_content": {
+      "tool": "mixed_content",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_TEXT_BLOCK",
+          "annotations": {
+            "audience": [
+              "user"
+            ],
+            "priority": 0.9
+          }
+        },
+        {
+          "type": "image",
+          "data": "<96 chars>",
+          "mimeType": "image/png"
+        },
+        {
+          "type": "audio",
+          "data": "<60 chars>",
+          "mimeType": "audio/wav"
+        },
+        {
+          "type": "resource",
+          "resource": {
+            "uri": "file:///fixtures/embedded.txt",
+            "mimeType": "text/plain",
+            "_meta": null,
+            "text": "SENTINEL_EMBEDDED_RESOURCE"
+          }
+        },
+        {
+          "name": "linked.txt",
+          "uri": "file:///fixtures/linked.txt",
+          "description": "SENTINEL_RESOURCE_LINK",
+          "mimeType": "text/plain",
+          "type": "resource_link"
+        }
+      ],
+      "block_kinds": [
+        "text",
+        "image",
+        "audio",
+        "resource",
+        "resource_link"
+      ],
+      "structured_content": {
+        "count": 2,
+        "records": [
+          {
+            "id": "rec_1",
+            "status": "active"
+          },
+          {
+            "id": "rec_2",
+            "status": "archived"
+          }
+        ],
+        "note": "SENTINEL_STRUCTURED_CONTENT"
+      },
+      "is_error": false,
+      "text": "SENTINEL_TEXT_BLOCK",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_TEXT_BLOCK",
+            "annotations": {
+              "audience": [
+                "user"
+              ],
+              "priority": 0.9
+            },
+            "_meta": null
+          },
+          {
+            "type": "image",
+            "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==",
+            "mimeType": "image/png",
+            "annotations": null,
+            "_meta": null
+          },
+          {
+            "type": "audio",
+            "data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
+            "mimeType": "audio/wav",
+            "annotations": null,
+            "_meta": null
+          },
+          {
+            "type": "resource",
+            "resource": {
+              "uri": "file:///fixtures/embedded.txt",
+              "mimeType": "text/plain",
+              "_meta": null,
+              "text": "SENTINEL_EMBEDDED_RESOURCE"
+            },
+            "annotations": null,
+            "_meta": null
+          },
+          {
+            "name": "linked.txt",
+            "title": null,
+            "uri": "file:///fixtures/linked.txt",
+            "description": "SENTINEL_RESOURCE_LINK",
+            "mimeType": "text/plain",
+            "size": null,
+            "icons": null,
+            "annotations": null,
+            "_meta": null,
+            "type": "resource_link"
+          }
+        ],
+        "structuredContent": {
+          "count": 2,
+          "records": [
+            {
+              "id": "rec_1",
+              "status": "active"
+            },
+            {
+              "id": "rec_2",
+              "status": "archived"
+            }
+          ],
+          "note": "SENTINEL_STRUCTURED_CONTENT"
+        },
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "text_and_structured": {
+      "tool": "text_and_structured",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_TEXT_BLOCK"
+        }
+      ],
+      "block_kinds": [
+        "text"
+      ],
+      "structured_content": {
+        "count": 2,
+        "records": [
+          {
+            "id": "rec_1",
+            "status": "active"
+          },
+          {
+            "id": "rec_2",
+            "status": "archived"
+          }
+        ],
+        "note": "SENTINEL_STRUCTURED_CONTENT"
+      },
+      "is_error": false,
+      "text": "SENTINEL_TEXT_BLOCK",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_TEXT_BLOCK",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "count": 2,
+          "records": [
+            {
+              "id": "rec_1",
+              "status": "active"
+            },
+            {
+              "id": "rec_2",
+              "status": "archived"
+            }
+          ],
+          "note": "SENTINEL_STRUCTURED_CONTENT"
+        },
+        "isError": false
+      },
+      "error_channel": null
+    },
+    "tool_error": {
+      "tool": "tool_error",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "SENTINEL_TOOL_ERROR: this tool always fails"
+        }
+      ],
+      "block_kinds": [
+        "text"
+      ],
+      "structured_content": null,
+      "is_error": true,
+      "text": "SENTINEL_TOOL_ERROR: this tool always fails",
+      "origin": "source",
+      "raw": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "SENTINEL_TOOL_ERROR: this tool always fails",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": true
+      },
+      "error_channel": null
+    }
+  },
+  "frameworks": {
+    "ms_agent_framework": {
+      "ok": true,
+      "versions": {
+        "framework": "1.21.0",
+        "adapter": "1.21.0"
+      },
+      "evidence": {
+        "capture_api": "agent_framework.MCPStdioTool / MCPStreamableHTTPTool.load_tools, then FunctionTool.to_json_schema_spec inside an Agent run",
+        "capture_object": "agent_framework.FunctionTool in the options['tools'] an Agent hands its chat client",
+        "capture_stage": "framework_tool_definition",
+        "provider_request_captured": false,
+        "negotiated_mcp_spec_version": "2025-11-25",
+        "protocol_version_evidence": "protocolVersion returned by ClientSession.initialize, which MCPTool.connect calls for every session",
+        "limitation": "The chat client is scripted; the FunctionTools are captured before any provider client serializes them, so no provider request body was captured."
+      },
+      "result_boundaries": [
+        {
+          "id": "direct",
+          "label": "Tool return value",
+          "capture_api": "agent_framework.MCPTool.call_tool",
+          "capture_object": "the list[agent_framework.Content] call_tool returns",
+          "agent_path": false,
+          "limitation": null
+        },
+        {
+          "id": "agent",
+          "label": "Function result to the model",
+          "capture_api": "agent_framework.Agent.run, next chat-client request messages",
+          "capture_object": "the function_result Content in the tool message the chat client receives",
+          "agent_path": true,
+          "limitation": "The chat client is scripted; no provider client serialized the request."
+        }
+      ],
+      "reps": [
+        {
+          "name": "text_content",
+          "description": "Return one text block and nothing else.",
+          "params": {
+            "type": "object",
+            "properties": {}
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "ms_agent_framework",
+          "raw": {
+            "name": "text_content",
+            "description": "Return one text block and nothing else.",
+            "parameters": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        {
+          "name": "image_content",
+          "description": "Return one image block and nothing else.",
+          "params": {
+            "type": "object",
+            "properties": {}
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "ms_agent_framework",
+          "raw": {
+            "name": "image_content",
+            "description": "Return one image block and nothing else.",
+            "parameters": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        {
+          "name": "audio_content",
+          "description": "Return one audio block and nothing else.",
+          "params": {
+            "type": "object",
+            "properties": {}
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "ms_agent_framework",
+          "raw": {
+            "name": "audio_content",
+            "description": "Return one audio block and nothing else.",
+            "parameters": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        {
+          "name": "embedded_resource_content",
+          "description": "Return one embedded resource block and nothing else.",
+          "params": {
+            "type": "object",
+            "properties": {}
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "ms_agent_framework",
+          "raw": {
+            "name": "embedded_resource_content",
+            "description": "Return one embedded resource block and nothing else.",
+            "parameters": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        {
+          "name": "resource_link_content",
+          "description": "Return one resource_link block and nothing else.",
+          "params": {
+            "type": "object",
+            "properties": {}
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "ms_agent_framework",
+          "raw": {
+            "name": "resource_link_content",
+            "description": "Return one resource_link block and nothing else.",
+            "parameters": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        {
+          "name": "annotated_content",
+          "description": "Return one text block carrying audience and priority annotations.",
+          "params": {
+            "type": "object",
+            "properties": {}
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "ms_agent_framework",
+          "raw": {
+            "name": "annotated_content",
+            "description": "Return one text block carrying audience and priority annotations.",
+            "parameters": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        {
+          "name": "mixed_content",
+          "description": "Return one block of every kind plus structuredContent in one result.",
+          "params": {
+            "type": "object",
+            "properties": {}
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "ms_agent_framework",
+          "raw": {
+            "name": "mixed_content",
+            "description": "Return one block of every kind plus structuredContent in one result.",
+            "parameters": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        {
+          "name": "text_and_structured",
+          "description": "Return one text block plus structuredContent, with no media.",
+          "params": {
+            "type": "object",
+            "properties": {}
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "ms_agent_framework",
+          "raw": {
+            "name": "text_and_structured",
+            "description": "Return one text block plus structuredContent, with no media.",
+            "parameters": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        {
+          "name": "tool_error",
+          "description": "Always fail, reporting the failure through isError rather than a protocol error.",
+          "params": {
+            "type": "object",
+            "properties": {}
+          },
+          "annotations": {},
+          "icons": [],
+          "output_schema": null,
+          "framework_metadata": {},
+          "origin": "ms_agent_framework",
+          "raw": {
+            "name": "tool_error",
+            "description": "Always fail, reporting the failure through isError rather than a protocol error.",
+            "parameters": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        }
+      ],
+      "results": [
+        {
+          "tool": "text_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "text_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TEXT_BLOCK"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_TEXT_BLOCK",
+            "origin": "ms_agent_framework",
+            "raw": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TEXT_BLOCK",
+                "additional_properties": {}
+              }
+            ],
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "text_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "text_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_TEXT_BLOCK"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_TEXT_BLOCK",
+            "origin": "ms_agent_framework",
+            "raw": {
+              "type": "function_result",
+              "call_id": "mcp-mirror-call",
+              "result": "SENTINEL_TEXT_BLOCK",
+              "items": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_TEXT_BLOCK",
+                  "additional_properties": {}
+                }
+              ],
+              "additional_properties": {
+                "_mcp_tool_result_host_payload": {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "SENTINEL_TEXT_BLOCK"
+                    }
+                  ],
+                  "isError": false
+                }
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "image_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "image_content",
+            "blocks": [
+              {
+                "type": "image",
+                "mimeType": "image/png"
+              }
+            ],
+            "block_kinds": [
+              "image"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": null,
+            "origin": "ms_agent_framework",
+            "raw": [
+              {
+                "type": "data",
+                "uri": "<118 chars>",
+                "media_type": "image/png",
+                "additional_properties": {}
+              }
+            ],
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "image_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "image_content",
+            "blocks": [
+              {
+                "type": "image",
+                "mimeType": "image/png"
+              }
+            ],
+            "block_kinds": [
+              "image"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": null,
+            "origin": "ms_agent_framework",
+            "raw": {
+              "type": "function_result",
+              "call_id": "mcp-mirror-call",
+              "result": "",
+              "items": [
+                {
+                  "type": "data",
+                  "uri": "<118 chars>",
+                  "media_type": "image/png",
+                  "additional_properties": {}
+                }
+              ],
+              "additional_properties": {
+                "_mcp_tool_result_host_payload": {
+                  "content": [
+                    {
+                      "type": "image",
+                      "data": "<96 chars>",
+                      "mimeType": "image/png"
+                    }
+                  ],
+                  "isError": false
+                }
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "audio_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "audio_content",
+            "blocks": [
+              {
+                "type": "audio",
+                "mimeType": "audio/wav"
+              }
+            ],
+            "block_kinds": [
+              "audio"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": null,
+            "origin": "ms_agent_framework",
+            "raw": [
+              {
+                "type": "data",
+                "uri": "<82 chars>",
+                "media_type": "audio/wav",
+                "additional_properties": {}
+              }
+            ],
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "audio_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "audio_content",
+            "blocks": [
+              {
+                "type": "audio",
+                "mimeType": "audio/wav"
+              }
+            ],
+            "block_kinds": [
+              "audio"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": null,
+            "origin": "ms_agent_framework",
+            "raw": {
+              "type": "function_result",
+              "call_id": "mcp-mirror-call",
+              "result": "",
+              "items": [
+                {
+                  "type": "data",
+                  "uri": "<82 chars>",
+                  "media_type": "audio/wav",
+                  "additional_properties": {}
+                }
+              ],
+              "additional_properties": {
+                "_mcp_tool_result_host_payload": {
+                  "content": [
+                    {
+                      "type": "audio",
+                      "data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
+                      "mimeType": "audio/wav"
+                    }
+                  ],
+                  "isError": false
+                }
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "embedded_resource_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "embedded_resource_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_EMBEDDED_RESOURCE"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_EMBEDDED_RESOURCE",
+            "origin": "ms_agent_framework",
+            "raw": [
+              {
+                "type": "text",
+                "text": "SENTINEL_EMBEDDED_RESOURCE",
+                "additional_properties": {}
+              }
+            ],
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "embedded_resource_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "embedded_resource_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_EMBEDDED_RESOURCE"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_EMBEDDED_RESOURCE",
+            "origin": "ms_agent_framework",
+            "raw": {
+              "type": "function_result",
+              "call_id": "mcp-mirror-call",
+              "result": "SENTINEL_EMBEDDED_RESOURCE",
+              "items": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_EMBEDDED_RESOURCE",
+                  "additional_properties": {}
+                }
+              ],
+              "additional_properties": {
+                "_mcp_tool_result_host_payload": {
+                  "content": [
+                    {
+                      "type": "resource",
+                      "resource": {
+                        "uri": "file:///fixtures/embedded.txt",
+                        "mimeType": "text/plain",
+                        "text": "SENTINEL_EMBEDDED_RESOURCE"
+                      }
+                    }
+                  ],
+                  "isError": false
+                }
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "resource_link_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "resource_link_content",
+            "blocks": [
+              {
+                "type": "uri",
+                "uri": "file:///fixtures/linked.txt",
+                "mimeType": "text/plain"
+              }
+            ],
+            "block_kinds": [
+              "uri"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": null,
+            "origin": "ms_agent_framework",
+            "raw": [
+              {
+                "type": "uri",
+                "uri": "file:///fixtures/linked.txt",
+                "media_type": "text/plain",
+                "additional_properties": {}
+              }
+            ],
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "resource_link_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "resource_link_content",
+            "blocks": [
+              {
+                "type": "uri",
+                "uri": "file:///fixtures/linked.txt",
+                "mimeType": "text/plain"
+              }
+            ],
+            "block_kinds": [
+              "uri"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": null,
+            "origin": "ms_agent_framework",
+            "raw": {
+              "type": "function_result",
+              "call_id": "mcp-mirror-call",
+              "result": "",
+              "items": [
+                {
+                  "type": "uri",
+                  "uri": "file:///fixtures/linked.txt",
+                  "media_type": "text/plain",
+                  "additional_properties": {}
+                }
+              ],
+              "additional_properties": {
+                "_mcp_tool_result_host_payload": {
+                  "content": [
+                    {
+                      "name": "linked.txt",
+                      "uri": "file:///fixtures/linked.txt",
+                      "description": "SENTINEL_RESOURCE_LINK",
+                      "mimeType": "text/plain",
+                      "type": "resource_link"
+                    }
+                  ],
+                  "isError": false
+                }
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "annotated_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "annotated_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ANNOTATED_TEXT"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ANNOTATED_TEXT",
+            "origin": "ms_agent_framework",
+            "raw": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ANNOTATED_TEXT",
+                "additional_properties": {}
+              }
+            ],
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "annotated_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "annotated_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ANNOTATED_TEXT"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "SENTINEL_ANNOTATED_TEXT",
+            "origin": "ms_agent_framework",
+            "raw": {
+              "type": "function_result",
+              "call_id": "mcp-mirror-call",
+              "result": "SENTINEL_ANNOTATED_TEXT",
+              "items": [
+                {
+                  "type": "text",
+                  "text": "SENTINEL_ANNOTATED_TEXT",
+                  "additional_properties": {}
+                }
+              ],
+              "additional_properties": {
+                "_mcp_tool_result_host_payload": {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "SENTINEL_ANNOTATED_TEXT",
+                      "annotations": {
+                        "audience": [
+                          "user"
+                        ],
+                        "priority": 0.9
+                      }
+                    }
+                  ],
+                  "isError": false
+                }
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "mixed_content",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "mixed_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "{\"count\": 2, \"records\": [{\"id\": \"rec_1\", \"status\": \"active\"}, {\"id\": \"rec_2\", \"status\": \"archived\"}], \"note\": \"SENTINEL_STRUCTURED_CONTENT\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"count\": 2, \"records\": [{\"id\": \"rec_1\", \"status\": \"active\"}, {\"id\": \"rec_2\", \"status\": \"archived\"}], \"note\": \"SENTINEL_STRUCTURED_CONTENT\"}",
+            "origin": "ms_agent_framework",
+            "raw": [
+              {
+                "type": "text",
+                "text": "{\"count\": 2, \"records\": [{\"id\": \"rec_1\", \"status\": \"active\"}, {\"id\": \"rec_2\", \"status\": \"archived\"}], \"note\": \"SENTINEL_STRUCTURED_CONTENT\"}",
+                "additional_properties": {}
+              }
+            ],
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "mixed_content",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "mixed_content",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "{\"count\": 2, \"records\": [{\"id\": \"rec_1\", \"status\": \"active\"}, {\"id\": \"rec_2\", \"status\": \"archived\"}], \"note\": \"SENTINEL_STRUCTURED_CONTENT\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"count\": 2, \"records\": [{\"id\": \"rec_1\", \"status\": \"active\"}, {\"id\": \"rec_2\", \"status\": \"archived\"}], \"note\": \"SENTINEL_STRUCTURED_CONTENT\"}",
+            "origin": "ms_agent_framework",
+            "raw": {
+              "type": "function_result",
+              "call_id": "mcp-mirror-call",
+              "result": "{\"count\": 2, \"records\": [{\"id\": \"rec_1\", \"status\": \"active\"}, {\"id\": \"rec_2\", \"status\": \"archived\"}], \"note\": \"SENTINEL_STRUCTURED_CONTENT\"}",
+              "items": [
+                {
+                  "type": "text",
+                  "text": "{\"count\": 2, \"records\": [{\"id\": \"rec_1\", \"status\": \"active\"}, {\"id\": \"rec_2\", \"status\": \"archived\"}], \"note\": \"SENTINEL_STRUCTURED_CONTENT\"}",
+                  "additional_properties": {}
+                }
+              ],
+              "additional_properties": {
+                "_mcp_tool_result_host_payload": {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "SENTINEL_TEXT_BLOCK",
+                      "annotations": {
+                        "audience": [
+                          "user"
+                        ],
+                        "priority": 0.9
+                      }
+                    },
+                    {
+                      "type": "image",
+                      "data": "<96 chars>",
+                      "mimeType": "image/png"
+                    },
+                    {
+                      "type": "audio",
+                      "data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
+                      "mimeType": "audio/wav"
+                    },
+                    {
+                      "type": "resource",
+                      "resource": {
+                        "uri": "file:///fixtures/embedded.txt",
+                        "mimeType": "text/plain",
+                        "text": "SENTINEL_EMBEDDED_RESOURCE"
+                      }
+                    },
+                    {
+                      "name": "linked.txt",
+                      "uri": "file:///fixtures/linked.txt",
+                      "description": "SENTINEL_RESOURCE_LINK",
+                      "mimeType": "text/plain",
+                      "type": "resource_link"
+                    }
+                  ],
+                  "structuredContent": {
+                    "count": 2,
+                    "records": [
+                      {
+                        "id": "rec_1",
+                        "status": "active"
+                      },
+                      {
+                        "id": "rec_2",
+                        "status": "archived"
+                      }
+                    ],
+                    "note": "SENTINEL_STRUCTURED_CONTENT"
+                  },
+                  "isError": false
+                }
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "text_and_structured",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "text_and_structured",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "{\"count\": 2, \"records\": [{\"id\": \"rec_1\", \"status\": \"active\"}, {\"id\": \"rec_2\", \"status\": \"archived\"}], \"note\": \"SENTINEL_STRUCTURED_CONTENT\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"count\": 2, \"records\": [{\"id\": \"rec_1\", \"status\": \"active\"}, {\"id\": \"rec_2\", \"status\": \"archived\"}], \"note\": \"SENTINEL_STRUCTURED_CONTENT\"}",
+            "origin": "ms_agent_framework",
+            "raw": [
+              {
+                "type": "text",
+                "text": "{\"count\": 2, \"records\": [{\"id\": \"rec_1\", \"status\": \"active\"}, {\"id\": \"rec_2\", \"status\": \"archived\"}], \"note\": \"SENTINEL_STRUCTURED_CONTENT\"}",
+                "additional_properties": {}
+              }
+            ],
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "text_and_structured",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "text_and_structured",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "{\"count\": 2, \"records\": [{\"id\": \"rec_1\", \"status\": \"active\"}, {\"id\": \"rec_2\", \"status\": \"archived\"}], \"note\": \"SENTINEL_STRUCTURED_CONTENT\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": null,
+            "text": "{\"count\": 2, \"records\": [{\"id\": \"rec_1\", \"status\": \"active\"}, {\"id\": \"rec_2\", \"status\": \"archived\"}], \"note\": \"SENTINEL_STRUCTURED_CONTENT\"}",
+            "origin": "ms_agent_framework",
+            "raw": {
+              "type": "function_result",
+              "call_id": "mcp-mirror-call",
+              "result": "{\"count\": 2, \"records\": [{\"id\": \"rec_1\", \"status\": \"active\"}, {\"id\": \"rec_2\", \"status\": \"archived\"}], \"note\": \"SENTINEL_STRUCTURED_CONTENT\"}",
+              "items": [
+                {
+                  "type": "text",
+                  "text": "{\"count\": 2, \"records\": [{\"id\": \"rec_1\", \"status\": \"active\"}, {\"id\": \"rec_2\", \"status\": \"archived\"}], \"note\": \"SENTINEL_STRUCTURED_CONTENT\"}",
+                  "additional_properties": {}
+                }
+              ],
+              "additional_properties": {
+                "_mcp_tool_result_host_payload": {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "SENTINEL_TEXT_BLOCK"
+                    }
+                  ],
+                  "structuredContent": {
+                    "count": 2,
+                    "records": [
+                      {
+                        "id": "rec_1",
+                        "status": "active"
+                      },
+                      {
+                        "id": "rec_2",
+                        "status": "archived"
+                      }
+                    ],
+                    "note": "SENTINEL_STRUCTURED_CONTENT"
+                  },
+                  "isError": false
+                }
+              }
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "tool_error",
+          "boundary": "direct",
+          "ok": true,
+          "rep": {
+            "tool": "tool_error",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "ToolExecutionException: SENTINEL_TOOL_ERROR: this tool always fails",
+            "origin": "ms_agent_framework",
+            "raw": "ToolExecutionException('SENTINEL_TOOL_ERROR: this tool always fails')",
+            "error_channel": "exception"
+          }
+        },
+        {
+          "tool": "tool_error",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "tool_error",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "Error: Function failed."
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": true,
+            "text": "Error: Function failed.",
+            "origin": "ms_agent_framework",
+            "raw": {
+              "type": "function_result",
+              "call_id": "mcp-mirror-call",
+              "exception": "FunctionInvocationError",
+              "result": "Error: Function failed.",
+              "items": [
+                {
+                  "type": "text",
+                  "text": "Error: Function failed.",
+                  "additional_properties": {}
+                }
+              ],
+              "additional_properties": {
+                "_mcp_tool_result_host_payload": {
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "SENTINEL_TOOL_ERROR: this tool always fails"
+                    }
+                  ],
+                  "isError": true
+                }
+              }
+            },
+            "error_channel": "exception"
+          }
+        }
+      ]
+    }
+  }
+}

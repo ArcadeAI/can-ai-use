@@ -1,0 +1,82 @@
+{
+  "schema": "mcp-mirror/client-probe@1",
+  "captured_at": "2026-10-09T21:10:28Z",
+  "fixture": "fixtures/client_features_server.py",
+  "fixture_python": "<checkout>/.mcp-mirror/fixture-2026-07-28/bin/python",
+  "spec_version": "2026-07-28",
+  "frameworks": {
+    "copilot_sdk": {
+      "ok": true,
+      "versions": {
+        "framework": "1.0.19",
+        "adapter": "Copilot runtime 1.0.95, node v24.21.0"
+      },
+      "negotiated_mcp_spec_version": "2026-07-28",
+      "client_probe": {
+        "sampling": {
+          "tool": "ask_sampling",
+          "hook": "the sampling.requested event (CopilotSession.rpc.mcp.executeSampling)",
+          "route": "adapter",
+          "expect": "SENTINEL_SAMPLED",
+          "text": "SENTINEL_CLIENT_ANSWERED ask_sampling: {\"content\": {\"text\": \"The user cancelled the request.\", \"type\": \"text\"}, \"model\": \"\", \"role\": \"user\", \"stopReason\": \"cancelled\"}\n\n{\"answered\":\"ask_sampling\",\"response\":{\"role\":\"user\",\"content\":{\"type\":\"text\",\"text\":\"The user cancelled the request.\"},\"model\":\"\",\"stopReason\":\"cancelled\"}}",
+          "is_error": null,
+          "handler_saw": []
+        },
+        "sampling.tools": {
+          "tool": "ask_sampling_tools",
+          "hook": "the sampling.requested event (CopilotSession.rpc.mcp.executeSampling)",
+          "route": "adapter",
+          "expect": "SENTINEL_SAMPLED_AFTER_TOOL",
+          "text": "SENTINEL_CLIENT_ANSWERED ask_sampling_tools: {\"content\": {\"text\": \"The user cancelled the request.\", \"type\": \"text\"}, \"model\": \"\", \"role\": \"user\", \"stopReason\": \"cancelled\"}\n\n{\"answered\":\"ask_sampling_tools\",\"response\":{\"role\":\"user\",\"content\":{\"type\":\"text\",\"text\":\"The user cancelled the request.\"},\"model\":\"\",\"stopReason\":\"cancelled\"}}",
+          "is_error": null,
+          "handler_saw": []
+        },
+        "elicitation.form": {
+          "tool": "ask_elicitation_form",
+          "hook": "SessionConfig.onElicitationRequest",
+          "route": "adapter",
+          "expect": "SENTINEL_ELICITED",
+          "text": "SENTINEL_CLIENT_ANSWERED ask_elicitation_form: {\"action\": \"accept\", \"content\": {\"name\": \"SENTINEL_ELICITED\"}}\n\n{\"answered\":\"ask_elicitation_form\",\"response\":{\"action\":\"accept\",\"content\":{\"name\":\"SENTINEL_ELICITED\"}}}",
+          "is_error": null,
+          "handler_saw": [
+            {
+              "hook": "onElicitationRequest",
+              "mode": "form",
+              "source": "src"
+            }
+          ]
+        },
+        "elicitation.url": {
+          "tool": "ask_elicitation_url",
+          "hook": "SessionConfig.onElicitationRequest",
+          "route": "adapter",
+          "expect": "\"action\": \"accept\"",
+          "text": "MCP server 'src': MCP request failed: expected CallToolResult from tools/call, got CustomResult(CustomResult(Object {\"inputRequests\": Object {\"ask_elicitation_url\": Object {\"method\": String(\"elicitation/create\"), \"params\": Object {\"message\": String(\"SENTINEL_ELICIT_URL: finish signing in at the link.\"), \"mode\": String(\"url\"), \"url\": String(\"https://example.com/fixtures/elicit\")}}}, \"resultType\": String(\"input_required\"), \"_meta\": Object {\"io.modelcontextprotocol/serverInfo\": Object {\"name\": String(\"client-features-mcp\"), \"version\": String(\"\")}}}))",
+          "is_error": null,
+          "handler_saw": []
+        },
+        "roots.list": {
+          "tool": "list_client_roots",
+          "hook": null,
+          "route": null,
+          "expect": "file:///tmp/mcp-mirror-root",
+          "text": "MCP server 'src': MCP request failed: tools/call requested unsupported input method: roots/list",
+          "is_error": null,
+          "handler_saw": []
+        },
+        "roots.list_changed": {
+          "tool": "roots_changes_seen",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_ROOTS_CHANGES_SEEN",
+          "text": "SENTINEL_ROOTS_CHANGES_SEEN 0\n\n{\"seen\":0}",
+          "is_error": null,
+          "handler_saw": []
+        },
+        "capabilities": {
+          "text": "SENTINEL_CLIENT_CAPABILITIES {\"elicitation\": {\"form\": {}, \"url\": {}}, \"sampling\": {}}\n\n{\"sampling\":{},\"elicitation\":{\"form\":{},\"url\":{}}}"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "progress-notifications",
+  "title": "`notifications/progress`",
+  "description": "Server-pushed progress updates for a request that opted in by supplying a progress token, reporting a monotonically increasing value with an optional total and message.",
+  "question": "Can the agent observe progress on a long-running call?",
+  "spec": "https://modelcontextprotocol.io/specification/2025-11-25",
+  "status": "stable",
+  "categories": [
+    "Base protocol"
+  ],
+  "keywords": "progress,progressToken,long running,notifications/progress",
+  "why": "Without it every slow tool is indistinguishable from a hung one, and the only tuning available is the timeout. The client has to send the token first, so this is a capability the framework must actively opt into.",
+  "docs_url": "https://modelcontextprotocol.io/specification/2025-11-25/basic/patterns/progress#progress-flow",
+  "docs_label": "MCP Docs",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/basic/patterns/progress#progress-flow",
+      "title": "MCP Docs"
+    }
+  ],
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "known_issues": [],
+  "notes": {
+    "crewai": "CrewAI 1.15.26: `MCPServerAdapter` calls `session.call_tool` without a progress callback, so no `progressToken` goes out and the server has nothing to report progress against.",
+    "genkit_js": "Genkit (JS) 1.42.0: the tool action calls `callTool` without `onprogress`, so the caller never sees progress through Genkit; `callTool(params, undefined, { onprogress })` on the SDK client delivers all five. @genkit-ai/mcp has no API for it and registers no notification handler; it works only on the SDK `Client` that the public getter `GenkitMcpClient.mcpClient` hands out (route `session`).",
+    "openai-agents": "OpenAI Agents SDK 0.23.1: `invoke_mcp_tool` sends no `progressToken`. Progress works only if the caller passes one by hand, as `call_tool(..., meta={\"progressToken\": ...})`, and reads the notifications from `message_handler`. No progress callback exists.",
+    "ms_agent_framework": "Microsoft Agent Framework 1.21.0: `MCPTool.call_tool` sends no `progressToken` and has no progress callback. Progress works only through `MCPTool.session.call_tool(..., progress_callback=...)` on the raw SDK session.",
+    "autogen": "AutoGen 0.7.5: `McpWorkbench.call_tool` takes no progress callback and sends no `progressToken`.",
+    "vercel_ai": "Vercel AI SDK (@ai-sdk/mcp 2.0.73): `RequestOptions` takes only `signal`, `timeout` and `maxTotalTimeout`, so `tools/call` carries no `_meta.progressToken` and the server sends no progress.",
+    "openai_agents_js": "OpenAI Agents SDK (JS) 0.20.0: a `progressToken` can be sent through the documented `toolMetaResolver` option, and the server then sends progress, but no SDK hook receives `notifications/progress`, so the caller sees none of it.",
+    "semantic_kernel": "Semantic Kernel 1.45.0: `call_tool` passes no progress callback and the plugin takes none, so no progressToken is sent.",
+    "google_adk_js": "Google ADK (TypeScript) 2.2.1: reachable only on a raw `@modelcontextprotocol/sdk` `Client` from `MCPSessionManager.createSession()`, a public export of `@google/adk/tools/mcp`, by passing `onprogress` to `callTool`. `MCPTool.runAsync` calls `callTool(params, undefined, { signal })` with no `onprogress`, so an agent's tool call never sends a progress token.",
+    "agno": "Agno 3.1.2: the fastmcp `Client` sends a `progressToken`, but `MCPTools` takes no progress handler and builds its client without one, so the server's progress notifications reach no caller.",
+    "haystack": "Haystack (mcp-haystack 1.5.2): `MCPClient.call_tool` passes no progress callback and `MCPToolset` takes none, so the call carries no `_meta.progressToken` and the server sends no progress.",
+    "smolagents": "smolagents 1.26.0 (mcpadapt 0.1.20): `MCPClient` takes no progress callback and mcpadapt calls `session.call_tool` without one, so no `progressToken` goes out and the server has nothing to report progress against.",
+    "dspy": "DSPy 3.4.0: the `Tool` that `from_mcp_tool` builds calls `session.call_tool(name, arguments=kwargs)` with no `progress_callback` and takes none, so no `progressToken` is sent and the server sends no progress.",
+    "beeai": "BeeAI Framework 0.1.85: `MCPTool._run` calls `session.call_tool(name, arguments)` with no `progress_callback` and takes none, so no progress token is sent and the server reports no progress.",
+    "crewai-native": "CrewAI 1.15.26, native `crewai.mcp` client (`Agent(mcps=[...])`, not the `crewai_tools.MCPServerAdapter` row): `MCPClient.call_tool` sends no `progressToken` and takes no progress callback, so the server sends no progress.",
+    "google_adk_java": "Google ADK (Java) 1.11.0: `McpSessionManager` builds the `McpSyncClient` with empty client capabilities and no `progressConsumer`, and neither `McpToolset` nor `McpTool` takes one, so `McpTool.runAsync` sends no `progressToken` and no progress reaches the caller.",
+    "koog": "Koog 1.3.0-beta: no route. `McpTool.execute` calls `Client.callTool(name, arguments)` with no `RequestOptions.onProgress`, so no `progressToken` is sent, and `McpToolRegistryProvider` takes no progress callback.",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): `mcpTool.Run` calls `CallTool` with `Name` and `Arguments` only, so `tools/call` carries no `_meta.progressToken` and the server sends no progress. A `ProgressNotificationHandler` on the caller's `*mcp.Client` never fires."
+  }
+}

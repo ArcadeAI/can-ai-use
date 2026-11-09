@@ -1,0 +1,34 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "one-of-any-of",
+  "title": "`oneOf` / `anyOf`",
+  "description": "A parameter that accepts one of several shapes, using JSON Schema 2020-12 combinators.",
+  "question": "Do both union combinators survive to each capture boundary?",
+  "spec": "https://json-schema.org/draft/2020-12/json-schema-validation",
+  "status": "stable",
+  "categories": [
+    "Structure"
+  ],
+  "keywords": "oneOf,anyOf,one of,any of,union,combinator,2020-12",
+  "usage_perc_y": null,
+  "usage_perc_a": null,
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "links": [
+    {
+      "url": "https://json-schema.org/understanding-json-schema/reference/combining",
+      "title": "JSON Schema Docs"
+    },
+    {
+      "url": "https://platform.openai.com/docs/guides/function-calling",
+      "title": "OpenAI function calling, tool schema"
+    }
+  ],
+  "known_issues": [],
+  "why": "Collapse would silently narrow what the agent is able to express.",
+  "shown": true,
+  "docs_url": "https://json-schema.org/understanding-json-schema/reference/combining",
+  "docs_label": "JSON Schema Docs",
+  "notes": {
+    "langchain4j": "LangChain4j 1.22.0-beta32: `McpToolProvider` maps each `inputSchema` into LangChain4j's own `JsonSchemaElement` model (`JsonObjectSchema`, `JsonStringSchema`, `JsonIntegerSchema`, ...), and the `ToolSpecification` AiServices hands the `ChatModel` is built from that model. `anyOf` maps to `JsonAnyOfSchema` and survives. The model has no `oneOf`, so `deliver_payload.mode` becomes an empty `{\"type\": \"object\", \"properties\": {}}` and its alternatives are lost."
+  }
+}

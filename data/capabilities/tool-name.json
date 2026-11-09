@@ -1,0 +1,44 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "tool-name",
+  "title": "`name`",
+  "description": "The identifier a downstream consumer uses to invoke the tool.",
+  "question": "Is the tool name unchanged at each capture boundary?",
+  "spec": "https://modelcontextprotocol.io/specification",
+  "status": "stable",
+  "categories": [
+    "Identity and text"
+  ],
+  "keywords": "name,tool name,namespace,prefix,identifier",
+  "usage_perc_y": null,
+  "usage_perc_a": null,
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/server/tools#tool-names",
+      "title": "MCP Docs"
+    },
+    {
+      "url": "https://platform.openai.com/docs/guides/function-calling",
+      "title": "OpenAI function calling, tool schema"
+    }
+  ],
+  "known_issues": [
+    "A prefixed name changes between server configurations, so a hard coded allowlist can silently stop matching."
+  ],
+  "why": "Name based routing, allowlists, and eval fixtures that match exact tool names break under prefixing.",
+  "shown": true,
+  "docs_url": "https://modelcontextprotocol.io/specification/2025-11-25/server/tools#tool-names",
+  "docs_label": "MCP Docs",
+  "notes": {
+    "mastra": "Mastra 2.2.0: captured tool actions are namespaced as `<serverKey>_<toolName>`, so `delete_account` becomes `src_delete_account`.",
+    "semantic_kernel": "Semantic Kernel 1.45.0: the OpenAI request names each function `<plugin>-<tool>` (here `mcp-search_records`), the kernel's fully qualified name. The MCP name survives after the prefix.",
+    "langchain_js": "LangChain.js (@langchain/mcp-adapters 2.0.1): `MCPAdapter` names every tool `<server>_<tool>` (one underscore since 2.0.1, two before), so the model sees `src_search_records` for the server's `search_records`. The prefix is the server key in `servers` and is on by default; the per-server `prefixToolNameWithServerName: false` option, which was not measured, removes it.",
+    "copilot_sdk": "GitHub Copilot SDK 1.0.19 (Copilot runtime 1.0.95): tools reach the model as `<server>-<tool>`, here `src-search_records`. The prefix is the key the host gives the server in `SessionConfig.mcpServers`.",
+    "crewai-native": "CrewAI 1.15.26, native `crewai.mcp` client (`Agent(mcps=[...])`, not the `crewai_tools.MCPServerAdapter` row): `MCPToolResolver` names a stdio tool `<command>_<args joined by _>_<tool>` and an HTTP or SSE tool `<host>_<port>_<path>_<tool>`, passed through `sanitize_tool_name`, and `MCPServerStdio`/`MCPServerHTTP`/`MCPServerSSE` have no name or prefix option. Measured with the relative launch `python fixtures/tricky_server.py`, `search_records` becomes `python_fixtures_tricky_server_py_search_records`. When the prefix pushes a name past 64 characters it is truncated and an 8-character hash appended, so an absolute launch path can hide the MCP tool name entirely.",
+    "koog": "Koog 1.3.0-beta: names pass through unchanged, but `deliver_payload` never reaches the model. `McpToolRegistryProvider.fromClient` catches any `Throwable` from `DefaultMcpToolDescriptorParser.parse` and only logs it, so a tool it cannot parse is left out of the `ToolRegistry`. Its `mode` property is a `oneOf` of `const`s with no `type`, and the parser throws `IllegalArgumentException: Parameter Delivery mode. must have type property.` (the message uses the property's description where its name belongs). Only a log line records the loss."
+  },
+  "verdict": {
+    "detail": "Prefixing is a transformation rather than a loss, but it changes the exact invocation identifier."
+  }
+}

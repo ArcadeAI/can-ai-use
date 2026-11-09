@@ -1,0 +1,10 @@
+{
+  "name": "mcp-mirror-pi-worker",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "description": "Node worker that drives Pi's real MCP client (@earendil-works/pi-mcp McpClient, StdioTransport, StreamableHttpTransport) so mcp-mirror can capture what the client hands its caller. Run `npm ci` here to enable the pi renderer.",
+  "dependencies": {
+    "@earendil-works/pi-mcp": "1.1.0"
+  }
+}

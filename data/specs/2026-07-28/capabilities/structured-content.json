@@ -1,0 +1,37 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "structured-content",
+  "title": "`structuredContent`",
+  "description": "A JSON result value returned alongside `content`, conforming to the tool's `outputSchema` when one is declared.",
+  "question": "Does the agent receive the structured value, or only its text rendering?",
+  "spec": "https://modelcontextprotocol.io/specification/2026-07-28",
+  "status": "stable",
+  "categories": [
+    "Tool results"
+  ],
+  "keywords": "structuredContent,structured content,json result,typed result",
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/server/tools#structured-content",
+      "title": "MCP Docs"
+    }
+  ],
+  "known_issues": [],
+  "why": "The spec asks servers to mirror structured results into a text block for backwards compatibility. That mirror makes a dropped `structuredContent` invisible: the call still looks successful, and typed data quietly becomes a string the model has to re-parse.",
+  "shown": true,
+  "docs_url": "https://modelcontextprotocol.io/specification/2026-07-28/server/tools#structured-content",
+  "docs_label": "MCP Docs",
+  "notes": {
+    "openai-agents": "OpenAI Agents SDK 0.23.1: `structuredContent` is used only when the server object sets `use_structured_content`, which is off by default. With the default the typed value is dropped and only the text mirror reaches the agent.",
+    "pydantic-ai": "Pydantic AI 2.54.0: `structuredContent` is returned only when every content part is text. A result that also carries an image or audio block loses the typed value entirely.",
+    "vercel_ai": "Vercel AI SDK (@ai-sdk/mcp 2.0.73): execute resolves with the CallToolResult including structuredContent. toModelOutput maps only the `content` list, so the model gets the text blocks and never the typed value. Boundary-dependent: kept at execute, dropped at model_output. With a caller-supplied outputSchema (the `schemas` option), execute returns the validated structuredContent instead; that path was not measured.",
+    "openai_agents_js": "OpenAI Agents SDK (JS) 0.20.0: `MCPServer.callTool` keeps `structuredContent` on the returned array, but the model never receives it by default: the agent hands over the content blocks. With the non-default `useStructuredContent: true` it hands over `JSON.stringify(structuredContent)` as text instead, which is not the typed value either.",
+    "agno": "Agno 3.1.2: boundary-dependent. The `ToolResult` the Function entrypoint returns keeps `structuredContent` in `metadata['structured_content']`; the tool `Message` the next model turn receives carries the text content only, so the model never gets the structured value.",
+    "dspy": "DSPy 3.4.0: with the default `result_mode=\"text\"`, `_convert_mcp_tool_result` returns the text blocks only, so `structuredContent` reaches neither the caller nor a `dspy.ReAct` observation. The documented non-default `from_mcp_tool(..., result_mode=\"structured\")` returns `structuredContent` alone and drops the text.",
+    "langchain_js": "LangChain.js (@langchain/mcp-adapters 2.0.1): the tool is `content_and_artifact`. `structuredContent` goes into the artifact as `mcp_structured_content`, which LangChain keeps app-side; the `ToolMessage` content the model reads, and the `tool.invoke` value, hold only the text mirror.",
+    "copilot_sdk": "GitHub Copilot SDK 1.0.19 (Copilot runtime 1.0.95): depends on the boundary. `agent`: `structuredContent` is serialised as JSON and appended to the text in the `tool` message (`SENTINEL_TEXT_BLOCK\\n\\n{\"count\":2,...}`); no structured value reaches the provider. `direct`: `session.rpc.tools.execute` returns `structuredContent` as an object.",
+    "langchain4j": "LangChain4j 1.22.0-beta32: when a result has `structuredContent`, `McpToolExecutor` returns it as `ToolExecutionResult.result()` and sets `resultText` to its Jackson re-serialization. The direct executor therefore yields the structured value (direct: `y`), while the agent's `ToolExecutionResultMessage` carries only that JSON string (agent: `n`)."
+  },
+  "summary": "structuredContent is the typed value; the text content beside it is a mirror meant for humans. An adapter that hands the agent only the mirror drops the typed value."
+}

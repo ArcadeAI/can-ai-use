@@ -1,0 +1,93 @@
+{
+  "schema": "mcp-mirror/protocol-attempts@1",
+  "run_date": "2026-09-29",
+  "mcp_spec": "2026-07-28",
+  "measured_report": "report.json",
+  "attempts": {
+    "autogen": {
+      "framework_version": "0.7.5",
+      "status": "sdk_incompatible",
+      "evidence": "autogen-ext 0.7.5 declares mcp>=1.11.0 with no upper bound, so mcp==2.0.0 resolves, but `uv run --isolated --no-project -p 3.11 --with 'autogen-ext[mcp]==0.7.5' --with mcp==2.0.0 python -c 'import autogen_ext.tools.mcp'` fails in autogen_ext/tools/mcp/_actor.py line 23: ImportError: cannot import name 'RequestContext' from 'mcp.shared.context'. No McpWorkbench can be constructed, so no 2026-07-28 session is reachable."
+    },
+    "beeai": {
+      "framework_version": "0.1.85",
+      "status": "protocol_mismatch",
+      "evidence": "mcp-mirror scan --runner managed --frameworks beeai --spec-version 2026-07-28 (beeai-framework 0.1.85, mcp 1.30.0) exited 3: the direct source connection negotiated 2026-07-28, while the ClientSession.initialize that MCPTool.from_client's MCPSessionProvider calls returned protocolVersion 2025-11-25. beeai-framework[mcp] 0.1.85 requires mcp>=1.30.0,<2.0.0, and MCPSessionProvider opens every session with the legacy initialize handshake, so the adapter cannot reach a 2026-07-28 session."
+    },
+    "crewai": {
+      "framework_version": "1.15.26",
+      "status": "sdk_incompatible",
+      "evidence": "crewai-tools 1.15.26 depends on crewai 1.15.26, which requires mcp>=1.28.1,<1.29; `uv pip compile` of crewai-tools[mcp]==1.15.26 with mcp==2.0.0 (Python 3.11) fails: crewai-tools[mcp]==1.15.26 depends on mcp>=1.28.1,<2."
+    },
+    "crewai-native": {
+      "framework_version": "1.15.26",
+      "status": "sdk_incompatible",
+      "evidence": "`uv pip compile` of crewai==1.15.26 with mcp==2.0.0 (Python 3.11) fails: crewai==1.15.26 depends on mcp>=1.28.1,<1.29.dev0, so the requirements are unsatisfiable. crewai.mcp.MCPClient is built on that SDK's ClientSession, so no 2026-07-28 session is reachable."
+    },
+    "google_adk": {
+      "framework_version": "2.11.0",
+      "status": "protocol_mismatch",
+      "evidence": "mcp-mirror scan --runner managed --frameworks google_adk --spec-version 2026-07-28 (google-adk[mcp] 2.11.0, mcp 2.0.0) exited 3: the direct source connection negotiated 2026-07-28 through server/discover, while McpToolset's ClientSession.initialize returned protocolVersion 2025-11-25. By default ADK's MCPSessionManager opens every session with the legacy initialize handshake, so the adapter cannot reach a 2026-07-28 session. With the documented opt-in ADK_ENABLE_MCP_MODERN_PROTOCOL=1, 2.11.0 calls the SDK's negotiate_auto instead: the client sent server/discover, negotiated 2026-07-28, and reached tools/list on stdio and HTTP (data/specs/2026-07-28/measurements/opt-in/google_adk-modern-protocol/protocol/google_adk/stdio-00.jsonl, http.jsonl). The renderer reads the adopted version from ClientSession.adopt, which both the default initialize handshake and negotiate_auto end in, so the opt-in scan completes (data/specs/2026-07-28/measurements/opt-in/google_adk-modern-protocol/scan.json: status measured, negotiated 2026-07-28 through server/discover). No cell comes from the opt-in run; the default handshake still decides the row."
+    },
+    "haystack": {
+      "framework_version": "1.5.2",
+      "status": "protocol_mismatch",
+      "evidence": "mcp-mirror scan --runner managed --frameworks haystack --spec-version 2026-07-28 (mcp-haystack 1.5.2, haystack-ai 3.2.0, mcp 2.2.0) exited 3: the direct source connection negotiated 2026-07-28 through server/discover, while MCPToolset's ClientSession.initialize returned protocolVersion 2025-11-25. MCPClient._initialize_session_with_transport opens every session with the legacy initialize handshake and never calls discover, so the adapter cannot reach a 2026-07-28 session."
+    },
+    "langchain": {
+      "framework_version": "0.3.2",
+      "status": "sdk_incompatible",
+      "evidence": "langchain-mcp-adapters 0.3.2 requires mcp>=1.24.0,<2.0.0; dependency resolution with mcp==2.0.0 failed."
+    },
+    "llamaindex": {
+      "framework_version": "0.6.0",
+      "status": "protocol_mismatch",
+      "evidence": "mcp-mirror scan --runner managed --frameworks llamaindex --spec-version 2026-07-28 (llama-index-tools-mcp 0.6.0, mcp 2.0.0) exited 3: the direct source connection negotiated 2026-07-28 through server/discover, while BasicMCPClient's ClientSession.initialize returned protocolVersion 2025-11-25. BasicMCPClient._run_session opens every session with the legacy initialize handshake and never calls discover, and in every mcp 2.x release initialize() offers only handshake-era versions, so the adapter cannot reach a 2026-07-28 session."
+    },
+    "ms_agent_framework": {
+      "framework_version": "1.21.0",
+      "status": "protocol_mismatch",
+      "evidence": "mcp-mirror scan --runner managed --frameworks ms_agent_framework --spec-version 2026-07-28 (agent-framework-core 1.21.0, mcp 1.30.0) exited 3: the direct source connection negotiated 2026-07-28 through server/discover, while the ClientSession.initialize inside MCPTool.connect returned protocolVersion 2025-11-25. agent-framework-core declares mcp>=1.24.0,<2 for its MCP support (through the `all` extra), and mcp 1.30.0's LATEST_PROTOCOL_VERSION is 2025-11-25, so the adapter cannot reach a 2026-07-28 session."
+    },
+    "pi": {
+      "framework_version": "1.1.0",
+      "status": "protocol_mismatch",
+      "evidence": "mcp-mirror scan --runner managed --frameworks pi --spec-version 2026-07-28 --fail-on-incomplete (@earendil-works/pi-mcp 1.1.0, Node 24) exited 3: the direct source connection negotiated 2026-07-28 through server/discover, while McpClient.protocolVersion read 2025-11-25. McpClient.connect sends only the legacy initialize request, and pi-mcp's SUPPORTED_PROTOCOL_VERSIONS stop at 2025-11-25 (2025-11-25, 2025-06-18, 2025-03-26, 2024-11-05), so the client cannot reach a 2026-07-28 session."
+    },
+    "semantic_kernel": {
+      "framework_version": "1.45.0",
+      "status": "protocol_mismatch",
+      "evidence": "mcp-mirror scan --runner managed --frameworks semantic_kernel --spec-version 2026-07-28 (semantic-kernel 1.45.0, mcp 1.26.0) exited 3: the direct source connection negotiated 2026-07-28 through server/discover, while the plugin's ClientSession.initialize returned protocolVersion 2025-11-25. semantic-kernel 1.45.0 requires mcp>=1.26.0,<2.0, and MCPPluginBase opens every session with the legacy initialize handshake, so the adapter cannot reach a 2026-07-28 session."
+    },
+    "smolagents": {
+      "framework_version": "1.26.0",
+      "status": "sdk_incompatible",
+      "evidence": "`uv run --isolated --no-project -p 3.12 --with 'smolagents[mcp]==1.26.0' --with mcpadapt==0.1.20 --with mcp==2.0.0 python -c 'from smolagents import MCPClient; import mcpadapt.core'` fails in mcpadapt/core.py: ImportError: cannot import name 'streamablehttp_client' from 'mcp.client.streamable_http' (mcp 2.0.0 and 2.2.0 renamed it). smolagents.MCPClient is built on mcpadapt.core.MCPAdapt, so no MCPClient can be constructed and no 2026-07-28 session is reachable."
+    },
+    "genkit_js": {
+      "framework_version": "1.42.0",
+      "status": "protocol_mismatch",
+      "evidence": "mcp-mirror scan --runner managed --frameworks genkit_js --spec-version 2026-07-28 (genkit 1.42.0, @genkit-ai/mcp 1.42.0, @modelcontextprotocol/sdk 1.30.0) exited 3: the direct source connection negotiated 2026-07-28 through server/discover, while the Client that GenkitMcpClient._connect connects received protocolVersion 2025-11-25 in its initialize result. @genkit-ai/mcp 1.42.0 declares the peer @modelcontextprotocol/sdk ^1.29.0, and every 1.x release offers only handshake-era versions (SUPPORTED_PROTOCOL_VERSIONS tops out at 2025-11-25), so the adapter cannot reach a 2026-07-28 session."
+    },
+    "google_adk_js": {
+      "framework_version": "2.2.1",
+      "status": "protocol_mismatch",
+      "evidence": "mcp-mirror scan --runner managed --frameworks google_adk_js --spec-version 2026-07-28 (@google/adk 2.2.1, @modelcontextprotocol/sdk 1.30.0) exited 3: the direct source connection negotiated 2026-07-28 through server/discover, while the Client that MCPSessionManager.createSession connects received protocolVersion 2025-11-25 in its initialize result. @google/adk 2.2.1 declares the peer @modelcontextprotocol/sdk ^1.26.0, and every 1.x release offers only handshake-era versions (SUPPORTED_PROTOCOL_VERSIONS tops out at 2025-11-25), so the adapter cannot reach a 2026-07-28 session."
+    },
+    "google_adk_java": {
+      "framework_version": "1.11.0",
+      "status": "protocol_mismatch",
+      "evidence": "mcp-mirror scan --runner managed --frameworks google_adk_java --spec-version 2026-07-28 (com.google.adk:google-adk 1.11.0, io.modelcontextprotocol.sdk:mcp-core 2.0.0) exited 3: the direct source connection negotiated 2026-07-28 through server/discover, while McpTool.getMcpSession().getCurrentInitializationResult().protocolVersion() returned 2025-11-25. McpSessionManager builds every session with McpClient.sync from mcp-core 2.0.0, whose ProtocolVersions ends at 2025-11-25 and which has no server/discover client, so McpToolset cannot reach a 2026-07-28 session."
+    },
+    "spring_ai": {
+      "framework_version": "2.0.1",
+      "status": "protocol_mismatch",
+      "evidence": "mcp-mirror scan --runner managed --frameworks spring_ai --spec-version 2026-07-28 (spring-ai-starter-mcp-client 2.0.1, io.modelcontextprotocol.sdk:mcp-core 2.0.0) exited 3: the direct source connection negotiated 2026-07-28 through server/discover, while McpSyncClient.getCurrentInitializationResult().protocolVersion() returned 2025-11-25. mcp-core 2.0.0's ProtocolVersions ends at 2025-11-25 and the jar has no server/discover client, so every session the starter builds opens with the legacy initialize handshake and cannot reach a 2026-07-28 session."
+    },
+    "koog": {
+      "framework_version": "1.3.0-beta",
+      "status": "protocol_mismatch",
+      "evidence": "mcp-mirror scan --runner managed --frameworks koog --spec-version 2026-07-28 (ai.koog:agents-mcp 1.3.0-beta, io.modelcontextprotocol:kotlin-sdk-client 0.11.1) exited 3: the direct source connection negotiated 2026-07-28 through server/discover, while the initialize result on the Kotlin SDK Client handed to McpToolRegistryProvider.fromClient returned protocolVersion 2025-11-25. Kotlin SDK 0.11.1 offers protocol versions up to 2025-11-25 (LATEST_PROTOCOL_VERSION) and has no server/discover client, so Koog cannot reach a 2026-07-28 session."
+    }
+  }
+}

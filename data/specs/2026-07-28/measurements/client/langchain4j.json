@@ -1,0 +1,81 @@
+{
+  "schema": "mcp-mirror/client-probe@1",
+  "captured_at": "2026-10-09T21:03:04Z",
+  "fixture": "fixtures/client_features_server.py",
+  "fixture_python": "<checkout>/.mcp-mirror/fixture-2026-07-28/bin/python",
+  "spec_version": "2026-07-28",
+  "frameworks": {
+    "langchain4j": {
+      "ok": true,
+      "versions": {
+        "framework": "1.22.0-beta32",
+        "adapter": "langchain4j 1.22.0, langchain4j-core 1.22.0, java 21.0.12.1"
+      },
+      "negotiated_mcp_spec_version": "2026-07-28",
+      "client_probe": {
+        "sampling": {
+          "tool": "ask_sampling",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_SAMPLED",
+          "text": "Server sent inputRequests that the client cannot handle",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "sampling.tools": {
+          "tool": "ask_sampling_tools",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_SAMPLED_AFTER_TOOL",
+          "text": "Server sent inputRequests that the client cannot handle",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "elicitation.form": {
+          "tool": "ask_elicitation_form",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_ELICITED",
+          "text": "Server sent inputRequests that the client cannot handle",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "elicitation.url": {
+          "tool": "ask_elicitation_url",
+          "hook": null,
+          "route": null,
+          "expect": "\"action\": \"accept\"",
+          "text": "Server sent inputRequests that the client cannot handle",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "roots.list": {
+          "tool": "list_client_roots",
+          "hook": "DefaultMcpClient.Builder.roots(List<McpRoot>)",
+          "route": "adapter",
+          "expect": "file:///tmp/mcp-mirror-root",
+          "text": "Server sent inputRequests that the client cannot handle",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "roots.list_changed": {
+          "tool": "roots_changes_seen",
+          "hook": "McpClient.setRoots(List<McpRoot>)",
+          "route": "adapter",
+          "expect": "SENTINEL_ROOTS_CHANGES_SEEN",
+          "text": "{\"seen\":0}",
+          "is_error": false,
+          "handler_saw": [
+            {
+              "hook": "McpClient.setRoots(List<McpRoot>)",
+              "error": "UnsupportedOperationException: setRoots is not supported with MCP protocol 2026-07-28 or later"
+            }
+          ]
+        },
+        "capabilities": {
+          "text": "{}"
+        }
+      }
+    }
+  }
+}

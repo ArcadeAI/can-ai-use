@@ -1,0 +1,5 @@
+{"format": "mcp-mirror.harness-output/1"}
+{"event": "tool_use", "tool": "mcp__def__read_mcp_resource", "input": {"server": "def", "uri": "file:///fixtures/notes.txt"}}
+{"event": "tool_result", "is_error": false, "text": "{\"content\": [{\"type\": \"text\", \"text\": \"{\\\"server\\\":\\\"def\\\",\\\"uri\\\":\\\"file:///fixtures/notes.txt\\\",\\\"contents\\\":[{\\\"uri\\\":\\\"file:///fixtures/notes.txt\\\",\\\"mimeType\\\":\\\"text/plain\\\",\\\"text\\\":\\\"SENTINEL_RESOURCE_TEXT\\\"}]}\"}], \"structured_content\": null}"}
+{"event": "text", "text": "done"}
+{"event": "result", "subtype": "turn.completed", "is_error": false, "num_turns": null, "text": ""}

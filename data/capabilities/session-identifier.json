@@ -1,0 +1,36 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "session-identifier",
+  "title": "`Mcp-Session-Id`",
+  "description": "A server-minted session header that binds subsequent Streamable HTTP requests to server-side state.",
+  "question": "Does this framework return the session header on later requests?",
+  "spec": "https://modelcontextprotocol.io/specification/2025-11-25",
+  "status": "stable",
+  "categories": [
+    "Transports"
+  ],
+  "keywords": "session,Mcp-Session-Id,sticky routing,stateful,streamable http",
+  "why": "Sessions force sticky routing and a shared session store on every deployment. 2026-07-28 removed them outright, so support here is a marker of the older era.",
+  "docs_url": "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports#session-management",
+  "docs_label": "MCP Docs",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports#session-management",
+      "title": "MCP Docs"
+    },
+    {
+      "url": "https://github.com/modelcontextprotocol/conformance",
+      "title": "MCP conformance suite"
+    }
+  ],
+  "usage_perc_y": null,
+  "usage_perc_a": null,
+  "usage_note": null,
+  "known_issues": [
+    "Measured with the official MCP conformance suite 0.1.16, whose client scenarios are tagged 2025-11-25.",
+    "Also read from the recording proxy's log of every Streamable HTTP session in `scripts/measure_transports.py`: after the proxy mints an `Mcp-Session-Id` on initialize, each later request either carries it or does not. The cell combines that with the suite's session scenario."
+  ],
+  "notes": {
+    "vercel_ai": "Vercel AI SDK (@ai-sdk/mcp 2.0.73): every request after initialize carried the minted Mcp-Session-Id. The one rejected request is the SSE GET the client opens before initialize on its second connection (render, then render_result), right after its server/discover probe failed; no session existed yet on that connection. The rule counts it because the first connection had already minted an ID."
+  }
+}

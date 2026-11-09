@@ -1,0 +1,41 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "format",
+  "title": "`format`",
+  "description": "A semantic format hint on a string parameter.",
+  "question": "Is the format constraint present at each capture boundary?",
+  "spec": "https://json-schema.org/draft/2020-12/json-schema-validation",
+  "status": "stable",
+  "categories": [
+    "Parameter contract"
+  ],
+  "keywords": "format,email,date-time,uri,constraint",
+  "usage_perc_y": null,
+  "usage_perc_a": null,
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "links": [
+    {
+      "url": "https://json-schema.org/understanding-json-schema/reference/type#format",
+      "title": "JSON Schema Docs"
+    },
+    {
+      "url": "https://platform.openai.com/docs/guides/function-calling",
+      "title": "OpenAI function calling, tool schema"
+    }
+  ],
+  "known_issues": [],
+  "why": "Losing it can allow malformed emails, timestamps, or URIs to reach your server.",
+  "shown": true,
+  "docs_url": "https://json-schema.org/understanding-json-schema/reference/type#format",
+  "docs_label": "JSON Schema Docs",
+  "notes": {
+    "crewai": "CrewAI: `email` and `date-time` remain inside generated optional wrappers; `destination.anyOf[0].format: uri` is absent from the generated `args_schema`.",
+    "llamaindex": "LlamaIndex (llama-index-tools-mcp 0.6.0): `McpToolSpec` rebuilds each `inputSchema` as a Pydantic model (`create_model_from_json_schema`), and the model's JSON schema is what `ToolMetadata.to_openai_tool` hands the LLM. The field becomes a plain `str`, so every `format` (`email`, `date-time`, `uri`) is dropped.",
+    "google_adk_js": "Google ADK (TypeScript) 2.2.1: `MCPTool._getDeclaration` passes `inputSchema` through `toGeminiSchema`, which keeps `type`, `description`, `enum`, `items`, `properties`, `required` and `anyOf` in the genai `Schema` dialect; `format` is not among them, so `owner_email` (`email`), `created_after` (`date-time`) and `destination.anyOf[0]` (`uri`) become plain strings.",
+    "copilot_sdk": "GitHub Copilot SDK 1.0.19 (Copilot runtime 1.0.95): `format` is removed from the provider schema and appended to the parameter description as text, e.g. `{format: \"email\"}` on `owner_email` and `{format: \"uri\"}` inside the `destination` anyOf branch.",
+    "crewai-native": "CrewAI 1.15.26, native `crewai.mcp` client (`Agent(mcps=[...])`, not the `crewai_tools.MCPServerAdapter` row): `convert_tools_to_openai_schema` emits the strict OpenAI function schema from the Pydantic `args_schema`. `owner_email`'s `format: email` and `destination.anyOf[0]`'s `format: uri` are moved into the description text (`... Format: email`) and dropped from the schema; `created_after`'s `date-time` survives inside its nullable wrapper.",
+    "langchain4j": "LangChain4j 1.22.0-beta32: `McpToolProvider` maps each `inputSchema` into LangChain4j's own `JsonSchemaElement` model (`JsonObjectSchema`, `JsonStringSchema`, `JsonIntegerSchema`, ...), and the `ToolSpecification` AiServices hands the `ChatModel` is built from that model. `JsonStringSchema` holds a description only, so every `format` (`email`, `date-time`, `uri`) is dropped.",
+    "koog": "Koog 1.3.0-beta: `format` is dropped: `DefaultMcpToolDescriptorParser` maps a string property to `ToolParameterType.String`, which has no format slot, so `owner_email` (email) and `created_after` (date-time) reach the model as plain strings. `McpToolRegistryProvider.fromClient` leaves `deliver_payload` out of the registry (`DefaultMcpToolDescriptorParser.parse` throws on its typeless `oneOf` and `fromClient` only logs it), so its `format: uri` is lost with the whole tool."
+  },
+  "summary": "A framework that rebuilds the input schema from its own model class can drop `format`, or keep it inside an optional wrapper while losing it from a union branch."
+}

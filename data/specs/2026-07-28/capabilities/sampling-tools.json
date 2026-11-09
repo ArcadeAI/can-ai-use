@@ -1,0 +1,40 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "sampling-tools",
+  "title": "Sampling `tools` / `toolChoice`",
+  "description": "Request-scoped tool use inside a sampling call, driving a multi-turn tool loop with `tool_use` and `tool_result` content and a `toolUse` stop reason.",
+  "question": "Does the framework run the sampling tool loop, or only single-shot generation?",
+  "spec": "https://modelcontextprotocol.io/specification/2026-07-28",
+  "status": "deprecated",
+  "categories": [
+    "Client features"
+  ],
+  "keywords": "sampling tools,toolChoice,tool_use,tool_result,multi-turn loop",
+  "why": "This was added in the same revision that deprecated sampling, so it is the least likely feature in the protocol to be implemented anywhere. It is catalogued so that absence is recorded rather than assumed.",
+  "docs_url": "https://modelcontextprotocol.io/specification/2026-07-28/client/sampling#sampling-with-tools",
+  "docs_label": "MCP Docs",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/client/sampling#sampling-with-tools",
+      "title": "MCP Docs"
+    }
+  ],
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "known_issues": [],
+  "notes": {
+    "openai-agents": "OpenAI Agents SDK 0.23.1: at 2026-07-28 the request arrives embedded in an `InputRequiredResult`. The adapter has no sampling hook and calls tools through the MCP SDK's default `call_tool`, so the SDK's `Server returned InputRequiredResult` error reaches the caller as an `AgentsException` and nothing is answered.",
+    "pydantic-ai": "Pydantic AI 2.54.0: `MCPToolset(sampling_handler=...)` declares plain `sampling` without `tools`. Declaring `sampling.tools` takes `toolset.client.set_sampling_callback(..., sampling_capabilities=...)` on the wrapped fastmcp `Client`; through that the two-turn tool loop completed over input requests, the first turn carried back in `requestState`.",
+    "mastra": "Mastra 2.2.0: its `inputRequests` hook answers elicitations only. An embedded tools-bearing `sampling/createMessage` fails with `no handler is registered for 'sampling/createMessage'`.",
+    "strands": "Strands Agents 1.59.0: `MCPClient` has no sampling parameter, so it cannot declare `sampling.tools` or answer a tool-enabled sampling request.",
+    "vercel_ai": "Vercel AI SDK (@ai-sdk/mcp 2.0.73): at 2026-07-28 the request arrives embedded in an `InputRequiredResult`. The client rejects any result with `resultType: \"input_required\"` (\"multi round-trip requests are not supported yet\"), so `execute` throws and nothing is answered. The client has no sampling handler either.",
+    "openai_agents_js": "OpenAI Agents SDK (JS) 0.20.0 at 2026-07-28: the server answers with `input_required`, and the MCP client the SDK builds tries to fulfil it itself, but no `sampling/createMessage` handler is registered on it and the SDK offers no option to add one. The call fails with `Cannot fulfil input request`, which the agent hands the model as tool-error text.",
+    "agno": "Agno 3.1.2: `MCPTools` builds its fastmcp `Client` with no sampling handler, so sampling with tools is refused like any other sampling request.",
+    "dspy": "DSPy 3.4.0: DSPy takes no sampling handler. The server's request is answered only by a `sampling_callback` with `sampling_capabilities` registered on the caller's own `mcp.Client`, which DSPy is handed by `Tool.from_mcp_tool` and never configures. DSPy itself offers no route.",
+    "langchain_js": "LangChain.js (@langchain/mcp-adapters 2.0.1): there is no sampling handler of any kind, so sampling with tools has no route either.",
+    "copilot_sdk": "GitHub Copilot SDK 1.0.19 (Copilot runtime 1.0.95): the tool-bearing sampling request gets the same answer as plain sampling: the runtime replies itself with `stopReason: \"cancelled\"` (\"The user cancelled the request.\"). The `sampling.requested` event never fired.",
+    "langchain4j": "LangChain4j 1.22.0-beta32: at 2026-07-28 `DefaultMcpClient` reads an `InputRequiredResult` and throws `Server sent inputRequests that the client cannot handle`, whatever is embedded. No hook answers it, so the tool call fails.",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): mcptoolset has no sampling option. A `mcp.ClientOptions.CreateMessageWithToolsHandler` set on the `*mcp.Client` the caller passes as `mcptoolset.Config.Client` answers the server's request, so it works, but only by configuring go-sdk rather than the toolset."
+  },
+  "verdict": {},
+  "summary": "Deprecated in 2026-07-28. The cell asks whether the adapter runs the sampling tool loop through its own API."
+}

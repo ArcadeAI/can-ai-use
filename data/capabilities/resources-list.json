@@ -1,0 +1,40 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "resources-list",
+  "title": "`resources/list`",
+  "description": "Lists the resources a server exposes, each identified by a URI and described with a name, title, MIME type and optional size.",
+  "question": "Can the agent discover the server's resources at all?",
+  "spec": "https://modelcontextprotocol.io/specification/2025-11-25",
+  "status": "stable",
+  "categories": [
+    "Resources"
+  ],
+  "keywords": "resources/list,resources,context,uri,discovery",
+  "why": "Resources are a server primitive alongside tools and prompts, and the one designed for application-controlled context rather than model-controlled action. A framework that exposes tools but not resources misses everything a server publishes as context.",
+  "docs_url": "https://modelcontextprotocol.io/specification/2025-11-25/server/resources#listing-resources",
+  "docs_label": "MCP Docs",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/server/resources#listing-resources",
+      "title": "MCP Docs"
+    }
+  ],
+  "usage_perc_y": null,
+  "usage_perc_a": null,
+  "usage_note": "Not published. Candidate source: count of public MCP servers publishing this. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "known_issues": [],
+  "notes": {
+    "crewai": "CrewAI 1.15.26: `crewai_tools.MCPServerAdapter` exposes only `tools`. It has no resource or prompt API, so an agent built on it cannot reach this at all.",
+    "genkit_js": "Genkit (JS) 1.42.0: `getActiveResources` turns each listed resource into a `dynamicResource` action named `<server>/<name>` with `description` and `uri`; `mimeType` (and `title`) are not kept.",
+    "langchain": "LangChain MCP Adapters 0.3.2: `load_mcp_resources` lists and reads in one step and returns LangChain `Blob` objects carrying the URI and MIME type. The resource's `name`, `title` and `description` are not carried, so the agent sees contents without the labels the server gave them.",
+    "ms_agent_framework": "Microsoft Agent Framework 1.21.0: `MCPTool` has no resource or resource-template API; `resources/list`, `resources/read` and `resources/templates/list` are never sent. (`MCPSkillsSource` reads resources, but only `skill://index.json` and the skills it names.)",
+    "semantic_kernel": "Semantic Kernel 1.45.0: `MCPPluginBase` loads tools and prompts only; it has no resource API.",
+    "agno": "Agno 3.1.2: `MCPTools` lists and calls tools only; it has no resource or prompt API, so `resources/list` is unreachable.",
+    "haystack": "Haystack (mcp-haystack 1.5.2): `MCPToolset` wraps tools as Haystack `Tool`s and has no resource or prompt API, and the `ClientSession` it opens is private to `MCPToolset._worker._client`, so there is no route to `resources/list`.",
+    "smolagents": "smolagents 1.26.0 (mcpadapt 0.1.20): `smolagents.MCPClient` exposes only `get_tools()`, and the `ClientSession` lives on the private `MCPClient._adapter`. It has no resource or prompt API, so an agent built on it cannot reach this at all.",
+    "dspy": "DSPy 3.4.0: DSPy's MCP support is `dspy.Tool.from_mcp_tool`, which converts one tool. It has no resource or prompt API, so resources and prompts stay on the caller's MCP session.",
+    "beeai": "BeeAI Framework 0.1.85: `beeai_framework.tools.mcp` has `MCPTool` only. `MCPTool.from_client` lists and wraps tools, and BeeAI has no MCP resource or prompt API.",
+    "crewai-native": "CrewAI 1.15.26, native `crewai.mcp` client (`Agent(mcps=[...])`, not the `crewai_tools.MCPServerAdapter` row): `MCPClient` has `list_tools`, `call_tool`, `list_prompts` and `get_prompt` and no resource API, and `Agent(mcps=...)` turns only the tools into `BaseTool`s, so an agent built on it cannot reach this at all.",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): `mcptoolset.Toolset` exposes only `Tools()`, and the `*mcp.ClientSession` it opens stays inside its unexported `connectionRefresher`, so the caller has no session to call `ListResources` on."
+  }
+}

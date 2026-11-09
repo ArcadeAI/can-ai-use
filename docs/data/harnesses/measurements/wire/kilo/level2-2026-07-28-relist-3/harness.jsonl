@@ -1,0 +1,7 @@
+{"format": "mcp-mirror.harness-output/1"}
+{"event": "tool_use", "tool": "ntf_add_tool", "input": {}}
+{"event": "tool_result", "is_error": false, "text": "SENTINEL_MUTATED add_tool: sent on the session"}
+{"event": "tool_use", "tool": "ntf_SENTINEL_ADDED_TOOL", "input": {}}
+{"event": "tool_result", "is_error": false, "text": "SENTINEL_ADDED_TOOL_CALLED"}
+{"event": "text", "text": "done"}
+{"event": "result", "subtype": "stop", "is_error": false, "num_turns": 3, "text": "done"}

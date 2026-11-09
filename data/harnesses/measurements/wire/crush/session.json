@@ -1,0 +1,2987 @@
+{
+  "format": "mcp-mirror.harness-session/1",
+  "harness": "crush",
+  "name": "Charm Crush",
+  "version": "0.98.1",
+  "captured_at": "2026-10-14T02:39:50+00:00",
+  "command": "uv run python scripts/measure_harness.py crush",
+  "recorder": "mcp-mirror 0.1.0",
+  "fixture_sdk": "mcp 1.28.1",
+  "fixture_lines": [
+    {
+      "revision": "2025-11-25",
+      "python": "python",
+      "sdk": "mcp 1.28.1"
+    },
+    {
+      "revision": "2026-07-28",
+      "python": ".mcp-mirror/fixture-2026-07-28/bin/python",
+      "sdk": "mcp 2.0.0"
+    }
+  ],
+  "servers": {
+    "def": "fixtures/definitions_server.py",
+    "res": "fixtures/results_server.py",
+    "ntf": "fixtures/notify_server.py",
+    "cf": "fixtures/client_features_server.py",
+    "util": "fixtures/utilities_server.py"
+  },
+  "level_1": {
+    "status": "ran",
+    "model": "stub:anthropic",
+    "revisions": [
+      "2025-11-25",
+      "2026-07-28"
+    ],
+    "sessions": [
+      {
+        "id": "stdio",
+        "level": 1,
+        "revision": "2025-11-25",
+        "transport": "stdio",
+        "prompt": "Reply with the single word ready.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Reply with the single word ready."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 0.71,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level1-2025-11-25-stdio/def.jsonl",
+          "res": "level1-2025-11-25-stdio/res.jsonl",
+          "ntf": "level1-2025-11-25-stdio/ntf.jsonl",
+          "cf": "level1-2025-11-25-stdio/cf.jsonl",
+          "util": "level1-2025-11-25-stdio/util.jsonl"
+        },
+        "output": "level1-2025-11-25-stdio/harness.jsonl",
+        "fresh": "level1-2025-11-25-stdio/fresh.json",
+        "stderr_tail": [],
+        "model": "level1-2025-11-25-stdio/model.jsonl"
+      },
+      {
+        "id": "http",
+        "level": 1,
+        "revision": "2025-11-25",
+        "transport": "http",
+        "prompt": "Reply with the single word ready.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Reply with the single word ready."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 1.14,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level1-2025-11-25-http/def.jsonl",
+          "res": "level1-2025-11-25-http/res.jsonl",
+          "ntf": "level1-2025-11-25-http/ntf.jsonl",
+          "cf": "level1-2025-11-25-http/cf.jsonl",
+          "util": "level1-2025-11-25-http/util.jsonl"
+        },
+        "output": "level1-2025-11-25-http/harness.jsonl",
+        "fresh": "level1-2025-11-25-http/fresh.json",
+        "stderr_tail": [],
+        "model": "level1-2025-11-25-http/model.jsonl"
+      },
+      {
+        "id": "slow-start",
+        "level": 1,
+        "revision": "2025-11-25",
+        "transport": "stdio",
+        "prompt": "Reply with the single word ready.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Reply with the single word ready."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 8.6,
+        "delay_s": {
+          "util": 8
+        },
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "sh -c 'sleep 8; exec python fixtures/utilities_server.py'"
+        },
+        "captures": {
+          "def": "level1-2025-11-25-slow-start/def.jsonl",
+          "res": "level1-2025-11-25-slow-start/res.jsonl",
+          "ntf": "level1-2025-11-25-slow-start/ntf.jsonl",
+          "cf": "level1-2025-11-25-slow-start/cf.jsonl",
+          "util": "level1-2025-11-25-slow-start/util.jsonl"
+        },
+        "output": "level1-2025-11-25-slow-start/harness.jsonl",
+        "fresh": "level1-2025-11-25-slow-start/fresh.json",
+        "stderr_tail": [],
+        "model": "level1-2025-11-25-slow-start/model.jsonl"
+      },
+      {
+        "id": "stdio",
+        "level": 1,
+        "revision": "2026-07-28",
+        "transport": "stdio",
+        "prompt": "Reply with the single word ready.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Reply with the single word ready."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 1.08,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level1-2026-07-28-stdio/def.jsonl",
+          "res": "level1-2026-07-28-stdio/res.jsonl",
+          "ntf": "level1-2026-07-28-stdio/ntf.jsonl",
+          "cf": "level1-2026-07-28-stdio/cf.jsonl",
+          "util": "level1-2026-07-28-stdio/util.jsonl"
+        },
+        "output": "level1-2026-07-28-stdio/harness.jsonl",
+        "fresh": "level1-2026-07-28-stdio/fresh.json",
+        "stderr_tail": [],
+        "model": "level1-2026-07-28-stdio/model.jsonl"
+      },
+      {
+        "id": "http",
+        "level": 1,
+        "revision": "2026-07-28",
+        "transport": "http",
+        "prompt": "Reply with the single word ready.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Reply with the single word ready."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 0.6,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level1-2026-07-28-http/def.jsonl",
+          "res": "level1-2026-07-28-http/res.jsonl",
+          "ntf": "level1-2026-07-28-http/ntf.jsonl",
+          "cf": "level1-2026-07-28-http/cf.jsonl",
+          "util": "level1-2026-07-28-http/util.jsonl"
+        },
+        "output": "level1-2026-07-28-http/harness.jsonl",
+        "fresh": "level1-2026-07-28-http/fresh.json",
+        "stderr_tail": [],
+        "model": "level1-2026-07-28-http/model.jsonl"
+      },
+      {
+        "id": "slow-start",
+        "level": 1,
+        "revision": "2026-07-28",
+        "transport": "stdio",
+        "prompt": "Reply with the single word ready.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Reply with the single word ready."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 9.08,
+        "delay_s": {
+          "util": 8
+        },
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": "sh -c 'sleep 8; exec .mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py'"
+        },
+        "captures": {
+          "def": "level1-2026-07-28-slow-start/def.jsonl",
+          "res": "level1-2026-07-28-slow-start/res.jsonl",
+          "ntf": "level1-2026-07-28-slow-start/ntf.jsonl",
+          "cf": "level1-2026-07-28-slow-start/cf.jsonl",
+          "util": "level1-2026-07-28-slow-start/util.jsonl"
+        },
+        "output": "level1-2026-07-28-slow-start/harness.jsonl",
+        "fresh": "level1-2026-07-28-slow-start/fresh.json",
+        "stderr_tail": [],
+        "model": "level1-2026-07-28-slow-start/model.jsonl"
+      }
+    ]
+  },
+  "level_2": {
+    "status": "ran",
+    "model": "stub:anthropic (scripted)",
+    "runs": 3,
+    "revisions": [
+      "2025-11-25",
+      "2026-07-28"
+    ],
+    "sessions": [
+      {
+        "id": "read_only",
+        "level": 2,
+        "run": 1,
+        "mode": "default",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the search_records tool with query 'x' and tell me the count it returns.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the search_records tool with query 'x' and tell me the count it returns."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 0.76,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-read_only-1/def.jsonl",
+          "res": "level2-2025-11-25-read_only-1/res.jsonl",
+          "ntf": "level2-2025-11-25-read_only-1/ntf.jsonl",
+          "cf": "level2-2025-11-25-read_only-1/cf.jsonl",
+          "util": "level2-2025-11-25-read_only-1/util.jsonl"
+        },
+        "output": "level2-2025-11-25-read_only-1/harness.jsonl",
+        "fresh": "level2-2025-11-25-read_only-1/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2025-11-25-read_only-1/model.jsonl"
+      },
+      {
+        "id": "read_only",
+        "level": 2,
+        "run": 2,
+        "mode": "default",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the search_records tool with query 'x' and tell me the count it returns.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the search_records tool with query 'x' and tell me the count it returns."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 0.81,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-read_only-2/def.jsonl",
+          "res": "level2-2025-11-25-read_only-2/res.jsonl",
+          "ntf": "level2-2025-11-25-read_only-2/ntf.jsonl",
+          "cf": "level2-2025-11-25-read_only-2/cf.jsonl",
+          "util": "level2-2025-11-25-read_only-2/util.jsonl"
+        },
+        "output": "level2-2025-11-25-read_only-2/harness.jsonl",
+        "fresh": "level2-2025-11-25-read_only-2/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2025-11-25-read_only-2/model.jsonl"
+      },
+      {
+        "id": "read_only",
+        "level": 2,
+        "run": 3,
+        "mode": "default",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the search_records tool with query 'x' and tell me the count it returns.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the search_records tool with query 'x' and tell me the count it returns."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 0.92,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-read_only-3/def.jsonl",
+          "res": "level2-2025-11-25-read_only-3/res.jsonl",
+          "ntf": "level2-2025-11-25-read_only-3/ntf.jsonl",
+          "cf": "level2-2025-11-25-read_only-3/cf.jsonl",
+          "util": "level2-2025-11-25-read_only-3/util.jsonl"
+        },
+        "output": "level2-2025-11-25-read_only-3/harness.jsonl",
+        "fresh": "level2-2025-11-25-read_only-3/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2025-11-25-read_only-3/model.jsonl"
+      },
+      {
+        "id": "read_only-unattended",
+        "level": 2,
+        "run": 1,
+        "mode": "unattended",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the search_records tool with query 'x' and tell me the count it returns.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the search_records tool with query 'x' and tell me the count it returns."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 0.75,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-read_only-unattended-1/def.jsonl",
+          "res": "level2-2025-11-25-read_only-unattended-1/res.jsonl",
+          "ntf": "level2-2025-11-25-read_only-unattended-1/ntf.jsonl",
+          "cf": "level2-2025-11-25-read_only-unattended-1/cf.jsonl",
+          "util": "level2-2025-11-25-read_only-unattended-1/util.jsonl"
+        },
+        "output": "level2-2025-11-25-read_only-unattended-1/harness.jsonl",
+        "fresh": "level2-2025-11-25-read_only-unattended-1/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2025-11-25-read_only-unattended-1/model.jsonl"
+      },
+      {
+        "id": "read_only-unattended",
+        "level": 2,
+        "run": 2,
+        "mode": "unattended",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the search_records tool with query 'x' and tell me the count it returns.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the search_records tool with query 'x' and tell me the count it returns."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 0.76,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-read_only-unattended-2/def.jsonl",
+          "res": "level2-2025-11-25-read_only-unattended-2/res.jsonl",
+          "ntf": "level2-2025-11-25-read_only-unattended-2/ntf.jsonl",
+          "cf": "level2-2025-11-25-read_only-unattended-2/cf.jsonl",
+          "util": "level2-2025-11-25-read_only-unattended-2/util.jsonl"
+        },
+        "output": "level2-2025-11-25-read_only-unattended-2/harness.jsonl",
+        "fresh": "level2-2025-11-25-read_only-unattended-2/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2025-11-25-read_only-unattended-2/model.jsonl"
+      },
+      {
+        "id": "read_only-unattended",
+        "level": 2,
+        "run": 3,
+        "mode": "unattended",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the search_records tool with query 'x' and tell me the count it returns.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the search_records tool with query 'x' and tell me the count it returns."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 0.7,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-read_only-unattended-3/def.jsonl",
+          "res": "level2-2025-11-25-read_only-unattended-3/res.jsonl",
+          "ntf": "level2-2025-11-25-read_only-unattended-3/ntf.jsonl",
+          "cf": "level2-2025-11-25-read_only-unattended-3/cf.jsonl",
+          "util": "level2-2025-11-25-read_only-unattended-3/util.jsonl"
+        },
+        "output": "level2-2025-11-25-read_only-unattended-3/harness.jsonl",
+        "fresh": "level2-2025-11-25-read_only-unattended-3/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2025-11-25-read_only-unattended-3/model.jsonl"
+      },
+      {
+        "id": "destructive",
+        "level": 2,
+        "run": 1,
+        "mode": "default",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the delete_account tool with account_id 'a' and confirm true.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the delete_account tool with account_id 'a' and confirm true."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 0.65,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-destructive-1/def.jsonl",
+          "res": "level2-2025-11-25-destructive-1/res.jsonl",
+          "ntf": "level2-2025-11-25-destructive-1/ntf.jsonl",
+          "cf": "level2-2025-11-25-destructive-1/cf.jsonl",
+          "util": "level2-2025-11-25-destructive-1/util.jsonl"
+        },
+        "output": "level2-2025-11-25-destructive-1/harness.jsonl",
+        "fresh": "level2-2025-11-25-destructive-1/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2025-11-25-destructive-1/model.jsonl"
+      },
+      {
+        "id": "destructive",
+        "level": 2,
+        "run": 2,
+        "mode": "default",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the delete_account tool with account_id 'a' and confirm true.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the delete_account tool with account_id 'a' and confirm true."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 0.64,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-destructive-2/def.jsonl",
+          "res": "level2-2025-11-25-destructive-2/res.jsonl",
+          "ntf": "level2-2025-11-25-destructive-2/ntf.jsonl",
+          "cf": "level2-2025-11-25-destructive-2/cf.jsonl",
+          "util": "level2-2025-11-25-destructive-2/util.jsonl"
+        },
+        "output": "level2-2025-11-25-destructive-2/harness.jsonl",
+        "fresh": "level2-2025-11-25-destructive-2/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2025-11-25-destructive-2/model.jsonl"
+      },
+      {
+        "id": "destructive",
+        "level": 2,
+        "run": 3,
+        "mode": "default",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the delete_account tool with account_id 'a' and confirm true.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the delete_account tool with account_id 'a' and confirm true."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 0.71,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-destructive-3/def.jsonl",
+          "res": "level2-2025-11-25-destructive-3/res.jsonl",
+          "ntf": "level2-2025-11-25-destructive-3/ntf.jsonl",
+          "cf": "level2-2025-11-25-destructive-3/cf.jsonl",
+          "util": "level2-2025-11-25-destructive-3/util.jsonl"
+        },
+        "output": "level2-2025-11-25-destructive-3/harness.jsonl",
+        "fresh": "level2-2025-11-25-destructive-3/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2025-11-25-destructive-3/model.jsonl"
+      },
+      {
+        "id": "destructive-unattended",
+        "level": 2,
+        "run": 1,
+        "mode": "unattended",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the delete_account tool with account_id 'a' and confirm true.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the delete_account tool with account_id 'a' and confirm true."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 0.75,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-destructive-unattended-1/def.jsonl",
+          "res": "level2-2025-11-25-destructive-unattended-1/res.jsonl",
+          "ntf": "level2-2025-11-25-destructive-unattended-1/ntf.jsonl",
+          "cf": "level2-2025-11-25-destructive-unattended-1/cf.jsonl",
+          "util": "level2-2025-11-25-destructive-unattended-1/util.jsonl"
+        },
+        "output": "level2-2025-11-25-destructive-unattended-1/harness.jsonl",
+        "fresh": "level2-2025-11-25-destructive-unattended-1/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2025-11-25-destructive-unattended-1/model.jsonl"
+      },
+      {
+        "id": "destructive-unattended",
+        "level": 2,
+        "run": 2,
+        "mode": "unattended",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the delete_account tool with account_id 'a' and confirm true.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the delete_account tool with account_id 'a' and confirm true."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 0.76,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-destructive-unattended-2/def.jsonl",
+          "res": "level2-2025-11-25-destructive-unattended-2/res.jsonl",
+          "ntf": "level2-2025-11-25-destructive-unattended-2/ntf.jsonl",
+          "cf": "level2-2025-11-25-destructive-unattended-2/cf.jsonl",
+          "util": "level2-2025-11-25-destructive-unattended-2/util.jsonl"
+        },
+        "output": "level2-2025-11-25-destructive-unattended-2/harness.jsonl",
+        "fresh": "level2-2025-11-25-destructive-unattended-2/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2025-11-25-destructive-unattended-2/model.jsonl"
+      },
+      {
+        "id": "destructive-unattended",
+        "level": 2,
+        "run": 3,
+        "mode": "unattended",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the delete_account tool with account_id 'a' and confirm true.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the delete_account tool with account_id 'a' and confirm true."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 0.9,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-destructive-unattended-3/def.jsonl",
+          "res": "level2-2025-11-25-destructive-unattended-3/res.jsonl",
+          "ntf": "level2-2025-11-25-destructive-unattended-3/ntf.jsonl",
+          "cf": "level2-2025-11-25-destructive-unattended-3/cf.jsonl",
+          "util": "level2-2025-11-25-destructive-unattended-3/util.jsonl"
+        },
+        "output": "level2-2025-11-25-destructive-unattended-3/harness.jsonl",
+        "fresh": "level2-2025-11-25-destructive-unattended-3/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2025-11-25-destructive-unattended-3/model.jsonl"
+      },
+      {
+        "id": "resource",
+        "level": 2,
+        "run": 1,
+        "mode": "default",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Read the resource at file:///fixtures/notes.txt and quote it exactly.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Read the resource at file:///fixtures/notes.txt and quote it exactly."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 0.88,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-resource-1/def.jsonl",
+          "res": "level2-2025-11-25-resource-1/res.jsonl",
+          "ntf": "level2-2025-11-25-resource-1/ntf.jsonl",
+          "cf": "level2-2025-11-25-resource-1/cf.jsonl",
+          "util": "level2-2025-11-25-resource-1/util.jsonl"
+        },
+        "output": "level2-2025-11-25-resource-1/harness.jsonl",
+        "fresh": "level2-2025-11-25-resource-1/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2025-11-25-resource-1/model.jsonl"
+      },
+      {
+        "id": "resource",
+        "level": 2,
+        "run": 2,
+        "mode": "default",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Read the resource at file:///fixtures/notes.txt and quote it exactly.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Read the resource at file:///fixtures/notes.txt and quote it exactly."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 0.65,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-resource-2/def.jsonl",
+          "res": "level2-2025-11-25-resource-2/res.jsonl",
+          "ntf": "level2-2025-11-25-resource-2/ntf.jsonl",
+          "cf": "level2-2025-11-25-resource-2/cf.jsonl",
+          "util": "level2-2025-11-25-resource-2/util.jsonl"
+        },
+        "output": "level2-2025-11-25-resource-2/harness.jsonl",
+        "fresh": "level2-2025-11-25-resource-2/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2025-11-25-resource-2/model.jsonl"
+      },
+      {
+        "id": "resource",
+        "level": 2,
+        "run": 3,
+        "mode": "default",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Read the resource at file:///fixtures/notes.txt and quote it exactly.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Read the resource at file:///fixtures/notes.txt and quote it exactly."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 0.76,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-resource-3/def.jsonl",
+          "res": "level2-2025-11-25-resource-3/res.jsonl",
+          "ntf": "level2-2025-11-25-resource-3/ntf.jsonl",
+          "cf": "level2-2025-11-25-resource-3/cf.jsonl",
+          "util": "level2-2025-11-25-resource-3/util.jsonl"
+        },
+        "output": "level2-2025-11-25-resource-3/harness.jsonl",
+        "fresh": "level2-2025-11-25-resource-3/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2025-11-25-resource-3/model.jsonl"
+      },
+      {
+        "id": "prompt",
+        "level": 2,
+        "run": 1,
+        "mode": "default",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the summarize_records prompt with status 'active' and follow it.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the summarize_records prompt with status 'active' and follow it."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 0.66,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-prompt-1/def.jsonl",
+          "res": "level2-2025-11-25-prompt-1/res.jsonl",
+          "ntf": "level2-2025-11-25-prompt-1/ntf.jsonl",
+          "cf": "level2-2025-11-25-prompt-1/cf.jsonl",
+          "util": "level2-2025-11-25-prompt-1/util.jsonl"
+        },
+        "output": "level2-2025-11-25-prompt-1/harness.jsonl",
+        "fresh": "level2-2025-11-25-prompt-1/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2025-11-25-prompt-1/model.jsonl"
+      },
+      {
+        "id": "prompt",
+        "level": 2,
+        "run": 2,
+        "mode": "default",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the summarize_records prompt with status 'active' and follow it.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the summarize_records prompt with status 'active' and follow it."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 0.66,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-prompt-2/def.jsonl",
+          "res": "level2-2025-11-25-prompt-2/res.jsonl",
+          "ntf": "level2-2025-11-25-prompt-2/ntf.jsonl",
+          "cf": "level2-2025-11-25-prompt-2/cf.jsonl",
+          "util": "level2-2025-11-25-prompt-2/util.jsonl"
+        },
+        "output": "level2-2025-11-25-prompt-2/harness.jsonl",
+        "fresh": "level2-2025-11-25-prompt-2/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2025-11-25-prompt-2/model.jsonl"
+      },
+      {
+        "id": "prompt",
+        "level": 2,
+        "run": 3,
+        "mode": "default",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the summarize_records prompt with status 'active' and follow it.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the summarize_records prompt with status 'active' and follow it."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 0.76,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-prompt-3/def.jsonl",
+          "res": "level2-2025-11-25-prompt-3/res.jsonl",
+          "ntf": "level2-2025-11-25-prompt-3/ntf.jsonl",
+          "cf": "level2-2025-11-25-prompt-3/cf.jsonl",
+          "util": "level2-2025-11-25-prompt-3/util.jsonl"
+        },
+        "output": "level2-2025-11-25-prompt-3/harness.jsonl",
+        "fresh": "level2-2025-11-25-prompt-3/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2025-11-25-prompt-3/model.jsonl"
+      },
+      {
+        "id": "elicit",
+        "level": 2,
+        "run": 1,
+        "mode": "unattended",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the ask_elicitation_form tool and answer whatever it asks with 'x'.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the ask_elicitation_form tool and answer whatever it asks with 'x'."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 0.81,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-elicit-1/def.jsonl",
+          "res": "level2-2025-11-25-elicit-1/res.jsonl",
+          "ntf": "level2-2025-11-25-elicit-1/ntf.jsonl",
+          "cf": "level2-2025-11-25-elicit-1/cf.jsonl",
+          "util": "level2-2025-11-25-elicit-1/util.jsonl"
+        },
+        "output": "level2-2025-11-25-elicit-1/harness.jsonl",
+        "fresh": "level2-2025-11-25-elicit-1/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2025-11-25-elicit-1/model.jsonl"
+      },
+      {
+        "id": "elicit",
+        "level": 2,
+        "run": 2,
+        "mode": "unattended",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the ask_elicitation_form tool and answer whatever it asks with 'x'.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the ask_elicitation_form tool and answer whatever it asks with 'x'."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 0.81,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-elicit-2/def.jsonl",
+          "res": "level2-2025-11-25-elicit-2/res.jsonl",
+          "ntf": "level2-2025-11-25-elicit-2/ntf.jsonl",
+          "cf": "level2-2025-11-25-elicit-2/cf.jsonl",
+          "util": "level2-2025-11-25-elicit-2/util.jsonl"
+        },
+        "output": "level2-2025-11-25-elicit-2/harness.jsonl",
+        "fresh": "level2-2025-11-25-elicit-2/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2025-11-25-elicit-2/model.jsonl"
+      },
+      {
+        "id": "elicit",
+        "level": 2,
+        "run": 3,
+        "mode": "unattended",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the ask_elicitation_form tool and answer whatever it asks with 'x'.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the ask_elicitation_form tool and answer whatever it asks with 'x'."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 0.88,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-elicit-3/def.jsonl",
+          "res": "level2-2025-11-25-elicit-3/res.jsonl",
+          "ntf": "level2-2025-11-25-elicit-3/ntf.jsonl",
+          "cf": "level2-2025-11-25-elicit-3/cf.jsonl",
+          "util": "level2-2025-11-25-elicit-3/util.jsonl"
+        },
+        "output": "level2-2025-11-25-elicit-3/harness.jsonl",
+        "fresh": "level2-2025-11-25-elicit-3/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2025-11-25-elicit-3/model.jsonl"
+      },
+      {
+        "id": "sampling",
+        "level": 2,
+        "run": 1,
+        "mode": "unattended",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the ask_sampling tool and tell me what it returns.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the ask_sampling tool and tell me what it returns."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 0.81,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-sampling-1/def.jsonl",
+          "res": "level2-2025-11-25-sampling-1/res.jsonl",
+          "ntf": "level2-2025-11-25-sampling-1/ntf.jsonl",
+          "cf": "level2-2025-11-25-sampling-1/cf.jsonl",
+          "util": "level2-2025-11-25-sampling-1/util.jsonl"
+        },
+        "output": "level2-2025-11-25-sampling-1/harness.jsonl",
+        "fresh": "level2-2025-11-25-sampling-1/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2025-11-25-sampling-1/model.jsonl"
+      },
+      {
+        "id": "sampling",
+        "level": 2,
+        "run": 2,
+        "mode": "unattended",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the ask_sampling tool and tell me what it returns.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the ask_sampling tool and tell me what it returns."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 0.86,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-sampling-2/def.jsonl",
+          "res": "level2-2025-11-25-sampling-2/res.jsonl",
+          "ntf": "level2-2025-11-25-sampling-2/ntf.jsonl",
+          "cf": "level2-2025-11-25-sampling-2/cf.jsonl",
+          "util": "level2-2025-11-25-sampling-2/util.jsonl"
+        },
+        "output": "level2-2025-11-25-sampling-2/harness.jsonl",
+        "fresh": "level2-2025-11-25-sampling-2/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2025-11-25-sampling-2/model.jsonl"
+      },
+      {
+        "id": "sampling",
+        "level": 2,
+        "run": 3,
+        "mode": "unattended",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the ask_sampling tool and tell me what it returns.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the ask_sampling tool and tell me what it returns."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 0.82,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-sampling-3/def.jsonl",
+          "res": "level2-2025-11-25-sampling-3/res.jsonl",
+          "ntf": "level2-2025-11-25-sampling-3/ntf.jsonl",
+          "cf": "level2-2025-11-25-sampling-3/cf.jsonl",
+          "util": "level2-2025-11-25-sampling-3/util.jsonl"
+        },
+        "output": "level2-2025-11-25-sampling-3/harness.jsonl",
+        "fresh": "level2-2025-11-25-sampling-3/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2025-11-25-sampling-3/model.jsonl"
+      },
+      {
+        "id": "slow",
+        "level": 2,
+        "run": 1,
+        "mode": "unattended",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the slow_with_progress tool and wait for it to finish.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the slow_with_progress tool and wait for it to finish."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 1.23,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-slow-1/def.jsonl",
+          "res": "level2-2025-11-25-slow-1/res.jsonl",
+          "ntf": "level2-2025-11-25-slow-1/ntf.jsonl",
+          "cf": "level2-2025-11-25-slow-1/cf.jsonl",
+          "util": "level2-2025-11-25-slow-1/util.jsonl"
+        },
+        "output": "level2-2025-11-25-slow-1/harness.jsonl",
+        "fresh": "level2-2025-11-25-slow-1/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2025-11-25-slow-1/model.jsonl"
+      },
+      {
+        "id": "slow",
+        "level": 2,
+        "run": 2,
+        "mode": "unattended",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the slow_with_progress tool and wait for it to finish.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the slow_with_progress tool and wait for it to finish."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 1.01,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-slow-2/def.jsonl",
+          "res": "level2-2025-11-25-slow-2/res.jsonl",
+          "ntf": "level2-2025-11-25-slow-2/ntf.jsonl",
+          "cf": "level2-2025-11-25-slow-2/cf.jsonl",
+          "util": "level2-2025-11-25-slow-2/util.jsonl"
+        },
+        "output": "level2-2025-11-25-slow-2/harness.jsonl",
+        "fresh": "level2-2025-11-25-slow-2/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2025-11-25-slow-2/model.jsonl"
+      },
+      {
+        "id": "slow",
+        "level": 2,
+        "run": 3,
+        "mode": "unattended",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the slow_with_progress tool and wait for it to finish.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the slow_with_progress tool and wait for it to finish."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 1.09,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-slow-3/def.jsonl",
+          "res": "level2-2025-11-25-slow-3/res.jsonl",
+          "ntf": "level2-2025-11-25-slow-3/ntf.jsonl",
+          "cf": "level2-2025-11-25-slow-3/cf.jsonl",
+          "util": "level2-2025-11-25-slow-3/util.jsonl"
+        },
+        "output": "level2-2025-11-25-slow-3/harness.jsonl",
+        "fresh": "level2-2025-11-25-slow-3/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2025-11-25-slow-3/model.jsonl"
+      },
+      {
+        "id": "error",
+        "level": 2,
+        "run": 1,
+        "mode": "unattended",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the delete_account tool with account_id 'a' and confirm false.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the delete_account tool with account_id 'a' and confirm false."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 0.81,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-error-1/def.jsonl",
+          "res": "level2-2025-11-25-error-1/res.jsonl",
+          "ntf": "level2-2025-11-25-error-1/ntf.jsonl",
+          "cf": "level2-2025-11-25-error-1/cf.jsonl",
+          "util": "level2-2025-11-25-error-1/util.jsonl"
+        },
+        "output": "level2-2025-11-25-error-1/harness.jsonl",
+        "fresh": "level2-2025-11-25-error-1/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2025-11-25-error-1/model.jsonl"
+      },
+      {
+        "id": "error",
+        "level": 2,
+        "run": 2,
+        "mode": "unattended",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the delete_account tool with account_id 'a' and confirm false.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the delete_account tool with account_id 'a' and confirm false."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 0.81,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-error-2/def.jsonl",
+          "res": "level2-2025-11-25-error-2/res.jsonl",
+          "ntf": "level2-2025-11-25-error-2/ntf.jsonl",
+          "cf": "level2-2025-11-25-error-2/cf.jsonl",
+          "util": "level2-2025-11-25-error-2/util.jsonl"
+        },
+        "output": "level2-2025-11-25-error-2/harness.jsonl",
+        "fresh": "level2-2025-11-25-error-2/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2025-11-25-error-2/model.jsonl"
+      },
+      {
+        "id": "error",
+        "level": 2,
+        "run": 3,
+        "mode": "unattended",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the delete_account tool with account_id 'a' and confirm false.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the delete_account tool with account_id 'a' and confirm false."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 0.76,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-error-3/def.jsonl",
+          "res": "level2-2025-11-25-error-3/res.jsonl",
+          "ntf": "level2-2025-11-25-error-3/ntf.jsonl",
+          "cf": "level2-2025-11-25-error-3/cf.jsonl",
+          "util": "level2-2025-11-25-error-3/util.jsonl"
+        },
+        "output": "level2-2025-11-25-error-3/harness.jsonl",
+        "fresh": "level2-2025-11-25-error-3/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2025-11-25-error-3/model.jsonl"
+      },
+      {
+        "id": "relist",
+        "level": 2,
+        "run": 1,
+        "mode": "unattended",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the add_tool tool, then use the tool it added.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the add_tool tool, then use the tool it added."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 0.87,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-relist-1/def.jsonl",
+          "res": "level2-2025-11-25-relist-1/res.jsonl",
+          "ntf": "level2-2025-11-25-relist-1/ntf.jsonl",
+          "cf": "level2-2025-11-25-relist-1/cf.jsonl",
+          "util": "level2-2025-11-25-relist-1/util.jsonl"
+        },
+        "output": "level2-2025-11-25-relist-1/harness.jsonl",
+        "fresh": "level2-2025-11-25-relist-1/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2025-11-25-relist-1/model.jsonl"
+      },
+      {
+        "id": "relist",
+        "level": 2,
+        "run": 2,
+        "mode": "unattended",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the add_tool tool, then use the tool it added.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the add_tool tool, then use the tool it added."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 0.91,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-relist-2/def.jsonl",
+          "res": "level2-2025-11-25-relist-2/res.jsonl",
+          "ntf": "level2-2025-11-25-relist-2/ntf.jsonl",
+          "cf": "level2-2025-11-25-relist-2/cf.jsonl",
+          "util": "level2-2025-11-25-relist-2/util.jsonl"
+        },
+        "output": "level2-2025-11-25-relist-2/harness.jsonl",
+        "fresh": "level2-2025-11-25-relist-2/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2025-11-25-relist-2/model.jsonl"
+      },
+      {
+        "id": "relist",
+        "level": 2,
+        "run": 3,
+        "mode": "unattended",
+        "revision": "2025-11-25",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the add_tool tool, then use the tool it added.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the add_tool tool, then use the tool it added."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 1.79,
+        "delay_s": null,
+        "fixtures": {
+          "def": "python fixtures/definitions_server.py",
+          "res": "python fixtures/results_server.py",
+          "ntf": "python fixtures/notify_server.py",
+          "cf": "python fixtures/client_features_server.py",
+          "util": "python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2025-11-25-relist-3/def.jsonl",
+          "res": "level2-2025-11-25-relist-3/res.jsonl",
+          "ntf": "level2-2025-11-25-relist-3/ntf.jsonl",
+          "cf": "level2-2025-11-25-relist-3/cf.jsonl",
+          "util": "level2-2025-11-25-relist-3/util.jsonl"
+        },
+        "output": "level2-2025-11-25-relist-3/harness.jsonl",
+        "fresh": "level2-2025-11-25-relist-3/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2025-11-25-relist-3/model.jsonl"
+      },
+      {
+        "id": "read_only",
+        "level": 2,
+        "run": 1,
+        "mode": "default",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the search_records tool with query 'x' and tell me the count it returns.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the search_records tool with query 'x' and tell me the count it returns."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 2.25,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-read_only-1/def.jsonl",
+          "res": "level2-2026-07-28-read_only-1/res.jsonl",
+          "ntf": "level2-2026-07-28-read_only-1/ntf.jsonl",
+          "cf": "level2-2026-07-28-read_only-1/cf.jsonl",
+          "util": "level2-2026-07-28-read_only-1/util.jsonl"
+        },
+        "output": "level2-2026-07-28-read_only-1/harness.jsonl",
+        "fresh": "level2-2026-07-28-read_only-1/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2026-07-28-read_only-1/model.jsonl"
+      },
+      {
+        "id": "read_only",
+        "level": 2,
+        "run": 2,
+        "mode": "default",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the search_records tool with query 'x' and tell me the count it returns.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the search_records tool with query 'x' and tell me the count it returns."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 1.51,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-read_only-2/def.jsonl",
+          "res": "level2-2026-07-28-read_only-2/res.jsonl",
+          "ntf": "level2-2026-07-28-read_only-2/ntf.jsonl",
+          "cf": "level2-2026-07-28-read_only-2/cf.jsonl",
+          "util": "level2-2026-07-28-read_only-2/util.jsonl"
+        },
+        "output": "level2-2026-07-28-read_only-2/harness.jsonl",
+        "fresh": "level2-2026-07-28-read_only-2/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2026-07-28-read_only-2/model.jsonl"
+      },
+      {
+        "id": "read_only",
+        "level": 2,
+        "run": 3,
+        "mode": "default",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the search_records tool with query 'x' and tell me the count it returns.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the search_records tool with query 'x' and tell me the count it returns."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 1.82,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-read_only-3/def.jsonl",
+          "res": "level2-2026-07-28-read_only-3/res.jsonl",
+          "ntf": "level2-2026-07-28-read_only-3/ntf.jsonl",
+          "cf": "level2-2026-07-28-read_only-3/cf.jsonl",
+          "util": "level2-2026-07-28-read_only-3/util.jsonl"
+        },
+        "output": "level2-2026-07-28-read_only-3/harness.jsonl",
+        "fresh": "level2-2026-07-28-read_only-3/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2026-07-28-read_only-3/model.jsonl"
+      },
+      {
+        "id": "read_only-unattended",
+        "level": 2,
+        "run": 1,
+        "mode": "unattended",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the search_records tool with query 'x' and tell me the count it returns.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the search_records tool with query 'x' and tell me the count it returns."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 1.51,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-read_only-unattended-1/def.jsonl",
+          "res": "level2-2026-07-28-read_only-unattended-1/res.jsonl",
+          "ntf": "level2-2026-07-28-read_only-unattended-1/ntf.jsonl",
+          "cf": "level2-2026-07-28-read_only-unattended-1/cf.jsonl",
+          "util": "level2-2026-07-28-read_only-unattended-1/util.jsonl"
+        },
+        "output": "level2-2026-07-28-read_only-unattended-1/harness.jsonl",
+        "fresh": "level2-2026-07-28-read_only-unattended-1/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2026-07-28-read_only-unattended-1/model.jsonl"
+      },
+      {
+        "id": "read_only-unattended",
+        "level": 2,
+        "run": 2,
+        "mode": "unattended",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the search_records tool with query 'x' and tell me the count it returns.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the search_records tool with query 'x' and tell me the count it returns."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 1.65,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-read_only-unattended-2/def.jsonl",
+          "res": "level2-2026-07-28-read_only-unattended-2/res.jsonl",
+          "ntf": "level2-2026-07-28-read_only-unattended-2/ntf.jsonl",
+          "cf": "level2-2026-07-28-read_only-unattended-2/cf.jsonl",
+          "util": "level2-2026-07-28-read_only-unattended-2/util.jsonl"
+        },
+        "output": "level2-2026-07-28-read_only-unattended-2/harness.jsonl",
+        "fresh": "level2-2026-07-28-read_only-unattended-2/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2026-07-28-read_only-unattended-2/model.jsonl"
+      },
+      {
+        "id": "read_only-unattended",
+        "level": 2,
+        "run": 3,
+        "mode": "unattended",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the search_records tool with query 'x' and tell me the count it returns.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the search_records tool with query 'x' and tell me the count it returns."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 1.67,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-read_only-unattended-3/def.jsonl",
+          "res": "level2-2026-07-28-read_only-unattended-3/res.jsonl",
+          "ntf": "level2-2026-07-28-read_only-unattended-3/ntf.jsonl",
+          "cf": "level2-2026-07-28-read_only-unattended-3/cf.jsonl",
+          "util": "level2-2026-07-28-read_only-unattended-3/util.jsonl"
+        },
+        "output": "level2-2026-07-28-read_only-unattended-3/harness.jsonl",
+        "fresh": "level2-2026-07-28-read_only-unattended-3/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2026-07-28-read_only-unattended-3/model.jsonl"
+      },
+      {
+        "id": "destructive",
+        "level": 2,
+        "run": 1,
+        "mode": "default",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the delete_account tool with account_id 'a' and confirm true.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the delete_account tool with account_id 'a' and confirm true."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 1.56,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-destructive-1/def.jsonl",
+          "res": "level2-2026-07-28-destructive-1/res.jsonl",
+          "ntf": "level2-2026-07-28-destructive-1/ntf.jsonl",
+          "cf": "level2-2026-07-28-destructive-1/cf.jsonl",
+          "util": "level2-2026-07-28-destructive-1/util.jsonl"
+        },
+        "output": "level2-2026-07-28-destructive-1/harness.jsonl",
+        "fresh": "level2-2026-07-28-destructive-1/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2026-07-28-destructive-1/model.jsonl"
+      },
+      {
+        "id": "destructive",
+        "level": 2,
+        "run": 2,
+        "mode": "default",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the delete_account tool with account_id 'a' and confirm true.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the delete_account tool with account_id 'a' and confirm true."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 1.52,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-destructive-2/def.jsonl",
+          "res": "level2-2026-07-28-destructive-2/res.jsonl",
+          "ntf": "level2-2026-07-28-destructive-2/ntf.jsonl",
+          "cf": "level2-2026-07-28-destructive-2/cf.jsonl",
+          "util": "level2-2026-07-28-destructive-2/util.jsonl"
+        },
+        "output": "level2-2026-07-28-destructive-2/harness.jsonl",
+        "fresh": "level2-2026-07-28-destructive-2/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2026-07-28-destructive-2/model.jsonl"
+      },
+      {
+        "id": "destructive",
+        "level": 2,
+        "run": 3,
+        "mode": "default",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the delete_account tool with account_id 'a' and confirm true.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the delete_account tool with account_id 'a' and confirm true."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 1.84,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-destructive-3/def.jsonl",
+          "res": "level2-2026-07-28-destructive-3/res.jsonl",
+          "ntf": "level2-2026-07-28-destructive-3/ntf.jsonl",
+          "cf": "level2-2026-07-28-destructive-3/cf.jsonl",
+          "util": "level2-2026-07-28-destructive-3/util.jsonl"
+        },
+        "output": "level2-2026-07-28-destructive-3/harness.jsonl",
+        "fresh": "level2-2026-07-28-destructive-3/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2026-07-28-destructive-3/model.jsonl"
+      },
+      {
+        "id": "destructive-unattended",
+        "level": 2,
+        "run": 1,
+        "mode": "unattended",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the delete_account tool with account_id 'a' and confirm true.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the delete_account tool with account_id 'a' and confirm true."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 1.56,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-destructive-unattended-1/def.jsonl",
+          "res": "level2-2026-07-28-destructive-unattended-1/res.jsonl",
+          "ntf": "level2-2026-07-28-destructive-unattended-1/ntf.jsonl",
+          "cf": "level2-2026-07-28-destructive-unattended-1/cf.jsonl",
+          "util": "level2-2026-07-28-destructive-unattended-1/util.jsonl"
+        },
+        "output": "level2-2026-07-28-destructive-unattended-1/harness.jsonl",
+        "fresh": "level2-2026-07-28-destructive-unattended-1/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2026-07-28-destructive-unattended-1/model.jsonl"
+      },
+      {
+        "id": "destructive-unattended",
+        "level": 2,
+        "run": 2,
+        "mode": "unattended",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the delete_account tool with account_id 'a' and confirm true.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the delete_account tool with account_id 'a' and confirm true."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 1.8,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-destructive-unattended-2/def.jsonl",
+          "res": "level2-2026-07-28-destructive-unattended-2/res.jsonl",
+          "ntf": "level2-2026-07-28-destructive-unattended-2/ntf.jsonl",
+          "cf": "level2-2026-07-28-destructive-unattended-2/cf.jsonl",
+          "util": "level2-2026-07-28-destructive-unattended-2/util.jsonl"
+        },
+        "output": "level2-2026-07-28-destructive-unattended-2/harness.jsonl",
+        "fresh": "level2-2026-07-28-destructive-unattended-2/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2026-07-28-destructive-unattended-2/model.jsonl"
+      },
+      {
+        "id": "destructive-unattended",
+        "level": 2,
+        "run": 3,
+        "mode": "unattended",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the delete_account tool with account_id 'a' and confirm true.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the delete_account tool with account_id 'a' and confirm true."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 1.93,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-destructive-unattended-3/def.jsonl",
+          "res": "level2-2026-07-28-destructive-unattended-3/res.jsonl",
+          "ntf": "level2-2026-07-28-destructive-unattended-3/ntf.jsonl",
+          "cf": "level2-2026-07-28-destructive-unattended-3/cf.jsonl",
+          "util": "level2-2026-07-28-destructive-unattended-3/util.jsonl"
+        },
+        "output": "level2-2026-07-28-destructive-unattended-3/harness.jsonl",
+        "fresh": "level2-2026-07-28-destructive-unattended-3/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2026-07-28-destructive-unattended-3/model.jsonl"
+      },
+      {
+        "id": "resource",
+        "level": 2,
+        "run": 1,
+        "mode": "default",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Read the resource at file:///fixtures/notes.txt and quote it exactly.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Read the resource at file:///fixtures/notes.txt and quote it exactly."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 1.81,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-resource-1/def.jsonl",
+          "res": "level2-2026-07-28-resource-1/res.jsonl",
+          "ntf": "level2-2026-07-28-resource-1/ntf.jsonl",
+          "cf": "level2-2026-07-28-resource-1/cf.jsonl",
+          "util": "level2-2026-07-28-resource-1/util.jsonl"
+        },
+        "output": "level2-2026-07-28-resource-1/harness.jsonl",
+        "fresh": "level2-2026-07-28-resource-1/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2026-07-28-resource-1/model.jsonl"
+      },
+      {
+        "id": "resource",
+        "level": 2,
+        "run": 2,
+        "mode": "default",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Read the resource at file:///fixtures/notes.txt and quote it exactly.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Read the resource at file:///fixtures/notes.txt and quote it exactly."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 1.81,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-resource-2/def.jsonl",
+          "res": "level2-2026-07-28-resource-2/res.jsonl",
+          "ntf": "level2-2026-07-28-resource-2/ntf.jsonl",
+          "cf": "level2-2026-07-28-resource-2/cf.jsonl",
+          "util": "level2-2026-07-28-resource-2/util.jsonl"
+        },
+        "output": "level2-2026-07-28-resource-2/harness.jsonl",
+        "fresh": "level2-2026-07-28-resource-2/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2026-07-28-resource-2/model.jsonl"
+      },
+      {
+        "id": "resource",
+        "level": 2,
+        "run": 3,
+        "mode": "default",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Read the resource at file:///fixtures/notes.txt and quote it exactly.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Read the resource at file:///fixtures/notes.txt and quote it exactly."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 1.88,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-resource-3/def.jsonl",
+          "res": "level2-2026-07-28-resource-3/res.jsonl",
+          "ntf": "level2-2026-07-28-resource-3/ntf.jsonl",
+          "cf": "level2-2026-07-28-resource-3/cf.jsonl",
+          "util": "level2-2026-07-28-resource-3/util.jsonl"
+        },
+        "output": "level2-2026-07-28-resource-3/harness.jsonl",
+        "fresh": "level2-2026-07-28-resource-3/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2026-07-28-resource-3/model.jsonl"
+      },
+      {
+        "id": "prompt",
+        "level": 2,
+        "run": 1,
+        "mode": "default",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the summarize_records prompt with status 'active' and follow it.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the summarize_records prompt with status 'active' and follow it."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 0.87,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-prompt-1/def.jsonl",
+          "res": "level2-2026-07-28-prompt-1/res.jsonl",
+          "ntf": "level2-2026-07-28-prompt-1/ntf.jsonl",
+          "cf": "level2-2026-07-28-prompt-1/cf.jsonl",
+          "util": "level2-2026-07-28-prompt-1/util.jsonl"
+        },
+        "output": "level2-2026-07-28-prompt-1/harness.jsonl",
+        "fresh": "level2-2026-07-28-prompt-1/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2026-07-28-prompt-1/model.jsonl"
+      },
+      {
+        "id": "prompt",
+        "level": 2,
+        "run": 2,
+        "mode": "default",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the summarize_records prompt with status 'active' and follow it.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the summarize_records prompt with status 'active' and follow it."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 1.03,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-prompt-2/def.jsonl",
+          "res": "level2-2026-07-28-prompt-2/res.jsonl",
+          "ntf": "level2-2026-07-28-prompt-2/ntf.jsonl",
+          "cf": "level2-2026-07-28-prompt-2/cf.jsonl",
+          "util": "level2-2026-07-28-prompt-2/util.jsonl"
+        },
+        "output": "level2-2026-07-28-prompt-2/harness.jsonl",
+        "fresh": "level2-2026-07-28-prompt-2/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2026-07-28-prompt-2/model.jsonl"
+      },
+      {
+        "id": "prompt",
+        "level": 2,
+        "run": 3,
+        "mode": "default",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the summarize_records prompt with status 'active' and follow it.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the summarize_records prompt with status 'active' and follow it."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 0.97,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-prompt-3/def.jsonl",
+          "res": "level2-2026-07-28-prompt-3/res.jsonl",
+          "ntf": "level2-2026-07-28-prompt-3/ntf.jsonl",
+          "cf": "level2-2026-07-28-prompt-3/cf.jsonl",
+          "util": "level2-2026-07-28-prompt-3/util.jsonl"
+        },
+        "output": "level2-2026-07-28-prompt-3/harness.jsonl",
+        "fresh": "level2-2026-07-28-prompt-3/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2026-07-28-prompt-3/model.jsonl"
+      },
+      {
+        "id": "elicit",
+        "level": 2,
+        "run": 1,
+        "mode": "unattended",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the ask_elicitation_form tool and answer whatever it asks with 'x'.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the ask_elicitation_form tool and answer whatever it asks with 'x'."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 1.56,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-elicit-1/def.jsonl",
+          "res": "level2-2026-07-28-elicit-1/res.jsonl",
+          "ntf": "level2-2026-07-28-elicit-1/ntf.jsonl",
+          "cf": "level2-2026-07-28-elicit-1/cf.jsonl",
+          "util": "level2-2026-07-28-elicit-1/util.jsonl"
+        },
+        "output": "level2-2026-07-28-elicit-1/harness.jsonl",
+        "fresh": "level2-2026-07-28-elicit-1/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2026-07-28-elicit-1/model.jsonl"
+      },
+      {
+        "id": "elicit",
+        "level": 2,
+        "run": 2,
+        "mode": "unattended",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the ask_elicitation_form tool and answer whatever it asks with 'x'.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the ask_elicitation_form tool and answer whatever it asks with 'x'."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 1.5,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-elicit-2/def.jsonl",
+          "res": "level2-2026-07-28-elicit-2/res.jsonl",
+          "ntf": "level2-2026-07-28-elicit-2/ntf.jsonl",
+          "cf": "level2-2026-07-28-elicit-2/cf.jsonl",
+          "util": "level2-2026-07-28-elicit-2/util.jsonl"
+        },
+        "output": "level2-2026-07-28-elicit-2/harness.jsonl",
+        "fresh": "level2-2026-07-28-elicit-2/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2026-07-28-elicit-2/model.jsonl"
+      },
+      {
+        "id": "elicit",
+        "level": 2,
+        "run": 3,
+        "mode": "unattended",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the ask_elicitation_form tool and answer whatever it asks with 'x'.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the ask_elicitation_form tool and answer whatever it asks with 'x'."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 1.46,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-elicit-3/def.jsonl",
+          "res": "level2-2026-07-28-elicit-3/res.jsonl",
+          "ntf": "level2-2026-07-28-elicit-3/ntf.jsonl",
+          "cf": "level2-2026-07-28-elicit-3/cf.jsonl",
+          "util": "level2-2026-07-28-elicit-3/util.jsonl"
+        },
+        "output": "level2-2026-07-28-elicit-3/harness.jsonl",
+        "fresh": "level2-2026-07-28-elicit-3/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2026-07-28-elicit-3/model.jsonl"
+      },
+      {
+        "id": "sampling",
+        "level": 2,
+        "run": 1,
+        "mode": "unattended",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the ask_sampling tool and tell me what it returns.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the ask_sampling tool and tell me what it returns."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 1.6,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-sampling-1/def.jsonl",
+          "res": "level2-2026-07-28-sampling-1/res.jsonl",
+          "ntf": "level2-2026-07-28-sampling-1/ntf.jsonl",
+          "cf": "level2-2026-07-28-sampling-1/cf.jsonl",
+          "util": "level2-2026-07-28-sampling-1/util.jsonl"
+        },
+        "output": "level2-2026-07-28-sampling-1/harness.jsonl",
+        "fresh": "level2-2026-07-28-sampling-1/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2026-07-28-sampling-1/model.jsonl"
+      },
+      {
+        "id": "sampling",
+        "level": 2,
+        "run": 2,
+        "mode": "unattended",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the ask_sampling tool and tell me what it returns.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the ask_sampling tool and tell me what it returns."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 1.46,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-sampling-2/def.jsonl",
+          "res": "level2-2026-07-28-sampling-2/res.jsonl",
+          "ntf": "level2-2026-07-28-sampling-2/ntf.jsonl",
+          "cf": "level2-2026-07-28-sampling-2/cf.jsonl",
+          "util": "level2-2026-07-28-sampling-2/util.jsonl"
+        },
+        "output": "level2-2026-07-28-sampling-2/harness.jsonl",
+        "fresh": "level2-2026-07-28-sampling-2/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2026-07-28-sampling-2/model.jsonl"
+      },
+      {
+        "id": "sampling",
+        "level": 2,
+        "run": 3,
+        "mode": "unattended",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the ask_sampling tool and tell me what it returns.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the ask_sampling tool and tell me what it returns."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 1.8,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-sampling-3/def.jsonl",
+          "res": "level2-2026-07-28-sampling-3/res.jsonl",
+          "ntf": "level2-2026-07-28-sampling-3/ntf.jsonl",
+          "cf": "level2-2026-07-28-sampling-3/cf.jsonl",
+          "util": "level2-2026-07-28-sampling-3/util.jsonl"
+        },
+        "output": "level2-2026-07-28-sampling-3/harness.jsonl",
+        "fresh": "level2-2026-07-28-sampling-3/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2026-07-28-sampling-3/model.jsonl"
+      },
+      {
+        "id": "slow",
+        "level": 2,
+        "run": 1,
+        "mode": "unattended",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the slow_with_progress tool and wait for it to finish.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the slow_with_progress tool and wait for it to finish."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 2.76,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-slow-1/def.jsonl",
+          "res": "level2-2026-07-28-slow-1/res.jsonl",
+          "ntf": "level2-2026-07-28-slow-1/ntf.jsonl",
+          "cf": "level2-2026-07-28-slow-1/cf.jsonl",
+          "util": "level2-2026-07-28-slow-1/util.jsonl"
+        },
+        "output": "level2-2026-07-28-slow-1/harness.jsonl",
+        "fresh": "level2-2026-07-28-slow-1/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2026-07-28-slow-1/model.jsonl"
+      },
+      {
+        "id": "slow",
+        "level": 2,
+        "run": 2,
+        "mode": "unattended",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the slow_with_progress tool and wait for it to finish.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the slow_with_progress tool and wait for it to finish."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 1.76,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-slow-2/def.jsonl",
+          "res": "level2-2026-07-28-slow-2/res.jsonl",
+          "ntf": "level2-2026-07-28-slow-2/ntf.jsonl",
+          "cf": "level2-2026-07-28-slow-2/cf.jsonl",
+          "util": "level2-2026-07-28-slow-2/util.jsonl"
+        },
+        "output": "level2-2026-07-28-slow-2/harness.jsonl",
+        "fresh": "level2-2026-07-28-slow-2/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2026-07-28-slow-2/model.jsonl"
+      },
+      {
+        "id": "slow",
+        "level": 2,
+        "run": 3,
+        "mode": "unattended",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the slow_with_progress tool and wait for it to finish.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the slow_with_progress tool and wait for it to finish."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 1.81,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-slow-3/def.jsonl",
+          "res": "level2-2026-07-28-slow-3/res.jsonl",
+          "ntf": "level2-2026-07-28-slow-3/ntf.jsonl",
+          "cf": "level2-2026-07-28-slow-3/cf.jsonl",
+          "util": "level2-2026-07-28-slow-3/util.jsonl"
+        },
+        "output": "level2-2026-07-28-slow-3/harness.jsonl",
+        "fresh": "level2-2026-07-28-slow-3/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2026-07-28-slow-3/model.jsonl"
+      },
+      {
+        "id": "error",
+        "level": 2,
+        "run": 1,
+        "mode": "unattended",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the delete_account tool with account_id 'a' and confirm false.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the delete_account tool with account_id 'a' and confirm false."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 1.56,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-error-1/def.jsonl",
+          "res": "level2-2026-07-28-error-1/res.jsonl",
+          "ntf": "level2-2026-07-28-error-1/ntf.jsonl",
+          "cf": "level2-2026-07-28-error-1/cf.jsonl",
+          "util": "level2-2026-07-28-error-1/util.jsonl"
+        },
+        "output": "level2-2026-07-28-error-1/harness.jsonl",
+        "fresh": "level2-2026-07-28-error-1/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2026-07-28-error-1/model.jsonl"
+      },
+      {
+        "id": "error",
+        "level": 2,
+        "run": 2,
+        "mode": "unattended",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the delete_account tool with account_id 'a' and confirm false.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the delete_account tool with account_id 'a' and confirm false."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 1.65,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-error-2/def.jsonl",
+          "res": "level2-2026-07-28-error-2/res.jsonl",
+          "ntf": "level2-2026-07-28-error-2/ntf.jsonl",
+          "cf": "level2-2026-07-28-error-2/cf.jsonl",
+          "util": "level2-2026-07-28-error-2/util.jsonl"
+        },
+        "output": "level2-2026-07-28-error-2/harness.jsonl",
+        "fresh": "level2-2026-07-28-error-2/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2026-07-28-error-2/model.jsonl"
+      },
+      {
+        "id": "error",
+        "level": 2,
+        "run": 3,
+        "mode": "unattended",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the delete_account tool with account_id 'a' and confirm false.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the delete_account tool with account_id 'a' and confirm false."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 1.86,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-error-3/def.jsonl",
+          "res": "level2-2026-07-28-error-3/res.jsonl",
+          "ntf": "level2-2026-07-28-error-3/ntf.jsonl",
+          "cf": "level2-2026-07-28-error-3/cf.jsonl",
+          "util": "level2-2026-07-28-error-3/util.jsonl"
+        },
+        "output": "level2-2026-07-28-error-3/harness.jsonl",
+        "fresh": "level2-2026-07-28-error-3/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2026-07-28-error-3/model.jsonl"
+      },
+      {
+        "id": "relist",
+        "level": 2,
+        "run": 1,
+        "mode": "unattended",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the add_tool tool, then use the tool it added.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the add_tool tool, then use the tool it added."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 1.55,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-relist-1/def.jsonl",
+          "res": "level2-2026-07-28-relist-1/res.jsonl",
+          "ntf": "level2-2026-07-28-relist-1/ntf.jsonl",
+          "cf": "level2-2026-07-28-relist-1/cf.jsonl",
+          "util": "level2-2026-07-28-relist-1/util.jsonl"
+        },
+        "output": "level2-2026-07-28-relist-1/harness.jsonl",
+        "fresh": "level2-2026-07-28-relist-1/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2026-07-28-relist-1/model.jsonl"
+      },
+      {
+        "id": "relist",
+        "level": 2,
+        "run": 2,
+        "mode": "unattended",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the add_tool tool, then use the tool it added.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the add_tool tool, then use the tool it added."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 1.72,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-relist-2/def.jsonl",
+          "res": "level2-2026-07-28-relist-2/res.jsonl",
+          "ntf": "level2-2026-07-28-relist-2/ntf.jsonl",
+          "cf": "level2-2026-07-28-relist-2/cf.jsonl",
+          "util": "level2-2026-07-28-relist-2/util.jsonl"
+        },
+        "output": "level2-2026-07-28-relist-2/harness.jsonl",
+        "fresh": "level2-2026-07-28-relist-2/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2026-07-28-relist-2/model.jsonl"
+      },
+      {
+        "id": "relist",
+        "level": 2,
+        "run": 3,
+        "mode": "unattended",
+        "revision": "2026-07-28",
+        "invocation": "prompt",
+        "mode_args": [],
+        "transport": "stdio",
+        "prompt": "Use the add_tool tool, then use the tool it added.",
+        "argv": [
+          ".mcp-mirror/harnesses/crush/node_modules/@charmland/crush/bin/crush",
+          "run",
+          "-q",
+          "--model",
+          "stub/stub",
+          "Use the add_tool tool, then use the tool it added."
+        ],
+        "exit_code": 0,
+        "timed_out": false,
+        "duration_s": 1.6,
+        "delay_s": null,
+        "fixtures": {
+          "def": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/definitions_server.py",
+          "res": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/results_server.py",
+          "ntf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/notify_server.py",
+          "cf": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/client_features_server.py",
+          "util": ".mcp-mirror/fixture-2026-07-28/bin/python fixtures/utilities_server.py"
+        },
+        "captures": {
+          "def": "level2-2026-07-28-relist-3/def.jsonl",
+          "res": "level2-2026-07-28-relist-3/res.jsonl",
+          "ntf": "level2-2026-07-28-relist-3/ntf.jsonl",
+          "cf": "level2-2026-07-28-relist-3/cf.jsonl",
+          "util": "level2-2026-07-28-relist-3/util.jsonl"
+        },
+        "output": "level2-2026-07-28-relist-3/harness.jsonl",
+        "fresh": "level2-2026-07-28-relist-3/fresh.json",
+        "stderr_tail": [],
+        "model": "level2-2026-07-28-relist-3/model.jsonl"
+      }
+    ]
+  },
+  "fresh": {
+    "passed": true,
+    "sessions": 72,
+    "failed": []
+  }
+}

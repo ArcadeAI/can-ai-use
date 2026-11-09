@@ -1,0 +1,103 @@
+{
+  "schema": "mcp-mirror/client-probe@1",
+  "captured_at": "2026-10-09T21:10:23Z",
+  "fixture": "fixtures/client_features_server.py",
+  "fixture_python": "<checkout>/.mcp-mirror/fixture-2025-11-25/bin/python",
+  "spec_version": "2025-11-25",
+  "frameworks": {
+    "google_adk_go": {
+      "ok": true,
+      "versions": {
+        "framework": "2.5.0",
+        "adapter": "google.golang.org/adk/v2/tool/mcptoolset 2.5.0, github.com/modelcontextprotocol/go-sdk 1.8.0, google.golang.org/genai 1.71.0, go1.27.1"
+      },
+      "negotiated_mcp_spec_version": "2025-11-25",
+      "client_probe": {
+        "sampling": {
+          "tool": "ask_sampling",
+          "hook": "mcp.ClientOptions.CreateMessageWithToolsHandler on the *mcp.Client passed as mcptoolset.Config.Client",
+          "route": "passthrough",
+          "expect": "SENTINEL_SAMPLED",
+          "text": "{\"answered\": \"ask_sampling\", \"response\": {\"content\": {\"text\": \"SENTINEL_SAMPLED\", \"type\": \"text\"}, \"model\": \"mcp-mirror-stub\", \"role\": \"assistant\", \"stopReason\": \"endTurn\"}}",
+          "is_error": null,
+          "handler_saw": [
+            {
+              "hook": "mcp.ClientOptions.CreateMessageWithToolsHandler",
+              "replied": "endTurn",
+              "tools": false
+            }
+          ]
+        },
+        "sampling.tools": {
+          "tool": "ask_sampling_tools",
+          "hook": "mcp.ClientOptions.CreateMessageWithToolsHandler on the *mcp.Client passed as mcptoolset.Config.Client",
+          "route": "passthrough",
+          "expect": "SENTINEL_SAMPLED_AFTER_TOOL",
+          "text": "{\"answered\": \"ask_sampling_tools\", \"response\": {\"rounds\": [{\"content\": {\"id\": \"SENTINEL_TOOL_USE_ID\", \"input\": {\"word\": \"mirror\"}, \"name\": \"sentinel_lookup\", \"type\": \"tool_use\"}, \"model\": \"mcp-mirror-stub\", \"role\": \"assistant\", \"stopReason\": \"toolUse\"}, {\"content\": {\"text\": \"SENTINEL_SAMPLED_AFTER_TOOL\", \"type\": \"text\"}, \"model\": \"mcp-mirror-stub\", \"role\": \"assistant\", \"stopReason\": \"endTurn\"}]}}",
+          "is_error": null,
+          "handler_saw": [
+            {
+              "hook": "mcp.ClientOptions.CreateMessageWithToolsHandler",
+              "replied": "toolUse",
+              "tools": true
+            },
+            {
+              "hook": "mcp.ClientOptions.CreateMessageWithToolsHandler",
+              "replied": "endTurn",
+              "tools": true
+            }
+          ]
+        },
+        "elicitation.form": {
+          "tool": "ask_elicitation_form",
+          "hook": "mcp.ClientOptions.ElicitationHandler on the *mcp.Client passed as mcptoolset.Config.Client",
+          "route": "passthrough",
+          "expect": "SENTINEL_ELICITED",
+          "text": "{\"answered\": \"ask_elicitation_form\", \"response\": {\"action\": \"accept\", \"content\": {\"name\": \"SENTINEL_ELICITED\"}}}",
+          "is_error": null,
+          "handler_saw": [
+            {
+              "hook": "mcp.ClientOptions.ElicitationHandler",
+              "mode": "form"
+            }
+          ]
+        },
+        "elicitation.url": {
+          "tool": "ask_elicitation_url",
+          "hook": "mcp.ClientOptions.ElicitationHandler with Capabilities.Elicitation.URL on the *mcp.Client passed as mcptoolset.Config.Client",
+          "route": "passthrough",
+          "expect": "\"action\": \"accept\"",
+          "text": "{\"answered\": \"ask_elicitation_url\", \"response\": {\"action\": \"accept\"}}",
+          "is_error": null,
+          "handler_saw": [
+            {
+              "hook": "mcp.ClientOptions.ElicitationHandler",
+              "mode": "url"
+            }
+          ]
+        },
+        "roots.list": {
+          "tool": "list_client_roots",
+          "hook": "mcp.Client.AddRoots on the *mcp.Client passed as mcptoolset.Config.Client",
+          "route": "passthrough",
+          "expect": "file:///tmp/mcp-mirror-root",
+          "text": "{\"answered\": \"list_client_roots\", \"response\": {\"roots\": [{\"name\": \"mcp-mirror\", \"uri\": \"file:///tmp/mcp-mirror-root\"}]}}",
+          "is_error": null,
+          "handler_saw": []
+        },
+        "roots.list_changed": {
+          "tool": "roots_changes_seen",
+          "hook": "mcp.Client.RemoveRoots / AddRoots on the *mcp.Client passed as mcptoolset.Config.Client",
+          "route": "passthrough",
+          "expect": "SENTINEL_ROOTS_CHANGES_SEEN",
+          "text": "{\"seen\": 2}",
+          "is_error": null,
+          "handler_saw": []
+        },
+        "capabilities": {
+          "text": "{\"elicitation\": {\"form\": {}, \"url\": {}}, \"roots\": {\"listChanged\": true}, \"sampling\": {\"tools\": {}}}"
+        }
+      }
+    }
+  }
+}

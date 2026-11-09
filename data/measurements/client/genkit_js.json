@@ -1,0 +1,76 @@
+{
+  "schema": "mcp-mirror/client-probe@1",
+  "captured_at": "2026-10-01T08:12:44Z",
+  "fixture": "fixtures/client_features_server.py",
+  "fixture_python": "<checkout>/.mcp-mirror/fixture-2025-11-25/bin/python",
+  "spec_version": "2025-11-25",
+  "frameworks": {
+    "genkit_js": {
+      "ok": true,
+      "versions": {
+        "framework": "1.42.0",
+        "adapter": "@genkit-ai/mcp 1.42.0, @modelcontextprotocol/sdk 1.30.0, node v24.21.0"
+      },
+      "negotiated_mcp_spec_version": "2025-11-25",
+      "client_probe": {
+        "sampling": {
+          "tool": "ask_sampling",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_SAMPLED",
+          "text": "SENTINEL_CLIENT_FEATURE_UNAVAILABLE ask_sampling: McpError: Method not found",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "sampling.tools": {
+          "tool": "ask_sampling_tools",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_SAMPLED_AFTER_TOOL",
+          "text": "SENTINEL_CLIENT_FEATURE_UNAVAILABLE ask_sampling_tools: McpError: Client does not support sampling tools capability",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "elicitation.form": {
+          "tool": "ask_elicitation_form",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_ELICITED",
+          "text": "SENTINEL_CLIENT_FEATURE_UNAVAILABLE ask_elicitation_form: McpError: Method not found",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "elicitation.url": {
+          "tool": "ask_elicitation_url",
+          "hook": null,
+          "route": null,
+          "expect": "\"action\": \"accept\"",
+          "text": "SENTINEL_CLIENT_FEATURE_UNAVAILABLE ask_elicitation_url: McpError: Method not found",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "roots.list": {
+          "tool": "list_client_roots",
+          "hook": "createMcpHost({ roots })",
+          "route": "adapter",
+          "expect": "file:///tmp/mcp-mirror-root",
+          "text": "{\"answered\": \"list_client_roots\", \"response\": {\"roots\": [{\"name\": \"mcp-mirror\", \"uri\": \"file:///tmp/mcp-mirror-root\"}]}}",
+          "is_error": null,
+          "handler_saw": []
+        },
+        "roots.list_changed": {
+          "tool": "roots_changes_seen",
+          "hook": "createMcpHost({ roots }) + GenkitMcpClient.updateRoots",
+          "route": "adapter",
+          "expect": "SENTINEL_ROOTS_CHANGES_SEEN",
+          "text": "{\"seen\": 2}",
+          "is_error": null,
+          "handler_saw": []
+        },
+        "capabilities": {
+          "text": "{\"roots\": {\"listChanged\": true}}"
+        }
+      }
+    }
+  }
+}

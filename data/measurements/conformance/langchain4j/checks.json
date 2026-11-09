@@ -1,0 +1,717 @@
+{
+  "schema": "mcp-mirror/conformance@1",
+  "captured_at": "2026-10-09T20:59:49Z",
+  "renderer": "langchain4j",
+  "versions": {
+    "framework": "1.22.0-beta32",
+    "adapter": "langchain4j 1.22.0, langchain4j-core 1.22.0, java 21.0.12.1"
+  },
+  "suite": {
+    "package": "@modelcontextprotocol/conformance",
+    "version": "0.1.16"
+  },
+  "spec_version": "2025-11-25",
+  "spec_note": "Every scenario that ran is tagged 2025-11-25 by the suite (see scenario_tags); the suite has no 2026-07-28 client scenarios.",
+  "scenario_tags": {
+    "auth/basic-cimd": [
+      "2025-11-25"
+    ],
+    "auth/metadata-default": [
+      "2025-11-25"
+    ],
+    "auth/metadata-var1": [
+      "2025-11-25"
+    ],
+    "auth/metadata-var2": [
+      "2025-11-25"
+    ],
+    "auth/metadata-var3": [
+      "2025-11-25"
+    ],
+    "auth/pre-registration": [
+      "2025-11-25"
+    ],
+    "auth/scope-from-scopes-supported": [
+      "2025-11-25"
+    ],
+    "auth/scope-from-www-authenticate": [
+      "2025-11-25"
+    ],
+    "auth/scope-omitted-when-undefined": [
+      "2025-11-25"
+    ],
+    "auth/scope-retry-limit": [
+      "2025-11-25"
+    ],
+    "auth/scope-step-up": [
+      "2025-11-25"
+    ],
+    "auth/token-endpoint-auth-basic": [
+      "2025-06-18",
+      "2025-11-25"
+    ],
+    "auth/token-endpoint-auth-none": [
+      "2025-06-18",
+      "2025-11-25"
+    ],
+    "auth/token-endpoint-auth-post": [
+      "2025-06-18",
+      "2025-11-25"
+    ],
+    "elicitation-sep1034-client-defaults": [
+      "2025-11-25"
+    ],
+    "initialize": [
+      "2025-06-18",
+      "2025-11-25"
+    ],
+    "sse-retry": [
+      "2025-11-25"
+    ],
+    "tools_call": [
+      "2025-06-18",
+      "2025-11-25"
+    ]
+  },
+  "client_command": "python scripts/conformance_client.py langchain4j <url>",
+  "command": "uv run python scripts/run_conformance.py --renderers langchain4j",
+  "suites": {
+    "auth": {
+      "exit_code": 1,
+      "scenarios": {
+        "auth/basic-cimd": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "cimd-client-id-used", "status": "FAILURE", "description": "Client did not make an authorization request to test CIMD support"}
+          ],
+          "client": null,
+          "client_stderr_tail": "enderer.py\", line 413, in _run_worker\n    raise RenderError(f\"langchain4j worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: langchain4j worker error: RuntimeException: java.util.concurrent.ExecutionException: dev.langchain4j.exception.HttpException: Unexpected status code: 401. The server answered neither the 2026-07-28 protocol detection request nor the 2025-11-25 initialization that followed it. If the server does not tolerate being sent a method it does not know, skip detection by setting the protocol version explicitly, for example .protocolVersion(\"2025-11-25\")."
+        },
+        "auth/metadata-default": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "prm-pathbased-requested", "status": "FAILURE", "description": "Expected Check Missing: prm-pathbased-requested"},
+            {"id": "authorization-server-metadata", "status": "FAILURE", "description": "Expected Check Missing: authorization-server-metadata"},
+            {"id": "client-registration", "status": "FAILURE", "description": "Expected Check Missing: client-registration"},
+            {"id": "authorization-request", "status": "FAILURE", "description": "Expected Check Missing: authorization-request"},
+            {"id": "token-request", "status": "FAILURE", "description": "Expected Check Missing: token-request"}
+          ],
+          "client": null,
+          "client_stderr_tail": "enderer.py\", line 413, in _run_worker\n    raise RenderError(f\"langchain4j worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: langchain4j worker error: RuntimeException: java.util.concurrent.ExecutionException: dev.langchain4j.exception.HttpException: Unexpected status code: 401. The server answered neither the 2026-07-28 protocol detection request nor the 2025-11-25 initialization that followed it. If the server does not tolerate being sent a method it does not know, skip detection by setting the protocol version explicitly, for example .protocolVersion(\"2025-11-25\")."
+        },
+        "auth/metadata-var1": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "prm-pathbased-requested", "status": "FAILURE", "description": "Expected Check Missing: prm-pathbased-requested"},
+            {"id": "authorization-server-metadata", "status": "FAILURE", "description": "Expected Check Missing: authorization-server-metadata"},
+            {"id": "client-registration", "status": "FAILURE", "description": "Expected Check Missing: client-registration"},
+            {"id": "authorization-request", "status": "FAILURE", "description": "Expected Check Missing: authorization-request"},
+            {"id": "token-request", "status": "FAILURE", "description": "Expected Check Missing: token-request"}
+          ],
+          "client": null,
+          "client_stderr_tail": "enderer.py\", line 413, in _run_worker\n    raise RenderError(f\"langchain4j worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: langchain4j worker error: RuntimeException: java.util.concurrent.ExecutionException: dev.langchain4j.exception.HttpException: Unexpected status code: 401. The server answered neither the 2026-07-28 protocol detection request nor the 2025-11-25 initialization that followed it. If the server does not tolerate being sent a method it does not know, skip detection by setting the protocol version explicitly, for example .protocolVersion(\"2025-11-25\")."
+        },
+        "auth/metadata-var2": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "authorization-server-metadata", "status": "FAILURE", "description": "Expected Check Missing: authorization-server-metadata"},
+            {"id": "client-registration", "status": "FAILURE", "description": "Expected Check Missing: client-registration"},
+            {"id": "authorization-request", "status": "FAILURE", "description": "Expected Check Missing: authorization-request"},
+            {"id": "token-request", "status": "FAILURE", "description": "Expected Check Missing: token-request"}
+          ],
+          "client": null,
+          "client_stderr_tail": "enderer.py\", line 413, in _run_worker\n    raise RenderError(f\"langchain4j worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: langchain4j worker error: RuntimeException: java.util.concurrent.ExecutionException: dev.langchain4j.exception.HttpException: Unexpected status code: 401. The server answered neither the 2026-07-28 protocol detection request nor the 2025-11-25 initialization that followed it. If the server does not tolerate being sent a method it does not know, skip detection by setting the protocol version explicitly, for example .protocolVersion(\"2025-11-25\")."
+        },
+        "auth/metadata-var3": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "authorization-server-metadata", "status": "FAILURE", "description": "Expected Check Missing: authorization-server-metadata"},
+            {"id": "client-registration", "status": "FAILURE", "description": "Expected Check Missing: client-registration"},
+            {"id": "authorization-request", "status": "FAILURE", "description": "Expected Check Missing: authorization-request"},
+            {"id": "token-request", "status": "FAILURE", "description": "Expected Check Missing: token-request"}
+          ],
+          "client": null,
+          "client_stderr_tail": "enderer.py\", line 413, in _run_worker\n    raise RenderError(f\"langchain4j worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: langchain4j worker error: RuntimeException: java.util.concurrent.ExecutionException: dev.langchain4j.exception.HttpException: Unexpected status code: 401. The server answered neither the 2026-07-28 protocol detection request nor the 2025-11-25 initialization that followed it. If the server does not tolerate being sent a method it does not know, skip detection by setting the protocol version explicitly, for example .protocolVersion(\"2025-11-25\")."
+        },
+        "auth/pre-registration": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "pre-registration-auth", "status": "FAILURE", "description": "Client did not make a token request"}
+          ],
+          "client": null,
+          "client_stderr_tail": "enderer.py\", line 413, in _run_worker\n    raise RenderError(f\"langchain4j worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: langchain4j worker error: RuntimeException: java.util.concurrent.ExecutionException: dev.langchain4j.exception.HttpException: Unexpected status code: 401. The server answered neither the 2026-07-28 protocol detection request nor the 2025-11-25 initialization that followed it. If the server does not tolerate being sent a method it does not know, skip detection by setting the protocol version explicitly, for example .protocolVersion(\"2025-11-25\")."
+        },
+        "auth/scope-from-scopes-supported": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "scope-from-scopes-supported", "status": "FAILURE", "description": "Client did not complete authorization flow - scope check could not be performed"}
+          ],
+          "client": null,
+          "client_stderr_tail": "enderer.py\", line 413, in _run_worker\n    raise RenderError(f\"langchain4j worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: langchain4j worker error: RuntimeException: java.util.concurrent.ExecutionException: dev.langchain4j.exception.HttpException: Unexpected status code: 401. The server answered neither the 2026-07-28 protocol detection request nor the 2025-11-25 initialization that followed it. If the server does not tolerate being sent a method it does not know, skip detection by setting the protocol version explicitly, for example .protocolVersion(\"2025-11-25\")."
+        },
+        "auth/scope-from-www-authenticate": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "scope-from-www-authenticate", "status": "FAILURE", "description": "Client did not complete authorization flow - scope check could not be performed"}
+          ],
+          "client": null,
+          "client_stderr_tail": "enderer.py\", line 413, in _run_worker\n    raise RenderError(f\"langchain4j worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: langchain4j worker error: RuntimeException: java.util.concurrent.ExecutionException: dev.langchain4j.exception.HttpException: Unexpected status code: 401. The server answered neither the 2026-07-28 protocol detection request nor the 2025-11-25 initialization that followed it. If the server does not tolerate being sent a method it does not know, skip detection by setting the protocol version explicitly, for example .protocolVersion(\"2025-11-25\")."
+        },
+        "auth/scope-omitted-when-undefined": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "scope-omitted-when-undefined", "status": "FAILURE", "description": "Client did not complete authorization flow - scope check could not be performed"}
+          ],
+          "client": null,
+          "client_stderr_tail": "enderer.py\", line 413, in _run_worker\n    raise RenderError(f\"langchain4j worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: langchain4j worker error: RuntimeException: java.util.concurrent.ExecutionException: dev.langchain4j.exception.HttpException: Unexpected status code: 401. The server answered neither the 2026-07-28 protocol detection request nor the 2025-11-25 initialization that followed it. If the server does not tolerate being sent a method it does not know, skip detection by setting the protocol version explicitly, for example .protocolVersion(\"2025-11-25\")."
+        },
+        "auth/scope-retry-limit": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 200}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized", "statusCode": 202}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "scope-retry-limit", "status": "FAILURE", "description": "Client did not make any authorization requests"}
+          ],
+          "client": {
+            "renderer": "langchain4j",
+            "versions": {
+              "framework": "1.22.0-beta32",
+              "adapter": "langchain4j 1.22.0, langchain4j-core 1.22.0, java 21.0.12.1"
+            },
+            "auth_hook": null,
+            "tools": []
+          },
+          "client_stderr_tail": null
+        },
+        "auth/scope-step-up": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 200}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized", "statusCode": 202}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "scope-step-up-initial", "status": "FAILURE", "description": "Client did not make an initial authorization request"},
+            {"id": "scope-step-up-escalation", "status": "FAILURE", "description": "Client did not make a second authorization request for scope escalation"}
+          ],
+          "client": {
+            "renderer": "langchain4j",
+            "versions": {
+              "framework": "1.22.0-beta32",
+              "adapter": "langchain4j 1.22.0, langchain4j-core 1.22.0, java 21.0.12.1"
+            },
+            "auth_hook": null,
+            "tools": []
+          },
+          "client_stderr_tail": null
+        },
+        "auth/token-endpoint-auth-basic": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "token-endpoint-auth-method", "status": "FAILURE", "description": "Client did not make a token request"},
+            {"id": "resource-parameter-in-authorization", "status": "FAILURE", "description": "Client MUST include resource parameter in authorization request per RFC 8707", "details": {"resource": "not provided"}},
+            {"id": "resource-parameter-in-token", "status": "FAILURE", "description": "Client MUST include resource parameter in token request per RFC 8707", "details": {"resource": "not provided"}}
+          ],
+          "client": null,
+          "client_stderr_tail": "enderer.py\", line 413, in _run_worker\n    raise RenderError(f\"langchain4j worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: langchain4j worker error: RuntimeException: java.util.concurrent.ExecutionException: dev.langchain4j.exception.HttpException: Unexpected status code: 401. The server answered neither the 2026-07-28 protocol detection request nor the 2025-11-25 initialization that followed it. If the server does not tolerate being sent a method it does not know, skip detection by setting the protocol version explicitly, for example .protocolVersion(\"2025-11-25\")."
+        },
+        "auth/token-endpoint-auth-none": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "token-endpoint-auth-method", "status": "FAILURE", "description": "Client did not make a token request"},
+            {"id": "resource-parameter-in-authorization", "status": "FAILURE", "description": "Client MUST include resource parameter in authorization request per RFC 8707", "details": {"resource": "not provided"}},
+            {"id": "resource-parameter-in-token", "status": "FAILURE", "description": "Client MUST include resource parameter in token request per RFC 8707", "details": {"resource": "not provided"}}
+          ],
+          "client": null,
+          "client_stderr_tail": "enderer.py\", line 413, in _run_worker\n    raise RenderError(f\"langchain4j worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: langchain4j worker error: RuntimeException: java.util.concurrent.ExecutionException: dev.langchain4j.exception.HttpException: Unexpected status code: 401. The server answered neither the 2026-07-28 protocol detection request nor the 2025-11-25 initialization that followed it. If the server does not tolerate being sent a method it does not know, skip detection by setting the protocol version explicitly, for example .protocolVersion(\"2025-11-25\")."
+        },
+        "auth/token-endpoint-auth-post": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "token-endpoint-auth-method", "status": "FAILURE", "description": "Client did not make a token request"},
+            {"id": "resource-parameter-in-authorization", "status": "FAILURE", "description": "Client MUST include resource parameter in authorization request per RFC 8707", "details": {"resource": "not provided"}},
+            {"id": "resource-parameter-in-token", "status": "FAILURE", "description": "Client MUST include resource parameter in token request per RFC 8707", "details": {"resource": "not provided"}}
+          ],
+          "client": null,
+          "client_stderr_tail": "enderer.py\", line 413, in _run_worker\n    raise RenderError(f\"langchain4j worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: langchain4j worker error: RuntimeException: java.util.concurrent.ExecutionException: dev.langchain4j.exception.HttpException: Unexpected status code: 401. The server answered neither the 2026-07-28 protocol detection request nor the 2025-11-25 initialization that followed it. If the server does not tolerate being sent a method it does not know, skip detection by setting the protocol version explicitly, for example .protocolVersion(\"2025-11-25\")."
+        }
+      }
+    },
+    "core": {
+      "exit_code": 1,
+      "scenarios": {
+        "auth/basic-cimd": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "cimd-client-id-used", "status": "FAILURE", "description": "Client did not make an authorization request to test CIMD support"}
+          ],
+          "client": null,
+          "client_stderr_tail": "enderer.py\", line 413, in _run_worker\n    raise RenderError(f\"langchain4j worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: langchain4j worker error: RuntimeException: java.util.concurrent.ExecutionException: dev.langchain4j.exception.HttpException: Unexpected status code: 401. The server answered neither the 2026-07-28 protocol detection request nor the 2025-11-25 initialization that followed it. If the server does not tolerate being sent a method it does not know, skip detection by setting the protocol version explicitly, for example .protocolVersion(\"2025-11-25\")."
+        },
+        "auth/metadata-default": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "prm-pathbased-requested", "status": "FAILURE", "description": "Expected Check Missing: prm-pathbased-requested"},
+            {"id": "authorization-server-metadata", "status": "FAILURE", "description": "Expected Check Missing: authorization-server-metadata"},
+            {"id": "client-registration", "status": "FAILURE", "description": "Expected Check Missing: client-registration"},
+            {"id": "authorization-request", "status": "FAILURE", "description": "Expected Check Missing: authorization-request"},
+            {"id": "token-request", "status": "FAILURE", "description": "Expected Check Missing: token-request"}
+          ],
+          "client": null,
+          "client_stderr_tail": "enderer.py\", line 413, in _run_worker\n    raise RenderError(f\"langchain4j worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: langchain4j worker error: RuntimeException: java.util.concurrent.ExecutionException: dev.langchain4j.exception.HttpException: Unexpected status code: 401. The server answered neither the 2026-07-28 protocol detection request nor the 2025-11-25 initialization that followed it. If the server does not tolerate being sent a method it does not know, skip detection by setting the protocol version explicitly, for example .protocolVersion(\"2025-11-25\")."
+        },
+        "auth/metadata-var1": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "prm-pathbased-requested", "status": "FAILURE", "description": "Expected Check Missing: prm-pathbased-requested"},
+            {"id": "authorization-server-metadata", "status": "FAILURE", "description": "Expected Check Missing: authorization-server-metadata"},
+            {"id": "client-registration", "status": "FAILURE", "description": "Expected Check Missing: client-registration"},
+            {"id": "authorization-request", "status": "FAILURE", "description": "Expected Check Missing: authorization-request"},
+            {"id": "token-request", "status": "FAILURE", "description": "Expected Check Missing: token-request"}
+          ],
+          "client": null,
+          "client_stderr_tail": "enderer.py\", line 413, in _run_worker\n    raise RenderError(f\"langchain4j worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: langchain4j worker error: RuntimeException: java.util.concurrent.ExecutionException: dev.langchain4j.exception.HttpException: Unexpected status code: 401. The server answered neither the 2026-07-28 protocol detection request nor the 2025-11-25 initialization that followed it. If the server does not tolerate being sent a method it does not know, skip detection by setting the protocol version explicitly, for example .protocolVersion(\"2025-11-25\")."
+        },
+        "auth/metadata-var2": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "authorization-server-metadata", "status": "FAILURE", "description": "Expected Check Missing: authorization-server-metadata"},
+            {"id": "client-registration", "status": "FAILURE", "description": "Expected Check Missing: client-registration"},
+            {"id": "authorization-request", "status": "FAILURE", "description": "Expected Check Missing: authorization-request"},
+            {"id": "token-request", "status": "FAILURE", "description": "Expected Check Missing: token-request"}
+          ],
+          "client": null,
+          "client_stderr_tail": "enderer.py\", line 413, in _run_worker\n    raise RenderError(f\"langchain4j worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: langchain4j worker error: RuntimeException: java.util.concurrent.ExecutionException: dev.langchain4j.exception.HttpException: Unexpected status code: 401. The server answered neither the 2026-07-28 protocol detection request nor the 2025-11-25 initialization that followed it. If the server does not tolerate being sent a method it does not know, skip detection by setting the protocol version explicitly, for example .protocolVersion(\"2025-11-25\")."
+        },
+        "auth/metadata-var3": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "authorization-server-metadata", "status": "FAILURE", "description": "Expected Check Missing: authorization-server-metadata"},
+            {"id": "client-registration", "status": "FAILURE", "description": "Expected Check Missing: client-registration"},
+            {"id": "authorization-request", "status": "FAILURE", "description": "Expected Check Missing: authorization-request"},
+            {"id": "token-request", "status": "FAILURE", "description": "Expected Check Missing: token-request"}
+          ],
+          "client": null,
+          "client_stderr_tail": "enderer.py\", line 413, in _run_worker\n    raise RenderError(f\"langchain4j worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: langchain4j worker error: RuntimeException: java.util.concurrent.ExecutionException: dev.langchain4j.exception.HttpException: Unexpected status code: 401. The server answered neither the 2026-07-28 protocol detection request nor the 2025-11-25 initialization that followed it. If the server does not tolerate being sent a method it does not know, skip detection by setting the protocol version explicitly, for example .protocolVersion(\"2025-11-25\")."
+        },
+        "auth/pre-registration": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "pre-registration-auth", "status": "FAILURE", "description": "Client did not make a token request"}
+          ],
+          "client": null,
+          "client_stderr_tail": "enderer.py\", line 413, in _run_worker\n    raise RenderError(f\"langchain4j worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: langchain4j worker error: RuntimeException: java.util.concurrent.ExecutionException: dev.langchain4j.exception.HttpException: Unexpected status code: 401. The server answered neither the 2026-07-28 protocol detection request nor the 2025-11-25 initialization that followed it. If the server does not tolerate being sent a method it does not know, skip detection by setting the protocol version explicitly, for example .protocolVersion(\"2025-11-25\")."
+        },
+        "auth/scope-from-scopes-supported": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "scope-from-scopes-supported", "status": "FAILURE", "description": "Client did not complete authorization flow - scope check could not be performed"}
+          ],
+          "client": null,
+          "client_stderr_tail": "enderer.py\", line 413, in _run_worker\n    raise RenderError(f\"langchain4j worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: langchain4j worker error: RuntimeException: java.util.concurrent.ExecutionException: dev.langchain4j.exception.HttpException: Unexpected status code: 401. The server answered neither the 2026-07-28 protocol detection request nor the 2025-11-25 initialization that followed it. If the server does not tolerate being sent a method it does not know, skip detection by setting the protocol version explicitly, for example .protocolVersion(\"2025-11-25\")."
+        },
+        "auth/scope-from-www-authenticate": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "scope-from-www-authenticate", "status": "FAILURE", "description": "Client did not complete authorization flow - scope check could not be performed"}
+          ],
+          "client": null,
+          "client_stderr_tail": "enderer.py\", line 413, in _run_worker\n    raise RenderError(f\"langchain4j worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: langchain4j worker error: RuntimeException: java.util.concurrent.ExecutionException: dev.langchain4j.exception.HttpException: Unexpected status code: 401. The server answered neither the 2026-07-28 protocol detection request nor the 2025-11-25 initialization that followed it. If the server does not tolerate being sent a method it does not know, skip detection by setting the protocol version explicitly, for example .protocolVersion(\"2025-11-25\")."
+        },
+        "auth/scope-omitted-when-undefined": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "scope-omitted-when-undefined", "status": "FAILURE", "description": "Client did not complete authorization flow - scope check could not be performed"}
+          ],
+          "client": null,
+          "client_stderr_tail": "enderer.py\", line 413, in _run_worker\n    raise RenderError(f\"langchain4j worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: langchain4j worker error: RuntimeException: java.util.concurrent.ExecutionException: dev.langchain4j.exception.HttpException: Unexpected status code: 401. The server answered neither the 2026-07-28 protocol detection request nor the 2025-11-25 initialization that followed it. If the server does not tolerate being sent a method it does not know, skip detection by setting the protocol version explicitly, for example .protocolVersion(\"2025-11-25\")."
+        },
+        "auth/scope-retry-limit": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 200}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized", "statusCode": 202}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "scope-retry-limit", "status": "FAILURE", "description": "Client did not make any authorization requests"}
+          ],
+          "client": {
+            "renderer": "langchain4j",
+            "versions": {
+              "framework": "1.22.0-beta32",
+              "adapter": "langchain4j 1.22.0, langchain4j-core 1.22.0, java 21.0.12.1"
+            },
+            "auth_hook": null,
+            "tools": []
+          },
+          "client_stderr_tail": null
+        },
+        "auth/scope-step-up": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 200}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized", "statusCode": 202}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "scope-step-up-initial", "status": "FAILURE", "description": "Client did not make an initial authorization request"},
+            {"id": "scope-step-up-escalation", "status": "FAILURE", "description": "Client did not make a second authorization request for scope escalation"}
+          ],
+          "client": {
+            "renderer": "langchain4j",
+            "versions": {
+              "framework": "1.22.0-beta32",
+              "adapter": "langchain4j 1.22.0, langchain4j-core 1.22.0, java 21.0.12.1"
+            },
+            "auth_hook": null,
+            "tools": []
+          },
+          "client_stderr_tail": null
+        },
+        "auth/token-endpoint-auth-basic": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "token-endpoint-auth-method", "status": "FAILURE", "description": "Client did not make a token request"},
+            {"id": "resource-parameter-in-authorization", "status": "FAILURE", "description": "Client MUST include resource parameter in authorization request per RFC 8707", "details": {"resource": "not provided"}},
+            {"id": "resource-parameter-in-token", "status": "FAILURE", "description": "Client MUST include resource parameter in token request per RFC 8707", "details": {"resource": "not provided"}}
+          ],
+          "client": null,
+          "client_stderr_tail": "enderer.py\", line 413, in _run_worker\n    raise RenderError(f\"langchain4j worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: langchain4j worker error: RuntimeException: java.util.concurrent.ExecutionException: dev.langchain4j.exception.HttpException: Unexpected status code: 401. The server answered neither the 2026-07-28 protocol detection request nor the 2025-11-25 initialization that followed it. If the server does not tolerate being sent a method it does not know, skip detection by setting the protocol version explicitly, for example .protocolVersion(\"2025-11-25\")."
+        },
+        "auth/token-endpoint-auth-none": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "token-endpoint-auth-method", "status": "FAILURE", "description": "Client did not make a token request"},
+            {"id": "resource-parameter-in-authorization", "status": "FAILURE", "description": "Client MUST include resource parameter in authorization request per RFC 8707", "details": {"resource": "not provided"}},
+            {"id": "resource-parameter-in-token", "status": "FAILURE", "description": "Client MUST include resource parameter in token request per RFC 8707", "details": {"resource": "not provided"}}
+          ],
+          "client": null,
+          "client_stderr_tail": "enderer.py\", line 413, in _run_worker\n    raise RenderError(f\"langchain4j worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: langchain4j worker error: RuntimeException: java.util.concurrent.ExecutionException: dev.langchain4j.exception.HttpException: Unexpected status code: 401. The server answered neither the 2026-07-28 protocol detection request nor the 2025-11-25 initialization that followed it. If the server does not tolerate being sent a method it does not know, skip detection by setting the protocol version explicitly, for example .protocolVersion(\"2025-11-25\")."
+        },
+        "auth/token-endpoint-auth-post": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 401, "body": "{\"error\": \"invalid_token\", \"error_description\": \"Missing Authorization header\"}"}},
+            {"id": "token-endpoint-auth-method", "status": "FAILURE", "description": "Client did not make a token request"},
+            {"id": "resource-parameter-in-authorization", "status": "FAILURE", "description": "Client MUST include resource parameter in authorization request per RFC 8707", "details": {"resource": "not provided"}},
+            {"id": "resource-parameter-in-token", "status": "FAILURE", "description": "Client MUST include resource parameter in token request per RFC 8707", "details": {"resource": "not provided"}}
+          ],
+          "client": null,
+          "client_stderr_tail": "enderer.py\", line 413, in _run_worker\n    raise RenderError(f\"langchain4j worker error: {payload['fatal'][-2000:]}\")\nmcp_mirror.renderers.RenderError: langchain4j worker error: RuntimeException: java.util.concurrent.ExecutionException: dev.langchain4j.exception.HttpException: Unexpected status code: 401. The server answered neither the 2026-07-28 protocol detection request nor the 2025-11-25 initialization that followed it. If the server does not tolerate being sent a method it does not know, skip detection by setting the protocol version explicitly, for example .protocolVersion(\"2025-11-25\")."
+        },
+        "elicitation-sep1034-client-defaults": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover", "statusCode": 400, "body": "{\"jsonrpc\": \"2.0\", \"error\": {\"code\": -32000, \"message\": \"Invalid or missing session ID\"}, \"id\": null}"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 200, "sessionIdIssued": true}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized", "statusCode": 202}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list", "statusCode": 200, "sessionIdIssued": true}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover", "statusCode": 400, "body": "{\"jsonrpc\": \"2.0\", \"error\": {\"code\": -32000, \"message\": \"Invalid or missing session ID\"}, \"id\": null}"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 200, "sessionIdIssued": true}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized", "statusCode": 202}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list", "statusCode": 200, "sessionIdIssued": true}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/call"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "ping"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "ping", "statusCode": 200, "sessionIdIssued": true}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "ping"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "ping", "statusCode": 200, "sessionIdIssued": true}},
+            {"id": "client-elicitation-sep1034-general", "status": "FAILURE", "description": "Client handles elicitation with defaults", "errorMessage": "Elicitation failed: MCP error -32001: Request timed out"},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/call", "statusCode": 200, "sessionIdIssued": true}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/cancelled"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/cancelled", "statusCode": 202}},
+            {"id": "client-elicitation-sep1034-string-default", "status": "FAILURE", "description": "Server applies default default for elicitation", "details": {"message": "Tool was not called by client"}},
+            {"id": "client-elicitation-sep1034-integer-default", "status": "FAILURE", "description": "Server applies default default for elicitation", "details": {"message": "Tool was not called by client"}},
+            {"id": "client-elicitation-sep1034-number-default", "status": "FAILURE", "description": "Server applies default default for elicitation", "details": {"message": "Tool was not called by client"}},
+            {"id": "client-elicitation-sep1034-enum-default", "status": "FAILURE", "description": "Server applies default default for elicitation", "details": {"message": "Tool was not called by client"}},
+            {"id": "client-elicitation-sep1034-boolean-default", "status": "FAILURE", "description": "Server applies default default for elicitation", "details": {"message": "Tool was not called by client"}}
+          ],
+          "client": {
+            "renderer": "langchain4j",
+            "versions": {
+              "framework": "1.22.0-beta32",
+              "adapter": "langchain4j 1.22.0, langchain4j-core 1.22.0, java 21.0.12.1"
+            },
+            "auth_hook": null,
+            "tools": [
+              "test_client_elicitation_defaults"
+            ],
+            "called": {
+              "tool": "test_client_elicitation_defaults",
+              "arguments": {},
+              "result": {
+                "tool": "test_client_elicitation_defaults",
+                "blocks": [
+                  {
+                    "type": "text",
+                    "text": "There was a timeout executing the tool"
+                  }
+                ],
+                "block_kinds": [
+                  "text"
+                ],
+                "structured_content": null,
+                "is_error": true,
+                "text": "There was a timeout executing the tool",
+                "origin": "langchain4j",
+                "raw": {
+                  "id": "call_mirror_1",
+                  "toolName": "test_client_elicitation_defaults",
+                  "text": "There was a timeout executing the tool",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "There was a timeout executing the tool"
+                    }
+                  ],
+                  "isError": true,
+                  "attributes": {}
+                },
+                "error_channel": "flag"
+              }
+            }
+          },
+          "client_stderr_tail": null
+        },
+        "initialize": {
+          "checks": [],
+          "client": {
+            "renderer": "langchain4j",
+            "versions": {
+              "framework": "1.22.0-beta32",
+              "adapter": "langchain4j 1.22.0, langchain4j-core 1.22.0, java 21.0.12.1"
+            },
+            "auth_hook": null,
+            "tools": []
+          },
+          "client_stderr_tail": null
+        },
+        "sse-retry": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST"}},
+            {"id": "outgoing-sse-event", "status": "INFO", "details": {}},
+            {"id": "outgoing-stream-close", "status": "INFO", "details": {}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST"}},
+            {"id": "client-sse-graceful-reconnect", "status": "FAILURE", "description": "Client reconnects via GET after SSE stream is closed gracefully", "errorMessage": "Client did not attempt GET reconnection after stream closure. Client should treat graceful stream close as reconnectable.", "details": {"getConnectionCount": 0, "toolStreamCloseTime": 3850.173458, "retryValue": 500}}
+          ],
+          "client": {
+            "renderer": "langchain4j",
+            "versions": {
+              "framework": "1.22.0-beta32",
+              "adapter": "langchain4j 1.22.0, langchain4j-core 1.22.0, java 21.0.12.1"
+            },
+            "auth_hook": null,
+            "tools": [
+              "test_reconnection"
+            ],
+            "called": {
+              "tool": "test_reconnection",
+              "arguments": {},
+              "result": {
+                "tool": "test_reconnection",
+                "blocks": [
+                  {
+                    "type": "text",
+                    "text": "There was a timeout executing the tool"
+                  }
+                ],
+                "block_kinds": [
+                  "text"
+                ],
+                "structured_content": null,
+                "is_error": true,
+                "text": "There was a timeout executing the tool",
+                "origin": "langchain4j",
+                "raw": {
+                  "id": "call_mirror_1",
+                  "toolName": "test_reconnection",
+                  "text": "There was a timeout executing the tool",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "There was a timeout executing the tool"
+                    }
+                  ],
+                  "isError": true,
+                  "attributes": {}
+                },
+                "error_channel": "flag"
+              }
+            }
+          },
+          "client_stderr_tail": null
+        },
+        "tools_call": {
+          "checks": [
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover", "statusCode": 400, "body": "{\"jsonrpc\": \"2.0\", \"error\": {\"code\": -32000, \"message\": \"Bad Request: Unsupported protocol version: 2026-07-28 (supported versions: 2025-11-25, 2025-06-18, 2025-03-26, 2024-11-05, 2024-10-07)\"}, \"id\": null}"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 200}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized", "statusCode": 202}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list", "statusCode": 200}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "server/discover", "statusCode": 400, "body": "{\"jsonrpc\": \"2.0\", \"error\": {\"code\": -32000, \"message\": \"Bad Request: Unsupported protocol version: 2026-07-28 (supported versions: 2025-11-25, 2025-06-18, 2025-03-26, 2024-11-05, 2024-10-07)\"}, \"id\": null}"}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "initialize", "statusCode": 200}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "notifications/initialized", "statusCode": 202}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list"}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/list", "statusCode": 200}},
+            {"id": "incoming-request", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/call"}},
+            {"id": "tool-add-numbers", "status": "SUCCESS", "description": "Validates that the add_numbers tool works correctly", "details": {"a": 1, "b": 1, "result": 2}},
+            {"id": "outgoing-response", "status": "INFO", "details": {"method": "POST", "path": "/mcp", "mcpMethod": "tools/call", "statusCode": 200}}
+          ],
+          "client": {
+            "renderer": "langchain4j",
+            "versions": {
+              "framework": "1.22.0-beta32",
+              "adapter": "langchain4j 1.22.0, langchain4j-core 1.22.0, java 21.0.12.1"
+            },
+            "auth_hook": null,
+            "tools": [
+              "add_numbers"
+            ],
+            "called": {
+              "tool": "add_numbers",
+              "arguments": {
+                "a": 1,
+                "b": 1
+              },
+              "result": {
+                "tool": "add_numbers",
+                "blocks": [
+                  {
+                    "type": "text",
+                    "text": "The sum of 1 and 1 is 2"
+                  }
+                ],
+                "block_kinds": [
+                  "text"
+                ],
+                "structured_content": null,
+                "is_error": false,
+                "text": "The sum of 1 and 1 is 2",
+                "origin": "langchain4j",
+                "raw": {
+                  "id": "call_mirror_1",
+                  "toolName": "add_numbers",
+                  "text": "The sum of 1 and 1 is 2",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "The sum of 1 and 1 is 2"
+                    }
+                  ],
+                  "isError": false,
+                  "attributes": {}
+                },
+                "error_channel": null
+              }
+            }
+          },
+          "client_stderr_tail": null
+        }
+      }
+    }
+  }
+}

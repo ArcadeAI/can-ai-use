@@ -1,0 +1,202 @@
+[
+  {
+    "id": "model-context-protocol-mcp-reference-servers-v100",
+    "date": "2026-10-19",
+    "title": "MCP reference servers v1.0.0",
+    "summary": "Final Legacy Server Release This release contains many bug and security fixes, and represents the final release of the legacy era servers. Packages Package Version Registry In this release @modelcontextprotocol/server-everything 1.0.0 npm published @modelcontextprotocol/server...",
+    "source": "Model Context Protocol",
+    "url": "https://github.com/modelcontextprotocol/servers/releases/tag/v1.0.0",
+    "category": "Ecosystem",
+    "verified_at": "2026-10-19"
+  },
+  {
+    "id": "model-context-protocol-mcp-reference-servers-v200",
+    "date": "2026-10-19",
+    "title": "MCP reference servers v2.0.0",
+    "summary": "Servers refactored to modern era This release refactors all the servers to support the modern era spec, while still answering legacy era clients as expected. Packages Package Version Registry In this release @modelcontextprotocol/server-everything 2.0.0 npm published @modelcon...",
+    "source": "Model Context Protocol",
+    "url": "https://github.com/modelcontextprotocol/servers/releases/tag/v2.0.0",
+    "category": "Ecosystem",
+    "verified_at": "2026-10-19"
+  },
+  {
+    "id": "model-context-protocol-mcp-typescript-sdk-modelcontextprotocolserver-legacy231",
+    "date": "2026-10-05",
+    "title": "MCP TypeScript SDK @modelcontextprotocol/server-legacy@2.3.1",
+    "summary": "Patch Changes #2952 5a18673 Thanks @claude! - requireBearerAuth in @modelcontextprotocol/server-legacy takes the optional expectedResource that @modelcontextprotocol/server 2.3.0 and @modelcontextprotocol/sdk 1.32.0 added: the resource the token must be issued for (its audienc...",
+    "source": "Model Context Protocol",
+    "url": "https://github.com/modelcontextprotocol/typescript-sdk/releases/tag/%40modelcontextprotocol%2Fserver-legacy%402.3.1",
+    "category": "Frameworks",
+    "verified_at": "2026-10-19"
+  },
+  {
+    "id": "model-context-protocol-mcp-typescript-sdk-1321",
+    "date": "2026-10-05",
+    "title": "MCP TypeScript SDK 1.32.1",
+    "summary": "What's Changed [v1.x] docs: state the principles in CLAUDE.md by @claude [bot] in #2939 [v1.x] docs: point the README at v2 and say what v1.x supports by @claude [bot] in #2942 chore: bump version to 1.32.1 by @claude [bot] in #2954 Full Changelog: 1.32.0...1.32.1",
+    "source": "Model Context Protocol",
+    "url": "https://github.com/modelcontextprotocol/typescript-sdk/releases/tag/1.32.1",
+    "category": "Frameworks",
+    "verified_at": "2026-10-19"
+  },
+  {
+    "id": "model-context-protocol-mcp-typescript-sdk-231",
+    "date": "2026-10-05",
+    "title": "MCP TypeScript SDK 2.3.1",
+    "summary": "Package Version @modelcontextprotocol/client 2.3.1 @modelcontextprotocol/server 2.3.1 @modelcontextprotocol/core 2.3.1 @modelcontextprotocol/server-legacy 2.3.1 @modelcontextprotocol/codemod 2.3.1 @modelcontextprotocol/node, express, hono, fastify unchanged Changes requireBear...",
+    "source": "Model Context Protocol",
+    "url": "https://github.com/modelcontextprotocol/typescript-sdk/releases/tag/v2.3.1",
+    "category": "Frameworks",
+    "verified_at": "2026-10-19"
+  },
+  {
+    "id": "model-context-protocol-mcp-python-sdk-v230",
+    "date": "2026-10-02",
+    "title": "MCP Python SDK v2.3.0",
+    "summary": "pip install -U mcp. Docs: https://py.sdk.modelcontextprotocol.io/ Mostly fixes, plus three new options. A few things behave differently, so skim these first: Behaviour changes httpx2>=2.10.0 is now required ( #3600 ) It was >=2.5.0. The new max_sse_event_size option needs it....",
+    "source": "Model Context Protocol",
+    "url": "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v2.3.0",
+    "category": "Frameworks",
+    "verified_at": "2026-10-19"
+  },
+  {
+    "id": "model-context-protocol-mcp-typescript-sdk-modelcontextprotocolserver-legacy220",
+    "date": "2026-09-28",
+    "title": "MCP TypeScript SDK @modelcontextprotocol/server-legacy@2.2.0",
+    "summary": "Patch Changes Updated dependencies [ edd12e2 ]: @modelcontextprotocol/core@2.2.0",
+    "source": "Model Context Protocol",
+    "url": "https://github.com/modelcontextprotocol/typescript-sdk/releases/tag/%40modelcontextprotocol%2Fserver-legacy%402.2.0",
+    "category": "Frameworks",
+    "verified_at": "2026-10-19"
+  },
+  {
+    "id": "model-context-protocol-mcp-typescript-sdk-1310",
+    "date": "2026-09-28",
+    "title": "MCP TypeScript SDK 1.31.0",
+    "summary": "Upgrade notes Stored OAuth tokens and client information now include an issuer field. Storage that rejects unknown fields needs to allow it. Pass expectedIssuer when constructing ClientCredentialsProvider, PrivateKeyJwtProvider or StaticPrivateKeyJwtProvider. Constructing them...",
+    "source": "Model Context Protocol",
+    "url": "https://github.com/modelcontextprotocol/typescript-sdk/releases/tag/1.31.0",
+    "category": "Frameworks",
+    "verified_at": "2026-10-19"
+  },
+  {
+    "id": "model-context-protocol-mcp-typescript-sdk-220",
+    "date": "2026-09-28",
+    "title": "MCP TypeScript SDK 2.2.0",
+    "summary": "Package Version @modelcontextprotocol/client 2.2.0 @modelcontextprotocol/server 2.2.0 @modelcontextprotocol/core 2.2.0 @modelcontextprotocol/server-legacy 2.2.0 @modelcontextprotocol/codemod 2.2.0 @modelcontextprotocol/node, express, hono, fastify unchanged Upgrade notes Pass...",
+    "source": "Model Context Protocol",
+    "url": "https://github.com/modelcontextprotocol/typescript-sdk/releases/tag/v2.2.0",
+    "category": "Frameworks",
+    "verified_at": "2026-10-19"
+  },
+  {
+    "id": "model-context-protocol-mcp-python-sdk-v1300",
+    "date": "2026-09-07",
+    "title": "MCP Python SDK v1.30.0",
+    "summary": "Maintenance release of the 1.x line. 2.x is the current line; 1.x docs are at https://py.sdk.modelcontextprotocol.io/v1/. A few defaults changed in this release. If you run a server or client on 1.x, skim these first: Behaviour changes HTTP client redirects are only followed w...",
+    "source": "Model Context Protocol",
+    "url": "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v1.30.0",
+    "category": "Frameworks",
+    "verified_at": "2026-10-19"
+  },
+  {
+    "id": "model-context-protocol-mcp-python-sdk-v220",
+    "date": "2026-09-07",
+    "title": "MCP Python SDK v2.2.0",
+    "summary": "pip install -U mcp. Docs: https://py.sdk.modelcontextprotocol.io/ A few defaults changed in this release. If you run a server or client on 2.x, skim these first: Behaviour changes HTTP client redirects are only followed within the endpoint's origin ( #3397 ) Client(\"https://.....",
+    "source": "Model Context Protocol",
+    "url": "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v2.2.0",
+    "category": "Frameworks",
+    "verified_at": "2026-10-19"
+  },
+  {
+    "id": "docusign-agreement-layer",
+    "date": "2026-09-04",
+    "title": "The Agreement Layer for the Modern Agentic Enterprise",
+    "summary": "Docusign will make its Iris-backed MCP Server generally available September 30 to Claude, ChatGPT, Gemini, Copilot, Slack, and other MCP clients.",
+    "source": "Docusign",
+    "url": "https://www.docusign.com/blog/agreement-layer-modern-agentic-enterprise",
+    "category": "Ecosystem",
+    "verified_at": "2026-10-19"
+  },
+  {
+    "id": "palo-alto-agentic-soc",
+    "date": "2026-09-03",
+    "title": "Orchestrating the Agentic SOC: A Practical Guide to Model Context Protocol",
+    "summary": "Cortex can import and hourly-sync external MCP tools, with permission controls and human approval enabled by default for sensitive actions.",
+    "source": "Palo Alto Networks",
+    "url": "https://www.paloaltonetworks.com/blog/security-operations/mcp-client/",
+    "category": "Security",
+    "verified_at": "2026-10-19"
+  },
+  {
+    "id": "amazon-quick-mcp-sync",
+    "date": "2026-09-02",
+    "title": "Amazon Quick adds new tool settings and Model Context Protocol (MCP) sync support for connectors",
+    "summary": "Amazon Quick added per-tool enablement, consent settings, and synchronization as connected MCP servers change.",
+    "source": "AWS",
+    "url": "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-quick-adds-tool-settings-mcp-sync/",
+    "category": "Ecosystem",
+    "verified_at": "2026-10-19"
+  },
+  {
+    "id": "model-context-protocol-mcp-reference-servers-release-2026831",
+    "date": "2026-08-31",
+    "title": "MCP reference servers Release 2026.8.31",
+    "summary": "Release: v2026.8.31 Updated packages @modelcontextprotocol/server-filesystem@2026.8.31 @modelcontextprotocol/server-memory@2026.8.31 @modelcontextprotocol/server-sequential-thinking@2026.8.31 @modelcontextprotocol/server-everything@2026.8.31",
+    "source": "Model Context Protocol",
+    "url": "https://github.com/modelcontextprotocol/servers/releases/tag/2026.8.31",
+    "category": "Ecosystem",
+    "verified_at": "2026-10-19"
+  },
+  {
+    "id": "fortune-model-hardware-standard",
+    "date": "2026-08-27",
+    "title": "Anthropic makes first move into physical AI with new way for scientists, manufacturers to bring equipment to life",
+    "summary": "Fortune reports that Anthropic’s model-agnostic Model Hardware Standard research preview builds on MCP to connect AI models with laboratory and manufacturing equipment.",
+    "source": "Fortune",
+    "url": "https://fortune.com/2026/08/27/anthropic-makes-first-move-into-physical-ai-with-universal-standard-for-scientists-manufacturing/",
+    "category": "Ecosystem",
+    "verified_at": "2026-10-19"
+  },
+  {
+    "id": "model-context-protocol-mcp-python-sdk-v201",
+    "date": "2026-08-26",
+    "title": "MCP Python SDK v2.0.1",
+    "summary": "One off backport of the FastMCP import warning for 2.0.x, this is due to a lot of people running into this error and making issues on other repos about it. Ideally either pin mcp or upgrade to 2. What's Changed [v2.0.x] Point imports of mcp.server.fastmcp at the migration guid...",
+    "source": "Model Context Protocol",
+    "url": "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v2.0.1",
+    "category": "Frameworks",
+    "verified_at": "2026-10-19"
+  },
+  {
+    "id": "new-mcp-roadmap",
+    "date": "2026-08-22",
+    "title": "The New MCP Roadmap",
+    "summary": "Maintainers prioritize agentic messaging, HTTP-native transport, agent identity, improved primitives, and SDK usability.",
+    "source": "Model Context Protocol Blog",
+    "url": "https://blog.modelcontextprotocol.io/posts/mcp-roadmap/",
+    "category": "Protocol",
+    "verified_at": "2026-10-19"
+  },
+  {
+    "id": "model-context-protocol-mcp-reference-servers-release-2026818",
+    "date": "2026-08-18",
+    "title": "MCP reference servers Release 2026.8.18",
+    "summary": "Release: v2026.8.18 Updated packages @modelcontextprotocol/server-everything@2026.8.18 mcp-server-time@2026.8.18 mcp-server-fetch@2026.8.18 mcp-server-git@2026.8.18",
+    "source": "Model Context Protocol",
+    "url": "https://github.com/modelcontextprotocol/servers/releases/tag/2026.8.18",
+    "category": "Ecosystem",
+    "verified_at": "2026-10-19"
+  },
+  {
+    "id": "cloudflare-next-generation-mcp",
+    "date": "2026-08-06",
+    "title": "The next generation of MCP",
+    "summary": "Cloudflare explains how the stateless specification simplifies Workers deployment and replaces McpAgent with createMcpHandler where application state is unnecessary.",
+    "source": "Cloudflare",
+    "url": "https://blog.cloudflare.com/mcp-v2/",
+    "category": "Frameworks",
+    "verified_at": "2026-10-19"
+  }
+]

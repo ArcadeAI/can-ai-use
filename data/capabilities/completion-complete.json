@@ -1,0 +1,54 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "completion-complete",
+  "title": "`completion/complete`",
+  "description": "Returns autocomplete suggestions for a prompt argument or a resource template variable, capped at 100 values per response.",
+  "question": "Can the framework ask the server to complete an argument value?",
+  "spec": "https://modelcontextprotocol.io/specification/2025-11-25",
+  "status": "stable",
+  "categories": [
+    "Server utilities"
+  ],
+  "keywords": "completion,autocomplete,ref/prompt,ref/resource,argument suggestions",
+  "why": "Completion is what makes prompt arguments and resource templates usable by a human rather than only by a program that already knows the valid values.",
+  "docs_url": "https://modelcontextprotocol.io/specification/2025-11-25/server/utilities/completion#requesting-completions",
+  "docs_label": "MCP Docs",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/server/utilities/completion#requesting-completions",
+      "title": "MCP Docs"
+    }
+  ],
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "known_issues": [],
+  "notes": {
+    "crewai": "CrewAI 1.15.26: `MCPServerAdapter` has no completion API, and its sessions are private.",
+    "genkit_js": "Genkit (JS) 1.42.0: `complete` answers for both the prompt argument and the resource template, but @genkit-ai/mcp has no API for it and registers no notification handler; it works only on the SDK `Client` that the public getter `GenkitMcpClient.mcpClient` hands out (route `session`).",
+    "langchain": "LangChain MCP Adapters 0.3.2: the adapter has no completion API. `MultiServerMCPClient.session().complete(...)` works on the raw mcp `ClientSession` it hands out.",
+    "mastra": "Mastra 2.2.0: `MCPClient` does not wrap completion. The SDK client's `complete` sits behind the private `mcpClientsById` field.",
+    "openai-agents": "OpenAI Agents SDK 0.23.1: the adapter has no completion API. `MCPServer.session.complete(...)` works on the raw mcp `ClientSession`.",
+    "pydantic-ai": "Pydantic AI 2.54.0: `MCPToolset` has no completion API. `toolset.client.complete(...)` works on the FastMCP client the toolset exposes.",
+    "google_adk": "Google ADK 2.11.0: `McpToolset` has no completion API. `MCPSessionManager.create_session()`, the session manager `McpToolset` and `McpTool` are built on, hands out the raw mcp `ClientSession`, and `complete(...)` on it works.",
+    "ms_agent_framework": "Microsoft Agent Framework 1.21.0: the adapter has no completion API. `MCPTool.session.complete(...)` works on the raw mcp `ClientSession` the tool exposes.",
+    "autogen": "AutoGen 0.7.5: `McpWorkbench` has no completion method, and its `ClientSession` is private to `McpSessionActor`.",
+    "strands": "Strands Agents 1.59.0: `MCPClient` has no completion method, and the `ClientSession` it would need runs privately on the client's background thread (`_background_thread_session`), so a caller has no route to `completion/complete`.",
+    "openai_agents_js": "OpenAI Agents SDK (JS) 0.20.0: `MCPServer` has no completion method. The MCP client's `complete` sits in the protected `session` field, so it is not a route a user is given.",
+    "semantic_kernel": "Semantic Kernel 1.45.0: the plugin has no completion API; it works only on the raw `ClientSession` exposed as `plugin.session`.",
+    "llamaindex": "LlamaIndex (llama-index-tools-mcp 0.6.0): `BasicMCPClient` has no completion method, and the `ClientSession` it opens exists only inside the private `_run_session`, so no caller can send `completion/complete`.",
+    "pi": "Pi (@earendil-works/pi-mcp 1.1.0): `McpClient` has no completion method. The public generic `request('completion/complete', ...)` gets the server's values back, but the caller names the wire method and reads the raw result.",
+    "google_adk_js": "Google ADK (TypeScript) 2.2.1: reachable only on a raw `@modelcontextprotocol/sdk` `Client` from `MCPSessionManager.createSession()`, a public export of `@google/adk/tools/mcp` (`complete`). `MCPToolset` has no completion API.",
+    "agno": "Agno 3.1.2: `MCPTools` has no completion method; `completion/complete` works only through `MCPTools.session`, the fastmcp `Client` it exposes (`Client.complete`).",
+    "haystack": "Haystack (mcp-haystack 1.5.2): `MCPToolset` wraps tools as Haystack `Tool`s and has no resource or prompt API, and the `ClientSession` it opens is private to `MCPToolset._worker._client`, so there is no route to `completion/complete`.",
+    "smolagents": "smolagents 1.26.0 (mcpadapt 0.1.20): `MCPClient` has no completion API, and the session lives on the private `MCPClient._adapter`.",
+    "dspy": "DSPy 3.4.0: DSPy has no completion API. `completion/complete` works only through `complete` on the caller's own `mcp.Client`, which DSPy is handed by `Tool.from_mcp_tool` and never configures. DSPy itself offers no route.",
+    "langchain_js": "LangChain.js (@langchain/mcp-adapters 2.0.1): `MCPAdapter` has no completion method. `completion/complete` is reachable only on the `@modelcontextprotocol/client` `Client` that `getClient(server)` hands out.",
+    "spring_ai": "Spring AI 2.0.1: the starter has no completion API. `McpSyncClient.completeCompletion` on the client bean the starter publishes answers both the prompt and the resource-template argument, so this goes through the session rather than the adapter.",
+    "beeai": "BeeAI Framework 0.1.85: no completion API. `completion/complete` works only on a `ClientSession` the caller builds and hands `MCPTool.from_client`, which BeeAI uses as given; the session BeeAI opens itself for a transport has no callbacks, via `ClientSession.complete`.",
+    "copilot_sdk": "GitHub Copilot SDK 1.0.19 (Copilot runtime 1.0.95): there is no completion API. Nothing in `CopilotSession` or `session.rpc.mcp` sends `completion/complete` to an MCP server.",
+    "crewai-native": "CrewAI 1.15.26, native `crewai.mcp` client (`Agent(mcps=[...])`, not the `crewai_tools.MCPServerAdapter` row): `MCPClient` has no completion API. `completion/complete` works only through the public `MCPClient.session` (`session.complete(...)`), a raw MCP `ClientSession`, which the probe used.",
+    "google_adk_java": "Google ADK (Java) 1.11.0: No ADK API. `McpTool.getMcpSession().completeCompletion` on the underlying `McpSyncClient` completes both the prompt argument and the resource template argument.",
+    "langchain4j": "LangChain4j 1.22.0-beta32: `McpClient` has no `completion/complete` method, so `DefaultMcpClient` never sends one.",
+    "koog": "Koog 1.3.0-beta: no Koog API. `Client.complete` on the underlying Kotlin SDK `Client` completes both the prompt argument and the resource template argument.",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): `mcptoolset.Toolset` exposes only `Tools()`, and the `*mcp.ClientSession` it opens stays inside its unexported `connectionRefresher`, so the caller has no session to call `Complete` on."
+  }
+}

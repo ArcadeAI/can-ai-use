@@ -1,0 +1,76 @@
+{
+  "schema": "mcp-mirror/client-probe@1",
+  "captured_at": "2026-10-09T19:20:18Z",
+  "fixture": "fixtures/client_features_server.py",
+  "fixture_python": "<checkout>/.mcp-mirror/fixture-2025-11-25/bin/python",
+  "spec_version": "2025-11-25",
+  "frameworks": {
+    "haystack": {
+      "ok": true,
+      "versions": {
+        "framework": "3.2.0",
+        "adapter": "1.5.2"
+      },
+      "negotiated_mcp_spec_version": "2025-11-25",
+      "client_probe": {
+        "sampling": {
+          "tool": "ask_sampling",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_SAMPLED",
+          "text": "ToolInvocationError: Failed to invoke Tool `ask_sampling` with parameters {}. Error: Failed to invoke tool 'ask_sampling' with args: {}, got error: Tool 'ask_sampling' returned an error: [TextContent(type='text', text='SENTINEL_CLIENT_FEATURE_UNAVAILABLE ask_sampling: McpError: Sampling not supported', annotations=None, meta=None)]",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "sampling.tools": {
+          "tool": "ask_sampling_tools",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_SAMPLED_AFTER_TOOL",
+          "text": "ToolInvocationError: Failed to invoke Tool `ask_sampling_tools` with parameters {}. Error: Failed to invoke tool 'ask_sampling_tools' with args: {}, got error: Tool 'ask_sampling_tools' returned an error: [TextContent(type='text', text='SENTINEL_CLIENT_FEATURE_UNAVAILABLE ask_sampling_tools: McpError: Client does not support sampling tools capability', annotations=None, meta=None)]",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "elicitation.form": {
+          "tool": "ask_elicitation_form",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_ELICITED",
+          "text": "ToolInvocationError: Failed to invoke Tool `ask_elicitation_form` with parameters {}. Error: Failed to invoke tool 'ask_elicitation_form' with args: {}, got error: Tool 'ask_elicitation_form' returned an error: [TextContent(type='text', text='SENTINEL_CLIENT_FEATURE_UNAVAILABLE ask_elicitation_form: McpError: Elicitation not supported', annotations=None, meta=None)]",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "elicitation.url": {
+          "tool": "ask_elicitation_url",
+          "hook": null,
+          "route": null,
+          "expect": "\"action\": \"accept\"",
+          "text": "ToolInvocationError: Failed to invoke Tool `ask_elicitation_url` with parameters {}. Error: Failed to invoke tool 'ask_elicitation_url' with args: {}, got error: Tool 'ask_elicitation_url' returned an error: [TextContent(type='text', text='SENTINEL_CLIENT_FEATURE_UNAVAILABLE ask_elicitation_url: McpError: Elicitation not supported', annotations=None, meta=None)]",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "roots.list": {
+          "tool": "list_client_roots",
+          "hook": null,
+          "route": null,
+          "expect": "file:///tmp/mcp-mirror-root",
+          "text": "ToolInvocationError: Failed to invoke Tool `list_client_roots` with parameters {}. Error: Failed to invoke tool 'list_client_roots' with args: {}, got error: Tool 'list_client_roots' returned an error: [TextContent(type='text', text='SENTINEL_CLIENT_FEATURE_UNAVAILABLE list_client_roots: McpError: List roots not supported', annotations=None, meta=None)]",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "roots.list_changed": {
+          "tool": "roots_changes_seen",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_ROOTS_CHANGES_SEEN",
+          "text": "SENTINEL_ROOTS_CHANGES_SEEN 0\n{\"seen\": 0}",
+          "is_error": false,
+          "handler_saw": []
+        },
+        "capabilities": {
+          "text": "SENTINEL_CLIENT_CAPABILITIES {}\n{}"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{"format": "mcp-mirror.harness-output/1"}
+{"event": "init", "harness_version": null, "model": "Auto Balance", "permission_mode": "default", "mcp_servers": null, "mcp_tools": null}
+{"event": "routed", "model": "GPT-5.6 Sol"}
+{"event": "text", "text": "> Auto routed to GPT-5.6 Sol\n\n"}
+{"event": "tool_use", "tool": "getMcpToolsToolCall", "input": {"server": "cf", "toolName": "ask_sampling", "toolCallId": "call_TBITqkMHCCffFhPN3QfNKr6v\nfc_08023709635fd31d016ad2a9804de887d18353d7064c68deba"}}
+{"event": "tool_result", "is_error": false, "text": "{\"success\": {\"content\": \"{\\n  \\\"tool\\\": \\\"ask_sampling\\\",\\n  \\\"description\\\": \\\"Ask the client to sample a model once and return what it produced.\\\",\\n  \\\"inputSchema\\\": {\\n    \\\"type\\\": \\\"object\\\",\\n    \\\"properties\\\": {}\\n  }\\n}\"}}"}
+{"event": "tool_use", "tool": "mcpToolCall", "input": {"name": "cf-ask_sampling", "args": {}, "toolCallId": "call_uQjIL8TWGFyWJUDEcC2XNOzv\nfc_08023709635fd31d016ad2a98187bc87d1825f08a8272d2189", "providerIdentifier": "cf", "toolName": "ask_sampling", "smartModeApprovalOnly": false, "skipApproval": false, "serverIdentifier": "cf", "symbolicPathArguments": [], "argumentsRepaired": false}}
+{"event": "tool_result", "is_error": false, "text": "{\"success\": {\"content\": [{\"text\": {\"text\": \"SENTINEL_CLIENT_FEATURE_UNAVAILABLE ask_sampling: McpError: Method not found\"}}], \"isError\": true, \"systemReminders\": []}}"}
+{"event": "text", "text": "It returned:\n\n`SENTINEL_CLIENT_FEATURE_UNAVAILABLE ask_sampling: McpError: Method not found`"}
+{"event": "result", "subtype": "success", "is_error": false, "num_turns": null, "text": "> Auto routed to GPT-5.6 Sol\n\nIt returned:\n\n`SENTINEL_CLIENT_FEATURE_UNAVAILABLE ask_sampling: McpError: Method not found`"}

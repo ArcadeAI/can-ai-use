@@ -1,0 +1,35 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "resources-list-changed",
+  "title": "`notifications/resources/list_changed`",
+  "description": "The notification a server sends when the set of available resources changes.",
+  "question": "Does the framework notice when the resource list changes?",
+  "spec": "https://modelcontextprotocol.io/specification/2026-07-28",
+  "status": "stable",
+  "categories": [
+    "Resources"
+  ],
+  "keywords": "list_changed,listChanged,resource list,refresh",
+  "why": "Resource sets change far more often than tool sets, because they track real files and records. A stale list means the agent offers context that no longer exists.",
+  "docs_url": "https://modelcontextprotocol.io/specification/2026-07-28/server/resources#list-changed-notification",
+  "docs_label": "MCP Docs",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/server/resources#list-changed-notification",
+      "title": "MCP Docs"
+    }
+  ],
+  "usage_note": "Not published. Candidate source: count of public MCP servers publishing this. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "known_issues": [],
+  "notes": {
+    "openai-agents": "OpenAI Agents SDK 0.23.1: at 2026-07-28 a change arrives only on a `subscriptions/listen` stream, and `MCPServerStdio` never opens one, so its `message_handler` heard nothing. The next ``list_resources`` still asks the server (the default `cache_tools_list=False` for tools), so the agent sees the change on its next list, not when the server announced it.",
+    "pydantic-ai": "Pydantic AI 2.54.0: `MCPToolset` caches ``list_resources`` and clears the cache only when a list_changed notification arrives. At 2026-07-28 that notification travels only on a `subscriptions/listen` stream, which the toolset never opens, so the cache was never cleared and the next list was stale for the rest of the session.",
+    "strands": "Strands Agents 1.59.0: `on_tools_changed` is the only change hook, and it covers tools only. Nothing hears the resources notification, but `list_resources_sync` asks the server every time, so the next listing shows the change.",
+    "vercel_ai": "Vercel AI SDK (@ai-sdk/mcp 2.0.73): MCPClient opens no `subscriptions/listen` stream and registers no notification handler, so the change is never heard. `listResources()` fetches on every call, so the next list shows the added resource.",
+    "openai_agents_js": "OpenAI Agents SDK (JS) 0.20.0 at 2026-07-28: the change is published on `subscriptions/listen`, which the SDK never opens; it shows only because the next `listResources` asks the server again.",
+    "agno": "Agno 3.1.2: `MCPTools` lists and calls tools only; it has no resource or prompt API, so a resources list_changed notification has nothing to refresh, and no hook hears it.",
+    "dspy": "DSPy 3.4.0: DSPy's MCP support is `dspy.Tool.from_mcp_tool`, which converts one tool. It has no resource or prompt API, so resources and prompts stay on the caller's MCP session. No listing means no change to see.",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): a `ResourceListChangedHandler` on the caller's `*mcp.Client` hears the notification, but mcptoolset lists only tools, so the agent has no resources list to refresh.",
+    "ms_agent_framework_dotnet": "Microsoft Agent Framework (.NET) 1.24.0 (ModelContextProtocol 2.2.0): a handler registered in `McpClientOptions.Handlers.NotificationHandlers` for `notifications/resources/list_changed` heard nothing, because the server publishes the change on `subscriptions/listen`, which the client never opens. The next list request refetches and shows the change."
+  }
+}

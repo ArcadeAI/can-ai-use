@@ -1,0 +1,2 @@
+{"format": "mcp-mirror.harness-output/1"}
+{"event": "result", "subtype": "success", "is_error": false, "num_turns": null, "text": "ntf SENTINEL_ADDED_TOOL is not among the tools offered"}

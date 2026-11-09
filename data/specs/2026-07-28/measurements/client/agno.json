@@ -1,0 +1,76 @@
+{
+  "schema": "mcp-mirror/client-probe@1",
+  "captured_at": "2026-10-09T19:38:15Z",
+  "fixture": "fixtures/client_features_server.py",
+  "fixture_python": "<checkout>/.mcp-mirror/fixture-2026-07-28/bin/python",
+  "spec_version": "2026-07-28",
+  "frameworks": {
+    "agno": {
+      "ok": true,
+      "versions": {
+        "framework": "3.1.2",
+        "adapter": "3.1.2"
+      },
+      "negotiated_mcp_spec_version": "2026-07-28",
+      "client_probe": {
+        "sampling": {
+          "tool": "ask_sampling",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_SAMPLED",
+          "text": "MCP tool 'ask_sampling' failed: Sampling not supported. The MCP server may be unreachable or the request timed out.",
+          "is_error": null,
+          "handler_saw": []
+        },
+        "sampling.tools": {
+          "tool": "ask_sampling_tools",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_SAMPLED_AFTER_TOOL",
+          "text": "MCP tool 'ask_sampling_tools' failed: Sampling not supported. The MCP server may be unreachable or the request timed out.",
+          "is_error": null,
+          "handler_saw": []
+        },
+        "elicitation.form": {
+          "tool": "ask_elicitation_form",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_ELICITED",
+          "text": "MCP tool 'ask_elicitation_form' failed: Elicitation not supported. The MCP server may be unreachable or the request timed out.",
+          "is_error": null,
+          "handler_saw": []
+        },
+        "elicitation.url": {
+          "tool": "ask_elicitation_url",
+          "hook": null,
+          "route": null,
+          "expect": "\"action\": \"accept\"",
+          "text": "MCP tool 'ask_elicitation_url' failed: Elicitation not supported. The MCP server may be unreachable or the request timed out.",
+          "is_error": null,
+          "handler_saw": []
+        },
+        "roots.list": {
+          "tool": "list_client_roots",
+          "hook": null,
+          "route": null,
+          "expect": "file:///tmp/mcp-mirror-root",
+          "text": "MCP tool 'list_client_roots' failed: List roots not supported. The MCP server may be unreachable or the request timed out.",
+          "is_error": null,
+          "handler_saw": []
+        },
+        "roots.list_changed": {
+          "tool": "roots_changes_seen",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_ROOTS_CHANGES_SEEN",
+          "text": "SENTINEL_ROOTS_CHANGES_SEEN 0\n{\"seen\": 0}",
+          "is_error": null,
+          "handler_saw": []
+        },
+        "capabilities": {
+          "text": "SENTINEL_CLIENT_CAPABILITIES {}\n{}"
+        }
+      }
+    }
+  }
+}

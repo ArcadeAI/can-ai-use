@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    mcp-mirror's Microsoft Agent Framework (.NET) worker. The two package versions are
+    properties so the managed runner can pin them from runner-manifests.json
+    (dotnet publish -p:MicrosoftAgentsAIVersion=... -p:ModelContextProtocolVersion=...);
+    the defaults below match that manifest. packages.lock.json pins the rest of the tree.
+    MCP9005 marks the logging, roots and sampling APIs deprecated by 2026-07-28; the
+    worker measures them on purpose.
+  -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>Worker</AssemblyName>
+    <RootNamespace>McpMirror.AgentFrameworkDotnet</RootNamespace>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <NoWarn>$(NoWarn);MEAI001;MCPEXP001;MAAI001;MCP9005</NoWarn>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <MicrosoftAgentsAIVersion Condition="'$(MicrosoftAgentsAIVersion)' == ''">1.24.0</MicrosoftAgentsAIVersion>
+    <ModelContextProtocolVersion Condition="'$(ModelContextProtocolVersion)' == ''">2.2.0</ModelContextProtocolVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Agents.AI" Version="$(MicrosoftAgentsAIVersion)" />
+    <PackageReference Include="ModelContextProtocol" Version="$(ModelContextProtocolVersion)" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,86 @@
+{
+  "schema": "mcp-mirror/client-probe@1",
+  "captured_at": "2026-10-09T19:21:17Z",
+  "fixture": "fixtures/client_features_server.py",
+  "fixture_python": "<checkout>/.mcp-mirror/fixture-2026-07-28/bin/python",
+  "spec_version": "2026-07-28",
+  "frameworks": {
+    "langchain_js": {
+      "ok": true,
+      "versions": {
+        "framework": "2.0.1",
+        "adapter": "@langchain/core 1.2.14, node v24.21.0"
+      },
+      "negotiated_mcp_spec_version": "2026-07-28",
+      "client_probe": {
+        "sampling": {
+          "tool": "ask_sampling",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_SAMPLED",
+          "text": "Error: MCP tool \"ask_sampling\" on server \"src\" asked for input this adapter cannot answer: \u2716 Invalid input: expected \"elicitation/create\"\n  \u2192 at ask_sampling.method\n\u2716 Invalid input\n  \u2192 at ask_sampling.params\n Please fix your mistakes.",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "sampling.tools": {
+          "tool": "ask_sampling_tools",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_SAMPLED_AFTER_TOOL",
+          "text": "Error: MCP tool \"ask_sampling_tools\" on server \"src\" asked for input this adapter cannot answer: \u2716 Invalid input: expected \"elicitation/create\"\n  \u2192 at ask_sampling_tools.method\n\u2716 Invalid input\n  \u2192 at ask_sampling_tools.params\n Please fix your mistakes.",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "elicitation.form": {
+          "tool": "ask_elicitation_form",
+          "hook": "LangGraph interrupt + createMCPElicitationResume",
+          "route": "adapter",
+          "expect": "SENTINEL_ELICITED",
+          "text": "SENTINEL_CLIENT_ANSWERED ask_elicitation_form: {\"action\": \"accept\", \"content\": {\"name\": \"SENTINEL_ELICITED\"}}",
+          "is_error": false,
+          "handler_saw": [
+            {
+              "hook": "LangGraph interrupt + createMCPElicitationResume",
+              "mode": "form"
+            }
+          ]
+        },
+        "elicitation.url": {
+          "tool": "ask_elicitation_url",
+          "hook": "LangGraph interrupt + createMCPElicitationResume",
+          "route": "adapter",
+          "expect": "\"action\": \"accept\"",
+          "text": "SENTINEL_CLIENT_ANSWERED ask_elicitation_url: {\"action\": \"accept\"}",
+          "is_error": false,
+          "handler_saw": [
+            {
+              "hook": "LangGraph interrupt + createMCPElicitationResume",
+              "mode": "url"
+            }
+          ]
+        },
+        "roots.list": {
+          "tool": "list_client_roots",
+          "hook": null,
+          "route": null,
+          "expect": "file:///tmp/mcp-mirror-root",
+          "text": "Error: MCP tool \"list_client_roots\" on server \"src\" asked for input this adapter cannot answer: \u2716 Invalid input: expected \"elicitation/create\"\n  \u2192 at list_client_roots.method\n\u2716 Invalid input\n  \u2192 at list_client_roots.params\n Please fix your mistakes.",
+          "is_error": true,
+          "handler_saw": []
+        },
+        "roots.list_changed": {
+          "tool": "roots_changes_seen",
+          "hook": null,
+          "route": null,
+          "expect": "SENTINEL_ROOTS_CHANGES_SEEN",
+          "text": "SENTINEL_ROOTS_CHANGES_SEEN 0",
+          "is_error": false,
+          "handler_saw": []
+        },
+        "capabilities": {
+          "text": "SENTINEL_CLIENT_CAPABILITIES {\"elicitation\": {\"form\": {}, \"url\": {}}}"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "ping",
+  "title": "`ping`",
+  "description": "A liveness check either side may send to confirm the peer is still responsive.",
+  "question": "Does this framework answer or issue a ping?",
+  "spec": "https://modelcontextprotocol.io/specification/2025-11-25",
+  "status": "stable",
+  "categories": [
+    "Base protocol"
+  ],
+  "keywords": "ping,keepalive,liveness,heartbeat",
+  "why": "A keepalive matters only for long-lived connections, which is exactly what the stateless 2026-07-28 revision removed.",
+  "docs_url": "https://modelcontextprotocol.io/specification/2025-11-25/basic/utilities/ping",
+  "docs_label": "MCP Docs",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/basic/utilities/ping",
+      "title": "MCP Docs"
+    }
+  ],
+  "usage_perc_y": null,
+  "usage_perc_a": null,
+  "usage_note": null,
+  "known_issues": [
+    "Measured by scripts/measure_protocol.py: each adapter runs against fixtures/base_protocol_server.py behind the wire recorder, and the cell is read from the captures."
+  ],
+  "notes": {
+    "langchain4j": "LangChain4j 1.22.0-beta32: `McpOperationHandler` converts every incoming request id to a `long`. A request with a string id, such as the server's `ping` with id `mcp-mirror-ping-1`, is dropped with `Received message with an unusable id` and never answered. Numeric-id pings are answered."
+  }
+}

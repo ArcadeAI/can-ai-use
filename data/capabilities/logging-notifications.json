@@ -1,0 +1,46 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "logging-notifications",
+  "title": "`notifications/message`",
+  "description": "Structured server log records at RFC 5424 levels, enabled per request through a log level in that request's `_meta`.",
+  "question": "Can a developer see the server's own logs through the framework?",
+  "spec": "https://modelcontextprotocol.io/specification/2025-11-25",
+  "status": "stable",
+  "categories": [
+    "Server utilities"
+  ],
+  "keywords": "logging,notifications/message,log level,RFC 5424,diagnostics",
+  "why": "This is the only channel through which a server explains itself while a call is in flight, and it is the difference between debugging a failing integration and guessing at it. Note that the connection-wide `logging/setLevel` was removed in this revision: log level is now per request, so a framework that sets it once at startup gets nothing.",
+  "docs_url": "https://modelcontextprotocol.io/specification/2025-11-25/server/utilities/logging#log-message-notifications",
+  "docs_label": "MCP Docs",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/server/utilities/logging#log-message-notifications",
+      "title": "MCP Docs"
+    }
+  ],
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "known_issues": [],
+  "notes": {
+    "crewai": "CrewAI 1.15.26: mcpadapt builds its `ClientSession` without a `logging_callback`. The server's `notifications/message` arrive, and the SDK's default handler drops them before any caller sees them.",
+    "genkit_js": "Genkit (JS) 1.42.0: server log messages are delivered only to a `LoggingMessageNotificationSchema` handler set on the SDK client; @genkit-ai/mcp has no API for it and registers no notification handler; it works only on the SDK `Client` that the public getter `GenkitMcpClient.mcpClient` hands out (route `session`).",
+    "google_adk": "Google ADK 2.11.0: `McpToolset` has no logging hook, and the `ClientSession` its `MCPSessionManager` builds is given no `logging_callback`. The server's `notifications/message` arrive, and the SDK's default handler drops them before any caller sees them.",
+    "autogen": "AutoGen 0.7.5: `McpWorkbench` opens its `ClientSession` without a `logging_callback`; the server's `notifications/message` reach no caller.",
+    "strands": "Strands Agents 1.59.0: `MCPClient` opens its `ClientSession` with its own `message_handler` and no `logging_callback`, and takes no log hook, so the server's `notifications/message` never reach the caller.",
+    "vercel_ai": "Vercel AI SDK (@ai-sdk/mcp 2.0.73): MCPClient registers no notification handler: a server notification reaches only `onUncaughtError`, as an \"Unsupported message type\" error that does not name the notification. The server's five `notifications/message` never reach the caller, and there is no logging option on `createMCPClient`.",
+    "openai_agents_js": "OpenAI Agents SDK (JS) 0.20.0: the server options take no message or logging handler. The server sent `notifications/message` and nothing in the SDK received it.",
+    "llamaindex": "LlamaIndex (llama-index-tools-mcp 0.6.0): `BasicMCPClient` builds its `ClientSession` without a `logging_callback`. The server's `notifications/message` arrive and the SDK's default handler drops them. `tool_call_logs_callback` collects Python `logging` records from the client process, not MCP log notifications.",
+    "google_adk_js": "Google ADK (TypeScript) 2.2.1: reachable only on a raw `@modelcontextprotocol/sdk` `Client` from `MCPSessionManager.createSession()`, a public export of `@google/adk/tools/mcp`, with `setNotificationHandler(LoggingMessageNotificationSchema)`. The sessions `MCPToolset` opens register no handler, so an agent never sees `notifications/message`.",
+    "agno": "Agno 3.1.2: `MCPTools` takes no log handler; its fastmcp `Client` uses fastmcp's default, which writes server log messages to Python logging, so none reaches the agent or caller.",
+    "haystack": "Haystack (mcp-haystack 1.5.2): `MCPClient` builds its `ClientSession` without a `logging_callback` and `MCPToolset` takes no log handler, so the server's five `notifications/message` reached the caller as nothing.",
+    "smolagents": "smolagents 1.26.0 (mcpadapt 0.1.20): mcpadapt builds its `ClientSession` without a `logging_callback`. The server's `notifications/message` arrive, and the SDK's default handler drops them before any caller sees them.",
+    "dspy": "DSPy 3.4.0: DSPy takes no log handler. Server log messages reach a caller only through a `logging_callback` on the caller's own `mcp.Client`, which DSPy is handed by `Tool.from_mcp_tool` and never configures. DSPy itself offers no route.",
+    "spring_ai": "Spring AI 2.0.1: the server's five `notifications/message` arrive on the wire, but MCP Java SDK 2.0.0 types `LoggingMessageNotification.data` as a String. Structured data such as `{\"message\": ...}` fails to deserialize (`Cannot deserialize value of type java.lang.String from Object value`), `McpClientSession` logs `Error handling notification`, and `@McpLogging` receives none of them.",
+    "beeai": "BeeAI Framework 0.1.85: no logging hook. Log messages reach the caller only on a `ClientSession` the caller builds and hands `MCPTool.from_client`, which BeeAI uses as given; the session BeeAI opens itself for a transport has no callbacks, via `logging_callback`.",
+    "copilot_sdk": "GitHub Copilot SDK 1.0.19 (Copilot runtime 1.0.95): the runtime receives the server's `notifications/message` (5 on the wire) but surfaces none of them: no session event fires, and `session.rpc.diagnostics.read` holds only the server's stderr. The caller received 0.",
+    "crewai-native": "CrewAI 1.15.26, native `crewai.mcp` client (`Agent(mcps=[...])`, not the `crewai_tools.MCPServerAdapter` row): `MCPClient.connect` builds its `ClientSession` from the transport streams alone, with no `logging_callback`, and `MCPServerStdio`/`MCPServerHTTP`/`MCPServerSSE` take no hook for it, so the server's `notifications/message` reach nothing.",
+    "google_adk_java": "Google ADK (Java) 1.11.0: MCP Java SDK mcp-core 2.0.0 types `LoggingMessageNotification.data` as `String`, so a log notification with object data fails to deserialize (`Cannot deserialize value of type java.lang.String from Object value`); `McpClientSession` logs `Error handling notification` and drops it. The server sent 5 `notifications/message` and the `McpServerLogConsumer` that `McpSessionManager` installs received 0.",
+    "koog": "Koog 1.3.0-beta: Koog registers no logging handler. `Client.setNotificationHandler(notifications/message)` on the Kotlin SDK `Client` handed to `fromClient` received all 5 messages.",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): mcptoolset has no logging option. A `mcp.ClientOptions.LoggingMessageHandler` on the `*mcp.Client` the caller passes as `mcptoolset.Config.Client` receives all five `notifications/message`, but only by configuring go-sdk rather than the toolset."
+  }
+}

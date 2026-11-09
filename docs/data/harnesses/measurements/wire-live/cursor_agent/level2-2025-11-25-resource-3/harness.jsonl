@@ -1,0 +1,14 @@
+{"format": "mcp-mirror.harness-output/1"}
+{"event": "init", "harness_version": null, "model": "Auto Balance", "permission_mode": "default", "mcp_servers": null, "mcp_tools": null}
+{"event": "routed", "model": "GPT-5.6 Sol"}
+{"event": "text", "text": "> Auto routed to GPT-5.6 Sol\n\n"}
+{"event": "tool_use", "tool": "getMcpToolsToolCall", "input": {"server": "cursor", "toolName": "FetchMcpResource", "toolCallId": "call_h5MORkTuXMRSWE90YrlXuTjo\nfc_09fdf82da2daf11b016ad2a53c3a8c87d1b4dd603f64ad25f9"}}
+{"event": "tool_result", "is_error": false, "text": "{\"success\": {\"content\": \"{\\n  \\\"tool\\\": \\\"FetchMcpResource\\\",\\n  \\\"description\\\": \\\"Reads a specific resource from an MCP server, identified by server name and resource URI. Optionally, set downloadPath (relative to the workspace) to save the resource to disk; when set, the resource will be downloaded and not returned to the model.\\\",\\n  \\\"inputSchema\\\": {\\n    \\\"type\\\": \\\"object\\\",\\n    \\\"properties\\\": {\\n      \\\"server\\\": {\\n        \\\"type\\\": \\\"string\\\",\\n        \\\"description\\\": \\\"The MCP ser..."}
+{"event": "tool_use", "tool": "readMcpResourceToolCall", "input": {"server": "res", "uri": "file:///fixtures/notes.txt", "toolCallId": "call_XGvAdBDVDe1WE0aZX5KZxVte\nfc_09fdf82da2daf11b016ad2a53f96bc87d19a1ea5e529cc6c3c"}}
+{"event": "tool_result", "is_error": true, "text": "{\"error\": {\"uri\": \"\", \"error\": \"Failed to read MCP resource: MCP error -32601: Method not found\"}}"}
+{"event": "tool_use", "tool": "getMcpToolsToolCall", "input": {"toolCallId": "call_TuvwvPwVErhoGDsghiZGCkt4\nfc_09fdf82da2daf11b016ad2a543a94887d1a0e3d5f0fde5e9e8"}}
+{"event": "tool_result", "is_error": false, "text": "{\"success\": {\"content\": \"{\\n  \\\"mode\\\": \\\"catalog\\\",\\n  \\\"namespaces\\\": [\\n    {\\n      \\\"namespace\\\": \\\"cf\\\",\\n      \\\"namespaceStatus\\\": \\\"ready\\\",\\n      \\\"tools\\\": [\\n        {\\n          \\\"tool\\\": \\\"ask_elicitation_form\\\",\\n          \\\"description\\\": \\\"Ask the user for a record name through a form elicitation.\\\"\\n        },\\n        {\\n          \\\"tool\\\": \\\"ask_elicitation_url\\\",\\n          \\\"description\\\": \\\"Send the user to a URL through a url-mode elicitation.\\\"\\n        },\\n        {\\n ..."}
+{"event": "tool_use", "tool": "readMcpResourceToolCall", "input": {"server": "ntf", "uri": "file:///fixtures/notes.txt", "toolCallId": "call_d9eyEqJ3FhDatWqfSKVo8u6s\nfc_09fdf82da2daf11b016ad2a5451c6c87d1a781156fc8f76342"}}
+{"event": "tool_result", "is_error": false, "text": "{\"success\": {\"uri\": \"file:///fixtures/notes.txt\", \"mimeType\": \"text/plain\", \"text\": \"SENTINEL_ADDED\", \"annotations\": {}}}"}
+{"event": "text", "text": "SENTINEL_ADDED"}
+{"event": "result", "subtype": "success", "is_error": false, "num_turns": null, "text": "> Auto routed to GPT-5.6 Sol\n\nSENTINEL_ADDED"}

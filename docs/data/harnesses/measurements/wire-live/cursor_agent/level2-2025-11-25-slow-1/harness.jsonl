@@ -1,0 +1,10 @@
+{"format": "mcp-mirror.harness-output/1"}
+{"event": "init", "harness_version": null, "model": "Auto Balance", "permission_mode": "default", "mcp_servers": null, "mcp_tools": null}
+{"event": "routed", "model": "Claude Opus 5.5"}
+{"event": "text", "text": "> Auto routed to Claude Opus 5.5\n\n"}
+{"event": "tool_use", "tool": "getMcpToolsToolCall", "input": {"server": "util", "toolName": "slow_with_progress", "toolCallId": "toolu_vrtx_01CjsQ3mEzvvHo55jkDVzfQA"}}
+{"event": "tool_result", "is_error": false, "text": "{\"success\": {\"content\": \"{\\n  \\\"tool\\\": \\\"slow_with_progress\\\",\\n  \\\"description\\\": \\\"Take a moment and report 5 progress steps on the way.\\\",\\n  \\\"inputSchema\\\": {\\n    \\\"type\\\": \\\"object\\\",\\n    \\\"properties\\\": {}\\n  }\\n}\"}}"}
+{"event": "tool_use", "tool": "mcpToolCall", "input": {"name": "util-slow_with_progress", "args": {}, "toolCallId": "toolu_vrtx_01HdmfAMEFeybnc524VJn6Vs", "providerIdentifier": "util", "toolName": "slow_with_progress", "smartModeApprovalOnly": false, "skipApproval": false, "serverIdentifier": "util", "symbolicPathArguments": [], "argumentsRepaired": false}}
+{"event": "tool_result", "is_error": false, "text": "{\"success\": {\"content\": [{\"text\": {\"text\": \"SENTINEL_SLOW_DONE progress_sent=0\"}}], \"isError\": false, \"systemReminders\": []}}"}
+{"event": "text", "text": "`slow_with_progress` ran to completion and returned `SENTINEL_SLOW_DONE progress_sent=0`.\n\nThe tool's description says it reports 5 progress steps, but the result says 0 progress notifications were sent. So the call finished, but no progress updates came through on the way."}
+{"event": "result", "subtype": "success", "is_error": false, "num_turns": null, "text": "> Auto routed to Claude Opus 5.5\n\n`slow_with_progress` ran to completion and returned `SENTINEL_SLOW_DONE progress_sent=0`.\n\nThe tool's description says it reports 5 progress steps, but the result says 0 progress notifications were sent. So the call finished, but no progress updates came through on the way."}

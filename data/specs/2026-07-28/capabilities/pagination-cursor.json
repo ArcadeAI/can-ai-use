@@ -1,0 +1,29 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "pagination-cursor",
+  "title": "Cursor pagination",
+  "description": "Opaque forward-only cursor paging on every list operation, where the client passes `cursor` and the server returns `nextCursor`.",
+  "question": "Does the framework follow the cursor, or stop after the first page?",
+  "spec": "https://modelcontextprotocol.io/specification/2026-07-28",
+  "status": "stable",
+  "categories": [
+    "Server utilities"
+  ],
+  "keywords": "pagination,cursor,nextCursor,paging,large catalogues",
+  "why": "This failure is quiet and severe: an adapter that ignores `nextCursor` reports a server's first page as its entire catalogue, so tools simply do not exist as far as the agent is concerned. The spec also warns that an empty-string cursor is valid and must not be read as the end.",
+  "docs_url": "https://modelcontextprotocol.io/specification/2026-07-28/server/utilities/pagination#pagination-model",
+  "docs_label": "MCP Docs",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/server/utilities/pagination#pagination-model",
+      "title": "MCP Docs"
+    }
+  ],
+  "usage_perc_y": null,
+  "usage_perc_a": null,
+  "usage_note": "Not published. Candidate source: count of public MCP servers using this capability. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "known_issues": [],
+  "notes": {
+    "dspy": "DSPy 3.4.0: DSPy has no tool listing. Its documented pattern calls the caller's `session.list_tools()` once, which returns only the first page. All pages arrive only when the caller follows `nextCursor` on its own session, as the probe does."
+  }
+}

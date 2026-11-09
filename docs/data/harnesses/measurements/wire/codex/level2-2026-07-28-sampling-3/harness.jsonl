@@ -1,0 +1,5 @@
+{"format": "mcp-mirror.harness-output/1"}
+{"event": "tool_use", "tool": "mcp__cf__ask_sampling", "input": {}}
+{"event": "tool_result", "is_error": true, "text": "{\"content\": [{\"type\": \"text\", \"text\": \"SENTINEL_CLIENT_FEATURE_UNAVAILABLE ask_sampling: MCPError: sampling/createMessage\"}], \"structured_content\": null}"}
+{"event": "text", "text": "done"}
+{"event": "result", "subtype": "turn.completed", "is_error": false, "num_turns": null, "text": ""}

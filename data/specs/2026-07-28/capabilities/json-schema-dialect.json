@@ -1,0 +1,34 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "json-schema-dialect",
+  "title": "JSON Schema dialect",
+  "description": "The rule that schemas default to JSON Schema 2020-12 unless a `$schema` field declares another dialect, such as draft-07.",
+  "question": "Does the framework honour the declared dialect, or assume one?",
+  "spec": "https://modelcontextprotocol.io/specification/2026-07-28",
+  "status": "stable",
+  "categories": [
+    "Base protocol",
+    "Tool definition"
+  ],
+  "keywords": "$schema,2020-12,draft-07,dialect,$ref resolution,validation",
+  "why": "Dialects disagree about details that change validation outcomes. A framework that assumes 2020-12 will mis-handle a draft-07 schema that says so explicitly, and the resulting failures look like the server sent a bad schema.",
+  "docs_url": "https://modelcontextprotocol.io/specification/2026-07-28/basic#schema-dialect",
+  "docs_label": "MCP Docs",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic#schema-dialect",
+      "title": "MCP Docs"
+    }
+  ],
+  "usage_perc_y": null,
+  "usage_perc_a": null,
+  "usage_note": null,
+  "known_issues": [
+    "Measured by scripts/measure_protocol.py: each adapter runs against fixtures/base_protocol_server.py behind the wire recorder, and the cell is read from the captures."
+  ],
+  "notes": {
+    "dspy": "DSPy 3.4.0: `convert_input_schema_to_tool_args` keeps only the `inputSchema` properties, inlining `$defs` references. `$schema` and top-level keywords such as `dependentRequired` are dropped, and a draft-07 `definitions` block is dropped with its `$ref`s left dangling.",
+    "copilot_sdk": "GitHub Copilot SDK 1.0.19 (Copilot runtime 1.0.95): the runtime rewrites keywords it does not pass to the provider into description text. In the 2020-12 tool, `dependentRequired` becomes `{dependentRequired: {\"label\":[\"units\"]}}` on the schema's description and `items: false` becomes `{\"description\": \"{schema: false}\"}`; in the draft-07 tool the tuple `items` becomes an `anyOf` and `additionalItems: false` likewise turns into a description. `$schema`, `$defs`/`definitions`, `$ref` and `prefixItems` pass through.",
+    "langchain4j": "LangChain4j 1.22.0-beta32: `McpToolProvider` maps each `inputSchema` into LangChain4j's own `JsonSchemaElement` model (`JsonObjectSchema`, `JsonStringSchema`, `JsonIntegerSchema`, ...), and the `ToolSpecification` AiServices hands the `ChatModel` is built from that model. The model has no `$schema`, `definitions`, `dependentRequired`, `prefixItems` or `additionalItems`, so both the 2020-12 and draft-07 dialect markers and their keywords are dropped."
+  }
+}

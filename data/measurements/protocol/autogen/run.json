@@ -1,0 +1,883 @@
+{
+  "schema": "mcp-mirror/protocol-run@1",
+  "captured_at": "2026-09-30T22:19:53Z",
+  "renderer": "autogen",
+  "fixture": "fixtures/base_protocol_server.py",
+  "spec_version": "2025-11-25",
+  "versions": {
+    "framework": "0.7.5",
+    "adapter": "0.7.5"
+  },
+  "captures": [
+    "http.jsonl",
+    "stdio-00.jsonl",
+    "stdio-01.jsonl",
+    "stdio-02.jsonl",
+    "stdio-03.jsonl",
+    "stdio-04.jsonl",
+    "stdio-05.jsonl",
+    "stdio-06.jsonl",
+    "stdio-07.jsonl",
+    "stdio-08.jsonl",
+    "stdio-09.jsonl",
+    "stdio-10.jsonl",
+    "stdio-11.jsonl",
+    "stdio-12.jsonl"
+  ],
+  "transports": {
+    "stdio": {
+      "ok": true,
+      "versions": {
+        "framework": "0.7.5",
+        "adapter": "0.7.5"
+      },
+      "tools": [
+        {
+          "name": "dialect_2020_12",
+          "params": {
+            "type": "object",
+            "properties": {
+              "point": {
+                "type": "array",
+                "description": "An [x, y] pair.",
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "items": false
+              },
+              "window": {
+                "$ref": "#/$defs/range"
+              },
+              "label": {
+                "type": "string"
+              },
+              "units": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "point"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "name": "dialect_draft_07",
+          "params": {
+            "type": "object",
+            "properties": {
+              "point": {
+                "type": "array",
+                "description": "An [x, y] pair.",
+                "items": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "additionalItems": false
+              },
+              "window": {
+                "$ref": "#/definitions/range"
+              }
+            },
+            "required": [
+              "point"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "name": "routed_lookup",
+          "params": {
+            "type": "object",
+            "properties": {
+              "region": {
+                "type": "string",
+                "x-mcp-header": "Region"
+              },
+              "key": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "region",
+              "key"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "name": "bad_header",
+          "params": {
+            "type": "object",
+            "properties": {
+              "filter": {
+                "type": "object",
+                "x-mcp-header": "Filter",
+                "properties": {
+                  "field": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          }
+        },
+        {
+          "name": "needs_input",
+          "params": {
+            "type": "object",
+            "properties": {},
+            "required": [],
+            "additionalProperties": false
+          }
+        }
+      ],
+      "result_boundaries": [
+        {
+          "id": "workbench",
+          "label": "Workbench tool result",
+          "capture_api": "autogen_ext.tools.mcp.McpWorkbench.call_tool",
+          "capture_object": "the autogen_core.tools.ToolResult it returns",
+          "agent_path": false,
+          "limitation": null
+        },
+        {
+          "id": "agent",
+          "label": "Function result to the model",
+          "capture_api": "autogen_agentchat.agents.AssistantAgent(workbench=McpWorkbench), next ChatCompletionClient.create messages",
+          "capture_object": "the FunctionExecutionResult in the FunctionExecutionResultMessage the model client receives",
+          "agent_path": true,
+          "limitation": "The model client is ReplayChatCompletionClient; no provider client serialized the request."
+        },
+        {
+          "id": "tool_adapter",
+          "label": "mcp_server_tools adapter result",
+          "capture_api": "autogen_ext.tools.mcp.mcp_server_tools, then McpToolAdapter.run_json",
+          "capture_object": "the list of MCP content blocks run_json returns, or the exception it raises",
+          "agent_path": false,
+          "limitation": null
+        }
+      ],
+      "results": [
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "workbench",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "autogen",
+            "raw": {
+              "type": "ToolResult",
+              "name": "dialect_2020_12",
+              "result": [
+                {
+                  "type": "TextResultContent",
+                  "content": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ],
+              "is_error": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "autogen",
+            "raw": {
+              "content": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+              "name": "dialect_2020_12",
+              "call_id": "mcp-mirror-call",
+              "is_error": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "tool_adapter",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "TypeError: argument of type 'bool' is not iterable",
+            "origin": "autogen",
+            "raw": "TypeError(\"argument of type 'bool' is not iterable\")",
+            "error_channel": "exception"
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "workbench",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "autogen",
+            "raw": {
+              "type": "ToolResult",
+              "name": "dialect_draft_07",
+              "result": [
+                {
+                  "type": "TextResultContent",
+                  "content": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ],
+              "is_error": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "autogen",
+            "raw": {
+              "content": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+              "name": "dialect_draft_07",
+              "call_id": "mcp-mirror-call",
+              "is_error": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "tool_adapter",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "TypeError: argument of type 'bool' is not iterable",
+            "origin": "autogen",
+            "raw": "TypeError(\"argument of type 'bool' is not iterable\")",
+            "error_channel": "exception"
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "workbench",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "origin": "autogen",
+            "raw": {
+              "type": "ToolResult",
+              "name": "routed_lookup",
+              "result": [
+                {
+                  "type": "TextResultContent",
+                  "content": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+                }
+              ],
+              "is_error": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "origin": "autogen",
+            "raw": {
+              "content": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+              "name": "routed_lookup",
+              "call_id": "mcp-mirror-call",
+              "is_error": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "tool_adapter",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "TypeError: argument of type 'bool' is not iterable",
+            "origin": "autogen",
+            "raw": "TypeError(\"argument of type 'bool' is not iterable\")",
+            "error_channel": "exception"
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "workbench",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS needs_input {}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS needs_input {}",
+            "origin": "autogen",
+            "raw": {
+              "type": "ToolResult",
+              "name": "needs_input",
+              "result": [
+                {
+                  "type": "TextResultContent",
+                  "content": "SENTINEL_ARGUMENTS needs_input {}"
+                }
+              ],
+              "is_error": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS needs_input {}",
+            "origin": "autogen",
+            "raw": {
+              "content": "SENTINEL_ARGUMENTS needs_input {}",
+              "name": "needs_input",
+              "call_id": "mcp-mirror-call",
+              "is_error": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "tool_adapter",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "TypeError: argument of type 'bool' is not iterable",
+            "origin": "autogen",
+            "raw": "TypeError(\"argument of type 'bool' is not iterable\")",
+            "error_channel": "exception"
+          }
+        }
+      ]
+    },
+    "http": {
+      "ok": true,
+      "versions": {
+        "framework": "0.7.5",
+        "adapter": "0.7.5"
+      },
+      "tools": [
+        {
+          "name": "dialect_2020_12",
+          "params": {
+            "type": "object",
+            "properties": {
+              "point": {
+                "type": "array",
+                "description": "An [x, y] pair.",
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "items": false
+              },
+              "window": {
+                "$ref": "#/$defs/range"
+              },
+              "label": {
+                "type": "string"
+              },
+              "units": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "point"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "name": "dialect_draft_07",
+          "params": {
+            "type": "object",
+            "properties": {
+              "point": {
+                "type": "array",
+                "description": "An [x, y] pair.",
+                "items": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "additionalItems": false
+              },
+              "window": {
+                "$ref": "#/definitions/range"
+              }
+            },
+            "required": [
+              "point"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "name": "routed_lookup",
+          "params": {
+            "type": "object",
+            "properties": {
+              "region": {
+                "type": "string",
+                "x-mcp-header": "Region"
+              },
+              "key": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "region",
+              "key"
+            ],
+            "additionalProperties": false
+          }
+        },
+        {
+          "name": "bad_header",
+          "params": {
+            "type": "object",
+            "properties": {
+              "filter": {
+                "type": "object",
+                "x-mcp-header": "Filter",
+                "properties": {
+                  "field": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "required": [],
+            "additionalProperties": false
+          }
+        },
+        {
+          "name": "needs_input",
+          "params": {
+            "type": "object",
+            "properties": {},
+            "required": [],
+            "additionalProperties": false
+          }
+        }
+      ],
+      "result_boundaries": [
+        {
+          "id": "workbench",
+          "label": "Workbench tool result",
+          "capture_api": "autogen_ext.tools.mcp.McpWorkbench.call_tool",
+          "capture_object": "the autogen_core.tools.ToolResult it returns",
+          "agent_path": false,
+          "limitation": null
+        },
+        {
+          "id": "agent",
+          "label": "Function result to the model",
+          "capture_api": "autogen_agentchat.agents.AssistantAgent(workbench=McpWorkbench), next ChatCompletionClient.create messages",
+          "capture_object": "the FunctionExecutionResult in the FunctionExecutionResultMessage the model client receives",
+          "agent_path": true,
+          "limitation": "The model client is ReplayChatCompletionClient; no provider client serialized the request."
+        },
+        {
+          "id": "tool_adapter",
+          "label": "mcp_server_tools adapter result",
+          "capture_api": "autogen_ext.tools.mcp.mcp_server_tools, then McpToolAdapter.run_json",
+          "capture_object": "the list of MCP content blocks run_json returns, or the exception it raises",
+          "agent_path": false,
+          "limitation": null
+        }
+      ],
+      "results": [
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "workbench",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "autogen",
+            "raw": {
+              "type": "ToolResult",
+              "name": "dialect_2020_12",
+              "result": [
+                {
+                  "type": "TextResultContent",
+                  "content": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ],
+              "is_error": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "autogen",
+            "raw": {
+              "content": "SENTINEL_ARGUMENTS dialect_2020_12 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+              "name": "dialect_2020_12",
+              "call_id": "mcp-mirror-call",
+              "is_error": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_2020_12",
+          "boundary": "tool_adapter",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_2020_12",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "TypeError: argument of type 'bool' is not iterable",
+            "origin": "autogen",
+            "raw": "TypeError(\"argument of type 'bool' is not iterable\")",
+            "error_channel": "exception"
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "workbench",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "autogen",
+            "raw": {
+              "type": "ToolResult",
+              "name": "dialect_draft_07",
+              "result": [
+                {
+                  "type": "TextResultContent",
+                  "content": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}"
+                }
+              ],
+              "is_error": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+            "origin": "autogen",
+            "raw": {
+              "content": "SENTINEL_ARGUMENTS dialect_draft_07 {\"point\": [1, 2], \"window\": {\"high\": 5, \"low\": 0}}",
+              "name": "dialect_draft_07",
+              "call_id": "mcp-mirror-call",
+              "is_error": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "dialect_draft_07",
+          "boundary": "tool_adapter",
+          "ok": true,
+          "rep": {
+            "tool": "dialect_draft_07",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "TypeError: argument of type 'bool' is not iterable",
+            "origin": "autogen",
+            "raw": "TypeError(\"argument of type 'bool' is not iterable\")",
+            "error_channel": "exception"
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "workbench",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "origin": "autogen",
+            "raw": {
+              "type": "ToolResult",
+              "name": "routed_lookup",
+              "result": [
+                {
+                  "type": "TextResultContent",
+                  "content": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}"
+                }
+              ],
+              "is_error": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+            "origin": "autogen",
+            "raw": {
+              "content": "SENTINEL_ARGUMENTS routed_lookup {\"key\": \"k1\", \"region\": \"eu-west-1\"}",
+              "name": "routed_lookup",
+              "call_id": "mcp-mirror-call",
+              "is_error": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "routed_lookup",
+          "boundary": "tool_adapter",
+          "ok": true,
+          "rep": {
+            "tool": "routed_lookup",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "TypeError: argument of type 'bool' is not iterable",
+            "origin": "autogen",
+            "raw": "TypeError(\"argument of type 'bool' is not iterable\")",
+            "error_channel": "exception"
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "workbench",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [
+              {
+                "type": "text",
+                "text": "SENTINEL_ARGUMENTS needs_input {}"
+              }
+            ],
+            "block_kinds": [
+              "text"
+            ],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS needs_input {}",
+            "origin": "autogen",
+            "raw": {
+              "type": "ToolResult",
+              "name": "needs_input",
+              "result": [
+                {
+                  "type": "TextResultContent",
+                  "content": "SENTINEL_ARGUMENTS needs_input {}"
+                }
+              ],
+              "is_error": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "agent",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": false,
+            "text": "SENTINEL_ARGUMENTS needs_input {}",
+            "origin": "autogen",
+            "raw": {
+              "content": "SENTINEL_ARGUMENTS needs_input {}",
+              "name": "needs_input",
+              "call_id": "mcp-mirror-call",
+              "is_error": false
+            },
+            "error_channel": null
+          }
+        },
+        {
+          "tool": "needs_input",
+          "boundary": "tool_adapter",
+          "ok": true,
+          "rep": {
+            "tool": "needs_input",
+            "blocks": [],
+            "block_kinds": [],
+            "structured_content": null,
+            "is_error": true,
+            "text": "TypeError: argument of type 'bool' is not iterable",
+            "origin": "autogen",
+            "raw": "TypeError(\"argument of type 'bool' is not iterable\")",
+            "error_channel": "exception"
+          }
+        }
+      ]
+    }
+  }
+}

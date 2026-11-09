@@ -1,0 +1,4 @@
+{"format": "mcp-mirror.harness-output/1"}
+{"event": "tool_use", "tool": "access_mcp_resource", "input": {"server_name": "def", "uri": "file:///fixtures/notes.txt"}}
+{"event": "tool_result", "is_error": false, "text": "SENTINEL_RESOURCE_TEXT"}
+{"event": "result", "subtype": "success", "is_error": false, "num_turns": 0, "text": "done"}

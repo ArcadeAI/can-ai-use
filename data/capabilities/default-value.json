@@ -1,0 +1,34 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "default-value",
+  "title": "`default`",
+  "description": "Documents the value a server or client should assume when an optional parameter is omitted.",
+  "question": "Is the declared default value preserved at each capture boundary?",
+  "spec": "https://json-schema.org/draft/2020-12/json-schema-validation",
+  "status": "stable",
+  "categories": [
+    "Parameter contract"
+  ],
+  "keywords": "default,default value,optional parameter,schema annotation",
+  "usage_perc_y": null,
+  "usage_perc_a": null,
+  "usage_note": "Not published. Candidate source: count of public MCP tool schemas declaring default values.",
+  "links": [
+    {
+      "url": "https://json-schema.org/understanding-json-schema/reference/annotations#default",
+      "title": "JSON Schema Docs"
+    }
+  ],
+  "known_issues": [
+    "A changed default can cause a caller and server to assume different behavior for the same omitted argument."
+  ],
+  "why": "Defaults communicate omission behavior. Losing or changing one can alter calls without changing the visible parameter type.",
+  "shown": true,
+  "docs_url": "https://json-schema.org/understanding-json-schema/reference/annotations#default",
+  "docs_label": "JSON Schema Docs",
+  "notes": {
+    "google_adk_js": "Google ADK (TypeScript) 2.2.1: `MCPTool._getDeclaration` passes `inputSchema` through `toGeminiSchema`, which keeps `type`, `description`, `enum`, `items`, `properties`, `required` and `anyOf` in the genai `Schema` dialect; `default` is not among them, so `search_records.limit`'s default never reaches the model.",
+    "langchain4j": "LangChain4j 1.22.0-beta32: `McpToolProvider` maps each `inputSchema` into LangChain4j's own `JsonSchemaElement` model (`JsonObjectSchema`, `JsonStringSchema`, `JsonIntegerSchema`, ...), and the `ToolSpecification` AiServices hands the `ChatModel` is built from that model. `JsonIntegerSchema` holds a description only, so `limit.default` is dropped.",
+    "koog": "Koog 1.3.0-beta: `default` is dropped: `ToolParameterDescriptor` has no default slot, so `limit`'s default of 20 never reaches the model."
+  }
+}

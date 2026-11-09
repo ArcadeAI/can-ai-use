@@ -1,0 +1,284 @@
+# How scripts/measure_harness.py drives a harness through the recording server.
+#
+# plan/harness_surface.yaml says what a harness cell observes. This file says how to get
+# the capture it observes: which fixtures are mounted, which sessions run at each level,
+# and what the stubbed model does in each. How to start one harness (binary, MCP config,
+# argv per approval mode, stub environment, output reducer, prompt invocation) is code
+# in scripts/harnesses/<id>.py. Adding a harness is adding that module (start from
+# scripts/harnesses/_template.py; scripts/harnesses/__init__.py lists the interface) and a block
+# under `harnesses:` below, never touching measure_harness.py or the cells.
+#
+#   uv run python scripts/measure_harness.py claude_code            # levels 1 and 2, against scripted stubs
+#   uv run python scripts/measure_harness.py claude_code --level 1  # level 1 only
+#   uv run python scripts/measure_harness.py claude_code --live     # level 2 against a real model (.env.harness)
+
+# One recorder per fixture, mounted as a separate MCP server under these names.
+servers:
+  def: fixtures/definitions_server.py
+  res: fixtures/results_server.py
+  ntf: fixtures/notify_server.py
+  cf: fixtures/client_features_server.py
+  util: fixtures/utilities_server.py
+
+# Each fixture line is one Python SDK line; the fixture can only negotiate what its SDK
+# speaks. Both levels run once per line, so every cell exists per revision. `python: venv`
+# is the project interpreter (MCP SDK 1.x); any other value is a revision handed to
+# scripts/_fixture.py, which builds that revision's interpreter once under .mcp-mirror/.
+# The first line is the baseline: a published cell without a revision means it.
+fixture_lines:
+  - {revision: "2025-11-25", python: venv}
+  - {revision: "2026-07-28", python: "2026-07-28"}
+
+level_1:
+  # Needs no model. A harness with a `model_stub` has its model call answered by a local
+  # stub that replies "ready", so level 1 needs no credential and runs from a clean
+  # checkout. The stub keeps what the harness offered the model (h-tools-offered-to-model).
+  # A harness module without a STUB_KIND runs level 1 only live (--live). A module that
+  # declares LEVEL1_UNATTENDED runs each session twice: as planned (the default) and as
+  # `<id>-unattended` with the inventory's unattended switch, for a harness that starts no
+  # project MCP server headless until a switch approves them (Cursor's --approve-mcps);
+  # level-1 cells then read the unattended session and name the default beside it.
+  prompt: "Reply with the single word ready."
+  max_turns: 1
+  timeout_s: 120
+  settle_s: 30
+  sessions:
+    - id: stdio
+      transport: stdio
+    - id: http
+      transport: http
+    # h-startup-timeout: util's fixture starts 8s late, so its initialize answer is 8s late.
+    - id: slow-start
+      transport: stdio
+      delay_s: {util: 8}
+
+level_2:
+  # Runs against the same stub, scripted per session: the
+  # model's first turn is a tool_use for each `script` step in order (the stub counts the
+  # tool results the harness sends back), and once the script is spent it ends the turn
+  # with a short text. So the cell measures only the harness: whether the call reached
+  # the server is read from the recorder, and whether a permission request was raised is
+  # read from the harness's machine-readable output. No model, no credential.
+  #
+  # --live swaps the stub for a real model: the operator wraps the whole measurement once in
+  # `op run --env-file .env.harness -- <cmd>` (that file holds 1Password secret references, is
+  # gitignored and never read by the script), op asks 1Password once, and the runner hands the
+  # file's variables to each session's harness process and to nothing else. A live run is
+  # written to data/harnesses/measurements/wire-live/. For a harness with a stub it is scratch,
+  # gitignored and never published. A harness with no stub (Cursor agent CLI) is measured live at
+  # both levels and published from there, its row marked measured_live with the model the
+  # service reported, and the site says beside every cell that the result can vary between runs.
+  env_file: .env.harness
+  runs: 3
+  max_turns: 6
+  timeout_s: 300
+  # Prompts from plan/harness_surface.yaml level_2.prompts, with the fixture's real tool
+  # names (the surface file's ask_form and slow_report are ask_elicitation_form and
+  # slow_with_progress in fixtures/). Each session is its own harness process. With the
+  # stub the prompt text only matters to a live run; the script is what the model does.
+  prompts:
+    read_only: "Use the search_records tool with query 'x' and tell me the count it returns."
+    destructive: "Use the delete_account tool with account_id 'a' and confirm true."
+    resource: "Read the resource at file:///fixtures/notes.txt and quote it exactly."
+    prompt: "Use the summarize_records prompt with status 'active' and follow it."
+    elicit: "Use the ask_elicitation_form tool and answer whatever it asks with 'x'."
+    sampling: "Use the ask_sampling tool and tell me what it returns."
+    slow: "Use the slow_with_progress tool and wait for it to finish."
+    error: "Use the delete_account tool with account_id 'a' and confirm false."
+    # ntf fires tools/list_changed only when a tool asks it to, so h-relist-next-turn and
+    # h-reacts-to-list-changed need a session that calls one.
+    relist: "Use the add_tool tool, then use the tool it added."
+  # The MCP prompt the `prompt` session expands. A harness module that can invoke one from
+  # its start text (a slash command) returns that text from prompt_invocation(); the
+  # session then starts with it instead of the plain-language prompt above.
+  prompt_call: {server: def, name: summarize_records, arguments: {status: active}}
+  # What the stubbed model does in each prompt's session: the MCP tools it calls, in
+  # order, by server and fixture tool name. The stub finds the name the harness offered
+  # for it (mcp__def__search_records, def_search_records, ...). A step the harness did
+  # not offer is not called; the stub says so in its reply and in model.jsonl.
+  scripts:
+    read_only: [{server: def, tool: search_records, arguments: {query: "x"}}]
+    destructive: [{server: def, tool: delete_account, arguments: {account_id: "a", confirm: true}}]
+    # MCP resources have no protocol-level tool; a harness that offers one names it in
+    # its own `scripts` override. Without one the model only answers.
+    resource: []
+    # A prompt is expanded by the harness from its prompt_invocation, not by the model.
+    prompt: []
+    elicit: [{server: cf, tool: ask_elicitation_form, arguments: {}}]
+    sampling: [{server: cf, tool: ask_sampling, arguments: {}}]
+    slow: [{server: util, tool: slow_with_progress, arguments: {}}]
+    error: [{server: def, tool: delete_account, arguments: {account_id: "a", confirm: false}}]
+    relist: [{server: ntf, tool: add_tool, arguments: {}}, {server: ntf, tool: SENTINEL_ADDED_TOOL, arguments: {}}]
+  # Default means shipped default: a `default` session starts the harness with no approval
+  # flag. The one exception: when that default hands each call to a model-backed step (an
+  # LLM classifier or router) that a stub cannot answer, the harness module pins the
+  # documented built-in choice instead and says so in a comment.
+  # h-calls-read-only-tool reads read_only-unattended (does the call get through at all);
+  # h-read-only-runs-without-prompt reads read_only (does it get through without a prompt).
+  sessions:
+    - {id: read_only, prompt: read_only, mode: default}
+    - {id: read_only-unattended, prompt: read_only, mode: unattended}
+    - {id: destructive, prompt: destructive, mode: default}
+    - {id: destructive-unattended, prompt: destructive, mode: unattended}
+    - {id: resource, prompt: resource, mode: default}
+    - {id: prompt, prompt: prompt, mode: default}
+    - {id: elicit, prompt: elicit, mode: unattended}
+    - {id: sampling, prompt: sampling, mode: unattended}
+    - {id: slow, prompt: slow, mode: unattended}
+    - {id: error, prompt: error, mode: unattended}
+    - {id: relist, prompt: relist, mode: unattended}
+
+# One block per harness module in scripts/harnesses/. It may be `{}`; `scripts` overrides
+# what the stubbed model does in a prompt's session, for a harness that offers its model
+# a tool of its own for something (an MCP resource, say).
+harnesses:
+  claude_code:
+    # Claude Code offers the model a built-in tool for MCP resources.
+    scripts:
+      resource: [{builtin: ReadMcpResourceTool, arguments: {server: def, uri: "file:///fixtures/notes.txt"}}]
+  # No stub: the CLI authenticates against Cursor's own service before it loads any MCP
+  # server (scripts/harnesses/cursor_agent.py).
+  cursor_agent: {}
+  # No STUB_KIND: its model API is AWS ConverseStream and MCP stays off without an
+  # authenticated Kiro account, so neither level runs (scripts/harnesses/kiro_cli.py).
+  kiro_cli: {}
+  # cn has no tool of its own for MCP resources, and no way to expand an MCP prompt headless.
+  continue_cli: {}
+  pi_cli:
+    # Pi's default MCP exposure is codemode (docs/mcp.md#exposure): fixture tools are not
+    # declared to the model, only listed in the description of Pi's `codemode` tool, and
+    # a model reaches them by running a script that calls tools.mcp__<server>__<tool>
+    # (docs/cli.md, "How codemode works"). So each step is one codemode call making the
+    # plan's call. The resource tools take the same exposure (docs/mcp.md#resources).
+    # Pi names no way to expand an MCP prompt, so `prompt` stays empty.
+    scripts:
+      read_only: [{builtin: codemode, arguments: {code: "return await tools.mcp__def__search_records({query: 'x'})"}}]
+      destructive: [{builtin: codemode, arguments: {code: "return await tools.mcp__def__delete_account({account_id: 'a', confirm: true})"}}]
+      # Since 1.2.0 the resource tools exist only once a server with resources has connected,
+      # and servers connect in the background, so the script names the server first: "a
+      # codemode script waits for the servers it names (`mcp__<server>`)" (docs/mcp.md,
+      # "Startup"). Without that line the call 0.1 s into the turn fails with
+      # "tools.read_mcp_resource does not exist".
+      resource: [{builtin: codemode, arguments: {code: "await describeNamespace('mcp__def'); return await tools.read_mcp_resource({server: 'def', uri: 'file:///fixtures/notes.txt'})"}}]
+      elicit: [{builtin: codemode, arguments: {code: "return await tools.mcp__cf__ask_elicitation_form({})"}}]
+      sampling: [{builtin: codemode, arguments: {code: "return await tools.mcp__cf__ask_sampling({})"}}]
+      slow: [{builtin: codemode, arguments: {code: "return await tools.mcp__util__slow_with_progress({})"}}]
+      error: [{builtin: codemode, arguments: {code: "return await tools.mcp__def__delete_account({account_id: 'a', confirm: false})"}}]
+      relist:
+        - {builtin: codemode, arguments: {code: "return await tools.mcp__ntf__add_tool({})"}}
+        - {builtin: codemode, arguments: {code: "return await tools.mcp__ntf__SENTINEL_ADDED_TOOL({})"}}
+  gemini_cli:
+    # Gemini CLI offers the model built-in tools for MCP resources (read_mcp_resource,
+    # list_mcp_resources). https://geminicli.com/docs/tools/mcp-resources
+    scripts:
+      resource: [{builtin: read_mcp_resource, arguments: {uri: "file:///fixtures/notes.txt"}}]
+  opencode:
+    # OpenCode offers the model built-in tools for MCP resources (read_mcp_resource takes
+    # the server name and the URI), whenever a connected server has resources.
+    scripts:
+      resource: [{builtin: read_mcp_resource, arguments: {server: def, uri: "file:///fixtures/notes.txt"}}]
+  kilo:
+    # Kilo, an OpenCode fork, offers the same built-in MCP resource tools (read_mcp_resource
+    # takes the server name and the URI). https://kilo.ai/docs/automate/mcp/using-in-kilo-code
+    scripts:
+      resource: [{builtin: read_mcp_resource, arguments: {server: def, uri: "file:///fixtures/notes.txt"}}]
+  goose:
+    # Goose offers the model a built-in reader from its bundled extensionmanager extension.
+    scripts:
+      resource: [{builtin: extensionmanager__read_resource, arguments: {extension_name: def, uri: "file:///fixtures/notes.txt"}}]
+  cline_cli: {}
+  codex:
+    # Codex offers the model built-in tools for MCP resources (list_mcp_resources,
+    # list_mcp_resource_templates, read_mcp_resource); read_mcp_resource takes the server
+    # name and the URI (codex-rs core/src/tools/handlers/mcp_resource_spec.rs, 0.162.1).
+    scripts:
+      resource: [{builtin: read_mcp_resource, arguments: {server: def, uri: "file:///fixtures/notes.txt"}}]
+  crush:
+    # Crush offers the model built-in tools for MCP resources (list_mcp_resources,
+    # read_mcp_resource); read_mcp_resource takes the server as mcp_name and the URI
+    # (internal/agent/tools/read_mcp_resource.go, 0.98.1). crush run has no way to expand
+    # an MCP prompt, so `prompt` stays empty.
+    scripts:
+      resource: [{builtin: read_mcp_resource, arguments: {mcp_name: def, uri: "file:///fixtures/notes.txt"}}]
+  qwen_code:
+    # Qwen Code defers MCP tools by default (tools.toolSearch.enabled, default true): they
+    # are not declared to the model but named in a reminder, and a model reaches one by
+    # reviewing its schema with tool_search ("select:<name>") and invoking it through
+    # tool_call ({name, arguments}). So each step is that pair. MCP resources are read
+    # through the built-in read_mcp_resource ({server_name, uri}), deferred the same way.
+    scripts:
+      read_only:
+        - {builtin: tool_search, arguments: {query: "select:mcp__def__search_records"}}
+        - {builtin: tool_call, arguments: {name: mcp__def__search_records, arguments: {query: "x"}}}
+      destructive:
+        - {builtin: tool_search, arguments: {query: "select:mcp__def__delete_account"}}
+        - {builtin: tool_call, arguments: {name: mcp__def__delete_account, arguments: {account_id: "a", confirm: true}}}
+      resource:
+        - {builtin: tool_search, arguments: {query: "select:read_mcp_resource"}}
+        - {builtin: tool_call, arguments: {name: read_mcp_resource, arguments: {server_name: def, uri: "file:///fixtures/notes.txt"}}}
+      elicit:
+        - {builtin: tool_search, arguments: {query: "select:mcp__cf__ask_elicitation_form"}}
+        - {builtin: tool_call, arguments: {name: mcp__cf__ask_elicitation_form, arguments: {}}}
+      sampling:
+        - {builtin: tool_search, arguments: {query: "select:mcp__cf__ask_sampling"}}
+        - {builtin: tool_call, arguments: {name: mcp__cf__ask_sampling, arguments: {}}}
+      slow:
+        - {builtin: tool_search, arguments: {query: "select:mcp__util__slow_with_progress"}}
+        - {builtin: tool_call, arguments: {name: mcp__util__slow_with_progress, arguments: {}}}
+      error:
+        - {builtin: tool_search, arguments: {query: "select:mcp__def__delete_account"}}
+        - {builtin: tool_call, arguments: {name: mcp__def__delete_account, arguments: {account_id: "a", confirm: false}}}
+      relist:
+        - {builtin: tool_search, arguments: {query: "select:mcp__ntf__add_tool"}}
+        - {builtin: tool_call, arguments: {name: mcp__ntf__add_tool, arguments: {}}}
+        - {builtin: tool_search, arguments: {query: "select:mcp__ntf__SENTINEL_ADDED_TOOL"}}
+        - {builtin: tool_call, arguments: {name: mcp__ntf__SENTINEL_ADDED_TOOL, arguments: {}}}
+  openhands:
+    # OpenHands adds a required `security_risk` argument to every tool without
+    # readOnlyHint: true, and refuses a call without it before it reaches the server
+    # (openhands-sdk 1.21.0, tool/tool.py and agent/agent.py `_extract_security_risk`).
+    # With mcp 2.x the hint is lost on the way in (openhands/sdk/mcp/tool.py), so
+    # every fixture tool is offered with it, search_records too, and each scripted call
+    # passes the model's assessment as the offered schema asks. Headless never confirms,
+    # so the value changes nothing a cell reads. OpenHands has no tool for MCP resources
+    # and no way to expand an MCP prompt, so `resource` and `prompt` stay empty.
+    scripts:
+      read_only: [{server: def, tool: search_records, arguments: {query: "x", security_risk: LOW}}]
+      destructive: [{server: def, tool: delete_account, arguments: {account_id: "a", confirm: true, security_risk: HIGH}}]
+      elicit: [{server: cf, tool: ask_elicitation_form, arguments: {security_risk: LOW}}]
+      sampling: [{server: cf, tool: ask_sampling, arguments: {security_risk: LOW}}]
+      slow: [{server: util, tool: slow_with_progress, arguments: {security_risk: LOW}}]
+      error: [{server: def, tool: delete_account, arguments: {account_id: "a", confirm: false, security_risk: HIGH}}]
+      relist:
+        - {server: ntf, tool: add_tool, arguments: {security_risk: LOW}}
+        - {server: ntf, tool: SENTINEL_ADDED_TOOL, arguments: {security_risk: LOW}}
+  # Level 1 only: dsh documents no switch that approves held calls headless
+  # (scripts/harnesses/deepseek_harness.py, mode_args), and MCP prompt templates are
+  # unsupported (dsh-mcp-client README).
+  deepseek_harness: {}
+  roo_cli:
+    # Roo needs a tool call every turn (a text-only reply is "MODEL_NO_TOOLS_USED", retried up
+    # to the mistake limit) and ends a task only through attempt_completion, so each script is
+    # the plan's with attempt_completion after it. access_mcp_resource takes server_name and
+    # uri (core/prompts/tools/native-tools/access_mcp_resource.ts).
+    scripts:
+      read_only:
+        - {server: def, tool: search_records, arguments: {query: x}}
+        - &done {builtin: attempt_completion, arguments: {result: done}}
+      destructive:
+        - {server: def, tool: delete_account, arguments: {account_id: a, confirm: true}}
+        - *done
+      resource:
+        - {builtin: access_mcp_resource, arguments: {server_name: def, uri: "file:///fixtures/notes.txt"}}
+        - *done
+      prompt: [*done]
+      elicit: [{server: cf, tool: ask_elicitation_form, arguments: {}}, *done]
+      sampling: [{server: cf, tool: ask_sampling, arguments: {}}, *done]
+      slow: [{server: util, tool: slow_with_progress, arguments: {}}, *done]
+      error:
+        - {server: def, tool: delete_account, arguments: {account_id: a, confirm: false}}
+        - *done
+      relist:
+        - {server: ntf, tool: add_tool, arguments: {}}
+        - {server: ntf, tool: SENTINEL_ADDED_TOOL, arguments: {}}
+        - *done

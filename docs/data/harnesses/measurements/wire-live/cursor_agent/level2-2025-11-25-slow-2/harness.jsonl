@@ -1,0 +1,10 @@
+{"format": "mcp-mirror.harness-output/1"}
+{"event": "init", "harness_version": null, "model": "Auto Balance", "permission_mode": "default", "mcp_servers": null, "mcp_tools": null}
+{"event": "routed", "model": "Claude Opus 5.5"}
+{"event": "text", "text": "> Auto routed to Claude Opus 5.5\n\n"}
+{"event": "tool_use", "tool": "getMcpToolsToolCall", "input": {"server": "util", "toolName": "slow_with_progress", "toolCallId": "toolu_01C5VD6q6sNBAjgFaSYWXGRd"}}
+{"event": "tool_result", "is_error": false, "text": "{\"success\": {\"content\": \"{\\n  \\\"tool\\\": \\\"slow_with_progress\\\",\\n  \\\"description\\\": \\\"Take a moment and report 5 progress steps on the way.\\\",\\n  \\\"inputSchema\\\": {\\n    \\\"type\\\": \\\"object\\\",\\n    \\\"properties\\\": {}\\n  }\\n}\"}}"}
+{"event": "tool_use", "tool": "mcpToolCall", "input": {"name": "util-slow_with_progress", "args": {}, "toolCallId": "toolu_015tDKWZffTtYkCrddTDPVbo", "providerIdentifier": "util", "toolName": "slow_with_progress", "smartModeApprovalOnly": false, "skipApproval": false, "serverIdentifier": "util", "symbolicPathArguments": [], "argumentsRepaired": false}}
+{"event": "tool_result", "is_error": false, "text": "{\"success\": {\"content\": [{\"text\": {\"text\": \"SENTINEL_SLOW_DONE progress_sent=0\"}}], \"isError\": false, \"systemReminders\": []}}"}
+{"event": "text", "text": "`slow_with_progress` finished and returned `SENTINEL_SLOW_DONE`. Its result says `progress_sent=0`, so even though the tool says it reports 5 progress steps, it sent no progress updates during this run."}
+{"event": "result", "subtype": "success", "is_error": false, "num_turns": null, "text": "> Auto routed to Claude Opus 5.5\n\n`slow_with_progress` finished and returned `SENTINEL_SLOW_DONE`. Its result says `progress_sent=0`, so even though the tool says it reports 5 progress steps, it sent no progress updates during this run."}

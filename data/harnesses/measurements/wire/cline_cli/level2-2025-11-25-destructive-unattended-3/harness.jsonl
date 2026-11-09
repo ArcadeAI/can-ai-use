@@ -1,0 +1,5 @@
+{"format": "mcp-mirror.harness-output/1"}
+{"event": "tool_use", "tool": "def__delete_account", "input": {"account_id": "a", "confirm": true}}
+{"event": "tool_result", "is_error": false, "text": "{\"content\": [{\"type\": \"text\", \"text\": \"SENTINEL_TEXT_BLOCK\", \"annotations\": {\"audience\": [\"user\"], \"priority\": 0.9}}, {\"type\": \"image\", \"data\": \"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==\", \"mimeType\": \"image/png\"}, {\"type\": \"audio\", \"data\": \"UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=\", \"mimeType\": \"audio/wav\"}, {\"type\": \"resource\", \"resource\": {\"uri\": \"file:///fixtures/embedded.txt\", \"mimeType\": \"text/plain\", \"text\": \"SENTI..."}
+{"event": "text", "text": "done"}
+{"event": "result", "subtype": "completed", "is_error": false, "num_turns": 2, "text": "done"}

@@ -1,0 +1,30 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "property-descriptions",
+  "title": "Property Descriptions",
+  "description": "Natural-language guidance attached to individual parameters and nested properties.",
+  "question": "Do property-level descriptions survive at each capture boundary?",
+  "spec": "https://json-schema.org/draft/2020-12/json-schema-validation",
+  "status": "stable",
+  "categories": [
+    "Descriptions",
+    "Parameter contract"
+  ],
+  "keywords": "description,property description,parameter description,nested property,schema annotation",
+  "usage_perc_y": null,
+  "usage_perc_a": null,
+  "usage_note": "Not published. Candidate source: count of public MCP tools documenting individual parameters.",
+  "links": [
+    {
+      "url": "https://json-schema.org/understanding-json-schema/reference/annotations#description",
+      "title": "JSON Schema Docs"
+    }
+  ],
+  "known_issues": [
+    "Two framework adapters could not be measured against 2026-07-28, so missing evidence is not a support result."
+  ],
+  "why": "Property descriptions carry the author's parameter-level intent. Losing them can make a structurally valid tool call semantically wrong.",
+  "shown": true,
+  "docs_url": "https://json-schema.org/understanding-json-schema/reference/annotations#description",
+  "docs_label": "JSON Schema Docs"
+}

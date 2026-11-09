@@ -1,0 +1,29 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "server-discover",
+  "title": "`server/discover`",
+  "description": "The optional request that reports a server's supported protocol versions, capabilities, identity and instructions; servers must implement it, clients may skip it.",
+  "question": "Does the framework use discovery to choose a protocol version?",
+  "spec": "https://modelcontextprotocol.io/specification/2026-07-28",
+  "status": "stable",
+  "categories": [
+    "Base protocol"
+  ],
+  "keywords": "server/discover,discovery,supportedVersions,capabilities,instructions,serverInfo",
+  "why": "This replaces the introspection half of the removed `initialize` handshake. A client that never calls it has to assume a version and find out it was wrong from a failed request, and it never sees the server's `instructions`.",
+  "docs_url": "https://modelcontextprotocol.io/specification/2026-07-28/server/discover#discoverresult",
+  "docs_label": "MCP Docs",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/server/discover#discoverresult",
+      "title": "MCP Docs"
+    }
+  ],
+  "usage_perc_y": null,
+  "usage_perc_a": null,
+  "usage_note": null,
+  "known_issues": [
+    "Measured by scripts/measure_protocol.py: each adapter runs against fixtures/base_protocol_server.py behind the wire recorder, and the cell is read from the captures.",
+    "The fixture lists one version (2026-07-28) in supportedVersions, so this row shows that the adapter discovers and then uses a listed version, not how it chooses between several."
+  ]
+}

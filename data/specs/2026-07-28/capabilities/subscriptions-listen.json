@@ -1,0 +1,36 @@
+{
+  "schema": "mcp-mirror/capability@4",
+  "id": "subscriptions-listen",
+  "title": "`subscriptions/listen`",
+  "description": "The single long-lived stream carrying every opted-in server-to-client notification, opened with an explicit filter and confirmed by an acknowledgment naming the subset the server will honour.",
+  "question": "Can the framework open a notification stream and read what it is given?",
+  "spec": "https://modelcontextprotocol.io/specification/2026-07-28",
+  "status": "stable",
+  "categories": [
+    "Base protocol"
+  ],
+  "keywords": "subscriptions/listen,notification stream,filter,acknowledged,subscriptionId",
+  "why": "New in 2026-07-28, replacing both the HTTP GET endpoint and `resources/subscribe`. It is the single gate in front of every notification in the protocol, so a framework without it cannot receive any change notification at all, whatever the individual rows for those notifications say.",
+  "docs_url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/patterns/subscriptions#opening-a-stream",
+  "docs_label": "MCP Docs",
+  "links": [
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/patterns/subscriptions#opening-a-stream",
+      "title": "MCP Docs"
+    }
+  ],
+  "usage_note": "Not published. Candidate source: count of public MCP servers publishing this. Not estimated, so the panel stays empty until the corpus is scanned.",
+  "known_issues": [],
+  "notes": {
+    "openai-agents": "OpenAI Agents SDK 0.23.1 never opens a `subscriptions/listen` stream and has no API for one. `mcp.client.subscriptions.listen(MCPServerStdio.session, ...)` on the raw SDK session was acknowledged and delivered all four event kinds, so the stream is reachable only by going around the adapter.",
+    "pydantic-ai": "Pydantic AI 2.54.0: `MCPToolset` never opens a `subscriptions/listen` stream and has no API for one. `mcp.client.subscriptions.listen(MCPToolset.client.session, ...)` was acknowledged and delivered all four event kinds, so the stream is reachable only by going around the adapter.",
+    "strands": "Strands Agents 1.59.0: `MCPClient` opens `subscriptions/listen` itself, for tools list changes only and only when `on_tools_changed` is set. It hands the stream to no caller and has no subscribe API, so resource updates and other event kinds cannot be requested.",
+    "vercel_ai": "Vercel AI SDK (@ai-sdk/mcp 2.0.73): MCPClient has no `subscriptions/listen` API and opens no stream for server notifications. The `experimental_events` API added in 2.0.73 delivers events by webhook and opens no such stream either.",
+    "openai_agents_js": "OpenAI Agents SDK (JS) 0.20.0: the SDK never opens `subscriptions/listen` and exposes no notification hook, so nothing the server publishes on it reaches the caller.",
+    "agno": "Agno 3.1.2: `MCPTools` never opens `subscriptions/listen`; the stream works only on the raw `ClientSession` at `MCPTools.session.session`, through `mcp.client.subscriptions.listen`.",
+    "dspy": "DSPy 3.4.0: DSPy never opens a `subscriptions/listen` stream. It delivers every event only when the caller opens it on its own `mcp.Client.session`.",
+    "copilot_sdk": "GitHub Copilot SDK 1.0.19 (Copilot runtime 1.0.95): there is no API that opens `subscriptions/listen`.",
+    "google_adk_go": "Google ADK (Go) 2.5.0 (go-sdk 1.8.0): go-sdk's `Client.Connect` opens `subscriptions/listen` for the list-changed handlers set on the caller's `*mcp.Client` and delivered tools, resources and prompts list changes. No resource subscription rides it, because the caller has no session to subscribe on (see resource-subscriptions).",
+    "ms_agent_framework_dotnet": "Microsoft Agent Framework (.NET) 1.24.0 (ModelContextProtocol 2.2.0): `McpClient` has no method that opens `subscriptions/listen` (`RequestMethods.SubscriptionsListen` is only served), and `McpClientTool` and `AsAIAgent` take no listen option."
+  }
+}

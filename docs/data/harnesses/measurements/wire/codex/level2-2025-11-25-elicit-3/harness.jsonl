@@ -1,0 +1,5 @@
+{"format": "mcp-mirror.harness-output/1"}
+{"event": "tool_use", "tool": "mcp__cf__ask_elicitation_form", "input": {}}
+{"event": "tool_result", "is_error": false, "text": "{\"content\": [{\"type\": \"text\", \"text\": \"SENTINEL_CLIENT_ANSWERED ask_elicitation_form: {\\\"action\\\": \\\"decline\\\"}\"}], \"structured_content\": {\"answered\": \"ask_elicitation_form\", \"response\": {\"action\": \"decline\"}}}"}
+{"event": "text", "text": "done"}
+{"event": "result", "subtype": "turn.completed", "is_error": false, "num_turns": null, "text": ""}
