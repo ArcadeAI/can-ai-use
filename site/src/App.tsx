@@ -100,6 +100,11 @@ function SiteFooter({database, route}: {database: MirrorDatabase; route: Route})
               Send a correction
             </Link>
           ) : null}
+          <p>
+            <Link href={database.repo} target="_blank" rel="noopener noreferrer">
+              Source and data on GitHub
+            </Link>
+          </p>
           <p>Data: CC BY 4.0</p>
         </section>
 
